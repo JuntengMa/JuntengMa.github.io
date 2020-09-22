@@ -1,243 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>Yarn / npm 对比</title>
-    <url>/2020/09/02/yarn-npm%E5%AF%B9%E6%AF%94/</url>
-    <content><![CDATA[<table>
-<thead>
-<tr>
-<th align="left">作用</th>
-<th align="left">npm</th>
-<th align="center">Yarn</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="left">安装</td>
-<td align="left">npm install(i)</td>
-<td align="center">yarn</td>
-</tr>
-<tr>
-<td align="left">卸载</td>
-<td align="left">npm uninstall(un)</td>
-<td align="center">yarn remove</td>
-</tr>
-<tr>
-<td align="left">全局安装</td>
-<td align="left">npm install xxx –global(-g)</td>
-<td align="center">yarn global add xxx</td>
-</tr>
-<tr>
-<td align="left">安装包</td>
-<td align="left">npm install xxx –save(-S)</td>
-<td align="center">yarn add xxx</td>
-</tr>
-<tr>
-<td align="left">开发模式安装包</td>
-<td align="left">npm install xxx –save-dev(-D)</td>
-<td align="center">yarn add xxx –dev(-D)</td>
-</tr>
-<tr>
-<td align="left">更新</td>
-<td align="left">npm update –save</td>
-<td align="center">yarn upgrade</td>
-</tr>
-<tr>
-<td align="left">全局更新</td>
-<td align="left">npm update –global</td>
-<td align="center">yarn global upgrade</td>
-</tr>
-<tr>
-<td align="left">卸载</td>
-<td align="left">npm uninstall [–save/–save-dev]</td>
-<td align="center">yarn remove xx</td>
-</tr>
-<tr>
-<td align="left">清除缓存</td>
-<td align="left">npm cache clean</td>
-<td align="center">yarn cache clean</td>
-</tr>
-<tr>
-<td align="left">重装</td>
-<td align="left">rm -rf node_modules &amp;&amp; npm install</td>
-<td align="center">yarn upgrade</td>
-</tr>
-</tbody></table>
-]]></content>
-      <categories>
-        <category>NPM</category>
-      </categories>
-      <tags>
-        <tag>npm</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>git命令</title>
-    <url>/2020/09/02/git%E5%91%BD%E4%BB%A4/</url>
-    <content><![CDATA[<h1 id="GIT-常用命令"><a href="#GIT-常用命令" class="headerlink" title="GIT 常用命令"></a>GIT 常用命令</h1><h3 id="01-初始配置"><a href="#01-初始配置" class="headerlink" title="01 - 初始配置"></a>01 - 初始配置</h3><pre><code>- git init 初始化本地git仓库（创建新仓库）
-
-- git config --global user.name &quot;xxx&quot; 配置用户名
-
-- git config --global user.email &quot;xxx@xxx.com&quot; 配置用户邮箱
-
-- git clone &quot;git链接&quot; 克隆git仓库到本地
-
-- git status 查看当前在哪个分支</code></pre>
-<h3 id="02-开发完毕将要上传代码仓库操作"><a href="#02-开发完毕将要上传代码仓库操作" class="headerlink" title="02 - 开发完毕将要上传代码仓库操作"></a>02 - 开发完毕将要上传代码仓库操作</h3><pre><code>git add .  增加当前子目录下所有更改过的文件至index
-
-git commit -m &quot;xxx&quot; 提交
-
-git push 推送改动到远端</code></pre>
-<h3 id="03-新建分支操作"><a href="#03-新建分支操作" class="headerlink" title="03 - 新建分支操作"></a>03 - 新建分支操作</h3><pre><code>git branch &lt;分支名&gt; 创建新分支
-
-git checkout &lt;分支名&gt; 切换到该分支
-
-git push 如果是新建分支，push的时候需要跟远端仓库关联，一般会提示 git push --set-upstream 你的分支名 ， 复制提示信息并执行</code></pre>
-<h3 id="04-合并分支操作"><a href="#04-合并分支操作" class="headerlink" title="04 - 合并分支操作"></a>04 - 合并分支操作</h3><pre><code>git pull origin master 多人协作，以防master已更新，本地代码版本没有更新，先同步一下master代码，以防产生合并冲突
-
-git checkout master 先切换到主分支再合并
-
-git merge &lt;需要合并到master上的分支名&gt; 合并某一个分支到该分支</code></pre>
-<h3 id="05-删除本地，远程分支"><a href="#05-删除本地，远程分支" class="headerlink" title="05 - 删除本地，远程分支"></a>05 - 删除本地，远程分支</h3><pre><code>- git branch -d &lt;分支名&gt; 删除本地某一分支
-
-- git push origin --delete &lt;分支名&gt; 删除远端分支</code></pre>
-<h3 id="06-版本回退"><a href="#06-版本回退" class="headerlink" title="06 - 版本回退"></a>06 - 版本回退</h3><pre><code>- git log 查看提交历史和commit 标记
-
-- git reset --hard &lt;commit 后面的字符串&gt; 将代码回退到某一版本
-
-- git push -f 远端仓库版本高于本地版本，需要强制推送上去</code></pre>
-<h3 id="07-取消所有本地修改"><a href="#07-取消所有本地修改" class="headerlink" title="07 - 取消所有本地修改"></a>07 - 取消所有本地修改</h3><pre><code>git checkout .</code></pre>
-<h3 id="09-查看修改"><a href="#09-查看修改" class="headerlink" title="09 - 查看修改"></a>09 - 查看修改</h3><pre><code>git show &lt;commit日志&gt;  显示详细更改</code></pre>
-<h3 id="10-其他命令"><a href="#10-其他命令" class="headerlink" title="10 - 其他命令"></a>10 - 其他命令</h3><pre><code>git pull 从当前分支远端拉取代码
-
-git pull origin &lt;分支名&gt; 拉取某一分支的代码并合并到当前分支
-
-git branch 显示远程仓库分支
-
-git branch -a 显示所有分支
-
-git branch --merged 显示所有已合并到当前分支的分支
-
-git branch --no-merged 显示所有未合并到当前分支的分支
-
-git push origin master 推送到主分支
-
-git pull origin &lt;分支名&gt; 拉取远程分支合并到当前分支
-
-git log 显示提交日志
-
-git diff 显示所有变更
-
-git diff HEAD^ 显示与上个版本的差异
-
-git rm xxx 除某文件</code></pre>
-<p>###</p>
-]]></content>
-      <categories>
-        <category>Git命令</category>
-      </categories>
-      <tags>
-        <tag>git</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Little Baby</title>
-    <url>/2020/09/01/honey/</url>
-    <content><![CDATA[<h2 id="光洙光洙"><a href="#光洙光洙" class="headerlink" title="光洙光洙"></a>光洙光洙</h2><h4 id="想你了哟"><a href="#想你了哟" class="headerlink" title="想你了哟~"></a>想你了哟~</h4>]]></content>
-      <categories>
-        <category>Honey</category>
-      </categories>
-      <tags>
-        <tag>Honey</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>在react中实现文本复制</title>
-    <url>/2020/09/22/%E6%96%87%E6%9C%AC%E5%A4%8D%E5%88%B6/</url>
-    <content><![CDATA[<h2 id="方案一："><a href="#方案一：" class="headerlink" title="方案一："></a>方案一：</h2><pre><code class="js">copyTranslateResult = () =&gt; &#123;
-        const copyDOM = document.querySelector(&#39;.translateResult&#39;);
-
-        if (copyDOM.innerHTML !== &#39;&#39;) &#123;
-
-            var range = document.createRange(); //创建一个range
-
-            window.getSelection().removeAllRanges(); //清楚页面中已有的selection
-
-            range.selectNode(copyDOM); // 选中需要复制的节点
-
-            window.getSelection().addRange(range); // 执行选中元素
-
-            var successful = document.execCommand(&#39;copy&#39;); // 执行 copy 操作
-
-            if (successful) &#123;
-
-                message.success(&#39;复制成功！&#39;);
-
-            &#125; else &#123;
-
-                message.warning(&#39;复制失败，请手动复制！&#39;);
-
-            &#125;
-
-            // 移除选中的元素
-
-            window.getSelection().removeAllRanges();
-
-        &#125; else &#123;
-
-            message.warning(&#39;没有内容&#39;);
-
-        &#125;
-
-    &#125;;</code></pre>
-<h2 id="方案二-推荐，方案一兼容性不高-："><a href="#方案二-推荐，方案一兼容性不高-：" class="headerlink" title="方案二(推荐，方案一兼容性不高)："></a>方案二(推荐，方案一兼容性不高)：</h2><p><strong>react-copy-to-clipboard：</strong><br><a href="https://github.com/nkbt/react-copy-to-clipboard">https://github.com/nkbt/react-copy-to-clipboard</a></p>
-<h4 id="Install"><a href="#Install" class="headerlink" title="Install"></a>Install</h4><pre><code>npm install --save react-copy-to-clipboard
-or
-yarn add react-copy-to-clipboard</code></pre>
-<h4 id="Demo"><a href="#Demo" class="headerlink" title="Demo"></a>Demo</h4><pre><code class="jsx">import React from &#39;react&#39;;
-import ReactDOM from &#39;react-dom&#39;;
-import &#123;CopyToClipboard&#125; from &#39;react-copy-to-clipboard&#39;;
-
-class App extends React.Component &#123;
-  state = &#123;
-    value: &#39;&#39;,
-    copied: false,
-  &#125;;
-
-  render() &#123;
-    return (
-      &lt;div&gt;
-        &lt;input value=&#123;this.state.value&#125;
-          onChange=&#123;(&#123;target: &#123;value&#125;&#125;) =&gt; this.setState(&#123;value, copied: false&#125;)&#125; /&gt;
-
-        &lt;CopyToClipboard text=&#123;this.state.value&#125;
-          onCopy=&#123;() =&gt; this.setState(&#123;copied: true&#125;)&#125;&gt;
-          &lt;span&gt;Copy to clipboard with span&lt;/span&gt;
-        &lt;/CopyToClipboard&gt;
-
-        &lt;CopyToClipboard text=&#123;this.state.value&#125;
-          onCopy=&#123;() =&gt; this.setState(&#123;copied: true&#125;)&#125;&gt;
-          &lt;button&gt;Copy to clipboard with button&lt;/button&gt;
-        &lt;/CopyToClipboard&gt;
-
-        &#123;this.state.copied ? &lt;span style=&#123;&#123;color: 'red'&#125;&#125;&gt;Copied.&lt;/span&gt; : null&#125;
-      &lt;/div&gt;
-    );
-  &#125;
-&#125;
-
-const appRoot = document.createElement(&#39;div&#39;);
-document.body.appendChild(appRoot);
-ReactDOM.render(&lt;App /&gt;, appRoot);
-</code></pre>
-]]></content>
-      <categories>
-        <category>React</category>
-      </categories>
-      <tags>
-        <tag>React</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>DiffView</title>
     <url>/2020/09/18/DiffView/</url>
     <content><![CDATA[<h1 id="react-diff-view"><a href="#react-diff-view" class="headerlink" title="react-diff-view"></a>react-diff-view</h1><p><a href="https://github.com/praneshr/react-diff-viewer.git">https://github.com/praneshr/react-diff-viewer.git</a></p>
@@ -402,74 +165,6 @@ export class DiffView extends React.Component&lt;DiffViewProps&gt; &#123;
       </categories>
       <tags>
         <tag>React</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>css文本超出自动换行</title>
-    <url>/2020/09/18/css%E6%96%87%E6%9C%AC%E8%B6%85%E5%87%BA%E8%87%AA%E5%8A%A8%E6%8D%A2%E8%A1%8C/</url>
-    <content><![CDATA[<pre><code class="css">word-wrap:break-word; 
-word-break:break-all; 
-overflow: hidden;/*这个参数根据需要来绝对要不要*/</code></pre>
-]]></content>
-      <categories>
-        <category>css</category>
-      </categories>
-      <tags>
-        <tag>css</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>love</title>
-    <url>/2020/09/14/love/</url>
-    <content><![CDATA[<!DOCTYPE html>
-<html lang="en">
-
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-  <style>
-    .typing {
-      width: 15em;
-      white-space: nowrap;
-      border-right: 2px solid transparent;
-      animation: typing 3.5s steps(15, end), blink-caret .75s step-end infinite;
-      overflow: hidden;
-    }
-
-<pre><code>/* 打印效果 */
-@keyframes typing &#123;
-  from &#123;
-    width: 0;
-  &#125;
-
-  to &#123;
-    width: 15em;
-  &#125;
-&#125;
-
-/* 光标闪啊闪 */
-@keyframes blink-caret &#123;
-
-  from,
-  to &#123;
-    box-shadow: 1px 0 0 0 transparent;
-  &#125;
-
-  50% &#123;
-    box-shadow: 1px 0 0 0;
-  &#125;
-&#125;</code></pre>
-<p>  </style></p>
-</head>
-
-<body>
-  <p class="typing">简易中文打字效果</p>
-</body>
-
-</html>]]></content>
-      <tags>
-        <tag>love</tag>
       </tags>
   </entry>
   <entry>
@@ -704,6 +399,311 @@ exportData=[
     age:20
     &#125;
 ]</code></pre>
+]]></content>
+      <categories>
+        <category>React</category>
+      </categories>
+      <tags>
+        <tag>React</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>css文本超出自动换行</title>
+    <url>/2020/09/18/css%E6%96%87%E6%9C%AC%E8%B6%85%E5%87%BA%E8%87%AA%E5%8A%A8%E6%8D%A2%E8%A1%8C/</url>
+    <content><![CDATA[<pre><code class="css">word-wrap:break-word; 
+word-break:break-all; 
+overflow: hidden;/*这个参数根据需要来绝对要不要*/</code></pre>
+]]></content>
+      <categories>
+        <category>Css</category>
+      </categories>
+      <tags>
+        <tag>Css</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>git命令</title>
+    <url>/2020/09/02/git%E5%91%BD%E4%BB%A4/</url>
+    <content><![CDATA[<h1 id="GIT-常用命令"><a href="#GIT-常用命令" class="headerlink" title="GIT 常用命令"></a>GIT 常用命令</h1><h3 id="01-初始配置"><a href="#01-初始配置" class="headerlink" title="01 - 初始配置"></a>01 - 初始配置</h3><pre><code>- git init 初始化本地git仓库（创建新仓库）
+
+- git config --global user.name &quot;xxx&quot; 配置用户名
+
+- git config --global user.email &quot;xxx@xxx.com&quot; 配置用户邮箱
+
+- git clone &quot;git链接&quot; 克隆git仓库到本地
+
+- git status 查看当前在哪个分支</code></pre>
+<h3 id="02-开发完毕将要上传代码仓库操作"><a href="#02-开发完毕将要上传代码仓库操作" class="headerlink" title="02 - 开发完毕将要上传代码仓库操作"></a>02 - 开发完毕将要上传代码仓库操作</h3><pre><code>git add .  增加当前子目录下所有更改过的文件至index
+
+git commit -m &quot;xxx&quot; 提交
+
+git push 推送改动到远端</code></pre>
+<h3 id="03-新建分支操作"><a href="#03-新建分支操作" class="headerlink" title="03 - 新建分支操作"></a>03 - 新建分支操作</h3><pre><code>git branch &lt;分支名&gt; 创建新分支
+
+git checkout &lt;分支名&gt; 切换到该分支
+
+git push 如果是新建分支，push的时候需要跟远端仓库关联，一般会提示 git push --set-upstream 你的分支名 ， 复制提示信息并执行</code></pre>
+<h3 id="04-合并分支操作"><a href="#04-合并分支操作" class="headerlink" title="04 - 合并分支操作"></a>04 - 合并分支操作</h3><pre><code>git pull origin master 多人协作，以防master已更新，本地代码版本没有更新，先同步一下master代码，以防产生合并冲突
+
+git checkout master 先切换到主分支再合并
+
+git merge &lt;需要合并到master上的分支名&gt; 合并某一个分支到该分支</code></pre>
+<h3 id="05-删除本地，远程分支"><a href="#05-删除本地，远程分支" class="headerlink" title="05 - 删除本地，远程分支"></a>05 - 删除本地，远程分支</h3><pre><code>- git branch -d &lt;分支名&gt; 删除本地某一分支
+
+- git push origin --delete &lt;分支名&gt; 删除远端分支</code></pre>
+<h3 id="06-版本回退"><a href="#06-版本回退" class="headerlink" title="06 - 版本回退"></a>06 - 版本回退</h3><pre><code>- git log 查看提交历史和commit 标记
+
+- git reset --hard &lt;commit 后面的字符串&gt; 将代码回退到某一版本
+
+- git push -f 远端仓库版本高于本地版本，需要强制推送上去</code></pre>
+<h3 id="07-取消所有本地修改"><a href="#07-取消所有本地修改" class="headerlink" title="07 - 取消所有本地修改"></a>07 - 取消所有本地修改</h3><pre><code>git checkout .</code></pre>
+<h3 id="09-查看修改"><a href="#09-查看修改" class="headerlink" title="09 - 查看修改"></a>09 - 查看修改</h3><pre><code>git show &lt;commit日志&gt;  显示详细更改</code></pre>
+<h3 id="10-其他命令"><a href="#10-其他命令" class="headerlink" title="10 - 其他命令"></a>10 - 其他命令</h3><pre><code>git pull 从当前分支远端拉取代码
+
+git pull origin &lt;分支名&gt; 拉取某一分支的代码并合并到当前分支
+
+git branch 显示远程仓库分支
+
+git branch -a 显示所有分支
+
+git branch --merged 显示所有已合并到当前分支的分支
+
+git branch --no-merged 显示所有未合并到当前分支的分支
+
+git push origin master 推送到主分支
+
+git pull origin &lt;分支名&gt; 拉取远程分支合并到当前分支
+
+git log 显示提交日志
+
+git diff 显示所有变更
+
+git diff HEAD^ 显示与上个版本的差异
+
+git rm xxx 除某文件</code></pre>
+<p>###</p>
+]]></content>
+      <categories>
+        <category>Git命令</category>
+      </categories>
+      <tags>
+        <tag>Git</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Little Baby</title>
+    <url>/2020/09/01/honey/</url>
+    <content><![CDATA[<h2 id="光洙光洙"><a href="#光洙光洙" class="headerlink" title="光洙光洙"></a>光洙光洙</h2><h4 id="想你了哟"><a href="#想你了哟" class="headerlink" title="想你了哟~"></a>想你了哟~</h4>]]></content>
+      <categories>
+        <category>Honey</category>
+      </categories>
+      <tags>
+        <tag>Honey</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>love</title>
+    <url>/2020/09/14/love/</url>
+    <content><![CDATA[<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .typing {
+      width: 15em;
+      white-space: nowrap;
+      border-right: 2px solid transparent;
+      animation: typing 3.5s steps(15, end), blink-caret .75s step-end infinite;
+      overflow: hidden;
+    }
+
+<pre><code>/* 打印效果 */
+@keyframes typing &#123;
+  from &#123;
+    width: 0;
+  &#125;
+
+  to &#123;
+    width: 15em;
+  &#125;
+&#125;
+
+/* 光标闪啊闪 */
+@keyframes blink-caret &#123;
+
+  from,
+  to &#123;
+    box-shadow: 1px 0 0 0 transparent;
+  &#125;
+
+  50% &#123;
+    box-shadow: 1px 0 0 0;
+  &#125;
+&#125;</code></pre>
+<p>  </style></p>
+</head>
+
+<body>
+  <p class="typing">简易中文打字效果</p>
+</body>
+
+</html>]]></content>
+      <tags>
+        <tag>Love</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Yarn / npm 对比</title>
+    <url>/2020/09/02/yarn-npm%E5%AF%B9%E6%AF%94/</url>
+    <content><![CDATA[<table>
+<thead>
+<tr>
+<th align="left">作用</th>
+<th align="left">npm</th>
+<th align="center">Yarn</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">安装</td>
+<td align="left">npm install(i)</td>
+<td align="center">yarn</td>
+</tr>
+<tr>
+<td align="left">卸载</td>
+<td align="left">npm uninstall(un)</td>
+<td align="center">yarn remove</td>
+</tr>
+<tr>
+<td align="left">全局安装</td>
+<td align="left">npm install xxx –global(-g)</td>
+<td align="center">yarn global add xxx</td>
+</tr>
+<tr>
+<td align="left">安装包</td>
+<td align="left">npm install xxx –save(-S)</td>
+<td align="center">yarn add xxx</td>
+</tr>
+<tr>
+<td align="left">开发模式安装包</td>
+<td align="left">npm install xxx –save-dev(-D)</td>
+<td align="center">yarn add xxx –dev(-D)</td>
+</tr>
+<tr>
+<td align="left">更新</td>
+<td align="left">npm update –save</td>
+<td align="center">yarn upgrade</td>
+</tr>
+<tr>
+<td align="left">全局更新</td>
+<td align="left">npm update –global</td>
+<td align="center">yarn global upgrade</td>
+</tr>
+<tr>
+<td align="left">卸载</td>
+<td align="left">npm uninstall [–save/–save-dev]</td>
+<td align="center">yarn remove xx</td>
+</tr>
+<tr>
+<td align="left">清除缓存</td>
+<td align="left">npm cache clean</td>
+<td align="center">yarn cache clean</td>
+</tr>
+<tr>
+<td align="left">重装</td>
+<td align="left">rm -rf node_modules &amp;&amp; npm install</td>
+<td align="center">yarn upgrade</td>
+</tr>
+</tbody></table>
+]]></content>
+      <categories>
+        <category>NPM</category>
+      </categories>
+      <tags>
+        <tag>Npm</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>在react中实现文本复制</title>
+    <url>/2020/09/22/%E6%96%87%E6%9C%AC%E5%A4%8D%E5%88%B6/</url>
+    <content><![CDATA[<h2 id="方案一："><a href="#方案一：" class="headerlink" title="方案一："></a>方案一：</h2><pre><code class="js">copyTranslateResult = () =&gt; &#123;
+        const copyDOM = document.querySelector(&#39;.translateResult&#39;);
+
+        if (copyDOM.innerHTML !== &#39;&#39;) &#123;
+
+            var range = document.createRange(); //创建一个range
+
+            window.getSelection().removeAllRanges(); //清楚页面中已有的selection
+
+            range.selectNode(copyDOM); // 选中需要复制的节点
+
+            window.getSelection().addRange(range); // 执行选中元素
+
+            var successful = document.execCommand(&#39;copy&#39;); // 执行 copy 操作
+
+            if (successful) &#123;
+
+                message.success(&#39;复制成功！&#39;);
+
+            &#125; else &#123;
+
+                message.warning(&#39;复制失败，请手动复制！&#39;);
+
+            &#125;
+
+            // 移除选中的元素
+
+            window.getSelection().removeAllRanges();
+
+        &#125; else &#123;
+
+            message.warning(&#39;没有内容&#39;);
+
+        &#125;
+
+    &#125;;</code></pre>
+<h2 id="方案二-推荐，方案一兼容性不高-："><a href="#方案二-推荐，方案一兼容性不高-：" class="headerlink" title="方案二(推荐，方案一兼容性不高)："></a>方案二(推荐，方案一兼容性不高)：</h2><p><strong>react-copy-to-clipboard：</strong><br><a href="https://github.com/nkbt/react-copy-to-clipboard">https://github.com/nkbt/react-copy-to-clipboard</a></p>
+<h4 id="Install"><a href="#Install" class="headerlink" title="Install"></a>Install</h4><pre><code>npm install --save react-copy-to-clipboard
+or
+yarn add react-copy-to-clipboard</code></pre>
+<h4 id="Demo"><a href="#Demo" class="headerlink" title="Demo"></a>Demo</h4><pre><code class="jsx">import React from &#39;react&#39;;
+import ReactDOM from &#39;react-dom&#39;;
+import &#123;CopyToClipboard&#125; from &#39;react-copy-to-clipboard&#39;;
+
+class App extends React.Component &#123;
+  state = &#123;
+    value: &#39;&#39;,
+    copied: false,
+  &#125;;
+
+  render() &#123;
+    return (
+      &lt;div&gt;
+        &lt;input value=&#123;this.state.value&#125;
+          onChange=&#123;(&#123;target: &#123;value&#125;&#125;) =&gt; this.setState(&#123;value, copied: false&#125;)&#125; /&gt;
+
+        &lt;CopyToClipboard text=&#123;this.state.value&#125;
+          onCopy=&#123;() =&gt; this.setState(&#123;copied: true&#125;)&#125;&gt;
+          &lt;span&gt;Copy to clipboard with span&lt;/span&gt;
+        &lt;/CopyToClipboard&gt;
+
+        &lt;CopyToClipboard text=&#123;this.state.value&#125;
+          onCopy=&#123;() =&gt; this.setState(&#123;copied: true&#125;)&#125;&gt;
+          &lt;button&gt;Copy to clipboard with button&lt;/button&gt;
+        &lt;/CopyToClipboard&gt;
+
+        &#123;this.state.copied ? &lt;span style=&#123;&#123;color: 'red'&#125;&#125;&gt;Copied.&lt;/span&gt; : null&#125;
+      &lt;/div&gt;
+    );
+  &#125;
+&#125;
+
+const appRoot = document.createElement(&#39;div&#39;);
+document.body.appendChild(appRoot);
+ReactDOM.render(&lt;App /&gt;, appRoot);
+</code></pre>
 ]]></content>
       <categories>
         <category>React</category>
