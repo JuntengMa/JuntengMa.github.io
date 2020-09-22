@@ -6,7 +6,7 @@
   <link href="https://juntengma.github.io/atom.xml" rel="self"/>
   
   <link href="https://juntengma.github.io/"/>
-  <updated>2020-09-22T11:12:42.502Z</updated>
+  <updated>2020-09-22T11:17:05.763Z</updated>
   <id>https://juntengma.github.io/</id>
   
   <author>
@@ -17,19 +17,44 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>[object Object]</title>
-    <link href="https://juntengma.github.io/2020/09/22/React-echart/"/>
-    <id>https://juntengma.github.io/2020/09/22/React-echart/</id>
-    <published>2020-09-22T11:10:20.986Z</published>
-    <updated>2020-09-22T11:12:42.502Z</updated>
+    <title>一段js代码在浏览器中是如何执行的</title>
+    <link href="https://juntengma.github.io/2020/09/22/Js-js%E4%BB%A3%E7%A0%81%E5%9C%A8%E6%B5%8F%E8%A7%88%E5%99%A8%E4%B8%AD%E7%9A%84%E6%89%A7%E8%A1%8C%E9%A1%BA%E5%BA%8F/"/>
+    <id>https://juntengma.github.io/2020/09/22/Js-js%E4%BB%A3%E7%A0%81%E5%9C%A8%E6%B5%8F%E8%A7%88%E5%99%A8%E4%B8%AD%E7%9A%84%E6%89%A7%E8%A1%8C%E9%A1%BA%E5%BA%8F/</id>
+    <published>2020-09-22T11:14:44.228Z</published>
+    <updated>2020-09-22T11:17:05.763Z</updated>
     
-    <content type="html"><![CDATA[<p>####1.安装echats</p><pre><code>npm install echarts --savenpm install --save echarts-for-react</code></pre><p>####2.引入所需模块</p><pre><code class="javascript">// 引入 ECharts 主模块var echarts = require(&#39;echarts/lib/echarts&#39;);// 引入柱状图require(&#39;echarts/lib/chart/bar&#39;);// 引入提示框和标题组件require(&#39;echarts/lib/component/tooltip&#39;);require(&#39;echarts/lib/component/title&#39;);</code></pre><p>####3.实例</p><pre><code class="javascript">showTrend() &#123;        // 基于准备好的dom，初始化echarts实例        var myChart = echarts.init(document.getElementById(&#39;trend&#39;));        //柱状图点击事件        myChart.on(&#39;click&#39;, params =&gt; &#123;        &#125;);              // 绘制图表        myChart.setOption(&#123;            title: &#123; text: &#39;近十五日趋势&#39; &#125;,            color: [&#39;#3398DB&#39;],            tooltip: &#123;                trigger: &#39;axis&#39;,                axisPointer: &#123;                    type: &#39;shadow&#39;,                &#125;,            &#125;,            grid: &#123;                left: &#39;3%&#39;,                right: &#39;4%&#39;,                bottom: &#39;3%&#39;,                containLabel: true,            &#125;,            xAxis: &#123;                type: &#39;category&#39;,                data: this.state.trendDate,                axisTick: &#123;                    alignWithLabel: true,                &#125;,            &#125;,            yAxis: [&#123; type: &#39;value&#39; &#125;],            series: [                &#123;                    name: &#39;告警总数&#39;,                    type: &#39;bar&#39;,                    barWidth: &#39;60%&#39;,                    data: this.state.trendData,                &#125;,            ],        &#125;);    &#125;</code></pre><p>####4.DOM部分</p><pre><code class="html">&lt;div id=&quot;trend&quot; style=&#123;&#123; height: 300 &#125;&#125;&gt;&lt;/div&gt;</code></pre><p>####5.效果图<br>![}E{1`NXXEHADLNLK$DRSIVP.png](<a href="https://upload-images.jianshu.io/upload_images/19974470-dc9848f60d0a15d3.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">https://upload-images.jianshu.io/upload_images/19974470-dc9848f60d0a15d3.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240</a>)</p>]]></content>
+    <content type="html"><![CDATA[<h1 id="一段js代码在浏览器中是如何执行的"><a href="#一段js代码在浏览器中是如何执行的" class="headerlink" title="一段js代码在浏览器中是如何执行的"></a>一段js代码在浏览器中是如何执行的</h1><p>在执行一段代码时，JS 引擎会首先创建一个执行栈<br>然后JS引擎会创建一个全局执行上下文，并push到执行栈中, 这个过程JS引擎会为这段代码中所有变量分配内存并赋一个初始值（undefined），在创建完成后，JS引擎会进入执行阶段，这个过程JS引擎会逐行的执行代码，即为之前分配好内存的变量逐个赋值(真实值)。<br>如果这段代码中存在function的声明和调用，那么JS引擎会创建一个函数执行上下文，并push到执行栈中，其创建和执行过程跟全局执行上下文一样。但有特殊情况，即当函数中存在对其它函数的调用时，JS引擎会在父函数执行的过程中，将子函数的全局执行上下文push到执行栈，这也是为什么子函数能够访问到父函数内所声明的变量。<br>还有一种特殊情况是，在子函数执行的过程中，父函数已经return了，这种情况下，JS引擎会将父函数的上下文从执行栈中移除，与此同时，JS引擎会为还在执行的子函数上下文创建一个闭包，这个闭包里保存了父函数内声明的变量及其赋值，子函数仍然能够在其上下文中访问并使用这边变量/常量。当子函数执行完毕，JS引擎才会将子函数的上下文及闭包一并从执行栈中移除。<br>最后，JS引擎是单线程的，那么它是如何处理高并发的呢？即当代码中存在异步调用时JS是如何执行的。比如setTimeout或fetch请求都是non-blocking的，当异步调用代码触发时，JS引擎会将需要异步执行的代码移出调用栈，直到等待到返回结果，JS引擎会立即将与之对应的回调函数push进任务队列中等待被调用，当调用(执行)栈中已经没有需要被执行的代码时，JS引擎会立刻将任务队列中的回调函数逐个push进调用栈并执行。这个过程我们也称之为事件循环。</p><p>转自: <a href="https://juejin.im/post/5e7426d15188254967069c00">https://juejin.im/post/5e7426d15188254967069c00</a></p>]]></content>
     
     
     <summary type="html">&lt;center&gt;“”&lt;/center&gt;</summary>
     
     
     
+    <category term="Js" scheme="https://juntengma.github.io/categories/Js/"/>
+    
+    
+    <category term="Js" scheme="https://juntengma.github.io/tags/Js/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>react中使用Echats</title>
+    <link href="https://juntengma.github.io/2020/09/22/React-echart/"/>
+    <id>https://juntengma.github.io/2020/09/22/React-echart/</id>
+    <published>2020-09-22T11:10:20.986Z</published>
+    <updated>2020-09-22T11:17:40.963Z</updated>
+    
+    <content type="html"><![CDATA[<h4 id="1-安装echats"><a href="#1-安装echats" class="headerlink" title="1.安装echats"></a>1.安装echats</h4><pre><code>npm install echarts --savenpm install --save echarts-for-react</code></pre><h4 id="2-引入所需模块"><a href="#2-引入所需模块" class="headerlink" title="2.引入所需模块"></a>2.引入所需模块</h4><pre><code class="javascript">// 引入 ECharts 主模块var echarts = require(&#39;echarts/lib/echarts&#39;);// 引入柱状图require(&#39;echarts/lib/chart/bar&#39;);// 引入提示框和标题组件require(&#39;echarts/lib/component/tooltip&#39;);require(&#39;echarts/lib/component/title&#39;);</code></pre><h4 id="3-实例"><a href="#3-实例" class="headerlink" title="3.实例"></a>3.实例</h4><pre><code class="javascript">showTrend() &#123;        // 基于准备好的dom，初始化echarts实例        var myChart = echarts.init(document.getElementById(&#39;trend&#39;));        //柱状图点击事件        myChart.on(&#39;click&#39;, params =&gt; &#123;        &#125;);              // 绘制图表        myChart.setOption(&#123;            title: &#123; text: &#39;近十五日趋势&#39; &#125;,            color: [&#39;#3398DB&#39;],            tooltip: &#123;                trigger: &#39;axis&#39;,                axisPointer: &#123;                    type: &#39;shadow&#39;,                &#125;,            &#125;,            grid: &#123;                left: &#39;3%&#39;,                right: &#39;4%&#39;,                bottom: &#39;3%&#39;,                containLabel: true,            &#125;,            xAxis: &#123;                type: &#39;category&#39;,                data: this.state.trendDate,                axisTick: &#123;                    alignWithLabel: true,                &#125;,            &#125;,            yAxis: [&#123; type: &#39;value&#39; &#125;],            series: [                &#123;                    name: &#39;告警总数&#39;,                    type: &#39;bar&#39;,                    barWidth: &#39;60%&#39;,                    data: this.state.trendData,                &#125;,            ],        &#125;);    &#125;</code></pre><h4 id="4-DOM部分"><a href="#4-DOM部分" class="headerlink" title="4.DOM部分"></a>4.DOM部分</h4><pre><code class="html">&lt;div id=&quot;trend&quot; style=&#123;&#123; height: 300 &#125;&#125;&gt;&lt;/div&gt;</code></pre><h4 id="5-效果图"><a href="#5-效果图" class="headerlink" title="5.效果图"></a>5.效果图</h4><p><img src="https://upload-images.jianshu.io/upload_images/19974470-dc9848f60d0a15d3.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240"></p>]]></content>
+    
+    
+    <summary type="html">&lt;center&gt;“”&lt;/center&gt;</summary>
+    
+    
+    
+    <category term="React" scheme="https://juntengma.github.io/categories/React/"/>
+    
+    
+    <category term="React" scheme="https://juntengma.github.io/tags/React/"/>
     
   </entry>
   
@@ -162,27 +187,6 @@
   </entry>
   
   <entry>
-    <title>git命令</title>
-    <link href="https://juntengma.github.io/2020/09/02/git%E5%91%BD%E4%BB%A4/"/>
-    <id>https://juntengma.github.io/2020/09/02/git%E5%91%BD%E4%BB%A4/</id>
-    <published>2020-09-02T12:00:33.000Z</published>
-    <updated>2020-09-22T10:10:38.954Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="GIT-常用命令"><a href="#GIT-常用命令" class="headerlink" title="GIT 常用命令"></a>GIT 常用命令</h1><h2 id="01-初始配置"><a href="#01-初始配置" class="headerlink" title="01 - 初始配置"></a>01 - 初始配置</h2><pre><code>- git init 初始化本地git仓库（创建新仓库）- git config --global user.name &quot;xxx&quot; 配置用户名- git config --global user.email &quot;xxx@xxx.com&quot; 配置用户邮箱- git clone &quot;git链接&quot; 克隆git仓库到本地- git status 查看当前在哪个分支</code></pre><h2 id="02-开发完毕将要上传代码仓库操作"><a href="#02-开发完毕将要上传代码仓库操作" class="headerlink" title="02 - 开发完毕将要上传代码仓库操作"></a>02 - 开发完毕将要上传代码仓库操作</h2><pre><code>git add .  增加当前子目录下所有更改过的文件至indexgit commit -m &quot;xxx&quot; 提交git push 推送改动到远端</code></pre><h2 id="03-新建分支操作"><a href="#03-新建分支操作" class="headerlink" title="03 - 新建分支操作"></a>03 - 新建分支操作</h2><pre><code>git branch &lt;分支名&gt; 创建新分支git checkout &lt;分支名&gt; 切换到该分支git push 如果是新建分支，push的时候需要跟远端仓库关联，一般会提示 git push --set-upstream 你的分支名 ， 复制提示信息并执行</code></pre><h2 id="04-合并分支操作"><a href="#04-合并分支操作" class="headerlink" title="04 - 合并分支操作"></a>04 - 合并分支操作</h2><pre><code>git pull origin master 多人协作，以防master已更新，本地代码版本没有更新，先同步一下master代码，以防产生合并冲突git checkout master 先切换到主分支再合并git merge &lt;需要合并到master上的分支名&gt; 合并某一个分支到该分支</code></pre><h2 id="05-删除本地，远程分支"><a href="#05-删除本地，远程分支" class="headerlink" title="05 - 删除本地，远程分支"></a>05 - 删除本地，远程分支</h2><pre><code>- git branch -d &lt;分支名&gt; 删除本地某一分支- git push origin --delete &lt;分支名&gt; 删除远端分支</code></pre><h2 id="06-版本回退"><a href="#06-版本回退" class="headerlink" title="06 - 版本回退"></a>06 - 版本回退</h2><pre><code>- git log 查看提交历史和commit 标记- git reset --hard &lt;commit 后面的字符串&gt; 将代码回退到某一版本- git push -f 远端仓库版本高于本地版本，需要强制推送上去</code></pre><h2 id="07-取消所有本地修改"><a href="#07-取消所有本地修改" class="headerlink" title="07 - 取消所有本地修改"></a>07 - 取消所有本地修改</h2><pre><code>git checkout .</code></pre><h2 id="09-查看修改"><a href="#09-查看修改" class="headerlink" title="09 - 查看修改"></a>09 - 查看修改</h2><pre><code>git show &lt;commit日志&gt;  显示详细更改</code></pre><h2 id="10-其他命令"><a href="#10-其他命令" class="headerlink" title="10 - 其他命令"></a>10 - 其他命令</h2><pre><code>git pull 从当前分支远端拉取代码git pull origin &lt;分支名&gt; 拉取某一分支的代码并合并到当前分支git branch 显示远程仓库分支git branch -a 显示所有分支git branch --merged 显示所有已合并到当前分支的分支git branch --no-merged 显示所有未合并到当前分支的分支git push origin master 推送到主分支git pull origin &lt;分支名&gt; 拉取远程分支合并到当前分支git log 显示提交日志git diff 显示所有变更git diff HEAD^ 显示与上个版本的差异git rm xxx 除某文件</code></pre>]]></content>
-    
-    
-    <summary type="html">&lt;center&gt;&quot;自己比较常用的一些git操作&quot;&lt;/center&gt;</summary>
-    
-    
-    
-    <category term="Git命令" scheme="https://juntengma.github.io/categories/Git%E5%91%BD%E4%BB%A4/"/>
-    
-    
-    <category term="Git" scheme="https://juntengma.github.io/tags/Git/"/>
-    
-  </entry>
-  
-  <entry>
     <title>Yarn / npm 对比</title>
     <link href="https://juntengma.github.io/2020/09/02/yarn-npm%E5%AF%B9%E6%AF%94/"/>
     <id>https://juntengma.github.io/2020/09/02/yarn-npm%E5%AF%B9%E6%AF%94/</id>
@@ -200,6 +204,27 @@
     
     
     <category term="Npm" scheme="https://juntengma.github.io/tags/Npm/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>git命令</title>
+    <link href="https://juntengma.github.io/2020/09/02/git%E5%91%BD%E4%BB%A4/"/>
+    <id>https://juntengma.github.io/2020/09/02/git%E5%91%BD%E4%BB%A4/</id>
+    <published>2020-09-02T12:00:33.000Z</published>
+    <updated>2020-09-22T10:10:38.954Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="GIT-常用命令"><a href="#GIT-常用命令" class="headerlink" title="GIT 常用命令"></a>GIT 常用命令</h1><h2 id="01-初始配置"><a href="#01-初始配置" class="headerlink" title="01 - 初始配置"></a>01 - 初始配置</h2><pre><code>- git init 初始化本地git仓库（创建新仓库）- git config --global user.name &quot;xxx&quot; 配置用户名- git config --global user.email &quot;xxx@xxx.com&quot; 配置用户邮箱- git clone &quot;git链接&quot; 克隆git仓库到本地- git status 查看当前在哪个分支</code></pre><h2 id="02-开发完毕将要上传代码仓库操作"><a href="#02-开发完毕将要上传代码仓库操作" class="headerlink" title="02 - 开发完毕将要上传代码仓库操作"></a>02 - 开发完毕将要上传代码仓库操作</h2><pre><code>git add .  增加当前子目录下所有更改过的文件至indexgit commit -m &quot;xxx&quot; 提交git push 推送改动到远端</code></pre><h2 id="03-新建分支操作"><a href="#03-新建分支操作" class="headerlink" title="03 - 新建分支操作"></a>03 - 新建分支操作</h2><pre><code>git branch &lt;分支名&gt; 创建新分支git checkout &lt;分支名&gt; 切换到该分支git push 如果是新建分支，push的时候需要跟远端仓库关联，一般会提示 git push --set-upstream 你的分支名 ， 复制提示信息并执行</code></pre><h2 id="04-合并分支操作"><a href="#04-合并分支操作" class="headerlink" title="04 - 合并分支操作"></a>04 - 合并分支操作</h2><pre><code>git pull origin master 多人协作，以防master已更新，本地代码版本没有更新，先同步一下master代码，以防产生合并冲突git checkout master 先切换到主分支再合并git merge &lt;需要合并到master上的分支名&gt; 合并某一个分支到该分支</code></pre><h2 id="05-删除本地，远程分支"><a href="#05-删除本地，远程分支" class="headerlink" title="05 - 删除本地，远程分支"></a>05 - 删除本地，远程分支</h2><pre><code>- git branch -d &lt;分支名&gt; 删除本地某一分支- git push origin --delete &lt;分支名&gt; 删除远端分支</code></pre><h2 id="06-版本回退"><a href="#06-版本回退" class="headerlink" title="06 - 版本回退"></a>06 - 版本回退</h2><pre><code>- git log 查看提交历史和commit 标记- git reset --hard &lt;commit 后面的字符串&gt; 将代码回退到某一版本- git push -f 远端仓库版本高于本地版本，需要强制推送上去</code></pre><h2 id="07-取消所有本地修改"><a href="#07-取消所有本地修改" class="headerlink" title="07 - 取消所有本地修改"></a>07 - 取消所有本地修改</h2><pre><code>git checkout .</code></pre><h2 id="09-查看修改"><a href="#09-查看修改" class="headerlink" title="09 - 查看修改"></a>09 - 查看修改</h2><pre><code>git show &lt;commit日志&gt;  显示详细更改</code></pre><h2 id="10-其他命令"><a href="#10-其他命令" class="headerlink" title="10 - 其他命令"></a>10 - 其他命令</h2><pre><code>git pull 从当前分支远端拉取代码git pull origin &lt;分支名&gt; 拉取某一分支的代码并合并到当前分支git branch 显示远程仓库分支git branch -a 显示所有分支git branch --merged 显示所有已合并到当前分支的分支git branch --no-merged 显示所有未合并到当前分支的分支git push origin master 推送到主分支git pull origin &lt;分支名&gt; 拉取远程分支合并到当前分支git log 显示提交日志git diff 显示所有变更git diff HEAD^ 显示与上个版本的差异git rm xxx 除某文件</code></pre>]]></content>
+    
+    
+    <summary type="html">&lt;center&gt;&quot;自己比较常用的一些git操作&quot;&lt;/center&gt;</summary>
+    
+    
+    
+    <category term="Git命令" scheme="https://juntengma.github.io/categories/Git%E5%91%BD%E4%BB%A4/"/>
+    
+    
+    <category term="Git" scheme="https://juntengma.github.io/tags/Git/"/>
     
   </entry>
   
