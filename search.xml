@@ -1,0 +1,358 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title>Yarn / npm 对比</title>
+    <url>/2020/09/02/yarn-npm%E5%AF%B9%E6%AF%94/</url>
+    <content><![CDATA[<table>
+<thead>
+<tr>
+<th align="left">作用</th>
+<th align="left">npm</th>
+<th align="center">Yarn</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">安装</td>
+<td align="left">npm install(i)</td>
+<td align="center">yarn</td>
+</tr>
+<tr>
+<td align="left">卸载</td>
+<td align="left">npm uninstall(un)</td>
+<td align="center">yarn remove</td>
+</tr>
+<tr>
+<td align="left">全局安装</td>
+<td align="left">npm install xxx –global(-g)</td>
+<td align="center">yarn global add xxx</td>
+</tr>
+<tr>
+<td align="left">安装包</td>
+<td align="left">npm install xxx –save(-S)</td>
+<td align="center">yarn add xxx</td>
+</tr>
+<tr>
+<td align="left">开发模式安装包</td>
+<td align="left">npm install xxx –save-dev(-D)</td>
+<td align="center">yarn add xxx –dev(-D)</td>
+</tr>
+<tr>
+<td align="left">更新</td>
+<td align="left">npm update –save</td>
+<td align="center">yarn upgrade</td>
+</tr>
+<tr>
+<td align="left">全局更新</td>
+<td align="left">npm update –global</td>
+<td align="center">yarn global upgrade</td>
+</tr>
+<tr>
+<td align="left">卸载</td>
+<td align="left">npm uninstall [–save/–save-dev]</td>
+<td align="center">yarn remove xx</td>
+</tr>
+<tr>
+<td align="left">清除缓存</td>
+<td align="left">npm cache clean</td>
+<td align="center">yarn cache clean</td>
+</tr>
+<tr>
+<td align="left">重装</td>
+<td align="left">rm -rf node_modules &amp;&amp; npm install</td>
+<td align="center">yarn upgrade</td>
+</tr>
+</tbody></table>
+]]></content>
+      <categories>
+        <category>NPM</category>
+      </categories>
+      <tags>
+        <tag>npm</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>git命令</title>
+    <url>/2020/09/02/git%E5%91%BD%E4%BB%A4/</url>
+    <content><![CDATA[<h1 id="GIT-常用命令"><a href="#GIT-常用命令" class="headerlink" title="GIT 常用命令"></a>GIT 常用命令</h1><h3 id="01-初始配置"><a href="#01-初始配置" class="headerlink" title="01 - 初始配置"></a>01 - 初始配置</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">- git init 初始化本地git仓库（创建新仓库）</span><br><span class="line"></span><br><span class="line">- git config --global user.name &quot;xxx&quot; 配置用户名</span><br><span class="line"></span><br><span class="line">- git config --global user.email &quot;xxx@xxx.com&quot; 配置用户邮箱</span><br><span class="line"></span><br><span class="line">- git clone &quot;git链接&quot; 克隆git仓库到本地</span><br><span class="line"></span><br><span class="line">- git status 查看当前在哪个分支</span><br></pre></td></tr></table></figure>
+
+<h3 id="02-开发完毕将要上传代码仓库操作"><a href="#02-开发完毕将要上传代码仓库操作" class="headerlink" title="02 - 开发完毕将要上传代码仓库操作"></a>02 - 开发完毕将要上传代码仓库操作</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git add .  增加当前子目录下所有更改过的文件至index</span><br><span class="line"></span><br><span class="line">git commit -m &quot;xxx&quot; 提交</span><br><span class="line"></span><br><span class="line">git push 推送改动到远端</span><br></pre></td></tr></table></figure>
+
+<h3 id="03-新建分支操作"><a href="#03-新建分支操作" class="headerlink" title="03 - 新建分支操作"></a>03 - 新建分支操作</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git branch &lt;分支名&gt; 创建新分支</span><br><span class="line"></span><br><span class="line">git checkout &lt;分支名&gt; 切换到该分支</span><br><span class="line"></span><br><span class="line">git push 如果是新建分支，push的时候需要跟远端仓库关联，一般会提示 git push --set-upstream 你的分支名 ， 复制提示信息并执行</span><br></pre></td></tr></table></figure>
+
+<h3 id="04-合并分支操作"><a href="#04-合并分支操作" class="headerlink" title="04 - 合并分支操作"></a>04 - 合并分支操作</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git pull origin master 多人协作，以防master已更新，本地代码版本没有更新，先同步一下master代码，以防产生合并冲突</span><br><span class="line"></span><br><span class="line">git checkout master 先切换到主分支再合并</span><br><span class="line"></span><br><span class="line">git merge &lt;需要合并到master上的分支名&gt; 合并某一个分支到该分支</span><br></pre></td></tr></table></figure>
+
+<h3 id="05-删除本地，远程分支"><a href="#05-删除本地，远程分支" class="headerlink" title="05 - 删除本地，远程分支"></a>05 - 删除本地，远程分支</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">- git branch -d &lt;分支名&gt; 删除本地某一分支</span><br><span class="line"></span><br><span class="line">- git push origin --delete &lt;分支名&gt; 删除远端分支</span><br></pre></td></tr></table></figure>
+
+<h3 id="06-版本回退"><a href="#06-版本回退" class="headerlink" title="06 - 版本回退"></a>06 - 版本回退</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">- git log 查看提交历史和commit 标记</span><br><span class="line"></span><br><span class="line">- git reset --hard &lt;commit 后面的字符串&gt; 将代码回退到某一版本</span><br><span class="line"></span><br><span class="line">- git push -f 远端仓库版本高于本地版本，需要强制推送上去</span><br></pre></td></tr></table></figure>
+
+<h3 id="07-取消所有本地修改"><a href="#07-取消所有本地修改" class="headerlink" title="07 - 取消所有本地修改"></a>07 - 取消所有本地修改</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git checkout .</span><br></pre></td></tr></table></figure>
+
+<h3 id="09-查看修改"><a href="#09-查看修改" class="headerlink" title="09 - 查看修改"></a>09 - 查看修改</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git show &lt;commit日志&gt;  显示详细更改</span><br></pre></td></tr></table></figure>
+
+<h3 id="10-其他命令"><a href="#10-其他命令" class="headerlink" title="10 - 其他命令"></a>10 - 其他命令</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git pull 从当前分支远端拉取代码</span><br><span class="line"></span><br><span class="line">git pull origin &lt;分支名&gt; 拉取某一分支的代码并合并到当前分支</span><br><span class="line"></span><br><span class="line">git branch 显示远程仓库分支</span><br><span class="line"></span><br><span class="line">git branch -a 显示所有分支</span><br><span class="line"></span><br><span class="line">git branch --merged 显示所有已合并到当前分支的分支</span><br><span class="line"></span><br><span class="line">git branch --no-merged 显示所有未合并到当前分支的分支</span><br><span class="line"></span><br><span class="line">git push origin master 推送到主分支</span><br><span class="line"></span><br><span class="line">git pull origin &lt;分支名&gt; 拉取远程分支合并到当前分支</span><br><span class="line"></span><br><span class="line">git log 显示提交日志</span><br><span class="line"></span><br><span class="line">git diff 显示所有变更</span><br><span class="line"></span><br><span class="line">git diff HEAD^ 显示与上个版本的差异</span><br><span class="line"></span><br><span class="line">git rm xxx 除某文件</span><br></pre></td></tr></table></figure>
+
+<p>###</p>
+]]></content>
+      <categories>
+        <category>Git命令</category>
+      </categories>
+      <tags>
+        <tag>git</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Little Baby</title>
+    <url>/2020/09/01/honey/</url>
+    <content><![CDATA[<h2 id="光洙光洙"><a href="#光洙光洙" class="headerlink" title="光洙光洙"></a>光洙光洙</h2><h4 id="想你了哟"><a href="#想你了哟" class="headerlink" title="想你了哟~"></a>想你了哟~</h4>]]></content>
+      <categories>
+        <category>Honey</category>
+      </categories>
+      <tags>
+        <tag>Honey</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>在react中实现文本复制</title>
+    <url>/2020/09/22/%E6%96%87%E6%9C%AC%E5%A4%8D%E5%88%B6/</url>
+    <content><![CDATA[<h2 id="方案一："><a href="#方案一：" class="headerlink" title="方案一："></a>方案一：</h2><figure class="highlight js"><table><tr><td class="code"><pre><span class="line">copyTranslateResult = <span class="function">() =&gt;</span> &#123;</span><br><span class="line">        <span class="keyword">const</span> copyDOM = <span class="built_in">document</span>.querySelector(<span class="string">&#x27;.translateResult&#x27;</span>);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (copyDOM.innerHTML !== <span class="string">&#x27;&#x27;</span>) &#123;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">var</span> range = <span class="built_in">document</span>.createRange(); <span class="comment">//创建一个range</span></span><br><span class="line"></span><br><span class="line">            <span class="built_in">window</span>.getSelection().removeAllRanges(); <span class="comment">//清楚页面中已有的selection</span></span><br><span class="line"></span><br><span class="line">            range.selectNode(copyDOM); <span class="comment">// 选中需要复制的节点</span></span><br><span class="line"></span><br><span class="line">            <span class="built_in">window</span>.getSelection().addRange(range); <span class="comment">// 执行选中元素</span></span><br><span class="line"></span><br><span class="line">            <span class="keyword">var</span> successful = <span class="built_in">document</span>.execCommand(<span class="string">&#x27;copy&#x27;</span>); <span class="comment">// 执行 copy 操作</span></span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span> (successful) &#123;</span><br><span class="line"></span><br><span class="line">                message.success(<span class="string">&#x27;复制成功！&#x27;</span>);</span><br><span class="line"></span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line"></span><br><span class="line">                message.warning(<span class="string">&#x27;复制失败，请手动复制！&#x27;</span>);</span><br><span class="line"></span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            <span class="comment">// 移除选中的元素</span></span><br><span class="line"></span><br><span class="line">            <span class="built_in">window</span>.getSelection().removeAllRanges();</span><br><span class="line"></span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line"></span><br><span class="line">            message.warning(<span class="string">&#x27;没有内容&#x27;</span>);</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;;</span><br></pre></td></tr></table></figure>
+<h2 id="方案二-推荐，方案一兼容性不高-："><a href="#方案二-推荐，方案一兼容性不高-：" class="headerlink" title="方案二(推荐，方案一兼容性不高)："></a>方案二(推荐，方案一兼容性不高)：</h2><p><strong>react-copy-to-clipboard：</strong><br><a href="https://github.com/nkbt/react-copy-to-clipboard">https://github.com/nkbt/react-copy-to-clipboard</a></p>
+<h4 id="Install"><a href="#Install" class="headerlink" title="Install"></a>Install</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">npm install --save react-copy-to-clipboard</span><br><span class="line">or</span><br><span class="line">yarn add react-copy-to-clipboard</span><br></pre></td></tr></table></figure>
+<h4 id="Demo"><a href="#Demo" class="headerlink" title="Demo"></a>Demo</h4><figure class="highlight jsx"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> React <span class="keyword">from</span> <span class="string">&#x27;react&#x27;</span>;</span><br><span class="line"><span class="keyword">import</span> ReactDOM <span class="keyword">from</span> <span class="string">&#x27;react-dom&#x27;</span>;</span><br><span class="line"><span class="keyword">import</span> &#123;CopyToClipboard&#125; <span class="keyword">from</span> <span class="string">&#x27;react-copy-to-clipboard&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">App</span> <span class="keyword">extends</span> <span class="title">React</span>.<span class="title">Component</span> </span>&#123;</span><br><span class="line">  state = &#123;</span><br><span class="line">    value: <span class="string">&#x27;&#x27;</span>,</span><br><span class="line">    copied: <span class="literal">false</span>,</span><br><span class="line">  &#125;;</span><br><span class="line"></span><br><span class="line">  render() &#123;</span><br><span class="line">    <span class="keyword">return</span> (</span><br><span class="line">      &lt;div&gt;</span><br><span class="line">        &lt;input value=&#123;<span class="built_in">this</span>.state.value&#125;</span><br><span class="line">          onChange=&#123;<span class="function">(<span class="params">&#123;target: &#123;value&#125;&#125;</span>) =&gt;</span> <span class="built_in">this</span>.setState(&#123;value, <span class="attr">copied</span>: <span class="literal">false</span>&#125;)&#125; /&gt;</span><br><span class="line"></span><br><span class="line">        &lt;CopyToClipboard text=&#123;<span class="built_in">this</span>.state.value&#125;</span><br><span class="line">          onCopy=&#123;<span class="function">() =&gt;</span> <span class="built_in">this</span>.setState(&#123;<span class="attr">copied</span>: <span class="literal">true</span>&#125;)&#125;&gt;</span><br><span class="line">          &lt;span&gt;Copy to clipboard <span class="keyword">with</span> span&lt;/span&gt;</span><br><span class="line">        &lt;/CopyToClipboard&gt;</span><br><span class="line"></span><br><span class="line">        &lt;CopyToClipboard text=&#123;<span class="built_in">this</span>.state.value&#125;</span><br><span class="line">          onCopy=&#123;<span class="function">() =&gt;</span> <span class="built_in">this</span>.setState(&#123;<span class="attr">copied</span>: <span class="literal">true</span>&#125;)&#125;&gt;</span><br><span class="line">          &lt;button&gt;Copy to clipboard <span class="keyword">with</span> button&lt;/button&gt;</span><br><span class="line">        &lt;/CopyToClipboard&gt;</span><br><span class="line"></span><br><span class="line">        &#123;<span class="built_in">this</span>.state.copied ? <span class="xml"><span class="tag">&lt;<span class="name">span</span> <span class="attr">style</span>=<span class="string">&#123;&#123;color:</span> &#x27;<span class="attr">red</span>&#x27;&#125;&#125;&gt;</span>Copied.<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span> : <span class="literal">null</span>&#125;</span><br><span class="line">      &lt;/div&gt;</span><br><span class="line">    );</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> appRoot = <span class="built_in">document</span>.createElement(<span class="string">&#x27;div&#x27;</span>);</span><br><span class="line"><span class="built_in">document</span>.body.appendChild(appRoot);</span><br><span class="line">ReactDOM.render(<span class="xml"><span class="tag">&lt;<span class="name">App</span> /&gt;</span></span>, appRoot);</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>React</category>
+      </categories>
+      <tags>
+        <tag>React</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>DiffView</title>
+    <url>/2020/09/18/DiffView/</url>
+    <content><![CDATA[<h1 id="react-diff-view"><a href="#react-diff-view" class="headerlink" title="react-diff-view"></a>react-diff-view</h1><p><a href="https://github.com/praneshr/react-diff-viewer.git">https://github.com/praneshr/react-diff-viewer.git</a></p>
+<h1 id="Install"><a href="#Install" class="headerlink" title="Install"></a>Install</h1><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">yarn add react-diff-viewer</span><br><span class="line"></span><br><span class="line"># or</span><br><span class="line"></span><br><span class="line">npm i react-diff-viewer</span><br></pre></td></tr></table></figure>
+
+<h1 id="封装组件-DiffView-tsx"><a href="#封装组件-DiffView-tsx" class="headerlink" title="封装组件 DiffView.tsx"></a>封装组件 DiffView.tsx</h1><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">import * as React from &#39;react&#39;;</span><br><span class="line"></span><br><span class="line">import ReactDiffViewer from &#39;react-diff-viewer&#39;;</span><br><span class="line"></span><br><span class="line">export interface DiffViewProps &#123;</span><br><span class="line">	oldValue: string;</span><br><span class="line">	newValue: string;</span><br><span class="line">	splitView?: boolean; &#x2F;&#x2F;true 分两栏 | false  分一栏</span><br><span class="line">	leftTitle?: string;</span><br><span class="line">	rightTitle?: string;</span><br><span class="line">	style?: object</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">export class DiffView extends React.Component&lt;DiffViewProps&gt; &#123;</span><br><span class="line">	public render() &#123;</span><br><span class="line">		const &#123; oldValue, newValue, splitView &#x3D; true, leftTitle, rightTitle, style &#125; &#x3D; this.props;</span><br><span class="line">		return (</span><br><span class="line">			&lt;div style&#x3D;&#123;&#123;</span><br><span class="line">				...style,</span><br><span class="line">				overflowY: &#39;scroll&#39;,</span><br><span class="line">				wordWrap: &#39;break-word&#39;,</span><br><span class="line">				wordBreak: &#39;break-all&#39;</span><br><span class="line">			&#125;&#125;&gt;</span><br><span class="line">				&lt;ReactDiffViewer</span><br><span class="line">					oldValue&#x3D;&#123;oldValue&#125;</span><br><span class="line">					newValue&#x3D;&#123;newValue&#125;</span><br><span class="line">					splitView&#x3D;&#123;splitView&#125;</span><br><span class="line">					leftTitle&#x3D;&#123;leftTitle&#125;</span><br><span class="line">					rightTitle&#x3D;&#123;rightTitle&#125;</span><br><span class="line">				&#x2F;&gt;</span><br><span class="line">			&lt;&#x2F;div&gt;</span><br><span class="line"></span><br><span class="line">		);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h1 id="参数"><a href="#参数" class="headerlink" title="参数"></a>参数</h1><p><a href="https://github.com/praneshr/react-diff-viewer#props">https://github.com/praneshr/react-diff-viewer#props</a></p>
+<table>
+<thead>
+<tr>
+<th>Prop</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>oldValue</td>
+<td><code>string</code></td>
+<td><code>&#39;&#39;</code></td>
+<td>Old value as string.</td>
+</tr>
+<tr>
+<td>newValue</td>
+<td><code>string</code></td>
+<td><code>&#39;&#39;</code></td>
+<td>New value as string.</td>
+</tr>
+<tr>
+<td>splitView</td>
+<td><code>boolean</code></td>
+<td><code>true</code></td>
+<td>Switch between <code>unified</code> and <code>split</code> view.</td>
+</tr>
+<tr>
+<td>disableWordDiff</td>
+<td><code>boolean</code></td>
+<td><code>false</code></td>
+<td>Show and hide word diff in a diff line.</td>
+</tr>
+<tr>
+<td>compareMethod</td>
+<td><code>DiffMethod</code></td>
+<td><code>DiffMethod.CHARS</code></td>
+<td>JsDiff text diff method used for diffing strings. Check out the <a href="https://github.com/praneshr/react-diff-viewer/tree/v3.0.0#text-block-diff-comparison">guide</a> to use different methods.</td>
+</tr>
+<tr>
+<td>hideLineNumbers</td>
+<td><code>boolean</code></td>
+<td><code>false</code></td>
+<td>Show and hide line numbers.</td>
+</tr>
+<tr>
+<td>renderContent</td>
+<td><code>function</code></td>
+<td><code>undefined</code></td>
+<td>Render Prop API to render code in the diff viewer. Helpful for <a href="https://github.com/praneshr/react-diff-viewer#syntax-highlighting">syntax highlighting</a></td>
+</tr>
+<tr>
+<td>onLineNumberClick</td>
+<td><code>function</code></td>
+<td><code>undefined</code></td>
+<td>Event handler for line number click. <code>(lineId: string) =&gt; void</code></td>
+</tr>
+<tr>
+<td>highlightLines</td>
+<td><code>array[string]</code></td>
+<td><code>[]</code></td>
+<td>List of lines to be highlighted. Works together with <code>onLineNumberClick</code>. Line number are prefixed with <code>L</code> and <code>R</code> for the left and right section of the diff viewer, respectively. For example, <code>L-20</code> means 20th line in the left pane. To highlight a range of line numbers, pass the prefixed line number as an array. For example, <code>[L-2, L-3, L-4, L-5]</code> will highlight the lines <code>2-5</code> in the left pane.</td>
+</tr>
+<tr>
+<td>showDiffOnly</td>
+<td><code>boolean</code></td>
+<td><code>true</code></td>
+<td>Shows only the diffed lines and folds the unchanged lines</td>
+</tr>
+<tr>
+<td>extraLinesSurroundingDiff</td>
+<td><code>number</code></td>
+<td><code>3</code></td>
+<td>Number of extra unchanged lines surrounding the diff. Works along with <code>showDiffOnly</code>.</td>
+</tr>
+<tr>
+<td>codeFoldMessageRenderer</td>
+<td><code>function</code></td>
+<td><code>Expand &#123;number&#125; of lines ...</code></td>
+<td>Render Prop API to render code fold message.</td>
+</tr>
+<tr>
+<td>styles</td>
+<td><code>object</code></td>
+<td><code>&#123;&#125;</code></td>
+<td>To override style variables and styles. Learn more about <a href="https://github.com/praneshr/react-diff-viewer#overriding-styles">overriding styles</a></td>
+</tr>
+<tr>
+<td>useDarkTheme</td>
+<td><code>boolean</code></td>
+<td><code>true</code></td>
+<td>To enable/disable dark theme.</td>
+</tr>
+<tr>
+<td>leftTitle</td>
+<td><code>string</code></td>
+<td><code>undefined</code></td>
+<td>Column title for left section of the diff in split view. This will be used as the only title in inline view.</td>
+</tr>
+<tr>
+<td>rightTitle</td>
+<td><code>string</code></td>
+<td><code>undefined</code></td>
+<td>Column title for right section of the diff in split view. This will be ignored in inline view.</td>
+</tr>
+<tr>
+<td>linesOffset</td>
+<td><code>number</code></td>
+<td><code>0</code></td>
+<td>Number to start count code lines from.</td>
+</tr>
+</tbody></table>
+]]></content>
+      <categories>
+        <category>React</category>
+      </categories>
+      <tags>
+        <tag>React</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>css文本超出自动换行</title>
+    <url>/2020/09/18/css%E6%96%87%E6%9C%AC%E8%B6%85%E5%87%BA%E8%87%AA%E5%8A%A8%E6%8D%A2%E8%A1%8C/</url>
+    <content><![CDATA[<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">word-wrap</span><span class="selector-pseudo">:break-word</span>; </span><br><span class="line"><span class="selector-tag">word-break</span><span class="selector-pseudo">:break-all</span>; </span><br><span class="line"><span class="selector-tag">overflow</span>: <span class="selector-tag">hidden</span>;<span class="comment">/*这个参数根据需要来绝对要不要*/</span></span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>css</category>
+      </categories>
+      <tags>
+        <tag>css</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>love</title>
+    <url>/2020/09/14/love/</url>
+    <content><![CDATA[<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .typing {
+      width: 15em;
+      white-space: nowrap;
+      border-right: 2px solid transparent;
+      animation: typing 3.5s steps(15, end), blink-caret .75s step-end infinite;
+      overflow: hidden;
+    }
+
+<pre><code>/* 打印效果 */
+@keyframes typing &#123;
+  from &#123;
+    width: 0;
+  &#125;
+
+  to &#123;
+    width: 15em;
+  &#125;
+&#125;
+
+/* 光标闪啊闪 */
+@keyframes blink-caret &#123;
+
+  from,
+  to &#123;
+    box-shadow: 1px 0 0 0 transparent;
+  &#125;
+
+  50% &#123;
+    box-shadow: 1px 0 0 0;
+  &#125;
+&#125;</code></pre>
+<p>  </style></p>
+</head>
+
+<body>
+  <p class="typing">简易中文打字效果</p>
+</body>
+
+</html>]]></content>
+      <tags>
+        <tag>love</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>React-antd-ImportExcel</title>
+    <url>/2020/09/04/React-antd-ImportExcel/</url>
+    <content><![CDATA[<h1 id="React-antd-ImportExcel"><a href="#React-antd-ImportExcel" class="headerlink" title="React-antd-ImportExcel"></a>React-antd-ImportExcel</h1><p>工作需求，需要</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> * <span class="keyword">as</span> React <span class="keyword">from</span> <span class="string">&#x27;react&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> * <span class="keyword">as</span> XLSX <span class="keyword">from</span> <span class="string">&#x27;xlsx&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> &#123; Button, Icon, message &#125; <span class="keyword">from</span> <span class="string">&#x27;antd&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> interface ImportExcelProps &#123;</span><br><span class="line">    getFileInfo: <span class="built_in">Function</span>;</span><br><span class="line">    notice?: string;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//css文件为以下注释样式</span></span><br><span class="line"><span class="keyword">import</span> <span class="string">&#x27;./uploadStyle.css&#x27;</span>;</span><br><span class="line">&lt;!--</span><br><span class="line">.uploadBtn &#123;</span><br><span class="line">	position: absolute;</span><br><span class="line">	font-size: <span class="number">5</span>px;</span><br><span class="line">	width: <span class="string">&#x27;100%&#x27;</span>;</span><br><span class="line">	height: <span class="string">&#x27;100%&#x27;</span>;</span><br><span class="line">	right: <span class="number">0</span>;</span><br><span class="line">	top: <span class="number">0</span>;</span><br><span class="line">	opacity: <span class="number">0</span>;</span><br><span class="line">	filter: alpha(opacity = <span class="number">0</span>);</span><br><span class="line">	cursor: pointer;</span><br><span class="line">&#125;</span><br><span class="line">--&gt;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="class"><span class="keyword">class</span> <span class="title">ImportExcel</span> <span class="keyword">extends</span> <span class="title">React</span>.<span class="title">Component</span>&lt;<span class="title">ImportExcelProps</span>, <span class="title">any</span>&gt; </span>&#123;</span><br><span class="line"></span><br><span class="line">    importExcel = <span class="function"><span class="params">file</span> =&gt;</span> &#123;</span><br><span class="line">        <span class="comment">// 获取上传的文件对象</span></span><br><span class="line">        <span class="keyword">const</span> &#123; files &#125; = file.target;</span><br><span class="line">        <span class="comment">// 通过FileReader对象读取文件</span></span><br><span class="line">        <span class="keyword">const</span> fileReader = <span class="keyword">new</span> FileReader();</span><br><span class="line">        fileReader.onload = <span class="function"><span class="params">event</span> =&gt;</span> &#123;</span><br><span class="line">            <span class="keyword">try</span> &#123;</span><br><span class="line">                <span class="keyword">const</span> &#123; result &#125; = event.target;</span><br><span class="line">                <span class="comment">// 以二进制流方式读取得到整份excel表格对象</span></span><br><span class="line">                <span class="keyword">const</span> workbook = XLSX.read(result, &#123; <span class="attr">type</span>: <span class="string">&#x27;binary&#x27;</span> &#125;);</span><br><span class="line">                <span class="keyword">let</span> data = []; <span class="comment">// 存储获取到的数据</span></span><br><span class="line">                <span class="comment">// 遍历每张工作表进行读取（这里默认只读取第一张表）</span></span><br><span class="line">                <span class="keyword">for</span> (<span class="keyword">const</span> sheet <span class="keyword">in</span> workbook.Sheets) &#123;</span><br><span class="line">                    <span class="keyword">if</span> (workbook.Sheets.hasOwnProperty(sheet)) &#123;</span><br><span class="line">                        <span class="comment">// 利用 sheet_to_json 方法将 excel 转成 json 数据</span></span><br><span class="line">                        data = data.concat(XLSX.utils.sheet_to_json(workbook.Sheets[sheet]));</span><br><span class="line">                        <span class="keyword">break</span>; <span class="comment">// 如果只取第一张表，就取消注释这行</span></span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="comment">//这里获取解析好的excel内容</span></span><br><span class="line">                <span class="built_in">this</span>.props.getFileInfo(data)</span><br><span class="line">            &#125; <span class="keyword">catch</span> (e) &#123;</span><br><span class="line">                <span class="comment">// 这里可以抛出文件类型错误不正确的相关提示</span></span><br><span class="line">                message.warning(<span class="string">&#x27;error&#x27;</span>)</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;;</span><br><span class="line">        <span class="comment">// 以二进制方式打开文件</span></span><br><span class="line">        files.length &gt; <span class="number">0</span> &amp;&amp; fileReader.readAsBinaryString(files[<span class="number">0</span>]);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    render() &#123;</span><br><span class="line">        <span class="keyword">const</span> &#123; notice &#125; = <span class="built_in">this</span>.props</span><br><span class="line">        <span class="keyword">return</span> (</span><br><span class="line">            &lt;Button type=<span class="string">&quot;primary&quot;</span> style=&#123;&#123; <span class="attr">position</span>: <span class="string">&#x27;relative&#x27;</span> &#125;&#125;&gt;</span><br><span class="line">                &lt;input type=<span class="string">&#x27;file&#x27;</span> accept=<span class="string">&#x27;.xlsx, .xls&#x27;</span> onChange=&#123;<span class="function"><span class="params">e</span> =&gt;</span> <span class="built_in">this</span>.importExcel(e)&#125; className=<span class="string">&quot;uploadBtn&quot;</span> /&gt;&#123;notice || <span class="string">&#x27;导入Excel&#x27;</span>&#125;</span><br><span class="line">                &lt; Icon type=<span class="string">&quot;upload&quot;</span> /&gt;</span><br><span class="line">            &lt;/Button&gt;</span><br><span class="line">        );</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>使用</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">//getFileInfo 用于获取解析出来的数据，按需写接收函数</span></span><br><span class="line">&lt;ImportExcel getFileInfo=&#123;getFileInfo&#125; notice=<span class="string">&quot;导入EXcel&quot;</span> /&gt;</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>React</category>
+      </categories>
+      <tags>
+        <tag>React</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>React-antd-exportExcel</title>
+    <url>/2020/09/04/React-antd-exportExcel/</url>
+    <content><![CDATA[<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> * <span class="keyword">as</span> React <span class="keyword">from</span> <span class="string">&quot;react&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> * <span class="keyword">as</span> XLSX <span class="keyword">from</span> <span class="string">&quot;xlsx&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> &#123; Button, Icon &#125; <span class="keyword">from</span> <span class="string">&quot;antd&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> interface ExportExcelProps &#123;</span><br><span class="line">  notice: string;</span><br><span class="line">  fileName: string;</span><br><span class="line">  headers: string[] | <span class="built_in">Function</span>; <span class="comment">//表头</span></span><br><span class="line">  getExportData: <span class="built_in">Function</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="class"><span class="keyword">class</span> <span class="title">ExportExcel</span> <span class="keyword">extends</span> <span class="title">React</span>.<span class="title">Component</span>&lt;<span class="title">ExportExcelProps</span>, <span class="title">any</span>&gt; </span>&#123;</span><br><span class="line">  handleExport = <span class="keyword">async</span> () =&gt; &#123;</span><br><span class="line">    <span class="keyword">const</span> &#123; headers, fileName &#125; = <span class="built_in">this</span>.props</span><br><span class="line">    <span class="comment">//这里是获取导出数据的函数</span></span><br><span class="line">    <span class="keyword">const</span> exportData = <span class="keyword">await</span> <span class="built_in">this</span>.props.getExportData()</span><br><span class="line"></span><br><span class="line">    <span class="built_in">this</span>.exportExcel(headers, exportData, fileName)</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  exportExcel(headers, data, fileName) &#123;</span><br><span class="line">    <span class="keyword">const</span> _headers = headers</span><br><span class="line">      .map(<span class="function">(<span class="params">item, i</span>) =&gt;</span></span><br><span class="line">        <span class="built_in">Object</span>.assign(</span><br><span class="line">          &#123;&#125;,</span><br><span class="line">          &#123;</span><br><span class="line">            key: item.key,</span><br><span class="line">            title: item.title,</span><br><span class="line">            position: <span class="built_in">String</span>.fromCharCode(<span class="number">65</span> + i) + <span class="number">1</span>,</span><br><span class="line">          &#125;</span><br><span class="line">        )</span><br><span class="line">      )</span><br><span class="line">      .reduce(</span><br><span class="line">        (prev, next) =&gt;</span><br><span class="line">          <span class="built_in">Object</span>.assign(&#123;&#125;, prev, &#123;</span><br><span class="line">            [next.position]: &#123; <span class="attr">key</span>: next.key, <span class="attr">v</span>: next.title &#125;,</span><br><span class="line">          &#125;),</span><br><span class="line">        &#123;&#125;</span><br><span class="line">      )</span><br><span class="line"></span><br><span class="line">    <span class="keyword">const</span> _data = data</span><br><span class="line">      .map(<span class="function">(<span class="params">item, i</span>) =&gt;</span></span><br><span class="line">        headers.map(<span class="function">(<span class="params">key, j</span>) =&gt;</span></span><br><span class="line">          <span class="built_in">Object</span>.assign(</span><br><span class="line">            &#123;&#125;,</span><br><span class="line">            &#123;</span><br><span class="line">              content: item[key.key],</span><br><span class="line">              position: <span class="built_in">String</span>.fromCharCode(<span class="number">65</span> + j) + (i + <span class="number">2</span>),</span><br><span class="line">            &#125;</span><br><span class="line">          )</span><br><span class="line">        )</span><br><span class="line">      )</span><br><span class="line">      <span class="comment">// 对刚才的结果进行降维处理（二维数组变成一维数组）</span></span><br><span class="line">      .reduce(<span class="function">(<span class="params">prev, next</span>) =&gt;</span> prev.concat(next))</span><br><span class="line">      <span class="comment">// 转换成 worksheet 需要的结构</span></span><br><span class="line">      .reduce(</span><br><span class="line">        (prev, next) =&gt;</span><br><span class="line">          <span class="built_in">Object</span>.assign(&#123;&#125;, prev, &#123; [next.position]: &#123; <span class="attr">v</span>: next.content &#125; &#125;),</span><br><span class="line">        &#123;&#125;</span><br><span class="line">      )</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 合并 headers 和 data</span></span><br><span class="line">    <span class="keyword">const</span> output = <span class="built_in">Object</span>.assign(&#123;&#125;, _headers, _data)</span><br><span class="line">    <span class="comment">// 获取所有单元格的位置</span></span><br><span class="line">    <span class="keyword">const</span> outputPos = <span class="built_in">Object</span>.keys(output)</span><br><span class="line">    <span class="comment">// 计算出范围 ,[&quot;A1&quot;,..., &quot;H2&quot;]</span></span><br><span class="line">    <span class="keyword">const</span> ref = <span class="string">`<span class="subst">$&#123;outputPos[<span class="number">0</span>]&#125;</span>:<span class="subst">$&#123;outputPos[outputPos.length - <span class="number">1</span>]&#125;</span>`</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">// 构建 workbook 对象</span></span><br><span class="line">    <span class="keyword">const</span> wb = &#123;</span><br><span class="line">      SheetNames: [<span class="string">&quot;mySheet&quot;</span>],</span><br><span class="line">      Sheets: &#123;</span><br><span class="line">        mySheet: <span class="built_in">Object</span>.assign(</span><br><span class="line">          &#123;&#125;,</span><br><span class="line">          output, <span class="comment">//列宽</span></span><br><span class="line">          &#123;</span><br><span class="line">            <span class="string">&quot;!ref&quot;</span>: ref,</span><br><span class="line">            <span class="string">&quot;!cols&quot;</span>: [</span><br><span class="line">              &#123; <span class="attr">wpx</span>: <span class="number">150</span> &#125;,</span><br><span class="line">              &#123; <span class="attr">wpx</span>: <span class="number">150</span> &#125;,</span><br><span class="line">              &#123; <span class="attr">wpx</span>: <span class="number">150</span> &#125;,</span><br><span class="line">              &#123; <span class="attr">wpx</span>: <span class="number">150</span> &#125;,</span><br><span class="line">              &#123; <span class="attr">wpx</span>: <span class="number">150</span> &#125;,</span><br><span class="line">              &#123; <span class="attr">wpx</span>: <span class="number">150</span> &#125;,</span><br><span class="line">              &#123; <span class="attr">wpx</span>: <span class="number">150</span> &#125;,</span><br><span class="line">              &#123; <span class="attr">wpx</span>: <span class="number">150</span> &#125;,</span><br><span class="line">            ],</span><br><span class="line">          &#125;</span><br><span class="line">        ),</span><br><span class="line">      &#125;,</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 导出 Excel</span></span><br><span class="line">    XLSX.writeFile(wb, <span class="string">`<span class="subst">$&#123;fileName&#125;</span>.xlsx`</span>)</span><br><span class="line">  &#125;</span><br><span class="line">  render() &#123;</span><br><span class="line">    <span class="keyword">const</span> &#123; notice &#125; = <span class="built_in">this</span>.props</span><br><span class="line">    <span class="keyword">return</span> (</span><br><span class="line">      &lt;Button type=<span class="string">&quot;primary&quot;</span> onClick=&#123;<span class="function">() =&gt;</span> <span class="built_in">this</span>.handleExport()&#125;&gt;</span><br><span class="line">        &#123;notice&#125;</span><br><span class="line">        &lt;Icon type=<span class="string">&quot;download&quot;</span> /&gt;</span><br><span class="line">      &lt;/Button&gt;</span><br><span class="line">    )</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>使用</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">&lt;ExportExcel</span><br><span class="line">  notice=<span class="string">&quot;Excel导出&quot;</span></span><br><span class="line">  fileName=<span class="string">&quot;test&quot;</span></span><br><span class="line">  headers=&#123;initColumn&#125;</span><br><span class="line">  getExportData=&#123;exportData&#125;</span><br><span class="line">/&gt;</span><br></pre></td></tr></table></figure>
+
+<p>示例表头&amp;数据：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">header=[</span><br><span class="line">    &#123;</span><br><span class="line">        title: 姓名,</span><br><span class="line">		dataIndex: name,</span><br><span class="line">		key: name,</span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">        title: 性别,</span><br><span class="line">		dataIndex: sex,</span><br><span class="line">		key: sex,</span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">        title: 年龄,</span><br><span class="line">		dataIndex: age,</span><br><span class="line">		key: age,</span><br><span class="line">    &#125;,</span><br><span class="line">]</span><br><span class="line"></span><br><span class="line">exportData=[</span><br><span class="line">	&#123;</span><br><span class="line">	name:<span class="string">&#x27;小明&#x27;</span>，</span><br><span class="line">	sex:<span class="string">&#x27;男&#x27;</span>，</span><br><span class="line">	age:<span class="number">18</span></span><br><span class="line">	&#125;,</span><br><span class="line">	&#123;</span><br><span class="line">	name:<span class="string">&#x27;小张&#x27;</span>，</span><br><span class="line">	sex:<span class="string">&#x27;女&#x27;</span>，</span><br><span class="line">	age:<span class="number">20</span></span><br><span class="line">	&#125;</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>React</category>
+      </categories>
+      <tags>
+        <tag>React</tag>
+      </tags>
+  </entry>
+</search>

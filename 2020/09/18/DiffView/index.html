@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>DiffView | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="“类似git diff差异实现方案”">
+<meta property="og:type" content="article">
+<meta property="og:title" content="DiffView">
+<meta property="og:url" content="http://example.com/2020/09/18/DiffView/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="“类似git diff差异实现方案”">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-09-18T07:05:55.000Z">
+<meta property="article:modified_time" content="2020-09-18T07:15:43.872Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="React">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 5.2.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-DiffView" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/09/18/DiffView/" class="article-date">
+  <time datetime="2020-09-18T07:05:55.000Z" itemprop="datePublished">2020-09-18</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/React/">React</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      DiffView
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="react-diff-view"><a href="#react-diff-view" class="headerlink" title="react-diff-view"></a>react-diff-view</h1><p><a target="_blank" rel="noopener" href="https://github.com/praneshr/react-diff-viewer.git">https://github.com/praneshr/react-diff-viewer.git</a></p>
+<h1 id="Install"><a href="#Install" class="headerlink" title="Install"></a>Install</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">yarn add react-diff-viewer</span><br><span class="line"></span><br><span class="line"># or</span><br><span class="line"></span><br><span class="line">npm i react-diff-viewer</span><br></pre></td></tr></table></figure>
+
+<h1 id="封装组件-DiffView-tsx"><a href="#封装组件-DiffView-tsx" class="headerlink" title="封装组件 DiffView.tsx"></a>封装组件 DiffView.tsx</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line">import * as React from &#39;react&#39;;</span><br><span class="line"></span><br><span class="line">import ReactDiffViewer from &#39;react-diff-viewer&#39;;</span><br><span class="line"></span><br><span class="line">export interface DiffViewProps &#123;</span><br><span class="line">	oldValue: string;</span><br><span class="line">	newValue: string;</span><br><span class="line">	splitView?: boolean; &#x2F;&#x2F;true 分两栏 | false  分一栏</span><br><span class="line">	leftTitle?: string;</span><br><span class="line">	rightTitle?: string;</span><br><span class="line">	style?: object</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">export class DiffView extends React.Component&lt;DiffViewProps&gt; &#123;</span><br><span class="line">	public render() &#123;</span><br><span class="line">		const &#123; oldValue, newValue, splitView &#x3D; true, leftTitle, rightTitle, style &#125; &#x3D; this.props;</span><br><span class="line">		return (</span><br><span class="line">			&lt;div style&#x3D;&#123;&#123;</span><br><span class="line">				...style,</span><br><span class="line">				overflowY: &#39;scroll&#39;,</span><br><span class="line">				wordWrap: &#39;break-word&#39;,</span><br><span class="line">				wordBreak: &#39;break-all&#39;</span><br><span class="line">			&#125;&#125;&gt;</span><br><span class="line">				&lt;ReactDiffViewer</span><br><span class="line">					oldValue&#x3D;&#123;oldValue&#125;</span><br><span class="line">					newValue&#x3D;&#123;newValue&#125;</span><br><span class="line">					splitView&#x3D;&#123;splitView&#125;</span><br><span class="line">					leftTitle&#x3D;&#123;leftTitle&#125;</span><br><span class="line">					rightTitle&#x3D;&#123;rightTitle&#125;</span><br><span class="line">				&#x2F;&gt;</span><br><span class="line">			&lt;&#x2F;div&gt;</span><br><span class="line"></span><br><span class="line">		);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h1 id="参数"><a href="#参数" class="headerlink" title="参数"></a>参数</h1><p><a target="_blank" rel="noopener" href="https://github.com/praneshr/react-diff-viewer#props">https://github.com/praneshr/react-diff-viewer#props</a></p>
+<table>
+<thead>
+<tr>
+<th>Prop</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>oldValue</td>
+<td><code>string</code></td>
+<td><code>&#39;&#39;</code></td>
+<td>Old value as string.</td>
+</tr>
+<tr>
+<td>newValue</td>
+<td><code>string</code></td>
+<td><code>&#39;&#39;</code></td>
+<td>New value as string.</td>
+</tr>
+<tr>
+<td>splitView</td>
+<td><code>boolean</code></td>
+<td><code>true</code></td>
+<td>Switch between <code>unified</code> and <code>split</code> view.</td>
+</tr>
+<tr>
+<td>disableWordDiff</td>
+<td><code>boolean</code></td>
+<td><code>false</code></td>
+<td>Show and hide word diff in a diff line.</td>
+</tr>
+<tr>
+<td>compareMethod</td>
+<td><code>DiffMethod</code></td>
+<td><code>DiffMethod.CHARS</code></td>
+<td>JsDiff text diff method used for diffing strings. Check out the <a target="_blank" rel="noopener" href="https://github.com/praneshr/react-diff-viewer/tree/v3.0.0#text-block-diff-comparison">guide</a> to use different methods.</td>
+</tr>
+<tr>
+<td>hideLineNumbers</td>
+<td><code>boolean</code></td>
+<td><code>false</code></td>
+<td>Show and hide line numbers.</td>
+</tr>
+<tr>
+<td>renderContent</td>
+<td><code>function</code></td>
+<td><code>undefined</code></td>
+<td>Render Prop API to render code in the diff viewer. Helpful for <a target="_blank" rel="noopener" href="https://github.com/praneshr/react-diff-viewer#syntax-highlighting">syntax highlighting</a></td>
+</tr>
+<tr>
+<td>onLineNumberClick</td>
+<td><code>function</code></td>
+<td><code>undefined</code></td>
+<td>Event handler for line number click. <code>(lineId: string) =&gt; void</code></td>
+</tr>
+<tr>
+<td>highlightLines</td>
+<td><code>array[string]</code></td>
+<td><code>[]</code></td>
+<td>List of lines to be highlighted. Works together with <code>onLineNumberClick</code>. Line number are prefixed with <code>L</code> and <code>R</code> for the left and right section of the diff viewer, respectively. For example, <code>L-20</code> means 20th line in the left pane. To highlight a range of line numbers, pass the prefixed line number as an array. For example, <code>[L-2, L-3, L-4, L-5]</code> will highlight the lines <code>2-5</code> in the left pane.</td>
+</tr>
+<tr>
+<td>showDiffOnly</td>
+<td><code>boolean</code></td>
+<td><code>true</code></td>
+<td>Shows only the diffed lines and folds the unchanged lines</td>
+</tr>
+<tr>
+<td>extraLinesSurroundingDiff</td>
+<td><code>number</code></td>
+<td><code>3</code></td>
+<td>Number of extra unchanged lines surrounding the diff. Works along with <code>showDiffOnly</code>.</td>
+</tr>
+<tr>
+<td>codeFoldMessageRenderer</td>
+<td><code>function</code></td>
+<td><code>Expand &#123;number&#125; of lines ...</code></td>
+<td>Render Prop API to render code fold message.</td>
+</tr>
+<tr>
+<td>styles</td>
+<td><code>object</code></td>
+<td><code>&#123;&#125;</code></td>
+<td>To override style variables and styles. Learn more about <a target="_blank" rel="noopener" href="https://github.com/praneshr/react-diff-viewer#overriding-styles">overriding styles</a></td>
+</tr>
+<tr>
+<td>useDarkTheme</td>
+<td><code>boolean</code></td>
+<td><code>true</code></td>
+<td>To enable/disable dark theme.</td>
+</tr>
+<tr>
+<td>leftTitle</td>
+<td><code>string</code></td>
+<td><code>undefined</code></td>
+<td>Column title for left section of the diff in split view. This will be used as the only title in inline view.</td>
+</tr>
+<tr>
+<td>rightTitle</td>
+<td><code>string</code></td>
+<td><code>undefined</code></td>
+<td>Column title for right section of the diff in split view. This will be ignored in inline view.</td>
+</tr>
+<tr>
+<td>linesOffset</td>
+<td><code>number</code></td>
+<td><code>0</code></td>
+<td>Number to start count code lines from.</td>
+</tr>
+</tbody></table>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2020/09/18/DiffView/" data-id="ckfdozdl10000cwt0fak8e8ja" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/React/" rel="tag">React</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2020/09/22/%E6%96%87%E6%9C%AC%E5%A4%8D%E5%88%B6/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          在react中实现文本复制
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2020/09/18/css%E6%96%87%E6%9C%AC%E8%B6%85%E5%87%BA%E8%87%AA%E5%8A%A8%E6%8D%A2%E8%A1%8C/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">css文本超出自动换行</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Git%E5%91%BD%E4%BB%A4/">Git命令</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Honey/">Honey</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/NPM/">NPM</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/React/">React</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/css/">css</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Honey/" rel="tag">Honey</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/React/" rel="tag">React</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css/" rel="tag">css</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/" rel="tag">git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/love/" rel="tag">love</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/npm/" rel="tag">npm</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Honey/" style="font-size: 10px;">Honey</a> <a href="/tags/React/" style="font-size: 20px;">React</a> <a href="/tags/css/" style="font-size: 10px;">css</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/love/" style="font-size: 10px;">love</a> <a href="/tags/npm/" style="font-size: 10px;">npm</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/09/">September 2020</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2020/09/22/%E6%96%87%E6%9C%AC%E5%A4%8D%E5%88%B6/">在react中实现文本复制</a>
+          </li>
+        
+          <li>
+            <a href="/2020/09/18/DiffView/">DiffView</a>
+          </li>
+        
+          <li>
+            <a href="/2020/09/18/css%E6%96%87%E6%9C%AC%E8%B6%85%E5%87%BA%E8%87%AA%E5%8A%A8%E6%8D%A2%E8%A1%8C/">css文本超出自动换行</a>
+          </li>
+        
+          <li>
+            <a href="/2020/09/14/love/">love</a>
+          </li>
+        
+          <li>
+            <a href="/2020/09/04/React-antd-ImportExcel/">React-antd-ImportExcel</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2020 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>
