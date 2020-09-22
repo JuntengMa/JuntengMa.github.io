@@ -476,9 +476,11 @@ git rm xxx 除某文件</code></pre>
       </tags>
   </entry>
   <entry>
-    <title>Little Baby</title>
+    <title>Honey</title>
     <url>/2020/09/01/honey/</url>
-    <content><![CDATA[<h2 id="光洙光洙"><a href="#光洙光洙" class="headerlink" title="光洙光洙"></a>光洙光洙</h2><h4 id="想你了哟"><a href="#想你了哟" class="headerlink" title="想你了哟~"></a>想你了哟~</h4>]]></content>
+    <content><![CDATA[<center>"光洙宝贝😏😏😏"</center>
+<center>"想你了哟~"</center>
+]]></content>
       <categories>
         <category>Honey</category>
       </categories>
@@ -608,20 +610,6 @@ git rm xxx 除某文件</code></pre>
       </categories>
       <tags>
         <tag>Npm</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>css文本超出自动换行</title>
-    <url>/2020/09/18/css%E6%96%87%E6%9C%AC%E8%B6%85%E5%87%BA%E8%87%AA%E5%8A%A8%E6%8D%A2%E8%A1%8C/</url>
-    <content><![CDATA[<pre><code class="css">word-wrap:break-word; 
-word-break:break-all; 
-overflow: hidden;/*这个参数根据需要来绝对要不要*/</code></pre>
-]]></content>
-      <categories>
-        <category>Css</category>
-      </categories>
-      <tags>
-        <tag>Css</tag>
       </tags>
   </entry>
   <entry>
@@ -765,7 +753,7 @@ require(&#39;echarts/lib/component/title&#39;);</code></pre>
         &#125;);
     &#125;</code></pre>
 <h4 id="4-DOM部分"><a href="#4-DOM部分" class="headerlink" title="4.DOM部分"></a>4.DOM部分</h4><pre><code class="html">&lt;div id=&quot;trend&quot; style=&#123;&#123; height: 300 &#125;&#125;&gt;&lt;/div&gt;</code></pre>
-<h4 id="5-效果图"><a href="#5-效果图" class="headerlink" title="5.效果图"></a>5.效果图</h4><p><img src="https://upload-images.jianshu.io/upload_images/19974470-dc9848f60d0a15d3.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240"></p>
+<h4 id="5-效果图"><a href="#5-效果图" class="headerlink" title="5.效果图"></a>5.效果图</h4><p><img src="https://cdn.jsdelivr.net/gh/JuntengMa/Images@1.1/blog/echats.jpg"></p>
 ]]></content>
       <categories>
         <category>React</category>
@@ -786,5 +774,39 @@ require(&#39;echarts/lib/component/title&#39;);</code></pre>
       <tags>
         <tag>Js</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>css文本超出自动换行</title>
+    <url>/2020/09/18/Css%E6%96%87%E6%9C%AC%E8%B6%85%E5%87%BA%E8%87%AA%E5%8A%A8%E6%8D%A2%E8%A1%8C/</url>
+    <content><![CDATA[<pre><code class="css">word-wrap:break-word; 
+word-break:break-all; 
+overflow: hidden;/*这个参数根据需要来绝对要不要*/</code></pre>
+]]></content>
+      <categories>
+        <category>Css</category>
+      </categories>
+      <tags>
+        <tag>Css</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title></title>
+    <url>//honey.html</url>
+    <content><![CDATA[<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title></title>
+</head>
+
+<body>
+ <iframe id="inlineFrameExample" title="Inline Frame Example" width="300" height="200"
+   src="https://www.openstreetmap.org/export/embed.html?bbox=-0.004017949104309083%2C51.47612752641776%2C0.00030577182769775396%2C51.478569861898606&layer=mapnik">
+ </iframe>
+</body>
+
+</html>
+]]></content>
   </entry>
 </search>
