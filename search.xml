@@ -809,4 +809,78 @@ overflow: hidden;/*这个参数根据需要来绝对要不要*/</code></pre>
 </html>
 ]]></content>
   </entry>
+  <entry>
+    <title>富文本框</title>
+    <url>/2020/09/24/richText/</url>
+    <content><![CDATA[<h2 id="富文本编辑器"><a href="#富文本编辑器" class="headerlink" title="富文本编辑器"></a>富文本编辑器</h2><p><a href="https://www.yuque.com/braft-editor/be/gz44tn#wx1vkv">https://www.yuque.com/braft-editor/be/gz44tn#wx1vkv</a></p>
+<pre><code>import React, &#123; Component &#125; from &#39;react&#39;;
+// 引入编辑器组件
+
+import BraftEditor from &#39;braft-editor&#39;;
+// 引入编辑器样式
+import &#39;braft-editor/dist/index.css&#39;;
+
+import &#123; UploadFn &#125; from &#39;./UploadFn&#39;;
+
+export class RichText extends Component &#123;
+    constructor() &#123;
+        super();
+        this.state = &#123;
+            editorState: BraftEditor.createEditorState(null),
+        &#125;;
+        RichText.submitContent = this.submitContent.bind(this);
+    &#125;
+
+    async componentDidMount() &#123;
+        // 假设此处从服务端获取html格式的编辑器内容
+        let htmlContent = this.props.htmlContent || null;
+        // 使用BraftEditor.createEditorState将html字符串转换为编辑器需要的editorStat
+        this.setState(&#123;
+            editorState: BraftEditor.createEditorState(htmlContent),
+        &#125;);
+    &#125;
+
+    componentWillReceiveProps(nextProps) &#123;
+        if (nextProps.htmlContent !== this.state.htmlContent) &#123;
+            this.setState(&#123;
+                editorState: BraftEditor.createEditorState(nextProps.htmlContent),
+            &#125;);
+        &#125;
+    &#125;
+
+    submitContent = async () =&gt; &#123;
+        // 在编辑器获得焦点时按下ctrl+s会执行此方法
+        // 编辑器内容提交到服务端之前，可直接调用editorState.toHTML()来获取HTML格式的内容
+        const htmlContent = this.state.editorState.toHTML();
+        return htmlContent;
+    &#125;;
+
+    handleEditorChange = editorState =&gt; &#123;
+        this.setState(&#123; editorState &#125;);
+    &#125;;
+
+    render() &#123;
+        return (
+            &lt;BraftEditor
+                value=&#123;this.state.editorState&#125;
+                onChange=&#123;this.handleEditorChange&#125;
+                onSave=&#123;this.submitContent&#125;
+                onBlur=&#123;() =&gt; &#123;
+                    const htmlContent = this.state.editorState.toHTML();
+                &#125;&#125;
+                // excludeControls=&#123;[&#39;options&#39;]&#125;
+                media=&#123;&#123; uploadFn: UploadFn &#125;&#125;
+            /&gt;
+        );
+    &#125;
+&#125;
+</code></pre>
+]]></content>
+      <categories>
+        <category>React</category>
+      </categories>
+      <tags>
+        <tag>React</tag>
+      </tags>
+  </entry>
 </search>
