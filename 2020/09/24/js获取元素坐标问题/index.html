@@ -4,7 +4,7 @@
 
 <head>
   
-  <title>React-antd-exportExcel - June&#39;s Blog</title>
+  <title>JS获取元素位置 - June&#39;s Blog</title>
   <meta charset="UTF-8">
   <meta name="description" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
@@ -12,21 +12,21 @@
   
 
   <link rel="shortcut icon" href="/favicon.ico" type="image/png" />
-  <meta name="description" content="“基于 XLSX 封装的 excel 导出组件”">
+  <meta name="description" content="js获取元素相对于父级元素的高度1. offsetLeft 、offsetTopoffsetLeft&#x2F;offsetTop -  用于获取子元素相对于父元素的位移（左位移、上位移） 2. offsetWidth、offsetHeightoffsetWidth&#x2F;offsetHeight - 用于获取元素的可见宽度和可见高度 3. clientX 、clientY用于获取鼠标坐标（相对于页面的坐标） v">
 <meta property="og:type" content="article">
-<meta property="og:title" content="React-antd-exportExcel">
-<meta property="og:url" content="https://juntengma.github.io/2020/09/04/React-antd-exportExcel/index.html">
+<meta property="og:title" content="JS获取元素位置">
+<meta property="og:url" content="https://juntengma.github.io/2020/09/24/js%E8%8E%B7%E5%8F%96%E5%85%83%E7%B4%A0%E5%9D%90%E6%A0%87%E9%97%AE%E9%A2%98/index.html">
 <meta property="og:site_name" content="June&#39;s Blog">
-<meta property="og:description" content="“基于 XLSX 封装的 excel 导出组件”">
+<meta property="og:description" content="js获取元素相对于父级元素的高度1. offsetLeft 、offsetTopoffsetLeft&#x2F;offsetTop -  用于获取子元素相对于父元素的位移（左位移、上位移） 2. offsetWidth、offsetHeightoffsetWidth&#x2F;offsetHeight - 用于获取元素的可见宽度和可见高度 3. clientX 、clientY用于获取鼠标坐标（相对于页面的坐标） v">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2020-09-04T01:58:01.000Z">
-<meta property="article:modified_time" content="2020-09-22T12:07:48.986Z">
+<meta property="article:published_time" content="2020-09-24T11:52:43.097Z">
+<meta property="article:modified_time" content="2020-09-24T11:56:37.119Z">
 <meta property="article:author" content="June">
-<meta property="article:tag" content="React">
+<meta property="article:tag" content="Js">
 <meta name="twitter:card" content="summary">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/combine/gh/nexmoe/nexmoe.github.io@latest/css/style.css,npm/highlight.js@9.15.8/styles/atom-one-dark.css,gh/nexmoe/nexmoe.github.io@latest/lib/mdui_043tiny/css/mdui.css,gh/nexmoe/nexmoe.github.io@latest/lib/iconfont/iconfont.css" crossorigin>
   
-  <!--<link rel="stylesheet" href="../../../../css/style.css?v=1600948607474">-->
+  <!--<link rel="stylesheet" href="../../../../css/style.css?v=1600948607449">-->
 
   
 <meta name="generator" content="Hexo 5.2.0"><link rel="alternate" href="atom.xml" title="June's Blog" type="application/atom+xml">
@@ -158,11 +158,11 @@
       <ul>
         
           <li>
-            <a href="../../24/js%E8%8E%B7%E5%8F%96%E5%85%83%E7%B4%A0%E5%9D%90%E6%A0%87%E9%97%AE%E9%A2%98/">🌭 JS获取元素位置</a>
+            <a href="">🌭 JS获取元素位置</a>
           </li>
         
           <li>
-            <a href="../../24/richText/">🌭 富文本框</a>
+            <a href="../richText/">🌭 富文本框</a>
           </li>
         
           <li>
@@ -191,15 +191,15 @@
         <div class="nexmoe-post">
   
       <div class="nexmoe-post-cover" style="padding-bottom: 66.66666666666666%;"> 
-          <img data-src="https://cdn.jsdelivr.net/gh/nexmoe/nexmoe.github.io@latest/images/cover/5c3aec85a4343.jpg" data-sizes="auto" alt="React-antd-exportExcel" class="lazyload">
-          <h1>React-antd-exportExcel</h1>
+          <img data-src="https://cdn.jsdelivr.net/gh/nexmoe/nexmoe.github.io@latest/images/cover/5c3aec85a4343.jpg" data-sizes="auto" alt="JS获取元素位置" class="lazyload">
+          <h1>JS获取元素位置</h1>
       </div>
   
   
   <div class="nexmoe-post-meta nexmoe-rainbow" style="margin:10px 0!important;">
-    <a><i class="nexmoefont icon-calendar-fill"></i>2020年09月04日</a>
-    <a><i class="nexmoefont icon-areachart"></i>474 字</a>
-    <a><i class="nexmoefont icon-time-circle-fill"></i>大概 2 分钟</a>
+    <a><i class="nexmoefont icon-calendar-fill"></i>2020年09月24日</a>
+    <a><i class="nexmoefont icon-areachart"></i>151 字</a>
+    <a><i class="nexmoefont icon-time-circle-fill"></i>大概 1 分钟</a>
 </div>
 
   <div class="nexmoe-post-right">
@@ -208,7 +208,7 @@
         <div class="nexmoe-valign" style="position:relative">
             <div class="nexmoe-toc">
               Toc
-                <!--  -->
+                <!-- <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#js%E8%8E%B7%E5%8F%96%E5%85%83%E7%B4%A0%E7%9B%B8%E5%AF%B9%E4%BA%8E%E7%88%B6%E7%BA%A7%E5%85%83%E7%B4%A0%E7%9A%84%E9%AB%98%E5%BA%A6"><span class="toc-number">1.</span> <span class="toc-text">js获取元素相对于父级元素的高度</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-offsetLeft-%E3%80%81offsetTop"><span class="toc-number">1.0.1.</span> <span class="toc-text">1. offsetLeft 、offsetTop</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-offsetWidth%E3%80%81offsetHeight"><span class="toc-number">1.0.2.</span> <span class="toc-text">2. offsetWidth、offsetHeight</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-clientX-%E3%80%81clientY"><span class="toc-number">1.0.3.</span> <span class="toc-text">3. clientX 、clientY</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-offsetLeft%E4%B8%8Estyle-left%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="toc-number">1.0.4.</span> <span class="toc-text">4.offsetLeft与style.left的区别</span></a></li></ol></li></ol></li></ol> -->
             </div>
         </div>
       </div>
@@ -216,159 +216,33 @@
   </div>
 
   <article>
-    <pre><code class="js">import * as React from &quot;react&quot;
-
-import * as XLSX from &quot;xlsx&quot;
-
-import &#123; Button, Icon &#125; from &quot;antd&quot;
-
-export interface ExportExcelProps &#123;
-  notice: string;
-  fileName: string;
-  headers: string[] | Function; //表头
-  getExportData: Function;
-&#125;
-
-export class ExportExcel extends React.Component&lt;ExportExcelProps, any&gt; &#123;
-  handleExport = async () =&gt; &#123;
-    const &#123; headers, fileName &#125; = this.props
-    //这里是获取导出数据的函数
-    const exportData = await this.props.getExportData()
-
-    this.exportExcel(headers, exportData, fileName)
-  &#125;
-
-  exportExcel(headers, data, fileName) &#123;
-    const _headers = headers
-      .map((item, i) =&gt;
-        Object.assign(
-          &#123;&#125;,
-          &#123;
-            key: item.key,
-            title: item.title,
-            position: String.fromCharCode(65 + i) + 1,
-          &#125;
-        )
-      )
-      .reduce(
-        (prev, next) =&gt;
-          Object.assign(&#123;&#125;, prev, &#123;
-            [next.position]: &#123; key: next.key, v: next.title &#125;,
-          &#125;),
-        &#123;&#125;
-      )
-
-    const _data = data
-      .map((item, i) =&gt;
-        headers.map((key, j) =&gt;
-          Object.assign(
-            &#123;&#125;,
-            &#123;
-              content: item[key.key],
-              position: String.fromCharCode(65 + j) + (i + 2),
-            &#125;
-          )
-        )
-      )
-      // 对刚才的结果进行降维处理（二维数组变成一维数组）
-      .reduce((prev, next) =&gt; prev.concat(next))
-      // 转换成 worksheet 需要的结构
-      .reduce(
-        (prev, next) =&gt;
-          Object.assign(&#123;&#125;, prev, &#123; [next.position]: &#123; v: next.content &#125; &#125;),
-        &#123;&#125;
-      )
-
-    // 合并 headers 和 data
-    const output = Object.assign(&#123;&#125;, _headers, _data)
-    // 获取所有单元格的位置
-    const outputPos = Object.keys(output)
-    // 计算出范围 ,[&quot;A1&quot;,..., &quot;H2&quot;]
-    const ref = `$&#123;outputPos[0]&#125;:$&#123;outputPos[outputPos.length - 1]&#125;`
-
-    // 构建 workbook 对象
-    const wb = &#123;
-      SheetNames: [&quot;mySheet&quot;],
-      Sheets: &#123;
-        mySheet: Object.assign(
-          &#123;&#125;,
-          output, //列宽
-          &#123;
-            &quot;!ref&quot;: ref,
-            &quot;!cols&quot;: [
-              &#123; wpx: 150 &#125;,
-              &#123; wpx: 150 &#125;,
-              &#123; wpx: 150 &#125;,
-              &#123; wpx: 150 &#125;,
-              &#123; wpx: 150 &#125;,
-              &#123; wpx: 150 &#125;,
-              &#123; wpx: 150 &#125;,
-              &#123; wpx: 150 &#125;,
-            ],
-          &#125;
-        ),
-      &#125;,
-    &#125;
-    // 导出 Excel
-    XLSX.writeFile(wb, `$&#123;fileName&#125;.xlsx`)
-  &#125;
-  render() &#123;
-    const &#123; notice &#125; = this.props
-    return (
-      &lt;Button type=&quot;primary&quot; onClick=&#123;() =&gt; this.handleExport()&#125;&gt;
-        &#123;notice&#125;
-        &lt;Icon type=&quot;download&quot; /&gt;
-      &lt;/Button&gt;
-    )
-  &#125;
-&#125;</code></pre>
-<p>使用</p>
-<pre><code class="js">&lt;ExportExcel
-  notice=&quot;Excel导出&quot;
-  fileName=&quot;test&quot;
-  headers=&#123;initColumn&#125;
-  getExportData=&#123;exportData&#125;
-/&gt;</code></pre>
-<p>示例表头&amp;数据：</p>
-<pre><code class="js">header=[
-    &#123;
-        title: 姓名,
-        dataIndex: name,
-        key: name,
-    &#125;,
-    &#123;
-        title: 性别,
-        dataIndex: sex,
-        key: sex,
-    &#125;,
-    &#123;
-        title: 年龄,
-        dataIndex: age,
-        key: age,
-    &#125;,
-]
-
-exportData=[
-    &#123;
-    name:&#39;小明&#39;，
-    sex:&#39;男&#39;，
-    age:18
-    &#125;,
-    &#123;
-    name:&#39;小张&#39;，
-    sex:&#39;女&#39;，
-    age:20
-    &#125;
-]</code></pre>
+    <h2 id="js获取元素相对于父级元素的高度"><a href="#js获取元素相对于父级元素的高度" class="headerlink" title="js获取元素相对于父级元素的高度"></a>js获取元素相对于父级元素的高度</h2><h4 id="1-offsetLeft-、offsetTop"><a href="#1-offsetLeft-、offsetTop" class="headerlink" title="1. offsetLeft 、offsetTop"></a>1. offsetLeft 、offsetTop</h4><p>offsetLeft/offsetTop -  用于获取子元素相对于父元素的位移（左位移、上位移）</p>
+<h4 id="2-offsetWidth、offsetHeight"><a href="#2-offsetWidth、offsetHeight" class="headerlink" title="2. offsetWidth、offsetHeight"></a>2. offsetWidth、offsetHeight</h4><p>offsetWidth/offsetHeight - 用于获取元素的可见宽度和可见高度</p>
+<h4 id="3-clientX-、clientY"><a href="#3-clientX-、clientY" class="headerlink" title="3. clientX 、clientY"></a>3. clientX 、clientY</h4><p>用于获取鼠标坐标（相对于页面的坐标）</p>
+<p>var event = event || window.event;</p>
+<ul>
+<li>event.clientX</li>
+<li>event.clientY</li>
+</ul>
+<h4 id="4-offsetLeft与style-left的区别"><a href="#4-offsetLeft与style-left的区别" class="headerlink" title="4.offsetLeft与style.left的区别"></a>4.offsetLeft与style.left的区别</h4><ol>
+<li>    style.left返回的是字符串      //30px</li>
+</ol>
+<p>       offsetLeft返回的是数值        //30</p>
+<ol start="2">
+<li>    style.left可读可写</li>
+</ol>
+<p>       offsetLeft只读</p>
+<p>3.     style.left的值需事先定义，否则取到的值为空</p>
+<p>       offsetLeft不需提前定义，直接获取</p>
 
   </article>
 
   <div class="nexmoe-post-meta nexmoe-rainbow">
     
-        <a class="nexmoefont icon-appstore-fill -link" href="../../../../categories/React/">React</a>
+        <a class="nexmoefont icon-appstore-fill -link" href="../../../../categories/Js/">Js</a>
     
     
-        <a class="nexmoefont icon-tag-fill -none-link" href="../../../../tags/React/" rel="tag">React</a>
+        <a class="nexmoefont icon-tag-fill -none-link" href="../../../../tags/Js/" rel="tag">Js</a>
     
 </div>
 
@@ -377,7 +251,7 @@ exportData=[
       
   <div class="nexmoe-post-copyright">
     <strong>本文作者：</strong>June<br>
-    <strong>本文链接：</strong><a href="../../../../https:/juntengma.github.io/2020/09/04/React-antd-exportExcel/" title="https:&#x2F;&#x2F;juntengma.github.io&#x2F;2020&#x2F;09&#x2F;04&#x2F;React-antd-exportExcel&#x2F;" target="_blank" rel="noopener">https:&#x2F;&#x2F;juntengma.github.io&#x2F;2020&#x2F;09&#x2F;04&#x2F;React-antd-exportExcel&#x2F;</a><br>
+    <strong>本文链接：</strong><a href="../../../../https:/juntengma.github.io/2020/09/24/js%E8%8E%B7%E5%8F%96%E5%85%83%E7%B4%A0%E5%9D%90%E6%A0%87%E9%97%AE%E9%A2%98/" title="https:&#x2F;&#x2F;juntengma.github.io&#x2F;2020&#x2F;09&#x2F;24&#x2F;js%E8%8E%B7%E5%8F%96%E5%85%83%E7%B4%A0%E5%9D%90%E6%A0%87%E9%97%AE%E9%A2%98&#x2F;" target="_blank" rel="noopener">https:&#x2F;&#x2F;juntengma.github.io&#x2F;2020&#x2F;09&#x2F;24&#x2F;js%E8%8E%B7%E5%8F%96%E5%85%83%E7%B4%A0%E5%9D%90%E6%A0%87%E9%97%AE%E9%A2%98&#x2F;</a><br>
     
       <strong>版权声明：</strong>本文采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/cn/deed.zh" target="_blank">CC BY-NC-SA 3.0 CN</a> 协议进行许可
     
@@ -422,7 +296,7 @@ exportData=[
 <script>
 
   $('.nexmoe-toc').hover(function () {
-      $('.nexmoe-toc').html(``)
+      $('.nexmoe-toc').html(`<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#js%E8%8E%B7%E5%8F%96%E5%85%83%E7%B4%A0%E7%9B%B8%E5%AF%B9%E4%BA%8E%E7%88%B6%E7%BA%A7%E5%85%83%E7%B4%A0%E7%9A%84%E9%AB%98%E5%BA%A6"><span class="toc-number">1.</span> <span class="toc-text">js获取元素相对于父级元素的高度</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-offsetLeft-%E3%80%81offsetTop"><span class="toc-number">1.0.1.</span> <span class="toc-text">1. offsetLeft 、offsetTop</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-offsetWidth%E3%80%81offsetHeight"><span class="toc-number">1.0.2.</span> <span class="toc-text">2. offsetWidth、offsetHeight</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-clientX-%E3%80%81clientY"><span class="toc-number">1.0.3.</span> <span class="toc-text">3. clientX 、clientY</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-offsetLeft%E4%B8%8Estyle-left%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="toc-number">1.0.4.</span> <span class="toc-text">4.offsetLeft与style.left的区别</span></a></li></ol></li></ol></li></ol>`)
       $('.nexmoe-toc').css({'margin-right':0})
     }, function () {
       $('.nexmoe-toc').html(`Toc`)
@@ -434,7 +308,7 @@ exportData=[
   </div>
   <script src="https://cdn.jsdelivr.net/combine/npm/lazysizes@5.1.0/lazysizes.min.js,gh/highlightjs/cdn-release@9.15.8/build/highlight.min.js,npm/mdui@0.4.3/dist/js/mdui.min.js,gh/nexmoe/nexmoe.github.io@latest/js/app.js"></script>
 <script>hljs.initHighlightingOnLoad();</script>
-<!--<script src="../../../../js/app.js?v=1600948607475"></script>-->
+<!--<script src="../../../../js/app.js?v=1600948607451"></script>-->
 
 
 

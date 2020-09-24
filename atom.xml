@@ -6,7 +6,7 @@
   <link href="https://juntengma.github.io/atom.xml" rel="self"/>
   
   <link href="https://juntengma.github.io/"/>
-  <updated>2020-09-24T01:45:17.334Z</updated>
+  <updated>2020-09-24T11:56:37.119Z</updated>
   <id>https://juntengma.github.io/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>JS获取元素位置</title>
+    <link href="https://juntengma.github.io/2020/09/24/js%E8%8E%B7%E5%8F%96%E5%85%83%E7%B4%A0%E5%9D%90%E6%A0%87%E9%97%AE%E9%A2%98/"/>
+    <id>https://juntengma.github.io/2020/09/24/js%E8%8E%B7%E5%8F%96%E5%85%83%E7%B4%A0%E5%9D%90%E6%A0%87%E9%97%AE%E9%A2%98/</id>
+    <published>2020-09-24T11:52:43.097Z</published>
+    <updated>2020-09-24T11:56:37.119Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="js获取元素相对于父级元素的高度"><a href="#js获取元素相对于父级元素的高度" class="headerlink" title="js获取元素相对于父级元素的高度"></a>js获取元素相对于父级元素的高度</h2><h4 id="1-offsetLeft-、offsetTop"><a href="#1-offsetLeft-、offsetTop" class="headerlink" title="1. offsetLeft 、offsetTop"></a>1. offsetLeft 、offsetTop</h4><p>offsetLeft/offsetTop -  用于获取子元素相对于父元素的位移（左位移、上位移）</p><h4 id="2-offsetWidth、offsetHeight"><a href="#2-offsetWidth、offsetHeight" class="headerlink" title="2. offsetWidth、offsetHeight"></a>2. offsetWidth、offsetHeight</h4><p>offsetWidth/offsetHeight - 用于获取元素的可见宽度和可见高度</p><h4 id="3-clientX-、clientY"><a href="#3-clientX-、clientY" class="headerlink" title="3. clientX 、clientY"></a>3. clientX 、clientY</h4><p>用于获取鼠标坐标（相对于页面的坐标）</p><p>var event = event || window.event;</p><ul><li>event.clientX</li><li>event.clientY</li></ul><h4 id="4-offsetLeft与style-left的区别"><a href="#4-offsetLeft与style-left的区别" class="headerlink" title="4.offsetLeft与style.left的区别"></a>4.offsetLeft与style.left的区别</h4><ol><li>    style.left返回的是字符串      //30px</li></ol><p>       offsetLeft返回的是数值        //30</p><ol start="2"><li>    style.left可读可写</li></ol><p>       offsetLeft只读</p><p>3.     style.left的值需事先定义，否则取到的值为空</p><p>       offsetLeft不需提前定义，直接获取</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h2 id=&quot;js获取元素相对于父级元素的高度&quot;&gt;&lt;a href=&quot;#js获取元素相对于父级元素的高度&quot; class=&quot;headerlink&quot; title=&quot;js获取元素相对于父级元素的高度&quot;&gt;&lt;/a&gt;js获取元素相对于父级元素的高度&lt;/h2&gt;&lt;h4 id=&quot;1-offsetL</summary>
+      
+    
+    
+    
+    <category term="Js" scheme="https://juntengma.github.io/categories/Js/"/>
+    
+    
+    <category term="Js" scheme="https://juntengma.github.io/tags/Js/"/>
+    
+  </entry>
   
   <entry>
     <title>富文本框</title>
