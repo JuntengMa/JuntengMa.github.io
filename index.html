@@ -21,7 +21,7 @@
 <meta name="twitter:card" content="summary">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/combine/gh/nexmoe/nexmoe.github.io@latest/css/style.css,npm/highlight.js@9.15.8/styles/atom-one-dark.css,gh/nexmoe/nexmoe.github.io@latest/lib/mdui_043tiny/css/mdui.css,gh/nexmoe/nexmoe.github.io@latest/lib/iconfont/iconfont.css" crossorigin>
   
-  <!--<link rel="stylesheet" href="css/style.css?v=1600948685198">-->
+  <!--<link rel="stylesheet" href="css/style.css?v=1600948893048">-->
 
   
 <meta name="generator" content="Hexo 5.2.0"><link rel="alternate" href="atom.xml" title="June's Blog" type="application/atom+xml">
@@ -453,7 +453,7 @@ git rm xxx 除某文件</code></pre>
 
         <div class="nexmoe-post-meta nexmoe-rainbow">
             <a><i class="nexmoefont icon-calendar-fill"></i>2020年09月24日</a>
-            <a><i class="nexmoefont icon-areachart"></i>677 字</a>
+            <a><i class="nexmoefont icon-areachart"></i>676 字</a>
             <a><i class="nexmoefont icon-time-circle-fill"></i>大概 3 分钟</a>
         </div>
 
@@ -468,15 +468,22 @@ git rm xxx 除某文件</code></pre>
 <li>event.clientY</li>
 </ul>
 <h4 id="4-offsetLeft与style-left的区别"><a href="#4-offsetLeft与style-left的区别" class="headerlink" title="4.offsetLeft与style.left的区别"></a>4.offsetLeft与style.left的区别</h4><ol>
-<li>    style.left返回的是字符串      //30px</li>
+<li>    <ul>
+<li>style.left返回的是字符串      //30px</li>
+<li>offsetLeft返回的是数值        //30</li>
+</ul>
+</li>
+<li>    <ul>
+<li>style.left可读可写</li>
+<li>offsetLeft只读</li>
+</ul>
+</li>
+<li>     <ul>
+<li>style.left的值需事先定义，否则取到的值为空</li>
+<li>offsetLeft不需提前定义，直接获取</li>
+</ul>
+</li>
 </ol>
-<p>       offsetLeft返回的是数值        //30</p>
-<ol start="2">
-<li>    style.left可读可写</li>
-</ol>
-<p>       offsetLeft只读</p>
-<p>3.     style.left的值需事先定义，否则取到的值为空</p>
-<p>       offsetLeft不需提前定义，直接获取</p>
 <h4 id="5-兼容问题"><a href="#5-兼容问题" class="headerlink" title="5.兼容问题"></a>5.兼容问题</h4><pre><code>chrome：
 
 e.pageX——相对整个页面的坐标
@@ -878,7 +885,7 @@ ReactDOM.render(&lt;App /&gt;, appRoot);
   </div>
   <script src="https://cdn.jsdelivr.net/combine/npm/lazysizes@5.1.0/lazysizes.min.js,gh/highlightjs/cdn-release@9.15.8/build/highlight.min.js,npm/mdui@0.4.3/dist/js/mdui.min.js,gh/nexmoe/nexmoe.github.io@latest/js/app.js"></script>
 <script>hljs.initHighlightingOnLoad();</script>
-<!--<script src="js/app.js?v=1600948685199"></script>-->
+<!--<script src="js/app.js?v=1600948893049"></script>-->
 
 
 
