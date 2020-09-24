@@ -1,915 +1,339 @@
 <?xml version="1.0" encoding="utf-8"?>
-<search>
-  <entry>
-    <title>git命令</title>
-    <url>/2020/09/02/git%E5%91%BD%E4%BB%A4/</url>
-    <content><![CDATA[<h1 id="GIT-常用命令"><a href="#GIT-常用命令" class="headerlink" title="GIT 常用命令"></a>GIT 常用命令</h1><h2 id="01-初始配置"><a href="#01-初始配置" class="headerlink" title="01 - 初始配置"></a>01 - 初始配置</h2><pre><code>- git init 初始化本地git仓库（创建新仓库）
-
-- git config --global user.name &quot;xxx&quot; 配置用户名
-
-- git config --global user.email &quot;xxx@xxx.com&quot; 配置用户邮箱
-
-- git clone &quot;git链接&quot; 克隆git仓库到本地
-
-- git status 查看当前在哪个分支</code></pre>
-<h2 id="02-开发完毕将要上传代码仓库操作"><a href="#02-开发完毕将要上传代码仓库操作" class="headerlink" title="02 - 开发完毕将要上传代码仓库操作"></a>02 - 开发完毕将要上传代码仓库操作</h2><pre><code>git add .  增加当前子目录下所有更改过的文件至index
-
-git commit -m &quot;xxx&quot; 提交
-
-git push 推送改动到远端</code></pre>
-<h2 id="03-新建分支操作"><a href="#03-新建分支操作" class="headerlink" title="03 - 新建分支操作"></a>03 - 新建分支操作</h2><pre><code>git branch &lt;分支名&gt; 创建新分支
-
-git checkout &lt;分支名&gt; 切换到该分支
-
-git push 如果是新建分支，push的时候需要跟远端仓库关联，一般会提示 git push --set-upstream 你的分支名 ， 复制提示信息并执行</code></pre>
-<h2 id="04-合并分支操作"><a href="#04-合并分支操作" class="headerlink" title="04 - 合并分支操作"></a>04 - 合并分支操作</h2><pre><code>git pull origin master 多人协作，以防master已更新，本地代码版本没有更新，先同步一下master代码，以防产生合并冲突
-
-git checkout master 先切换到主分支再合并
-
-git merge &lt;需要合并到master上的分支名&gt; 合并某一个分支到该分支</code></pre>
-<h2 id="05-删除本地，远程分支"><a href="#05-删除本地，远程分支" class="headerlink" title="05 - 删除本地，远程分支"></a>05 - 删除本地，远程分支</h2><pre><code>- git branch -d &lt;分支名&gt; 删除本地某一分支
-
-- git push origin --delete &lt;分支名&gt; 删除远端分支</code></pre>
-<h2 id="06-版本回退"><a href="#06-版本回退" class="headerlink" title="06 - 版本回退"></a>06 - 版本回退</h2><pre><code>- git log 查看提交历史和commit 标记
-
-- git reset --hard &lt;commit 后面的字符串&gt; 将代码回退到某一版本
-
-- git push -f 远端仓库版本高于本地版本，需要强制推送上去</code></pre>
-<h2 id="07-取消所有本地修改"><a href="#07-取消所有本地修改" class="headerlink" title="07 - 取消所有本地修改"></a>07 - 取消所有本地修改</h2><pre><code>git checkout .</code></pre>
-<h2 id="09-查看修改"><a href="#09-查看修改" class="headerlink" title="09 - 查看修改"></a>09 - 查看修改</h2><pre><code>git show &lt;commit日志&gt;  显示详细更改</code></pre>
-<h2 id="10-其他命令"><a href="#10-其他命令" class="headerlink" title="10 - 其他命令"></a>10 - 其他命令</h2><pre><code>git pull 从当前分支远端拉取代码
-
-git pull origin &lt;分支名&gt; 拉取某一分支的代码并合并到当前分支
-
-git branch 显示远程仓库分支
-
-git branch -a 显示所有分支
-
-git branch --merged 显示所有已合并到当前分支的分支
-
-git branch --no-merged 显示所有未合并到当前分支的分支
-
-git push origin master 推送到主分支
-
-git pull origin &lt;分支名&gt; 拉取远程分支合并到当前分支
-
-git log 显示提交日志
-
-git diff 显示所有变更
-
-git diff HEAD^ 显示与上个版本的差异
-
-git rm xxx 除某文件</code></pre>
-]]></content>
+<search> 
+  
+  
+    
+    <entry>
+      <title>JS获取元素位置</title>
+      <link href="2020/09/24/js%E8%8E%B7%E5%8F%96%E5%85%83%E7%B4%A0%E5%9D%90%E6%A0%87%E9%97%AE%E9%A2%98/"/>
+      <url>2020/09/24/js%E8%8E%B7%E5%8F%96%E5%85%83%E7%B4%A0%E5%9D%90%E6%A0%87%E9%97%AE%E9%A2%98/</url>
+      
+        <content type="html"><![CDATA[<h2 id="js获取元素相对于父级元素的高度"><a href="#js获取元素相对于父级元素的高度" class="headerlink" title="js获取元素相对于父级元素的高度"></a>js获取元素相对于父级元素的高度</h2><h4 id="1-offsetLeft-、offsetTop"><a href="#1-offsetLeft-、offsetTop" class="headerlink" title="1. offsetLeft 、offsetTop"></a>1. offsetLeft 、offsetTop</h4><p>offsetLeft/offsetTop -  用于获取子元素相对于父元素的位移（左位移、上位移）</p><h4 id="2-offsetWidth、offsetHeight"><a href="#2-offsetWidth、offsetHeight" class="headerlink" title="2. offsetWidth、offsetHeight"></a>2. offsetWidth、offsetHeight</h4><p>offsetWidth/offsetHeight - 用于获取元素的可见宽度和可见高度</p><h4 id="3-clientX-、clientY"><a href="#3-clientX-、clientY" class="headerlink" title="3. clientX 、clientY"></a>3. clientX 、clientY</h4><p>用于获取鼠标坐标（相对于页面的坐标）</p><p>var event = event || window.event;</p><ul><li>event.clientX</li><li>event.clientY</li></ul><h4 id="4-offsetLeft与style-left的区别"><a href="#4-offsetLeft与style-left的区别" class="headerlink" title="4.offsetLeft与style.left的区别"></a>4.offsetLeft与style.left的区别</h4><ol><li>    style.left返回的是字符串      //30px</li></ol><p>       offsetLeft返回的是数值        //30</p><ol start="2"><li>    style.left可读可写</li></ol><p>       offsetLeft只读</p><p>3.     style.left的值需事先定义，否则取到的值为空</p><p>       offsetLeft不需提前定义，直接获取</p><h4 id="5-兼容问题"><a href="#5-兼容问题" class="headerlink" title="5.兼容问题"></a>5.兼容问题</h4><pre><code>chrome：e.pageX——相对整个页面的坐标e.layerX——相对当前坐标系的border左上角开始的坐标e.offsetX——相对当前坐标系的border左上角开始的坐标e.clientX——相对可视区域的坐标e.x——相对可视区域的坐标ff：e.pageX——相对整个页面的坐标e.layerX——相对当前坐标系的border左上角开始的坐标e.offsetX——无e.clientX——相对可视区域的坐标e.x——无opera：e.pageX——相对整个页面的坐标e.layerX——无e.offsetX——相对当前坐标系的内容区域左上角开始的坐标e.clientX——相对可视区域的坐标e.x——相对可视区域的坐标safari：（这个和chrome是一样的）e.pageX——相对整个页面的坐标e.layerX——相对当前坐标系的border左上角开始的坐标e.offsetX——相对当前坐标系的border左上角开始的坐标e.clientX——相对可视区域的坐标e.x——相对可视区域的坐标IE9：e.pageX——相对整个页面的坐标e.layerX——相对当前坐标系的border左上角开始的坐标 + 滚动条滚过的距离（这个NB轰轰了····=。=）e.offsetX——相对当前坐标系的内容区域左上角开始的坐标e.clientX——相对可视区域的坐标e.x——相对当前坐标系的border左上角开始IE8：e.pageX——无e.layerX——无e.offsetX——相对当前坐标系的内容区域左上角开始的坐标e.clientX——相对可视区域的坐标e.x——相对当前坐标系的border左上角开始IE7：e.pageX——无e.layerX——无e.offsetX——相对当前坐标系的内容区域左上角开始的坐标e.clientX——相对可视区域的坐标e.x——相对当前坐标系的border左上角开始IE6：e.pageX——无e.layerX——无e.offsetX——相对当前坐标系的内容区域左上角开始的坐标e.clientX——相对可视区域的坐标e.x——相对当前坐标系的border左上角开始</code></pre>]]></content>
+      
+      
       <categories>
-        <category>Git命令</category>
+          
+          <category> Js </category>
+          
       </categories>
-      <tags>
-        <tag>Git</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Honey</title>
-    <url>/2020/09/01/honey/</url>
-    <content><![CDATA[<center>"光洙宝贝😏😏😏"</center>
-<center>"想你了哟~"</center>
-]]></content>
+      
+      
+        <tags>
+            
+            <tag> Js </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>富文本框</title>
+      <link href="2020/09/24/richText/"/>
+      <url>2020/09/24/richText/</url>
+      
+        <content type="html"><![CDATA[<h2 id="富文本编辑器"><a href="#富文本编辑器" class="headerlink" title="富文本编辑器"></a>富文本编辑器</h2><p><a href="https://www.yuque.com/braft-editor/be/gz44tn#wx1vkv">https://www.yuque.com/braft-editor/be/gz44tn#wx1vkv</a></p><pre><code>import React, &#123; Component &#125; from &#39;react&#39;;// 引入编辑器组件import BraftEditor from &#39;braft-editor&#39;;// 引入编辑器样式import &#39;braft-editor/dist/index.css&#39;;import &#123; UploadFn &#125; from &#39;./UploadFn&#39;;export class RichText extends Component &#123;    constructor() &#123;        super();        this.state = &#123;            editorState: BraftEditor.createEditorState(null),        &#125;;        RichText.submitContent = this.submitContent.bind(this);    &#125;    async componentDidMount() &#123;        // 假设此处从服务端获取html格式的编辑器内容        let htmlContent = this.props.htmlContent || null;        // 使用BraftEditor.createEditorState将html字符串转换为编辑器需要的editorStat        this.setState(&#123;            editorState: BraftEditor.createEditorState(htmlContent),        &#125;);    &#125;    componentWillReceiveProps(nextProps) &#123;        if (nextProps.htmlContent !== this.state.htmlContent) &#123;            this.setState(&#123;                editorState: BraftEditor.createEditorState(nextProps.htmlContent),            &#125;);        &#125;    &#125;    submitContent = async () =&gt; &#123;        // 在编辑器获得焦点时按下ctrl+s会执行此方法        // 编辑器内容提交到服务端之前，可直接调用editorState.toHTML()来获取HTML格式的内容        const htmlContent = this.state.editorState.toHTML();        return htmlContent;    &#125;;    handleEditorChange = editorState =&gt; &#123;        this.setState(&#123; editorState &#125;);    &#125;;    render() &#123;        return (            &lt;BraftEditor                value=&#123;this.state.editorState&#125;                onChange=&#123;this.handleEditorChange&#125;                onSave=&#123;this.submitContent&#125;                onBlur=&#123;() =&gt; &#123;                    const htmlContent = this.state.editorState.toHTML();                &#125;&#125;                // excludeControls=&#123;[&#39;options&#39;]&#125;                media=&#123;&#123; uploadFn: UploadFn &#125;&#125;            /&gt;        );    &#125;&#125;</code></pre>]]></content>
+      
+      
       <categories>
-        <category>Honey</category>
+          
+          <category> React </category>
+          
       </categories>
-      <tags>
-        <tag>Honey</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Yarn / npm 对比</title>
-    <url>/2020/09/02/yarn-npm%E5%AF%B9%E6%AF%94/</url>
-    <content><![CDATA[<table>
-<thead>
-<tr>
-<th align="left">作用</th>
-<th align="left">npm</th>
-<th align="center">Yarn</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="left">安装</td>
-<td align="left">npm install(i)</td>
-<td align="center">yarn</td>
-</tr>
-<tr>
-<td align="left">卸载</td>
-<td align="left">npm uninstall(un)</td>
-<td align="center">yarn remove</td>
-</tr>
-<tr>
-<td align="left">全局安装</td>
-<td align="left">npm install xxx –global(-g)</td>
-<td align="center">yarn global add xxx</td>
-</tr>
-<tr>
-<td align="left">安装包</td>
-<td align="left">npm install xxx –save(-S)</td>
-<td align="center">yarn add xxx</td>
-</tr>
-<tr>
-<td align="left">开发模式安装包</td>
-<td align="left">npm install xxx –save-dev(-D)</td>
-<td align="center">yarn add xxx –dev(-D)</td>
-</tr>
-<tr>
-<td align="left">更新</td>
-<td align="left">npm update –save</td>
-<td align="center">yarn upgrade</td>
-</tr>
-<tr>
-<td align="left">全局更新</td>
-<td align="left">npm update –global</td>
-<td align="center">yarn global upgrade</td>
-</tr>
-<tr>
-<td align="left">卸载</td>
-<td align="left">npm uninstall [–save/–save-dev]</td>
-<td align="center">yarn remove xx</td>
-</tr>
-<tr>
-<td align="left">清除缓存</td>
-<td align="left">npm cache clean</td>
-<td align="center">yarn cache clean</td>
-</tr>
-<tr>
-<td align="left">重装</td>
-<td align="left">rm -rf node_modules &amp;&amp; npm install</td>
-<td align="center">yarn upgrade</td>
-</tr>
-</tbody></table>
-]]></content>
+      
+      
+        <tags>
+            
+            <tag> React </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title></title>
+      <link href="/honey.html"/>
+      <url>/honey.html</url>
+      
+        <content type="html"><![CDATA[<!DOCTYPE html><html><head>  <meta charset="UTF-8">  <title></title></head><body> <iframe id="inlineFrameExample" title="Inline Frame Example" width="300" height="200"   src="https://www.openstreetmap.org/export/embed.html?bbox=-0.004017949104309083%2C51.47612752641776%2C0.00030577182769775396%2C51.478569861898606&layer=mapnik"> </iframe></body></html>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>一段js代码在浏览器中是如何执行的</title>
+      <link href="2020/09/22/Js-js%E4%BB%A3%E7%A0%81%E5%9C%A8%E6%B5%8F%E8%A7%88%E5%99%A8%E4%B8%AD%E7%9A%84%E6%89%A7%E8%A1%8C%E9%A1%BA%E5%BA%8F/"/>
+      <url>2020/09/22/Js-js%E4%BB%A3%E7%A0%81%E5%9C%A8%E6%B5%8F%E8%A7%88%E5%99%A8%E4%B8%AD%E7%9A%84%E6%89%A7%E8%A1%8C%E9%A1%BA%E5%BA%8F/</url>
+      
+        <content type="html"><![CDATA[<h1 id="一段js代码在浏览器中是如何执行的"><a href="#一段js代码在浏览器中是如何执行的" class="headerlink" title="一段js代码在浏览器中是如何执行的"></a>一段js代码在浏览器中是如何执行的</h1><p>在执行一段代码时，JS 引擎会首先创建一个执行栈<br>然后JS引擎会创建一个全局执行上下文，并push到执行栈中, 这个过程JS引擎会为这段代码中所有变量分配内存并赋一个初始值（undefined），在创建完成后，JS引擎会进入执行阶段，这个过程JS引擎会逐行的执行代码，即为之前分配好内存的变量逐个赋值(真实值)。<br>如果这段代码中存在function的声明和调用，那么JS引擎会创建一个函数执行上下文，并push到执行栈中，其创建和执行过程跟全局执行上下文一样。但有特殊情况，即当函数中存在对其它函数的调用时，JS引擎会在父函数执行的过程中，将子函数的全局执行上下文push到执行栈，这也是为什么子函数能够访问到父函数内所声明的变量。<br>还有一种特殊情况是，在子函数执行的过程中，父函数已经return了，这种情况下，JS引擎会将父函数的上下文从执行栈中移除，与此同时，JS引擎会为还在执行的子函数上下文创建一个闭包，这个闭包里保存了父函数内声明的变量及其赋值，子函数仍然能够在其上下文中访问并使用这边变量/常量。当子函数执行完毕，JS引擎才会将子函数的上下文及闭包一并从执行栈中移除。<br>最后，JS引擎是单线程的，那么它是如何处理高并发的呢？即当代码中存在异步调用时JS是如何执行的。比如setTimeout或fetch请求都是non-blocking的，当异步调用代码触发时，JS引擎会将需要异步执行的代码移出调用栈，直到等待到返回结果，JS引擎会立即将与之对应的回调函数push进任务队列中等待被调用，当调用(执行)栈中已经没有需要被执行的代码时，JS引擎会立刻将任务队列中的回调函数逐个push进调用栈并执行。这个过程我们也称之为事件循环。</p><p>转自: <a href="https://juejin.im/post/5e7426d15188254967069c00">https://juejin.im/post/5e7426d15188254967069c00</a></p>]]></content>
+      
+      
       <categories>
-        <category>NPM</category>
+          
+          <category> Js </category>
+          
       </categories>
-      <tags>
-        <tag>Npm</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>love</title>
-    <url>/2020/09/14/love/</url>
-    <content><![CDATA[<!DOCTYPE html>
-<html lang="en">
-
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-  <style>
-    .typing {
-      width: 15em;
-      white-space: nowrap;
-      border-right: 2px solid transparent;
-      animation: typing 3.5s steps(15, end), blink-caret .75s step-end infinite;
-      overflow: hidden;
-    }
-
-<pre><code>/* 打印效果 */
-@keyframes typing &#123;
-  from &#123;
-    width: 0;
-  &#125;
-
-  to &#123;
-    width: 15em;
-  &#125;
-&#125;
-
-/* 光标闪啊闪 */
-@keyframes blink-caret &#123;
-
-  from,
-  to &#123;
-    box-shadow: 1px 0 0 0 transparent;
-  &#125;
-
-  50% &#123;
-    box-shadow: 1px 0 0 0;
-  &#125;
-&#125;</code></pre>
-<p>  </style></p>
-</head>
-
-<body>
-  <p class="typing">简易中文打字效果</p>
-</body>
-
-</html>]]></content>
-      <tags>
-        <tag>Love</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>JS获取元素位置</title>
-    <url>/2020/09/24/js%E8%8E%B7%E5%8F%96%E5%85%83%E7%B4%A0%E5%9D%90%E6%A0%87%E9%97%AE%E9%A2%98/</url>
-    <content><![CDATA[<h2 id="js获取元素相对于父级元素的高度"><a href="#js获取元素相对于父级元素的高度" class="headerlink" title="js获取元素相对于父级元素的高度"></a>js获取元素相对于父级元素的高度</h2><h4 id="1-offsetLeft-、offsetTop"><a href="#1-offsetLeft-、offsetTop" class="headerlink" title="1. offsetLeft 、offsetTop"></a>1. offsetLeft 、offsetTop</h4><p>offsetLeft/offsetTop -  用于获取子元素相对于父元素的位移（左位移、上位移）</p>
-<h4 id="2-offsetWidth、offsetHeight"><a href="#2-offsetWidth、offsetHeight" class="headerlink" title="2. offsetWidth、offsetHeight"></a>2. offsetWidth、offsetHeight</h4><p>offsetWidth/offsetHeight - 用于获取元素的可见宽度和可见高度</p>
-<h4 id="3-clientX-、clientY"><a href="#3-clientX-、clientY" class="headerlink" title="3. clientX 、clientY"></a>3. clientX 、clientY</h4><p>用于获取鼠标坐标（相对于页面的坐标）</p>
-<p>var event = event || window.event;</p>
-<ul>
-<li>event.clientX</li>
-<li>event.clientY</li>
-</ul>
-<h4 id="4-offsetLeft与style-left的区别"><a href="#4-offsetLeft与style-left的区别" class="headerlink" title="4.offsetLeft与style.left的区别"></a>4.offsetLeft与style.left的区别</h4><ol>
-<li>    style.left返回的是字符串      //30px</li>
-</ol>
-<p>       offsetLeft返回的是数值        //30</p>
-<ol start="2">
-<li>    style.left可读可写</li>
-</ol>
-<p>       offsetLeft只读</p>
-<p>3.     style.left的值需事先定义，否则取到的值为空</p>
-<p>       offsetLeft不需提前定义，直接获取</p>
-]]></content>
+      
+      
+        <tags>
+            
+            <tag> Js </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>react中使用Echats</title>
+      <link href="2020/09/22/React-echart/"/>
+      <url>2020/09/22/React-echart/</url>
+      
+        <content type="html"><![CDATA[<h4 id="1-安装echats"><a href="#1-安装echats" class="headerlink" title="1.安装echats"></a>1.安装echats</h4><pre><code>npm install echarts --savenpm install --save echarts-for-react</code></pre><h4 id="2-引入所需模块"><a href="#2-引入所需模块" class="headerlink" title="2.引入所需模块"></a>2.引入所需模块</h4><pre><code class="javascript">// 引入 ECharts 主模块var echarts = require(&#39;echarts/lib/echarts&#39;);// 引入柱状图require(&#39;echarts/lib/chart/bar&#39;);// 引入提示框和标题组件require(&#39;echarts/lib/component/tooltip&#39;);require(&#39;echarts/lib/component/title&#39;);</code></pre><h4 id="3-实例"><a href="#3-实例" class="headerlink" title="3.实例"></a>3.实例</h4><pre><code class="javascript">showTrend() &#123;        // 基于准备好的dom，初始化echarts实例        var myChart = echarts.init(document.getElementById(&#39;trend&#39;));        //柱状图点击事件        myChart.on(&#39;click&#39;, params =&gt; &#123;        &#125;);              // 绘制图表        myChart.setOption(&#123;            title: &#123; text: &#39;近十五日趋势&#39; &#125;,            color: [&#39;#3398DB&#39;],            tooltip: &#123;                trigger: &#39;axis&#39;,                axisPointer: &#123;                    type: &#39;shadow&#39;,                &#125;,            &#125;,            grid: &#123;                left: &#39;3%&#39;,                right: &#39;4%&#39;,                bottom: &#39;3%&#39;,                containLabel: true,            &#125;,            xAxis: &#123;                type: &#39;category&#39;,                data: this.state.trendDate,                axisTick: &#123;                    alignWithLabel: true,                &#125;,            &#125;,            yAxis: [&#123; type: &#39;value&#39; &#125;],            series: [                &#123;                    name: &#39;告警总数&#39;,                    type: &#39;bar&#39;,                    barWidth: &#39;60%&#39;,                    data: this.state.trendData,                &#125;,            ],        &#125;);    &#125;</code></pre><h4 id="4-DOM部分"><a href="#4-DOM部分" class="headerlink" title="4.DOM部分"></a>4.DOM部分</h4><pre><code class="html">&lt;div id=&quot;trend&quot; style=&#123;&#123; height: 300 &#125;&#125;&gt;&lt;/div&gt;</code></pre><h4 id="5-效果图"><a href="#5-效果图" class="headerlink" title="5.效果图"></a>5.效果图</h4><p><img src="https://cdn.jsdelivr.net/gh/JuntengMa/Images@1.1/blog/echats.jpg"></p>]]></content>
+      
+      
       <categories>
-        <category>Js</category>
+          
+          <category> React </category>
+          
       </categories>
-      <tags>
-        <tag>Js</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>富文本框</title>
-    <url>/2020/09/24/richText/</url>
-    <content><![CDATA[<h2 id="富文本编辑器"><a href="#富文本编辑器" class="headerlink" title="富文本编辑器"></a>富文本编辑器</h2><p><a href="https://www.yuque.com/braft-editor/be/gz44tn#wx1vkv">https://www.yuque.com/braft-editor/be/gz44tn#wx1vkv</a></p>
-<pre><code>import React, &#123; Component &#125; from &#39;react&#39;;
-// 引入编辑器组件
-
-import BraftEditor from &#39;braft-editor&#39;;
-// 引入编辑器样式
-import &#39;braft-editor/dist/index.css&#39;;
-
-import &#123; UploadFn &#125; from &#39;./UploadFn&#39;;
-
-export class RichText extends Component &#123;
-    constructor() &#123;
-        super();
-        this.state = &#123;
-            editorState: BraftEditor.createEditorState(null),
-        &#125;;
-        RichText.submitContent = this.submitContent.bind(this);
-    &#125;
-
-    async componentDidMount() &#123;
-        // 假设此处从服务端获取html格式的编辑器内容
-        let htmlContent = this.props.htmlContent || null;
-        // 使用BraftEditor.createEditorState将html字符串转换为编辑器需要的editorStat
-        this.setState(&#123;
-            editorState: BraftEditor.createEditorState(htmlContent),
-        &#125;);
-    &#125;
-
-    componentWillReceiveProps(nextProps) &#123;
-        if (nextProps.htmlContent !== this.state.htmlContent) &#123;
-            this.setState(&#123;
-                editorState: BraftEditor.createEditorState(nextProps.htmlContent),
-            &#125;);
-        &#125;
-    &#125;
-
-    submitContent = async () =&gt; &#123;
-        // 在编辑器获得焦点时按下ctrl+s会执行此方法
-        // 编辑器内容提交到服务端之前，可直接调用editorState.toHTML()来获取HTML格式的内容
-        const htmlContent = this.state.editorState.toHTML();
-        return htmlContent;
-    &#125;;
-
-    handleEditorChange = editorState =&gt; &#123;
-        this.setState(&#123; editorState &#125;);
-    &#125;;
-
-    render() &#123;
-        return (
-            &lt;BraftEditor
-                value=&#123;this.state.editorState&#125;
-                onChange=&#123;this.handleEditorChange&#125;
-                onSave=&#123;this.submitContent&#125;
-                onBlur=&#123;() =&gt; &#123;
-                    const htmlContent = this.state.editorState.toHTML();
-                &#125;&#125;
-                // excludeControls=&#123;[&#39;options&#39;]&#125;
-                media=&#123;&#123; uploadFn: UploadFn &#125;&#125;
-            /&gt;
-        );
-    &#125;
-&#125;
-</code></pre>
-]]></content>
+      
+      
+        <tags>
+            
+            <tag> React </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>在react中实现文本复制</title>
+      <link href="2020/09/22/%E6%96%87%E6%9C%AC%E5%A4%8D%E5%88%B6/"/>
+      <url>2020/09/22/%E6%96%87%E6%9C%AC%E5%A4%8D%E5%88%B6/</url>
+      
+        <content type="html"><![CDATA[<h2 id="方案一："><a href="#方案一：" class="headerlink" title="方案一："></a>方案一：</h2><pre><code class="js">copyTranslateResult = () =&gt; &#123;        const copyDOM = document.querySelector(&#39;.translateResult&#39;);        if (copyDOM.innerHTML !== &#39;&#39;) &#123;            var range = document.createRange(); //创建一个range            window.getSelection().removeAllRanges(); //清楚页面中已有的selection            range.selectNode(copyDOM); // 选中需要复制的节点            window.getSelection().addRange(range); // 执行选中元素            var successful = document.execCommand(&#39;copy&#39;); // 执行 copy 操作            if (successful) &#123;                message.success(&#39;复制成功！&#39;);            &#125; else &#123;                message.warning(&#39;复制失败，请手动复制！&#39;);            &#125;            // 移除选中的元素            window.getSelection().removeAllRanges();        &#125; else &#123;            message.warning(&#39;没有内容&#39;);        &#125;    &#125;;</code></pre><h2 id="方案二-推荐，方案一兼容性不高-："><a href="#方案二-推荐，方案一兼容性不高-：" class="headerlink" title="方案二(推荐，方案一兼容性不高)："></a>方案二(推荐，方案一兼容性不高)：</h2><p><strong>react-copy-to-clipboard：</strong><br><a href="https://github.com/nkbt/react-copy-to-clipboard">https://github.com/nkbt/react-copy-to-clipboard</a></p><h4 id="Install"><a href="#Install" class="headerlink" title="Install"></a>Install</h4><pre><code>npm install --save react-copy-to-clipboardoryarn add react-copy-to-clipboard</code></pre><h4 id="Demo"><a href="#Demo" class="headerlink" title="Demo"></a>Demo</h4><pre><code class="jsx">import React from &#39;react&#39;;import ReactDOM from &#39;react-dom&#39;;import &#123;CopyToClipboard&#125; from &#39;react-copy-to-clipboard&#39;;class App extends React.Component &#123;  state = &#123;    value: &#39;&#39;,    copied: false,  &#125;;  render() &#123;    return (      &lt;div&gt;        &lt;input value=&#123;this.state.value&#125;          onChange=&#123;(&#123;target: &#123;value&#125;&#125;) =&gt; this.setState(&#123;value, copied: false&#125;)&#125; /&gt;        &lt;CopyToClipboard text=&#123;this.state.value&#125;          onCopy=&#123;() =&gt; this.setState(&#123;copied: true&#125;)&#125;&gt;          &lt;span&gt;Copy to clipboard with span&lt;/span&gt;        &lt;/CopyToClipboard&gt;        &lt;CopyToClipboard text=&#123;this.state.value&#125;          onCopy=&#123;() =&gt; this.setState(&#123;copied: true&#125;)&#125;&gt;          &lt;button&gt;Copy to clipboard with button&lt;/button&gt;        &lt;/CopyToClipboard&gt;        &#123;this.state.copied ? &lt;span style=&#123;&#123;color: 'red'&#125;&#125;&gt;Copied.&lt;/span&gt; : null&#125;      &lt;/div&gt;    );  &#125;&#125;const appRoot = document.createElement(&#39;div&#39;);document.body.appendChild(appRoot);ReactDOM.render(&lt;App /&gt;, appRoot);</code></pre>]]></content>
+      
+      
       <categories>
-        <category>React</category>
+          
+          <category> React </category>
+          
       </categories>
-      <tags>
-        <tag>React</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title></title>
-    <url>//honey.html</url>
-    <content><![CDATA[<!DOCTYPE html>
-<html>
-
-<head>
-  <meta charset="UTF-8">
-  <title></title>
-</head>
-
-<body>
- <iframe id="inlineFrameExample" title="Inline Frame Example" width="300" height="200"
-   src="https://www.openstreetmap.org/export/embed.html?bbox=-0.004017949104309083%2C51.47612752641776%2C0.00030577182769775396%2C51.478569861898606&layer=mapnik">
- </iframe>
-</body>
-
-</html>
-]]></content>
-  </entry>
-  <entry>
-    <title>一段js代码在浏览器中是如何执行的</title>
-    <url>/2020/09/22/Js-js%E4%BB%A3%E7%A0%81%E5%9C%A8%E6%B5%8F%E8%A7%88%E5%99%A8%E4%B8%AD%E7%9A%84%E6%89%A7%E8%A1%8C%E9%A1%BA%E5%BA%8F/</url>
-    <content><![CDATA[<h1 id="一段js代码在浏览器中是如何执行的"><a href="#一段js代码在浏览器中是如何执行的" class="headerlink" title="一段js代码在浏览器中是如何执行的"></a>一段js代码在浏览器中是如何执行的</h1><p>在执行一段代码时，JS 引擎会首先创建一个执行栈<br>然后JS引擎会创建一个全局执行上下文，并push到执行栈中, 这个过程JS引擎会为这段代码中所有变量分配内存并赋一个初始值（undefined），在创建完成后，JS引擎会进入执行阶段，这个过程JS引擎会逐行的执行代码，即为之前分配好内存的变量逐个赋值(真实值)。<br>如果这段代码中存在function的声明和调用，那么JS引擎会创建一个函数执行上下文，并push到执行栈中，其创建和执行过程跟全局执行上下文一样。但有特殊情况，即当函数中存在对其它函数的调用时，JS引擎会在父函数执行的过程中，将子函数的全局执行上下文push到执行栈，这也是为什么子函数能够访问到父函数内所声明的变量。<br>还有一种特殊情况是，在子函数执行的过程中，父函数已经return了，这种情况下，JS引擎会将父函数的上下文从执行栈中移除，与此同时，JS引擎会为还在执行的子函数上下文创建一个闭包，这个闭包里保存了父函数内声明的变量及其赋值，子函数仍然能够在其上下文中访问并使用这边变量/常量。当子函数执行完毕，JS引擎才会将子函数的上下文及闭包一并从执行栈中移除。<br>最后，JS引擎是单线程的，那么它是如何处理高并发的呢？即当代码中存在异步调用时JS是如何执行的。比如setTimeout或fetch请求都是non-blocking的，当异步调用代码触发时，JS引擎会将需要异步执行的代码移出调用栈，直到等待到返回结果，JS引擎会立即将与之对应的回调函数push进任务队列中等待被调用，当调用(执行)栈中已经没有需要被执行的代码时，JS引擎会立刻将任务队列中的回调函数逐个push进调用栈并执行。这个过程我们也称之为事件循环。</p>
-<p>转自: <a href="https://juejin.im/post/5e7426d15188254967069c00">https://juejin.im/post/5e7426d15188254967069c00</a></p>
-]]></content>
+      
+      
+        <tags>
+            
+            <tag> React </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>DiffView</title>
+      <link href="2020/09/18/DiffView/"/>
+      <url>2020/09/18/DiffView/</url>
+      
+        <content type="html"><![CDATA[<h1 id="react-diff-view"><a href="#react-diff-view" class="headerlink" title="react-diff-view"></a>react-diff-view</h1><p><a href="https://github.com/praneshr/react-diff-viewer.git">https://github.com/praneshr/react-diff-viewer.git</a></p><h1 id="Install"><a href="#Install" class="headerlink" title="Install"></a>Install</h1><pre><code>yarn add react-diff-viewer# ornpm i react-diff-viewer</code></pre><h1 id="封装组件-DiffView-tsx"><a href="#封装组件-DiffView-tsx" class="headerlink" title="封装组件 DiffView.tsx"></a>封装组件 DiffView.tsx</h1><pre><code>import * as React from &#39;react&#39;;import ReactDiffViewer from &#39;react-diff-viewer&#39;;export interface DiffViewProps &#123;    oldValue: string;    newValue: string;    splitView?: boolean; //true 分两栏 | false  分一栏    leftTitle?: string;    rightTitle?: string;    style?: object&#125;export class DiffView extends React.Component&lt;DiffViewProps&gt; &#123;    public render() &#123;        const &#123; oldValue, newValue, splitView = true, leftTitle, rightTitle, style &#125; = this.props;        return (            &lt;div style=&#123;&#123;...style,overflowY: 'scroll',wordWrap: 'break-word',wordBreak: 'break-all'&#125;&#125;&gt;                &lt;ReactDiffViewer                    oldValue=&#123;oldValue&#125;                    newValue=&#123;newValue&#125;                    splitView=&#123;splitView&#125;                    leftTitle=&#123;leftTitle&#125;                    rightTitle=&#123;rightTitle&#125;                /&gt;            &lt;/div&gt;        );    &#125;&#125;</code></pre><h1 id="参数"><a href="#参数" class="headerlink" title="参数"></a>参数</h1><p><a href="https://github.com/praneshr/react-diff-viewer#props">https://github.com/praneshr/react-diff-viewer#props</a></p><table><thead><tr><th>Prop</th><th>Type</th><th>Default</th><th>Description</th></tr></thead><tbody><tr><td>oldValue</td><td><code>string</code></td><td><code>&#39;&#39;</code></td><td>Old value as string.</td></tr><tr><td>newValue</td><td><code>string</code></td><td><code>&#39;&#39;</code></td><td>New value as string.</td></tr><tr><td>splitView</td><td><code>boolean</code></td><td><code>true</code></td><td>Switch between <code>unified</code> and <code>split</code> view.</td></tr><tr><td>disableWordDiff</td><td><code>boolean</code></td><td><code>false</code></td><td>Show and hide word diff in a diff line.</td></tr><tr><td>compareMethod</td><td><code>DiffMethod</code></td><td><code>DiffMethod.CHARS</code></td><td>JsDiff text diff method used for diffing strings. Check out the <a href="https://github.com/praneshr/react-diff-viewer/tree/v3.0.0#text-block-diff-comparison">guide</a> to use different methods.</td></tr><tr><td>hideLineNumbers</td><td><code>boolean</code></td><td><code>false</code></td><td>Show and hide line numbers.</td></tr><tr><td>renderContent</td><td><code>function</code></td><td><code>undefined</code></td><td>Render Prop API to render code in the diff viewer. Helpful for <a href="https://github.com/praneshr/react-diff-viewer#syntax-highlighting">syntax highlighting</a></td></tr><tr><td>onLineNumberClick</td><td><code>function</code></td><td><code>undefined</code></td><td>Event handler for line number click. <code>(lineId: string) =&gt; void</code></td></tr><tr><td>highlightLines</td><td><code>array[string]</code></td><td><code>[]</code></td><td>List of lines to be highlighted. Works together with <code>onLineNumberClick</code>. Line number are prefixed with <code>L</code> and <code>R</code> for the left and right section of the diff viewer, respectively. For example, <code>L-20</code> means 20th line in the left pane. To highlight a range of line numbers, pass the prefixed line number as an array. For example, <code>[L-2, L-3, L-4, L-5]</code> will highlight the lines <code>2-5</code> in the left pane.</td></tr><tr><td>showDiffOnly</td><td><code>boolean</code></td><td><code>true</code></td><td>Shows only the diffed lines and folds the unchanged lines</td></tr><tr><td>extraLinesSurroundingDiff</td><td><code>number</code></td><td><code>3</code></td><td>Number of extra unchanged lines surrounding the diff. Works along with <code>showDiffOnly</code>.</td></tr><tr><td>codeFoldMessageRenderer</td><td><code>function</code></td><td><code>Expand &#123;number&#125; of lines ...</code></td><td>Render Prop API to render code fold message.</td></tr><tr><td>styles</td><td><code>object</code></td><td><code>&#123;&#125;</code></td><td>To override style variables and styles. Learn more about <a href="https://github.com/praneshr/react-diff-viewer#overriding-styles">overriding styles</a></td></tr><tr><td>useDarkTheme</td><td><code>boolean</code></td><td><code>true</code></td><td>To enable/disable dark theme.</td></tr><tr><td>leftTitle</td><td><code>string</code></td><td><code>undefined</code></td><td>Column title for left section of the diff in split view. This will be used as the only title in inline view.</td></tr><tr><td>rightTitle</td><td><code>string</code></td><td><code>undefined</code></td><td>Column title for right section of the diff in split view. This will be ignored in inline view.</td></tr><tr><td>linesOffset</td><td><code>number</code></td><td><code>0</code></td><td>Number to start count code lines from.</td></tr></tbody></table>]]></content>
+      
+      
       <categories>
-        <category>Js</category>
+          
+          <category> React </category>
+          
       </categories>
-      <tags>
-        <tag>Js</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>react中使用Echats</title>
-    <url>/2020/09/22/React-echart/</url>
-    <content><![CDATA[<h4 id="1-安装echats"><a href="#1-安装echats" class="headerlink" title="1.安装echats"></a>1.安装echats</h4><pre><code>npm install echarts --save
-npm install --save echarts-for-react</code></pre>
-<h4 id="2-引入所需模块"><a href="#2-引入所需模块" class="headerlink" title="2.引入所需模块"></a>2.引入所需模块</h4><pre><code class="javascript">// 引入 ECharts 主模块
-var echarts = require(&#39;echarts/lib/echarts&#39;);
-// 引入柱状图
-require(&#39;echarts/lib/chart/bar&#39;);
-// 引入提示框和标题组件
-require(&#39;echarts/lib/component/tooltip&#39;);
-require(&#39;echarts/lib/component/title&#39;);</code></pre>
-<h4 id="3-实例"><a href="#3-实例" class="headerlink" title="3.实例"></a>3.实例</h4><pre><code class="javascript">showTrend() &#123;
-        // 基于准备好的dom，初始化echarts实例
-        var myChart = echarts.init(document.getElementById(&#39;trend&#39;));
-        //柱状图点击事件
-        myChart.on(&#39;click&#39;, params =&gt; &#123;
-
-        &#125;);
-              // 绘制图表
-        myChart.setOption(&#123;
-            title: &#123; text: &#39;近十五日趋势&#39; &#125;,
-            color: [&#39;#3398DB&#39;],
-            tooltip: &#123;
-                trigger: &#39;axis&#39;,
-                axisPointer: &#123;
-                    type: &#39;shadow&#39;,
-                &#125;,
-            &#125;,
-            grid: &#123;
-                left: &#39;3%&#39;,
-                right: &#39;4%&#39;,
-                bottom: &#39;3%&#39;,
-                containLabel: true,
-            &#125;,
-            xAxis: &#123;
-                type: &#39;category&#39;,
-                data: this.state.trendDate,
-                axisTick: &#123;
-                    alignWithLabel: true,
-                &#125;,
-            &#125;,
-            yAxis: [&#123; type: &#39;value&#39; &#125;],
-            series: [
-                &#123;
-                    name: &#39;告警总数&#39;,
-                    type: &#39;bar&#39;,
-                    barWidth: &#39;60%&#39;,
-                    data: this.state.trendData,
-                &#125;,
-            ],
-        &#125;);
-    &#125;</code></pre>
-<h4 id="4-DOM部分"><a href="#4-DOM部分" class="headerlink" title="4.DOM部分"></a>4.DOM部分</h4><pre><code class="html">&lt;div id=&quot;trend&quot; style=&#123;&#123; height: 300 &#125;&#125;&gt;&lt;/div&gt;</code></pre>
-<h4 id="5-效果图"><a href="#5-效果图" class="headerlink" title="5.效果图"></a>5.效果图</h4><p><img src="https://cdn.jsdelivr.net/gh/JuntengMa/Images@1.1/blog/echats.jpg"></p>
-]]></content>
+      
+      
+        <tags>
+            
+            <tag> React </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>css文本超出自动换行</title>
+      <link href="2020/09/18/Css%E6%96%87%E6%9C%AC%E8%B6%85%E5%87%BA%E8%87%AA%E5%8A%A8%E6%8D%A2%E8%A1%8C/"/>
+      <url>2020/09/18/Css%E6%96%87%E6%9C%AC%E8%B6%85%E5%87%BA%E8%87%AA%E5%8A%A8%E6%8D%A2%E8%A1%8C/</url>
+      
+        <content type="html"><![CDATA[<pre><code class="css">word-wrap:break-word; word-break:break-all; overflow: hidden;/*这个参数根据需要来绝对要不要*/</code></pre>]]></content>
+      
+      
       <categories>
-        <category>React</category>
+          
+          <category> Css </category>
+          
       </categories>
-      <tags>
-        <tag>React</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>在react中实现文本复制</title>
-    <url>/2020/09/22/%E6%96%87%E6%9C%AC%E5%A4%8D%E5%88%B6/</url>
-    <content><![CDATA[<h2 id="方案一："><a href="#方案一：" class="headerlink" title="方案一："></a>方案一：</h2><pre><code class="js">copyTranslateResult = () =&gt; &#123;
-        const copyDOM = document.querySelector(&#39;.translateResult&#39;);
-
-        if (copyDOM.innerHTML !== &#39;&#39;) &#123;
-
-            var range = document.createRange(); //创建一个range
-
-            window.getSelection().removeAllRanges(); //清楚页面中已有的selection
-
-            range.selectNode(copyDOM); // 选中需要复制的节点
-
-            window.getSelection().addRange(range); // 执行选中元素
-
-            var successful = document.execCommand(&#39;copy&#39;); // 执行 copy 操作
-
-            if (successful) &#123;
-
-                message.success(&#39;复制成功！&#39;);
-
-            &#125; else &#123;
-
-                message.warning(&#39;复制失败，请手动复制！&#39;);
-
-            &#125;
-
-            // 移除选中的元素
-
-            window.getSelection().removeAllRanges();
-
-        &#125; else &#123;
-
-            message.warning(&#39;没有内容&#39;);
-
-        &#125;
-
-    &#125;;</code></pre>
-<h2 id="方案二-推荐，方案一兼容性不高-："><a href="#方案二-推荐，方案一兼容性不高-：" class="headerlink" title="方案二(推荐，方案一兼容性不高)："></a>方案二(推荐，方案一兼容性不高)：</h2><p><strong>react-copy-to-clipboard：</strong><br><a href="https://github.com/nkbt/react-copy-to-clipboard">https://github.com/nkbt/react-copy-to-clipboard</a></p>
-<h4 id="Install"><a href="#Install" class="headerlink" title="Install"></a>Install</h4><pre><code>npm install --save react-copy-to-clipboard
-or
-yarn add react-copy-to-clipboard</code></pre>
-<h4 id="Demo"><a href="#Demo" class="headerlink" title="Demo"></a>Demo</h4><pre><code class="jsx">import React from &#39;react&#39;;
-import ReactDOM from &#39;react-dom&#39;;
-import &#123;CopyToClipboard&#125; from &#39;react-copy-to-clipboard&#39;;
-
-class App extends React.Component &#123;
-  state = &#123;
-    value: &#39;&#39;,
-    copied: false,
-  &#125;;
-
-  render() &#123;
-    return (
-      &lt;div&gt;
-        &lt;input value=&#123;this.state.value&#125;
-          onChange=&#123;(&#123;target: &#123;value&#125;&#125;) =&gt; this.setState(&#123;value, copied: false&#125;)&#125; /&gt;
-
-        &lt;CopyToClipboard text=&#123;this.state.value&#125;
-          onCopy=&#123;() =&gt; this.setState(&#123;copied: true&#125;)&#125;&gt;
-          &lt;span&gt;Copy to clipboard with span&lt;/span&gt;
-        &lt;/CopyToClipboard&gt;
-
-        &lt;CopyToClipboard text=&#123;this.state.value&#125;
-          onCopy=&#123;() =&gt; this.setState(&#123;copied: true&#125;)&#125;&gt;
-          &lt;button&gt;Copy to clipboard with button&lt;/button&gt;
-        &lt;/CopyToClipboard&gt;
-
-        &#123;this.state.copied ? &lt;span style=&#123;&#123;color: 'red'&#125;&#125;&gt;Copied.&lt;/span&gt; : null&#125;
-      &lt;/div&gt;
-    );
-  &#125;
-&#125;
-
-const appRoot = document.createElement(&#39;div&#39;);
-document.body.appendChild(appRoot);
-ReactDOM.render(&lt;App /&gt;, appRoot);
-</code></pre>
-]]></content>
+      
+      
+        <tags>
+            
+            <tag> Css </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>love</title>
+      <link href="2020/09/14/love/"/>
+      <url>2020/09/14/love/</url>
+      
+        <content type="html"><![CDATA[<!DOCTYPE html><html lang="en"><head>  <meta charset="UTF-8">  <meta name="viewport" content="width=device-width, initial-scale=1.0">  <title>Document</title>  <style>    .typing {      width: 15em;      white-space: nowrap;      border-right: 2px solid transparent;      animation: typing 3.5s steps(15, end), blink-caret .75s step-end infinite;      overflow: hidden;    }<pre><code>/* 打印效果 */@keyframes typing &#123;  from &#123;    width: 0;  &#125;  to &#123;    width: 15em;  &#125;&#125;/* 光标闪啊闪 */@keyframes blink-caret &#123;  from,  to &#123;    box-shadow: 1px 0 0 0 transparent;  &#125;  50% &#123;    box-shadow: 1px 0 0 0;  &#125;&#125;</code></pre><p>  </style></p></head><body>  <p class="typing">简易中文打字效果</p></body></html>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> Love </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>React-antd-ImportExcel</title>
+      <link href="2020/09/04/React-antd-ImportExcel/"/>
+      <url>2020/09/04/React-antd-ImportExcel/</url>
+      
+        <content type="html"><![CDATA[<h1 id="React-antd-ImportExcel"><a href="#React-antd-ImportExcel" class="headerlink" title="React-antd-ImportExcel"></a>React-antd-ImportExcel</h1><p>工作需求，需要</p><pre><code class="js">import * as React from &#39;react&#39;;import * as XLSX from &#39;xlsx&#39;;import &#123; Button, Icon, message &#125; from &#39;antd&#39;;export interface ImportExcelProps &#123;    getFileInfo: Function;    notice?: string;&#125;//css文件为以下注释样式import &#39;./uploadStyle.css&#39;;&lt;!--.uploadBtn &#123;    position: absolute;    font-size: 5px;    width: &#39;100%&#39;;    height: &#39;100%&#39;;    right: 0;    top: 0;    opacity: 0;    filter: alpha(opacity = 0);    cursor: pointer;&#125;--&gt;export class ImportExcel extends React.Component&lt;ImportExcelProps, any&gt; &#123;    importExcel = file =&gt; &#123;        // 获取上传的文件对象        const &#123; files &#125; = file.target;        // 通过FileReader对象读取文件        const fileReader = new FileReader();        fileReader.onload = event =&gt; &#123;            try &#123;                const &#123; result &#125; = event.target;                // 以二进制流方式读取得到整份excel表格对象                const workbook = XLSX.read(result, &#123; type: &#39;binary&#39; &#125;);                let data = []; // 存储获取到的数据                // 遍历每张工作表进行读取（这里默认只读取第一张表）                for (const sheet in workbook.Sheets) &#123;                    if (workbook.Sheets.hasOwnProperty(sheet)) &#123;                        // 利用 sheet_to_json 方法将 excel 转成 json 数据                        data = data.concat(XLSX.utils.sheet_to_json(workbook.Sheets[sheet]));                        break; // 如果只取第一张表，就取消注释这行                    &#125;                &#125;                //这里获取解析好的excel内容                this.props.getFileInfo(data)            &#125; catch (e) &#123;                // 这里可以抛出文件类型错误不正确的相关提示                message.warning(&#39;error&#39;)            &#125;        &#125;;        // 以二进制方式打开文件        files.length &gt; 0 &amp;&amp; fileReader.readAsBinaryString(files[0]);    &#125;    render() &#123;        const &#123; notice &#125; = this.props        return (            &lt;Button type=&quot;primary&quot; style=&#123;&#123; position: 'relative' &#125;&#125;&gt;                &lt;input type=&#39;file&#39; accept=&#39;.xlsx, .xls&#39; onChange=&#123;e =&gt; this.importExcel(e)&#125; className=&quot;uploadBtn&quot; /&gt;&#123;notice || &#39;导入Excel&#39;&#125;                &lt; Icon type=&quot;upload&quot; /&gt;            &lt;/Button&gt;        );    &#125;&#125;</code></pre><p>使用</p><pre><code class="js">//getFileInfo 用于获取解析出来的数据，按需写接收函数&lt;ImportExcel getFileInfo=&#123;getFileInfo&#125; notice=&quot;导入EXcel&quot; /&gt;</code></pre>]]></content>
+      
+      
       <categories>
-        <category>React</category>
+          
+          <category> React </category>
+          
       </categories>
-      <tags>
-        <tag>React</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>DiffView</title>
-    <url>/2020/09/18/DiffView/</url>
-    <content><![CDATA[<h1 id="react-diff-view"><a href="#react-diff-view" class="headerlink" title="react-diff-view"></a>react-diff-view</h1><p><a href="https://github.com/praneshr/react-diff-viewer.git">https://github.com/praneshr/react-diff-viewer.git</a></p>
-<h1 id="Install"><a href="#Install" class="headerlink" title="Install"></a>Install</h1><pre><code>yarn add react-diff-viewer
-
-# or
-
-npm i react-diff-viewer</code></pre>
-<h1 id="封装组件-DiffView-tsx"><a href="#封装组件-DiffView-tsx" class="headerlink" title="封装组件 DiffView.tsx"></a>封装组件 DiffView.tsx</h1><pre><code>import * as React from &#39;react&#39;;
-
-import ReactDiffViewer from &#39;react-diff-viewer&#39;;
-
-export interface DiffViewProps &#123;
-    oldValue: string;
-    newValue: string;
-    splitView?: boolean; //true 分两栏 | false  分一栏
-    leftTitle?: string;
-    rightTitle?: string;
-    style?: object
-&#125;
-
-export class DiffView extends React.Component&lt;DiffViewProps&gt; &#123;
-    public render() &#123;
-        const &#123; oldValue, newValue, splitView = true, leftTitle, rightTitle, style &#125; = this.props;
-        return (
-            &lt;div style=&#123;&#123;
-				...style,
-				overflowY: 'scroll',
-				wordWrap: 'break-word',
-				wordBreak: 'break-all'
-			&#125;&#125;&gt;
-                &lt;ReactDiffViewer
-                    oldValue=&#123;oldValue&#125;
-                    newValue=&#123;newValue&#125;
-                    splitView=&#123;splitView&#125;
-                    leftTitle=&#123;leftTitle&#125;
-                    rightTitle=&#123;rightTitle&#125;
-                /&gt;
-            &lt;/div&gt;
-
-        );
-    &#125;
-&#125;
-
-</code></pre>
-<h1 id="参数"><a href="#参数" class="headerlink" title="参数"></a>参数</h1><p><a href="https://github.com/praneshr/react-diff-viewer#props">https://github.com/praneshr/react-diff-viewer#props</a></p>
-<table>
-<thead>
-<tr>
-<th>Prop</th>
-<th>Type</th>
-<th>Default</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>oldValue</td>
-<td><code>string</code></td>
-<td><code>&#39;&#39;</code></td>
-<td>Old value as string.</td>
-</tr>
-<tr>
-<td>newValue</td>
-<td><code>string</code></td>
-<td><code>&#39;&#39;</code></td>
-<td>New value as string.</td>
-</tr>
-<tr>
-<td>splitView</td>
-<td><code>boolean</code></td>
-<td><code>true</code></td>
-<td>Switch between <code>unified</code> and <code>split</code> view.</td>
-</tr>
-<tr>
-<td>disableWordDiff</td>
-<td><code>boolean</code></td>
-<td><code>false</code></td>
-<td>Show and hide word diff in a diff line.</td>
-</tr>
-<tr>
-<td>compareMethod</td>
-<td><code>DiffMethod</code></td>
-<td><code>DiffMethod.CHARS</code></td>
-<td>JsDiff text diff method used for diffing strings. Check out the <a href="https://github.com/praneshr/react-diff-viewer/tree/v3.0.0#text-block-diff-comparison">guide</a> to use different methods.</td>
-</tr>
-<tr>
-<td>hideLineNumbers</td>
-<td><code>boolean</code></td>
-<td><code>false</code></td>
-<td>Show and hide line numbers.</td>
-</tr>
-<tr>
-<td>renderContent</td>
-<td><code>function</code></td>
-<td><code>undefined</code></td>
-<td>Render Prop API to render code in the diff viewer. Helpful for <a href="https://github.com/praneshr/react-diff-viewer#syntax-highlighting">syntax highlighting</a></td>
-</tr>
-<tr>
-<td>onLineNumberClick</td>
-<td><code>function</code></td>
-<td><code>undefined</code></td>
-<td>Event handler for line number click. <code>(lineId: string) =&gt; void</code></td>
-</tr>
-<tr>
-<td>highlightLines</td>
-<td><code>array[string]</code></td>
-<td><code>[]</code></td>
-<td>List of lines to be highlighted. Works together with <code>onLineNumberClick</code>. Line number are prefixed with <code>L</code> and <code>R</code> for the left and right section of the diff viewer, respectively. For example, <code>L-20</code> means 20th line in the left pane. To highlight a range of line numbers, pass the prefixed line number as an array. For example, <code>[L-2, L-3, L-4, L-5]</code> will highlight the lines <code>2-5</code> in the left pane.</td>
-</tr>
-<tr>
-<td>showDiffOnly</td>
-<td><code>boolean</code></td>
-<td><code>true</code></td>
-<td>Shows only the diffed lines and folds the unchanged lines</td>
-</tr>
-<tr>
-<td>extraLinesSurroundingDiff</td>
-<td><code>number</code></td>
-<td><code>3</code></td>
-<td>Number of extra unchanged lines surrounding the diff. Works along with <code>showDiffOnly</code>.</td>
-</tr>
-<tr>
-<td>codeFoldMessageRenderer</td>
-<td><code>function</code></td>
-<td><code>Expand &#123;number&#125; of lines ...</code></td>
-<td>Render Prop API to render code fold message.</td>
-</tr>
-<tr>
-<td>styles</td>
-<td><code>object</code></td>
-<td><code>&#123;&#125;</code></td>
-<td>To override style variables and styles. Learn more about <a href="https://github.com/praneshr/react-diff-viewer#overriding-styles">overriding styles</a></td>
-</tr>
-<tr>
-<td>useDarkTheme</td>
-<td><code>boolean</code></td>
-<td><code>true</code></td>
-<td>To enable/disable dark theme.</td>
-</tr>
-<tr>
-<td>leftTitle</td>
-<td><code>string</code></td>
-<td><code>undefined</code></td>
-<td>Column title for left section of the diff in split view. This will be used as the only title in inline view.</td>
-</tr>
-<tr>
-<td>rightTitle</td>
-<td><code>string</code></td>
-<td><code>undefined</code></td>
-<td>Column title for right section of the diff in split view. This will be ignored in inline view.</td>
-</tr>
-<tr>
-<td>linesOffset</td>
-<td><code>number</code></td>
-<td><code>0</code></td>
-<td>Number to start count code lines from.</td>
-</tr>
-</tbody></table>
-]]></content>
+      
+      
+        <tags>
+            
+            <tag> React </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>React-antd-exportExcel</title>
+      <link href="2020/09/04/React-antd-exportExcel/"/>
+      <url>2020/09/04/React-antd-exportExcel/</url>
+      
+        <content type="html"><![CDATA[<pre><code class="js">import * as React from &quot;react&quot;import * as XLSX from &quot;xlsx&quot;import &#123; Button, Icon &#125; from &quot;antd&quot;export interface ExportExcelProps &#123;  notice: string;  fileName: string;  headers: string[] | Function; //表头  getExportData: Function;&#125;export class ExportExcel extends React.Component&lt;ExportExcelProps, any&gt; &#123;  handleExport = async () =&gt; &#123;    const &#123; headers, fileName &#125; = this.props    //这里是获取导出数据的函数    const exportData = await this.props.getExportData()    this.exportExcel(headers, exportData, fileName)  &#125;  exportExcel(headers, data, fileName) &#123;    const _headers = headers      .map((item, i) =&gt;        Object.assign(          &#123;&#125;,          &#123;            key: item.key,            title: item.title,            position: String.fromCharCode(65 + i) + 1,          &#125;        )      )      .reduce(        (prev, next) =&gt;          Object.assign(&#123;&#125;, prev, &#123;            [next.position]: &#123; key: next.key, v: next.title &#125;,          &#125;),        &#123;&#125;      )    const _data = data      .map((item, i) =&gt;        headers.map((key, j) =&gt;          Object.assign(            &#123;&#125;,            &#123;              content: item[key.key],              position: String.fromCharCode(65 + j) + (i + 2),            &#125;          )        )      )      // 对刚才的结果进行降维处理（二维数组变成一维数组）      .reduce((prev, next) =&gt; prev.concat(next))      // 转换成 worksheet 需要的结构      .reduce(        (prev, next) =&gt;          Object.assign(&#123;&#125;, prev, &#123; [next.position]: &#123; v: next.content &#125; &#125;),        &#123;&#125;      )    // 合并 headers 和 data    const output = Object.assign(&#123;&#125;, _headers, _data)    // 获取所有单元格的位置    const outputPos = Object.keys(output)    // 计算出范围 ,[&quot;A1&quot;,..., &quot;H2&quot;]    const ref = `$&#123;outputPos[0]&#125;:$&#123;outputPos[outputPos.length - 1]&#125;`    // 构建 workbook 对象    const wb = &#123;      SheetNames: [&quot;mySheet&quot;],      Sheets: &#123;        mySheet: Object.assign(          &#123;&#125;,          output, //列宽          &#123;            &quot;!ref&quot;: ref,            &quot;!cols&quot;: [              &#123; wpx: 150 &#125;,              &#123; wpx: 150 &#125;,              &#123; wpx: 150 &#125;,              &#123; wpx: 150 &#125;,              &#123; wpx: 150 &#125;,              &#123; wpx: 150 &#125;,              &#123; wpx: 150 &#125;,              &#123; wpx: 150 &#125;,            ],          &#125;        ),      &#125;,    &#125;    // 导出 Excel    XLSX.writeFile(wb, `$&#123;fileName&#125;.xlsx`)  &#125;  render() &#123;    const &#123; notice &#125; = this.props    return (      &lt;Button type=&quot;primary&quot; onClick=&#123;() =&gt; this.handleExport()&#125;&gt;        &#123;notice&#125;        &lt;Icon type=&quot;download&quot; /&gt;      &lt;/Button&gt;    )  &#125;&#125;</code></pre><p>使用</p><pre><code class="js">&lt;ExportExcel  notice=&quot;Excel导出&quot;  fileName=&quot;test&quot;  headers=&#123;initColumn&#125;  getExportData=&#123;exportData&#125;/&gt;</code></pre><p>示例表头&amp;数据：</p><pre><code class="js">header=[    &#123;        title: 姓名,        dataIndex: name,        key: name,    &#125;,    &#123;        title: 性别,        dataIndex: sex,        key: sex,    &#125;,    &#123;        title: 年龄,        dataIndex: age,        key: age,    &#125;,]exportData=[    &#123;    name:&#39;小明&#39;，    sex:&#39;男&#39;，    age:18    &#125;,    &#123;    name:&#39;小张&#39;，    sex:&#39;女&#39;，    age:20    &#125;]</code></pre>]]></content>
+      
+      
       <categories>
-        <category>React</category>
+          
+          <category> React </category>
+          
       </categories>
-      <tags>
-        <tag>React</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>css文本超出自动换行</title>
-    <url>/2020/09/18/Css%E6%96%87%E6%9C%AC%E8%B6%85%E5%87%BA%E8%87%AA%E5%8A%A8%E6%8D%A2%E8%A1%8C/</url>
-    <content><![CDATA[<pre><code class="css">word-wrap:break-word; 
-word-break:break-all; 
-overflow: hidden;/*这个参数根据需要来绝对要不要*/</code></pre>
-]]></content>
+      
+      
+        <tags>
+            
+            <tag> React </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>git命令</title>
+      <link href="2020/09/02/git%E5%91%BD%E4%BB%A4/"/>
+      <url>2020/09/02/git%E5%91%BD%E4%BB%A4/</url>
+      
+        <content type="html"><![CDATA[<h1 id="GIT-常用命令"><a href="#GIT-常用命令" class="headerlink" title="GIT 常用命令"></a>GIT 常用命令</h1><h2 id="01-初始配置"><a href="#01-初始配置" class="headerlink" title="01 - 初始配置"></a>01 - 初始配置</h2><pre><code>- git init 初始化本地git仓库（创建新仓库）- git config --global user.name &quot;xxx&quot; 配置用户名- git config --global user.email &quot;xxx@xxx.com&quot; 配置用户邮箱- git clone &quot;git链接&quot; 克隆git仓库到本地- git status 查看当前在哪个分支</code></pre><h2 id="02-开发完毕将要上传代码仓库操作"><a href="#02-开发完毕将要上传代码仓库操作" class="headerlink" title="02 - 开发完毕将要上传代码仓库操作"></a>02 - 开发完毕将要上传代码仓库操作</h2><pre><code>git add .  增加当前子目录下所有更改过的文件至indexgit commit -m &quot;xxx&quot; 提交git push 推送改动到远端</code></pre><h2 id="03-新建分支操作"><a href="#03-新建分支操作" class="headerlink" title="03 - 新建分支操作"></a>03 - 新建分支操作</h2><pre><code>git branch &lt;分支名&gt; 创建新分支git checkout &lt;分支名&gt; 切换到该分支git push 如果是新建分支，push的时候需要跟远端仓库关联，一般会提示 git push --set-upstream 你的分支名 ， 复制提示信息并执行</code></pre><h2 id="04-合并分支操作"><a href="#04-合并分支操作" class="headerlink" title="04 - 合并分支操作"></a>04 - 合并分支操作</h2><pre><code>git pull origin master 多人协作，以防master已更新，本地代码版本没有更新，先同步一下master代码，以防产生合并冲突git checkout master 先切换到主分支再合并git merge &lt;需要合并到master上的分支名&gt; 合并某一个分支到该分支</code></pre><h2 id="05-删除本地，远程分支"><a href="#05-删除本地，远程分支" class="headerlink" title="05 - 删除本地，远程分支"></a>05 - 删除本地，远程分支</h2><pre><code>- git branch -d &lt;分支名&gt; 删除本地某一分支- git push origin --delete &lt;分支名&gt; 删除远端分支</code></pre><h2 id="06-版本回退"><a href="#06-版本回退" class="headerlink" title="06 - 版本回退"></a>06 - 版本回退</h2><pre><code>- git log 查看提交历史和commit 标记- git reset --hard &lt;commit 后面的字符串&gt; 将代码回退到某一版本- git push -f 远端仓库版本高于本地版本，需要强制推送上去</code></pre><h2 id="07-取消所有本地修改"><a href="#07-取消所有本地修改" class="headerlink" title="07 - 取消所有本地修改"></a>07 - 取消所有本地修改</h2><pre><code>git checkout .</code></pre><h2 id="09-查看修改"><a href="#09-查看修改" class="headerlink" title="09 - 查看修改"></a>09 - 查看修改</h2><pre><code>git show &lt;commit日志&gt;  显示详细更改</code></pre><h2 id="10-其他命令"><a href="#10-其他命令" class="headerlink" title="10 - 其他命令"></a>10 - 其他命令</h2><pre><code>git pull 从当前分支远端拉取代码git pull origin &lt;分支名&gt; 拉取某一分支的代码并合并到当前分支git branch 显示远程仓库分支git branch -a 显示所有分支git branch --merged 显示所有已合并到当前分支的分支git branch --no-merged 显示所有未合并到当前分支的分支git push origin master 推送到主分支git pull origin &lt;分支名&gt; 拉取远程分支合并到当前分支git log 显示提交日志git diff 显示所有变更git diff HEAD^ 显示与上个版本的差异git rm xxx 除某文件</code></pre>]]></content>
+      
+      
       <categories>
-        <category>Css</category>
+          
+          <category> Git命令 </category>
+          
       </categories>
-      <tags>
-        <tag>Css</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>React-antd-ImportExcel</title>
-    <url>/2020/09/04/React-antd-ImportExcel/</url>
-    <content><![CDATA[<h1 id="React-antd-ImportExcel"><a href="#React-antd-ImportExcel" class="headerlink" title="React-antd-ImportExcel"></a>React-antd-ImportExcel</h1><p>工作需求，需要</p>
-<pre><code class="js">import * as React from &#39;react&#39;;
-
-import * as XLSX from &#39;xlsx&#39;;
-
-import &#123; Button, Icon, message &#125; from &#39;antd&#39;;
-
-export interface ImportExcelProps &#123;
-    getFileInfo: Function;
-    notice?: string;
-&#125;
-
-//css文件为以下注释样式
-import &#39;./uploadStyle.css&#39;;
-&lt;!--
-.uploadBtn &#123;
-    position: absolute;
-    font-size: 5px;
-    width: &#39;100%&#39;;
-    height: &#39;100%&#39;;
-    right: 0;
-    top: 0;
-    opacity: 0;
-    filter: alpha(opacity = 0);
-    cursor: pointer;
-&#125;
---&gt;
-
-export class ImportExcel extends React.Component&lt;ImportExcelProps, any&gt; &#123;
-
-    importExcel = file =&gt; &#123;
-        // 获取上传的文件对象
-        const &#123; files &#125; = file.target;
-        // 通过FileReader对象读取文件
-        const fileReader = new FileReader();
-        fileReader.onload = event =&gt; &#123;
-            try &#123;
-                const &#123; result &#125; = event.target;
-                // 以二进制流方式读取得到整份excel表格对象
-                const workbook = XLSX.read(result, &#123; type: &#39;binary&#39; &#125;);
-                let data = []; // 存储获取到的数据
-                // 遍历每张工作表进行读取（这里默认只读取第一张表）
-                for (const sheet in workbook.Sheets) &#123;
-                    if (workbook.Sheets.hasOwnProperty(sheet)) &#123;
-                        // 利用 sheet_to_json 方法将 excel 转成 json 数据
-                        data = data.concat(XLSX.utils.sheet_to_json(workbook.Sheets[sheet]));
-                        break; // 如果只取第一张表，就取消注释这行
-                    &#125;
-                &#125;
-                //这里获取解析好的excel内容
-                this.props.getFileInfo(data)
-            &#125; catch (e) &#123;
-                // 这里可以抛出文件类型错误不正确的相关提示
-                message.warning(&#39;error&#39;)
-            &#125;
-        &#125;;
-        // 以二进制方式打开文件
-        files.length &gt; 0 &amp;&amp; fileReader.readAsBinaryString(files[0]);
-    &#125;
-
-    render() &#123;
-        const &#123; notice &#125; = this.props
-        return (
-            &lt;Button type=&quot;primary&quot; style=&#123;&#123; position: 'relative' &#125;&#125;&gt;
-                &lt;input type=&#39;file&#39; accept=&#39;.xlsx, .xls&#39; onChange=&#123;e =&gt; this.importExcel(e)&#125; className=&quot;uploadBtn&quot; /&gt;&#123;notice || &#39;导入Excel&#39;&#125;
-                &lt; Icon type=&quot;upload&quot; /&gt;
-            &lt;/Button&gt;
-        );
-    &#125;
-&#125;
-</code></pre>
-<p>使用</p>
-<pre><code class="js">//getFileInfo 用于获取解析出来的数据，按需写接收函数
-&lt;ImportExcel getFileInfo=&#123;getFileInfo&#125; notice=&quot;导入EXcel&quot; /&gt;</code></pre>
-]]></content>
+      
+      
+        <tags>
+            
+            <tag> Git </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Yarn / npm 对比</title>
+      <link href="2020/09/02/yarn-npm%E5%AF%B9%E6%AF%94/"/>
+      <url>2020/09/02/yarn-npm%E5%AF%B9%E6%AF%94/</url>
+      
+        <content type="html"><![CDATA[<table><thead><tr><th align="left">作用</th><th align="left">npm</th><th align="center">Yarn</th></tr></thead><tbody><tr><td align="left">安装</td><td align="left">npm install(i)</td><td align="center">yarn</td></tr><tr><td align="left">卸载</td><td align="left">npm uninstall(un)</td><td align="center">yarn remove</td></tr><tr><td align="left">全局安装</td><td align="left">npm install xxx –global(-g)</td><td align="center">yarn global add xxx</td></tr><tr><td align="left">安装包</td><td align="left">npm install xxx –save(-S)</td><td align="center">yarn add xxx</td></tr><tr><td align="left">开发模式安装包</td><td align="left">npm install xxx –save-dev(-D)</td><td align="center">yarn add xxx –dev(-D)</td></tr><tr><td align="left">更新</td><td align="left">npm update –save</td><td align="center">yarn upgrade</td></tr><tr><td align="left">全局更新</td><td align="left">npm update –global</td><td align="center">yarn global upgrade</td></tr><tr><td align="left">卸载</td><td align="left">npm uninstall [–save/–save-dev]</td><td align="center">yarn remove xx</td></tr><tr><td align="left">清除缓存</td><td align="left">npm cache clean</td><td align="center">yarn cache clean</td></tr><tr><td align="left">重装</td><td align="left">rm -rf node_modules &amp;&amp; npm install</td><td align="center">yarn upgrade</td></tr></tbody></table>]]></content>
+      
+      
       <categories>
-        <category>React</category>
+          
+          <category> NPM </category>
+          
       </categories>
-      <tags>
-        <tag>React</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>React-antd-exportExcel</title>
-    <url>/2020/09/04/React-antd-exportExcel/</url>
-    <content><![CDATA[<pre><code class="js">import * as React from &quot;react&quot;
-
-import * as XLSX from &quot;xlsx&quot;
-
-import &#123; Button, Icon &#125; from &quot;antd&quot;
-
-export interface ExportExcelProps &#123;
-  notice: string;
-  fileName: string;
-  headers: string[] | Function; //表头
-  getExportData: Function;
-&#125;
-
-export class ExportExcel extends React.Component&lt;ExportExcelProps, any&gt; &#123;
-  handleExport = async () =&gt; &#123;
-    const &#123; headers, fileName &#125; = this.props
-    //这里是获取导出数据的函数
-    const exportData = await this.props.getExportData()
-
-    this.exportExcel(headers, exportData, fileName)
-  &#125;
-
-  exportExcel(headers, data, fileName) &#123;
-    const _headers = headers
-      .map((item, i) =&gt;
-        Object.assign(
-          &#123;&#125;,
-          &#123;
-            key: item.key,
-            title: item.title,
-            position: String.fromCharCode(65 + i) + 1,
-          &#125;
-        )
-      )
-      .reduce(
-        (prev, next) =&gt;
-          Object.assign(&#123;&#125;, prev, &#123;
-            [next.position]: &#123; key: next.key, v: next.title &#125;,
-          &#125;),
-        &#123;&#125;
-      )
-
-    const _data = data
-      .map((item, i) =&gt;
-        headers.map((key, j) =&gt;
-          Object.assign(
-            &#123;&#125;,
-            &#123;
-              content: item[key.key],
-              position: String.fromCharCode(65 + j) + (i + 2),
-            &#125;
-          )
-        )
-      )
-      // 对刚才的结果进行降维处理（二维数组变成一维数组）
-      .reduce((prev, next) =&gt; prev.concat(next))
-      // 转换成 worksheet 需要的结构
-      .reduce(
-        (prev, next) =&gt;
-          Object.assign(&#123;&#125;, prev, &#123; [next.position]: &#123; v: next.content &#125; &#125;),
-        &#123;&#125;
-      )
-
-    // 合并 headers 和 data
-    const output = Object.assign(&#123;&#125;, _headers, _data)
-    // 获取所有单元格的位置
-    const outputPos = Object.keys(output)
-    // 计算出范围 ,[&quot;A1&quot;,..., &quot;H2&quot;]
-    const ref = `$&#123;outputPos[0]&#125;:$&#123;outputPos[outputPos.length - 1]&#125;`
-
-    // 构建 workbook 对象
-    const wb = &#123;
-      SheetNames: [&quot;mySheet&quot;],
-      Sheets: &#123;
-        mySheet: Object.assign(
-          &#123;&#125;,
-          output, //列宽
-          &#123;
-            &quot;!ref&quot;: ref,
-            &quot;!cols&quot;: [
-              &#123; wpx: 150 &#125;,
-              &#123; wpx: 150 &#125;,
-              &#123; wpx: 150 &#125;,
-              &#123; wpx: 150 &#125;,
-              &#123; wpx: 150 &#125;,
-              &#123; wpx: 150 &#125;,
-              &#123; wpx: 150 &#125;,
-              &#123; wpx: 150 &#125;,
-            ],
-          &#125;
-        ),
-      &#125;,
-    &#125;
-    // 导出 Excel
-    XLSX.writeFile(wb, `$&#123;fileName&#125;.xlsx`)
-  &#125;
-  render() &#123;
-    const &#123; notice &#125; = this.props
-    return (
-      &lt;Button type=&quot;primary&quot; onClick=&#123;() =&gt; this.handleExport()&#125;&gt;
-        &#123;notice&#125;
-        &lt;Icon type=&quot;download&quot; /&gt;
-      &lt;/Button&gt;
-    )
-  &#125;
-&#125;</code></pre>
-<p>使用</p>
-<pre><code class="js">&lt;ExportExcel
-  notice=&quot;Excel导出&quot;
-  fileName=&quot;test&quot;
-  headers=&#123;initColumn&#125;
-  getExportData=&#123;exportData&#125;
-/&gt;</code></pre>
-<p>示例表头&amp;数据：</p>
-<pre><code class="js">header=[
-    &#123;
-        title: 姓名,
-        dataIndex: name,
-        key: name,
-    &#125;,
-    &#123;
-        title: 性别,
-        dataIndex: sex,
-        key: sex,
-    &#125;,
-    &#123;
-        title: 年龄,
-        dataIndex: age,
-        key: age,
-    &#125;,
-]
-
-exportData=[
-    &#123;
-    name:&#39;小明&#39;，
-    sex:&#39;男&#39;，
-    age:18
-    &#125;,
-    &#123;
-    name:&#39;小张&#39;，
-    sex:&#39;女&#39;，
-    age:20
-    &#125;
-]</code></pre>
-]]></content>
+      
+      
+        <tags>
+            
+            <tag> Npm </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Honey</title>
+      <link href="2020/09/01/honey/"/>
+      <url>2020/09/01/honey/</url>
+      
+        <content type="html"><![CDATA[<center>"光洙宝贝😏😏😏"</center><center>"想你了哟~"</center>]]></content>
+      
+      
       <categories>
-        <category>React</category>
+          
+          <category> Honey </category>
+          
       </categories>
-      <tags>
-        <tag>React</tag>
-      </tags>
-  </entry>
+      
+      
+        <tags>
+            
+            <tag> Honey </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+  
+  
 </search>
