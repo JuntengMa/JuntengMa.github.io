@@ -277,7 +277,8 @@ export class ChildA extends React.Component&lt;ChildAProps, any&gt; &#123;
 &#125;</code></pre>
 ]]></content>
       <categories>
-        <category>React TypeScript</category>
+        <category>React</category>
+        <category>TypeScript</category>
       </categories>
   </entry>
   <entry>

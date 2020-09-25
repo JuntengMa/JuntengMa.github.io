@@ -6,7 +6,7 @@
   <link href="https://juntengma.github.io/atom.xml" rel="self"/>
   
   <link href="https://juntengma.github.io/"/>
-  <updated>2020-09-25T09:53:40.138Z</updated>
+  <updated>2020-09-25T09:54:13.654Z</updated>
   <id>https://juntengma.github.io/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://juntengma.github.io/2020/09/25/React-%E7%88%B6%E7%BB%84%E4%BB%B6%E8%B0%83%E7%94%A8%E5%AD%90%E7%BB%84%E4%BB%B6/"/>
     <id>https://juntengma.github.io/2020/09/25/React-%E7%88%B6%E7%BB%84%E4%BB%B6%E8%B0%83%E7%94%A8%E5%AD%90%E7%BB%84%E4%BB%B6/</id>
     <published>2020-09-25T08:37:00.658Z</published>
-    <updated>2020-09-25T09:53:40.138Z</updated>
+    <updated>2020-09-25T09:54:13.654Z</updated>
     
     <content type="html"><![CDATA[<h2 id="方案一：-ref控制"><a href="#方案一：-ref控制" class="headerlink" title="方案一： ref控制"></a>方案一： ref控制</h2><h4 id="Parent-Component-Parent-tsx"><a href="#Parent-Component-Parent-tsx" class="headerlink" title="Parent Component ( Parent.tsx )"></a>Parent Component ( Parent.tsx )</h4><pre><code>import * as React from &#39;react&#39;;import &#123; ChildA &#125; from &#39;./ChildA&#39;;//多个子组件时可以先定义如下组件：class Childrens extends React.Component&lt;any, any&gt; &#123;  _childA: any;  _childB: any;  _childC: any;&#125;export class Parent extends Childrens &#123;  //调用子组件方式：  get_childA_sum = () =&gt; &#123;    this._childA.sum(1, 2)  &#125;  render() &#123;    const children = &#123;      on_childA_ref: ref =&gt; &#123;        this._childA = ref;      &#125;,      on_childB_ref: ref =&gt; &#123;        this._childB = ref;      &#125;,      on_childC_ref: ref =&gt; &#123;        this._childC = ref;      &#125;,    &#125;    return (      &lt;div&gt;        &lt;button onClick=&#123;() =&gt; this.get_childA_sum()&#125;&gt; SumA &lt;/button&gt;        &lt;ChildA _childA=&#123;children.on_childA_ref&#125; /&gt;      &lt;/div&gt;    )  &#125;&#125;</code></pre><h4 id="Children-Component-ChildA-tsx"><a href="#Children-Component-ChildA-tsx" class="headerlink" title="Children Component  (ChildA.tsx)"></a>Children Component  (ChildA.tsx)</h4><pre><code>import * as React from &#39;react&#39;;interface ChildAProps &#123;  _childA:Function;&#125;export class ChildA extends React.Component&lt;ChildAProps, any&gt; &#123;  componentDidMount() &#123;        this.props._childA(this)    &#125;  sum = (a , b) =&gt; &#123;    alert(a+b)  &#125;  render()&#123;    return(      &lt;div&gt;        组件A      &lt;/div&gt;    )  &#125;&#125;</code></pre>]]></content>
     
@@ -33,7 +33,9 @@
     
     
     
-    <category term="React TypeScript" scheme="https://juntengma.github.io/categories/React-TypeScript/"/>
+    <category term="React" scheme="https://juntengma.github.io/categories/React/"/>
+    
+    <category term="TypeScript" scheme="https://juntengma.github.io/categories/React/TypeScript/"/>
     
     
   </entry>
