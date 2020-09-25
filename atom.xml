@@ -6,7 +6,7 @@
   <link href="https://juntengma.github.io/atom.xml" rel="self"/>
   
   <link href="https://juntengma.github.io/"/>
-  <updated>2020-09-24T12:01:21.894Z</updated>
+  <updated>2020-09-25T09:53:40.138Z</updated>
   <id>https://juntengma.github.io/</id>
   
   <author>
@@ -17,11 +17,33 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>React父组件调用子组件</title>
+    <link href="https://juntengma.github.io/2020/09/25/React-%E7%88%B6%E7%BB%84%E4%BB%B6%E8%B0%83%E7%94%A8%E5%AD%90%E7%BB%84%E4%BB%B6/"/>
+    <id>https://juntengma.github.io/2020/09/25/React-%E7%88%B6%E7%BB%84%E4%BB%B6%E8%B0%83%E7%94%A8%E5%AD%90%E7%BB%84%E4%BB%B6/</id>
+    <published>2020-09-25T08:37:00.658Z</published>
+    <updated>2020-09-25T09:53:40.138Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="方案一：-ref控制"><a href="#方案一：-ref控制" class="headerlink" title="方案一： ref控制"></a>方案一： ref控制</h2><h4 id="Parent-Component-Parent-tsx"><a href="#Parent-Component-Parent-tsx" class="headerlink" title="Parent Component ( Parent.tsx )"></a>Parent Component ( Parent.tsx )</h4><pre><code>import * as React from &#39;react&#39;;import &#123; ChildA &#125; from &#39;./ChildA&#39;;//多个子组件时可以先定义如下组件：class Childrens extends React.Component&lt;any, any&gt; &#123;  _childA: any;  _childB: any;  _childC: any;&#125;export class Parent extends Childrens &#123;  //调用子组件方式：  get_childA_sum = () =&gt; &#123;    this._childA.sum(1, 2)  &#125;  render() &#123;    const children = &#123;      on_childA_ref: ref =&gt; &#123;        this._childA = ref;      &#125;,      on_childB_ref: ref =&gt; &#123;        this._childB = ref;      &#125;,      on_childC_ref: ref =&gt; &#123;        this._childC = ref;      &#125;,    &#125;    return (      &lt;div&gt;        &lt;button onClick=&#123;() =&gt; this.get_childA_sum()&#125;&gt; SumA &lt;/button&gt;        &lt;ChildA _childA=&#123;children.on_childA_ref&#125; /&gt;      &lt;/div&gt;    )  &#125;&#125;</code></pre><h4 id="Children-Component-ChildA-tsx"><a href="#Children-Component-ChildA-tsx" class="headerlink" title="Children Component  (ChildA.tsx)"></a>Children Component  (ChildA.tsx)</h4><pre><code>import * as React from &#39;react&#39;;interface ChildAProps &#123;  _childA:Function;&#125;export class ChildA extends React.Component&lt;ChildAProps, any&gt; &#123;  componentDidMount() &#123;        this.props._childA(this)    &#125;  sum = (a , b) =&gt; &#123;    alert(a+b)  &#125;  render()&#123;    return(      &lt;div&gt;        组件A      &lt;/div&gt;    )  &#125;&#125;</code></pre>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h2 id=&quot;方案一：-ref控制&quot;&gt;&lt;a href=&quot;#方案一：-ref控制&quot; class=&quot;headerlink&quot; title=&quot;方案一： ref控制&quot;&gt;&lt;/a&gt;方案一： ref控制&lt;/h2&gt;&lt;h4 id=&quot;Parent-Component-Parent-tsx&quot;&gt;&lt;a h</summary>
+      
+    
+    
+    
+    <category term="React TypeScript" scheme="https://juntengma.github.io/categories/React-TypeScript/"/>
+    
+    
+  </entry>
+  
+  <entry>
     <title>JS获取元素位置</title>
-    <link href="https://juntengma.github.io/2020/09/24/js%E8%8E%B7%E5%8F%96%E5%85%83%E7%B4%A0%E5%9D%90%E6%A0%87%E9%97%AE%E9%A2%98/"/>
-    <id>https://juntengma.github.io/2020/09/24/js%E8%8E%B7%E5%8F%96%E5%85%83%E7%B4%A0%E5%9D%90%E6%A0%87%E9%97%AE%E9%A2%98/</id>
+    <link href="https://juntengma.github.io/2020/09/24/JavaScript%E8%8E%B7%E5%8F%96%E5%85%83%E7%B4%A0%E5%9D%90%E6%A0%87%E9%97%AE%E9%A2%98/"/>
+    <id>https://juntengma.github.io/2020/09/24/JavaScript%E8%8E%B7%E5%8F%96%E5%85%83%E7%B4%A0%E5%9D%90%E6%A0%87%E9%97%AE%E9%A2%98/</id>
     <published>2020-09-24T11:52:43.097Z</published>
-    <updated>2020-09-24T12:01:21.894Z</updated>
+    <updated>2020-09-25T08:44:26.376Z</updated>
     
     <content type="html"><![CDATA[<h2 id="js获取元素相对于父级元素的高度"><a href="#js获取元素相对于父级元素的高度" class="headerlink" title="js获取元素相对于父级元素的高度"></a>js获取元素相对于父级元素的高度</h2><h4 id="1-offsetLeft-、offsetTop"><a href="#1-offsetLeft-、offsetTop" class="headerlink" title="1. offsetLeft 、offsetTop"></a>1. offsetLeft 、offsetTop</h4><p>offsetLeft/offsetTop -  用于获取子元素相对于父元素的位移（左位移、上位移）</p><h4 id="2-offsetWidth、offsetHeight"><a href="#2-offsetWidth、offsetHeight" class="headerlink" title="2. offsetWidth、offsetHeight"></a>2. offsetWidth、offsetHeight</h4><p>offsetWidth/offsetHeight - 用于获取元素的可见宽度和可见高度</p><h4 id="3-clientX-、clientY"><a href="#3-clientX-、clientY" class="headerlink" title="3. clientX 、clientY"></a>3. clientX 、clientY</h4><p>用于获取鼠标坐标（相对于页面的坐标）</p><p>var event = event || window.event;</p><ul><li>event.clientX</li><li>event.clientY</li></ul><h4 id="4-offsetLeft与style-left的区别"><a href="#4-offsetLeft与style-left的区别" class="headerlink" title="4.offsetLeft与style.left的区别"></a>4.offsetLeft与style.left的区别</h4><ol><li>    <ul><li>style.left返回的是字符串      //30px</li><li>offsetLeft返回的是数值        //30</li></ul></li><li>    <ul><li>style.left可读可写</li><li>offsetLeft只读</li></ul></li><li>     <ul><li>style.left的值需事先定义，否则取到的值为空</li><li>offsetLeft不需提前定义，直接获取</li></ul></li></ol><h4 id="5-兼容问题"><a href="#5-兼容问题" class="headerlink" title="5.兼容问题"></a>5.兼容问题</h4><pre><code>chrome：e.pageX——相对整个页面的坐标e.layerX——相对当前坐标系的border左上角开始的坐标e.offsetX——相对当前坐标系的border左上角开始的坐标e.clientX——相对可视区域的坐标e.x——相对可视区域的坐标ff：e.pageX——相对整个页面的坐标e.layerX——相对当前坐标系的border左上角开始的坐标e.offsetX——无e.clientX——相对可视区域的坐标e.x——无opera：e.pageX——相对整个页面的坐标e.layerX——无e.offsetX——相对当前坐标系的内容区域左上角开始的坐标e.clientX——相对可视区域的坐标e.x——相对可视区域的坐标safari：（这个和chrome是一样的）e.pageX——相对整个页面的坐标e.layerX——相对当前坐标系的border左上角开始的坐标e.offsetX——相对当前坐标系的border左上角开始的坐标e.clientX——相对可视区域的坐标e.x——相对可视区域的坐标IE9：e.pageX——相对整个页面的坐标e.layerX——相对当前坐标系的border左上角开始的坐标 + 滚动条滚过的距离（这个NB轰轰了····=。=）e.offsetX——相对当前坐标系的内容区域左上角开始的坐标e.clientX——相对可视区域的坐标e.x——相对当前坐标系的border左上角开始IE8：e.pageX——无e.layerX——无e.offsetX——相对当前坐标系的内容区域左上角开始的坐标e.clientX——相对可视区域的坐标e.x——相对当前坐标系的border左上角开始IE7：e.pageX——无e.layerX——无e.offsetX——相对当前坐标系的内容区域左上角开始的坐标e.clientX——相对可视区域的坐标e.x——相对当前坐标系的border左上角开始IE6：e.pageX——无e.layerX——无e.offsetX——相对当前坐标系的内容区域左上角开始的坐标e.clientX——相对可视区域的坐标e.x——相对当前坐标系的border左上角开始</code></pre>]]></content>
     
@@ -42,10 +64,10 @@
   
   <entry>
     <title>富文本框</title>
-    <link href="https://juntengma.github.io/2020/09/24/richText/"/>
-    <id>https://juntengma.github.io/2020/09/24/richText/</id>
+    <link href="https://juntengma.github.io/2020/09/24/React-richText/"/>
+    <id>https://juntengma.github.io/2020/09/24/React-richText/</id>
     <published>2020-09-24T01:40:54.594Z</published>
-    <updated>2020-09-24T01:45:17.334Z</updated>
+    <updated>2020-09-25T08:41:42.301Z</updated>
     
     <content type="html"><![CDATA[<h2 id="富文本编辑器"><a href="#富文本编辑器" class="headerlink" title="富文本编辑器"></a>富文本编辑器</h2><p><a href="https://www.yuque.com/braft-editor/be/gz44tn#wx1vkv">https://www.yuque.com/braft-editor/be/gz44tn#wx1vkv</a></p><pre><code>import React, &#123; Component &#125; from &#39;react&#39;;// 引入编辑器组件import BraftEditor from &#39;braft-editor&#39;;// 引入编辑器样式import &#39;braft-editor/dist/index.css&#39;;import &#123; UploadFn &#125; from &#39;./UploadFn&#39;;export class RichText extends Component &#123;    constructor() &#123;        super();        this.state = &#123;            editorState: BraftEditor.createEditorState(null),        &#125;;        RichText.submitContent = this.submitContent.bind(this);    &#125;    async componentDidMount() &#123;        // 假设此处从服务端获取html格式的编辑器内容        let htmlContent = this.props.htmlContent || null;        // 使用BraftEditor.createEditorState将html字符串转换为编辑器需要的editorStat        this.setState(&#123;            editorState: BraftEditor.createEditorState(htmlContent),        &#125;);    &#125;    componentWillReceiveProps(nextProps) &#123;        if (nextProps.htmlContent !== this.state.htmlContent) &#123;            this.setState(&#123;                editorState: BraftEditor.createEditorState(nextProps.htmlContent),            &#125;);        &#125;    &#125;    submitContent = async () =&gt; &#123;        // 在编辑器获得焦点时按下ctrl+s会执行此方法        // 编辑器内容提交到服务端之前，可直接调用editorState.toHTML()来获取HTML格式的内容        const htmlContent = this.state.editorState.toHTML();        return htmlContent;    &#125;;    handleEditorChange = editorState =&gt; &#123;        this.setState(&#123; editorState &#125;);    &#125;;    render() &#123;        return (            &lt;BraftEditor                value=&#123;this.state.editorState&#125;                onChange=&#123;this.handleEditorChange&#125;                onSave=&#123;this.submitContent&#125;                onBlur=&#123;() =&gt; &#123;                    const htmlContent = this.state.editorState.toHTML();                &#125;&#125;                // excludeControls=&#123;[&#39;options&#39;]&#125;                media=&#123;&#123; uploadFn: UploadFn &#125;&#125;            /&gt;        );    &#125;&#125;</code></pre>]]></content>
     
@@ -95,10 +117,10 @@
   
   <entry>
     <title>一段js代码在浏览器中是如何执行的</title>
-    <link href="https://juntengma.github.io/2020/09/22/Js-js%E4%BB%A3%E7%A0%81%E5%9C%A8%E6%B5%8F%E8%A7%88%E5%99%A8%E4%B8%AD%E7%9A%84%E6%89%A7%E8%A1%8C%E9%A1%BA%E5%BA%8F/"/>
-    <id>https://juntengma.github.io/2020/09/22/Js-js%E4%BB%A3%E7%A0%81%E5%9C%A8%E6%B5%8F%E8%A7%88%E5%99%A8%E4%B8%AD%E7%9A%84%E6%89%A7%E8%A1%8C%E9%A1%BA%E5%BA%8F/</id>
+    <link href="https://juntengma.github.io/2020/09/22/JavaScript%E4%BB%A3%E7%A0%81%E5%9C%A8%E6%B5%8F%E8%A7%88%E5%99%A8%E4%B8%AD%E7%9A%84%E6%89%A7%E8%A1%8C%E9%A1%BA%E5%BA%8F/"/>
+    <id>https://juntengma.github.io/2020/09/22/JavaScript%E4%BB%A3%E7%A0%81%E5%9C%A8%E6%B5%8F%E8%A7%88%E5%99%A8%E4%B8%AD%E7%9A%84%E6%89%A7%E8%A1%8C%E9%A1%BA%E5%BA%8F/</id>
     <published>2020-09-22T11:14:44.228Z</published>
-    <updated>2020-09-22T12:06:49.778Z</updated>
+    <updated>2020-09-25T08:44:21.784Z</updated>
     
     <content type="html"><![CDATA[<h1 id="一段js代码在浏览器中是如何执行的"><a href="#一段js代码在浏览器中是如何执行的" class="headerlink" title="一段js代码在浏览器中是如何执行的"></a>一段js代码在浏览器中是如何执行的</h1><p>在执行一段代码时，JS 引擎会首先创建一个执行栈<br>然后JS引擎会创建一个全局执行上下文，并push到执行栈中, 这个过程JS引擎会为这段代码中所有变量分配内存并赋一个初始值（undefined），在创建完成后，JS引擎会进入执行阶段，这个过程JS引擎会逐行的执行代码，即为之前分配好内存的变量逐个赋值(真实值)。<br>如果这段代码中存在function的声明和调用，那么JS引擎会创建一个函数执行上下文，并push到执行栈中，其创建和执行过程跟全局执行上下文一样。但有特殊情况，即当函数中存在对其它函数的调用时，JS引擎会在父函数执行的过程中，将子函数的全局执行上下文push到执行栈，这也是为什么子函数能够访问到父函数内所声明的变量。<br>还有一种特殊情况是，在子函数执行的过程中，父函数已经return了，这种情况下，JS引擎会将父函数的上下文从执行栈中移除，与此同时，JS引擎会为还在执行的子函数上下文创建一个闭包，这个闭包里保存了父函数内声明的变量及其赋值，子函数仍然能够在其上下文中访问并使用这边变量/常量。当子函数执行完毕，JS引擎才会将子函数的上下文及闭包一并从执行栈中移除。<br>最后，JS引擎是单线程的，那么它是如何处理高并发的呢？即当代码中存在异步调用时JS是如何执行的。比如setTimeout或fetch请求都是non-blocking的，当异步调用代码触发时，JS引擎会将需要异步执行的代码移出调用栈，直到等待到返回结果，JS引擎会立即将与之对应的回调函数push进任务队列中等待被调用，当调用(执行)栈中已经没有需要被执行的代码时，JS引擎会立刻将任务队列中的回调函数逐个push进调用栈并执行。这个过程我们也称之为事件循环。</p><p>转自: <a href="https://juejin.im/post/5e7426d15188254967069c00">https://juejin.im/post/5e7426d15188254967069c00</a></p>]]></content>
     
@@ -107,10 +129,10 @@
     
     
     
-    <category term="Js" scheme="https://juntengma.github.io/categories/Js/"/>
+    <category term="JavaScript" scheme="https://juntengma.github.io/categories/JavaScript/"/>
     
     
-    <category term="Js" scheme="https://juntengma.github.io/tags/Js/"/>
+    <category term="JavaScript" scheme="https://juntengma.github.io/tags/JavaScript/"/>
     
   </entry>
   
@@ -141,10 +163,10 @@ npm</summary>
   
   <entry>
     <title>在react中实现文本复制</title>
-    <link href="https://juntengma.github.io/2020/09/22/%E6%96%87%E6%9C%AC%E5%A4%8D%E5%88%B6/"/>
-    <id>https://juntengma.github.io/2020/09/22/%E6%96%87%E6%9C%AC%E5%A4%8D%E5%88%B6/</id>
+    <link href="https://juntengma.github.io/2020/09/22/React-%E6%96%87%E6%9C%AC%E5%A4%8D%E5%88%B6/"/>
+    <id>https://juntengma.github.io/2020/09/22/React-%E6%96%87%E6%9C%AC%E5%A4%8D%E5%88%B6/</id>
     <published>2020-09-21T16:00:00.000Z</published>
-    <updated>2020-09-22T13:10:37.955Z</updated>
+    <updated>2020-09-25T08:42:39.806Z</updated>
     
     <content type="html"><![CDATA[<h2 id="方案一："><a href="#方案一：" class="headerlink" title="方案一："></a>方案一：</h2><pre><code class="js">copyTranslateResult = () =&gt; &#123;        const copyDOM = document.querySelector(&#39;.translateResult&#39;);        if (copyDOM.innerHTML !== &#39;&#39;) &#123;            var range = document.createRange(); //创建一个range            window.getSelection().removeAllRanges(); //清楚页面中已有的selection            range.selectNode(copyDOM); // 选中需要复制的节点            window.getSelection().addRange(range); // 执行选中元素            var successful = document.execCommand(&#39;copy&#39;); // 执行 copy 操作            if (successful) &#123;                message.success(&#39;复制成功！&#39;);            &#125; else &#123;                message.warning(&#39;复制失败，请手动复制！&#39;);            &#125;            // 移除选中的元素            window.getSelection().removeAllRanges();        &#125; else &#123;            message.warning(&#39;没有内容&#39;);        &#125;    &#125;;</code></pre><h2 id="方案二-推荐，方案一兼容性不高-："><a href="#方案二-推荐，方案一兼容性不高-：" class="headerlink" title="方案二(推荐，方案一兼容性不高)："></a>方案二(推荐，方案一兼容性不高)：</h2><p><strong>react-copy-to-clipboard：</strong><br><a href="https://github.com/nkbt/react-copy-to-clipboard">https://github.com/nkbt/react-copy-to-clipboard</a></p><h4 id="Install"><a href="#Install" class="headerlink" title="Install"></a>Install</h4><pre><code>npm install --save react-copy-to-clipboardoryarn add react-copy-to-clipboard</code></pre><h4 id="Demo"><a href="#Demo" class="headerlink" title="Demo"></a>Demo</h4><pre><code class="jsx">import React from &#39;react&#39;;import ReactDOM from &#39;react-dom&#39;;import &#123;CopyToClipboard&#125; from &#39;react-copy-to-clipboard&#39;;class App extends React.Component &#123;  state = &#123;    value: &#39;&#39;,    copied: false,  &#125;;  render() &#123;    return (      &lt;div&gt;        &lt;input value=&#123;this.state.value&#125;          onChange=&#123;(&#123;target: &#123;value&#125;&#125;) =&gt; this.setState(&#123;value, copied: false&#125;)&#125; /&gt;        &lt;CopyToClipboard text=&#123;this.state.value&#125;          onCopy=&#123;() =&gt; this.setState(&#123;copied: true&#125;)&#125;&gt;          &lt;span&gt;Copy to clipboard with span&lt;/span&gt;        &lt;/CopyToClipboard&gt;        &lt;CopyToClipboard text=&#123;this.state.value&#125;          onCopy=&#123;() =&gt; this.setState(&#123;copied: true&#125;)&#125;&gt;          &lt;button&gt;Copy to clipboard with button&lt;/button&gt;        &lt;/CopyToClipboard&gt;        &#123;this.state.copied ? &lt;span style=&#123;&#123;color: 'red'&#125;&#125;&gt;Copied.&lt;/span&gt; : null&#125;      &lt;/div&gt;    );  &#125;&#125;const appRoot = document.createElement(&#39;div&#39;);document.body.appendChild(appRoot);ReactDOM.render(&lt;App /&gt;, appRoot);</code></pre>]]></content>
     
@@ -166,10 +188,10 @@ npm</summary>
   
   <entry>
     <title>DiffView</title>
-    <link href="https://juntengma.github.io/2020/09/18/DiffView/"/>
-    <id>https://juntengma.github.io/2020/09/18/DiffView/</id>
+    <link href="https://juntengma.github.io/2020/09/18/React-diffView/"/>
+    <id>https://juntengma.github.io/2020/09/18/React-diffView/</id>
     <published>2020-09-18T07:05:55.000Z</published>
-    <updated>2020-09-22T12:01:30.072Z</updated>
+    <updated>2020-09-25T08:43:06.718Z</updated>
     
     <content type="html"><![CDATA[<h1 id="react-diff-view"><a href="#react-diff-view" class="headerlink" title="react-diff-view"></a>react-diff-view</h1><p><a href="https://github.com/praneshr/react-diff-viewer.git">https://github.com/praneshr/react-diff-viewer.git</a></p><h1 id="Install"><a href="#Install" class="headerlink" title="Install"></a>Install</h1><pre><code>yarn add react-diff-viewer# ornpm i react-diff-viewer</code></pre><h1 id="封装组件-DiffView-tsx"><a href="#封装组件-DiffView-tsx" class="headerlink" title="封装组件 DiffView.tsx"></a>封装组件 DiffView.tsx</h1><pre><code>import * as React from &#39;react&#39;;import ReactDiffViewer from &#39;react-diff-viewer&#39;;export interface DiffViewProps &#123;    oldValue: string;    newValue: string;    splitView?: boolean; //true 分两栏 | false  分一栏    leftTitle?: string;    rightTitle?: string;    style?: object&#125;export class DiffView extends React.Component&lt;DiffViewProps&gt; &#123;    public render() &#123;        const &#123; oldValue, newValue, splitView = true, leftTitle, rightTitle, style &#125; = this.props;        return (            &lt;div style=&#123;&#123;...style,overflowY: 'scroll',wordWrap: 'break-word',wordBreak: 'break-all'&#125;&#125;&gt;                &lt;ReactDiffViewer                    oldValue=&#123;oldValue&#125;                    newValue=&#123;newValue&#125;                    splitView=&#123;splitView&#125;                    leftTitle=&#123;leftTitle&#125;                    rightTitle=&#123;rightTitle&#125;                /&gt;            &lt;/div&gt;        );    &#125;&#125;</code></pre><h1 id="参数"><a href="#参数" class="headerlink" title="参数"></a>参数</h1><p><a href="https://github.com/praneshr/react-diff-viewer#props">https://github.com/praneshr/react-diff-viewer#props</a></p><table><thead><tr><th>Prop</th><th>Type</th><th>Default</th><th>Description</th></tr></thead><tbody><tr><td>oldValue</td><td><code>string</code></td><td><code>&#39;&#39;</code></td><td>Old value as string.</td></tr><tr><td>newValue</td><td><code>string</code></td><td><code>&#39;&#39;</code></td><td>New value as string.</td></tr><tr><td>splitView</td><td><code>boolean</code></td><td><code>true</code></td><td>Switch between <code>unified</code> and <code>split</code> view.</td></tr><tr><td>disableWordDiff</td><td><code>boolean</code></td><td><code>false</code></td><td>Show and hide word diff in a diff line.</td></tr><tr><td>compareMethod</td><td><code>DiffMethod</code></td><td><code>DiffMethod.CHARS</code></td><td>JsDiff text diff method used for diffing strings. Check out the <a href="https://github.com/praneshr/react-diff-viewer/tree/v3.0.0#text-block-diff-comparison">guide</a> to use different methods.</td></tr><tr><td>hideLineNumbers</td><td><code>boolean</code></td><td><code>false</code></td><td>Show and hide line numbers.</td></tr><tr><td>renderContent</td><td><code>function</code></td><td><code>undefined</code></td><td>Render Prop API to render code in the diff viewer. Helpful for <a href="https://github.com/praneshr/react-diff-viewer#syntax-highlighting">syntax highlighting</a></td></tr><tr><td>onLineNumberClick</td><td><code>function</code></td><td><code>undefined</code></td><td>Event handler for line number click. <code>(lineId: string) =&gt; void</code></td></tr><tr><td>highlightLines</td><td><code>array[string]</code></td><td><code>[]</code></td><td>List of lines to be highlighted. Works together with <code>onLineNumberClick</code>. Line number are prefixed with <code>L</code> and <code>R</code> for the left and right section of the diff viewer, respectively. For example, <code>L-20</code> means 20th line in the left pane. To highlight a range of line numbers, pass the prefixed line number as an array. For example, <code>[L-2, L-3, L-4, L-5]</code> will highlight the lines <code>2-5</code> in the left pane.</td></tr><tr><td>showDiffOnly</td><td><code>boolean</code></td><td><code>true</code></td><td>Shows only the diffed lines and folds the unchanged lines</td></tr><tr><td>extraLinesSurroundingDiff</td><td><code>number</code></td><td><code>3</code></td><td>Number of extra unchanged lines surrounding the diff. Works along with <code>showDiffOnly</code>.</td></tr><tr><td>codeFoldMessageRenderer</td><td><code>function</code></td><td><code>Expand &#123;number&#125; of lines ...</code></td><td>Render Prop API to render code fold message.</td></tr><tr><td>styles</td><td><code>object</code></td><td><code>&#123;&#125;</code></td><td>To override style variables and styles. Learn more about <a href="https://github.com/praneshr/react-diff-viewer#overriding-styles">overriding styles</a></td></tr><tr><td>useDarkTheme</td><td><code>boolean</code></td><td><code>true</code></td><td>To enable/disable dark theme.</td></tr><tr><td>leftTitle</td><td><code>string</code></td><td><code>undefined</code></td><td>Column title for left section of the diff in split view. This will be used as the only title in inline view.</td></tr><tr><td>rightTitle</td><td><code>string</code></td><td><code>undefined</code></td><td>Column title for right section of the diff in split view. This will be ignored in inline view.</td></tr><tr><td>linesOffset</td><td><code>number</code></td><td><code>0</code></td><td>Number to start count code lines from.</td></tr></tbody></table>]]></content>
     
