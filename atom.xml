@@ -292,16 +292,19 @@ npm</summary>
   </entry>
   
   <entry>
-    <title>git命令</title>
+    <title>&lt;center&gt;&quot;自己比较常用的一些git操作&quot;&lt;/center&gt;</title>
     <link href="https://juntengma.github.io/2020/09/02/Git%E5%91%BD%E4%BB%A4/"/>
     <id>https://juntengma.github.io/2020/09/02/Git%E5%91%BD%E4%BB%A4/</id>
     <published>2020-09-02T12:00:33.000Z</published>
-    <updated>2020-09-27T12:47:52.625Z</updated>
+    <updated>2020-09-27T12:50:51.452Z</updated>
     
     <content type="html"><![CDATA[<h1 id="GIT-常用命令"><a href="#GIT-常用命令" class="headerlink" title="GIT 常用命令"></a>GIT 常用命令</h1><h2 id="01-初始配置"><a href="#01-初始配置" class="headerlink" title="01 - 初始配置"></a>01 - 初始配置</h2><pre><code>- git init 初始化本地git仓库（创建新仓库）- git config --global user.name &quot;xxx&quot; 配置用户名- git config --global user.email &quot;xxx@xxx.com&quot; 配置用户邮箱- git clone &quot;git链接&quot; 克隆git仓库到本地- git status 查看当前在哪个分支</code></pre><h2 id="02-开发完毕将要上传代码仓库操作"><a href="#02-开发完毕将要上传代码仓库操作" class="headerlink" title="02 - 开发完毕将要上传代码仓库操作"></a>02 - 开发完毕将要上传代码仓库操作</h2><pre><code>git add .  增加当前子目录下所有更改过的文件至indexgit commit -m &quot;xxx&quot; 提交git push 推送改动到远端</code></pre><h2 id="03-新建分支操作"><a href="#03-新建分支操作" class="headerlink" title="03 - 新建分支操作"></a>03 - 新建分支操作</h2><pre><code>git branch &lt;分支名&gt; 创建新分支git checkout &lt;分支名&gt; 切换到该分支git push 如果是新建分支，push的时候需要跟远端仓库关联，一般会提示 git push --set-upstream 你的分支名 ， 复制提示信息并执行</code></pre><h2 id="04-合并分支操作"><a href="#04-合并分支操作" class="headerlink" title="04 - 合并分支操作"></a>04 - 合并分支操作</h2><pre><code>git pull origin master 多人协作，以防master已更新，本地代码版本没有更新，先同步一下master代码，以防产生合并冲突git checkout master 先切换到主分支再合并git merge &lt;需要合并到master上的分支名&gt; 合并某一个分支到该分支</code></pre><h2 id="05-删除本地，远程分支"><a href="#05-删除本地，远程分支" class="headerlink" title="05 - 删除本地，远程分支"></a>05 - 删除本地，远程分支</h2><pre><code>- git branch -d &lt;分支名&gt; 删除本地某一分支- git push origin --delete &lt;分支名&gt; 删除远端分支</code></pre><h2 id="06-版本回退"><a href="#06-版本回退" class="headerlink" title="06 - 版本回退"></a>06 - 版本回退</h2><pre><code>- git log 查看提交历史和commit 标记- git reset --hard &lt;commit 后面的字符串&gt; 将代码回退到某一版本- git push -f 远端仓库版本高于本地版本，需要强制推送上去</code></pre><h2 id="07-取消所有本地修改"><a href="#07-取消所有本地修改" class="headerlink" title="07 - 取消所有本地修改"></a>07 - 取消所有本地修改</h2><pre><code>git checkout .</code></pre><h2 id="09-查看修改"><a href="#09-查看修改" class="headerlink" title="09 - 查看修改"></a>09 - 查看修改</h2><pre><code>git show &lt;commit日志&gt;  显示详细更改</code></pre><h2 id="10-查看某一文件所有修改历史"><a href="#10-查看某一文件所有修改历史" class="headerlink" title="10 - 查看某一文件所有修改历史"></a>10 - 查看某一文件所有修改历史</h2><pre><code> git log --pretty=on 相对路径/绝对路径 git show &lt;commit日志&gt;</code></pre><h2 id="11-其他命令"><a href="#11-其他命令" class="headerlink" title="11 - 其他命令"></a>11 - 其他命令</h2><pre><code>git pull 从当前分支远端拉取代码git pull origin &lt;分支名&gt; 拉取某一分支的代码并合并到当前分支git branch 显示远程仓库分支git branch -a 显示所有分支git branch --merged 显示所有已合并到当前分支的分支git branch --no-merged 显示所有未合并到当前分支的分支git push origin master 推送到主分支git pull origin &lt;分支名&gt; 拉取远程分支合并到当前分支git log 显示提交日志git diff 显示所有变更git diff HEAD^ 显示与上个版本的差异git rm xxx 除某文件</code></pre>]]></content>
     
     
-    <summary type="html">&lt;center&gt;&quot;自己比较常用的一些git操作&quot;&lt;/center&gt;</summary>
+      
+      
+    <summary type="html">&lt;h1 id=&quot;GIT-常用命令&quot;&gt;&lt;a href=&quot;#GIT-常用命令&quot; class=&quot;headerlink&quot; title=&quot;GIT 常用命令&quot;&gt;&lt;/a&gt;GIT 常用命令&lt;/h1&gt;&lt;h2 id=&quot;01-初始配置&quot;&gt;&lt;a href=&quot;#01-初始配置&quot; class=&quot;header</summary>
+      
     
     
     
