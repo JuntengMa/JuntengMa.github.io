@@ -292,27 +292,6 @@ npm</summary>
   </entry>
   
   <entry>
-    <title>Yarn / npm 对比</title>
-    <link href="https://juntengma.github.io/2020/09/02/yarn-npm%E5%AF%B9%E6%AF%94/"/>
-    <id>https://juntengma.github.io/2020/09/02/yarn-npm%E5%AF%B9%E6%AF%94/</id>
-    <published>2020-09-02T12:00:33.000Z</published>
-    <updated>2020-09-22T12:11:59.779Z</updated>
-    
-    <content type="html"><![CDATA[<table><thead><tr><th align="left">作用</th><th align="left">npm</th><th align="center">Yarn</th></tr></thead><tbody><tr><td align="left">安装</td><td align="left">npm install(i)</td><td align="center">yarn</td></tr><tr><td align="left">卸载</td><td align="left">npm uninstall(un)</td><td align="center">yarn remove</td></tr><tr><td align="left">全局安装</td><td align="left">npm install xxx –global(-g)</td><td align="center">yarn global add xxx</td></tr><tr><td align="left">安装包</td><td align="left">npm install xxx –save(-S)</td><td align="center">yarn add xxx</td></tr><tr><td align="left">开发模式安装包</td><td align="left">npm install xxx –save-dev(-D)</td><td align="center">yarn add xxx –dev(-D)</td></tr><tr><td align="left">更新</td><td align="left">npm update –save</td><td align="center">yarn upgrade</td></tr><tr><td align="left">全局更新</td><td align="left">npm update –global</td><td align="center">yarn global upgrade</td></tr><tr><td align="left">卸载</td><td align="left">npm uninstall [–save/–save-dev]</td><td align="center">yarn remove xx</td></tr><tr><td align="left">清除缓存</td><td align="left">npm cache clean</td><td align="center">yarn cache clean</td></tr><tr><td align="left">重装</td><td align="left">rm -rf node_modules &amp;&amp; npm install</td><td align="center">yarn upgrade</td></tr></tbody></table>]]></content>
-    
-    
-    <summary type="html">&lt;center&gt;“Yarn / npm 对比”&lt;/center&gt;</summary>
-    
-    
-    
-    <category term="NPM" scheme="https://juntengma.github.io/categories/NPM/"/>
-    
-    
-    <category term="Npm" scheme="https://juntengma.github.io/tags/Npm/"/>
-    
-  </entry>
-  
-  <entry>
     <title>git命令</title>
     <link href="https://juntengma.github.io/2020/09/02/Git%E5%91%BD%E4%BB%A4/"/>
     <id>https://juntengma.github.io/2020/09/02/Git%E5%91%BD%E4%BB%A4/</id>
@@ -330,6 +309,27 @@ npm</summary>
     
     
     <category term="Git" scheme="https://juntengma.github.io/tags/Git/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Yarn / npm 对比</title>
+    <link href="https://juntengma.github.io/2020/09/02/yarn-npm%E5%AF%B9%E6%AF%94/"/>
+    <id>https://juntengma.github.io/2020/09/02/yarn-npm%E5%AF%B9%E6%AF%94/</id>
+    <published>2020-09-02T12:00:33.000Z</published>
+    <updated>2020-09-22T12:11:59.779Z</updated>
+    
+    <content type="html"><![CDATA[<table><thead><tr><th align="left">作用</th><th align="left">npm</th><th align="center">Yarn</th></tr></thead><tbody><tr><td align="left">安装</td><td align="left">npm install(i)</td><td align="center">yarn</td></tr><tr><td align="left">卸载</td><td align="left">npm uninstall(un)</td><td align="center">yarn remove</td></tr><tr><td align="left">全局安装</td><td align="left">npm install xxx –global(-g)</td><td align="center">yarn global add xxx</td></tr><tr><td align="left">安装包</td><td align="left">npm install xxx –save(-S)</td><td align="center">yarn add xxx</td></tr><tr><td align="left">开发模式安装包</td><td align="left">npm install xxx –save-dev(-D)</td><td align="center">yarn add xxx –dev(-D)</td></tr><tr><td align="left">更新</td><td align="left">npm update –save</td><td align="center">yarn upgrade</td></tr><tr><td align="left">全局更新</td><td align="left">npm update –global</td><td align="center">yarn global upgrade</td></tr><tr><td align="left">卸载</td><td align="left">npm uninstall [–save/–save-dev]</td><td align="center">yarn remove xx</td></tr><tr><td align="left">清除缓存</td><td align="left">npm cache clean</td><td align="center">yarn cache clean</td></tr><tr><td align="left">重装</td><td align="left">rm -rf node_modules &amp;&amp; npm install</td><td align="center">yarn upgrade</td></tr></tbody></table>]]></content>
+    
+    
+    <summary type="html">&lt;center&gt;“Yarn / npm 对比”&lt;/center&gt;</summary>
+    
+    
+    
+    <category term="NPM" scheme="https://juntengma.github.io/categories/NPM/"/>
+    
+    
+    <category term="Npm" scheme="https://juntengma.github.io/tags/Npm/"/>
     
   </entry>
   
