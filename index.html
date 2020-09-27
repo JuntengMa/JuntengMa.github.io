@@ -21,7 +21,7 @@
 <meta name="twitter:card" content="summary">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/combine/gh/nexmoe/nexmoe.github.io@latest/css/style.css,npm/highlight.js@9.15.8/styles/atom-one-dark.css,gh/nexmoe/nexmoe.github.io@latest/lib/mdui_043tiny/css/mdui.css,gh/nexmoe/nexmoe.github.io@latest/lib/iconfont/iconfont.css" crossorigin>
   
-  <!--<link rel="stylesheet" href="css/style.css?v=1601027709324">-->
+  <!--<link rel="stylesheet" href="css/style.css?v=1601209143384">-->
 
   
 <meta name="generator" content="Hexo 5.2.0"><link rel="alternate" href="atom.xml" title="June's Blog" type="application/atom+xml">
@@ -49,8 +49,8 @@
     </div>
     <div class="nexmoe-count">
         <div><span>文章</span>15</div>
-        <div><span>标签</span>8</div>
-        <div><span>分类</span>8</div>
+        <div><span>标签</span>7</div>
+        <div><span>分类</span>7</div>
     </div>
     <div class="nexmoe-list mdui-list" mdui-collapse="{accordion: true}">
         
@@ -68,7 +68,7 @@
   <div class="nexmoe-widget-wrap">
     <h3 class="nexmoe-widget-title">标签云</h3>
     <div id="randomtagcloud" class="nexmoe-widget tagcloud nexmoe-rainbow">
-      <a href="tags/Css/" style="font-size: 10px;">Css</a> <a href="tags/Git/" style="font-size: 10px;">Git</a> <a href="tags/Honey/" style="font-size: 10px;">Honey</a> <a href="tags/JavaScript/" style="font-size: 10px;">JavaScript</a> <a href="tags/Js/" style="font-size: 10px;">Js</a> <a href="tags/Love/" style="font-size: 10px;">Love</a> <a href="tags/Npm/" style="font-size: 10px;">Npm</a> <a href="tags/React/" style="font-size: 20px;">React</a>
+      <a href="tags/Css/" style="font-size: 10px;">Css</a> <a href="tags/Git/" style="font-size: 10px;">Git</a> <a href="tags/Honey/" style="font-size: 10px;">Honey</a> <a href="tags/JavaScript/" style="font-size: 15px;">JavaScript</a> <a href="tags/Love/" style="font-size: 10px;">Love</a> <a href="tags/Npm/" style="font-size: 10px;">Npm</a> <a href="tags/React/" style="font-size: 20px;">React</a>
     </div>
     
   </div>
@@ -111,14 +111,7 @@
 
         <li class="category-list-item">
           <a class="category-list-link" href="/categories/JavaScript/">JavaScript</a>
-          <span class="category-list-count">1</span>
-        </li>
-
-        
-
-        <li class="category-list-item">
-          <a class="category-list-link" href="/categories/Js/">Js</a>
-          <span class="category-list-count">1</span>
+          <span class="category-list-count">2</span>
         </li>
 
         
@@ -171,11 +164,11 @@
           </li>
         
           <li>
-            <a href="2020/09/24/JavaScript%E8%8E%B7%E5%8F%96%E5%85%83%E7%B4%A0%E5%9D%90%E6%A0%87%E9%97%AE%E9%A2%98/">🌭 JS获取元素位置</a>
+            <a href="2020/09/24/JavaScript%E8%8E%B7%E5%8F%96%E5%85%83%E7%B4%A0%E5%9D%90%E6%A0%87%E9%97%AE%E9%A2%98/">🌭 JavaScript获取元素位置</a>
           </li>
         
           <li>
-            <a href="2020/09/24/React-richText/">🌭 富文本框</a>
+            <a href="2020/09/24/React-richText/">🌭 React-富文本框(braft-editor)</a>
           </li>
         
           <li>
@@ -211,7 +204,7 @@
 
         <div class="nexmoe-post-meta nexmoe-rainbow">
             <a><i class="nexmoefont icon-calendar-fill"></i>2020年09月02日</a>
-            <a><i class="nexmoefont icon-areachart"></i>592 字</a>
+            <a><i class="nexmoefont icon-areachart"></i>620 字</a>
             <a><i class="nexmoefont icon-time-circle-fill"></i>大概 2 分钟</a>
         </div>
 
@@ -251,7 +244,10 @@ git merge &lt;需要合并到master上的分支名&gt; 合并某一个分支到�
 - git push -f 远端仓库版本高于本地版本，需要强制推送上去</code></pre>
 <h2 id="07-取消所有本地修改"><a href="#07-取消所有本地修改" class="headerlink" title="07 - 取消所有本地修改"></a>07 - 取消所有本地修改</h2><pre><code>git checkout .</code></pre>
 <h2 id="09-查看修改"><a href="#09-查看修改" class="headerlink" title="09 - 查看修改"></a>09 - 查看修改</h2><pre><code>git show &lt;commit日志&gt;  显示详细更改</code></pre>
-<h2 id="10-其他命令"><a href="#10-其他命令" class="headerlink" title="10 - 其他命令"></a>10 - 其他命令</h2><pre><code>git pull 从当前分支远端拉取代码
+<h2 id="10-查看某一文件所有修改历史"><a href="#10-查看某一文件所有修改历史" class="headerlink" title="10 - 查看某一文件所有修改历史"></a>10 - 查看某一文件所有修改历史</h2><pre><code> git log --pretty=oneline 文件路径
+
+ git show &lt;commit日志&gt;</code></pre>
+<h2 id="11-其他命令"><a href="#11-其他命令" class="headerlink" title="11 - 其他命令"></a>11 - 其他命令</h2><pre><code>git pull 从当前分支远端拉取代码
 
 git pull origin &lt;分支名&gt; 拉取某一分支的代码并合并到当前分支
 
@@ -549,8 +545,8 @@ export class ChildA extends React.Component&lt;ChildAProps, any&gt; &#123;
         <a href="2020/09/24/JavaScript%E8%8E%B7%E5%8F%96%E5%85%83%E7%B4%A0%E5%9D%90%E6%A0%87%E9%97%AE%E9%A2%98/">
             
                 <div class="nexmoe-post-cover mdui-ripple" style="padding-bottom: 66.66666666666666%;"> 
-                    <img data-src="https://cdn.jsdelivr.net/gh/nexmoe/nexmoe.github.io@latest/images/cover/5c3aec85a4343.jpg" data-sizes="auto" alt="JS获取元素位置" class="lazyload">
-                    <h1>JS获取元素位置</h1>
+                    <img data-src="https://cdn.jsdelivr.net/gh/nexmoe/nexmoe.github.io@latest/images/cover/5c3aec85a4343.jpg" data-sizes="auto" alt="JavaScript获取元素位置" class="lazyload">
+                    <h1>JavaScript获取元素位置</h1>
                 </div>
             
         </a>
@@ -660,8 +656,8 @@ e.x——相对当前坐标系的border左上角开始</code></pre>
         <a href="2020/09/24/React-richText/">
             
                 <div class="nexmoe-post-cover mdui-ripple" style="padding-bottom: 66.66666666666666%;"> 
-                    <img data-src="https://cdn.jsdelivr.net/gh/nexmoe/nexmoe.github.io@latest/images/cover/5c3aec85a4343.jpg" data-sizes="auto" alt="富文本框" class="lazyload">
-                    <h1>富文本框</h1>
+                    <img data-src="https://cdn.jsdelivr.net/gh/nexmoe/nexmoe.github.io@latest/images/cover/5c3aec85a4343.jpg" data-sizes="auto" alt="React-富文本框(braft-editor)" class="lazyload">
+                    <h1>React-富文本框(braft-editor)</h1>
                 </div>
             
         </a>
@@ -809,8 +805,8 @@ export class RichText extends Component &#123;
         <a href="2020/09/22/React-echart/">
             
                 <div class="nexmoe-post-cover mdui-ripple" style="padding-bottom: 62.5%;"> 
-                    <img data-src="https://cdn.jsdelivr.net/gh/JuntengMa/Images@1.3/blog/cover/2.jpg" data-sizes="auto" alt="react中使用Echats" class="lazyload">
-                    <h1>react中使用Echats</h1>
+                    <img data-src="https://cdn.jsdelivr.net/gh/JuntengMa/Images@1.3/blog/cover/2.jpg" data-sizes="auto" alt="React中使用Echats" class="lazyload">
+                    <h1>React中使用Echats</h1>
                 </div>
             
         </a>
@@ -890,7 +886,7 @@ require(&#39;echarts/lib/component/title&#39;);</code></pre>
   </div>
   <script src="https://cdn.jsdelivr.net/combine/npm/lazysizes@5.1.0/lazysizes.min.js,gh/highlightjs/cdn-release@9.15.8/build/highlight.min.js,npm/mdui@0.4.3/dist/js/mdui.min.js,gh/nexmoe/nexmoe.github.io@latest/js/app.js"></script>
 <script>hljs.initHighlightingOnLoad();</script>
-<!--<script src="js/app.js?v=1601027709325"></script>-->
+<!--<script src="js/app.js?v=1601209143384"></script>-->
 
 
 

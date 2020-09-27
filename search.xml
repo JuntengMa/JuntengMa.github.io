@@ -37,7 +37,10 @@ git merge &lt;需要合并到master上的分支名&gt; 合并某一个分支到�
 - git push -f 远端仓库版本高于本地版本，需要强制推送上去</code></pre>
 <h2 id="07-取消所有本地修改"><a href="#07-取消所有本地修改" class="headerlink" title="07 - 取消所有本地修改"></a>07 - 取消所有本地修改</h2><pre><code>git checkout .</code></pre>
 <h2 id="09-查看修改"><a href="#09-查看修改" class="headerlink" title="09 - 查看修改"></a>09 - 查看修改</h2><pre><code>git show &lt;commit日志&gt;  显示详细更改</code></pre>
-<h2 id="10-其他命令"><a href="#10-其他命令" class="headerlink" title="10 - 其他命令"></a>10 - 其他命令</h2><pre><code>git pull 从当前分支远端拉取代码
+<h2 id="10-查看某一文件所有修改历史"><a href="#10-查看某一文件所有修改历史" class="headerlink" title="10 - 查看某一文件所有修改历史"></a>10 - 查看某一文件所有修改历史</h2><pre><code> git log --pretty=oneline 文件路径
+
+ git show &lt;commit日志&gt;</code></pre>
+<h2 id="11-其他命令"><a href="#11-其他命令" class="headerlink" title="11 - 其他命令"></a>11 - 其他命令</h2><pre><code>git pull 从当前分支远端拉取代码
 
 git pull origin &lt;分支名&gt; 拉取某一分支的代码并合并到当前分支
 
@@ -282,7 +285,7 @@ export class ChildA extends React.Component&lt;ChildAProps, any&gt; &#123;
       </categories>
   </entry>
   <entry>
-    <title>JS获取元素位置</title>
+    <title>JavaScript获取元素位置</title>
     <url>/2020/09/24/JavaScript%E8%8E%B7%E5%8F%96%E5%85%83%E7%B4%A0%E5%9D%90%E6%A0%87%E9%97%AE%E9%A2%98/</url>
     <content><![CDATA[<h2 id="js获取元素相对于父级元素的高度"><a href="#js获取元素相对于父级元素的高度" class="headerlink" title="js获取元素相对于父级元素的高度"></a>js获取元素相对于父级元素的高度</h2><h4 id="1-offsetLeft-、offsetTop"><a href="#1-offsetLeft-、offsetTop" class="headerlink" title="1. offsetLeft 、offsetTop"></a>1. offsetLeft 、offsetTop</h4><p>offsetLeft/offsetTop -  用于获取子元素相对于父元素的位移（左位移、上位移）</p>
 <h4 id="2-offsetWidth、offsetHeight"><a href="#2-offsetWidth、offsetHeight" class="headerlink" title="2. offsetWidth、offsetHeight"></a>2. offsetWidth、offsetHeight</h4><p>offsetWidth/offsetHeight - 用于获取元素的可见宽度和可见高度</p>
@@ -374,14 +377,14 @@ e.clientX——相对可视区域的坐标
 e.x——相对当前坐标系的border左上角开始</code></pre>
 ]]></content>
       <categories>
-        <category>Js</category>
+        <category>JavaScript</category>
       </categories>
       <tags>
-        <tag>Js</tag>
+        <tag>JavaScript</tag>
       </tags>
   </entry>
   <entry>
-    <title>富文本框</title>
+    <title>React-富文本框(braft-editor)</title>
     <url>/2020/09/24/React-richText/</url>
     <content><![CDATA[<h2 id="富文本编辑器"><a href="#富文本编辑器" class="headerlink" title="富文本编辑器"></a>富文本编辑器</h2><p><a href="https://www.yuque.com/braft-editor/be/gz44tn#wx1vkv">https://www.yuque.com/braft-editor/be/gz44tn#wx1vkv</a></p>
 <pre><code>import React, &#123; Component &#125; from &#39;react&#39;;
@@ -488,7 +491,7 @@ export class RichText extends Component &#123;
       </tags>
   </entry>
   <entry>
-    <title>react中使用Echats</title>
+    <title>React中使用Echats</title>
     <url>/2020/09/22/React-echart/</url>
     <content><![CDATA[<h4 id="1-安装echats"><a href="#1-安装echats" class="headerlink" title="1.安装echats"></a>1.安装echats</h4><pre><code>npm install echarts --save
 npm install --save echarts-for-react</code></pre>
@@ -638,7 +641,7 @@ ReactDOM.render(&lt;App /&gt;, appRoot);
       </tags>
   </entry>
   <entry>
-    <title>DiffView</title>
+    <title>React - diffView</title>
     <url>/2020/09/18/React-diffView/</url>
     <content><![CDATA[<h1 id="react-diff-view"><a href="#react-diff-view" class="headerlink" title="react-diff-view"></a>react-diff-view</h1><p><a href="https://github.com/praneshr/react-diff-viewer.git">https://github.com/praneshr/react-diff-viewer.git</a></p>
 <h1 id="Install"><a href="#Install" class="headerlink" title="Install"></a>Install</h1><pre><code>yarn add react-diff-viewer
