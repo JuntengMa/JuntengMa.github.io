@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://juntengma.github.io/2020/09/02/git%E5%91%BD%E4%BB%A4/</loc>
+    <loc>https://juntengma.github.io/2020/09/02/Git%E5%91%BD%E4%BB%A4/</loc>
     
     <lastmod>2020-09-27</lastmod>
     
@@ -188,13 +188,6 @@
   </url>
   
   <url>
-    <loc>https://juntengma.github.io/categories/Git%E5%91%BD%E4%BB%A4/</loc>
-    <lastmod>2020-09-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://juntengma.github.io/categories/React/TypeScript/</loc>
     <lastmod>2020-09-27</lastmod>
     <changefreq>daily</changefreq>
@@ -210,6 +203,13 @@
   
   <url>
     <loc>https://juntengma.github.io/categories/Honey/</loc>
+    <lastmod>2020-09-27</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://juntengma.github.io/categories/Git/</loc>
     <lastmod>2020-09-27</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
