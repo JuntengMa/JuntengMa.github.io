@@ -6,7 +6,7 @@
   <link href="https://juntengma.github.io/atom.xml" rel="self"/>
   
   <link href="https://juntengma.github.io/"/>
-  <updated>2020-09-25T09:54:13.654Z</updated>
+  <updated>2020-09-27T13:12:50.243Z</updated>
   <id>https://juntengma.github.io/</id>
   
   <author>
@@ -15,6 +15,35 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Axios二次封装</title>
+    <link href="https://juntengma.github.io/2020/09/27/Ajax/"/>
+    <id>https://juntengma.github.io/2020/09/27/Ajax/</id>
+    <published>2020-09-27T13:04:10.758Z</published>
+    <updated>2020-09-27T13:12:50.243Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="01-新建src-api文件夹"><a href="#01-新建src-api文件夹" class="headerlink" title="01-新建src/api文件夹"></a>01-新建src/api文件夹</h3><pre><code>api - ajax.js - index.js</code></pre><h3 id="02-新建axios-js文件"><a href="#02-新建axios-js文件" class="headerlink" title="02-新建axios.js文件"></a>02-新建axios.js文件</h3><pre><code class="js">import axios from &#39;axios&#39;//封装ajaxexport default function ajax(url=&#39;&#39;,params=&#123;&#125;,type=&#39;GET&#39;)&#123;  let promise;  type = type.toUpperCase()  return new Promise(((resolve, reject) =&gt; &#123;    //1.判断请求方式    if (type===&#39;GET&#39;)&#123;      //1.1拼接字符串      let str = &#39;&#39;;      Object.keys(params).forEach((value,index) =&gt; &#123;        if (index+1===Object.keys(params).length)&#123;          str+=value+&#39;=&#39;+params[value];        &#125;else&#123;          str+=value+&#39;=&#39;+params[value]+&#39;&amp;&#39;;        &#125;      &#125;);      //1.2完整路径      url+=&#39;?&#39;+str;      //1.3发送get请求      promise = axios.get(url);    &#125;else if(type===&#39;POST&#39;)&#123;      //1.3发送post请求      promise = axios.post(url,params);    &#125;    //2.返回请求结果    promise.then((response)=&gt;&#123;      resolve(response.data);    &#125;).catch((error)=&gt;&#123;      reject(error);    &#125;);  &#125;))&#125;</code></pre><h3 id="03-新建index-js文件"><a href="#03-新建index-js文件" class="headerlink" title="03-新建index.js文件"></a>03-新建index.js文件</h3><pre><code>import ajax from &#39;./ajax&#39;//发送请求export const getPhoneCode = (phone)=&gt;ajax(&#39;/api/getPhoneCode&#39;,&#123;phone&#125;);</code></pre><h3 id="04-api调用"><a href="#04-api调用" class="headerlink" title="04-api调用"></a>04-api调用</h3><pre><code>import &#123; xxxxx &#125; from &#39;api/index.js (文件路径)&#39;</code></pre>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h3 id=&quot;01-新建src-api文件夹&quot;&gt;&lt;a href=&quot;#01-新建src-api文件夹&quot; class=&quot;headerlink&quot; title=&quot;01-新建src/api文件夹&quot;&gt;&lt;/a&gt;01-新建src/api文件夹&lt;/h3&gt;&lt;pre&gt;&lt;code&gt;api
+ - aja</summary>
+      
+    
+    
+    
+    <category term="Ajax" scheme="https://juntengma.github.io/categories/Ajax/"/>
+    
+    <category term="Axios" scheme="https://juntengma.github.io/categories/Ajax/Axios/"/>
+    
+    
+    <category term="Ajax" scheme="https://juntengma.github.io/tags/Ajax/"/>
+    
+    <category term="Axios" scheme="https://juntengma.github.io/tags/Axios/"/>
+    
+  </entry>
   
   <entry>
     <title>React父组件调用子组件</title>
