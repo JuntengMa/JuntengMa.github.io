@@ -37,7 +37,7 @@ git merge &lt;需要合并到master上的分支名&gt; 合并某一个分支到�
 - git push -f 远端仓库版本高于本地版本，需要强制推送上去</code></pre>
 <h2 id="07-取消所有本地修改"><a href="#07-取消所有本地修改" class="headerlink" title="07 - 取消所有本地修改"></a>07 - 取消所有本地修改</h2><pre><code>git checkout .</code></pre>
 <h2 id="09-查看修改"><a href="#09-查看修改" class="headerlink" title="09 - 查看修改"></a>09 - 查看修改</h2><pre><code>git show &lt;commit日志&gt;  显示详细更改</code></pre>
-<h2 id="10-查看某一文件所有修改历史"><a href="#10-查看某一文件所有修改历史" class="headerlink" title="10 - 查看某一文件所有修改历史"></a>10 - 查看某一文件所有修改历史</h2><pre><code> git log --pretty=oneline 文件路径
+<h2 id="10-查看某一文件所有修改历史"><a href="#10-查看某一文件所有修改历史" class="headerlink" title="10 - 查看某一文件所有修改历史"></a>10 - 查看某一文件所有修改历史</h2><pre><code> git log --pretty=on 相对路径/绝对路径
 
  git show &lt;commit日志&gt;</code></pre>
 <h2 id="11-其他命令"><a href="#11-其他命令" class="headerlink" title="11 - 其他命令"></a>11 - 其他命令</h2><pre><code>git pull 从当前分支远端拉取代码
