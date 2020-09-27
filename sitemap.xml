@@ -9,6 +9,13 @@
   </url>
   
   <url>
+    <loc>https://juntengma.github.io/2020/09/18/Css%E6%96%87%E6%9C%AC%E8%B6%85%E5%87%BA%E8%87%AA%E5%8A%A8%E6%8D%A2%E8%A1%8C/</loc>
+    
+    <lastmod>2020-09-25</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://juntengma.github.io/2020/09/24/JavaScript%E8%8E%B7%E5%8F%96%E5%85%83%E7%B4%A0%E5%9D%90%E6%A0%87%E9%97%AE%E9%A2%98/</loc>
     
     <lastmod>2020-09-25</lastmod>
@@ -99,13 +106,6 @@
     
   </url>
   
-  <url>
-    <loc>https://juntengma.github.io/2020/09/18/Css%E6%96%87%E6%9C%AC%E8%B6%85%E5%87%BA%E8%87%AA%E5%8A%A8%E6%8D%A2%E8%A1%8C/</loc>
-    
-    <lastmod>2020-09-22</lastmod>
-    
-  </url>
-  
 
   <url>
     <loc>https://juntengma.github.io/</loc>
@@ -144,13 +144,6 @@
   </url>
   
   <url>
-    <loc>https://juntengma.github.io/tags/Honey/</loc>
-    <lastmod>2020-09-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://juntengma.github.io/tags/Love/</loc>
     <lastmod>2020-09-27</lastmod>
     <changefreq>daily</changefreq>
@@ -159,6 +152,13 @@
   
   <url>
     <loc>https://juntengma.github.io/tags/Npm/</loc>
+    <lastmod>2020-09-27</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://juntengma.github.io/tags/Honey/</loc>
     <lastmod>2020-09-27</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -188,13 +188,6 @@
   </url>
   
   <url>
-    <loc>https://juntengma.github.io/categories/React/TypeScript/</loc>
-    <lastmod>2020-09-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://juntengma.github.io/categories/Git%E5%91%BD%E4%BB%A4/</loc>
     <lastmod>2020-09-27</lastmod>
     <changefreq>daily</changefreq>
@@ -202,7 +195,7 @@
   </url>
   
   <url>
-    <loc>https://juntengma.github.io/categories/Honey/</loc>
+    <loc>https://juntengma.github.io/categories/React/TypeScript/</loc>
     <lastmod>2020-09-27</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -210,6 +203,13 @@
   
   <url>
     <loc>https://juntengma.github.io/categories/NPM/</loc>
+    <lastmod>2020-09-27</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://juntengma.github.io/categories/Honey/</loc>
     <lastmod>2020-09-27</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
