@@ -6,7 +6,7 @@
   <link href="https://juntengma.github.io/atom.xml" rel="self"/>
   
   <link href="https://juntengma.github.io/"/>
-  <updated>2020-09-29T07:15:36.827Z</updated>
+  <updated>2020-09-29T07:18:32.703Z</updated>
   <id>https://juntengma.github.io/</id>
   
   <author>
@@ -21,16 +21,15 @@
     <link href="https://juntengma.github.io/2020/09/29/%E5%90%8C%E6%BA%90%E7%AD%96%E7%95%A5/"/>
     <id>https://juntengma.github.io/2020/09/29/%E5%90%8C%E6%BA%90%E7%AD%96%E7%95%A5/</id>
     <published>2020-09-29T07:10:38.805Z</published>
-    <updated>2020-09-29T07:15:36.827Z</updated>
+    <updated>2020-09-29T07:18:32.703Z</updated>
     
-    <content type="html"><![CDATA[<hr><p>title: Axios二次封装<br>coverWidth: 1200<br>coverHeight: 750<br>categories: [Ajax,Axios]<br>tags: [Ajax,Axios]<br>top:<br>cover:</p><hr><p>title: Axios二次封装<br>coverWidth: 1200<br>coverHeight: 750<br>categories: [Ajax,Axios]<br>tags: [Ajax,Axios]<br>top:<br>cover:</p><h2 id="同源策略"><a href="#同源策略" class="headerlink" title="同源策略"></a>同源策略</h2><h5 id="01、什么是同源策略"><a href="#01、什么是同源策略" class="headerlink" title="01、什么是同源策略"></a>01、什么是同源策略</h5><blockquote><p>同源策略是浏览器安全的基石</p><p>同源：</p><ul><li>协议相同</li><li>域名相同</li><li>端口相同</li></ul><p>举例来说，<code>http://www.example.com/dir/page.html</code>这个网址，协议是<code>http://</code>，域名是<code>www.example.com</code>，端口是<code>80</code>（默认端口可以省略）。</p><p>它的同源情况如下：</p><ul><li><code>http://www.example.com/dir2/other.html</code>：同源</li><li><code>http://example.com/dir/other.html</code>：不同源（域名不同）</li><li><code>http://v2.www.example.com/dir/other.html</code>：不同源（域名不同）</li><li><code>http://www.example.com:81/dir/other.html</code>：不同源（端口不同）</li></ul></blockquote><h5 id="02、同源策略目的"><a href="#02、同源策略目的" class="headerlink" title="02、同源策略目的"></a>02、同源策略目的</h5><blockquote><p>同源策略目的，是为了保证用户信息安全，防止恶意网站窃取数据</p></blockquote><h5 id="03、同源策略限制范围"><a href="#03、同源策略限制范围" class="headerlink" title="03、同源策略限制范围"></a>03、同源策略限制范围</h5><blockquote><ul><li>Cookie、LocalStorage 和 IndexDB 无法读取</li><li>DOM无法获得</li><li>AJAX请求不能发送</li></ul></blockquote><h5 id="04、规避同源策略方案"><a href="#04、规避同源策略方案" class="headerlink" title="04、规避同源策略方案"></a>04、规避同源策略方案</h5><blockquote><ul><li>JSONP</li><li>WebSocket</li><li>CORS</li></ul></blockquote><h5 id="05、JSONP"><a href="#05、JSONP" class="headerlink" title="05、JSONP"></a>05、JSONP</h5><blockquote><ul><li><p>什么是JSONP<br>JSONP是服务器与客户端跨原通信的常用方案。最大特点就是简单适用，老式浏览器全部支持，服务器改造小</p></li><li><p>原理</p><p>网页通过添加一个<script>元素，向服务器请求JSON数据，该方法不受同源策略限制，服务器收到请求之后，将数据放在指定的名字回调函数中传回来</p></li></ul></blockquote>]]></content>
+    <content type="html"><![CDATA[<hr><h2 id="同源策略"><a href="#同源策略" class="headerlink" title="同源策略"></a>同源策略</h2><h5 id="01、什么是同源策略"><a href="#01、什么是同源策略" class="headerlink" title="01、什么是同源策略"></a>01、什么是同源策略</h5><blockquote><p>同源策略是浏览器安全的基石</p><p>同源：</p><ul><li>协议相同</li><li>域名相同</li><li>端口相同</li></ul><p>举例来说，<code>http://www.example.com/dir/page.html</code>这个网址，协议是<code>http://</code>，域名是<code>www.example.com</code>，端口是<code>80</code>（默认端口可以省略）。</p><p>它的同源情况如下：</p><ul><li><code>http://www.example.com/dir2/other.html</code>：同源</li><li><code>http://example.com/dir/other.html</code>：不同源（域名不同）</li><li><code>http://v2.www.example.com/dir/other.html</code>：不同源（域名不同）</li><li><code>http://www.example.com:81/dir/other.html</code>：不同源（端口不同）</li></ul></blockquote><h5 id="02、同源策略目的"><a href="#02、同源策略目的" class="headerlink" title="02、同源策略目的"></a>02、同源策略目的</h5><blockquote><p>同源策略目的，是为了保证用户信息安全，防止恶意网站窃取数据</p></blockquote><h5 id="03、同源策略限制范围"><a href="#03、同源策略限制范围" class="headerlink" title="03、同源策略限制范围"></a>03、同源策略限制范围</h5><blockquote><ul><li>Cookie、LocalStorage 和 IndexDB 无法读取</li><li>DOM无法获得</li><li>AJAX请求不能发送</li></ul></blockquote><h5 id="04、规避同源策略方案"><a href="#04、规避同源策略方案" class="headerlink" title="04、规避同源策略方案"></a>04、规避同源策略方案</h5><blockquote><ul><li>JSONP</li><li>WebSocket</li><li>CORS</li></ul></blockquote><h5 id="05、JSONP"><a href="#05、JSONP" class="headerlink" title="05、JSONP"></a>05、JSONP</h5><blockquote><ul><li><p>什么是JSONP<br>JSONP是服务器与客户端跨原通信的常用方案。最大特点就是简单适用，老式浏览器全部支持，服务器改造小</p></li><li><p>原理</p><p>网页通过添加一个<script>元素，向服务器请求JSON数据，该方法不受同源策略限制，服务器收到请求之后，将数据放在指定的名字回调函数中传回来</p></li></ul></blockquote>]]></content>
     
     
       
       
     <summary type="html">&lt;hr&gt;
-&lt;p&gt;title: Axios二次封装&lt;br&gt;coverWidth: 1200&lt;br&gt;coverHeight: 750&lt;br&gt;categories: [Ajax,Axios]&lt;br&gt;tags: [Ajax,Axios]&lt;br&gt;top:&lt;br&gt;cover:&lt;/p&gt;
-&lt;hr</summary>
+&lt;h2 id=&quot;同源策略&quot;&gt;&lt;a href=&quot;#同源策略&quot; class=&quot;headerlink&quot; title=&quot;同源策略&quot;&gt;&lt;/a&gt;同源策略&lt;/h2&gt;&lt;h5 id=&quot;01、什么是同源策略&quot;&gt;&lt;a href=&quot;#01、什么是同源策略&quot; class=&quot;headerlink&quot;</summary>
       
     
     
