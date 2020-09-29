@@ -130,13 +130,6 @@
 
   
   <url>
-    <loc>https://juntengma.github.io/tags/Css/</loc>
-    <lastmod>2020-09-29</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://juntengma.github.io/tags/Ajax/</loc>
     <lastmod>2020-09-29</lastmod>
     <changefreq>daily</changefreq>
@@ -145,6 +138,13 @@
   
   <url>
     <loc>https://juntengma.github.io/tags/Axios/</loc>
+    <lastmod>2020-09-29</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://juntengma.github.io/tags/Css/</loc>
     <lastmod>2020-09-29</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -202,14 +202,14 @@
 
   
   <url>
-    <loc>https://juntengma.github.io/categories/Css/</loc>
+    <loc>https://juntengma.github.io/categories/Ajax/</loc>
     <lastmod>2020-09-29</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://juntengma.github.io/categories/Ajax/</loc>
+    <loc>https://juntengma.github.io/categories/Css/</loc>
     <lastmod>2020-09-29</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -230,14 +230,14 @@
   </url>
   
   <url>
-    <loc>https://juntengma.github.io/categories/React/</loc>
+    <loc>https://juntengma.github.io/categories/Ajax/Axios/</loc>
     <lastmod>2020-09-29</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://juntengma.github.io/categories/Ajax/Axios/</loc>
+    <loc>https://juntengma.github.io/categories/React/</loc>
     <lastmod>2020-09-29</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -258,14 +258,14 @@
   </url>
   
   <url>
-    <loc>https://juntengma.github.io/categories/React/TypeScript/</loc>
+    <loc>https://juntengma.github.io/categories/%E5%90%8C%E6%BA%90%E7%AD%96%E7%95%A5/</loc>
     <lastmod>2020-09-29</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://juntengma.github.io/categories/%E5%90%8C%E6%BA%90%E7%AD%96%E7%95%A5/</loc>
+    <loc>https://juntengma.github.io/categories/React/TypeScript/</loc>
     <lastmod>2020-09-29</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
