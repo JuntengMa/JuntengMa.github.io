@@ -74,6 +74,219 @@ git rm xxx 除某文件</code></pre>
       </tags>
   </entry>
   <entry>
+    <title>Honey</title>
+    <url>/2020/09/01/honey/</url>
+    <content><![CDATA[<center>"光洙宝贝😏😏😏"</center>
+<center>"想你了哟~"</center>
+]]></content>
+      <categories>
+        <category>Honey</category>
+      </categories>
+      <tags>
+        <tag>Honey</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Yarn / npm 对比</title>
+    <url>/2020/09/02/yarn-npm%E5%AF%B9%E6%AF%94/</url>
+    <content><![CDATA[<a id="more"></a>
+
+
+
+<table>
+<thead>
+<tr>
+<th align="left">作用</th>
+<th align="left">npm</th>
+<th align="center">Yarn</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">安装</td>
+<td align="left">npm install(i)</td>
+<td align="center">yarn</td>
+</tr>
+<tr>
+<td align="left">卸载</td>
+<td align="left">npm uninstall(un)</td>
+<td align="center">yarn remove</td>
+</tr>
+<tr>
+<td align="left">全局安装</td>
+<td align="left">npm install xxx –global(-g)</td>
+<td align="center">yarn global add xxx</td>
+</tr>
+<tr>
+<td align="left">安装包</td>
+<td align="left">npm install xxx –save(-S)</td>
+<td align="center">yarn add xxx</td>
+</tr>
+<tr>
+<td align="left">开发模式安装包</td>
+<td align="left">npm install xxx –save-dev(-D)</td>
+<td align="center">yarn add xxx –dev(-D)</td>
+</tr>
+<tr>
+<td align="left">更新</td>
+<td align="left">npm update –save</td>
+<td align="center">yarn upgrade</td>
+</tr>
+<tr>
+<td align="left">全局更新</td>
+<td align="left">npm update –global</td>
+<td align="center">yarn global upgrade</td>
+</tr>
+<tr>
+<td align="left">卸载</td>
+<td align="left">npm uninstall [–save/–save-dev]</td>
+<td align="center">yarn remove xx</td>
+</tr>
+<tr>
+<td align="left">清除缓存</td>
+<td align="left">npm cache clean</td>
+<td align="center">yarn cache clean</td>
+</tr>
+<tr>
+<td align="left">重装</td>
+<td align="left">rm -rf node_modules &amp;&amp; npm install</td>
+<td align="center">yarn upgrade</td>
+</tr>
+</tbody></table>
+]]></content>
+      <categories>
+        <category>NPM</category>
+      </categories>
+      <tags>
+        <tag>Npm</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>love</title>
+    <url>/2020/09/14/love/</url>
+    <content><![CDATA[<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .typing {
+      width: 15em;
+      white-space: nowrap;
+      border-right: 2px solid transparent;
+      animation: typing 3.5s steps(15, end), blink-caret .75s step-end infinite;
+      overflow: hidden;
+    }
+
+<pre><code>/* 打印效果 */
+@keyframes typing &#123;
+  from &#123;
+    width: 0;
+  &#125;
+
+  to &#123;
+    width: 15em;
+  &#125;
+&#125;
+
+/* 光标闪啊闪 */
+@keyframes blink-caret &#123;
+
+  from,
+  to &#123;
+    box-shadow: 1px 0 0 0 transparent;
+  &#125;
+
+  50% &#123;
+    box-shadow: 1px 0 0 0;
+  &#125;
+&#125;</code></pre>
+<p>  </style></p>
+</head>
+
+<body>
+  <p class="typing">简易中文打字效果</p>
+</body>
+
+</html>]]></content>
+      <tags>
+        <tag>Love</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>webpack配置</title>
+    <url>/2020/10/19/webpack/</url>
+    <content><![CDATA[<p>webpack基本配置</p>
+<a id="more"></a>
+
+]]></content>
+      <categories>
+        <category>Webpack</category>
+      </categories>
+      <tags>
+        <tag>Webpack</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>浏览器同源策略</title>
+    <url>/2020/09/29/%E5%90%8C%E6%BA%90%E7%AD%96%E7%95%A5/</url>
+    <content><![CDATA[<hr>
+<a id="more"></a>
+
+
+<h2 id="同源策略"><a href="#同源策略" class="headerlink" title="同源策略"></a>同源策略</h2><h5 id="01、什么是同源策略"><a href="#01、什么是同源策略" class="headerlink" title="01、什么是同源策略"></a>01、什么是同源策略</h5><blockquote>
+<p>同源策略是浏览器安全的基石</p>
+<p>同源：</p>
+<ul>
+<li>协议相同</li>
+<li>域名相同</li>
+<li>端口相同</li>
+</ul>
+<p>举例来说，<code>http://www.example.com/dir/page.html</code>这个网址，协议是<code>http://</code>，域名是<code>www.example.com</code>，端口是<code>80</code>（默认端口可以省略）。</p>
+<p>它的同源情况如下：</p>
+<ul>
+<li><code>http://www.example.com/dir2/other.html</code>：同源</li>
+<li><code>http://example.com/dir/other.html</code>：不同源（域名不同）</li>
+<li><code>http://v2.www.example.com/dir/other.html</code>：不同源（域名不同）</li>
+<li><code>http://www.example.com:81/dir/other.html</code>：不同源（端口不同）</li>
+</ul>
+</blockquote>
+<h5 id="02、同源策略目的"><a href="#02、同源策略目的" class="headerlink" title="02、同源策略目的"></a>02、同源策略目的</h5><blockquote>
+<p>同源策略目的，是为了保证用户信息安全，防止恶意网站窃取数据</p>
+</blockquote>
+<h5 id="03、同源策略限制范围"><a href="#03、同源策略限制范围" class="headerlink" title="03、同源策略限制范围"></a>03、同源策略限制范围</h5><blockquote>
+<ul>
+<li>Cookie、LocalStorage 和 IndexDB 无法读取</li>
+<li>DOM无法获得</li>
+<li>AJAX请求不能发送</li>
+</ul>
+</blockquote>
+<h5 id="04、规避同源策略方案"><a href="#04、规避同源策略方案" class="headerlink" title="04、规避同源策略方案"></a>04、规避同源策略方案</h5><blockquote>
+<ul>
+<li>JSONP</li>
+<li>WebSocket</li>
+<li>CORS</li>
+</ul>
+</blockquote>
+<h5 id="05、JSONP"><a href="#05、JSONP" class="headerlink" title="05、JSONP"></a>05、JSONP</h5><blockquote>
+<ul>
+<li><p>什么是JSONP<br>JSONP是服务器与客户端跨原通信的常用方案。最大特点就是简单适用，老式浏览器全部支持，服务器改造小</p>
+</li>
+<li><p>原理</p>
+<p>网页通过添加一个<code>&lt;script&gt;</code>元素，向服务器请求JSON数据，该方法不受同源策略限制，服务器收到请求之后，将数据放在指定的名字回调函数中传回来</p>
+</li>
+</ul>
+</blockquote>
+]]></content>
+      <categories>
+        <category>同源策略</category>
+      </categories>
+      <tags>
+        <tag>同源策略</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Axios二次封装</title>
     <url>/2020/09/27/Ajax/</url>
     <content><![CDATA[<hr>
@@ -135,18 +348,82 @@ export const getPhoneCode = (phone)=&gt;ajax(&#39;/api/getPhoneCode&#39;,&#123;p
       </tags>
   </entry>
   <entry>
-    <title>css文本超出自动换行</title>
-    <url>/2020/09/18/Css%E6%96%87%E6%9C%AC%E8%B6%85%E5%87%BA%E8%87%AA%E5%8A%A8%E6%8D%A2%E8%A1%8C/</url>
-    <content><![CDATA[<pre><code class="css">word-wrap:break-word; 
-word-break:break-all; 
-overflow: hidden;/*这个参数根据需要来绝对要不要*/</code></pre>
+    <title>React父组件调用子组件</title>
+    <url>/2020/09/25/React-%E7%88%B6%E7%BB%84%E4%BB%B6%E8%B0%83%E7%94%A8%E5%AD%90%E7%BB%84%E4%BB%B6/</url>
+    <content><![CDATA[<h2 id="方案一：-ref控制"><a href="#方案一：-ref控制" class="headerlink" title="方案一： ref控制"></a>方案一： ref控制</h2><a id="more"></a>
+
+<h4 id="Parent-Component-Parent-tsx"><a href="#Parent-Component-Parent-tsx" class="headerlink" title="Parent Component ( Parent.tsx )"></a>Parent Component ( Parent.tsx )</h4><pre><code>import * as React from &#39;react&#39;;
+
+import &#123; ChildA &#125; from &#39;./ChildA&#39;;
+
+//多个子组件时可以先定义如下组件：
+class Childrens extends React.Component&lt;any, any&gt; &#123;
+  _childA: any;
+  _childB: any;
+  _childC: any;
+&#125;
+
+export class Parent extends Childrens &#123;
+
+  //调用子组件方式：
+  get_childA_sum = () =&gt; &#123;
+    this._childA.sum(1, 2)
+  &#125;
+
+  render() &#123;
+    const children = &#123;
+      on_childA_ref: ref =&gt; &#123;
+        this._childA = ref;
+      &#125;,
+      on_childB_ref: ref =&gt; &#123;
+        this._childB = ref;
+      &#125;,
+      on_childC_ref: ref =&gt; &#123;
+        this._childC = ref;
+      &#125;,
+    &#125;
+
+    return (
+      &lt;div&gt;
+        &lt;button onClick=&#123;() =&gt; this.get_childA_sum()&#125;&gt; SumA &lt;/button&gt;
+        &lt;ChildA _childA=&#123;children.on_childA_ref&#125; /&gt;
+      &lt;/div&gt;
+    )
+  &#125;
+&#125;
+
+
+</code></pre>
+<h4 id="Children-Component-ChildA-tsx"><a href="#Children-Component-ChildA-tsx" class="headerlink" title="Children Component  (ChildA.tsx)"></a>Children Component  (ChildA.tsx)</h4><pre><code>import * as React from &#39;react&#39;;
+
+interface ChildAProps &#123;
+  _childA:Function;
+&#125;
+
+export class ChildA extends React.Component&lt;ChildAProps, any&gt; &#123;
+
+  componentDidMount() &#123;
+        this.props._childA(this)
+    &#125;
+
+  sum = (a , b) =&gt; &#123;
+    alert(a+b)
+  &#125;
+
+  render()&#123;
+    return(
+      &lt;div&gt;
+        组件A
+      &lt;/div&gt;
+    )
+  &#125;
+
+&#125;</code></pre>
 ]]></content>
       <categories>
-        <category>Css</category>
+        <category>React</category>
+        <category>TypeScript</category>
       </categories>
-      <tags>
-        <tag>Css</tag>
-      </tags>
   </entry>
   <entry>
     <title>JavaScript获取元素位置</title>
@@ -249,6 +526,82 @@ e.x——相对当前坐标系的border左上角开始</code></pre>
       </tags>
   </entry>
   <entry>
+    <title>React-富文本框(braft-editor)</title>
+    <url>/2020/09/24/React-richText/</url>
+    <content><![CDATA[<h2 id="富文本编辑器"><a href="#富文本编辑器" class="headerlink" title="富文本编辑器"></a>富文本编辑器</h2><a id="more"></a>
+
+<p><a href="https://www.yuque.com/braft-editor/be/gz44tn#wx1vkv">https://www.yuque.com/braft-editor/be/gz44tn#wx1vkv</a></p>
+<pre><code>import React, &#123; Component &#125; from &#39;react&#39;;
+// 引入编辑器组件
+
+import BraftEditor from &#39;braft-editor&#39;;
+// 引入编辑器样式
+import &#39;braft-editor/dist/index.css&#39;;
+
+import &#123; UploadFn &#125; from &#39;./UploadFn&#39;;
+
+export class RichText extends Component &#123;
+    constructor() &#123;
+        super();
+        this.state = &#123;
+            editorState: BraftEditor.createEditorState(null),
+        &#125;;
+        RichText.submitContent = this.submitContent.bind(this);
+    &#125;
+
+    async componentDidMount() &#123;
+        // 假设此处从服务端获取html格式的编辑器内容
+        let htmlContent = this.props.htmlContent || null;
+        // 使用BraftEditor.createEditorState将html字符串转换为编辑器需要的editorStat
+        this.setState(&#123;
+            editorState: BraftEditor.createEditorState(htmlContent),
+        &#125;);
+    &#125;
+
+    componentWillReceiveProps(nextProps) &#123;
+        if (nextProps.htmlContent !== this.state.htmlContent) &#123;
+            this.setState(&#123;
+                editorState: BraftEditor.createEditorState(nextProps.htmlContent),
+            &#125;);
+        &#125;
+    &#125;
+
+    submitContent = async () =&gt; &#123;
+        // 在编辑器获得焦点时按下ctrl+s会执行此方法
+        // 编辑器内容提交到服务端之前，可直接调用editorState.toHTML()来获取HTML格式的内容
+        const htmlContent = this.state.editorState.toHTML();
+        return htmlContent;
+    &#125;;
+
+    handleEditorChange = editorState =&gt; &#123;
+        this.setState(&#123; editorState &#125;);
+    &#125;;
+
+    render() &#123;
+        return (
+            &lt;BraftEditor
+                value=&#123;this.state.editorState&#125;
+                onChange=&#123;this.handleEditorChange&#125;
+                onSave=&#123;this.submitContent&#125;
+                onBlur=&#123;() =&gt; &#123;
+                    const htmlContent = this.state.editorState.toHTML();
+                &#125;&#125;
+                // excludeControls=&#123;[&#39;options&#39;]&#125;
+                media=&#123;&#123; uploadFn: UploadFn &#125;&#125;
+            /&gt;
+        );
+    &#125;
+&#125;
+</code></pre>
+]]></content>
+      <categories>
+        <category>React</category>
+      </categories>
+      <tags>
+        <tag>React</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>一段js代码在浏览器中是如何执行的</title>
     <url>/2020/09/22/JavaScript%E4%BB%A3%E7%A0%81%E5%9C%A8%E6%B5%8F%E8%A7%88%E5%99%A8%E4%B8%AD%E7%9A%84%E6%89%A7%E8%A1%8C%E9%A1%BA%E5%BA%8F/</url>
     <content><![CDATA[<a id="more"></a>
@@ -265,154 +618,64 @@ e.x——相对当前坐标系的border左上角开始</code></pre>
       </tags>
   </entry>
   <entry>
-    <title>React-antd-exportExcel</title>
-    <url>/2020/09/04/React-antd-exportExcel/</url>
+    <title>React中使用Echats</title>
+    <url>/2020/09/22/React-echart/</url>
     <content><![CDATA[<a id="more"></a>
 
-<pre><code class="js">import * as React from &quot;react&quot;
 
-import * as XLSX from &quot;xlsx&quot;
 
-import &#123; Button, Icon &#125; from &quot;antd&quot;
+<h4 id="1-安装echats"><a href="#1-安装echats" class="headerlink" title="1.安装echats"></a>1.安装echats</h4><pre><code>npm install echarts --save
+npm install --save echarts-for-react</code></pre>
+<h4 id="2-引入所需模块"><a href="#2-引入所需模块" class="headerlink" title="2.引入所需模块"></a>2.引入所需模块</h4><pre><code class="javascript">// 引入 ECharts 主模块
+var echarts = require(&#39;echarts/lib/echarts&#39;);
+// 引入柱状图
+require(&#39;echarts/lib/chart/bar&#39;);
+// 引入提示框和标题组件
+require(&#39;echarts/lib/component/tooltip&#39;);
+require(&#39;echarts/lib/component/title&#39;);</code></pre>
+<h4 id="3-实例"><a href="#3-实例" class="headerlink" title="3.实例"></a>3.实例</h4><pre><code class="javascript">showTrend() &#123;
+        // 基于准备好的dom，初始化echarts实例
+        var myChart = echarts.init(document.getElementById(&#39;trend&#39;));
+        //柱状图点击事件
+        myChart.on(&#39;click&#39;, params =&gt; &#123;
 
-export interface ExportExcelProps &#123;
-  notice: string;
-  fileName: string;
-  headers: string[] | Function; //表头
-  getExportData: Function;
-&#125;
-
-export class ExportExcel extends React.Component&lt;ExportExcelProps, any&gt; &#123;
-  handleExport = async () =&gt; &#123;
-    const &#123; headers, fileName &#125; = this.props
-    //这里是获取导出数据的函数
-    const exportData = await this.props.getExportData()
-
-    this.exportExcel(headers, exportData, fileName)
-  &#125;
-
-  exportExcel(headers, data, fileName) &#123;
-    const _headers = headers
-      .map((item, i) =&gt;
-        Object.assign(
-          &#123;&#125;,
-          &#123;
-            key: item.key,
-            title: item.title,
-            position: String.fromCharCode(65 + i) + 1,
-          &#125;
-        )
-      )
-      .reduce(
-        (prev, next) =&gt;
-          Object.assign(&#123;&#125;, prev, &#123;
-            [next.position]: &#123; key: next.key, v: next.title &#125;,
-          &#125;),
-        &#123;&#125;
-      )
-
-    const _data = data
-      .map((item, i) =&gt;
-        headers.map((key, j) =&gt;
-          Object.assign(
-            &#123;&#125;,
-            &#123;
-              content: item[key.key],
-              position: String.fromCharCode(65 + j) + (i + 2),
-            &#125;
-          )
-        )
-      )
-      // 对刚才的结果进行降维处理（二维数组变成一维数组）
-      .reduce((prev, next) =&gt; prev.concat(next))
-      // 转换成 worksheet 需要的结构
-      .reduce(
-        (prev, next) =&gt;
-          Object.assign(&#123;&#125;, prev, &#123; [next.position]: &#123; v: next.content &#125; &#125;),
-        &#123;&#125;
-      )
-
-    // 合并 headers 和 data
-    const output = Object.assign(&#123;&#125;, _headers, _data)
-    // 获取所有单元格的位置
-    const outputPos = Object.keys(output)
-    // 计算出范围 ,[&quot;A1&quot;,..., &quot;H2&quot;]
-    const ref = `$&#123;outputPos[0]&#125;:$&#123;outputPos[outputPos.length - 1]&#125;`
-
-    // 构建 workbook 对象
-    const wb = &#123;
-      SheetNames: [&quot;mySheet&quot;],
-      Sheets: &#123;
-        mySheet: Object.assign(
-          &#123;&#125;,
-          output, //列宽
-          &#123;
-            &quot;!ref&quot;: ref,
-            &quot;!cols&quot;: [
-              &#123; wpx: 150 &#125;,
-              &#123; wpx: 150 &#125;,
-              &#123; wpx: 150 &#125;,
-              &#123; wpx: 150 &#125;,
-              &#123; wpx: 150 &#125;,
-              &#123; wpx: 150 &#125;,
-              &#123; wpx: 150 &#125;,
-              &#123; wpx: 150 &#125;,
+        &#125;);
+              // 绘制图表
+        myChart.setOption(&#123;
+            title: &#123; text: &#39;近十五日趋势&#39; &#125;,
+            color: [&#39;#3398DB&#39;],
+            tooltip: &#123;
+                trigger: &#39;axis&#39;,
+                axisPointer: &#123;
+                    type: &#39;shadow&#39;,
+                &#125;,
+            &#125;,
+            grid: &#123;
+                left: &#39;3%&#39;,
+                right: &#39;4%&#39;,
+                bottom: &#39;3%&#39;,
+                containLabel: true,
+            &#125;,
+            xAxis: &#123;
+                type: &#39;category&#39;,
+                data: this.state.trendDate,
+                axisTick: &#123;
+                    alignWithLabel: true,
+                &#125;,
+            &#125;,
+            yAxis: [&#123; type: &#39;value&#39; &#125;],
+            series: [
+                &#123;
+                    name: &#39;告警总数&#39;,
+                    type: &#39;bar&#39;,
+                    barWidth: &#39;60%&#39;,
+                    data: this.state.trendData,
+                &#125;,
             ],
-          &#125;
-        ),
-      &#125;,
-    &#125;
-    // 导出 Excel
-    XLSX.writeFile(wb, `$&#123;fileName&#125;.xlsx`)
-  &#125;
-  render() &#123;
-    const &#123; notice &#125; = this.props
-    return (
-      &lt;Button type=&quot;primary&quot; onClick=&#123;() =&gt; this.handleExport()&#125;&gt;
-        &#123;notice&#125;
-        &lt;Icon type=&quot;download&quot; /&gt;
-      &lt;/Button&gt;
-    )
-  &#125;
-&#125;</code></pre>
-<p>使用</p>
-<pre><code class="js">&lt;ExportExcel
-  notice=&quot;Excel导出&quot;
-  fileName=&quot;test&quot;
-  headers=&#123;initColumn&#125;
-  getExportData=&#123;exportData&#125;
-/&gt;</code></pre>
-<p>示例表头&amp;数据：</p>
-<pre><code class="js">header=[
-    &#123;
-        title: 姓名,
-        dataIndex: name,
-        key: name,
-    &#125;,
-    &#123;
-        title: 性别,
-        dataIndex: sex,
-        key: sex,
-    &#125;,
-    &#123;
-        title: 年龄,
-        dataIndex: age,
-        key: age,
-    &#125;,
-]
-
-exportData=[
-    &#123;
-    name:&#39;小明&#39;，
-    sex:&#39;男&#39;，
-    age:18
-    &#125;,
-    &#123;
-    name:&#39;小张&#39;，
-    sex:&#39;女&#39;，
-    age:20
-    &#125;
-]</code></pre>
+        &#125;);
+    &#125;</code></pre>
+<h4 id="4-DOM部分"><a href="#4-DOM部分" class="headerlink" title="4.DOM部分"></a>4.DOM部分</h4><pre><code class="html">&lt;div id=&quot;trend&quot; style=&#123;&#123; height: 300 &#125;&#125;&gt;&lt;/div&gt;</code></pre>
+<h4 id="5-效果图"><a href="#5-效果图" class="headerlink" title="5.效果图"></a>5.效果图</h4><p><img src="https://cdn.jsdelivr.net/gh/JuntengMa/Images@1.1/blog/echats.jpg"></p>
 ]]></content>
       <categories>
         <category>React</category>
@@ -422,85 +685,86 @@ exportData=[
       </tags>
   </entry>
   <entry>
-    <title>React-antd-ImportExcel</title>
-    <url>/2020/09/04/React-antd-ImportExcel/</url>
+    <title>在react中实现文本复制</title>
+    <url>/2020/09/22/React-%E6%96%87%E6%9C%AC%E5%A4%8D%E5%88%B6/</url>
     <content><![CDATA[<a id="more"></a>
 
+<h2 id="方案一："><a href="#方案一：" class="headerlink" title="方案一："></a>方案一：</h2><pre><code class="js">copyTranslateResult = () =&gt; &#123;
+        const copyDOM = document.querySelector(&#39;.translateResult&#39;);
 
-<h1 id="React-antd-ImportExcel"><a href="#React-antd-ImportExcel" class="headerlink" title="React-antd-ImportExcel"></a>React-antd-ImportExcel</h1><p>工作需求，需要</p>
-<pre><code class="js">import * as React from &#39;react&#39;;
+        if (copyDOM.innerHTML !== &#39;&#39;) &#123;
 
-import * as XLSX from &#39;xlsx&#39;;
+            var range = document.createRange(); //创建一个range
 
-import &#123; Button, Icon, message &#125; from &#39;antd&#39;;
+            window.getSelection().removeAllRanges(); //清楚页面中已有的selection
 
-export interface ImportExcelProps &#123;
-    getFileInfo: Function;
-    notice?: string;
-&#125;
+            range.selectNode(copyDOM); // 选中需要复制的节点
 
-//css文件为以下注释样式
-import &#39;./uploadStyle.css&#39;;
-&lt;!--
-.uploadBtn &#123;
-    position: absolute;
-    font-size: 5px;
-    width: &#39;100%&#39;;
-    height: &#39;100%&#39;;
-    right: 0;
-    top: 0;
-    opacity: 0;
-    filter: alpha(opacity = 0);
-    cursor: pointer;
-&#125;
---&gt;
+            window.getSelection().addRange(range); // 执行选中元素
 
-export class ImportExcel extends React.Component&lt;ImportExcelProps, any&gt; &#123;
+            var successful = document.execCommand(&#39;copy&#39;); // 执行 copy 操作
 
-    importExcel = file =&gt; &#123;
-        // 获取上传的文件对象
-        const &#123; files &#125; = file.target;
-        // 通过FileReader对象读取文件
-        const fileReader = new FileReader();
-        fileReader.onload = event =&gt; &#123;
-            try &#123;
-                const &#123; result &#125; = event.target;
-                // 以二进制流方式读取得到整份excel表格对象
-                const workbook = XLSX.read(result, &#123; type: &#39;binary&#39; &#125;);
-                let data = []; // 存储获取到的数据
-                // 遍历每张工作表进行读取（这里默认只读取第一张表）
-                for (const sheet in workbook.Sheets) &#123;
-                    if (workbook.Sheets.hasOwnProperty(sheet)) &#123;
-                        // 利用 sheet_to_json 方法将 excel 转成 json 数据
-                        data = data.concat(XLSX.utils.sheet_to_json(workbook.Sheets[sheet]));
-                        break; // 如果只取第一张表，就取消注释这行
-                    &#125;
-                &#125;
-                //这里获取解析好的excel内容
-                this.props.getFileInfo(data)
-            &#125; catch (e) &#123;
-                // 这里可以抛出文件类型错误不正确的相关提示
-                message.warning(&#39;error&#39;)
+            if (successful) &#123;
+
+                message.success(&#39;复制成功！&#39;);
+
+            &#125; else &#123;
+
+                message.warning(&#39;复制失败，请手动复制！&#39;);
+
             &#125;
-        &#125;;
-        // 以二进制方式打开文件
-        files.length &gt; 0 &amp;&amp; fileReader.readAsBinaryString(files[0]);
-    &#125;
 
-    render() &#123;
-        const &#123; notice &#125; = this.props
-        return (
-            &lt;Button type=&quot;primary&quot; style=&#123;&#123; position: 'relative' &#125;&#125;&gt;
-                &lt;input type=&#39;file&#39; accept=&#39;.xlsx, .xls&#39; onChange=&#123;e =&gt; this.importExcel(e)&#125; className=&quot;uploadBtn&quot; /&gt;&#123;notice || &#39;导入Excel&#39;&#125;
-                &lt; Icon type=&quot;upload&quot; /&gt;
-            &lt;/Button&gt;
-        );
-    &#125;
+            // 移除选中的元素
+
+            window.getSelection().removeAllRanges();
+
+        &#125; else &#123;
+
+            message.warning(&#39;没有内容&#39;);
+
+        &#125;
+
+    &#125;;</code></pre>
+<h2 id="方案二-推荐，方案一兼容性不高-："><a href="#方案二-推荐，方案一兼容性不高-：" class="headerlink" title="方案二(推荐，方案一兼容性不高)："></a>方案二(推荐，方案一兼容性不高)：</h2><p><strong>react-copy-to-clipboard：</strong><br><a href="https://github.com/nkbt/react-copy-to-clipboard">https://github.com/nkbt/react-copy-to-clipboard</a></p>
+<h4 id="Install"><a href="#Install" class="headerlink" title="Install"></a>Install</h4><pre><code>npm install --save react-copy-to-clipboard
+or
+yarn add react-copy-to-clipboard</code></pre>
+<h4 id="Demo"><a href="#Demo" class="headerlink" title="Demo"></a>Demo</h4><pre><code class="jsx">import React from &#39;react&#39;;
+import ReactDOM from &#39;react-dom&#39;;
+import &#123;CopyToClipboard&#125; from &#39;react-copy-to-clipboard&#39;;
+
+class App extends React.Component &#123;
+  state = &#123;
+    value: &#39;&#39;,
+    copied: false,
+  &#125;;
+
+  render() &#123;
+    return (
+      &lt;div&gt;
+        &lt;input value=&#123;this.state.value&#125;
+          onChange=&#123;(&#123;target: &#123;value&#125;&#125;) =&gt; this.setState(&#123;value, copied: false&#125;)&#125; /&gt;
+
+        &lt;CopyToClipboard text=&#123;this.state.value&#125;
+          onCopy=&#123;() =&gt; this.setState(&#123;copied: true&#125;)&#125;&gt;
+          &lt;span&gt;Copy to clipboard with span&lt;/span&gt;
+        &lt;/CopyToClipboard&gt;
+
+        &lt;CopyToClipboard text=&#123;this.state.value&#125;
+          onCopy=&#123;() =&gt; this.setState(&#123;copied: true&#125;)&#125;&gt;
+          &lt;button&gt;Copy to clipboard with button&lt;/button&gt;
+        &lt;/CopyToClipboard&gt;
+
+        &#123;this.state.copied ? &lt;span style=&#123;&#123;color: 'red'&#125;&#125;&gt;Copied.&lt;/span&gt; : null&#125;
+      &lt;/div&gt;
+    );
+  &#125;
 &#125;
+
+const appRoot = document.createElement(&#39;div&#39;);
+document.body.appendChild(appRoot);
+ReactDOM.render(&lt;App /&gt;, appRoot);
 </code></pre>
-<p>使用</p>
-<pre><code class="js">//getFileInfo 用于获取解析出来的数据，按需写接收函数
-&lt;ImportExcel getFileInfo=&#123;getFileInfo&#125; notice=&quot;导入EXcel&quot; /&gt;</code></pre>
 ]]></content>
       <categories>
         <category>React</category>
@@ -680,320 +944,99 @@ export class DiffView extends React.Component&lt;DiffViewProps&gt; &#123;
       </tags>
   </entry>
   <entry>
-    <title>React中使用Echats</title>
-    <url>/2020/09/22/React-echart/</url>
-    <content><![CDATA[<a id="more"></a>
-
-
-
-<h4 id="1-安装echats"><a href="#1-安装echats" class="headerlink" title="1.安装echats"></a>1.安装echats</h4><pre><code>npm install echarts --save
-npm install --save echarts-for-react</code></pre>
-<h4 id="2-引入所需模块"><a href="#2-引入所需模块" class="headerlink" title="2.引入所需模块"></a>2.引入所需模块</h4><pre><code class="javascript">// 引入 ECharts 主模块
-var echarts = require(&#39;echarts/lib/echarts&#39;);
-// 引入柱状图
-require(&#39;echarts/lib/chart/bar&#39;);
-// 引入提示框和标题组件
-require(&#39;echarts/lib/component/tooltip&#39;);
-require(&#39;echarts/lib/component/title&#39;);</code></pre>
-<h4 id="3-实例"><a href="#3-实例" class="headerlink" title="3.实例"></a>3.实例</h4><pre><code class="javascript">showTrend() &#123;
-        // 基于准备好的dom，初始化echarts实例
-        var myChart = echarts.init(document.getElementById(&#39;trend&#39;));
-        //柱状图点击事件
-        myChart.on(&#39;click&#39;, params =&gt; &#123;
-
-        &#125;);
-              // 绘制图表
-        myChart.setOption(&#123;
-            title: &#123; text: &#39;近十五日趋势&#39; &#125;,
-            color: [&#39;#3398DB&#39;],
-            tooltip: &#123;
-                trigger: &#39;axis&#39;,
-                axisPointer: &#123;
-                    type: &#39;shadow&#39;,
-                &#125;,
-            &#125;,
-            grid: &#123;
-                left: &#39;3%&#39;,
-                right: &#39;4%&#39;,
-                bottom: &#39;3%&#39;,
-                containLabel: true,
-            &#125;,
-            xAxis: &#123;
-                type: &#39;category&#39;,
-                data: this.state.trendDate,
-                axisTick: &#123;
-                    alignWithLabel: true,
-                &#125;,
-            &#125;,
-            yAxis: [&#123; type: &#39;value&#39; &#125;],
-            series: [
-                &#123;
-                    name: &#39;告警总数&#39;,
-                    type: &#39;bar&#39;,
-                    barWidth: &#39;60%&#39;,
-                    data: this.state.trendData,
-                &#125;,
-            ],
-        &#125;);
-    &#125;</code></pre>
-<h4 id="4-DOM部分"><a href="#4-DOM部分" class="headerlink" title="4.DOM部分"></a>4.DOM部分</h4><pre><code class="html">&lt;div id=&quot;trend&quot; style=&#123;&#123; height: 300 &#125;&#125;&gt;&lt;/div&gt;</code></pre>
-<h4 id="5-效果图"><a href="#5-效果图" class="headerlink" title="5.效果图"></a>5.效果图</h4><p><img src="https://cdn.jsdelivr.net/gh/JuntengMa/Images@1.1/blog/echats.jpg"></p>
+    <title>css文本超出自动换行</title>
+    <url>/2020/09/18/Css%E6%96%87%E6%9C%AC%E8%B6%85%E5%87%BA%E8%87%AA%E5%8A%A8%E6%8D%A2%E8%A1%8C/</url>
+    <content><![CDATA[<pre><code class="css">word-wrap:break-word; 
+word-break:break-all; 
+overflow: hidden;/*这个参数根据需要来绝对要不要*/</code></pre>
 ]]></content>
       <categories>
-        <category>React</category>
+        <category>Css</category>
       </categories>
       <tags>
-        <tag>React</tag>
+        <tag>Css</tag>
       </tags>
   </entry>
   <entry>
-    <title>Honey</title>
-    <url>/2020/09/01/honey/</url>
-    <content><![CDATA[<center>"光洙宝贝😏😏😏"</center>
-<center>"想你了哟~"</center>
-]]></content>
-      <categories>
-        <category>Honey</category>
-      </categories>
-      <tags>
-        <tag>Honey</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>在react中实现文本复制</title>
-    <url>/2020/09/22/React-%E6%96%87%E6%9C%AC%E5%A4%8D%E5%88%B6/</url>
+    <title>React-antd-ImportExcel</title>
+    <url>/2020/09/04/React-antd-ImportExcel/</url>
     <content><![CDATA[<a id="more"></a>
 
-<h2 id="方案一："><a href="#方案一：" class="headerlink" title="方案一："></a>方案一：</h2><pre><code class="js">copyTranslateResult = () =&gt; &#123;
-        const copyDOM = document.querySelector(&#39;.translateResult&#39;);
 
-        if (copyDOM.innerHTML !== &#39;&#39;) &#123;
+<h1 id="React-antd-ImportExcel"><a href="#React-antd-ImportExcel" class="headerlink" title="React-antd-ImportExcel"></a>React-antd-ImportExcel</h1><p>工作需求，需要</p>
+<pre><code class="js">import * as React from &#39;react&#39;;
 
-            var range = document.createRange(); //创建一个range
+import * as XLSX from &#39;xlsx&#39;;
 
-            window.getSelection().removeAllRanges(); //清楚页面中已有的selection
+import &#123; Button, Icon, message &#125; from &#39;antd&#39;;
 
-            range.selectNode(copyDOM); // 选中需要复制的节点
+export interface ImportExcelProps &#123;
+    getFileInfo: Function;
+    notice?: string;
+&#125;
 
-            window.getSelection().addRange(range); // 执行选中元素
+//css文件为以下注释样式
+import &#39;./uploadStyle.css&#39;;
+&lt;!--
+.uploadBtn &#123;
+    position: absolute;
+    font-size: 5px;
+    width: &#39;100%&#39;;
+    height: &#39;100%&#39;;
+    right: 0;
+    top: 0;
+    opacity: 0;
+    filter: alpha(opacity = 0);
+    cursor: pointer;
+&#125;
+--&gt;
 
-            var successful = document.execCommand(&#39;copy&#39;); // 执行 copy 操作
+export class ImportExcel extends React.Component&lt;ImportExcelProps, any&gt; &#123;
 
-            if (successful) &#123;
-
-                message.success(&#39;复制成功！&#39;);
-
-            &#125; else &#123;
-
-                message.warning(&#39;复制失败，请手动复制！&#39;);
-
+    importExcel = file =&gt; &#123;
+        // 获取上传的文件对象
+        const &#123; files &#125; = file.target;
+        // 通过FileReader对象读取文件
+        const fileReader = new FileReader();
+        fileReader.onload = event =&gt; &#123;
+            try &#123;
+                const &#123; result &#125; = event.target;
+                // 以二进制流方式读取得到整份excel表格对象
+                const workbook = XLSX.read(result, &#123; type: &#39;binary&#39; &#125;);
+                let data = []; // 存储获取到的数据
+                // 遍历每张工作表进行读取（这里默认只读取第一张表）
+                for (const sheet in workbook.Sheets) &#123;
+                    if (workbook.Sheets.hasOwnProperty(sheet)) &#123;
+                        // 利用 sheet_to_json 方法将 excel 转成 json 数据
+                        data = data.concat(XLSX.utils.sheet_to_json(workbook.Sheets[sheet]));
+                        break; // 如果只取第一张表，就取消注释这行
+                    &#125;
+                &#125;
+                //这里获取解析好的excel内容
+                this.props.getFileInfo(data)
+            &#125; catch (e) &#123;
+                // 这里可以抛出文件类型错误不正确的相关提示
+                message.warning(&#39;error&#39;)
             &#125;
-
-            // 移除选中的元素
-
-            window.getSelection().removeAllRanges();
-
-        &#125; else &#123;
-
-            message.warning(&#39;没有内容&#39;);
-
-        &#125;
-
-    &#125;;</code></pre>
-<h2 id="方案二-推荐，方案一兼容性不高-："><a href="#方案二-推荐，方案一兼容性不高-：" class="headerlink" title="方案二(推荐，方案一兼容性不高)："></a>方案二(推荐，方案一兼容性不高)：</h2><p><strong>react-copy-to-clipboard：</strong><br><a href="https://github.com/nkbt/react-copy-to-clipboard">https://github.com/nkbt/react-copy-to-clipboard</a></p>
-<h4 id="Install"><a href="#Install" class="headerlink" title="Install"></a>Install</h4><pre><code>npm install --save react-copy-to-clipboard
-or
-yarn add react-copy-to-clipboard</code></pre>
-<h4 id="Demo"><a href="#Demo" class="headerlink" title="Demo"></a>Demo</h4><pre><code class="jsx">import React from &#39;react&#39;;
-import ReactDOM from &#39;react-dom&#39;;
-import &#123;CopyToClipboard&#125; from &#39;react-copy-to-clipboard&#39;;
-
-class App extends React.Component &#123;
-  state = &#123;
-    value: &#39;&#39;,
-    copied: false,
-  &#125;;
-
-  render() &#123;
-    return (
-      &lt;div&gt;
-        &lt;input value=&#123;this.state.value&#125;
-          onChange=&#123;(&#123;target: &#123;value&#125;&#125;) =&gt; this.setState(&#123;value, copied: false&#125;)&#125; /&gt;
-
-        &lt;CopyToClipboard text=&#123;this.state.value&#125;
-          onCopy=&#123;() =&gt; this.setState(&#123;copied: true&#125;)&#125;&gt;
-          &lt;span&gt;Copy to clipboard with span&lt;/span&gt;
-        &lt;/CopyToClipboard&gt;
-
-        &lt;CopyToClipboard text=&#123;this.state.value&#125;
-          onCopy=&#123;() =&gt; this.setState(&#123;copied: true&#125;)&#125;&gt;
-          &lt;button&gt;Copy to clipboard with button&lt;/button&gt;
-        &lt;/CopyToClipboard&gt;
-
-        &#123;this.state.copied ? &lt;span style=&#123;&#123;color: 'red'&#125;&#125;&gt;Copied.&lt;/span&gt; : null&#125;
-      &lt;/div&gt;
-    );
-  &#125;
-&#125;
-
-const appRoot = document.createElement(&#39;div&#39;);
-document.body.appendChild(appRoot);
-ReactDOM.render(&lt;App /&gt;, appRoot);
-</code></pre>
-]]></content>
-      <categories>
-        <category>React</category>
-      </categories>
-      <tags>
-        <tag>React</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>React父组件调用子组件</title>
-    <url>/2020/09/25/React-%E7%88%B6%E7%BB%84%E4%BB%B6%E8%B0%83%E7%94%A8%E5%AD%90%E7%BB%84%E4%BB%B6/</url>
-    <content><![CDATA[<h2 id="方案一：-ref控制"><a href="#方案一：-ref控制" class="headerlink" title="方案一： ref控制"></a>方案一： ref控制</h2><a id="more"></a>
-
-<h4 id="Parent-Component-Parent-tsx"><a href="#Parent-Component-Parent-tsx" class="headerlink" title="Parent Component ( Parent.tsx )"></a>Parent Component ( Parent.tsx )</h4><pre><code>import * as React from &#39;react&#39;;
-
-import &#123; ChildA &#125; from &#39;./ChildA&#39;;
-
-//多个子组件时可以先定义如下组件：
-class Childrens extends React.Component&lt;any, any&gt; &#123;
-  _childA: any;
-  _childB: any;
-  _childC: any;
-&#125;
-
-export class Parent extends Childrens &#123;
-
-  //调用子组件方式：
-  get_childA_sum = () =&gt; &#123;
-    this._childA.sum(1, 2)
-  &#125;
-
-  render() &#123;
-    const children = &#123;
-      on_childA_ref: ref =&gt; &#123;
-        this._childA = ref;
-      &#125;,
-      on_childB_ref: ref =&gt; &#123;
-        this._childB = ref;
-      &#125;,
-      on_childC_ref: ref =&gt; &#123;
-        this._childC = ref;
-      &#125;,
-    &#125;
-
-    return (
-      &lt;div&gt;
-        &lt;button onClick=&#123;() =&gt; this.get_childA_sum()&#125;&gt; SumA &lt;/button&gt;
-        &lt;ChildA _childA=&#123;children.on_childA_ref&#125; /&gt;
-      &lt;/div&gt;
-    )
-  &#125;
-&#125;
-
-
-</code></pre>
-<h4 id="Children-Component-ChildA-tsx"><a href="#Children-Component-ChildA-tsx" class="headerlink" title="Children Component  (ChildA.tsx)"></a>Children Component  (ChildA.tsx)</h4><pre><code>import * as React from &#39;react&#39;;
-
-interface ChildAProps &#123;
-  _childA:Function;
-&#125;
-
-export class ChildA extends React.Component&lt;ChildAProps, any&gt; &#123;
-
-  componentDidMount() &#123;
-        this.props._childA(this)
-    &#125;
-
-  sum = (a , b) =&gt; &#123;
-    alert(a+b)
-  &#125;
-
-  render()&#123;
-    return(
-      &lt;div&gt;
-        组件A
-      &lt;/div&gt;
-    )
-  &#125;
-
-&#125;</code></pre>
-]]></content>
-      <categories>
-        <category>React</category>
-        <category>TypeScript</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>React-富文本框(braft-editor)</title>
-    <url>/2020/09/24/React-richText/</url>
-    <content><![CDATA[<h2 id="富文本编辑器"><a href="#富文本编辑器" class="headerlink" title="富文本编辑器"></a>富文本编辑器</h2><a id="more"></a>
-
-<p><a href="https://www.yuque.com/braft-editor/be/gz44tn#wx1vkv">https://www.yuque.com/braft-editor/be/gz44tn#wx1vkv</a></p>
-<pre><code>import React, &#123; Component &#125; from &#39;react&#39;;
-// 引入编辑器组件
-
-import BraftEditor from &#39;braft-editor&#39;;
-// 引入编辑器样式
-import &#39;braft-editor/dist/index.css&#39;;
-
-import &#123; UploadFn &#125; from &#39;./UploadFn&#39;;
-
-export class RichText extends Component &#123;
-    constructor() &#123;
-        super();
-        this.state = &#123;
-            editorState: BraftEditor.createEditorState(null),
         &#125;;
-        RichText.submitContent = this.submitContent.bind(this);
+        // 以二进制方式打开文件
+        files.length &gt; 0 &amp;&amp; fileReader.readAsBinaryString(files[0]);
     &#125;
-
-    async componentDidMount() &#123;
-        // 假设此处从服务端获取html格式的编辑器内容
-        let htmlContent = this.props.htmlContent || null;
-        // 使用BraftEditor.createEditorState将html字符串转换为编辑器需要的editorStat
-        this.setState(&#123;
-            editorState: BraftEditor.createEditorState(htmlContent),
-        &#125;);
-    &#125;
-
-    componentWillReceiveProps(nextProps) &#123;
-        if (nextProps.htmlContent !== this.state.htmlContent) &#123;
-            this.setState(&#123;
-                editorState: BraftEditor.createEditorState(nextProps.htmlContent),
-            &#125;);
-        &#125;
-    &#125;
-
-    submitContent = async () =&gt; &#123;
-        // 在编辑器获得焦点时按下ctrl+s会执行此方法
-        // 编辑器内容提交到服务端之前，可直接调用editorState.toHTML()来获取HTML格式的内容
-        const htmlContent = this.state.editorState.toHTML();
-        return htmlContent;
-    &#125;;
-
-    handleEditorChange = editorState =&gt; &#123;
-        this.setState(&#123; editorState &#125;);
-    &#125;;
 
     render() &#123;
+        const &#123; notice &#125; = this.props
         return (
-            &lt;BraftEditor
-                value=&#123;this.state.editorState&#125;
-                onChange=&#123;this.handleEditorChange&#125;
-                onSave=&#123;this.submitContent&#125;
-                onBlur=&#123;() =&gt; &#123;
-                    const htmlContent = this.state.editorState.toHTML();
-                &#125;&#125;
-                // excludeControls=&#123;[&#39;options&#39;]&#125;
-                media=&#123;&#123; uploadFn: UploadFn &#125;&#125;
-            /&gt;
+            &lt;Button type=&quot;primary&quot; style=&#123;&#123; position: 'relative' &#125;&#125;&gt;
+                &lt;input type=&#39;file&#39; accept=&#39;.xlsx, .xls&#39; onChange=&#123;e =&gt; this.importExcel(e)&#125; className=&quot;uploadBtn&quot; /&gt;&#123;notice || &#39;导入Excel&#39;&#125;
+                &lt; Icon type=&quot;upload&quot; /&gt;
+            &lt;/Button&gt;
         );
     &#125;
 &#125;
 </code></pre>
+<p>使用</p>
+<pre><code class="js">//getFileInfo 用于获取解析出来的数据，按需写接收函数
+&lt;ImportExcel getFileInfo=&#123;getFileInfo&#125; notice=&quot;导入EXcel&quot; /&gt;</code></pre>
 ]]></content>
       <categories>
         <category>React</category>
@@ -1003,209 +1046,160 @@ export class RichText extends Component &#123;
       </tags>
   </entry>
   <entry>
-    <title>Yarn / npm 对比</title>
-    <url>/2020/09/02/yarn-npm%E5%AF%B9%E6%AF%94/</url>
+    <title>React-antd-exportExcel</title>
+    <url>/2020/09/04/React-antd-exportExcel/</url>
     <content><![CDATA[<a id="more"></a>
 
+<pre><code class="js">import * as React from &quot;react&quot;
 
+import * as XLSX from &quot;xlsx&quot;
 
-<table>
-<thead>
-<tr>
-<th align="left">作用</th>
-<th align="left">npm</th>
-<th align="center">Yarn</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="left">安装</td>
-<td align="left">npm install(i)</td>
-<td align="center">yarn</td>
-</tr>
-<tr>
-<td align="left">卸载</td>
-<td align="left">npm uninstall(un)</td>
-<td align="center">yarn remove</td>
-</tr>
-<tr>
-<td align="left">全局安装</td>
-<td align="left">npm install xxx –global(-g)</td>
-<td align="center">yarn global add xxx</td>
-</tr>
-<tr>
-<td align="left">安装包</td>
-<td align="left">npm install xxx –save(-S)</td>
-<td align="center">yarn add xxx</td>
-</tr>
-<tr>
-<td align="left">开发模式安装包</td>
-<td align="left">npm install xxx –save-dev(-D)</td>
-<td align="center">yarn add xxx –dev(-D)</td>
-</tr>
-<tr>
-<td align="left">更新</td>
-<td align="left">npm update –save</td>
-<td align="center">yarn upgrade</td>
-</tr>
-<tr>
-<td align="left">全局更新</td>
-<td align="left">npm update –global</td>
-<td align="center">yarn global upgrade</td>
-</tr>
-<tr>
-<td align="left">卸载</td>
-<td align="left">npm uninstall [–save/–save-dev]</td>
-<td align="center">yarn remove xx</td>
-</tr>
-<tr>
-<td align="left">清除缓存</td>
-<td align="left">npm cache clean</td>
-<td align="center">yarn cache clean</td>
-</tr>
-<tr>
-<td align="left">重装</td>
-<td align="left">rm -rf node_modules &amp;&amp; npm install</td>
-<td align="center">yarn upgrade</td>
-</tr>
-</tbody></table>
-]]></content>
-      <categories>
-        <category>NPM</category>
-      </categories>
-      <tags>
-        <tag>Npm</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>love</title>
-    <url>/2020/09/14/love/</url>
-    <content><![CDATA[<!DOCTYPE html>
-<html lang="en">
+import &#123; Button, Icon &#125; from &quot;antd&quot;
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-  <style>
-    .typing {
-      width: 15em;
-      white-space: nowrap;
-      border-right: 2px solid transparent;
-      animation: typing 3.5s steps(15, end), blink-caret .75s step-end infinite;
-      overflow: hidden;
-    }
-
-<pre><code>/* 打印效果 */
-@keyframes typing &#123;
-  from &#123;
-    width: 0;
-  &#125;
-
-  to &#123;
-    width: 15em;
-  &#125;
+export interface ExportExcelProps &#123;
+  notice: string;
+  fileName: string;
+  headers: string[] | Function; //表头
+  getExportData: Function;
 &#125;
 
-/* 光标闪啊闪 */
-@keyframes blink-caret &#123;
+export class ExportExcel extends React.Component&lt;ExportExcelProps, any&gt; &#123;
+  handleExport = async () =&gt; &#123;
+    const &#123; headers, fileName &#125; = this.props
+    //这里是获取导出数据的函数
+    const exportData = await this.props.getExportData()
 
-  from,
-  to &#123;
-    box-shadow: 1px 0 0 0 transparent;
+    this.exportExcel(headers, exportData, fileName)
   &#125;
 
-  50% &#123;
-    box-shadow: 1px 0 0 0;
+  exportExcel(headers, data, fileName) &#123;
+    const _headers = headers
+      .map((item, i) =&gt;
+        Object.assign(
+          &#123;&#125;,
+          &#123;
+            key: item.key,
+            title: item.title,
+            position: String.fromCharCode(65 + i) + 1,
+          &#125;
+        )
+      )
+      .reduce(
+        (prev, next) =&gt;
+          Object.assign(&#123;&#125;, prev, &#123;
+            [next.position]: &#123; key: next.key, v: next.title &#125;,
+          &#125;),
+        &#123;&#125;
+      )
+
+    const _data = data
+      .map((item, i) =&gt;
+        headers.map((key, j) =&gt;
+          Object.assign(
+            &#123;&#125;,
+            &#123;
+              content: item[key.key],
+              position: String.fromCharCode(65 + j) + (i + 2),
+            &#125;
+          )
+        )
+      )
+      // 对刚才的结果进行降维处理（二维数组变成一维数组）
+      .reduce((prev, next) =&gt; prev.concat(next))
+      // 转换成 worksheet 需要的结构
+      .reduce(
+        (prev, next) =&gt;
+          Object.assign(&#123;&#125;, prev, &#123; [next.position]: &#123; v: next.content &#125; &#125;),
+        &#123;&#125;
+      )
+
+    // 合并 headers 和 data
+    const output = Object.assign(&#123;&#125;, _headers, _data)
+    // 获取所有单元格的位置
+    const outputPos = Object.keys(output)
+    // 计算出范围 ,[&quot;A1&quot;,..., &quot;H2&quot;]
+    const ref = `$&#123;outputPos[0]&#125;:$&#123;outputPos[outputPos.length - 1]&#125;`
+
+    // 构建 workbook 对象
+    const wb = &#123;
+      SheetNames: [&quot;mySheet&quot;],
+      Sheets: &#123;
+        mySheet: Object.assign(
+          &#123;&#125;,
+          output, //列宽
+          &#123;
+            &quot;!ref&quot;: ref,
+            &quot;!cols&quot;: [
+              &#123; wpx: 150 &#125;,
+              &#123; wpx: 150 &#125;,
+              &#123; wpx: 150 &#125;,
+              &#123; wpx: 150 &#125;,
+              &#123; wpx: 150 &#125;,
+              &#123; wpx: 150 &#125;,
+              &#123; wpx: 150 &#125;,
+              &#123; wpx: 150 &#125;,
+            ],
+          &#125;
+        ),
+      &#125;,
+    &#125;
+    // 导出 Excel
+    XLSX.writeFile(wb, `$&#123;fileName&#125;.xlsx`)
+  &#125;
+  render() &#123;
+    const &#123; notice &#125; = this.props
+    return (
+      &lt;Button type=&quot;primary&quot; onClick=&#123;() =&gt; this.handleExport()&#125;&gt;
+        &#123;notice&#125;
+        &lt;Icon type=&quot;download&quot; /&gt;
+      &lt;/Button&gt;
+    )
   &#125;
 &#125;</code></pre>
-<p>  </style></p>
-</head>
+<p>使用</p>
+<pre><code class="js">&lt;ExportExcel
+  notice=&quot;Excel导出&quot;
+  fileName=&quot;test&quot;
+  headers=&#123;initColumn&#125;
+  getExportData=&#123;exportData&#125;
+/&gt;</code></pre>
+<p>示例表头&amp;数据：</p>
+<pre><code class="js">header=[
+    &#123;
+        title: 姓名,
+        dataIndex: name,
+        key: name,
+    &#125;,
+    &#123;
+        title: 性别,
+        dataIndex: sex,
+        key: sex,
+    &#125;,
+    &#123;
+        title: 年龄,
+        dataIndex: age,
+        key: age,
+    &#125;,
+]
 
-<body>
-  <p class="typing">简易中文打字效果</p>
-</body>
-
-</html>]]></content>
-      <tags>
-        <tag>Love</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>浏览器同源策略</title>
-    <url>/2020/09/29/%E5%90%8C%E6%BA%90%E7%AD%96%E7%95%A5/</url>
-    <content><![CDATA[<hr>
-<a id="more"></a>
-
-
-<h2 id="同源策略"><a href="#同源策略" class="headerlink" title="同源策略"></a>同源策略</h2><h5 id="01、什么是同源策略"><a href="#01、什么是同源策略" class="headerlink" title="01、什么是同源策略"></a>01、什么是同源策略</h5><blockquote>
-<p>同源策略是浏览器安全的基石</p>
-<p>同源：</p>
-<ul>
-<li>协议相同</li>
-<li>域名相同</li>
-<li>端口相同</li>
-</ul>
-<p>举例来说，<code>http://www.example.com/dir/page.html</code>这个网址，协议是<code>http://</code>，域名是<code>www.example.com</code>，端口是<code>80</code>（默认端口可以省略）。</p>
-<p>它的同源情况如下：</p>
-<ul>
-<li><code>http://www.example.com/dir2/other.html</code>：同源</li>
-<li><code>http://example.com/dir/other.html</code>：不同源（域名不同）</li>
-<li><code>http://v2.www.example.com/dir/other.html</code>：不同源（域名不同）</li>
-<li><code>http://www.example.com:81/dir/other.html</code>：不同源（端口不同）</li>
-</ul>
-</blockquote>
-<h5 id="02、同源策略目的"><a href="#02、同源策略目的" class="headerlink" title="02、同源策略目的"></a>02、同源策略目的</h5><blockquote>
-<p>同源策略目的，是为了保证用户信息安全，防止恶意网站窃取数据</p>
-</blockquote>
-<h5 id="03、同源策略限制范围"><a href="#03、同源策略限制范围" class="headerlink" title="03、同源策略限制范围"></a>03、同源策略限制范围</h5><blockquote>
-<ul>
-<li>Cookie、LocalStorage 和 IndexDB 无法读取</li>
-<li>DOM无法获得</li>
-<li>AJAX请求不能发送</li>
-</ul>
-</blockquote>
-<h5 id="04、规避同源策略方案"><a href="#04、规避同源策略方案" class="headerlink" title="04、规避同源策略方案"></a>04、规避同源策略方案</h5><blockquote>
-<ul>
-<li>JSONP</li>
-<li>WebSocket</li>
-<li>CORS</li>
-</ul>
-</blockquote>
-<h5 id="05、JSONP"><a href="#05、JSONP" class="headerlink" title="05、JSONP"></a>05、JSONP</h5><blockquote>
-<ul>
-<li><p>什么是JSONP<br>JSONP是服务器与客户端跨原通信的常用方案。最大特点就是简单适用，老式浏览器全部支持，服务器改造小</p>
-</li>
-<li><p>原理</p>
-<p>网页通过添加一个<code>&lt;script&gt;</code>元素，向服务器请求JSON数据，该方法不受同源策略限制，服务器收到请求之后，将数据放在指定的名字回调函数中传回来</p>
-</li>
-</ul>
-</blockquote>
+exportData=[
+    &#123;
+    name:&#39;小明&#39;，
+    sex:&#39;男&#39;，
+    age:18
+    &#125;,
+    &#123;
+    name:&#39;小张&#39;，
+    sex:&#39;女&#39;，
+    age:20
+    &#125;
+]</code></pre>
 ]]></content>
       <categories>
-        <category>同源策略</category>
+        <category>React</category>
       </categories>
       <tags>
-        <tag>同源策略</tag>
+        <tag>React</tag>
       </tags>
-  </entry>
-  <entry>
-    <title></title>
-    <url>//honey.html</url>
-    <content><![CDATA[<!DOCTYPE html>
-<html>
-
-<head>
-  <meta charset="UTF-8">
-  <title></title>
-</head>
-
-<body>
- <iframe id="inlineFrameExample" title="Inline Frame Example" width="300" height="200"
-   src="https://www.openstreetmap.org/export/embed.html?bbox=-0.004017949104309083%2C51.47612752641776%2C0.00030577182769775396%2C51.478569861898606&layer=mapnik">
- </iframe>
-</body>
-
-</html>
-]]></content>
   </entry>
 </search>
