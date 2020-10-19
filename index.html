@@ -21,7 +21,7 @@
 <meta name="twitter:card" content="summary">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/combine/gh/nexmoe/nexmoe.github.io@latest/css/style.css,npm/highlight.js@9.15.8/styles/atom-one-dark.css,gh/nexmoe/nexmoe.github.io@latest/lib/mdui_043tiny/css/mdui.css,gh/nexmoe/nexmoe.github.io@latest/lib/iconfont/iconfont.css" crossorigin>
   
-  <!--<link rel="stylesheet" href="css/style.css?v=1602557172829">-->
+  <!--<link rel="stylesheet" href="css/style.css?v=1603106862857">-->
 
   
 <meta name="generator" content="Hexo 5.2.0"><link rel="alternate" href="atom.xml" title="June's Blog" type="application/atom+xml">
@@ -231,67 +231,7 @@
 
         <article>
             
-                <h1 id="GIT-常用命令"><a href="#GIT-常用命令" class="headerlink" title="GIT 常用命令"></a>GIT 常用命令</h1><h2 id="01-初始配置"><a href="#01-初始配置" class="headerlink" title="01 - 初始配置"></a>01 - 初始配置</h2><pre><code>- git init 初始化本地git仓库（创建新仓库）
-
-- git config --global user.name &quot;xxx&quot; 配置用户名
-
-- git config --global user.email &quot;xxx@xxx.com&quot; 配置用户邮箱
-
-- git clone &quot;git链接&quot; 克隆git仓库到本地
-
-- git status 查看当前在哪个分支</code></pre>
-<h2 id="02-开发完毕将要上传代码仓库操作"><a href="#02-开发完毕将要上传代码仓库操作" class="headerlink" title="02 - 开发完毕将要上传代码仓库操作"></a>02 - 开发完毕将要上传代码仓库操作</h2><pre><code>git add .  增加当前子目录下所有更改过的文件至index
-
-git commit -m &quot;xxx&quot; 提交
-
-git push 推送改动到远端</code></pre>
-<h2 id="03-新建分支操作"><a href="#03-新建分支操作" class="headerlink" title="03 - 新建分支操作"></a>03 - 新建分支操作</h2><pre><code>git branch &lt;分支名&gt; 创建新分支
-
-git checkout &lt;分支名&gt; 切换到该分支
-
-git push 如果是新建分支，push的时候需要跟远端仓库关联，一般会提示 git push --set-upstream 你的分支名 ， 复制提示信息并执行</code></pre>
-<h2 id="04-合并分支操作"><a href="#04-合并分支操作" class="headerlink" title="04 - 合并分支操作"></a>04 - 合并分支操作</h2><pre><code>git pull origin master 多人协作，以防master已更新，本地代码版本没有更新，先同步一下master代码，以防产生合并冲突
-
-git checkout master 先切换到主分支再合并
-
-git merge &lt;需要合并到master上的分支名&gt; 合并某一个分支到该分支</code></pre>
-<h2 id="05-删除本地，远程分支"><a href="#05-删除本地，远程分支" class="headerlink" title="05 - 删除本地，远程分支"></a>05 - 删除本地，远程分支</h2><pre><code>- git branch -d &lt;分支名&gt; 删除本地某一分支
-
-- git push origin --delete &lt;分支名&gt; 删除远端分支</code></pre>
-<h2 id="06-版本回退"><a href="#06-版本回退" class="headerlink" title="06 - 版本回退"></a>06 - 版本回退</h2><pre><code>- git log 查看提交历史和commit 标记
-
-- git reset --hard &lt;commit 后面的字符串&gt; 将代码回退到某一版本
-
-- git push -f 远端仓库版本高于本地版本，需要强制推送上去</code></pre>
-<h2 id="07-取消所有本地修改"><a href="#07-取消所有本地修改" class="headerlink" title="07 - 取消所有本地修改"></a>07 - 取消所有本地修改</h2><pre><code>git checkout .</code></pre>
-<h2 id="09-查看修改"><a href="#09-查看修改" class="headerlink" title="09 - 查看修改"></a>09 - 查看修改</h2><pre><code>git show &lt;commit日志&gt;  显示详细更改</code></pre>
-<h2 id="10-查看某一文件所有修改历史"><a href="#10-查看某一文件所有修改历史" class="headerlink" title="10 - 查看某一文件所有修改历史"></a>10 - 查看某一文件所有修改历史</h2><pre><code> git log --pretty=on 相对路径/绝对路径
-
- git show &lt;commit日志&gt;</code></pre>
-<h2 id="11-其他命令"><a href="#11-其他命令" class="headerlink" title="11 - 其他命令"></a>11 - 其他命令</h2><pre><code>git pull 从当前分支远端拉取代码
-
-git pull origin &lt;分支名&gt; 拉取某一分支的代码并合并到当前分支
-
-git branch 显示远程仓库分支
-
-git branch -a 显示所有分支
-
-git branch --merged 显示所有已合并到当前分支的分支
-
-git branch --no-merged 显示所有未合并到当前分支的分支
-
-git push origin master 推送到主分支
-
-git pull origin &lt;分支名&gt; 拉取远程分支合并到当前分支
-
-git log 显示提交日志
-
-git diff 显示所有变更
-
-git diff HEAD^ 显示与上个版本的差异
-
-git rm xxx 除某文件</code></pre>
-
+                <h1 id="GIT-常用命令"><a href="#GIT-常用命令" class="headerlink" title="GIT 常用命令"></a>GIT 常用命令</h1>
             
         </article>
     </div>
@@ -339,7 +279,11 @@ git rm xxx 除某文件</code></pre>
 
         <article>
             
-                <table>
+                <a id="more"></a>
+
+
+
+<table>
 <thead>
 <tr>
 <th align="left">作用</th>
@@ -491,50 +435,6 @@ git rm xxx 除某文件</code></pre>
         <article>
             
                 <hr>
-<h2 id="同源策略"><a href="#同源策略" class="headerlink" title="同源策略"></a>同源策略</h2><h5 id="01、什么是同源策略"><a href="#01、什么是同源策略" class="headerlink" title="01、什么是同源策略"></a>01、什么是同源策略</h5><blockquote>
-<p>同源策略是浏览器安全的基石</p>
-<p>同源：</p>
-<ul>
-<li>协议相同</li>
-<li>域名相同</li>
-<li>端口相同</li>
-</ul>
-<p>举例来说，<code>http://www.example.com/dir/page.html</code>这个网址，协议是<code>http://</code>，域名是<code>www.example.com</code>，端口是<code>80</code>（默认端口可以省略）。</p>
-<p>它的同源情况如下：</p>
-<ul>
-<li><code>http://www.example.com/dir2/other.html</code>：同源</li>
-<li><code>http://example.com/dir/other.html</code>：不同源（域名不同）</li>
-<li><code>http://v2.www.example.com/dir/other.html</code>：不同源（域名不同）</li>
-<li><code>http://www.example.com:81/dir/other.html</code>：不同源（端口不同）</li>
-</ul>
-</blockquote>
-<h5 id="02、同源策略目的"><a href="#02、同源策略目的" class="headerlink" title="02、同源策略目的"></a>02、同源策略目的</h5><blockquote>
-<p>同源策略目的，是为了保证用户信息安全，防止恶意网站窃取数据</p>
-</blockquote>
-<h5 id="03、同源策略限制范围"><a href="#03、同源策略限制范围" class="headerlink" title="03、同源策略限制范围"></a>03、同源策略限制范围</h5><blockquote>
-<ul>
-<li>Cookie、LocalStorage 和 IndexDB 无法读取</li>
-<li>DOM无法获得</li>
-<li>AJAX请求不能发送</li>
-</ul>
-</blockquote>
-<h5 id="04、规避同源策略方案"><a href="#04、规避同源策略方案" class="headerlink" title="04、规避同源策略方案"></a>04、规避同源策略方案</h5><blockquote>
-<ul>
-<li>JSONP</li>
-<li>WebSocket</li>
-<li>CORS</li>
-</ul>
-</blockquote>
-<h5 id="05、JSONP"><a href="#05、JSONP" class="headerlink" title="05、JSONP"></a>05、JSONP</h5><blockquote>
-<ul>
-<li><p>什么是JSONP<br>JSONP是服务器与客户端跨原通信的常用方案。最大特点就是简单适用，老式浏览器全部支持，服务器改造小</p>
-</li>
-<li><p>原理</p>
-<p>网页通过添加一个<code>&lt;script&gt;</code>元素，向服务器请求JSON数据，该方法不受同源策略限制，服务器收到请求之后，将数据放在指定的名字回调函数中传回来</p>
-</li>
-</ul>
-</blockquote>
-
             
         </article>
     </div>
@@ -558,51 +458,6 @@ git rm xxx 除某文件</code></pre>
         <article>
             
                 <hr>
-<h3 id="01-新建src-api文件夹"><a href="#01-新建src-api文件夹" class="headerlink" title="01-新建src/api文件夹"></a>01-新建src/api文件夹</h3><pre><code>api
- - ajax.js
- - index.js</code></pre>
-<h3 id="02-新建axios-js文件"><a href="#02-新建axios-js文件" class="headerlink" title="02-新建axios.js文件"></a>02-新建axios.js文件</h3><pre><code class="js">import axios from &#39;axios&#39;
-
-//封装ajax
-export default function ajax(url=&#39;&#39;,params=&#123;&#125;,type=&#39;GET&#39;)&#123;
-  let promise;
-  type = type.toUpperCase()
-  return new Promise(((resolve, reject) =&gt; &#123;
-    //1.判断请求方式
-    if (type===&#39;GET&#39;)&#123;
-      //1.1拼接字符串
-      let str = &#39;&#39;;
-      Object.keys(params).forEach((value,index) =&gt; &#123;
-        if (index+1===Object.keys(params).length)&#123;
-          str+=value+&#39;=&#39;+params[value];
-        &#125;else&#123;
-          str+=value+&#39;=&#39;+params[value]+&#39;&amp;&#39;;
-        &#125;
-      &#125;);
-      //1.2完整路径
-      url+=&#39;?&#39;+str;
-      //1.3发送get请求
-      promise = axios.get(url);
-    &#125;else if(type===&#39;POST&#39;)&#123;
-      //1.3发送post请求
-      promise = axios.post(url,params);
-    &#125;
-    //2.返回请求结果
-    promise.then((response)=&gt;&#123;
-      resolve(response.data);
-    &#125;).catch((error)=&gt;&#123;
-      reject(error);
-    &#125;);
-  &#125;))
-&#125;
-</code></pre>
-<h3 id="03-新建index-js文件"><a href="#03-新建index-js文件" class="headerlink" title="03-新建index.js文件"></a>03-新建index.js文件</h3><pre><code>import ajax from &#39;./ajax&#39;
-
-//发送请求
-export const getPhoneCode = (phone)=&gt;ajax(&#39;/api/getPhoneCode&#39;,&#123;phone&#125;);
-</code></pre>
-<h3 id="04-api调用"><a href="#04-api调用" class="headerlink" title="04-api调用"></a>04-api调用</h3><pre><code>import &#123; xxxxx &#125; from &#39;api/index.js (文件路径)&#39;</code></pre>
-
             
         </article>
     </div>
@@ -619,80 +474,13 @@ export const getPhoneCode = (phone)=&gt;ajax(&#39;/api/getPhoneCode&#39;,&#123;p
 
         <div class="nexmoe-post-meta nexmoe-rainbow">
             <a><i class="nexmoefont icon-calendar-fill"></i>2020年09月25日</a>
-            <a><i class="nexmoefont icon-areachart"></i>196 字</a>
+            <a><i class="nexmoefont icon-areachart"></i>197 字</a>
             <a><i class="nexmoefont icon-time-circle-fill"></i>大概 1 分钟</a>
         </div>
 
         <article>
             
-                <h2 id="方案一：-ref控制"><a href="#方案一：-ref控制" class="headerlink" title="方案一： ref控制"></a>方案一： ref控制</h2><h4 id="Parent-Component-Parent-tsx"><a href="#Parent-Component-Parent-tsx" class="headerlink" title="Parent Component ( Parent.tsx )"></a>Parent Component ( Parent.tsx )</h4><pre><code>import * as React from &#39;react&#39;;
-
-import &#123; ChildA &#125; from &#39;./ChildA&#39;;
-
-//多个子组件时可以先定义如下组件：
-class Childrens extends React.Component&lt;any, any&gt; &#123;
-  _childA: any;
-  _childB: any;
-  _childC: any;
-&#125;
-
-export class Parent extends Childrens &#123;
-
-  //调用子组件方式：
-  get_childA_sum = () =&gt; &#123;
-    this._childA.sum(1, 2)
-  &#125;
-
-  render() &#123;
-    const children = &#123;
-      on_childA_ref: ref =&gt; &#123;
-        this._childA = ref;
-      &#125;,
-      on_childB_ref: ref =&gt; &#123;
-        this._childB = ref;
-      &#125;,
-      on_childC_ref: ref =&gt; &#123;
-        this._childC = ref;
-      &#125;,
-    &#125;
-
-    return (
-      &lt;div&gt;
-        &lt;button onClick=&#123;() =&gt; this.get_childA_sum()&#125;&gt; SumA &lt;/button&gt;
-        &lt;ChildA _childA=&#123;children.on_childA_ref&#125; /&gt;
-      &lt;/div&gt;
-    )
-  &#125;
-&#125;
-
-
-</code></pre>
-<h4 id="Children-Component-ChildA-tsx"><a href="#Children-Component-ChildA-tsx" class="headerlink" title="Children Component  (ChildA.tsx)"></a>Children Component  (ChildA.tsx)</h4><pre><code>import * as React from &#39;react&#39;;
-
-interface ChildAProps &#123;
-  _childA:Function;
-&#125;
-
-export class ChildA extends React.Component&lt;ChildAProps, any&gt; &#123;
-
-  componentDidMount() &#123;
-        this.props._childA(this)
-    &#125;
-
-  sum = (a , b) =&gt; &#123;
-    alert(a+b)
-  &#125;
-
-  render()&#123;
-    return(
-      &lt;div&gt;
-        组件A
-      &lt;/div&gt;
-    )
-  &#125;
-
-&#125;</code></pre>
-
+                <h2 id="方案一：-ref控制"><a href="#方案一：-ref控制" class="headerlink" title="方案一： ref控制"></a>方案一： ref控制</h2>
             
         </article>
     </div>
@@ -709,101 +497,13 @@ export class ChildA extends React.Component&lt;ChildAProps, any&gt; &#123;
 
         <div class="nexmoe-post-meta nexmoe-rainbow">
             <a><i class="nexmoefont icon-calendar-fill"></i>2020年09月24日</a>
-            <a><i class="nexmoefont icon-areachart"></i>676 字</a>
+            <a><i class="nexmoefont icon-areachart"></i>677 字</a>
             <a><i class="nexmoefont icon-time-circle-fill"></i>大概 3 分钟</a>
         </div>
 
         <article>
             
-                <h2 id="js获取元素相对于父级元素的高度"><a href="#js获取元素相对于父级元素的高度" class="headerlink" title="js获取元素相对于父级元素的高度"></a>js获取元素相对于父级元素的高度</h2><h4 id="1-offsetLeft-、offsetTop"><a href="#1-offsetLeft-、offsetTop" class="headerlink" title="1. offsetLeft 、offsetTop"></a>1. offsetLeft 、offsetTop</h4><p>offsetLeft/offsetTop -  用于获取子元素相对于父元素的位移（左位移、上位移）</p>
-<h4 id="2-offsetWidth、offsetHeight"><a href="#2-offsetWidth、offsetHeight" class="headerlink" title="2. offsetWidth、offsetHeight"></a>2. offsetWidth、offsetHeight</h4><p>offsetWidth/offsetHeight - 用于获取元素的可见宽度和可见高度</p>
-<h4 id="3-clientX-、clientY"><a href="#3-clientX-、clientY" class="headerlink" title="3. clientX 、clientY"></a>3. clientX 、clientY</h4><p>用于获取鼠标坐标（相对于页面的坐标）</p>
-<p>var event = event || window.event;</p>
-<ul>
-<li>event.clientX</li>
-<li>event.clientY</li>
-</ul>
-<h4 id="4-offsetLeft与style-left的区别"><a href="#4-offsetLeft与style-left的区别" class="headerlink" title="4.offsetLeft与style.left的区别"></a>4.offsetLeft与style.left的区别</h4><ol>
-<li>    <ul>
-<li>style.left返回的是字符串      //30px</li>
-<li>offsetLeft返回的是数值        //30</li>
-</ul>
-</li>
-<li>    <ul>
-<li>style.left可读可写</li>
-<li>offsetLeft只读</li>
-</ul>
-</li>
-<li>     <ul>
-<li>style.left的值需事先定义，否则取到的值为空</li>
-<li>offsetLeft不需提前定义，直接获取</li>
-</ul>
-</li>
-</ol>
-<h4 id="5-兼容问题"><a href="#5-兼容问题" class="headerlink" title="5.兼容问题"></a>5.兼容问题</h4><pre><code>chrome：
-
-e.pageX——相对整个页面的坐标
-e.layerX——相对当前坐标系的border左上角开始的坐标
-e.offsetX——相对当前坐标系的border左上角开始的坐标
-e.clientX——相对可视区域的坐标
-e.x——相对可视区域的坐标
-
-ff：
-
-e.pageX——相对整个页面的坐标
-e.layerX——相对当前坐标系的border左上角开始的坐标
-e.offsetX——无
-e.clientX——相对可视区域的坐标
-e.x——无
-
-opera：
-
-e.pageX——相对整个页面的坐标
-e.layerX——无
-e.offsetX——相对当前坐标系的内容区域左上角开始的坐标
-e.clientX——相对可视区域的坐标
-e.x——相对可视区域的坐标
-
-safari：（这个和chrome是一样的）
-
-e.pageX——相对整个页面的坐标
-e.layerX——相对当前坐标系的border左上角开始的坐标
-e.offsetX——相对当前坐标系的border左上角开始的坐标
-e.clientX——相对可视区域的坐标
-e.x——相对可视区域的坐标
-
-IE9：
-
-e.pageX——相对整个页面的坐标
-e.layerX——相对当前坐标系的border左上角开始的坐标 + 滚动条滚过的距离（这个NB轰轰了····=。=）
-e.offsetX——相对当前坐标系的内容区域左上角开始的坐标
-e.clientX——相对可视区域的坐标
-e.x——相对当前坐标系的border左上角开始
-
-IE8：
-
-e.pageX——无
-e.layerX——无
-e.offsetX——相对当前坐标系的内容区域左上角开始的坐标
-e.clientX——相对可视区域的坐标
-e.x——相对当前坐标系的border左上角开始
-
-IE7：
-
-e.pageX——无
-e.layerX——无
-e.offsetX——相对当前坐标系的内容区域左上角开始的坐标
-e.clientX——相对可视区域的坐标
-e.x——相对当前坐标系的border左上角开始
-
-IE6：
-
-e.pageX——无
-e.layerX——无
-e.offsetX——相对当前坐标系的内容区域左上角开始的坐标
-e.clientX——相对可视区域的坐标
-e.x——相对当前坐标系的border左上角开始</code></pre>
-
+                <h2 id="js获取元素相对于父级元素的高度"><a href="#js获取元素相对于父级元素的高度" class="headerlink" title="js获取元素相对于父级元素的高度"></a>js获取元素相对于父级元素的高度</h2>
             
         </article>
     </div>
@@ -826,70 +526,7 @@ e.x——相对当前坐标系的border左上角开始</code></pre>
 
         <article>
             
-                <h2 id="富文本编辑器"><a href="#富文本编辑器" class="headerlink" title="富文本编辑器"></a>富文本编辑器</h2><p><a target="_blank" rel="noopener" href="https://www.yuque.com/braft-editor/be/gz44tn#wx1vkv">https://www.yuque.com/braft-editor/be/gz44tn#wx1vkv</a></p>
-<pre><code>import React, &#123; Component &#125; from &#39;react&#39;;
-// 引入编辑器组件
-
-import BraftEditor from &#39;braft-editor&#39;;
-// 引入编辑器样式
-import &#39;braft-editor/dist/index.css&#39;;
-
-import &#123; UploadFn &#125; from &#39;./UploadFn&#39;;
-
-export class RichText extends Component &#123;
-    constructor() &#123;
-        super();
-        this.state = &#123;
-            editorState: BraftEditor.createEditorState(null),
-        &#125;;
-        RichText.submitContent = this.submitContent.bind(this);
-    &#125;
-
-    async componentDidMount() &#123;
-        // 假设此处从服务端获取html格式的编辑器内容
-        let htmlContent = this.props.htmlContent || null;
-        // 使用BraftEditor.createEditorState将html字符串转换为编辑器需要的editorStat
-        this.setState(&#123;
-            editorState: BraftEditor.createEditorState(htmlContent),
-        &#125;);
-    &#125;
-
-    componentWillReceiveProps(nextProps) &#123;
-        if (nextProps.htmlContent !== this.state.htmlContent) &#123;
-            this.setState(&#123;
-                editorState: BraftEditor.createEditorState(nextProps.htmlContent),
-            &#125;);
-        &#125;
-    &#125;
-
-    submitContent = async () =&gt; &#123;
-        // 在编辑器获得焦点时按下ctrl+s会执行此方法
-        // 编辑器内容提交到服务端之前，可直接调用editorState.toHTML()来获取HTML格式的内容
-        const htmlContent = this.state.editorState.toHTML();
-        return htmlContent;
-    &#125;;
-
-    handleEditorChange = editorState =&gt; &#123;
-        this.setState(&#123; editorState &#125;);
-    &#125;;
-
-    render() &#123;
-        return (
-            &lt;BraftEditor
-                value=&#123;this.state.editorState&#125;
-                onChange=&#123;this.handleEditorChange&#125;
-                onSave=&#123;this.submitContent&#125;
-                onBlur=&#123;() =&gt; &#123;
-                    const htmlContent = this.state.editorState.toHTML();
-                &#125;&#125;
-                // excludeControls=&#123;[&#39;options&#39;]&#125;
-                media=&#123;&#123; uploadFn: UploadFn &#125;&#125;
-            /&gt;
-        );
-    &#125;
-&#125;
-</code></pre>
-
+                <h2 id="富文本编辑器"><a href="#富文本编辑器" class="headerlink" title="富文本编辑器"></a>富文本编辑器</h2>
             
         </article>
     </div>
@@ -943,7 +580,7 @@ export class RichText extends Component &#123;
   </div>
   <script src="https://cdn.jsdelivr.net/combine/npm/lazysizes@5.1.0/lazysizes.min.js,gh/highlightjs/cdn-release@9.15.8/build/highlight.min.js,npm/mdui@0.4.3/dist/js/mdui.min.js,gh/nexmoe/nexmoe.github.io@latest/js/app.js"></script>
 <script>hljs.initHighlightingOnLoad();</script>
-<!--<script src="js/app.js?v=1602557172829"></script>-->
+<!--<script src="js/app.js?v=1603106862858"></script>-->
 
 
 
