@@ -6,7 +6,7 @@
   <link href="https://juntengma.github.io/atom.xml" rel="self"/>
   
   <link href="https://juntengma.github.io/"/>
-  <updated>2020-10-26T10:17:14.984Z</updated>
+  <updated>2020-10-26T10:26:16.853Z</updated>
   <id>https://juntengma.github.io/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://juntengma.github.io/2020/10/26/Js%E8%A7%A3%E6%9E%90%E6%B5%81%E7%A8%8B/"/>
     <id>https://juntengma.github.io/2020/10/26/Js%E8%A7%A3%E6%9E%90%E6%B5%81%E7%A8%8B/</id>
     <published>2020-10-26T10:14:39.943Z</published>
-    <updated>2020-10-26T10:17:14.984Z</updated>
+    <updated>2020-10-26T10:26:16.853Z</updated>
     
     <content type="html"><![CDATA[<blockquote><p>浏览器解析js流程</p></blockquote><a id="more"></a><h4 id="JS解析"><a href="#JS解析" class="headerlink" title="JS解析"></a>JS解析</h4><p><a href="https://imgchr.com/i/BufjDe"><img src="https://s1.ax1x.com/2020/10/26/BufjDe.png" alt="BufjDe.png"></a></p><p>js解析是由浏览器的就是解析引擎完成的.js是单线程运行,也就是说同时只能做一件事,所有任务都需要排队,</p><p>为了解决某些任务比较耗时,需要一种机制来使其可以执行排在后面的任务,就出现了同步任务和异步任务</p><p>JS执行机制可以看做一个主线程加上一个任务队列.</p><p>同步任务就是主线程上面执行的任务 , 异步任务就是放在任务队列的任务</p><p>所有的同步任务都在主线程上面执行,形成一个执行栈</p><p>异步任务有了运行结果就会在任务队列中放置一个事件,脚本运行时依次运行执行栈,然后会从任务队列中提取事件,</p><p>运行任务队列中的任务,该过程是不断重复的,所以又叫做事件循环(Event loop)</p><ul><li>浏览器在解析过程中，如果遇到请求外部资源时，如图像,iconfont,JS等。浏览器将重复1-6过程下载该资源。</li><li>请求过程是异步的，并不会影响HTML文档进行加载，但是当文档加载过程中遇到JS文件，HTML文档会挂起渲染过程，不仅要等到文档中JS文件加载完毕还要等待解析执行完毕，才会继续HTML的渲染过程。</li><li>原因是因为JS有可能修改DOM结构，这就意味着JS执行完成前，后续所有资源的下载是没有必要的，这就是JS阻塞后续资源下载的根本原因。</li><li>CSS文件的加载不影响JS文件的加载，但是却影响JS文件的执行。JS代码执行前浏览器必须保证CSS文件已经下载并加载完毕。</li></ul>]]></content>
     
@@ -330,25 +330,6 @@
     
     
     <category term="Css" scheme="https://juntengma.github.io/tags/Css/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>love</title>
-    <link href="https://juntengma.github.io/2020/09/14/love/"/>
-    <id>https://juntengma.github.io/2020/09/14/love/</id>
-    <published>2020-09-14T06:30:42.000Z</published>
-    <updated>2020-09-22T12:11:32.905Z</updated>
-    
-    <content type="html"><![CDATA[<!DOCTYPE html><html lang="en"><head>  <meta charset="UTF-8">  <meta name="viewport" content="width=device-width, initial-scale=1.0">  <title>Document</title>  <style>    .typing {      width: 15em;      white-space: nowrap;      border-right: 2px solid transparent;      animation: typing 3.5s steps(15, end), blink-caret .75s step-end infinite;      overflow: hidden;    }<pre><code>/* 打印效果 */@keyframes typing &#123;  from &#123;    width: 0;  &#125;  to &#123;    width: 15em;  &#125;&#125;/* 光标闪啊闪 */@keyframes blink-caret &#123;  from,  to &#123;    box-shadow: 1px 0 0 0 transparent;  &#125;  50% &#123;    box-shadow: 1px 0 0 0;  &#125;&#125;</code></pre><p>  </style></p></head><body>  <p class="typing">简易中文打字效果</p></body></html>]]></content>
-    
-    
-    <summary type="html">&lt;center&gt;“html”&lt;/center&gt;</summary>
-    
-    
-    
-    
-    <category term="Love" scheme="https://juntengma.github.io/tags/Love/"/>
     
   </entry>
   
