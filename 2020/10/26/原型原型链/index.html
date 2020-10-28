@@ -26,7 +26,7 @@
 <meta name="twitter:card" content="summary">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/combine/gh/nexmoe/nexmoe.github.io@latest/css/style.css,npm/highlight.js@9.15.8/styles/atom-one-dark.css,gh/nexmoe/nexmoe.github.io@latest/lib/mdui_043tiny/css/mdui.css,gh/nexmoe/nexmoe.github.io@latest/lib/iconfont/iconfont.css" crossorigin>
   
-  <!--<link rel="stylesheet" href="../../../../css/style.css?v=1603868310179">-->
+  <!--<link rel="stylesheet" href="../../../../css/style.css?v=1603870214224">-->
 
   
 <meta name="generator" content="Hexo 5.2.0"><link rel="alternate" href="atom.xml" title="June's Blog" type="application/atom+xml">
@@ -314,25 +314,60 @@
   overflow: hidden;
   margin-right: -188px;
 }
+.nexmoe-toc-phone{
+  position: fixed;
+  top:27%;
+  padding: 15px;
+  right: -28%;
+  margin-right:0;
+  color: #ffff;
+  background-color:#282c34;
+  }
 </style>
 <script src="https://cdn.bootcdn.net/ajax/libs/jquery/1.10.0/jquery.js"></script>
 
 <script>
-
-  $('.nexmoe-toc').hover(function () {
-      $('.nexmoe-toc').html(``)
-      $('.nexmoe-toc').css({'margin-right':0})
-    }, function () {
-      $('.nexmoe-toc').html(`Toc`)
-      $('.nexmoe-toc').css({'margin-right':'-188px'})
+function IsPC(){
+  var userAgentInfo = navigator.userAgent;
+  var Agents = new Array("Android", "iPhone", "SymbianOS", "Windows Phone", "iPad", "iPod");
+  var flag = true;
+  for (var v = 0; v < Agents.length; v++) { if (userAgentInfo.indexOf(Agents[v])> 0) { flag = false; break; }
     }
-  );
+ return flag;
+}
+
+$(document).ready(function(){
+  if(IsPC()){
+    $('.nexmoe-toc').removeClass('nexmoe-toc-phone')
+  }else{
+    $('.nexmoe-toc').addClass('nexmoe-toc-phone')
+  }
+  $('.nexmoe-toc').hover(function () {
+  $('.nexmoe-toc').html(``)
+  
+  if(IsPC()){
+    $('.nexmoe-toc').css({'margin-right':0})
+  }else{
+    $('.toc-text').css({'color':'#fff'})
+    $('.nexmoe-toc').css({'right':'13%'})
+  }}, function () {
+    $('.nexmoe-toc').html(`Toc`)
+
+    if(IsPC()){
+      $('.nexmoe-toc').css({'margin-right':'-188px'})
+    }else{
+      $('.nexmoe-toc').css({'right':'-28%'})
+    }
+}
+);
+});
+  
 </script>
     </div>
   </div>
   <script src="https://cdn.jsdelivr.net/combine/npm/lazysizes@5.1.0/lazysizes.min.js,gh/highlightjs/cdn-release@9.15.8/build/highlight.min.js,npm/mdui@0.4.3/dist/js/mdui.min.js,gh/nexmoe/nexmoe.github.io@latest/js/app.js"></script>
 <script>hljs.initHighlightingOnLoad();</script>
-<!--<script src="../../../../js/app.js?v=1603868310180"></script>-->
+<!--<script src="../../../../js/app.js?v=1603870214226"></script>-->
 
 
 

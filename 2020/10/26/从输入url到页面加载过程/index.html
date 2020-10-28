@@ -30,7 +30,7 @@
 <meta name="twitter:image" content="https://s1.ax1x.com/2020/10/26/BuniZV.png">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/combine/gh/nexmoe/nexmoe.github.io@latest/css/style.css,npm/highlight.js@9.15.8/styles/atom-one-dark.css,gh/nexmoe/nexmoe.github.io@latest/lib/mdui_043tiny/css/mdui.css,gh/nexmoe/nexmoe.github.io@latest/lib/iconfont/iconfont.css" crossorigin>
   
-  <!--<link rel="stylesheet" href="../../../../css/style.css?v=1603868310182">-->
+  <!--<link rel="stylesheet" href="../../../../css/style.css?v=1603870214229">-->
 
   
 <meta name="generator" content="Hexo 5.2.0"><link rel="alternate" href="atom.xml" title="June's Blog" type="application/atom+xml">
@@ -386,25 +386,60 @@
   overflow: hidden;
   margin-right: -188px;
 }
+.nexmoe-toc-phone{
+  position: fixed;
+  top:27%;
+  padding: 15px;
+  right: -28%;
+  margin-right:0;
+  color: #ffff;
+  background-color:#282c34;
+  }
 </style>
 <script src="https://cdn.bootcdn.net/ajax/libs/jquery/1.10.0/jquery.js"></script>
 
 <script>
-
-  $('.nexmoe-toc').hover(function () {
-      $('.nexmoe-toc').html(`<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#DNS%E8%A7%A3%E6%9E%90"><span class="toc-text">DNS解析</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#DNS%E8%A7%A3%E6%9E%90%E8%BF%87%E7%A8%8B"><span class="toc-text">DNS解析过程</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#HTTPS%E5%8D%8F%E8%AE%AE"><span class="toc-text">HTTPS协议</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%A4%84%E7%90%86%E8%AF%B7%E6%B1%82%E5%B9%B6%E8%BF%94%E5%9B%9EHTTP%E6%8A%A5%E6%96%87"><span class="toc-text">服务器处理请求并返回HTTP报文</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B5%8F%E8%A7%88%E5%99%A8%E8%A7%A3%E6%9E%90%E6%B8%B2%E6%9F%93%E9%A1%B5%E9%9D%A2"><span class="toc-text">浏览器解析渲染页面</span></a></li></ol>`)
-      $('.nexmoe-toc').css({'margin-right':0})
-    }, function () {
-      $('.nexmoe-toc').html(`Toc`)
-      $('.nexmoe-toc').css({'margin-right':'-188px'})
+function IsPC(){
+  var userAgentInfo = navigator.userAgent;
+  var Agents = new Array("Android", "iPhone", "SymbianOS", "Windows Phone", "iPad", "iPod");
+  var flag = true;
+  for (var v = 0; v < Agents.length; v++) { if (userAgentInfo.indexOf(Agents[v])> 0) { flag = false; break; }
     }
-  );
+ return flag;
+}
+
+$(document).ready(function(){
+  if(IsPC()){
+    $('.nexmoe-toc').removeClass('nexmoe-toc-phone')
+  }else{
+    $('.nexmoe-toc').addClass('nexmoe-toc-phone')
+  }
+  $('.nexmoe-toc').hover(function () {
+  $('.nexmoe-toc').html(`<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#DNS%E8%A7%A3%E6%9E%90"><span class="toc-text">DNS解析</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#DNS%E8%A7%A3%E6%9E%90%E8%BF%87%E7%A8%8B"><span class="toc-text">DNS解析过程</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#HTTPS%E5%8D%8F%E8%AE%AE"><span class="toc-text">HTTPS协议</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%A4%84%E7%90%86%E8%AF%B7%E6%B1%82%E5%B9%B6%E8%BF%94%E5%9B%9EHTTP%E6%8A%A5%E6%96%87"><span class="toc-text">服务器处理请求并返回HTTP报文</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B5%8F%E8%A7%88%E5%99%A8%E8%A7%A3%E6%9E%90%E6%B8%B2%E6%9F%93%E9%A1%B5%E9%9D%A2"><span class="toc-text">浏览器解析渲染页面</span></a></li></ol>`)
+  
+  if(IsPC()){
+    $('.nexmoe-toc').css({'margin-right':0})
+  }else{
+    $('.toc-text').css({'color':'#fff'})
+    $('.nexmoe-toc').css({'right':'13%'})
+  }}, function () {
+    $('.nexmoe-toc').html(`Toc`)
+
+    if(IsPC()){
+      $('.nexmoe-toc').css({'margin-right':'-188px'})
+    }else{
+      $('.nexmoe-toc').css({'right':'-28%'})
+    }
+}
+);
+});
+  
 </script>
     </div>
   </div>
   <script src="https://cdn.jsdelivr.net/combine/npm/lazysizes@5.1.0/lazysizes.min.js,gh/highlightjs/cdn-release@9.15.8/build/highlight.min.js,npm/mdui@0.4.3/dist/js/mdui.min.js,gh/nexmoe/nexmoe.github.io@latest/js/app.js"></script>
 <script>hljs.initHighlightingOnLoad();</script>
-<!--<script src="../../../../js/app.js?v=1603868310183"></script>-->
+<!--<script src="../../../../js/app.js?v=1603870214231"></script>-->
 
 
 
