@@ -4,7 +4,7 @@
 
 <head>
   
-  <title>文章归档：2020 - June&#39;s Blog</title>
+  <title>June&#39;s Blog</title>
   <meta charset="UTF-8">
   <meta name="description" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
@@ -14,14 +14,14 @@
   <link rel="shortcut icon" href="/favicon.ico" type="image/png" />
   <meta property="og:type" content="website">
 <meta property="og:title" content="June&#39;s Blog">
-<meta property="og:url" content="https://juntengma.github.io/archives/2020/index.html">
+<meta property="og:url" content="https://juntengma.github.io/page/3/index.html">
 <meta property="og:site_name" content="June&#39;s Blog">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:author" content="June">
 <meta name="twitter:card" content="summary">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/combine/gh/nexmoe/nexmoe.github.io@latest/css/style.css,npm/highlight.js@9.15.8/styles/atom-one-dark.css,gh/nexmoe/nexmoe.github.io@latest/lib/mdui_043tiny/css/mdui.css,gh/nexmoe/nexmoe.github.io@latest/lib/iconfont/iconfont.css" crossorigin>
   
-  <!--<link rel="stylesheet" href="../../css/style.css?v=1603868310217">-->
+  <!--<link rel="stylesheet" href="../../css/style.css?v=1603868310245">-->
 
   
 <meta name="generator" content="Hexo 5.2.0"><link rel="alternate" href="atom.xml" title="June's Blog" type="application/atom+xml">
@@ -222,71 +222,189 @@
   </div>
   <div id="nexmoe-content">
     <div class="nexmoe-primary">
-        
-<section class="nexmoe-archives">
+        <section class="nexmoe-posts">
+    
+    <div class="nexmoe-post">
+        <a href="../../2020/09/04/React-antd-exportExcel/">
+            
+                <div class="nexmoe-post-cover mdui-ripple" style="padding-bottom: 66.66666666666666%;"> 
+                    <img data-src="https://cdn.jsdelivr.net/gh/nexmoe/nexmoe.github.io@latest/images/cover/5c3aec85a4343.jpg" data-sizes="auto" alt="React-antd-exportExcel" class="lazyload">
+                    <h1>React-antd-exportExcel</h1>
+                </div>
+            
+        </a>
 
-    <article>
-        
+        <div class="nexmoe-post-meta nexmoe-rainbow">
+            <a><i class="nexmoefont icon-calendar-fill"></i>2020年09月04日</a>
+            <a><i class="nexmoefont icon-areachart"></i>474 字</a>
+            <a><i class="nexmoefont icon-time-circle-fill"></i>大概 2 分钟</a>
+        </div>
 
-        
-    </article>
+        <article>
+            
+                <a id="more"></a>
+
+<pre><code class="js">import * as React from &quot;react&quot;
+
+import * as XLSX from &quot;xlsx&quot;
+
+import &#123; Button, Icon &#125; from &quot;antd&quot;
+
+export interface ExportExcelProps &#123;
+  notice: string;
+  fileName: string;
+  headers: string[] | Function; //表头
+  getExportData: Function;
+&#125;
+
+export class ExportExcel extends React.Component&lt;ExportExcelProps, any&gt; &#123;
+  handleExport = async () =&gt; &#123;
+    const &#123; headers, fileName &#125; = this.props
+    //这里是获取导出数据的函数
+    const exportData = await this.props.getExportData()
+
+    this.exportExcel(headers, exportData, fileName)
+  &#125;
+
+  exportExcel(headers, data, fileName) &#123;
+    const _headers = headers
+      .map((item, i) =&gt;
+        Object.assign(
+          &#123;&#125;,
+          &#123;
+            key: item.key,
+            title: item.title,
+            position: String.fromCharCode(65 + i) + 1,
+          &#125;
+        )
+      )
+      .reduce(
+        (prev, next) =&gt;
+          Object.assign(&#123;&#125;, prev, &#123;
+            [next.position]: &#123; key: next.key, v: next.title &#125;,
+          &#125;),
+        &#123;&#125;
+      )
+
+    const _data = data
+      .map((item, i) =&gt;
+        headers.map((key, j) =&gt;
+          Object.assign(
+            &#123;&#125;,
+            &#123;
+              content: item[key.key],
+              position: String.fromCharCode(65 + j) + (i + 2),
+            &#125;
+          )
+        )
+      )
+      // 对刚才的结果进行降维处理（二维数组变成一维数组）
+      .reduce((prev, next) =&gt; prev.concat(next))
+      // 转换成 worksheet 需要的结构
+      .reduce(
+        (prev, next) =&gt;
+          Object.assign(&#123;&#125;, prev, &#123; [next.position]: &#123; v: next.content &#125; &#125;),
+        &#123;&#125;
+      )
+
+    // 合并 headers 和 data
+    const output = Object.assign(&#123;&#125;, _headers, _data)
+    // 获取所有单元格的位置
+    const outputPos = Object.keys(output)
+    // 计算出范围 ,[&quot;A1&quot;,..., &quot;H2&quot;]
+    const ref = `$&#123;outputPos[0]&#125;:$&#123;outputPos[outputPos.length - 1]&#125;`
+
+    // 构建 workbook 对象
+    const wb = &#123;
+      SheetNames: [&quot;mySheet&quot;],
+      Sheets: &#123;
+        mySheet: Object.assign(
+          &#123;&#125;,
+          output, //列宽
+          &#123;
+            &quot;!ref&quot;: ref,
+            &quot;!cols&quot;: [
+              &#123; wpx: 150 &#125;,
+              &#123; wpx: 150 &#125;,
+              &#123; wpx: 150 &#125;,
+              &#123; wpx: 150 &#125;,
+              &#123; wpx: 150 &#125;,
+              &#123; wpx: 150 &#125;,
+              &#123; wpx: 150 &#125;,
+              &#123; wpx: 150 &#125;,
+            ],
+          &#125;
+        ),
+      &#125;,
+    &#125;
+    // 导出 Excel
+    XLSX.writeFile(wb, `$&#123;fileName&#125;.xlsx`)
+  &#125;
+  render() &#123;
+    const &#123; notice &#125; = this.props
+    return (
+      &lt;Button type=&quot;primary&quot; onClick=&#123;() =&gt; this.handleExport()&#125;&gt;
+        &#123;notice&#125;
+        &lt;Icon type=&quot;download&quot; /&gt;
+      &lt;/Button&gt;
+    )
+  &#125;
+&#125;</code></pre>
+<p>使用</p>
+<pre><code class="js">&lt;ExportExcel
+  notice=&quot;Excel导出&quot;
+  fileName=&quot;test&quot;
+  headers=&#123;initColumn&#125;
+  getExportData=&#123;exportData&#125;
+/&gt;</code></pre>
+<p>示例表头&amp;数据：</p>
+<pre><code class="js">header=[
+    &#123;
+        title: 姓名,
+        dataIndex: name,
+        key: name,
+    &#125;,
+    &#123;
+        title: 性别,
+        dataIndex: sex,
+        key: sex,
+    &#125;,
+    &#123;
+        title: 年龄,
+        dataIndex: age,
+        key: age,
+    &#125;,
+]
+
+exportData=[
+    &#123;
+    name:&#39;小明&#39;，
+    sex:&#39;男&#39;，
+    age:18
+    &#125;,
+    &#123;
+    name:&#39;小张&#39;，
+    sex:&#39;女&#39;，
+    age:20
+    &#125;
+]</code></pre>
+
+            
+        </article>
+    </div>
+    
 </section>
 
-<style>
 
-.nexmoe-archives{
-    margin-left: 20px !important;
-}
-.nexmoe-archives article > *:first-child {
-    margin-top: 0;
-}
-.nexmoe-archives article > *:last-child {
-    margin-bottom: 0;
-}
-.nexmoe-archives ul {
-    list-style: none;
-    padding-left: 0!important;
-}
-.nexmoe-archives li {
-    position: relative;
-    padding: 10px 0;
-}
-.nexmoe-archives li::before {
-    content: "";
-    width: 14px;
-    height: 14px;
-    background: #ff4e6a;
-    display: inline-block;
-    vertical-align: middle;
-    margin-top: -2px;
-    margin-right: 11px;
-    border-radius: 100%;
-    border: 3px solid #fff;
-    z-index: 100;
-    position: relative;
-}
-.nexmoe-archives li::after {
-    content: "";
-    height: 100%;
-    width: 2px;
-    background: rgba(255, 78, 106, 0.2);
-    position: absolute;
-    left: 6px;
-    top: 20px;
-
-}
-.nexmoe-archives li:last-child:after {
-    display: none;
-}
-.nexmoe-archives span {
-    margin-right: 15px;
-}
-</style>
+    <nav class="nexmoe-page-nav">
+      <a class="extend prev" rel="prev" href="../2/"><i class="nexmoefont icon-left"></i></a><a class="page-number" href="../../">1</a><a class="page-number" href="../2/">2</a><span class="page-number current">3</span>
+    </nav>
+  
     </div>
   </div>
   <script src="https://cdn.jsdelivr.net/combine/npm/lazysizes@5.1.0/lazysizes.min.js,gh/highlightjs/cdn-release@9.15.8/build/highlight.min.js,npm/mdui@0.4.3/dist/js/mdui.min.js,gh/nexmoe/nexmoe.github.io@latest/js/app.js"></script>
 <script>hljs.initHighlightingOnLoad();</script>
-<!--<script src="../../js/app.js?v=1603868310218"></script>-->
+<!--<script src="../../js/app.js?v=1603868310245"></script>-->
 
 
 

@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN">
+
+<head>
+  
+  <title>DOM事件 , 事件流 - June&#39;s Blog</title>
+  <meta charset="UTF-8">
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
+  
+  
+
+  <link rel="shortcut icon" href="/favicon.ico" type="image/png" />
+  <meta name="description" content="DOM事件, 事件流">
+<meta property="og:type" content="article">
+<meta property="og:title" content="DOM事件 , 事件流">
+<meta property="og:url" content="https://juntengma.github.io/2020/10/28/DOM%E4%BA%8B%E4%BB%B6%E6%B5%81/index.html">
+<meta property="og:site_name" content="June&#39;s Blog">
+<meta property="og:description" content="DOM事件, 事件流">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://s1.ax1x.com/2020/10/28/B1JoY4.md.jpg">
+<meta property="og:image" content="https://s1.ax1x.com/2020/10/28/B1tIz9.png">
+<meta property="og:image" content="https://s1.ax1x.com/2020/10/28/B1UStU.gif">
+<meta property="og:image" content="https://s1.ax1x.com/2020/10/28/B1UCp4.gif">
+<meta property="article:published_time" content="2020-10-28T01:52:53.368Z">
+<meta property="article:modified_time" content="2020-10-28T03:33:53.196Z">
+<meta property="article:author" content="June">
+<meta property="article:tag" content="DOM事件事件流">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://s1.ax1x.com/2020/10/28/B1JoY4.md.jpg">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/combine/gh/nexmoe/nexmoe.github.io@latest/css/style.css,npm/highlight.js@9.15.8/styles/atom-one-dark.css,gh/nexmoe/nexmoe.github.io@latest/lib/mdui_043tiny/css/mdui.css,gh/nexmoe/nexmoe.github.io@latest/lib/iconfont/iconfont.css" crossorigin>
+  
+  <!--<link rel="stylesheet" href="../../../../css/style.css?v=1603868310176">-->
+
+  
+<meta name="generator" content="Hexo 5.2.0"><link rel="alternate" href="atom.xml" title="June's Blog" type="application/atom+xml">
+</head>
+
+<body class="mdui-drawer-body-left">
+  
+  <div id="nexmoe-background">
+    <div class="nexmoe-bg" style="background-image: url(https://cdn.jsdelivr.net/gh/nexmoe/nexmoe.github.io@latest/images/cover/5c3aec85a4343.jpg)"></div>
+    <div class="mdui-appbar mdui-shadow-0">
+      <div class="mdui-toolbar">
+        <a mdui-drawer="{target: '#drawer', swipe: true}" title="menu" class="mdui-btn mdui-btn-icon mdui-ripple"><i class="mdui-icon nexmoefont icon-menu"></i></a>
+        <div class="mdui-toolbar-spacer"></div>
+        <!--<a href="javascript:;" class="mdui-btn mdui-btn-icon"><i class="mdui-icon material-icons">search</i></a>-->
+        <a href="../../../../index.html" title="June" class="mdui-btn mdui-btn-icon"><img src="https://cdn.jsdelivr.net/gh/JuntengMa/Images@1.0/blog/avatar.jpg" alt="June"></a>
+       </div>
+    </div>
+  </div>
+  <div id="nexmoe-header">
+      <div class="nexmoe-drawer mdui-drawer" id="drawer">
+    <div class="nexmoe-avatar mdui-ripple">
+        <a href="../../../../index.html" title="June">
+            <img src="https://cdn.jsdelivr.net/gh/JuntengMa/Images@1.0/blog/avatar.jpg" alt="June" alt="June">
+        </a>
+    </div>
+    <div class="nexmoe-count">
+        <div><span>文章</span>21</div>
+        <div><span>标签</span>12</div>
+        <div><span>分类</span>14</div>
+    </div>
+    <div class="nexmoe-list mdui-list" mdui-collapse="{accordion: true}">
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple" href="../../../../index.html" title="回到首页">
+            <i class="mdui-list-item-icon nexmoefont icon-home"></i>
+            <div class="mdui-list-item-content">
+                回到首页
+            </div>
+        </a>
+        
+    </div>
+    <aside id="nexmoe-sidebar">
+  
+  
+  <div class="nexmoe-widget-wrap">
+    <h3 class="nexmoe-widget-title">标签云</h3>
+    <div id="randomtagcloud" class="nexmoe-widget tagcloud nexmoe-rainbow">
+      <a href="../../../../tags/Ajax/" style="font-size: 10px;">Ajax</a> <a href="../../../../tags/Axios/" style="font-size: 10px;">Axios</a> <a href="../../../../tags/Css/" style="font-size: 10px;">Css</a> <a href="../../../../tags/DOM%E4%BA%8B%E4%BB%B6%E4%BA%8B%E4%BB%B6%E6%B5%81/" style="font-size: 10px;">DOM事件事件流</a> <a href="../../../../tags/Git/" style="font-size: 10px;">Git</a> <a href="../../../../tags/Honey/" style="font-size: 10px;">Honey</a> <a href="../../../../tags/JavaScript/" style="font-size: 15px;">JavaScript</a> <a href="../../../../tags/Npm/" style="font-size: 10px;">Npm</a> <a href="../../../../tags/React/" style="font-size: 20px;">React</a> <a href="../../../../tags/Webpack/" style="font-size: 10px;">Webpack</a> <a href="../../../../tags/%E5%90%8C%E6%BA%90%E7%AD%96%E7%95%A5/" style="font-size: 10px;">同源策略</a> <a href="../../../../tags/%E6%B5%8F%E8%A7%88%E5%99%A8/" style="font-size: 15px;">浏览器</a>
+    </div>
+    
+  </div>
+
+  
+  
+  <div class="nexmoe-widget-wrap">
+    <h3 class="nexmoe-widget-title">文章分类</h3>
+    <div class="nexmoe-widget">
+
+      <ul class="category-list">
+
+        
+
+
+        
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/Ajax/">Ajax</a>
+          <span class="category-list-count">1</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/Ajax/Axios/">Axios</a>
+          <span class="category-list-count">1</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/Css/">Css</a>
+          <span class="category-list-count">1</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/Git/">Git</a>
+          <span class="category-list-count">1</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/Honey/">Honey</a>
+          <span class="category-list-count">1</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/JavaScript/">JavaScript</a>
+          <span class="category-list-count">3</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/NPM/">NPM</a>
+          <span class="category-list-count">1</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/React/">React</a>
+          <span class="category-list-count">7</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/React/TypeScript/">TypeScript</a>
+          <span class="category-list-count">1</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/Webpack/">Webpack</a>
+          <span class="category-list-count">1</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/原型-原型链/">原型,原型链</a>
+          <span class="category-list-count">1</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/同源策略/">同源策略</a>
+          <span class="category-list-count">1</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/浏览器/">浏览器</a>
+          <span class="category-list-count">3</span>
+        </li>
+
+        
+      </ul>
+
+    </div>
+  </div>
+
+
+  
+  
+  <div class="nexmoe-widget-wrap">
+    <h3 class="nexmoe-widget-title">最新文章</h3>
+    <div class="nexmoe-widget">
+      <ul>
+        
+          <li>
+            <a href="">🌭 DOM事件 , 事件流</a>
+          </li>
+        
+          <li>
+            <a href="../../26/%E5%8E%9F%E5%9E%8B%E5%8E%9F%E5%9E%8B%E9%93%BE/">🌭 原型,原型链</a>
+          </li>
+        
+          <li>
+            <a href="../../26/Js%E8%A7%A3%E6%9E%90%E6%B5%81%E7%A8%8B/">🌭 浏览器解析js流程</a>
+          </li>
+        
+          <li>
+            <a href="../../26/%E4%BB%8E%E8%BE%93%E5%85%A5url%E5%88%B0%E9%A1%B5%E9%9D%A2%E5%8A%A0%E8%BD%BD%E8%BF%87%E7%A8%8B/">🌭 从输入URL到页面加载发生了什么</a>
+          </li>
+        
+          <li>
+            <a href="../../26/typeScript/">🌭 [object Object]</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+</div><!-- .nexmoe-drawer -->
+
+  </div>
+  <div id="nexmoe-content">
+    <div class="nexmoe-primary">
+        <div class="nexmoe-post">
+  
+      <div class="nexmoe-post-cover" style="padding-bottom: 62.5%;"> 
+          <img data-src="https://images.unsplash.com/photo-1598099114415-3076be5be744?ixlib=rb-1.2.1&q=85&fm=jpg&crop=entropy&cs=srgb&ixid=eyJhcHBfaWQiOjg5ODI0fQ" data-sizes="auto" alt="DOM事件 , 事件流" class="lazyload">
+          <h1>DOM事件 , 事件流</h1>
+      </div>
+  
+  
+  <div class="nexmoe-post-meta nexmoe-rainbow" style="margin:10px 0!important;">
+    <a><i class="nexmoefont icon-calendar-fill"></i>2020年10月28日</a>
+    <a><i class="nexmoefont icon-areachart"></i>1.1k 字</a>
+    <a><i class="nexmoefont icon-time-circle-fill"></i>大概 5 分钟</a>
+</div>
+
+  <div class="nexmoe-post-right">
+    
+      <div class="nexmoe-fixed">
+        <div class="nexmoe-valign" style="position:relative">
+            <div class="nexmoe-toc">
+              Toc
+                <!-- <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#DOM%E4%BA%8B%E4%BB%B6"><span class="toc-number">1.</span> <span class="toc-text">DOM事件</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#DOM%E4%BA%8B%E4%BB%B6%E7%BA%A7%E5%88%AB"><span class="toc-number">1.1.</span> <span class="toc-text">DOM事件级别</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#DOM%E4%BA%8B%E4%BB%B6%E6%B5%81"><span class="toc-number">2.</span> <span class="toc-text">DOM事件流</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BA%8B%E4%BB%B6%E5%86%92%E6%B3%A1"><span class="toc-number">2.1.</span> <span class="toc-text">事件冒泡</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BA%8B%E4%BB%B6%E6%8D%95%E8%8E%B7"><span class="toc-number">2.2.</span> <span class="toc-text">事件捕获</span></a></li></ol></li></ol> -->
+            </div>
+        </div>
+      </div>
+    
+  </div>
+
+  <article>
+    <blockquote>
+<p>DOM事件, 事件流</p>
+</blockquote>
+<a id="more"></a>
+
+<h3 id="DOM事件"><a href="#DOM事件" class="headerlink" title="DOM事件"></a>DOM事件</h3><blockquote>
+<p>事件是指JavaScript与HTML交互的基础.要实现用户与页面的交互,先要对目标元素绑定特定的事件,设置事件处理函数,用户触发事件,事件处理函数执行,产生交互效果</p>
+</blockquote>
+<h4 id="DOM事件级别"><a href="#DOM事件级别" class="headerlink" title="DOM事件级别"></a>DOM事件级别</h4><p>DOM 级别分为四个级别：DOM0 级、DOM1 级、DOM2 级、DOM3 级；<br><a target="_blank" rel="noopener" href="https://imgchr.com/i/B1JoY4"><img data-sizes="auto" data-src="https://s1.ax1x.com/2020/10/28/B1JoY4.md.jpg" alt="B1JoY4.md.jpg" class="lazyload"></a></p>
+<p>DOM事件分为三个级别:<br>DOM0 级事件</p>
+<pre><code>&lt;button id=&quot;btn&quot; type=&quot;button&quot;&gt;&lt;/button&gt;
+&lt;script&gt;
+    var btn = document.getElementById(&#39;btn&#39;)
+    btn.onclick = function() &#123;
+        console.log(&#39;Hello World&#39;)
+    &#125;
+    // btn.onclick = null // 解绑事件
+&lt;/script&gt;</code></pre>
+<blockquote>
+<p>   缺点：无法设置多个事件处理函数</p>
+</blockquote>
+<p>DOM2 级事件</p>
+<pre><code>&lt;button id=&quot;btn&quot; type=&quot;button&quot;&gt;&lt;/button&gt;
+&lt;script&gt;
+    var btn = document.getElementById(&#39;btn&#39;);    
+    btn.addEventListener(&#39;click&#39;, showFn, false)
+    btn.addEventListener(&#39;click&#39;, showFn2, false)
+    // btn.removeEventListener(&#39;click&#39;, showFn, false) // 解绑事件 
+    function showFn() &#123;
+        alert(&#39;Hello World&#39;);
+    &#125;
+     function showFn2() &#123;
+        alert(&#39;Hello World2&#39;);
+    &#125; 
+&lt;/script&gt;</code></pre>
+<blockquote>
+<p>可以为事件设置多个事件处理函数，可以通过第三个参数 ( useCapture ) 设置在什么阶段执行事件处理函数，默认是 false， 即在事件冒泡阶段执行事件处理函数。</p>
+</blockquote>
+<blockquote>
+<p>需要注意的是在 IE8 及以下版本需要用 attachEvent 和 detachEvent 实现，只有两个参数，事件名需要以 on 开头，只支持在事件冒泡阶段执行事件处理函数。</p>
+</blockquote>
+<p>DOM3 级事件</p>
+<blockquote>
+<p>DOM3 级事件是在 DOM2 级事件的基础上添加了更多的事件类型，允许自定义事件。</p>
+</blockquote>
+<p>UI事件，当用户与页面上的元素交互时触发，如：load、scroll<br>焦点事件，当元素获得或失去焦点时触发，如：blur、focus<br>鼠标事件，当用户通过鼠标在页面执行操作时触发如：dbclick、mouseup<br>滚轮事件，当使用鼠标滚轮或类似设备时触发，如：mousewheel<br>文本事件，当在文档中输入文本时触发，如：textInput<br>键盘事件，当用户通过键盘在页面上执行操作时触发，如：keydown、keypress<br>合成事件，当为IME（输入法编辑器）输入字符时触发，如：compositionstart<br>变动事件，当底层DOM结构发生变化时触发，如：DOMsubtreeModified</p>
+<pre><code>// 自定义事件
+var event = new Event(&#39;test&#39;)
+// 给元素绑定事件
+domElement.addEventListener(&#39;test&#39;, function() &#123;
+    console.log(&#39;event test&#39;)
+&#125;,)
+
+// 触发事件
+setTimeout(function() &#123;
+    domElement.dispatchEvent(event)
+&#125;, 1000)
+</code></pre>
+<h3 id="DOM事件流"><a href="#DOM事件流" class="headerlink" title="DOM事件流"></a>DOM事件流</h3><blockquote>
+<p>事件流又称为事件传播，描述的是从<strong>页面中接收事件的顺序</strong>。</p>
+<p>DOM2 级事件规定事件流包括三个阶段: </p>
+<ul>
+<li>事件捕获(capturing phase)</li>
+<li>目标事件(target phase)</li>
+<li>事件冒泡(bubbling phase)</li>
+</ul>
+<p>发生的顺序是：事件捕获阶段 –&gt; 目标事件阶段 –&gt; 事件冒泡阶段</p>
+</blockquote>
+<p><a target="_blank" rel="noopener" href="https://imgchr.com/i/B1tIz9"><img data-sizes="auto" data-src="https://s1.ax1x.com/2020/10/28/B1tIz9.png" alt="B1tIz9.png" class="lazyload"></a></p>
+<h4 id="事件冒泡"><a href="#事件冒泡" class="headerlink" title="事件冒泡"></a>事件冒泡</h4><blockquote>
+<p>​    事件起始元素逐级向上传播</p>
+</blockquote>
+<pre><code>&lt;style&gt;
+  #parent &#123;
+      width: 200px;
+      height: 200px;
+      background-color: green;
+  &#125;
+  #child &#123;
+      width: 100px;
+      height: 100px;
+      background-color: yellow;
+  &#125;
+&lt;/style&gt;
+
+&lt;div id=&quot;parent&quot;&gt;
+  &lt;div id=&quot;child&quot;&gt;目标元素&lt;/div&gt;
+  父级元素
+&lt;/div&gt;
+
+&lt;script&gt;
+  var parent = document.getElementById(&#39;parent&#39;)
+  var child = document.getElementById(&#39;child&#39;)
+
+  parent.addEventListener(&#39;click&#39;, function(e) &#123;
+      console.log(&#39;parent bubbling&#39;)
+  &#125;, false)
+
+  child.addEventListener(&#39;click&#39;, function() &#123;
+      console.log(&#39;target bubbling&#39;)
+  &#125;, false)
+
+  document.body.addEventListener(&#39;click&#39;, function() &#123;
+      console.log(&#39;body bubbling&#39;)
+  &#125;, false)
+
+  document.documentElement.addEventListener(&#39;click&#39;, function() &#123;
+      console.log(&#39;html bubbling&#39;)
+  &#125;, false)
+
+  document.addEventListener(&#39;click&#39;, function() &#123;
+      console.log(&#39;document bubbling&#39;)
+  &#125;, false)
+
+  window.addEventListener(&#39;click&#39;, function() &#123;
+      console.log(&#39;window bubbling&#39;)
+  &#125;, false)
+&lt;/script&gt;</code></pre>
+<p>运行结果：</p>
+<p><img data-sizes="auto" data-src="https://s1.ax1x.com/2020/10/28/B1UStU.gif" alt="B1UStU.gif" class="lazyload"></p>
+<h4 id="事件捕获"><a href="#事件捕获" class="headerlink" title="事件捕获"></a>事件捕获</h4><blockquote>
+<p>​    事件按 window -&gt; document -&gt; html -&gt; body -&gt; … -&gt; 目标元素 的方向向下层元素传递。</p>
+</blockquote>
+<pre><code>&lt;style&gt;
+  #parent &#123;
+      width: 200px;
+      height: 200px;
+      background-color: green;
+  &#125;
+  #child &#123;
+      width: 100px;
+      height: 100px;
+      background-color: yellow;
+  &#125;
+&lt;/style&gt;
+
+&lt;div id=&quot;parent&quot;&gt;
+  &lt;div id=&quot;child&quot;&gt;目标元素&lt;/div&gt;
+  父级元素
+&lt;/div&gt;
+
+&lt;script&gt;
+  var parent = document.getElementById(&#39;parent&#39;)
+  var child = document.getElementById(&#39;child&#39;)
+
+  parent.addEventListener(&#39;click&#39;, function(e) &#123;
+      console.log(&#39;parent capture&#39;)
+  &#125;, true)
+
+  child.addEventListener(&#39;click&#39;, function() &#123;
+      console.log(&#39;target capture&#39;)
+  &#125;, true)
+
+  document.body.addEventListener(&#39;click&#39;, function() &#123;
+      console.log(&#39;body capture&#39;)
+  &#125;, true)
+
+  document.documentElement.addEventListener(&#39;click&#39;, function() &#123;
+      console.log(&#39;html capture&#39;)
+  &#125;, true)
+
+  document.addEventListener(&#39;click&#39;, function() &#123;
+      console.log(&#39;document capture&#39;)
+  &#125;, true)
+
+  window.addEventListener(&#39;click&#39;, function() &#123;
+      console.log(&#39;window capture&#39;)
+  &#125;, true)
+&lt;/script&gt;</code></pre>
+<p>运行结果:</p>
+<p><img data-sizes="auto" data-src="https://s1.ax1x.com/2020/10/28/B1UCp4.gif" alt="B1UCp4.gif" class="lazyload"></p>
+
+  </article>
+
+  <div class="nexmoe-post-meta nexmoe-rainbow">
+    
+        <a class="nexmoefont icon-appstore-fill -link" href="../../../../categories/JavaScript/">JavaScript</a>
+    
+    
+        <a class="nexmoefont icon-tag-fill -none-link" href="../../../../tags/DOM%E4%BA%8B%E4%BB%B6%E4%BA%8B%E4%BB%B6%E6%B5%81/" rel="tag">DOM事件事件流</a>
+    
+</div>
+
+  <div class="nexmoe-post-footer">
+    
+      
+  <div class="nexmoe-post-copyright">
+    <strong>本文作者：</strong>June<br>
+    <strong>本文链接：</strong><a href="../../../../https:/juntengma.github.io/2020/10/28/DOM%E4%BA%8B%E4%BB%B6%E6%B5%81/" title="https:&#x2F;&#x2F;juntengma.github.io&#x2F;2020&#x2F;10&#x2F;28&#x2F;DOM%E4%BA%8B%E4%BB%B6%E6%B5%81&#x2F;" target="_blank" rel="noopener">https:&#x2F;&#x2F;juntengma.github.io&#x2F;2020&#x2F;10&#x2F;28&#x2F;DOM%E4%BA%8B%E4%BB%B6%E6%B5%81&#x2F;</a><br>
+    
+      <strong>版权声明：</strong>本文采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/cn/deed.zh" target="_blank">CC BY-NC-SA 3.0 CN</a> 协议进行许可
+    
+  </div>
+
+
+    
+    <section class="nexmoe-comment">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1.5.0/dist/gitalk.min.css">
+<div id="gitalk"></div>
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1.5.0/dist/gitalk.min.js"></script>
+<script type="text/javascript">
+    var gitalk = new Gitalk({
+        clientID: '',
+        clientSecret: '',
+        id: window.location.pathname,
+        repo: '',
+        owner: '',
+        admin: ''
+    })
+    gitalk.render('gitalk')
+</script>
+</section>
+  </div>
+</div>
+<style>
+.nexmoe-toc{
+  box-shadow: 0 0 1rem rgba(161,177,204,.4);
+  background-color: #fff;
+  border-radius: 15px;
+  white-space: normal;
+  padding: 15px;
+  position: absolute;
+  right: -120px;
+  top:10%;
+  overflow: hidden;
+  margin-right: -188px;
+}
+</style>
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery/1.10.0/jquery.js"></script>
+
+<script>
+
+  $('.nexmoe-toc').hover(function () {
+      $('.nexmoe-toc').html(`<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#DOM%E4%BA%8B%E4%BB%B6"><span class="toc-text">DOM事件</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#DOM%E4%BA%8B%E4%BB%B6%E7%BA%A7%E5%88%AB"><span class="toc-text">DOM事件级别</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#DOM%E4%BA%8B%E4%BB%B6%E6%B5%81"><span class="toc-text">DOM事件流</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BA%8B%E4%BB%B6%E5%86%92%E6%B3%A1"><span class="toc-text">事件冒泡</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BA%8B%E4%BB%B6%E6%8D%95%E8%8E%B7"><span class="toc-text">事件捕获</span></a></li></ol></li></ol>`)
+      $('.nexmoe-toc').css({'margin-right':0})
+    }, function () {
+      $('.nexmoe-toc').html(`Toc`)
+      $('.nexmoe-toc').css({'margin-right':'-188px'})
+    }
+  );
+</script>
+    </div>
+  </div>
+  <script src="https://cdn.jsdelivr.net/combine/npm/lazysizes@5.1.0/lazysizes.min.js,gh/highlightjs/cdn-release@9.15.8/build/highlight.min.js,npm/mdui@0.4.3/dist/js/mdui.min.js,gh/nexmoe/nexmoe.github.io@latest/js/app.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+<!--<script src="../../../../js/app.js?v=1603868310178"></script>-->
+
+
+
+
+  
+
+
+
+
+
+</body>
+
+</html>

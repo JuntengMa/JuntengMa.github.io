@@ -6,7 +6,7 @@
   <link href="https://juntengma.github.io/atom.xml" rel="self"/>
   
   <link href="https://juntengma.github.io/"/>
-  <updated>2020-10-26T10:26:16.853Z</updated>
+  <updated>2020-10-28T03:33:53.196Z</updated>
   <id>https://juntengma.github.io/</id>
   
   <author>
@@ -15,6 +15,52 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>DOM事件 , 事件流</title>
+    <link href="https://juntengma.github.io/2020/10/28/DOM%E4%BA%8B%E4%BB%B6%E6%B5%81/"/>
+    <id>https://juntengma.github.io/2020/10/28/DOM%E4%BA%8B%E4%BB%B6%E6%B5%81/</id>
+    <published>2020-10-28T01:52:53.368Z</published>
+    <updated>2020-10-28T03:33:53.196Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote><p>DOM事件, 事件流</p></blockquote><a id="more"></a><h3 id="DOM事件"><a href="#DOM事件" class="headerlink" title="DOM事件"></a>DOM事件</h3><blockquote><p>事件是指JavaScript与HTML交互的基础.要实现用户与页面的交互,先要对目标元素绑定特定的事件,设置事件处理函数,用户触发事件,事件处理函数执行,产生交互效果</p></blockquote><h4 id="DOM事件级别"><a href="#DOM事件级别" class="headerlink" title="DOM事件级别"></a>DOM事件级别</h4><p>DOM 级别分为四个级别：DOM0 级、DOM1 级、DOM2 级、DOM3 级；<br><a href="https://imgchr.com/i/B1JoY4"><img src="https://s1.ax1x.com/2020/10/28/B1JoY4.md.jpg" alt="B1JoY4.md.jpg"></a></p><p>DOM事件分为三个级别:<br>DOM0 级事件</p><pre><code>&lt;button id=&quot;btn&quot; type=&quot;button&quot;&gt;&lt;/button&gt;&lt;script&gt;    var btn = document.getElementById(&#39;btn&#39;)    btn.onclick = function() &#123;        console.log(&#39;Hello World&#39;)    &#125;    // btn.onclick = null // 解绑事件&lt;/script&gt;</code></pre><blockquote><p>   缺点：无法设置多个事件处理函数</p></blockquote><p>DOM2 级事件</p><pre><code>&lt;button id=&quot;btn&quot; type=&quot;button&quot;&gt;&lt;/button&gt;&lt;script&gt;    var btn = document.getElementById(&#39;btn&#39;);        btn.addEventListener(&#39;click&#39;, showFn, false)    btn.addEventListener(&#39;click&#39;, showFn2, false)    // btn.removeEventListener(&#39;click&#39;, showFn, false) // 解绑事件     function showFn() &#123;        alert(&#39;Hello World&#39;);    &#125;     function showFn2() &#123;        alert(&#39;Hello World2&#39;);    &#125; &lt;/script&gt;</code></pre><blockquote><p>可以为事件设置多个事件处理函数，可以通过第三个参数 ( useCapture ) 设置在什么阶段执行事件处理函数，默认是 false， 即在事件冒泡阶段执行事件处理函数。</p></blockquote><blockquote><p>需要注意的是在 IE8 及以下版本需要用 attachEvent 和 detachEvent 实现，只有两个参数，事件名需要以 on 开头，只支持在事件冒泡阶段执行事件处理函数。</p></blockquote><p>DOM3 级事件</p><blockquote><p>DOM3 级事件是在 DOM2 级事件的基础上添加了更多的事件类型，允许自定义事件。</p></blockquote><p>UI事件，当用户与页面上的元素交互时触发，如：load、scroll<br>焦点事件，当元素获得或失去焦点时触发，如：blur、focus<br>鼠标事件，当用户通过鼠标在页面执行操作时触发如：dbclick、mouseup<br>滚轮事件，当使用鼠标滚轮或类似设备时触发，如：mousewheel<br>文本事件，当在文档中输入文本时触发，如：textInput<br>键盘事件，当用户通过键盘在页面上执行操作时触发，如：keydown、keypress<br>合成事件，当为IME（输入法编辑器）输入字符时触发，如：compositionstart<br>变动事件，当底层DOM结构发生变化时触发，如：DOMsubtreeModified</p><pre><code>// 自定义事件var event = new Event(&#39;test&#39;)// 给元素绑定事件domElement.addEventListener(&#39;test&#39;, function() &#123;    console.log(&#39;event test&#39;)&#125;,)// 触发事件setTimeout(function() &#123;    domElement.dispatchEvent(event)&#125;, 1000)</code></pre><h3 id="DOM事件流"><a href="#DOM事件流" class="headerlink" title="DOM事件流"></a>DOM事件流</h3><blockquote><p>事件流又称为事件传播，描述的是从<strong>页面中接收事件的顺序</strong>。</p><p>DOM2 级事件规定事件流包括三个阶段: </p><ul><li>事件捕获(capturing phase)</li><li>目标事件(target phase)</li><li>事件冒泡(bubbling phase)</li></ul><p>发生的顺序是：事件捕获阶段 –&gt; 目标事件阶段 –&gt; 事件冒泡阶段</p></blockquote><p><a href="https://imgchr.com/i/B1tIz9"><img src="https://s1.ax1x.com/2020/10/28/B1tIz9.png" alt="B1tIz9.png"></a></p><h4 id="事件冒泡"><a href="#事件冒泡" class="headerlink" title="事件冒泡"></a>事件冒泡</h4><blockquote><p>​    事件起始元素逐级向上传播</p></blockquote><pre><code>&lt;style&gt;  #parent &#123;      width: 200px;      height: 200px;      background-color: green;  &#125;  #child &#123;      width: 100px;      height: 100px;      background-color: yellow;  &#125;&lt;/style&gt;&lt;div id=&quot;parent&quot;&gt;  &lt;div id=&quot;child&quot;&gt;目标元素&lt;/div&gt;  父级元素&lt;/div&gt;&lt;script&gt;  var parent = document.getElementById(&#39;parent&#39;)  var child = document.getElementById(&#39;child&#39;)  parent.addEventListener(&#39;click&#39;, function(e) &#123;      console.log(&#39;parent bubbling&#39;)  &#125;, false)  child.addEventListener(&#39;click&#39;, function() &#123;      console.log(&#39;target bubbling&#39;)  &#125;, false)  document.body.addEventListener(&#39;click&#39;, function() &#123;      console.log(&#39;body bubbling&#39;)  &#125;, false)  document.documentElement.addEventListener(&#39;click&#39;, function() &#123;      console.log(&#39;html bubbling&#39;)  &#125;, false)  document.addEventListener(&#39;click&#39;, function() &#123;      console.log(&#39;document bubbling&#39;)  &#125;, false)  window.addEventListener(&#39;click&#39;, function() &#123;      console.log(&#39;window bubbling&#39;)  &#125;, false)&lt;/script&gt;</code></pre><p>运行结果：</p><p><img src="https://s1.ax1x.com/2020/10/28/B1UStU.gif" alt="B1UStU.gif"></p><h4 id="事件捕获"><a href="#事件捕获" class="headerlink" title="事件捕获"></a>事件捕获</h4><blockquote><p>​    事件按 window -&gt; document -&gt; html -&gt; body -&gt; … -&gt; 目标元素 的方向向下层元素传递。</p></blockquote><pre><code>&lt;style&gt;  #parent &#123;      width: 200px;      height: 200px;      background-color: green;  &#125;  #child &#123;      width: 100px;      height: 100px;      background-color: yellow;  &#125;&lt;/style&gt;&lt;div id=&quot;parent&quot;&gt;  &lt;div id=&quot;child&quot;&gt;目标元素&lt;/div&gt;  父级元素&lt;/div&gt;&lt;script&gt;  var parent = document.getElementById(&#39;parent&#39;)  var child = document.getElementById(&#39;child&#39;)  parent.addEventListener(&#39;click&#39;, function(e) &#123;      console.log(&#39;parent capture&#39;)  &#125;, true)  child.addEventListener(&#39;click&#39;, function() &#123;      console.log(&#39;target capture&#39;)  &#125;, true)  document.body.addEventListener(&#39;click&#39;, function() &#123;      console.log(&#39;body capture&#39;)  &#125;, true)  document.documentElement.addEventListener(&#39;click&#39;, function() &#123;      console.log(&#39;html capture&#39;)  &#125;, true)  document.addEventListener(&#39;click&#39;, function() &#123;      console.log(&#39;document capture&#39;)  &#125;, true)  window.addEventListener(&#39;click&#39;, function() &#123;      console.log(&#39;window capture&#39;)  &#125;, true)&lt;/script&gt;</code></pre><p>运行结果:</p><p><img src="https://s1.ax1x.com/2020/10/28/B1UCp4.gif" alt="B1UCp4.gif"></p>]]></content>
+    
+    
+    <summary type="html">&lt;blockquote&gt;
+&lt;p&gt;DOM事件, 事件流&lt;/p&gt;
+&lt;/blockquote&gt;</summary>
+    
+    
+    
+    <category term="JavaScript" scheme="https://juntengma.github.io/categories/JavaScript/"/>
+    
+    
+    <category term="DOM事件事件流" scheme="https://juntengma.github.io/tags/DOM%E4%BA%8B%E4%BB%B6%E4%BA%8B%E4%BB%B6%E6%B5%81/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>原型,原型链</title>
+    <link href="https://juntengma.github.io/2020/10/26/%E5%8E%9F%E5%9E%8B%E5%8E%9F%E5%9E%8B%E9%93%BE/"/>
+    <id>https://juntengma.github.io/2020/10/26/%E5%8E%9F%E5%9E%8B%E5%8E%9F%E5%9E%8B%E9%93%BE/</id>
+    <published>2020-10-26T14:36:07.474Z</published>
+    <updated>2020-10-26T14:55:02.521Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote><p>​    原型原型链</p></blockquote><a id="more"></a>]]></content>
+    
+    
+    <summary type="html">&lt;blockquote&gt;
+&lt;p&gt;​    原型原型链&lt;/p&gt;
+&lt;/blockquote&gt;</summary>
+    
+    
+    
+    <category term="原型,原型链" scheme="https://juntengma.github.io/categories/%E5%8E%9F%E5%9E%8B-%E5%8E%9F%E5%9E%8B%E9%93%BE/"/>
+    
+    
+    <category term="JavaScript" scheme="https://juntengma.github.io/tags/JavaScript/"/>
+    
+  </entry>
   
   <entry>
     <title>浏览器解析js流程</title>
@@ -105,8 +151,8 @@
   
   <entry>
     <title>浏览器同源策略</title>
-    <link href="https://juntengma.github.io/2020/09/29/%E5%90%8C%E6%BA%90%E7%AD%96%E7%95%A5/"/>
-    <id>https://juntengma.github.io/2020/09/29/%E5%90%8C%E6%BA%90%E7%AD%96%E7%95%A5/</id>
+    <link href="https://juntengma.github.io/2020/09/29/%E6%B5%8F%E8%A7%88%E5%99%A8%E5%90%8C%E6%BA%90%E7%AD%96%E7%95%A5/"/>
+    <id>https://juntengma.github.io/2020/09/29/%E6%B5%8F%E8%A7%88%E5%99%A8%E5%90%8C%E6%BA%90%E7%AD%96%E7%95%A5/</id>
     <published>2020-09-29T07:10:38.805Z</published>
     <updated>2020-10-14T02:49:37.068Z</updated>
     
@@ -414,32 +460,6 @@
     
     
     <category term="Npm" scheme="https://juntengma.github.io/tags/Npm/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Honey</title>
-    <link href="https://juntengma.github.io/2020/09/01/honey/"/>
-    <id>https://juntengma.github.io/2020/09/01/honey/</id>
-    <published>2020-09-01T06:40:51.000Z</published>
-    <updated>2020-10-26T10:10:21.370Z</updated>
-    
-    <content type="html"><![CDATA[<center>"光洙宝贝😏😏😏"</center><center>"想你了哟~"</center>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;center&gt;&quot;光洙宝贝😏😏😏&quot;&lt;/center&gt;
-&lt;center&gt;&quot;想你了哟~&quot;&lt;/center&gt;
-</summary>
-      
-    
-    
-    
-    <category term="Honey" scheme="https://juntengma.github.io/categories/Honey/"/>
-    
-    
-    <category term="Honey" scheme="https://juntengma.github.io/tags/Honey/"/>
     
   </entry>
   
