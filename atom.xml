@@ -6,7 +6,7 @@
   <link href="https://juntengma.github.io/atom.xml" rel="self"/>
   
   <link href="https://juntengma.github.io/"/>
-  <updated>2020-10-29T04:34:16.600Z</updated>
+  <updated>2020-10-29T07:40:03.647Z</updated>
   <id>https://juntengma.github.io/</id>
   
   <author>
@@ -17,11 +17,11 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title></title>
+    <title>防抖节流及其应用场景</title>
     <link href="https://juntengma.github.io/2020/10/29/JavaScript%E9%98%B2%E6%8A%96%E8%8A%82%E6%B5%81/"/>
     <id>https://juntengma.github.io/2020/10/29/JavaScript%E9%98%B2%E6%8A%96%E8%8A%82%E6%B5%81/</id>
     <published>2020-10-29T02:30:59.717Z</published>
-    <updated>2020-10-29T04:34:16.600Z</updated>
+    <updated>2020-10-29T07:40:03.647Z</updated>
     
     <content type="html"><![CDATA[<blockquote><p>​    复习一下防抖节流及其应用场景</p></blockquote><a id="more"></a><h3 id="函数防抖"><a href="#函数防抖" class="headerlink" title="函数防抖"></a>函数防抖</h3><p>在事件被触发的n秒后再执行回调,如果在这n秒内又被触发,则重新计时</p><pre><code>function debounse(fun, delay) &#123;    let timer;    // 设置一个 timer    return function (args) &#123;      let _this = this      // 取debounce执行作用域的this      let _args = args      clearTimeout(timer)      timer = setTimeout(function () &#123;        fun.call(_this, args);      &#125;, delay);    &#125;  &#125;</code></pre><h3 id="函数节流"><a href="#函数节流" class="headerlink" title="函数节流"></a>函数节流</h3><p>规定在一个单位时间内，只能触发一次函数。如果这个单位时间内触发多次函数，只有一次生效。</p><pre><code>function throttle(fun, delay) &#123;    let last, deferTimer    return function (args) &#123;      let _this = this      let _args = arguments      let now = +new Date()      if (last &amp;&amp; now &lt; last + delay) &#123;        clearTimeout(deferTimer)        deferTimer = setTimeout(function () &#123;          last = now          fun.apply(_this, _args)        &#125;, delay)      &#125; else &#123;        last = now        fun.apply(_this, _args)      &#125;    &#125;  &#125;</code></pre><h3 id="demo"><a href="#demo" class="headerlink" title="demo:"></a>demo:</h3><h5 id="模拟ajax请求"><a href="#模拟ajax请求" class="headerlink" title="模拟ajax请求"></a>模拟ajax请求</h5><pre><code>function ajax(params) &#123;    console.log(&#39;ajax request : &#39; + params)&#125;</code></pre><h5 id="未加入节流"><a href="#未加入节流" class="headerlink" title="未加入节流:"></a>未加入节流:</h5><p><img src="https://user-gold-cdn.xitu.io/2018/9/4/165a252be5c94d6b?imageslim"></p><h5 id="加入防抖"><a href="#加入防抖" class="headerlink" title="加入防抖:"></a>加入防抖:</h5><p><img src="https://user-gold-cdn.xitu.io/2018/9/4/165a252b4b429b56?imageslim"></p><h5 id="加入节流"><a href="#加入节流" class="headerlink" title="加入节流:"></a>加入节流:</h5><p><img src="https://user-gold-cdn.xitu.io/2018/9/4/165a252b4c1a9686?imageslim"></p><h3 id="demo代码"><a href="#demo代码" class="headerlink" title="demo代码"></a>demo代码</h3><pre><code>&lt;!DOCTYPE html&gt;&lt;html lang=&quot;en&quot;&gt;&lt;head&gt;  &lt;meta charset=&quot;UTF-8&quot;&gt;  &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;  &lt;title&gt;Document&lt;/title&gt;&lt;/head&gt;&lt;body&gt;  没有防抖的Input &lt;input type=&quot;text&quot; class=&quot;unDebounce&quot;&gt;  &lt;br&gt;  加入防抖的Input &lt;input type=&quot;text&quot; class=&quot;debounce&quot;&gt;  &lt;br&gt;  加入截留的Input &lt;input type=&quot;text&quot; class=&quot;htrottle&quot;&gt;&lt;/body&gt;&lt;script&gt;  function ajax(params) &#123;    console.log(&#39;ajax request : &#39; + params)  &#125;  let inputValue0 = document.querySelector(&#39;.unDebounce&#39;)  inputValue0.addEventListener(&#39;keyup&#39;, function (e) &#123;    ajax(e.target.value)  &#125;)  /**********************防抖********************************/  function debounse(fun, delay) &#123;    let timer;    // 设置一个 timer    return function (args) &#123;      let _this = this      // 取debounce执行作用域的this      let _args = args      clearTimeout(timer)      timer = setTimeout(function () &#123;        fun.call(_this, args);      &#125;, delay);    &#125;  &#125;  let inputValue1 = document.querySelector(&#39;.debounce&#39;)  let debounse_ajax = debounse(ajax, 500)  inputValue1.addEventListener(&#39;keyup&#39;, function (e) &#123;    debounse_ajax(e.target.value)  &#125;)  /**********************节流********************************/  function throttle(fun, delay) &#123;    let last, deferTimer    return function (args) &#123;      let _this = this      let _args = arguments      let now = +new Date()      if (last &amp;&amp; now &lt; last + delay) &#123;        clearTimeout(deferTimer)        deferTimer = setTimeout(function () &#123;          last = now          fun.apply(_this, _args)        &#125;, delay)      &#125; else &#123;        last = now        fun.apply(_this, _args)      &#125;    &#125;  &#125;  let inputValue2 = document.querySelector(&#39;.htrottle&#39;)  let htrottle_ajax = throttle(ajax, 2000)  inputValue2.addEventListener(&#39;keyup&#39;, function (e) &#123;    htrottle_ajax(e.target.value)  &#125;)&lt;/script&gt;&lt;/html&gt;</code></pre>]]></content>
     
@@ -32,6 +32,10 @@
     
     
     
+    <category term="JavaScript" scheme="https://juntengma.github.io/categories/JavaScript/"/>
+    
+    
+    <category term="防抖节流" scheme="https://juntengma.github.io/tags/%E9%98%B2%E6%8A%96%E8%8A%82%E6%B5%81/"/>
     
   </entry>
   
@@ -40,17 +44,15 @@
     <link href="https://juntengma.github.io/2020/10/28/Json-server/"/>
     <id>https://juntengma.github.io/2020/10/28/Json-server/</id>
     <published>2020-10-28T11:04:41.772Z</published>
-    <updated>2020-10-29T04:30:54.574Z</updated>
+    <updated>2020-10-29T07:41:14.959Z</updated>
     
-    <content type="html"><![CDATA[<a id="more"></a><h1 id="json-server"><a href="#json-server" class="headerlink" title="json-server"></a>json-server</h1><p>json-server 是什么？如何使用？</p><blockquote><p>json-server 是一个 npm 管理的包，可以提供前端提供mock的功能。</p></blockquote><h2 id="json-server-的使用"><a href="#json-server-的使用" class="headerlink" title="json-server 的使用"></a>json-server 的使用</h2><h4 id="1-安装"><a href="#1-安装" class="headerlink" title="1/安装"></a>1/安装</h4><p>全局安装:</p><pre><code>- yarn global add json-server- npm install -g json-server </code></pre><h4 id="2-提供一个json数据的文件"><a href="#2-提供一个json数据的文件" class="headerlink" title="2.提供一个json数据的文件"></a>2.提供一个json数据的文件</h4><h4 id="3-使用json-server命令开启一个端口服务"><a href="#3-使用json-server命令开启一个端口服务" class="headerlink" title="3.使用json-server命令开启一个端口服务"></a>3.使用json-server命令开启一个端口服务</h4><pre><code>json-server --watch --port 3000 test.json</code></pre><h4 id="4-接口的使用"><a href="#4-接口的使用" class="headerlink" title="4.接口的使用:"></a>4.接口的使用:</h4><blockquote><ol><li>列表</li></ol></blockquote><blockquote><ol start="2"><li>详情</li></ol></blockquote><blockquote><ol start="3"><li>分页</li></ol></blockquote><blockquote><ol start="4"><li>排序</li></ol></blockquote><blockquote><ol start="5"><li>全局查询<br>需要使用第三方接口调试工具的(postman)</li></ol></blockquote><blockquote><ol start="6"><li>提供 增加（post）、</li></ol></blockquote><blockquote><ol start="7"><li>删除(delete)、</li></ol></blockquote><blockquote><ol start="8"><li>更新(put)</li></ol></blockquote><p>我们常见的接口：都是 get 或者 post 请求一个 url 地址即可。<br>json-server 除了常见的 get 或者 post ，还提供了诸如 put 、delete 这样的HTTP请求方式，<strong>对于这种使用 http请求方式 + 请求url地址 形成的 api ，我们一般叫做 RESTFul 风格的api</strong>, <em>RESTFul 风格的api底层遵循的是 REST 架构这种协议。</em></p><p>倒叙:<a href="http://localhost:3000/news?sort=id&amp;order=desc">http://localhost:3000/news?sort=id&amp;order=desc</a> </p>]]></content>
+    <content type="html"><![CDATA[<h1 id="json-server"><a href="#json-server" class="headerlink" title="json-server"></a>json-server</h1><p>json-server 是什么？如何使用？</p><blockquote><p>json-server 是一个 npm 管理的包，可以提供前端提供mock的功能。</p></blockquote><a id="more"></a><h2 id="json-server-的使用"><a href="#json-server-的使用" class="headerlink" title="json-server 的使用"></a>json-server 的使用</h2><h4 id="1-安装"><a href="#1-安装" class="headerlink" title="1/安装"></a>1/安装</h4><p>全局安装:</p><pre><code>- yarn global add json-server- npm install -g json-server </code></pre><h4 id="2-提供一个json数据的文件"><a href="#2-提供一个json数据的文件" class="headerlink" title="2.提供一个json数据的文件"></a>2.提供一个json数据的文件</h4><h4 id="3-使用json-server命令开启一个端口服务"><a href="#3-使用json-server命令开启一个端口服务" class="headerlink" title="3.使用json-server命令开启一个端口服务"></a>3.使用json-server命令开启一个端口服务</h4><pre><code>json-server --watch --port 3000 test.json</code></pre><h4 id="4-接口的使用"><a href="#4-接口的使用" class="headerlink" title="4.接口的使用:"></a>4.接口的使用:</h4><blockquote><ol><li>列表</li></ol></blockquote><blockquote><ol start="2"><li>详情</li></ol></blockquote><blockquote><ol start="3"><li>分页</li></ol></blockquote><blockquote><ol start="4"><li>排序</li></ol></blockquote><blockquote><ol start="5"><li>全局查询<br>需要使用第三方接口调试工具的(postman)</li></ol></blockquote><blockquote><ol start="6"><li>提供 增加（post）、</li></ol></blockquote><blockquote><ol start="7"><li>删除(delete)、</li></ol></blockquote><blockquote><ol start="8"><li>更新(put)</li></ol></blockquote><p>我们常见的接口：都是 get 或者 post 请求一个 url 地址即可。<br>json-server 除了常见的 get 或者 post ，还提供了诸如 put 、delete 这样的HTTP请求方式，<strong>对于这种使用 http请求方式 + 请求url地址 形成的 api ，我们一般叫做 RESTFul 风格的api</strong>, <em>RESTFul 风格的api底层遵循的是 REST 架构这种协议。</em></p><p>倒叙:<a href="http://localhost:3000/news?sort=id&amp;order=desc">http://localhost:3000/news?sort=id&amp;order=desc</a> </p>]]></content>
     
     
-      
-      
-    <summary type="html">&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
-
-&lt;h1 id=&quot;json-server&quot;&gt;&lt;a href=&quot;#json-server&quot; class=&quot;headerlink&quot; title=&quot;json-server&quot;&gt;&lt;/a&gt;json-server&lt;/h1&gt;&lt;p&gt;json-server 是什么</summary>
-      
+    <summary type="html">&lt;h1 id=&quot;json-server&quot;&gt;&lt;a href=&quot;#json-server&quot; class=&quot;headerlink&quot; title=&quot;json-server&quot;&gt;&lt;/a&gt;json-server&lt;/h1&gt;&lt;p&gt;json-server 是什么？如何使用？&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;json-server 是一个 npm 管理的包，可以提供前端提供mock的功能。&lt;/p&gt;
+&lt;/blockquote&gt;</summary>
     
     
     
@@ -66,9 +68,9 @@
     <link href="https://juntengma.github.io/2020/10/28/JsonP/"/>
     <id>https://juntengma.github.io/2020/10/28/JsonP/</id>
     <published>2020-10-28T10:46:25.938Z</published>
-    <updated>2020-10-29T06:43:39.552Z</updated>
+    <updated>2020-10-29T08:12:22.160Z</updated>
     
-    <content type="html"><![CDATA[<p>JSONP及其原理</p><a id="more"></a><h5 id="1-JSONP的产生"><a href="#1-JSONP的产生" class="headerlink" title="1/JSONP的产生"></a>1/JSONP的产生</h5><p><strong>背景:</strong></p><ul><li><p>因为浏览器同源策略限制,AJAX跨域请求不到信息</p></li><li><p>Web页面上面调用js文件不受是否跨域影响(类似的还有<code>&lt;script&gt;</code>,<code>&lt;IMG&gt;</code>,<code>&lt;iframe&gt;</code>)</p></li><li><p>于是可以判断，当前阶段如果想通过纯web端（ActiveX控件、服务端代理、Web socket等方式不算）跨域访问数据就只有一种可能，那就是在远程服务器上设法把数据装进js格式的文件里，供客户端调用和进一步处理；</p></li><li><p>恰巧我们已经知道有一种叫做JSON的纯字符数据格式可以简洁的描述复杂数据，更妙的是JSON还被JS原生支持，所以在客户端几乎可以随心所欲的处理这种格式的数据；</p></li><li><p>客户端在对JSON文件调用成功之后,也就获得了自己所需要的数据,剩下的就是按自己的需求进行处理和展现了</p></li><li><p>为了方便客户使用数据,逐渐形成了一种非正式传输协议—JSONP.</p><blockquote><p>该协议允许用户传递一个callback参数给服务端,然后服务端返回数据时会将这个callback参数坐会函数名来包裹JSON数据,这样客户端就可以随意订制自己的函数来自动处理返回函数了</p></blockquote></li></ul>]]></content>
+    <content type="html"><![CDATA[<p>JSONP及其原理</p><a id="more"></a><h5 id="1、JSONP的产生"><a href="#1、JSONP的产生" class="headerlink" title="1、JSONP的产生"></a>1、JSONP的产生</h5><p><strong>背景:</strong></p><ul><li><p>因为浏览器同源策略限制,AJAX跨域请求不到信息</p></li><li><p>Web页面上面调用js文件不受是否跨域影响(类似的还有<code>&lt;script&gt;</code>,<code>&lt;IMG&gt;</code>,<code>&lt;iframe&gt;</code>)</p></li><li><p>于是可以判断，当前阶段如果想通过纯web端（ActiveX控件、服务端代理、Web socket等方式不算）跨域访问数据就只有一种可能，那就是在远程服务器上设法把数据装进js格式的文件里，供客户端调用和进一步处理；</p></li><li><p>恰巧我们已经知道有一种叫做JSON的纯字符数据格式可以简洁的描述复杂数据，更妙的是JSON还被JS原生支持，所以在客户端几乎可以随心所欲的处理这种格式的数据；</p></li><li><p>客户端在对JSON文件调用成功之后,也就获得了自己所需要的数据,剩下的就是按自己的需求进行处理和展现了</p></li><li><p>为了方便客户使用数据,逐渐形成了一种非正式传输协议—JSONP.</p><blockquote><p>该协议允许用户传递一个callback参数给服务端,然后服务端返回数据时会将这个callback参数坐会函数名来包裹JSON数据,这样客户端就可以随意订制自己的函数来自动处理返回函数了</p></blockquote></li></ul><h5 id="2、JSONP弊端"><a href="#2、JSONP弊端" class="headerlink" title="2、JSONP弊端"></a>2、JSONP弊端</h5><ul><li>只能发送get请求</li><li>需要服务端配合</li></ul><h5 id="3、JSON流程"><a href="#3、JSON流程" class="headerlink" title="3、JSON流程"></a>3、JSON流程</h5><ul><li>先定义好全局函数</li><li>动态创建script标签</li><li>给服务器提供事先创建好的容器</li><li>服务器获取容器</li><li>将内容填充进容器</li></ul><h5 id="4、-代码实现-https-github-com-JuntengMa-JavaScript-tree-master-JsonP"><a href="#4、-代码实现-https-github-com-JuntengMa-JavaScript-tree-master-JsonP" class="headerlink" title="4、[代码实现]:https://github.com/JuntengMa/JavaScript/tree/master/JsonP"></a>4、[代码实现]:<a href="https://github.com/JuntengMa/JavaScript/tree/master/JsonP">https://github.com/JuntengMa/JavaScript/tree/master/JsonP</a></h5>]]></content>
     
     
     <summary type="html">&lt;p&gt;JSONP及其原理&lt;/p&gt;</summary>
@@ -117,7 +119,7 @@
     <link href="https://juntengma.github.io/2020/10/28/Css%E7%9B%92%E6%A8%A1%E5%9E%8B/"/>
     <id>https://juntengma.github.io/2020/10/28/Css%E7%9B%92%E6%A8%A1%E5%9E%8B/</id>
     <published>2020-10-28T07:57:01.036Z</published>
-    <updated>2020-10-29T07:32:13.466Z</updated>
+    <updated>2020-10-29T07:36:20.410Z</updated>
     
     <content type="html"><![CDATA[<blockquote><p>   关于盒模型的一些总结</p></blockquote><a id="more"></a><h4 id="盒模型"><a href="#盒模型" class="headerlink" title="盒模型"></a>盒模型</h4><h5 id="标准盒模型-box-sizing-content-box"><a href="#标准盒模型-box-sizing-content-box" class="headerlink" title="标准盒模型(box-sizing:content-box)"></a>标准盒模型(box-sizing:content-box)</h5><pre><code>width = content width;height = content height;</code></pre><h5 id="怪异盒模型-box-sizing-border-box"><a href="#怪异盒模型-box-sizing-border-box" class="headerlink" title="怪异盒模型(box-sizing:border-box)"></a>怪异盒模型(box-sizing:border-box)</h5><pre><code>width = content width + padding + border;height = content height + padding + border;</code></pre><h4 id="BFC"><a href="#BFC" class="headerlink" title="BFC"></a>BFC</h4><h5 id="01-什么是BFC"><a href="#01-什么是BFC" class="headerlink" title="01/什么是BFC?"></a>01/什么是BFC?</h5><p>块级格式化上下文</p><p>BFC是Web页面的可视CSS渲染的一部分，是块盒子的布局过程发生的区域，也是浮动元素与其他元素交互的区域。</p><h5 id="02-建立BFC"><a href="#02-建立BFC" class="headerlink" title="02/建立BFC"></a>02/建立BFC</h5><ul><li>浮动</li><li>绝对定位</li><li>行内块元素</li><li>表格单元</li><li>弹性盒</li><li>overflow不为visible</li></ul><h5 id="03-BFC应用场景"><a href="#03-BFC应用场景" class="headerlink" title="03/BFC应用场景"></a>03/BFC应用场景</h5><ul><li>清除浮动</li><li>阻止元素被浮动元素覆盖</li><li>实现两列自适应布局</li></ul>]]></content>
     
@@ -134,6 +136,8 @@
     
     <category term="BFC" scheme="https://juntengma.github.io/categories/Css/%E7%9B%92%E6%A8%A1%E5%9E%8B/BFC/"/>
     
+    
+    <category term="Css" scheme="https://juntengma.github.io/tags/Css/"/>
     
     <category term="盒模型" scheme="https://juntengma.github.io/tags/%E7%9B%92%E6%A8%A1%E5%9E%8B/"/>
     
@@ -189,8 +193,8 @@
   
   <entry>
     <title>浏览器解析js流程</title>
-    <link href="https://juntengma.github.io/2020/10/26/Js%E8%A7%A3%E6%9E%90%E6%B5%81%E7%A8%8B/"/>
-    <id>https://juntengma.github.io/2020/10/26/Js%E8%A7%A3%E6%9E%90%E6%B5%81%E7%A8%8B/</id>
+    <link href="https://juntengma.github.io/2020/10/26/JavaScript%E8%A7%A3%E6%9E%90%E6%B5%81%E7%A8%8B/"/>
+    <id>https://juntengma.github.io/2020/10/26/JavaScript%E8%A7%A3%E6%9E%90%E6%B5%81%E7%A8%8B/</id>
     <published>2020-10-26T10:14:39.943Z</published>
     <updated>2020-10-29T03:49:55.892Z</updated>
     

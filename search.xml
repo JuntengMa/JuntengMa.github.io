@@ -161,7 +161,7 @@ git rm xxx 除某文件</code></pre>
       </tags>
   </entry>
   <entry>
-    <title></title>
+    <title>防抖节流及其应用场景</title>
     <url>/2020/10/29/JavaScript%E9%98%B2%E6%8A%96%E8%8A%82%E6%B5%81/</url>
     <content><![CDATA[<blockquote>
 <p>​    复习一下防抖节流及其应用场景</p>
@@ -289,16 +289,22 @@ git rm xxx 除某文件</code></pre>
 
 &lt;/html&gt;</code></pre>
 ]]></content>
+      <categories>
+        <category>JavaScript</category>
+      </categories>
+      <tags>
+        <tag>防抖节流</tag>
+      </tags>
   </entry>
   <entry>
     <title>JSON-Server</title>
     <url>/2020/10/28/Json-server/</url>
-    <content><![CDATA[<a id="more"></a>
-
-<h1 id="json-server"><a href="#json-server" class="headerlink" title="json-server"></a>json-server</h1><p>json-server 是什么？如何使用？</p>
+    <content><![CDATA[<h1 id="json-server"><a href="#json-server" class="headerlink" title="json-server"></a>json-server</h1><p>json-server 是什么？如何使用？</p>
 <blockquote>
 <p>json-server 是一个 npm 管理的包，可以提供前端提供mock的功能。</p>
 </blockquote>
+<a id="more"></a>
+
 <h2 id="json-server-的使用"><a href="#json-server-的使用" class="headerlink" title="json-server 的使用"></a>json-server 的使用</h2><h4 id="1-安装"><a href="#1-安装" class="headerlink" title="1/安装"></a>1/安装</h4><p>全局安装:</p>
 <pre><code>- yarn global add json-server
 
@@ -360,7 +366,7 @@ git rm xxx 除某文件</code></pre>
     <content><![CDATA[<p>JSONP及其原理</p>
 <a id="more"></a>
 
-<h5 id="1-JSONP的产生"><a href="#1-JSONP的产生" class="headerlink" title="1/JSONP的产生"></a>1/JSONP的产生</h5><p><strong>背景:</strong></p>
+<h5 id="1、JSONP的产生"><a href="#1、JSONP的产生" class="headerlink" title="1、JSONP的产生"></a>1、JSONP的产生</h5><p><strong>背景:</strong></p>
 <ul>
 <li><p>因为浏览器同源策略限制,AJAX跨域请求不到信息</p>
 </li>
@@ -378,7 +384,18 @@ git rm xxx 除某文件</code></pre>
 </blockquote>
 </li>
 </ul>
-]]></content>
+<h5 id="2、JSONP弊端"><a href="#2、JSONP弊端" class="headerlink" title="2、JSONP弊端"></a>2、JSONP弊端</h5><ul>
+<li>只能发送get请求</li>
+<li>需要服务端配合</li>
+</ul>
+<h5 id="3、JSON流程"><a href="#3、JSON流程" class="headerlink" title="3、JSON流程"></a>3、JSON流程</h5><ul>
+<li>先定义好全局函数</li>
+<li>动态创建script标签</li>
+<li>给服务器提供事先创建好的容器</li>
+<li>服务器获取容器</li>
+<li>将内容填充进容器</li>
+</ul>
+<h5 id="4、-代码实现-https-github-com-JuntengMa-JavaScript-tree-master-JsonP"><a href="#4、-代码实现-https-github-com-JuntengMa-JavaScript-tree-master-JsonP" class="headerlink" title="4、[代码实现]:https://github.com/JuntengMa/JavaScript/tree/master/JsonP"></a>4、[代码实现]:<a href="https://github.com/JuntengMa/JavaScript/tree/master/JsonP">https://github.com/JuntengMa/JavaScript/tree/master/JsonP</a></h5>]]></content>
       <categories>
         <category>JSONP</category>
       </categories>
@@ -565,6 +582,7 @@ height = content height + padding + border;</code></pre>
         <category>BFC</category>
       </categories>
       <tags>
+        <tag>Css</tag>
         <tag>盒模型</tag>
         <tag>BFC</tag>
       </tags>
@@ -767,7 +785,7 @@ setTimeout(function() &#123;
   </entry>
   <entry>
     <title>浏览器解析js流程</title>
-    <url>/2020/10/26/Js%E8%A7%A3%E6%9E%90%E6%B5%81%E7%A8%8B/</url>
+    <url>/2020/10/26/JavaScript%E8%A7%A3%E6%9E%90%E6%B5%81%E7%A8%8B/</url>
     <content><![CDATA[<blockquote>
 <p>浏览器解析js流程</p>
 </blockquote>

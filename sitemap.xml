@@ -2,7 +2,21 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://juntengma.github.io/2020/09/18/Css%E6%96%87%E6%9C%AC%E8%B6%85%E5%87%BA%E8%87%AA%E5%8A%A8%E6%8D%A2%E8%A1%8C/</loc>
+    <loc>https://juntengma.github.io/2020/10/28/JsonP/</loc>
+    
+    <lastmod>2020-10-29</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://juntengma.github.io/2020/10/28/Json-server/</loc>
+    
+    <lastmod>2020-10-29</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://juntengma.github.io/2020/10/29/JavaScript%E9%98%B2%E6%8A%96%E8%8A%82%E6%B5%81/</loc>
     
     <lastmod>2020-10-29</lastmod>
     
@@ -10,6 +24,13 @@
   
   <url>
     <loc>https://juntengma.github.io/2020/10/28/Css%E7%9B%92%E6%A8%A1%E5%9E%8B/</loc>
+    
+    <lastmod>2020-10-29</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://juntengma.github.io/2020/09/18/Css%E6%96%87%E6%9C%AC%E8%B6%85%E5%87%BA%E8%87%AA%E5%8A%A8%E6%8D%A2%E8%A1%8C/</loc>
     
     <lastmod>2020-10-29</lastmod>
     
@@ -30,21 +51,7 @@
   </url>
   
   <url>
-    <loc>https://juntengma.github.io/2020/10/28/JsonP/</loc>
-    
-    <lastmod>2020-10-29</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://juntengma.github.io/2020/09/24/JavaScript%E8%8E%B7%E5%8F%96%E5%85%83%E7%B4%A0%E5%9D%90%E6%A0%87%E9%97%AE%E9%A2%98/</loc>
-    
-    <lastmod>2020-10-29</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://juntengma.github.io/2020/10/29/JavaScript%E9%98%B2%E6%8A%96%E8%8A%82%E6%B5%81/</loc>
     
     <lastmod>2020-10-29</lastmod>
     
@@ -121,14 +128,7 @@
   </url>
   
   <url>
-    <loc>https://juntengma.github.io/2020/10/28/Json-server/</loc>
-    
-    <lastmod>2020-10-29</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://juntengma.github.io/2020/10/26/Js%E8%A7%A3%E6%9E%90%E6%B5%81%E7%A8%8B/</loc>
+    <loc>https://juntengma.github.io/2020/10/26/JavaScript%E8%A7%A3%E6%9E%90%E6%B5%81%E7%A8%8B/</loc>
     
     <lastmod>2020-10-29</lastmod>
     
@@ -299,6 +299,13 @@
   
   <url>
     <loc>https://juntengma.github.io/tags/BFC/</loc>
+    <lastmod>2020-10-29</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://juntengma.github.io/tags/%E9%98%B2%E6%8A%96%E8%8A%82%E6%B5%81/</loc>
     <lastmod>2020-10-29</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
