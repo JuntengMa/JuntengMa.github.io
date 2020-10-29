@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://juntengma.github.io/2020/09/18/Css%E6%96%87%E6%9C%AC%E8%B6%85%E5%87%BA%E8%87%AA%E5%8A%A8%E6%8D%A2%E8%A1%8C/</loc>
+    
+    <lastmod>2020-10-29</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://juntengma.github.io/2020/10/28/JsonP/</loc>
     
     <lastmod>2020-10-29</lastmod>
@@ -149,13 +156,6 @@
   </url>
   
   <url>
-    <loc>https://juntengma.github.io/2020/09/18/Css%E6%96%87%E6%9C%AC%E8%B6%85%E5%87%BA%E8%87%AA%E5%8A%A8%E6%8D%A2%E8%A1%8C/</loc>
-    
-    <lastmod>2020-10-28</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://juntengma.github.io/2020/09/22/Git%E5%91%BD%E4%BB%A4/</loc>
     
     <lastmod>2020-10-26</lastmod>
@@ -270,14 +270,14 @@
   </url>
   
   <url>
-    <loc>https://juntengma.github.io/tags/Npm/</loc>
+    <loc>https://juntengma.github.io/tags/Webpack/</loc>
     <lastmod>2020-10-29</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://juntengma.github.io/tags/Webpack/</loc>
+    <loc>https://juntengma.github.io/tags/Npm/</loc>
     <lastmod>2020-10-29</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -349,6 +349,13 @@
   </url>
   
   <url>
+    <loc>https://juntengma.github.io/categories/%E6%B5%8F%E8%A7%88%E5%99%A8/</loc>
+    <lastmod>2020-10-29</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://juntengma.github.io/categories/JSONP/</loc>
     <lastmod>2020-10-29</lastmod>
     <changefreq>daily</changefreq>
@@ -363,14 +370,14 @@
   </url>
   
   <url>
-    <loc>https://juntengma.github.io/categories/%E6%B5%8F%E8%A7%88%E5%99%A8/</loc>
+    <loc>https://juntengma.github.io/categories/JavaScript/%E6%B5%8F%E8%A7%88%E5%99%A8/</loc>
     <lastmod>2020-10-29</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://juntengma.github.io/categories/JavaScript/%E6%B5%8F%E8%A7%88%E5%99%A8/</loc>
+    <loc>https://juntengma.github.io/categories/React/TypeScript/</loc>
     <lastmod>2020-10-29</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -384,14 +391,14 @@
   </url>
   
   <url>
-    <loc>https://juntengma.github.io/categories/NPM/</loc>
+    <loc>https://juntengma.github.io/categories/Webpack/</loc>
     <lastmod>2020-10-29</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://juntengma.github.io/categories/Webpack/</loc>
+    <loc>https://juntengma.github.io/categories/NPM/</loc>
     <lastmod>2020-10-29</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -412,7 +419,7 @@
   </url>
   
   <url>
-    <loc>https://juntengma.github.io/categories/React/TypeScript/</loc>
+    <loc>https://juntengma.github.io/categories/Css/%E7%9B%92%E6%A8%A1%E5%9E%8B/</loc>
     <lastmod>2020-10-29</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -420,13 +427,6 @@
   
   <url>
     <loc>https://juntengma.github.io/categories/%E5%90%8C%E6%BA%90%E7%AD%96%E7%95%A5/%E6%B5%8F%E8%A7%88%E5%99%A8/</loc>
-    <lastmod>2020-10-29</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://juntengma.github.io/categories/Css/%E7%9B%92%E6%A8%A1%E5%9E%8B/</loc>
     <lastmod>2020-10-29</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
