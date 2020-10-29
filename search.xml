@@ -1,1933 +1,651 @@
 <?xml version="1.0" encoding="utf-8"?>
-<search>
-  <entry>
-    <title>自己比较常用的一些git操作</title>
-    <url>/2020/09/22/Git%E5%91%BD%E4%BB%A4/</url>
-    <content><![CDATA[<h1 id="GIT-常用命令"><a href="#GIT-常用命令" class="headerlink" title="GIT 常用命令"></a>GIT 常用命令</h1><a id="more"></a>
-
-<h2 id="01-初始配置"><a href="#01-初始配置" class="headerlink" title="01 - 初始配置"></a>01 - 初始配置</h2><pre><code>- git init 初始化本地git仓库（创建新仓库）
-
-- git config --global user.name &quot;xxx&quot; 配置用户名
-
-- git config --global user.email &quot;xxx@xxx.com&quot; 配置用户邮箱
-
-- git clone &quot;git链接&quot; 克隆git仓库到本地
-
-- git status 查看当前在哪个分支</code></pre>
-<h2 id="02-开发完毕将要上传代码仓库操作"><a href="#02-开发完毕将要上传代码仓库操作" class="headerlink" title="02 - 开发完毕将要上传代码仓库操作"></a>02 - 开发完毕将要上传代码仓库操作</h2><pre><code>git add .  增加当前子目录下所有更改过的文件至index
-
-git commit -m &quot;xxx&quot; 提交
-
-git push 推送改动到远端</code></pre>
-<h2 id="03-新建分支操作"><a href="#03-新建分支操作" class="headerlink" title="03 - 新建分支操作"></a>03 - 新建分支操作</h2><pre><code>git branch &lt;分支名&gt; 创建新分支
-
-git checkout &lt;分支名&gt; 切换到该分支
-
-git push 如果是新建分支，push的时候需要跟远端仓库关联，一般会提示 git push --set-upstream 你的分支名 ， 复制提示信息并执行</code></pre>
-<h2 id="04-合并分支操作"><a href="#04-合并分支操作" class="headerlink" title="04 - 合并分支操作"></a>04 - 合并分支操作</h2><pre><code>git pull origin master 多人协作，以防master已更新，本地代码版本没有更新，先同步一下master代码，以防产生合并冲突
-
-git checkout master 先切换到主分支再合并
-
-git merge &lt;需要合并到master上的分支名&gt; 合并某一个分支到该分支</code></pre>
-<h2 id="05-删除本地，远程分支"><a href="#05-删除本地，远程分支" class="headerlink" title="05 - 删除本地，远程分支"></a>05 - 删除本地，远程分支</h2><pre><code>- git branch -d &lt;分支名&gt; 删除本地某一分支
-
-- git push origin --delete &lt;分支名&gt; 删除远端分支</code></pre>
-<h2 id="06-版本回退"><a href="#06-版本回退" class="headerlink" title="06 - 版本回退"></a>06 - 版本回退</h2><pre><code>- git log 查看提交历史和commit 标记
-
-- git reset --hard &lt;commit 后面的字符串&gt; 将代码回退到某一版本
-
-- git push -f 远端仓库版本高于本地版本，需要强制推送上去</code></pre>
-<h2 id="07-取消所有本地修改"><a href="#07-取消所有本地修改" class="headerlink" title="07 - 取消所有本地修改"></a>07 - 取消所有本地修改</h2><pre><code>git checkout .</code></pre>
-<h2 id="09-查看修改"><a href="#09-查看修改" class="headerlink" title="09 - 查看修改"></a>09 - 查看修改</h2><pre><code>git show &lt;commit日志&gt;  显示详细更改</code></pre>
-<h2 id="10-查看某一文件所有修改历史"><a href="#10-查看某一文件所有修改历史" class="headerlink" title="10 - 查看某一文件所有修改历史"></a>10 - 查看某一文件所有修改历史</h2><pre><code> git log --pretty=on 相对路径/绝对路径
-
- git show &lt;commit日志&gt;</code></pre>
-<h2 id="11-其他命令"><a href="#11-其他命令" class="headerlink" title="11 - 其他命令"></a>11 - 其他命令</h2><pre><code>git pull 从当前分支远端拉取代码
-
-git pull origin &lt;分支名&gt; 拉取某一分支的代码并合并到当前分支
-
-git branch 显示远程仓库分支
-
-git branch -a 显示所有分支
-
-git branch --merged 显示所有已合并到当前分支的分支
-
-git branch --no-merged 显示所有未合并到当前分支的分支
-
-git push origin master 推送到主分支
-
-git pull origin &lt;分支名&gt; 拉取远程分支合并到当前分支
-
-git log 显示提交日志
-
-git diff 显示所有变更
-
-git diff HEAD^ 显示与上个版本的差异
-
-git rm xxx 除某文件</code></pre>
-]]></content>
+<search> 
+  
+  
+    
+    <entry>
+      <title></title>
+      <link href="2020/10/29/JavaScript%E9%98%B2%E6%8A%96%E8%8A%82%E6%B5%81/"/>
+      <url>2020/10/29/JavaScript%E9%98%B2%E6%8A%96%E8%8A%82%E6%B5%81/</url>
+      
+        <content type="html"><![CDATA[<blockquote><p>​    复习一下防抖节流及其应用场景</p></blockquote><a id="more"></a><h3 id="函数防抖"><a href="#函数防抖" class="headerlink" title="函数防抖"></a>函数防抖</h3><p>在事件被触发的n秒后再执行回调,如果在这n秒内又被触发,则重新计时</p><pre><code>function debounse(fun, delay) &#123;    let timer;    // 设置一个 timer    return function (args) &#123;      let _this = this      // 取debounce执行作用域的this      let _args = args      clearTimeout(timer)      timer = setTimeout(function () &#123;        fun.call(_this, args);      &#125;, delay);    &#125;  &#125;</code></pre><h3 id="函数节流"><a href="#函数节流" class="headerlink" title="函数节流"></a>函数节流</h3><p>规定在一个单位时间内，只能触发一次函数。如果这个单位时间内触发多次函数，只有一次生效。</p><pre><code>function throttle(fun, delay) &#123;    let last, deferTimer    return function (args) &#123;      let _this = this      let _args = arguments      let now = +new Date()      if (last &amp;&amp; now &lt; last + delay) &#123;        clearTimeout(deferTimer)        deferTimer = setTimeout(function () &#123;          last = now          fun.apply(_this, _args)        &#125;, delay)      &#125; else &#123;        last = now        fun.apply(_this, _args)      &#125;    &#125;  &#125;</code></pre><h3 id="demo"><a href="#demo" class="headerlink" title="demo:"></a>demo:</h3><h5 id="模拟ajax请求"><a href="#模拟ajax请求" class="headerlink" title="模拟ajax请求"></a>模拟ajax请求</h5><pre><code>function ajax(params) &#123;    console.log(&#39;ajax request : &#39; + params)&#125;</code></pre><h5 id="未加入节流"><a href="#未加入节流" class="headerlink" title="未加入节流:"></a>未加入节流:</h5><p><img src="https://user-gold-cdn.xitu.io/2018/9/4/165a252be5c94d6b?imageslim"></p><h5 id="加入防抖"><a href="#加入防抖" class="headerlink" title="加入防抖:"></a>加入防抖:</h5><p><img src="https://user-gold-cdn.xitu.io/2018/9/4/165a252b4b429b56?imageslim"></p><h5 id="加入节流"><a href="#加入节流" class="headerlink" title="加入节流:"></a>加入节流:</h5><p><img src="https://user-gold-cdn.xitu.io/2018/9/4/165a252b4c1a9686?imageslim"></p><h3 id="demo代码"><a href="#demo代码" class="headerlink" title="demo代码"></a>demo代码</h3><pre><code>&lt;!DOCTYPE html&gt;&lt;html lang=&quot;en&quot;&gt;&lt;head&gt;  &lt;meta charset=&quot;UTF-8&quot;&gt;  &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;  &lt;title&gt;Document&lt;/title&gt;&lt;/head&gt;&lt;body&gt;  没有防抖的Input &lt;input type=&quot;text&quot; class=&quot;unDebounce&quot;&gt;  &lt;br&gt;  加入防抖的Input &lt;input type=&quot;text&quot; class=&quot;debounce&quot;&gt;  &lt;br&gt;  加入截留的Input &lt;input type=&quot;text&quot; class=&quot;htrottle&quot;&gt;&lt;/body&gt;&lt;script&gt;  function ajax(params) &#123;    console.log(&#39;ajax request : &#39; + params)  &#125;  let inputValue0 = document.querySelector(&#39;.unDebounce&#39;)  inputValue0.addEventListener(&#39;keyup&#39;, function (e) &#123;    ajax(e.target.value)  &#125;)  /**********************防抖********************************/  function debounse(fun, delay) &#123;    let timer;    // 设置一个 timer    return function (args) &#123;      let _this = this      // 取debounce执行作用域的this      let _args = args      clearTimeout(timer)      timer = setTimeout(function () &#123;        fun.call(_this, args);      &#125;, delay);    &#125;  &#125;  let inputValue1 = document.querySelector(&#39;.debounce&#39;)  let debounse_ajax = debounse(ajax, 500)  inputValue1.addEventListener(&#39;keyup&#39;, function (e) &#123;    debounse_ajax(e.target.value)  &#125;)  /**********************节流********************************/  function throttle(fun, delay) &#123;    let last, deferTimer    return function (args) &#123;      let _this = this      let _args = arguments      let now = +new Date()      if (last &amp;&amp; now &lt; last + delay) &#123;        clearTimeout(deferTimer)        deferTimer = setTimeout(function () &#123;          last = now          fun.apply(_this, _args)        &#125;, delay)      &#125; else &#123;        last = now        fun.apply(_this, _args)      &#125;    &#125;  &#125;  let inputValue2 = document.querySelector(&#39;.htrottle&#39;)  let htrottle_ajax = throttle(ajax, 2000)  inputValue2.addEventListener(&#39;keyup&#39;, function (e) &#123;    htrottle_ajax(e.target.value)  &#125;)&lt;/script&gt;&lt;/html&gt;</code></pre>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>JSON-Server</title>
+      <link href="2020/10/28/Json-server/"/>
+      <url>2020/10/28/Json-server/</url>
+      
+        <content type="html"><![CDATA[<a id="more"></a><h1 id="json-server"><a href="#json-server" class="headerlink" title="json-server"></a>json-server</h1><p>json-server 是什么？如何使用？</p><blockquote><p>json-server 是一个 npm 管理的包，可以提供前端提供mock的功能。</p></blockquote><h2 id="json-server-的使用"><a href="#json-server-的使用" class="headerlink" title="json-server 的使用"></a>json-server 的使用</h2><h4 id="1-安装"><a href="#1-安装" class="headerlink" title="1/安装"></a>1/安装</h4><p>全局安装:</p><pre><code>- yarn global add json-server- npm install -g json-server </code></pre><h4 id="2-提供一个json数据的文件"><a href="#2-提供一个json数据的文件" class="headerlink" title="2.提供一个json数据的文件"></a>2.提供一个json数据的文件</h4><h4 id="3-使用json-server命令开启一个端口服务"><a href="#3-使用json-server命令开启一个端口服务" class="headerlink" title="3.使用json-server命令开启一个端口服务"></a>3.使用json-server命令开启一个端口服务</h4><pre><code>json-server --watch --port 3000 test.json</code></pre><h4 id="4-接口的使用"><a href="#4-接口的使用" class="headerlink" title="4.接口的使用:"></a>4.接口的使用:</h4><blockquote><ol><li>列表</li></ol></blockquote><blockquote><ol start="2"><li>详情</li></ol></blockquote><blockquote><ol start="3"><li>分页</li></ol></blockquote><blockquote><ol start="4"><li>排序</li></ol></blockquote><blockquote><ol start="5"><li>全局查询<br>需要使用第三方接口调试工具的(postman)</li></ol></blockquote><blockquote><ol start="6"><li>提供 增加（post）、</li></ol></blockquote><blockquote><ol start="7"><li>删除(delete)、</li></ol></blockquote><blockquote><ol start="8"><li>更新(put)</li></ol></blockquote><p>我们常见的接口：都是 get 或者 post 请求一个 url 地址即可。<br>json-server 除了常见的 get 或者 post ，还提供了诸如 put 、delete 这样的HTTP请求方式，<strong>对于这种使用 http请求方式 + 请求url地址 形成的 api ，我们一般叫做 RESTFul 风格的api</strong>, <em>RESTFul 风格的api底层遵循的是 REST 架构这种协议。</em></p><p>倒叙:<a href="http://localhost:3000/news?sort=id&amp;order=desc">http://localhost:3000/news?sort=id&amp;order=desc</a> </p>]]></content>
+      
+      
       <categories>
-        <category>Git</category>
+          
+          <category> Json-server </category>
+          
       </categories>
-      <tags>
-        <tag>Git</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Honey</title>
-    <url>/2020/09/01/honey/</url>
-    <content><![CDATA[<center>"光洙宝贝😏😏😏"</center>
-<center>"想你了哟~"</center>
-]]></content>
+      
+      
+        <tags>
+            
+            <tag> Json-server </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>JSONP跨域请求及其原理</title>
+      <link href="2020/10/28/JsonP/"/>
+      <url>2020/10/28/JsonP/</url>
+      
+        <content type="html"><![CDATA[<p>JSONP及其原理</p><a id="more"></a><h5 id="1-JSONP的产生"><a href="#1-JSONP的产生" class="headerlink" title="1/JSONP的产生"></a>1/JSONP的产生</h5><p><strong>背景:</strong></p><ul><li><p>因为浏览器同源策略限制,AJAX跨域请求不到信息</p></li><li><p>Web页面上面调用js文件不受是否跨域影响(类似的还有<code>&lt;script&gt;</code>,<code>&lt;IMG&gt;</code>,<code>&lt;iframe&gt;</code>)</p></li><li><p>于是可以判断，当前阶段如果想通过纯web端（ActiveX控件、服务端代理、Web socket等方式不算）跨域访问数据就只有一种可能，那就是在远程服务器上设法把数据装进js格式的文件里，供客户端调用和进一步处理；</p></li><li><p>恰巧我们已经知道有一种叫做JSON的纯字符数据格式可以简洁的描述复杂数据，更妙的是JSON还被JS原生支持，所以在客户端几乎可以随心所欲的处理这种格式的数据；</p></li><li><p>客户端在对JSON文件调用成功之后,也就获得了自己所需要的数据,剩下的就是按自己的需求进行处理和展现了</p></li><li><p>为了方便客户使用数据,逐渐形成了一种非正式传输协议—JSONP.</p><blockquote><p>该协议允许用户传递一个callback参数给服务端,然后服务端返回数据时会将这个callback参数坐会函数名来包裹JSON数据,这样客户端就可以随意订制自己的函数来自动处理返回函数了</p></blockquote></li></ul>]]></content>
+      
+      
       <categories>
-        <category>Honey</category>
+          
+          <category> JSONP </category>
+          
       </categories>
-      <tags>
-        <tag>Honey</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Yarn / npm 对比</title>
-    <url>/2020/09/02/yarn-npm%E5%AF%B9%E6%AF%94/</url>
-    <content><![CDATA[<a id="more"></a>
-
-
-
-<table>
-<thead>
-<tr>
-<th align="left">作用</th>
-<th align="left">npm</th>
-<th align="center">Yarn</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="left">安装</td>
-<td align="left">npm install(i)</td>
-<td align="center">yarn</td>
-</tr>
-<tr>
-<td align="left">卸载</td>
-<td align="left">npm uninstall(un)</td>
-<td align="center">yarn remove</td>
-</tr>
-<tr>
-<td align="left">全局安装</td>
-<td align="left">npm install xxx –global(-g)</td>
-<td align="center">yarn global add xxx</td>
-</tr>
-<tr>
-<td align="left">安装包</td>
-<td align="left">npm install xxx –save(-S)</td>
-<td align="center">yarn add xxx</td>
-</tr>
-<tr>
-<td align="left">开发模式安装包</td>
-<td align="left">npm install xxx –save-dev(-D)</td>
-<td align="center">yarn add xxx –dev(-D)</td>
-</tr>
-<tr>
-<td align="left">更新</td>
-<td align="left">npm update –save</td>
-<td align="center">yarn upgrade</td>
-</tr>
-<tr>
-<td align="left">全局更新</td>
-<td align="left">npm update –global</td>
-<td align="center">yarn global upgrade</td>
-</tr>
-<tr>
-<td align="left">卸载</td>
-<td align="left">npm uninstall [–save/–save-dev]</td>
-<td align="center">yarn remove xx</td>
-</tr>
-<tr>
-<td align="left">清除缓存</td>
-<td align="left">npm cache clean</td>
-<td align="center">yarn cache clean</td>
-</tr>
-<tr>
-<td align="left">重装</td>
-<td align="left">rm -rf node_modules &amp;&amp; npm install</td>
-<td align="center">yarn upgrade</td>
-</tr>
-</tbody></table>
-]]></content>
+      
+      
+        <tags>
+            
+            <tag> JSONP </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Ajax</title>
+      <link href="2020/10/28/Ajax/"/>
+      <url>2020/10/28/Ajax/</url>
+      
+        <content type="html"><![CDATA[<a id="more"></a><h5 id="AJAX"><a href="#AJAX" class="headerlink" title="AJAX"></a>AJAX</h5><h5 id="01-ajax是什么"><a href="#01-ajax是什么" class="headerlink" title="01-ajax是什么"></a>01-ajax是什么</h5><blockquote><p>​    JavaScript执行异步网络请求</p></blockquote><p><img src="https://s1.ax1x.com/2020/10/28/B3MoX8.png"></p><h5 id="02-ajax原理"><a href="#02-ajax原理" class="headerlink" title="02-ajax原理"></a>02-ajax原理</h5><p><strong>现在浏览器AJAX主要依靠XMLHttpRequest对象实现</strong></p><p><img src="https://s1.ax1x.com/2020/10/28/B3l0sK.png"></p><h5 id="03-创建ajax"><a href="#03-创建ajax" class="headerlink" title="03 - 创建ajax"></a>03 - 创建ajax</h5><h6 id="1-创建Ajax核心对象XMLHttpRequest"><a href="#1-创建Ajax核心对象XMLHttpRequest" class="headerlink" title="1/创建Ajax核心对象XMLHttpRequest"></a>1/创建Ajax核心对象XMLHttpRequest</h6><pre><code>var xhr = null ;if(window.XMLHttpRequest)&#123;    xhr = new XMLHttpRequest()&#125;else&#123;    xhr = new ActiveXobject(&quot;Microsoft.XMLHTTP&quot;)&#125;</code></pre><h6 id="2-向服务器发送请求"><a href="#2-向服务器发送请求" class="headerlink" title="2/向服务器发送请求"></a>2/向服务器发送请求</h6><pre><code>xhr.open(method,url,async:boolean)xhr.send(string); //POST请求时候采用string参数,否则不需要带参数</code></pre><ul><li><strong>method</strong> : GET/POST</li><li>**url:**请求链接(位置)</li><li>**async:**是否异步</li></ul><pre><code>xhr.open(&quot;POST&quot;,&quot;test.html&quot;,true);  xhr.setRequestHeader(&quot;Content-type&quot;,&quot;application/x-www-form-urlencoded&quot;);  xhr.send(&quot;fname=Henry&amp;lname=Ford&quot;);  //post请求参数放在send里面，即请求体</code></pre><h6 id="3-服务器响应处理-区分同步-异步情况"><a href="#3-服务器响应处理-区分同步-异步情况" class="headerlink" title="3/服务器响应处理(区分同步/异步情况)"></a>3/服务器响应处理(区分同步/异步情况)</h6><ul><li>responseText:获得字符串形式的响应数据</li><li>ResponseXML:获得XML形式的响应数据</li></ul><p>👹同步处理数据</p><pre><code>1. xhr.open(&quot;GET&quot;,&quot;info.txt&quot;,false);  2. xhr.send();  3. document.getElementById(&quot;myDiv&quot;).innerHTML=xhr.responseText; //获取数据直接显示在页面上</code></pre><p>👺异步处理数据(要在请求状态改变事件中处理。)</p><pre><code>1. xhr.onreadystatechange=function()  &#123; 2.    if (xhr.readyState==4 &amp;&amp;xhr.status==200)  &#123; 3.       document.getElementById(&quot;myDiv&quot;).innerHTML=xhr.responseText;  4.      &#125;5.    &#125; </code></pre><h6 id="4-什么是readyState"><a href="#4-什么是readyState" class="headerlink" title="4/什么是readyState?"></a>4/什么是readyState?</h6><p>readyState是XMLHttpRequest对象的一个属性,用来表示当前XMLHttpRequest对象处于什么状态</p><ul><li>0 : 未初始化,尚未调用xhr.open()方法</li><li>1 : 启动,已经调用xhr.open放大,但是未send</li><li>2 : 发送,已经调用xhr.send方法,但是还没有收到响应</li><li>3 : 接收,已经接收到部分响应数据</li><li>4 : 完成,已经接收到全部响应数据,并且可以在客户端使用</li></ul><h6 id="05-GET和POST请求数据区别"><a href="#05-GET和POST请求数据区别" class="headerlink" title="05/GET和POST请求数据区别"></a>05/GET和POST请求数据区别</h6><ul><li>get请求,参数在url中显示,post请求放在send里面</li><li>get请求发送数据量小,Post请求发送数据量比较大</li><li>get请求安全性低,会被缓存,POST反之</li></ul><h5 id="04-AJAX代码"><a href="#04-AJAX代码" class="headerlink" title="04/AJAX代码"></a>04/AJAX代码</h5><pre><code>function verificationParams(requestInfo) &#123;    //地址不能为空    if (!requestInfo.url) &#123;        throw new Error(&#39;输入请求地址&#39;)    &#125;    //判断是异步是否合规    if (typeof requestInfo.async !== &#39;boolean&#39;) &#123;        throw new Error(&#39;async只接受boolean类型数据&#39;)    &#125;    //请求方式    if (!(requestInfo.type.toUpperCase() === &#39;GET&#39; || requestInfo.type.toUpperCase() === &#39;post&#39;)) &#123;        throw new Error(&#39;请求方式有误&#39;)    &#125;&#125;function ajax(params) &#123;    //默认参数对象    let requestInfo=&#123;        type: &#39;GET&#39;,//请求方式        url:&#39;&#39;,        data:&#39;&#39;,//请求参数        datatype:&#39;string&#39;, //数据类型        async:true,//异步还是同步        callBack:function()&#123;&#125; //处理函数        &#125;    for(let item in params)&#123;        requestInfo[item] = params[item]    &#125;    verificationParams(requestInfo)    const &#123; type, url, data, datatype, async, callBack &#125; = requestInfo    //数据类型转换    let str=&#39;&#39;    let dataType = Object.prototype.toString.call(data)    if (dataType===&#39;[object String]&#39;)&#123;        str = data.replace(/,/g,&#39;&amp;&#39;)    &#125; else if (dataType===&#39;[object Object]&#39;)&#123;        for(let attr in data)&#123;            str+=attr+&#39;=&#39;+data[attr]+&#39;&amp;&#39;        &#125;        str=str.slice(0,-1)    &#125;    let xhr = new XMLHttpRequest()    if(type.toUpperCase()===&#39;GET&#39;)&#123;        xhr.open(type.toUpperCase(),url+&#39;?&#39;+str,async)        xhr.send()    &#125;else&#123;        xhr.open(type.toUpperCase(),url,async)        xhr.setRequestHeader(&#39;content-type&#39;, &#39;application/x-www-form-urlencoded&#39;)        xhr.send(str)    &#125;    xhr.onload=function()&#123;        if(datatype===&#39;json&#39;)&#123;            callBack(eval(&#39;(&#39;+xhr.responseText+&#39;)&#39;))        &#125;else&#123;            callBack(xhr.responseText)        &#125;    &#125;&#125;function Ajax(params)&#123;    let promise=new Promise(function(resolve,reject)&#123;        ajax(&#123;            url:params.url,            type:params.type.toUpperCase() || &#39;GET&#39;,            data:params.data ||&#39;&#39;,            datatype:params.datatype || &#39;string&#39;,            async:params.async || true,            callBack:function(res)&#123;                resolve(res)            &#125;        &#125;)    &#125;)    return promise&#125;</code></pre>]]></content>
+      
+      
       <categories>
-        <category>NPM</category>
+          
+          <category> Ajax </category>
+          
+          <category> Axios </category>
+          
       </categories>
-      <tags>
-        <tag>Npm</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title></title>
-    <url>/2020/10/29/JavaScript%E9%98%B2%E6%8A%96%E8%8A%82%E6%B5%81/</url>
-    <content><![CDATA[<blockquote>
-<p>​    复习一下防抖节流及其应用场景</p>
-</blockquote>
-<a id="more"></a>
-
-<h3 id="函数防抖"><a href="#函数防抖" class="headerlink" title="函数防抖"></a>函数防抖</h3><p>在事件被触发的n秒后再执行回调,如果在这n秒内又被触发,则重新计时</p>
-<pre><code>function debounse(fun, delay) &#123;
-    let timer;
-    // 设置一个 timer
-    return function (args) &#123;
-      let _this = this
-      // 取debounce执行作用域的this
-      let _args = args
-      clearTimeout(timer)
-      timer = setTimeout(function () &#123;
-        fun.call(_this, args);
-      &#125;, delay);
-    &#125;
-  &#125;</code></pre>
-<h3 id="函数节流"><a href="#函数节流" class="headerlink" title="函数节流"></a>函数节流</h3><p>规定在一个单位时间内，只能触发一次函数。如果这个单位时间内触发多次函数，只有一次生效。</p>
-<pre><code>function throttle(fun, delay) &#123;
-    let last, deferTimer
-    return function (args) &#123;
-      let _this = this
-      let _args = arguments
-      let now = +new Date()
-      if (last &amp;&amp; now &lt; last + delay) &#123;
-        clearTimeout(deferTimer)
-        deferTimer = setTimeout(function () &#123;
-          last = now
-          fun.apply(_this, _args)
-        &#125;, delay)
-      &#125; else &#123;
-        last = now
-        fun.apply(_this, _args)
-      &#125;
-    &#125;
-  &#125;</code></pre>
-<h3 id="demo"><a href="#demo" class="headerlink" title="demo:"></a>demo:</h3><h5 id="模拟ajax请求"><a href="#模拟ajax请求" class="headerlink" title="模拟ajax请求"></a>模拟ajax请求</h5><pre><code>function ajax(params) &#123;
-    console.log(&#39;ajax request : &#39; + params)
-&#125;</code></pre>
-<h5 id="未加入节流"><a href="#未加入节流" class="headerlink" title="未加入节流:"></a>未加入节流:</h5><p><img src="https://user-gold-cdn.xitu.io/2018/9/4/165a252be5c94d6b?imageslim"></p>
-<h5 id="加入防抖"><a href="#加入防抖" class="headerlink" title="加入防抖:"></a>加入防抖:</h5><p><img src="https://user-gold-cdn.xitu.io/2018/9/4/165a252b4b429b56?imageslim"></p>
-<h5 id="加入节流"><a href="#加入节流" class="headerlink" title="加入节流:"></a>加入节流:</h5><p><img src="https://user-gold-cdn.xitu.io/2018/9/4/165a252b4c1a9686?imageslim"></p>
-<h3 id="demo代码"><a href="#demo代码" class="headerlink" title="demo代码"></a>demo代码</h3><pre><code>&lt;!DOCTYPE html&gt;
-&lt;html lang=&quot;en&quot;&gt;
-
-&lt;head&gt;
-  &lt;meta charset=&quot;UTF-8&quot;&gt;
-  &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
-  &lt;title&gt;Document&lt;/title&gt;
-&lt;/head&gt;
-
-&lt;body&gt;
-  没有防抖的Input &lt;input type=&quot;text&quot; class=&quot;unDebounce&quot;&gt;
-  &lt;br&gt;
-  加入防抖的Input &lt;input type=&quot;text&quot; class=&quot;debounce&quot;&gt;
-  &lt;br&gt;
-  加入截留的Input &lt;input type=&quot;text&quot; class=&quot;htrottle&quot;&gt;
-&lt;/body&gt;
-
-&lt;script&gt;
-  function ajax(params) &#123;
-    console.log(&#39;ajax request : &#39; + params)
-  &#125;
-
-  let inputValue0 = document.querySelector(&#39;.unDebounce&#39;)
-
-  inputValue0.addEventListener(&#39;keyup&#39;, function (e) &#123;
-    ajax(e.target.value)
-  &#125;)
-  /**********************防抖********************************/
-
-  function debounse(fun, delay) &#123;
-    let timer;
-    // 设置一个 timer
-    return function (args) &#123;
-      let _this = this
-      // 取debounce执行作用域的this
-      let _args = args
-      clearTimeout(timer)
-      timer = setTimeout(function () &#123;
-        fun.call(_this, args);
-      &#125;, delay);
-    &#125;
-  &#125;
-
-  let inputValue1 = document.querySelector(&#39;.debounce&#39;)
-
-  let debounse_ajax = debounse(ajax, 500)
-
-  inputValue1.addEventListener(&#39;keyup&#39;, function (e) &#123;
-    debounse_ajax(e.target.value)
-  &#125;)
-
-  /**********************节流********************************/
-
-  function throttle(fun, delay) &#123;
-    let last, deferTimer
-    return function (args) &#123;
-      let _this = this
-      let _args = arguments
-      let now = +new Date()
-      if (last &amp;&amp; now &lt; last + delay) &#123;
-        clearTimeout(deferTimer)
-        deferTimer = setTimeout(function () &#123;
-          last = now
-          fun.apply(_this, _args)
-        &#125;, delay)
-      &#125; else &#123;
-        last = now
-        fun.apply(_this, _args)
-      &#125;
-    &#125;
-  &#125;
-  let inputValue2 = document.querySelector(&#39;.htrottle&#39;)
-
-  let htrottle_ajax = throttle(ajax, 2000)
-
-  inputValue2.addEventListener(&#39;keyup&#39;, function (e) &#123;
-    htrottle_ajax(e.target.value)
-  &#125;)
-&lt;/script&gt;
-
-&lt;/html&gt;</code></pre>
-]]></content>
-  </entry>
-  <entry>
-    <title>JSON-Server</title>
-    <url>/2020/10/28/Json-server/</url>
-    <content><![CDATA[<a id="more"></a>
-
-<h1 id="json-server"><a href="#json-server" class="headerlink" title="json-server"></a>json-server</h1><p>json-server 是什么？如何使用？</p>
-<blockquote>
-<p>json-server 是一个 npm 管理的包，可以提供前端提供mock的功能。</p>
-</blockquote>
-<h2 id="json-server-的使用"><a href="#json-server-的使用" class="headerlink" title="json-server 的使用"></a>json-server 的使用</h2><h4 id="1-安装"><a href="#1-安装" class="headerlink" title="1/安装"></a>1/安装</h4><p>全局安装:</p>
-<pre><code>- yarn global add json-server
-
-- npm install -g json-server </code></pre>
-<h4 id="2-提供一个json数据的文件"><a href="#2-提供一个json数据的文件" class="headerlink" title="2.提供一个json数据的文件"></a>2.提供一个json数据的文件</h4><h4 id="3-使用json-server命令开启一个端口服务"><a href="#3-使用json-server命令开启一个端口服务" class="headerlink" title="3.使用json-server命令开启一个端口服务"></a>3.使用json-server命令开启一个端口服务</h4><pre><code>json-server --watch --port 3000 test.json</code></pre>
-<h4 id="4-接口的使用"><a href="#4-接口的使用" class="headerlink" title="4.接口的使用:"></a>4.接口的使用:</h4><blockquote>
-<ol>
-<li>列表</li>
-</ol>
-</blockquote>
-<blockquote>
-<ol start="2">
-<li>详情</li>
-</ol>
-</blockquote>
-<blockquote>
-<ol start="3">
-<li>分页</li>
-</ol>
-</blockquote>
-<blockquote>
-<ol start="4">
-<li>排序</li>
-</ol>
-</blockquote>
-<blockquote>
-<ol start="5">
-<li>全局查询<br>需要使用第三方接口调试工具的(postman)</li>
-</ol>
-</blockquote>
-<blockquote>
-<ol start="6">
-<li>提供 增加（post）、</li>
-</ol>
-</blockquote>
-<blockquote>
-<ol start="7">
-<li>删除(delete)、</li>
-</ol>
-</blockquote>
-<blockquote>
-<ol start="8">
-<li>更新(put)</li>
-</ol>
-</blockquote>
-<p>我们常见的接口：都是 get 或者 post 请求一个 url 地址即可。<br>json-server 除了常见的 get 或者 post ，还提供了诸如 put 、delete 这样的HTTP请求方式，<strong>对于这种使用 http请求方式 + 请求url地址 形成的 api ，我们一般叫做 RESTFul 风格的api</strong>, <em>RESTFul 风格的api底层遵循的是 REST 架构这种协议。</em></p>
-<p>倒叙:<a href="http://localhost:3000/news?sort=id&amp;order=desc">http://localhost:3000/news?sort=id&amp;order=desc</a> </p>
-]]></content>
+      
+      
+        <tags>
+            
+            <tag> Ajax </tag>
+            
+            <tag> Axios </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>盒模型,BFC</title>
+      <link href="2020/10/28/%E7%9B%92%E6%A8%A1%E5%9E%8B/"/>
+      <url>2020/10/28/%E7%9B%92%E6%A8%A1%E5%9E%8B/</url>
+      
+        <content type="html"><![CDATA[<blockquote><p>   关于盒模型的一些总结</p></blockquote><a id="more"></a><h4 id="盒模型"><a href="#盒模型" class="headerlink" title="盒模型"></a>盒模型</h4><h5 id="标准盒模型-box-sizing-content-box"><a href="#标准盒模型-box-sizing-content-box" class="headerlink" title="标准盒模型(box-sizing:content-box)"></a>标准盒模型(box-sizing:content-box)</h5><pre><code>width = content width;height = content height;</code></pre><h5 id="怪异盒模型-box-sizing-border-box"><a href="#怪异盒模型-box-sizing-border-box" class="headerlink" title="怪异盒模型(box-sizing:border-box)"></a>怪异盒模型(box-sizing:border-box)</h5><pre><code>width = content width + padding + border;height = content height + padding + border;</code></pre><h4 id="BFC"><a href="#BFC" class="headerlink" title="BFC"></a>BFC</h4><h5 id="01-什么是BFC"><a href="#01-什么是BFC" class="headerlink" title="01/什么是BFC?"></a>01/什么是BFC?</h5><p>块级格式化上下文</p><p>BFC是Web页面的可视CSS渲染的一部分，是块盒子的布局过程发生的区域，也是浮动元素与其他元素交互的区域。</p><h5 id="02-建立BFC"><a href="#02-建立BFC" class="headerlink" title="02/建立BFC"></a>02/建立BFC</h5><ul><li>浮动</li><li>绝对定位</li><li>行内块元素</li><li>表格单元</li><li>弹性盒</li><li>overflow不为visible</li></ul><h5 id="03-BFC应用场景"><a href="#03-BFC应用场景" class="headerlink" title="03/BFC应用场景"></a>03/BFC应用场景</h5><ul><li>清除浮动</li><li>阻止元素被浮动元素覆盖</li><li>实现两列自适应布局</li></ul>]]></content>
+      
+      
       <categories>
-        <category>Json-server</category>
+          
+          <category> Css </category>
+          
+          <category> 盒模型 </category>
+          
+          <category> BFC </category>
+          
       </categories>
-      <tags>
-        <tag>Json-server</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>JSONP跨域请求及其原理</title>
-    <url>/2020/10/28/JsonP/</url>
-    <content><![CDATA[<p>JSONP及其原理</p>
-<a id="more"></a>
-
-<h5 id="1-JSONP的产生"><a href="#1-JSONP的产生" class="headerlink" title="1/JSONP的产生"></a>1/JSONP的产生</h5><p><strong>背景:</strong></p>
-<ul>
-<li><p>因为浏览器同源策略限制,AJAX跨域请求不到信息</p>
-</li>
-<li><p>Web页面上面调用js文件不受是否跨域影响(类似的还有<code>&lt;script&gt;</code>,<code>&lt;IMG&gt;</code>,<code>&lt;iframe&gt;</code>)</p>
-</li>
-<li><p>于是可以判断，当前阶段如果想通过纯web端（ActiveX控件、服务端代理、Web socket等方式不算）跨域访问数据就只有一种可能，那就是在远程服务器上设法把数据装进js格式的文件里，供客户端调用和进一步处理；</p>
-</li>
-<li><p>恰巧我们已经知道有一种叫做JSON的纯字符数据格式可以简洁的描述复杂数据，更妙的是JSON还被JS原生支持，所以在客户端几乎可以随心所欲的处理这种格式的数据；</p>
-</li>
-<li><p>客户端在对JSON文件调用成功之后,也就获得了自己所需要的数据,剩下的就是按自己的需求进行处理和展现了</p>
-</li>
-<li><p>为了方便客户使用数据,逐渐形成了一种非正式传输协议—JSONP.</p>
-<blockquote>
-<p>该协议允许用户传递一个callback参数给服务端,然后服务端返回数据时会将这个callback参数坐会函数名来包裹JSON数据,这样客户端就可以随意订制自己的函数来自动处理返回函数了</p>
-</blockquote>
-</li>
-</ul>
-]]></content>
+      
+      
+        <tags>
+            
+            <tag> 盒模型 </tag>
+            
+            <tag> BFC </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>DOM事件 , 事件流</title>
+      <link href="2020/10/28/DOM%E4%BA%8B%E4%BB%B6%E6%B5%81/"/>
+      <url>2020/10/28/DOM%E4%BA%8B%E4%BB%B6%E6%B5%81/</url>
+      
+        <content type="html"><![CDATA[<blockquote><p>DOM事件, 事件流</p></blockquote><a id="more"></a><h3 id="DOM事件"><a href="#DOM事件" class="headerlink" title="DOM事件"></a>DOM事件</h3><blockquote><p>事件是指JavaScript与HTML交互的基础.要实现用户与页面的交互,先要对目标元素绑定特定的事件,设置事件处理函数,用户触发事件,事件处理函数执行,产生交互效果</p></blockquote><h4 id="DOM事件级别"><a href="#DOM事件级别" class="headerlink" title="DOM事件级别"></a>DOM事件级别</h4><p>DOM 级别分为四个级别：DOM0 级、DOM1 级、DOM2 级、DOM3 级；<br><img src="https://s1.ax1x.com/2020/10/28/B1JoY4.md.jpg" alt="B1JoY4.md.jpg"></p><p>DOM事件分为三个级别:<br>DOM0 级事件</p><pre><code>&lt;button id=&quot;btn&quot; type=&quot;button&quot;&gt;&lt;/button&gt;&lt;script&gt;    var btn = document.getElementById(&#39;btn&#39;)    btn.onclick = function() &#123;        console.log(&#39;Hello World&#39;)    &#125;    // btn.onclick = null // 解绑事件&lt;/script&gt;</code></pre><blockquote><p>   缺点：无法设置多个事件处理函数</p></blockquote><p>DOM2 级事件</p><pre><code>&lt;button id=&quot;btn&quot; type=&quot;button&quot;&gt;&lt;/button&gt;&lt;script&gt;    var btn = document.getElementById(&#39;btn&#39;);        btn.addEventListener(&#39;click&#39;, showFn, false)    btn.addEventListener(&#39;click&#39;, showFn2, false)    // btn.removeEventListener(&#39;click&#39;, showFn, false) // 解绑事件     function showFn() &#123;        alert(&#39;Hello World&#39;);    &#125;     function showFn2() &#123;        alert(&#39;Hello World2&#39;);    &#125; &lt;/script&gt;</code></pre><blockquote><p>可以为事件设置多个事件处理函数，可以通过第三个参数 ( useCapture ) 设置在什么阶段执行事件处理函数，默认是 false， 即在事件冒泡阶段执行事件处理函数。</p></blockquote><blockquote><p>需要注意的是在 IE8 及以下版本需要用 attachEvent 和 detachEvent 实现，只有两个参数，事件名需要以 on 开头，只支持在事件冒泡阶段执行事件处理函数。</p></blockquote><p>DOM3 级事件</p><blockquote><p>DOM3 级事件是在 DOM2 级事件的基础上添加了更多的事件类型，允许自定义事件。</p></blockquote><p>UI事件，当用户与页面上的元素交互时触发，如：load、scroll<br>焦点事件，当元素获得或失去焦点时触发，如：blur、focus<br>鼠标事件，当用户通过鼠标在页面执行操作时触发如：dbclick、mouseup<br>滚轮事件，当使用鼠标滚轮或类似设备时触发，如：mousewheel<br>文本事件，当在文档中输入文本时触发，如：textInput<br>键盘事件，当用户通过键盘在页面上执行操作时触发，如：keydown、keypress<br>合成事件，当为IME（输入法编辑器）输入字符时触发，如：compositionstart<br>变动事件，当底层DOM结构发生变化时触发，如：DOMsubtreeModified</p><pre><code>// 自定义事件var event = new Event(&#39;test&#39;)// 给元素绑定事件domElement.addEventListener(&#39;test&#39;, function() &#123;    console.log(&#39;event test&#39;)&#125;,)// 触发事件setTimeout(function() &#123;    domElement.dispatchEvent(event)&#125;, 1000)</code></pre><h3 id="DOM事件流"><a href="#DOM事件流" class="headerlink" title="DOM事件流"></a>DOM事件流</h3><blockquote><p>事件流又称为事件传播，描述的是从<strong>页面中接收事件的顺序</strong>。</p><p>DOM2 级事件规定事件流包括三个阶段: </p><ul><li>事件捕获(capturing phase)</li><li>目标事件(target phase)</li><li>事件冒泡(bubbling phase)</li></ul><p>发生的顺序是：事件捕获阶段 –&gt; 目标事件阶段 –&gt; 事件冒泡阶段</p></blockquote><p><img src="https://s1.ax1x.com/2020/10/28/B1tIz9.png" alt="B1tIz9.png"></p><h4 id="事件冒泡"><a href="#事件冒泡" class="headerlink" title="事件冒泡"></a>事件冒泡</h4><blockquote><p>​    事件起始元素逐级向上传播</p></blockquote><pre><code>&lt;style&gt;  #parent &#123;      width: 200px;      height: 200px;      background-color: green;  &#125;  #child &#123;      width: 100px;      height: 100px;      background-color: yellow;  &#125;&lt;/style&gt;&lt;div id=&quot;parent&quot;&gt;  &lt;div id=&quot;child&quot;&gt;目标元素&lt;/div&gt;  父级元素&lt;/div&gt;&lt;script&gt;  var parent = document.getElementById(&#39;parent&#39;)  var child = document.getElementById(&#39;child&#39;)  parent.addEventListener(&#39;click&#39;, function(e) &#123;      console.log(&#39;parent bubbling&#39;)  &#125;, false)  child.addEventListener(&#39;click&#39;, function() &#123;      console.log(&#39;target bubbling&#39;)  &#125;, false)  document.body.addEventListener(&#39;click&#39;, function() &#123;      console.log(&#39;body bubbling&#39;)  &#125;, false)  document.documentElement.addEventListener(&#39;click&#39;, function() &#123;      console.log(&#39;html bubbling&#39;)  &#125;, false)  document.addEventListener(&#39;click&#39;, function() &#123;      console.log(&#39;document bubbling&#39;)  &#125;, false)  window.addEventListener(&#39;click&#39;, function() &#123;      console.log(&#39;window bubbling&#39;)  &#125;, false)&lt;/script&gt;</code></pre><p>运行结果：</p><p><img src="https://s1.ax1x.com/2020/10/28/B1UStU.gif" alt="B1UStU.gif"></p><h4 id="事件捕获"><a href="#事件捕获" class="headerlink" title="事件捕获"></a>事件捕获</h4><blockquote><p>​    事件按 window -&gt; document -&gt; html -&gt; body -&gt; … -&gt; 目标元素 的方向向下层元素传递。</p></blockquote><pre><code>&lt;style&gt;  #parent &#123;      width: 200px;      height: 200px;      background-color: green;  &#125;  #child &#123;      width: 100px;      height: 100px;      background-color: yellow;  &#125;&lt;/style&gt;&lt;div id=&quot;parent&quot;&gt;  &lt;div id=&quot;child&quot;&gt;目标元素&lt;/div&gt;  父级元素&lt;/div&gt;&lt;script&gt;  var parent = document.getElementById(&#39;parent&#39;)  var child = document.getElementById(&#39;child&#39;)  parent.addEventListener(&#39;click&#39;, function(e) &#123;      console.log(&#39;parent capture&#39;)  &#125;, true)  child.addEventListener(&#39;click&#39;, function() &#123;      console.log(&#39;target capture&#39;)  &#125;, true)  document.body.addEventListener(&#39;click&#39;, function() &#123;      console.log(&#39;body capture&#39;)  &#125;, true)  document.documentElement.addEventListener(&#39;click&#39;, function() &#123;      console.log(&#39;html capture&#39;)  &#125;, true)  document.addEventListener(&#39;click&#39;, function() &#123;      console.log(&#39;document capture&#39;)  &#125;, true)  window.addEventListener(&#39;click&#39;, function() &#123;      console.log(&#39;window capture&#39;)  &#125;, true)&lt;/script&gt;</code></pre><p>运行结果:</p><p><img src="https://s1.ax1x.com/2020/10/28/B1UCp4.gif" alt="B1UCp4.gif"></p>]]></content>
+      
+      
       <categories>
-        <category>JSONP</category>
+          
+          <category> JavaScript </category>
+          
       </categories>
-      <tags>
-        <tag>JSONP</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Ajax</title>
-    <url>/2020/10/28/Ajax/</url>
-    <content><![CDATA[<a id="more"></a>
-
-<h5 id="AJAX"><a href="#AJAX" class="headerlink" title="AJAX"></a>AJAX</h5><h5 id="01-ajax是什么"><a href="#01-ajax是什么" class="headerlink" title="01-ajax是什么"></a>01-ajax是什么</h5><blockquote>
-<p>​    JavaScript执行异步网络请求</p>
-</blockquote>
-<p><img src="https://s1.ax1x.com/2020/10/28/B3MoX8.png"></p>
-<h5 id="02-ajax原理"><a href="#02-ajax原理" class="headerlink" title="02-ajax原理"></a>02-ajax原理</h5><p><strong>现在浏览器AJAX主要依靠XMLHttpRequest对象实现</strong></p>
-<p><img src="https://s1.ax1x.com/2020/10/28/B3l0sK.png"></p>
-<h5 id="03-创建ajax"><a href="#03-创建ajax" class="headerlink" title="03 - 创建ajax"></a>03 - 创建ajax</h5><h6 id="1-创建Ajax核心对象XMLHttpRequest"><a href="#1-创建Ajax核心对象XMLHttpRequest" class="headerlink" title="1/创建Ajax核心对象XMLHttpRequest"></a>1/创建Ajax核心对象XMLHttpRequest</h6><pre><code>var xhr = null ;
-if(window.XMLHttpRequest)&#123;
-    xhr = new XMLHttpRequest()
-&#125;else&#123;
-    xhr = new ActiveXobject(&quot;Microsoft.XMLHTTP&quot;)
-&#125;</code></pre>
-<h6 id="2-向服务器发送请求"><a href="#2-向服务器发送请求" class="headerlink" title="2/向服务器发送请求"></a>2/向服务器发送请求</h6><pre><code>xhr.open(method,url,async:boolean)
-xhr.send(string); //POST请求时候采用string参数,否则不需要带参数</code></pre>
-<ul>
-<li><strong>method</strong> : GET/POST</li>
-<li>**url:**请求链接(位置)</li>
-<li>**async:**是否异步</li>
-</ul>
-<pre><code>xhr.open(&quot;POST&quot;,&quot;test.html&quot;,true);  
-xhr.setRequestHeader(&quot;Content-type&quot;,&quot;application/x-www-form-urlencoded&quot;);  
-xhr.send(&quot;fname=Henry&amp;lname=Ford&quot;);  //post请求参数放在send里面，即请求体</code></pre>
-<h6 id="3-服务器响应处理-区分同步-异步情况"><a href="#3-服务器响应处理-区分同步-异步情况" class="headerlink" title="3/服务器响应处理(区分同步/异步情况)"></a>3/服务器响应处理(区分同步/异步情况)</h6><ul>
-<li>responseText:获得字符串形式的响应数据</li>
-<li>ResponseXML:获得XML形式的响应数据</li>
-</ul>
-<p>👹同步处理数据</p>
-<pre><code>1. xhr.open(&quot;GET&quot;,&quot;info.txt&quot;,false);  
-2. xhr.send();  
-3. document.getElementById(&quot;myDiv&quot;).innerHTML=xhr.responseText; //获取数据直接显示在页面上</code></pre>
-<p>👺异步处理数据(要在请求状态改变事件中处理。)</p>
-<pre><code>1. xhr.onreadystatechange=function()  &#123; 
-2.    if (xhr.readyState==4 &amp;&amp;xhr.status==200)  &#123; 
-3.       document.getElementById(&quot;myDiv&quot;).innerHTML=xhr.responseText;  
-4.      &#125;
-5.    &#125; </code></pre>
-<h6 id="4-什么是readyState"><a href="#4-什么是readyState" class="headerlink" title="4/什么是readyState?"></a>4/什么是readyState?</h6><p>readyState是XMLHttpRequest对象的一个属性,用来表示当前XMLHttpRequest对象处于什么状态</p>
-<ul>
-<li>0 : 未初始化,尚未调用xhr.open()方法</li>
-<li>1 : 启动,已经调用xhr.open放大,但是未send</li>
-<li>2 : 发送,已经调用xhr.send方法,但是还没有收到响应</li>
-<li>3 : 接收,已经接收到部分响应数据</li>
-<li>4 : 完成,已经接收到全部响应数据,并且可以在客户端使用</li>
-</ul>
-<h6 id="05-GET和POST请求数据区别"><a href="#05-GET和POST请求数据区别" class="headerlink" title="05/GET和POST请求数据区别"></a>05/GET和POST请求数据区别</h6><ul>
-<li>get请求,参数在url中显示,post请求放在send里面</li>
-<li>get请求发送数据量小,Post请求发送数据量比较大</li>
-<li>get请求安全性低,会被缓存,POST反之</li>
-</ul>
-<h5 id="04-AJAX代码"><a href="#04-AJAX代码" class="headerlink" title="04/AJAX代码"></a>04/AJAX代码</h5><pre><code>function verificationParams(requestInfo) &#123;
-    //地址不能为空
-    if (!requestInfo.url) &#123;
-        throw new Error(&#39;输入请求地址&#39;)
-    &#125;
-
-    //判断是异步是否合规
-    if (typeof requestInfo.async !== &#39;boolean&#39;) &#123;
-        throw new Error(&#39;async只接受boolean类型数据&#39;)
-    &#125;
-
-    //请求方式
-    if (!(requestInfo.type.toUpperCase() === &#39;GET&#39; || requestInfo.type.toUpperCase() === &#39;post&#39;)) &#123;
-        throw new Error(&#39;请求方式有误&#39;)
-    &#125;
-&#125;
-
-function ajax(params) &#123;
-    //默认参数对象
-    let requestInfo=&#123;
-        type: &#39;GET&#39;,//请求方式
-        url:&#39;&#39;,
-        data:&#39;&#39;,//请求参数
-        datatype:&#39;string&#39;, //数据类型
-        async:true,//异步还是同步
-        callBack:function()&#123;&#125; //处理函数    
-    &#125;
-
-    for(let item in params)&#123;
-        requestInfo[item] = params[item]
-    &#125;
-
-    verificationParams(requestInfo)
-
-    const &#123; type, url, data, datatype, async, callBack &#125; = requestInfo
-
-    //数据类型转换
-    let str=&#39;&#39;
-    let dataType = Object.prototype.toString.call(data)
-    if (dataType===&#39;[object String]&#39;)&#123;
-        str = data.replace(/,/g,&#39;&amp;&#39;)
-    &#125; else if (dataType===&#39;[object Object]&#39;)&#123;
-        for(let attr in data)&#123;
-            str+=attr+&#39;=&#39;+data[attr]+&#39;&amp;&#39;
-        &#125;
-        str=str.slice(0,-1)
-    &#125;
-
-    let xhr = new XMLHttpRequest()
-
-    if(type.toUpperCase()===&#39;GET&#39;)&#123;
-        xhr.open(type.toUpperCase(),url+&#39;?&#39;+str,async)
-        xhr.send()
-    &#125;else&#123;
-        xhr.open(type.toUpperCase(),url,async)
-        xhr.setRequestHeader(&#39;content-type&#39;, &#39;application/x-www-form-urlencoded&#39;)
-        xhr.send(str)
-    &#125;
-    xhr.onload=function()&#123;
-        if(datatype===&#39;json&#39;)&#123;
-            callBack(eval(&#39;(&#39;+xhr.responseText+&#39;)&#39;))
-        &#125;else&#123;
-            callBack(xhr.responseText)
-        &#125;
-    &#125;
-&#125;
-
-function Ajax(params)&#123;
-    let promise=new Promise(function(resolve,reject)&#123;
-        ajax(&#123;
-            url:params.url,
-            type:params.type.toUpperCase() || &#39;GET&#39;,
-            data:params.data ||&#39;&#39;,
-            datatype:params.datatype || &#39;string&#39;,
-            async:params.async || true,
-            callBack:function(res)&#123;
-                resolve(res)
-            &#125;
-        &#125;)
-    &#125;)
-    return promise
-&#125;</code></pre>
-]]></content>
+      
+      
+        <tags>
+            
+            <tag> DOM事件事件流 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>原型,原型链</title>
+      <link href="2020/10/26/%E5%8E%9F%E5%9E%8B%E5%8E%9F%E5%9E%8B%E9%93%BE/"/>
+      <url>2020/10/26/%E5%8E%9F%E5%9E%8B%E5%8E%9F%E5%9E%8B%E9%93%BE/</url>
+      
+        <content type="html"><![CDATA[<blockquote><p>​    原型原型链</p></blockquote><a id="more"></a>]]></content>
+      
+      
       <categories>
-        <category>Ajax</category>
-        <category>Axios</category>
+          
+          <category> 原型,原型链 </category>
+          
       </categories>
-      <tags>
-        <tag>Ajax</tag>
-        <tag>Axios</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>盒模型,BFC</title>
-    <url>/2020/10/28/%E7%9B%92%E6%A8%A1%E5%9E%8B/</url>
-    <content><![CDATA[<blockquote>
-<p>   关于盒模型的一些总结</p>
-</blockquote>
-<a id="more"></a>
-<h4 id="盒模型"><a href="#盒模型" class="headerlink" title="盒模型"></a>盒模型</h4><h5 id="标准盒模型-box-sizing-content-box"><a href="#标准盒模型-box-sizing-content-box" class="headerlink" title="标准盒模型(box-sizing:content-box)"></a>标准盒模型(box-sizing:content-box)</h5><pre><code>width = content width;
-height = content height;</code></pre>
-<h5 id="怪异盒模型-box-sizing-border-box"><a href="#怪异盒模型-box-sizing-border-box" class="headerlink" title="怪异盒模型(box-sizing:border-box)"></a>怪异盒模型(box-sizing:border-box)</h5><pre><code>width = content width + padding + border;
-height = content height + padding + border;</code></pre>
-<h4 id="BFC"><a href="#BFC" class="headerlink" title="BFC"></a>BFC</h4><h5 id="01-什么是BFC"><a href="#01-什么是BFC" class="headerlink" title="01/什么是BFC?"></a>01/什么是BFC?</h5><p>块级格式化上下文</p>
-<p>BFC是Web页面的可视CSS渲染的一部分，是块盒子的布局过程发生的区域，也是浮动元素与其他元素交互的区域。</p>
-<h5 id="02-建立BFC"><a href="#02-建立BFC" class="headerlink" title="02/建立BFC"></a>02/建立BFC</h5><ul>
-<li>浮动</li>
-<li>绝对定位</li>
-<li>行内块元素</li>
-<li>表格单元</li>
-<li>弹性盒</li>
-<li>overflow不为visible</li>
-</ul>
-<h5 id="03-BFC应用场景"><a href="#03-BFC应用场景" class="headerlink" title="03/BFC应用场景"></a>03/BFC应用场景</h5><ul>
-<li>清除浮动</li>
-<li>阻止元素被浮动元素覆盖</li>
-<li>实现两列自适应布局</li>
-</ul>
-]]></content>
+      
+      
+        <tags>
+            
+            <tag> JavaScript </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>浏览器解析js流程</title>
+      <link href="2020/10/26/Js%E8%A7%A3%E6%9E%90%E6%B5%81%E7%A8%8B/"/>
+      <url>2020/10/26/Js%E8%A7%A3%E6%9E%90%E6%B5%81%E7%A8%8B/</url>
+      
+        <content type="html"><![CDATA[<blockquote><p>浏览器解析js流程</p></blockquote><a id="more"></a><h4 id="JS解析"><a href="#JS解析" class="headerlink" title="JS解析"></a>JS解析</h4><p><a href="https://imgchr.com/i/BufjDe"><img src="https://s1.ax1x.com/2020/10/26/BufjDe.png" alt="BufjDe.png"></a></p><p>js解析是由浏览器的就是解析引擎完成的.</p><p>js是单线程运行,也就是说同时只能做一件事,所有任务都需要排队,</p><p>为了解决某些任务比较耗时,需要一种机制来使其可以执行排在后面的任务,就出现了同步任务和异步任务</p><p>JS执行机制可以看做一个主线程加上一个任务队列.</p><p>同步任务就是主线程上面执行的任务 , 异步任务就是放在任务队列的任务</p><p>所有的同步任务都在主线程上面执行,形成一个执行栈</p><p>异步任务有了运行结果就会在任务队列中放置一个事件,脚本运行时依次运行执行栈,然后会从任务队列中提取事件,</p><p>运行任务队列中的任务,该过程是不断重复的,所以又叫做事件循环(Event loop)</p><ul><li>浏览器在解析过程中，如果遇到请求外部资源时，如图像,iconfont,JS等。浏览器将重复1-6过程下载该资源。</li><li>请求过程是异步的，并不会影响HTML文档进行加载，但是当文档加载过程中遇到JS文件，HTML文档会挂起渲染过程，不仅要等到文档中JS文件加载完毕还要等待解析执行完毕，才会继续HTML的渲染过程。</li><li>原因是因为JS有可能修改DOM结构，这就意味着JS执行完成前，后续所有资源的下载是没有必要的，这就是JS阻塞后续资源下载的根本原因。</li><li>CSS文件的加载不影响JS文件的加载，但是却影响JS文件的执行。JS代码执行前浏览器必须保证CSS文件已经下载并加载完毕。</li></ul>]]></content>
+      
+      
       <categories>
-        <category>Css</category>
-        <category>盒模型</category>
-        <category>BFC</category>
+          
+          <category> 浏览器 </category>
+          
       </categories>
-      <tags>
-        <tag>盒模型</tag>
-        <tag>BFC</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>DOM事件 , 事件流</title>
-    <url>/2020/10/28/DOM%E4%BA%8B%E4%BB%B6%E6%B5%81/</url>
-    <content><![CDATA[<blockquote>
-<p>DOM事件, 事件流</p>
-</blockquote>
-<a id="more"></a>
-
-<h3 id="DOM事件"><a href="#DOM事件" class="headerlink" title="DOM事件"></a>DOM事件</h3><blockquote>
-<p>事件是指JavaScript与HTML交互的基础.要实现用户与页面的交互,先要对目标元素绑定特定的事件,设置事件处理函数,用户触发事件,事件处理函数执行,产生交互效果</p>
-</blockquote>
-<h4 id="DOM事件级别"><a href="#DOM事件级别" class="headerlink" title="DOM事件级别"></a>DOM事件级别</h4><p>DOM 级别分为四个级别：DOM0 级、DOM1 级、DOM2 级、DOM3 级；<br><img src="https://s1.ax1x.com/2020/10/28/B1JoY4.md.jpg" alt="B1JoY4.md.jpg"></p>
-<p>DOM事件分为三个级别:<br>DOM0 级事件</p>
-<pre><code>&lt;button id=&quot;btn&quot; type=&quot;button&quot;&gt;&lt;/button&gt;
-&lt;script&gt;
-    var btn = document.getElementById(&#39;btn&#39;)
-    btn.onclick = function() &#123;
-        console.log(&#39;Hello World&#39;)
-    &#125;
-    // btn.onclick = null // 解绑事件
-&lt;/script&gt;</code></pre>
-<blockquote>
-<p>   缺点：无法设置多个事件处理函数</p>
-</blockquote>
-<p>DOM2 级事件</p>
-<pre><code>&lt;button id=&quot;btn&quot; type=&quot;button&quot;&gt;&lt;/button&gt;
-&lt;script&gt;
-    var btn = document.getElementById(&#39;btn&#39;);    
-    btn.addEventListener(&#39;click&#39;, showFn, false)
-    btn.addEventListener(&#39;click&#39;, showFn2, false)
-    // btn.removeEventListener(&#39;click&#39;, showFn, false) // 解绑事件 
-    function showFn() &#123;
-        alert(&#39;Hello World&#39;);
-    &#125;
-     function showFn2() &#123;
-        alert(&#39;Hello World2&#39;);
-    &#125; 
-&lt;/script&gt;</code></pre>
-<blockquote>
-<p>可以为事件设置多个事件处理函数，可以通过第三个参数 ( useCapture ) 设置在什么阶段执行事件处理函数，默认是 false， 即在事件冒泡阶段执行事件处理函数。</p>
-</blockquote>
-<blockquote>
-<p>需要注意的是在 IE8 及以下版本需要用 attachEvent 和 detachEvent 实现，只有两个参数，事件名需要以 on 开头，只支持在事件冒泡阶段执行事件处理函数。</p>
-</blockquote>
-<p>DOM3 级事件</p>
-<blockquote>
-<p>DOM3 级事件是在 DOM2 级事件的基础上添加了更多的事件类型，允许自定义事件。</p>
-</blockquote>
-<p>UI事件，当用户与页面上的元素交互时触发，如：load、scroll<br>焦点事件，当元素获得或失去焦点时触发，如：blur、focus<br>鼠标事件，当用户通过鼠标在页面执行操作时触发如：dbclick、mouseup<br>滚轮事件，当使用鼠标滚轮或类似设备时触发，如：mousewheel<br>文本事件，当在文档中输入文本时触发，如：textInput<br>键盘事件，当用户通过键盘在页面上执行操作时触发，如：keydown、keypress<br>合成事件，当为IME（输入法编辑器）输入字符时触发，如：compositionstart<br>变动事件，当底层DOM结构发生变化时触发，如：DOMsubtreeModified</p>
-<pre><code>// 自定义事件
-var event = new Event(&#39;test&#39;)
-// 给元素绑定事件
-domElement.addEventListener(&#39;test&#39;, function() &#123;
-    console.log(&#39;event test&#39;)
-&#125;,)
-
-// 触发事件
-setTimeout(function() &#123;
-    domElement.dispatchEvent(event)
-&#125;, 1000)
-</code></pre>
-<h3 id="DOM事件流"><a href="#DOM事件流" class="headerlink" title="DOM事件流"></a>DOM事件流</h3><blockquote>
-<p>事件流又称为事件传播，描述的是从<strong>页面中接收事件的顺序</strong>。</p>
-<p>DOM2 级事件规定事件流包括三个阶段: </p>
-<ul>
-<li>事件捕获(capturing phase)</li>
-<li>目标事件(target phase)</li>
-<li>事件冒泡(bubbling phase)</li>
-</ul>
-<p>发生的顺序是：事件捕获阶段 –&gt; 目标事件阶段 –&gt; 事件冒泡阶段</p>
-</blockquote>
-<p><img src="https://s1.ax1x.com/2020/10/28/B1tIz9.png" alt="B1tIz9.png"></p>
-<h4 id="事件冒泡"><a href="#事件冒泡" class="headerlink" title="事件冒泡"></a>事件冒泡</h4><blockquote>
-<p>​    事件起始元素逐级向上传播</p>
-</blockquote>
-<pre><code>&lt;style&gt;
-  #parent &#123;
-      width: 200px;
-      height: 200px;
-      background-color: green;
-  &#125;
-  #child &#123;
-      width: 100px;
-      height: 100px;
-      background-color: yellow;
-  &#125;
-&lt;/style&gt;
-
-&lt;div id=&quot;parent&quot;&gt;
-  &lt;div id=&quot;child&quot;&gt;目标元素&lt;/div&gt;
-  父级元素
-&lt;/div&gt;
-
-&lt;script&gt;
-  var parent = document.getElementById(&#39;parent&#39;)
-  var child = document.getElementById(&#39;child&#39;)
-
-  parent.addEventListener(&#39;click&#39;, function(e) &#123;
-      console.log(&#39;parent bubbling&#39;)
-  &#125;, false)
-
-  child.addEventListener(&#39;click&#39;, function() &#123;
-      console.log(&#39;target bubbling&#39;)
-  &#125;, false)
-
-  document.body.addEventListener(&#39;click&#39;, function() &#123;
-      console.log(&#39;body bubbling&#39;)
-  &#125;, false)
-
-  document.documentElement.addEventListener(&#39;click&#39;, function() &#123;
-      console.log(&#39;html bubbling&#39;)
-  &#125;, false)
-
-  document.addEventListener(&#39;click&#39;, function() &#123;
-      console.log(&#39;document bubbling&#39;)
-  &#125;, false)
-
-  window.addEventListener(&#39;click&#39;, function() &#123;
-      console.log(&#39;window bubbling&#39;)
-  &#125;, false)
-&lt;/script&gt;</code></pre>
-<p>运行结果：</p>
-<p><img src="https://s1.ax1x.com/2020/10/28/B1UStU.gif" alt="B1UStU.gif"></p>
-<h4 id="事件捕获"><a href="#事件捕获" class="headerlink" title="事件捕获"></a>事件捕获</h4><blockquote>
-<p>​    事件按 window -&gt; document -&gt; html -&gt; body -&gt; … -&gt; 目标元素 的方向向下层元素传递。</p>
-</blockquote>
-<pre><code>&lt;style&gt;
-  #parent &#123;
-      width: 200px;
-      height: 200px;
-      background-color: green;
-  &#125;
-  #child &#123;
-      width: 100px;
-      height: 100px;
-      background-color: yellow;
-  &#125;
-&lt;/style&gt;
-
-&lt;div id=&quot;parent&quot;&gt;
-  &lt;div id=&quot;child&quot;&gt;目标元素&lt;/div&gt;
-  父级元素
-&lt;/div&gt;
-
-&lt;script&gt;
-  var parent = document.getElementById(&#39;parent&#39;)
-  var child = document.getElementById(&#39;child&#39;)
-
-  parent.addEventListener(&#39;click&#39;, function(e) &#123;
-      console.log(&#39;parent capture&#39;)
-  &#125;, true)
-
-  child.addEventListener(&#39;click&#39;, function() &#123;
-      console.log(&#39;target capture&#39;)
-  &#125;, true)
-
-  document.body.addEventListener(&#39;click&#39;, function() &#123;
-      console.log(&#39;body capture&#39;)
-  &#125;, true)
-
-  document.documentElement.addEventListener(&#39;click&#39;, function() &#123;
-      console.log(&#39;html capture&#39;)
-  &#125;, true)
-
-  document.addEventListener(&#39;click&#39;, function() &#123;
-      console.log(&#39;document capture&#39;)
-  &#125;, true)
-
-  window.addEventListener(&#39;click&#39;, function() &#123;
-      console.log(&#39;window capture&#39;)
-  &#125;, true)
-&lt;/script&gt;</code></pre>
-<p>运行结果:</p>
-<p><img src="https://s1.ax1x.com/2020/10/28/B1UCp4.gif" alt="B1UCp4.gif"></p>
-]]></content>
+      
+      
+        <tags>
+            
+            <tag> 浏览器 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>从输入URL到页面加载发生了什么</title>
+      <link href="2020/10/26/%E4%BB%8E%E8%BE%93%E5%85%A5url%E5%88%B0%E9%A1%B5%E9%9D%A2%E5%8A%A0%E8%BD%BD%E8%BF%87%E7%A8%8B/"/>
+      <url>2020/10/26/%E4%BB%8E%E8%BE%93%E5%85%A5url%E5%88%B0%E9%A1%B5%E9%9D%A2%E5%8A%A0%E8%BD%BD%E8%BF%87%E7%A8%8B/</url>
+      
+        <content type="html"><![CDATA[<blockquote><p>从输入URL到页面加载发生了什么</p></blockquote><a id="more"></a><p>总体来说分为以下几个过程:</p><ul><li>DNS解析</li><li>TCP连接</li><li>发送HTTP请求</li><li>服务器处理请求并返回HTTP报文</li><li>浏览器解析渲染页面</li><li>连接结束</li></ul><h3 id="DNS解析"><a href="#DNS解析" class="headerlink" title="DNS解析"></a>DNS解析</h3><p>DNS解析的过程就是在寻找哪台机器上有你需要的资源的全过程.<br>当你在浏览器中输入一个地址时,将网址转换为IP的过程叫做DNS解析</p><h4 id="DNS解析过程"><a href="#DNS解析过程" class="headerlink" title="DNS解析过程"></a>DNS解析过程</h4><p>DNS解析本质上是一个递归查询的过程<br><a href="https://imgchr.com/i/BuniZV"><img src="https://s1.ax1x.com/2020/10/26/BuniZV.png" alt="BuniZV.png"></a></p><p>上图是查找<code>www.google.com</code>这个网址的过程</p><ol><li>在<code>本地域名服务器</code>中查询IP地址–&gt;无</li><li><code>本地域名服务器</code>向<code>根域名服务器</code>发送请求–&gt;无</li><li><code>本地域名服务器</code> 向<code>COM顶级域名服务器</code>发送请求–&gt;无</li><li>……</li><li>最后本地服务器得到Google的IP的字号并缓存到本地,功下次使用</li></ol><p>由上可以看出网址解析是一个 从右到左的过程:<br><code>com</code> –&gt; <code>google.com</code> –&gt; <code>www.google.com</code><br>根域名服务器呢?<br>默认情况下所有网址最后一位都是. , 即<code>www.google.com.</code>,方便用户一般都会省略,浏览器在请求DNS的时候会自动加上,<br>即NDS解析流程:<br><code>.</code>–&gt;<code>com.</code>–&gt;<code>google.com.</code>–&gt;<code>www.google.com.</code></p><h3 id="HTTPS协议"><a href="#HTTPS协议" class="headerlink" title="HTTPS协议"></a>HTTPS协议</h3><ul><li>HTTP报文是包裹在tcp报文中发送的,服务端的吼道TCP报文时会解包提取出HTTP报文,但是该过程存在一定风险,HTTP报文是明文,如果中间被截取的话会存在一些信息泄露的风险</li><li>HTTPS协议本质就是HTTP+SSL,在HTTP报文进入TCP报文之前,先使用SSL报文进行加密.从网络层的结构看它位于HTTP协议与TCP协议之间<br><a href="https://imgchr.com/i/BunpMn"><img src="https://s1.ax1x.com/2020/10/26/BunpMn.png" alt="BunpMn.png"></a></li></ul><p><strong>HTTPS过程</strong><br>HTTPS在传输数据之前需要客户端与服务器进行一个握手(TSL/SSL握手),在握手的过程中将确立对方家里传输数据的密码信息.TLS/SSL使用了非对称加密,对称加密以及hash等.</p><p>HTTPS相对于HTTP,虽然提供了安全保证,但势必会造成一些时间上的损耗,如握手和加密等过程,使用前需要做好安全和性能方面的权衡<br><strong>HTTP请求</strong><br>http请求主要发生在客户端.发送http请求的过程就是构建HTTP请求报文并通过TCP协议中发送到服务器指定端口(HTTP协议80/8080,HTTPS协议443)<br>http请求报文由三部分组成</p><ul><li><p>请求行 ( 常用方法有get,post,put,delete…等)</p></li><li><p>请求报头(请求报头允许客户端向度武器传递请求的附加信息和客户端自身的信息)</p></li><li><p>请求正文(客户端向服务端传递的数据)</p><h3 id="服务器处理请求并返回HTTP报文"><a href="#服务器处理请求并返回HTTP报文" class="headerlink" title="服务器处理请求并返回HTTP报文"></a>服务器处理请求并返回HTTP报文</h3><p>HTTP响应报文也是由三部分组成: <strong>状态码</strong>, <strong>响应报头</strong>和<strong>响应报文</strong>。<br>状态码<br>状态码是由3位数组成，第一个数字定义了响应的类别，且有五种可能取值:</p></li><li><p>1xx:指示信息 - 表示请求已接收,继续处理</p></li><li><p>2xx:成功,表示请求已被成功接收,理解,处理</p></li><li><p>3xx:重定向 -  要完成请求必须进行更进一步的操作</p></li><li><p>4xx:客户端错误 - 请求有语法错误或请求无法实现.</p></li><li><p>5xx:服务端错误 - 服务器未能实现合法请求<br>常见错误码:</p><blockquote><pre><code>    -    200:请求成功    - 204:无内容。服务器成功处理，但未返回内容。在未更新网页的情况下，可确保浏览器继续显示当前文档    - 301:永久移动。请求的资源已被永久的重定向到新URI，返回信息会包括新的URI，浏览器会自动定向到新URI。今后任何新的请求都应使用新的URI代替    -    302:临时移动。与301类似。但资源只是临时被移动。客户端应继续使用原有URI    -    304:未修改。所请求的资源未修改，服务器返回此状态码时，不会返回任何资源。客户端通常会缓存访问过的资源，通过提供一个头信息指出客户端希望只返回在指定日期之后修改的资源    -    400:客户端请求的语法错误，服务器无法理解    -    401:请求要求用户的身份认证    -    403:服务器理解请求客户端的请求，但是拒绝执行此请求    -    404:服务器无法根据客户端的请求找到资源（网页）。通过此代码，网站设计人员可设置&quot;您所请求的资源无法找到&quot;的个性页面    -    422:请求格式正确，但是由于含有语义错误，无法响应。    -    500:服务器内部错误，无法完成请求</code></pre></blockquote></li></ul><h3 id="浏览器解析渲染页面"><a href="#浏览器解析渲染页面" class="headerlink" title="浏览器解析渲染页面"></a>浏览器解析渲染页面</h3><p>浏览器在收到HTML,CSS,JS文件后，它是如何把页面呈现到屏幕上的？下图对应的就是WebKit渲染的过程。</p><p>`<a href="https://imgchr.com/i/BufqgK"><img src="https://s1.ax1x.com/2020/10/26/BufqgK.png" alt="BufqgK.png"></a></p><p>浏览器是一个边解析边渲染的过程.</p><p>首先在浏览器解析HTML文件构建DOM树,然后解析css文件构建渲染树,等到渲染完成后,浏览器开封市布局渲染树并将其绘制到屏幕上.</p><p>该过程涉及到两个概念 : <strong>重绘</strong>,<strong>回流</strong></p><ul><li>**回流:**DOM节点中的各个元素都是以盒模型的形式存在,需要浏览器来计算其位置和大小等,该过程叫做回流</li><li>**重绘:**当盒模型的位置,大小以及其他属性,如颜色,字体等确定下来之后,浏览器就开始绘制内容,该过程叫做重绘</li></ul>]]></content>
+      
+      
       <categories>
-        <category>JavaScript</category>
+          
+          <category> 浏览器 </category>
+          
       </categories>
-      <tags>
-        <tag>DOM事件事件流</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>原型,原型链</title>
-    <url>/2020/10/26/%E5%8E%9F%E5%9E%8B%E5%8E%9F%E5%9E%8B%E9%93%BE/</url>
-    <content><![CDATA[<blockquote>
-<p>​    原型原型链</p>
-</blockquote>
-<a id="more"></a>]]></content>
+      
+      
+        <tags>
+            
+            <tag> 浏览器 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>[object Object]</title>
+      <link href="2020/10/26/typeScript/"/>
+      <url>2020/10/26/typeScript/</url>
+      
+        <content type="html"><![CDATA[<a id="more"></a>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>webpack配置</title>
+      <link href="2020/10/19/webpack/"/>
+      <url>2020/10/19/webpack/</url>
+      
+        <content type="html"><![CDATA[<p>webpack基本配置</p><a id="more"></a><h3 id="1-什么是-webpack"><a href="#1-什么是-webpack" class="headerlink" title="1. 什么是 webpack"></a>1. 什么是 webpack</h3><blockquote><p>webpack 是一个现代 javaScript 应用程序的静态模块打包器, 分析项目结构，处理模块化依赖，转换成为浏览器 可运行的代码。</p></blockquote><h3 id="2-webpack-用来做什么"><a href="#2-webpack-用来做什么" class="headerlink" title="2. webpack 用来做什么"></a>2. webpack 用来做什么</h3><blockquote><ul><li>代码转换: TypeScript 编译成 JavaScript、SCSS,LESS 编译成 CSS。</li><li>文件优化：压缩 JavaScript、CSS、HTML 代码，压缩合并图片。</li><li>代码分割：提取多个页面的公共代码、提取首屏不需要执行部分的代码让其异步加载。</li><li>模块合并：在采用模块化的项目里会有很多个模块和文件，需要构建功能把模块分类合并成一个文件</li><li>自动刷新：监听本地源代码的变化，自动重新构建、刷新浏览器。</li></ul></blockquote><h3 id="3-webpack安装"><a href="#3-webpack安装" class="headerlink" title="3.webpack安装"></a>3.webpack安装</h3><pre><code>//全局安装webpack及webpack-cli模块yarn global add webpack webpack--cli//本地安装项目模块（一般本地安装，防止本地和全局版本不一致）yarn add webpack webpack-cli -dev(-D)//打包命令npx webpack</code></pre><h3 id="4-插件"><a href="#4-插件" class="headerlink" title="4.插件"></a>4.插件</h3><h4 id="1-webpack-dev-server"><a href="#1-webpack-dev-server" class="headerlink" title="1. webpack-dev-server"></a>1. webpack-dev-server</h4><pre><code class="node">devServer: &#123;//这里做开发服务器配置    port: 3000,    contentBase: path.join(__dirname, &#39;dist&#39;),//_dirname：表示在当前目录    compress: true,//启动gzip压缩&#125;</code></pre><h4 id="2-HtmlWebpackPlugin"><a href="#2-HtmlWebpackPlugin" class="headerlink" title="2.  HtmlWebpackPlugin"></a>2.  HtmlWebpackPlugin</h4><pre><code>const HtmlWebpackPlugin = require(&#39;html-webpack-plugin&#39;);new HtmlWebpackPlugin(&#123;  template: &#39;./src/index.html&#39;,  filename: &#39;index.html&#39;,  minify: &#123;//用于对文件进行压缩    removeAttributeQuotes: true,// 移除属性的引号    collapseWhitespace: true,    removeComments: true,    removeRedundantAttributes: true,    removeScriptTypeAttributes: true,    removeStyleLinkTypeAttributes: true,    useShortDoctype: true  &#125;,  hash: true&#125;)</code></pre><h4 id="3-热更新"><a href="#3-热更新" class="headerlink" title="3.  热更新"></a>3.  热更新</h4><pre><code>new webpack.HotModuleReplacementPlugin(),</code></pre><h4 id="4-打包分析插件"><a href="#4-打包分析插件" class="headerlink" title="4. 打包分析插件"></a>4. 打包分析插件</h4><pre><code>https://github.com/webpack-contrib/webpack-bundle-analyzernew BundleAnalyzerPlugin(),</code></pre><h4 id="5-开启进度条"><a href="#5-开启进度条" class="headerlink" title="5.  开启进度条"></a>5.  开启进度条</h4><pre><code>const ProgressBarPlugin = require(&#39;progress-bar-webpack-plugin&#39;);new ProgressBarPlugin(),</code></pre><h4 id="6-打包时长测试"><a href="#6-打包时长测试" class="headerlink" title="6. 打包时长测试"></a>6. 打包时长测试</h4><pre><code>const SpeedMeasurePlugin = require(&quot;speed-measure-webpack-plugin&quot;);const smp = new SpeedMeasurePlugin();module.exports = smp.wrap(&#123;&#125;);</code></pre>]]></content>
+      
+      
       <categories>
-        <category>原型,原型链</category>
+          
+          <category> Webpack </category>
+          
       </categories>
-      <tags>
-        <tag>JavaScript</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>浏览器解析js流程</title>
-    <url>/2020/10/26/Js%E8%A7%A3%E6%9E%90%E6%B5%81%E7%A8%8B/</url>
-    <content><![CDATA[<blockquote>
-<p>浏览器解析js流程</p>
-</blockquote>
-<a id="more"></a>
-<h4 id="JS解析"><a href="#JS解析" class="headerlink" title="JS解析"></a>JS解析</h4><p><a href="https://imgchr.com/i/BufjDe"><img src="https://s1.ax1x.com/2020/10/26/BufjDe.png" alt="BufjDe.png"></a></p>
-<p>js解析是由浏览器的就是解析引擎完成的.</p>
-<p>js是单线程运行,也就是说同时只能做一件事,所有任务都需要排队,</p>
-<p>为了解决某些任务比较耗时,需要一种机制来使其可以执行排在后面的任务,就出现了同步任务和异步任务</p>
-<p>JS执行机制可以看做一个主线程加上一个任务队列.</p>
-<p>同步任务就是主线程上面执行的任务 , 异步任务就是放在任务队列的任务</p>
-<p>所有的同步任务都在主线程上面执行,形成一个执行栈</p>
-<p>异步任务有了运行结果就会在任务队列中放置一个事件,脚本运行时依次运行执行栈,然后会从任务队列中提取事件,</p>
-<p>运行任务队列中的任务,该过程是不断重复的,所以又叫做事件循环(Event loop)</p>
-<ul>
-<li>浏览器在解析过程中，如果遇到请求外部资源时，如图像,iconfont,JS等。浏览器将重复1-6过程下载该资源。</li>
-<li>请求过程是异步的，并不会影响HTML文档进行加载，但是当文档加载过程中遇到JS文件，HTML文档会挂起渲染过程，不仅要等到文档中JS文件加载完毕还要等待解析执行完毕，才会继续HTML的渲染过程。</li>
-<li>原因是因为JS有可能修改DOM结构，这就意味着JS执行完成前，后续所有资源的下载是没有必要的，这就是JS阻塞后续资源下载的根本原因。</li>
-<li>CSS文件的加载不影响JS文件的加载，但是却影响JS文件的执行。JS代码执行前浏览器必须保证CSS文件已经下载并加载完毕。</li>
-</ul>
-]]></content>
+      
+      
+        <tags>
+            
+            <tag> Webpack </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>浏览器同源策略</title>
+      <link href="2020/09/29/%E6%B5%8F%E8%A7%88%E5%99%A8%E5%90%8C%E6%BA%90%E7%AD%96%E7%95%A5/"/>
+      <url>2020/09/29/%E6%B5%8F%E8%A7%88%E5%99%A8%E5%90%8C%E6%BA%90%E7%AD%96%E7%95%A5/</url>
+      
+        <content type="html"><![CDATA[<a id="more"></a><h2 id="同源策略"><a href="#同源策略" class="headerlink" title="同源策略"></a>同源策略</h2><h5 id="01、什么是同源策略"><a href="#01、什么是同源策略" class="headerlink" title="01、什么是同源策略"></a>01、什么是同源策略</h5><blockquote><p>同源策略是浏览器安全的基石</p><p>同源：</p><ul><li>协议相同</li><li>域名相同</li><li>端口相同</li></ul><p>举例来说，<code>http://www.example.com/dir/page.html</code>这个网址，协议是<code>http://</code>，域名是<code>www.example.com</code>，端口是<code>80</code>（默认端口可以省略）。</p><p>它的同源情况如下：</p><ul><li><code>http://www.example.com/dir2/other.html</code>：同源</li><li><code>http://example.com/dir/other.html</code>：不同源（域名不同）</li><li><code>http://v2.www.example.com/dir/other.html</code>：不同源（域名不同）</li><li><code>http://www.example.com:81/dir/other.html</code>：不同源（端口不同）</li></ul></blockquote><h5 id="02、同源策略目的"><a href="#02、同源策略目的" class="headerlink" title="02、同源策略目的"></a>02、同源策略目的</h5><blockquote><p>同源策略目的，是为了保证用户信息安全，防止恶意网站窃取数据</p></blockquote><h5 id="03、同源策略限制范围"><a href="#03、同源策略限制范围" class="headerlink" title="03、同源策略限制范围"></a>03、同源策略限制范围</h5><blockquote><ul><li>Cookie、LocalStorage 和 IndexDB 无法读取</li><li>DOM无法获得</li><li>AJAX请求不能发送</li></ul></blockquote><h5 id="04、规避同源策略方案"><a href="#04、规避同源策略方案" class="headerlink" title="04、规避同源策略方案"></a>04、规避同源策略方案</h5><blockquote><ul><li>JSONP</li><li>WebSocket</li><li>CORS</li></ul></blockquote><h5 id="05、JSONP"><a href="#05、JSONP" class="headerlink" title="05、JSONP"></a>05、JSONP</h5><blockquote><ul><li><p>什么是JSONP<br>JSONP是服务器与客户端跨原通信的常用方案。最大特点就是简单适用，老式浏览器全部支持，服务器改造小</p></li><li><p>原理</p><p>网页通过添加一个<code>&lt;script&gt;</code>元素，向服务器请求JSON数据，该方法不受同源策略限制，服务器收到请求之后，将数据放在指定的名字回调函数中传回来</p></li></ul></blockquote>]]></content>
+      
+      
       <categories>
-        <category>浏览器</category>
+          
+          <category> 同源策略 </category>
+          
+          <category> 浏览器 </category>
+          
       </categories>
-      <tags>
-        <tag>浏览器</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>从输入URL到页面加载发生了什么</title>
-    <url>/2020/10/26/%E4%BB%8E%E8%BE%93%E5%85%A5url%E5%88%B0%E9%A1%B5%E9%9D%A2%E5%8A%A0%E8%BD%BD%E8%BF%87%E7%A8%8B/</url>
-    <content><![CDATA[<blockquote>
-<p>从输入URL到页面加载发生了什么</p>
-</blockquote>
-<a id="more"></a>
-<p>总体来说分为以下几个过程:</p>
-<ul>
-<li>DNS解析</li>
-<li>TCP连接</li>
-<li>发送HTTP请求</li>
-<li>服务器处理请求并返回HTTP报文</li>
-<li>浏览器解析渲染页面</li>
-<li>连接结束</li>
-</ul>
-<h3 id="DNS解析"><a href="#DNS解析" class="headerlink" title="DNS解析"></a>DNS解析</h3><p>DNS解析的过程就是在寻找哪台机器上有你需要的资源的全过程.<br>当你在浏览器中输入一个地址时,将网址转换为IP的过程叫做DNS解析</p>
-<h4 id="DNS解析过程"><a href="#DNS解析过程" class="headerlink" title="DNS解析过程"></a>DNS解析过程</h4><p>DNS解析本质上是一个递归查询的过程<br><a href="https://imgchr.com/i/BuniZV"><img src="https://s1.ax1x.com/2020/10/26/BuniZV.png" alt="BuniZV.png"></a></p>
-<p>上图是查找<code>www.google.com</code>这个网址的过程</p>
-<ol>
-<li>在<code>本地域名服务器</code>中查询IP地址–&gt;无</li>
-<li><code>本地域名服务器</code>向<code>根域名服务器</code>发送请求–&gt;无</li>
-<li><code>本地域名服务器</code> 向<code>COM顶级域名服务器</code>发送请求–&gt;无</li>
-<li>……</li>
-<li>最后本地服务器得到Google的IP的字号并缓存到本地,功下次使用</li>
-</ol>
-<p>由上可以看出网址解析是一个 从右到左的过程:<br><code>com</code> –&gt; <code>google.com</code> –&gt; <code>www.google.com</code><br>根域名服务器呢?<br>默认情况下所有网址最后一位都是. , 即<code>www.google.com.</code>,方便用户一般都会省略,浏览器在请求DNS的时候会自动加上,<br>即NDS解析流程:<br><code>.</code>–&gt;<code>com.</code>–&gt;<code>google.com.</code>–&gt;<code>www.google.com.</code></p>
-<h3 id="HTTPS协议"><a href="#HTTPS协议" class="headerlink" title="HTTPS协议"></a>HTTPS协议</h3><ul>
-<li>HTTP报文是包裹在tcp报文中发送的,服务端的吼道TCP报文时会解包提取出HTTP报文,但是该过程存在一定风险,HTTP报文是明文,如果中间被截取的话会存在一些信息泄露的风险</li>
-<li>HTTPS协议本质就是HTTP+SSL,在HTTP报文进入TCP报文之前,先使用SSL报文进行加密.从网络层的结构看它位于HTTP协议与TCP协议之间<br><a href="https://imgchr.com/i/BunpMn"><img src="https://s1.ax1x.com/2020/10/26/BunpMn.png" alt="BunpMn.png"></a></li>
-</ul>
-<p><strong>HTTPS过程</strong><br>HTTPS在传输数据之前需要客户端与服务器进行一个握手(TSL/SSL握手),在握手的过程中将确立对方家里传输数据的密码信息.TLS/SSL使用了非对称加密,对称加密以及hash等.</p>
-<p>HTTPS相对于HTTP,虽然提供了安全保证,但势必会造成一些时间上的损耗,如握手和加密等过程,使用前需要做好安全和性能方面的权衡<br><strong>HTTP请求</strong><br>http请求主要发生在客户端.发送http请求的过程就是构建HTTP请求报文并通过TCP协议中发送到服务器指定端口(HTTP协议80/8080,HTTPS协议443)<br>http请求报文由三部分组成</p>
-<ul>
-<li><p>请求行 ( 常用方法有get,post,put,delete…等)</p>
-</li>
-<li><p>请求报头(请求报头允许客户端向度武器传递请求的附加信息和客户端自身的信息)</p>
-</li>
-<li><p>请求正文(客户端向服务端传递的数据)</p>
-<h3 id="服务器处理请求并返回HTTP报文"><a href="#服务器处理请求并返回HTTP报文" class="headerlink" title="服务器处理请求并返回HTTP报文"></a>服务器处理请求并返回HTTP报文</h3><p>HTTP响应报文也是由三部分组成: <strong>状态码</strong>, <strong>响应报头</strong>和<strong>响应报文</strong>。<br>状态码<br>状态码是由3位数组成，第一个数字定义了响应的类别，且有五种可能取值:</p>
-</li>
-<li><p>1xx:指示信息 - 表示请求已接收,继续处理</p>
-</li>
-<li><p>2xx:成功,表示请求已被成功接收,理解,处理</p>
-</li>
-<li><p>3xx:重定向 -  要完成请求必须进行更进一步的操作</p>
-</li>
-<li><p>4xx:客户端错误 - 请求有语法错误或请求无法实现.</p>
-</li>
-<li><p>5xx:服务端错误 - 服务器未能实现合法请求<br>常见错误码:</p>
-<blockquote>
-<pre><code>    -    200:请求成功
-    - 204:无内容。服务器成功处理，但未返回内容。在未更新网页的情况下，可确保浏览器继续显示当前文档
-    - 301:永久移动。请求的资源已被永久的重定向到新URI，返回信息会包括新的URI，浏览器会自动定向到新URI。今后任何新的请求都应使用新的URI代替
-    -    302:临时移动。与301类似。但资源只是临时被移动。客户端应继续使用原有URI
-    -    304:未修改。所请求的资源未修改，服务器返回此状态码时，不会返回任何资源。客户端通常会缓存访问过的资源，通过提供一个头信息指出客户端希望只返回在指定日期之后修改的资源
-    -    400:客户端请求的语法错误，服务器无法理解
-    -    401:请求要求用户的身份认证
-    -    403:服务器理解请求客户端的请求，但是拒绝执行此请求
-    -    404:服务器无法根据客户端的请求找到资源（网页）。通过此代码，网站设计人员可设置&quot;您所请求的资源无法找到&quot;的个性页面
-    -    422:请求格式正确，但是由于含有语义错误，无法响应。
-    -    500:服务器内部错误，无法完成请求</code></pre>
-</blockquote>
-</li>
-</ul>
-<h3 id="浏览器解析渲染页面"><a href="#浏览器解析渲染页面" class="headerlink" title="浏览器解析渲染页面"></a>浏览器解析渲染页面</h3><p>浏览器在收到HTML,CSS,JS文件后，它是如何把页面呈现到屏幕上的？下图对应的就是WebKit渲染的过程。</p>
-<p>`<a href="https://imgchr.com/i/BufqgK"><img src="https://s1.ax1x.com/2020/10/26/BufqgK.png" alt="BufqgK.png"></a></p>
-<p>浏览器是一个边解析边渲染的过程.</p>
-<p>首先在浏览器解析HTML文件构建DOM树,然后解析css文件构建渲染树,等到渲染完成后,浏览器开封市布局渲染树并将其绘制到屏幕上.</p>
-<p>该过程涉及到两个概念 : <strong>重绘</strong>,<strong>回流</strong></p>
-<ul>
-<li>**回流:**DOM节点中的各个元素都是以盒模型的形式存在,需要浏览器来计算其位置和大小等,该过程叫做回流</li>
-<li>**重绘:**当盒模型的位置,大小以及其他属性,如颜色,字体等确定下来之后,浏览器就开始绘制内容,该过程叫做重绘</li>
-</ul>
-]]></content>
+      
+      
+        <tags>
+            
+            <tag> 浏览器 </tag>
+            
+            <tag> 同源策略 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Axios二次封装</title>
+      <link href="2020/09/27/Axios/"/>
+      <url>2020/09/27/Axios/</url>
+      
+        <content type="html"><![CDATA[<hr><a id="more"></a><h3 id="01-新建src-api文件夹"><a href="#01-新建src-api文件夹" class="headerlink" title="01-新建src/api文件夹"></a>01-新建src/api文件夹</h3><pre><code>api - ajax.js - index.js</code></pre><h3 id="02-新建axios-js文件"><a href="#02-新建axios-js文件" class="headerlink" title="02-新建axios.js文件"></a>02-新建axios.js文件</h3><pre><code class="js">import axios from &#39;axios&#39;//封装ajaxexport default function ajax(url=&#39;&#39;,params=&#123;&#125;,type=&#39;GET&#39;)&#123;  let promise;  type = type.toUpperCase()  return new Promise(((resolve, reject) =&gt; &#123;    //1.判断请求方式    if (type===&#39;GET&#39;)&#123;      //1.1拼接字符串      let str = &#39;&#39;;      Object.keys(params).forEach((value,index) =&gt; &#123;        if (index+1===Object.keys(params).length)&#123;          str+=value+&#39;=&#39;+params[value];        &#125;else&#123;          str+=value+&#39;=&#39;+params[value]+&#39;&amp;&#39;;        &#125;      &#125;);      //1.2完整路径      url+=&#39;?&#39;+str;      //1.3发送get请求      promise = axios.get(url);    &#125;else if(type===&#39;POST&#39;)&#123;      //1.3发送post请求      promise = axios.post(url,params);    &#125;    //2.返回请求结果    promise.then((response)=&gt;&#123;      resolve(response.data);    &#125;).catch((error)=&gt;&#123;      reject(error);    &#125;);  &#125;))&#125;</code></pre><h3 id="03-新建index-js文件"><a href="#03-新建index-js文件" class="headerlink" title="03-新建index.js文件"></a>03-新建index.js文件</h3><pre><code>import ajax from &#39;./ajax&#39;//发送请求export const getPhoneCode = (phone)=&gt;ajax(&#39;/api/getPhoneCode&#39;,&#123;phone&#125;);</code></pre><h3 id="04-api调用"><a href="#04-api调用" class="headerlink" title="04-api调用"></a>04-api调用</h3><pre><code>import &#123; xxxxx &#125; from &#39;api/index.js (文件路径)&#39;</code></pre>]]></content>
+      
+      
       <categories>
-        <category>浏览器</category>
+          
+          <category> Ajax </category>
+          
+          <category> Axios </category>
+          
       </categories>
-      <tags>
-        <tag>浏览器</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>[object Object]</title>
-    <url>/2020/10/26/typeScript/</url>
-    <content><![CDATA[<a id="more"></a>]]></content>
-  </entry>
-  <entry>
-    <title>webpack配置</title>
-    <url>/2020/10/19/webpack/</url>
-    <content><![CDATA[<p>webpack基本配置</p>
-<a id="more"></a>
-
-<h3 id="1-什么是-webpack"><a href="#1-什么是-webpack" class="headerlink" title="1. 什么是 webpack"></a>1. 什么是 webpack</h3><blockquote>
-<p>webpack 是一个现代 javaScript 应用程序的静态模块打包器, 分析项目结构，处理模块化依赖，转换成为浏览器 可运行的代码。</p>
-</blockquote>
-<h3 id="2-webpack-用来做什么"><a href="#2-webpack-用来做什么" class="headerlink" title="2. webpack 用来做什么"></a>2. webpack 用来做什么</h3><blockquote>
-<ul>
-<li>代码转换: TypeScript 编译成 JavaScript、SCSS,LESS 编译成 CSS。</li>
-<li>文件优化：压缩 JavaScript、CSS、HTML 代码，压缩合并图片。</li>
-<li>代码分割：提取多个页面的公共代码、提取首屏不需要执行部分的代码让其异步加载。</li>
-<li>模块合并：在采用模块化的项目里会有很多个模块和文件，需要构建功能把模块分类合并成一个文件</li>
-<li>自动刷新：监听本地源代码的变化，自动重新构建、刷新浏览器。</li>
-</ul>
-</blockquote>
-<h3 id="3-webpack安装"><a href="#3-webpack安装" class="headerlink" title="3.webpack安装"></a>3.webpack安装</h3><pre><code>//全局安装webpack及webpack-cli模块
-yarn global add webpack webpack--cli
-//本地安装项目模块（一般本地安装，防止本地和全局版本不一致）
-yarn add webpack webpack-cli -dev(-D)
-//打包命令
-npx webpack</code></pre>
-<h3 id="4-插件"><a href="#4-插件" class="headerlink" title="4.插件"></a>4.插件</h3><h4 id="1-webpack-dev-server"><a href="#1-webpack-dev-server" class="headerlink" title="1. webpack-dev-server"></a>1. webpack-dev-server</h4><pre><code class="node">devServer: &#123;//这里做开发服务器配置
-    port: 3000,
-    contentBase: path.join(__dirname, &#39;dist&#39;),//_dirname：表示在当前目录
-    compress: true,//启动gzip压缩
-&#125;</code></pre>
-<h4 id="2-HtmlWebpackPlugin"><a href="#2-HtmlWebpackPlugin" class="headerlink" title="2.  HtmlWebpackPlugin"></a>2.  HtmlWebpackPlugin</h4><pre><code>const HtmlWebpackPlugin = require(&#39;html-webpack-plugin&#39;);
-
-new HtmlWebpackPlugin(&#123;
-  template: &#39;./src/index.html&#39;,
-  filename: &#39;index.html&#39;,
-  minify: &#123;//用于对文件进行压缩
-    removeAttributeQuotes: true,// 移除属性的引号
-    collapseWhitespace: true,
-    removeComments: true,
-    removeRedundantAttributes: true,
-    removeScriptTypeAttributes: true,
-    removeStyleLinkTypeAttributes: true,
-    useShortDoctype: true
-  &#125;,
-  hash: true
-&#125;)</code></pre>
-<h4 id="3-热更新"><a href="#3-热更新" class="headerlink" title="3.  热更新"></a>3.  热更新</h4><pre><code>new webpack.HotModuleReplacementPlugin(),</code></pre>
-<h4 id="4-打包分析插件"><a href="#4-打包分析插件" class="headerlink" title="4. 打包分析插件"></a>4. 打包分析插件</h4><pre><code>https://github.com/webpack-contrib/webpack-bundle-analyzer
-new BundleAnalyzerPlugin(),</code></pre>
-<h4 id="5-开启进度条"><a href="#5-开启进度条" class="headerlink" title="5.  开启进度条"></a>5.  开启进度条</h4><pre><code>const ProgressBarPlugin = require(&#39;progress-bar-webpack-plugin&#39;);
-new ProgressBarPlugin(),</code></pre>
-<h4 id="6-打包时长测试"><a href="#6-打包时长测试" class="headerlink" title="6. 打包时长测试"></a>6. 打包时长测试</h4><pre><code>const SpeedMeasurePlugin = require(&quot;speed-measure-webpack-plugin&quot;);
-
-const smp = new SpeedMeasurePlugin();
-
-module.exports = smp.wrap(&#123;&#125;);</code></pre>
-]]></content>
+      
+      
+        <tags>
+            
+            <tag> Ajax </tag>
+            
+            <tag> Axios </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>React父组件调用子组件</title>
+      <link href="2020/09/25/React-%E7%88%B6%E7%BB%84%E4%BB%B6%E8%B0%83%E7%94%A8%E5%AD%90%E7%BB%84%E4%BB%B6/"/>
+      <url>2020/09/25/React-%E7%88%B6%E7%BB%84%E4%BB%B6%E8%B0%83%E7%94%A8%E5%AD%90%E7%BB%84%E4%BB%B6/</url>
+      
+        <content type="html"><![CDATA[<h2 id="方案一：-ref控制"><a href="#方案一：-ref控制" class="headerlink" title="方案一： ref控制"></a>方案一： ref控制</h2><a id="more"></a><h4 id="Parent-Component-Parent-tsx"><a href="#Parent-Component-Parent-tsx" class="headerlink" title="Parent Component ( Parent.tsx )"></a>Parent Component ( Parent.tsx )</h4><pre><code>import * as React from &#39;react&#39;;import &#123; ChildA &#125; from &#39;./ChildA&#39;;//多个子组件时可以先定义如下组件：class Childrens extends React.Component&lt;any, any&gt; &#123;  _childA: any;  _childB: any;  _childC: any;&#125;export class Parent extends Childrens &#123;  //调用子组件方式：  get_childA_sum = () =&gt; &#123;    this._childA.sum(1, 2)  &#125;  render() &#123;    const children = &#123;      on_childA_ref: ref =&gt; &#123;        this._childA = ref;      &#125;,      on_childB_ref: ref =&gt; &#123;        this._childB = ref;      &#125;,      on_childC_ref: ref =&gt; &#123;        this._childC = ref;      &#125;,    &#125;    return (      &lt;div&gt;        &lt;button onClick=&#123;() =&gt; this.get_childA_sum()&#125;&gt; SumA &lt;/button&gt;        &lt;ChildA _childA=&#123;children.on_childA_ref&#125; /&gt;      &lt;/div&gt;    )  &#125;&#125;</code></pre><h4 id="Children-Component-ChildA-tsx"><a href="#Children-Component-ChildA-tsx" class="headerlink" title="Children Component  (ChildA.tsx)"></a>Children Component  (ChildA.tsx)</h4><pre><code>import * as React from &#39;react&#39;;interface ChildAProps &#123;  _childA:Function;&#125;export class ChildA extends React.Component&lt;ChildAProps, any&gt; &#123;  componentDidMount() &#123;        this.props._childA(this)    &#125;  sum = (a , b) =&gt; &#123;    alert(a+b)  &#125;  render()&#123;    return(      &lt;div&gt;        组件A      &lt;/div&gt;    )  &#125;&#125;</code></pre>]]></content>
+      
+      
       <categories>
-        <category>Webpack</category>
+          
+          <category> React </category>
+          
+          <category> TypeScript </category>
+          
       </categories>
-      <tags>
-        <tag>Webpack</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>浏览器同源策略</title>
-    <url>/2020/09/29/%E6%B5%8F%E8%A7%88%E5%99%A8%E5%90%8C%E6%BA%90%E7%AD%96%E7%95%A5/</url>
-    <content><![CDATA[<a id="more"></a>
-
-
-<h2 id="同源策略"><a href="#同源策略" class="headerlink" title="同源策略"></a>同源策略</h2><h5 id="01、什么是同源策略"><a href="#01、什么是同源策略" class="headerlink" title="01、什么是同源策略"></a>01、什么是同源策略</h5><blockquote>
-<p>同源策略是浏览器安全的基石</p>
-<p>同源：</p>
-<ul>
-<li>协议相同</li>
-<li>域名相同</li>
-<li>端口相同</li>
-</ul>
-<p>举例来说，<code>http://www.example.com/dir/page.html</code>这个网址，协议是<code>http://</code>，域名是<code>www.example.com</code>，端口是<code>80</code>（默认端口可以省略）。</p>
-<p>它的同源情况如下：</p>
-<ul>
-<li><code>http://www.example.com/dir2/other.html</code>：同源</li>
-<li><code>http://example.com/dir/other.html</code>：不同源（域名不同）</li>
-<li><code>http://v2.www.example.com/dir/other.html</code>：不同源（域名不同）</li>
-<li><code>http://www.example.com:81/dir/other.html</code>：不同源（端口不同）</li>
-</ul>
-</blockquote>
-<h5 id="02、同源策略目的"><a href="#02、同源策略目的" class="headerlink" title="02、同源策略目的"></a>02、同源策略目的</h5><blockquote>
-<p>同源策略目的，是为了保证用户信息安全，防止恶意网站窃取数据</p>
-</blockquote>
-<h5 id="03、同源策略限制范围"><a href="#03、同源策略限制范围" class="headerlink" title="03、同源策略限制范围"></a>03、同源策略限制范围</h5><blockquote>
-<ul>
-<li>Cookie、LocalStorage 和 IndexDB 无法读取</li>
-<li>DOM无法获得</li>
-<li>AJAX请求不能发送</li>
-</ul>
-</blockquote>
-<h5 id="04、规避同源策略方案"><a href="#04、规避同源策略方案" class="headerlink" title="04、规避同源策略方案"></a>04、规避同源策略方案</h5><blockquote>
-<ul>
-<li>JSONP</li>
-<li>WebSocket</li>
-<li>CORS</li>
-</ul>
-</blockquote>
-<h5 id="05、JSONP"><a href="#05、JSONP" class="headerlink" title="05、JSONP"></a>05、JSONP</h5><blockquote>
-<ul>
-<li><p>什么是JSONP<br>JSONP是服务器与客户端跨原通信的常用方案。最大特点就是简单适用，老式浏览器全部支持，服务器改造小</p>
-</li>
-<li><p>原理</p>
-<p>网页通过添加一个<code>&lt;script&gt;</code>元素，向服务器请求JSON数据，该方法不受同源策略限制，服务器收到请求之后，将数据放在指定的名字回调函数中传回来</p>
-</li>
-</ul>
-</blockquote>
-]]></content>
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>JavaScript获取元素位置</title>
+      <link href="2020/09/24/JavaScript%E8%8E%B7%E5%8F%96%E5%85%83%E7%B4%A0%E5%9D%90%E6%A0%87%E9%97%AE%E9%A2%98/"/>
+      <url>2020/09/24/JavaScript%E8%8E%B7%E5%8F%96%E5%85%83%E7%B4%A0%E5%9D%90%E6%A0%87%E9%97%AE%E9%A2%98/</url>
+      
+        <content type="html"><![CDATA[<h2 id="js获取元素相对于父级元素的高度"><a href="#js获取元素相对于父级元素的高度" class="headerlink" title="js获取元素相对于父级元素的高度"></a>js获取元素相对于父级元素的高度</h2><a id="more"></a><h4 id="1-offsetLeft-、offsetTop"><a href="#1-offsetLeft-、offsetTop" class="headerlink" title="1. offsetLeft 、offsetTop"></a>1. offsetLeft 、offsetTop</h4><p>offsetLeft/offsetTop -  用于获取子元素相对于父元素的位移（左位移、上位移）</p><h4 id="2-offsetWidth、offsetHeight"><a href="#2-offsetWidth、offsetHeight" class="headerlink" title="2. offsetWidth、offsetHeight"></a>2. offsetWidth、offsetHeight</h4><p>offsetWidth/offsetHeight - 用于获取元素的可见宽度和可见高度</p><h4 id="3-clientX-、clientY"><a href="#3-clientX-、clientY" class="headerlink" title="3. clientX 、clientY"></a>3. clientX 、clientY</h4><p>用于获取鼠标坐标（相对于页面的坐标）</p><p>var event = event || window.event;</p><ul><li>event.clientX</li><li>event.clientY</li></ul><h4 id="4-offsetLeft与style-left的区别"><a href="#4-offsetLeft与style-left的区别" class="headerlink" title="4.offsetLeft与style.left的区别"></a>4.offsetLeft与style.left的区别</h4><ol><li>    <ul><li>style.left返回的是字符串      //30px</li><li>offsetLeft返回的是数值        //30</li></ul></li><li>    <ul><li>style.left可读可写</li><li>offsetLeft只读</li></ul></li><li>     <ul><li>style.left的值需事先定义，否则取到的值为空</li><li>offsetLeft不需提前定义，直接获取</li></ul></li></ol><h4 id="5-兼容问题"><a href="#5-兼容问题" class="headerlink" title="5.兼容问题"></a>5.兼容问题</h4><pre><code>chrome：e.pageX——相对整个页面的坐标e.layerX——相对当前坐标系的border左上角开始的坐标e.offsetX——相对当前坐标系的border左上角开始的坐标e.clientX——相对可视区域的坐标e.x——相对可视区域的坐标ff：e.pageX——相对整个页面的坐标e.layerX——相对当前坐标系的border左上角开始的坐标e.offsetX——无e.clientX——相对可视区域的坐标e.x——无opera：e.pageX——相对整个页面的坐标e.layerX——无e.offsetX——相对当前坐标系的内容区域左上角开始的坐标e.clientX——相对可视区域的坐标e.x——相对可视区域的坐标safari：（这个和chrome是一样的）e.pageX——相对整个页面的坐标e.layerX——相对当前坐标系的border左上角开始的坐标e.offsetX——相对当前坐标系的border左上角开始的坐标e.clientX——相对可视区域的坐标e.x——相对可视区域的坐标IE9：e.pageX——相对整个页面的坐标e.layerX——相对当前坐标系的border左上角开始的坐标 + 滚动条滚过的距离（这个NB轰轰了····=。=）e.offsetX——相对当前坐标系的内容区域左上角开始的坐标e.clientX——相对可视区域的坐标e.x——相对当前坐标系的border左上角开始IE8：e.pageX——无e.layerX——无e.offsetX——相对当前坐标系的内容区域左上角开始的坐标e.clientX——相对可视区域的坐标e.x——相对当前坐标系的border左上角开始IE7：e.pageX——无e.layerX——无e.offsetX——相对当前坐标系的内容区域左上角开始的坐标e.clientX——相对可视区域的坐标e.x——相对当前坐标系的border左上角开始IE6：e.pageX——无e.layerX——无e.offsetX——相对当前坐标系的内容区域左上角开始的坐标e.clientX——相对可视区域的坐标e.x——相对当前坐标系的border左上角开始</code></pre>]]></content>
+      
+      
       <categories>
-        <category>同源策略</category>
-        <category>浏览器</category>
+          
+          <category> JavaScript </category>
+          
       </categories>
-      <tags>
-        <tag>浏览器</tag>
-        <tag>同源策略</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Axios二次封装</title>
-    <url>/2020/09/27/Axios/</url>
-    <content><![CDATA[<hr>
-<a id="more"></a>
-
-
-<h3 id="01-新建src-api文件夹"><a href="#01-新建src-api文件夹" class="headerlink" title="01-新建src/api文件夹"></a>01-新建src/api文件夹</h3><pre><code>api
- - ajax.js
- - index.js</code></pre>
-<h3 id="02-新建axios-js文件"><a href="#02-新建axios-js文件" class="headerlink" title="02-新建axios.js文件"></a>02-新建axios.js文件</h3><pre><code class="js">import axios from &#39;axios&#39;
-
-//封装ajax
-export default function ajax(url=&#39;&#39;,params=&#123;&#125;,type=&#39;GET&#39;)&#123;
-  let promise;
-  type = type.toUpperCase()
-  return new Promise(((resolve, reject) =&gt; &#123;
-    //1.判断请求方式
-    if (type===&#39;GET&#39;)&#123;
-      //1.1拼接字符串
-      let str = &#39;&#39;;
-      Object.keys(params).forEach((value,index) =&gt; &#123;
-        if (index+1===Object.keys(params).length)&#123;
-          str+=value+&#39;=&#39;+params[value];
-        &#125;else&#123;
-          str+=value+&#39;=&#39;+params[value]+&#39;&amp;&#39;;
-        &#125;
-      &#125;);
-      //1.2完整路径
-      url+=&#39;?&#39;+str;
-      //1.3发送get请求
-      promise = axios.get(url);
-    &#125;else if(type===&#39;POST&#39;)&#123;
-      //1.3发送post请求
-      promise = axios.post(url,params);
-    &#125;
-    //2.返回请求结果
-    promise.then((response)=&gt;&#123;
-      resolve(response.data);
-    &#125;).catch((error)=&gt;&#123;
-      reject(error);
-    &#125;);
-  &#125;))
-&#125;
-</code></pre>
-<h3 id="03-新建index-js文件"><a href="#03-新建index-js文件" class="headerlink" title="03-新建index.js文件"></a>03-新建index.js文件</h3><pre><code>import ajax from &#39;./ajax&#39;
-
-//发送请求
-export const getPhoneCode = (phone)=&gt;ajax(&#39;/api/getPhoneCode&#39;,&#123;phone&#125;);
-</code></pre>
-<h3 id="04-api调用"><a href="#04-api调用" class="headerlink" title="04-api调用"></a>04-api调用</h3><pre><code>import &#123; xxxxx &#125; from &#39;api/index.js (文件路径)&#39;</code></pre>
-]]></content>
+      
+      
+        <tags>
+            
+            <tag> JavaScript </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>React-富文本框(braft-editor)</title>
+      <link href="2020/09/24/React-richText/"/>
+      <url>2020/09/24/React-richText/</url>
+      
+        <content type="html"><![CDATA[<h2 id="富文本编辑器"><a href="#富文本编辑器" class="headerlink" title="富文本编辑器"></a>富文本编辑器</h2><a id="more"></a><p><a href="https://www.yuque.com/braft-editor/be/gz44tn#wx1vkv">https://www.yuque.com/braft-editor/be/gz44tn#wx1vkv</a></p><pre><code>import React, &#123; Component &#125; from &#39;react&#39;;// 引入编辑器组件import BraftEditor from &#39;braft-editor&#39;;// 引入编辑器样式import &#39;braft-editor/dist/index.css&#39;;import &#123; UploadFn &#125; from &#39;./UploadFn&#39;;export class RichText extends Component &#123;    constructor() &#123;        super();        this.state = &#123;            editorState: BraftEditor.createEditorState(null),        &#125;;        RichText.submitContent = this.submitContent.bind(this);    &#125;    async componentDidMount() &#123;        // 假设此处从服务端获取html格式的编辑器内容        let htmlContent = this.props.htmlContent || null;        // 使用BraftEditor.createEditorState将html字符串转换为编辑器需要的editorStat        this.setState(&#123;            editorState: BraftEditor.createEditorState(htmlContent),        &#125;);    &#125;    componentWillReceiveProps(nextProps) &#123;        if (nextProps.htmlContent !== this.state.htmlContent) &#123;            this.setState(&#123;                editorState: BraftEditor.createEditorState(nextProps.htmlContent),            &#125;);        &#125;    &#125;    submitContent = async () =&gt; &#123;        // 在编辑器获得焦点时按下ctrl+s会执行此方法        // 编辑器内容提交到服务端之前，可直接调用editorState.toHTML()来获取HTML格式的内容        const htmlContent = this.state.editorState.toHTML();        return htmlContent;    &#125;;    handleEditorChange = editorState =&gt; &#123;        this.setState(&#123; editorState &#125;);    &#125;;    render() &#123;        return (            &lt;BraftEditor                value=&#123;this.state.editorState&#125;                onChange=&#123;this.handleEditorChange&#125;                onSave=&#123;this.submitContent&#125;                onBlur=&#123;() =&gt; &#123;                    const htmlContent = this.state.editorState.toHTML();                &#125;&#125;                // excludeControls=&#123;[&#39;options&#39;]&#125;                media=&#123;&#123; uploadFn: UploadFn &#125;&#125;            /&gt;        );    &#125;&#125;</code></pre>]]></content>
+      
+      
       <categories>
-        <category>Ajax</category>
-        <category>Axios</category>
+          
+          <category> React </category>
+          
       </categories>
-      <tags>
-        <tag>Ajax</tag>
-        <tag>Axios</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>React父组件调用子组件</title>
-    <url>/2020/09/25/React-%E7%88%B6%E7%BB%84%E4%BB%B6%E8%B0%83%E7%94%A8%E5%AD%90%E7%BB%84%E4%BB%B6/</url>
-    <content><![CDATA[<h2 id="方案一：-ref控制"><a href="#方案一：-ref控制" class="headerlink" title="方案一： ref控制"></a>方案一： ref控制</h2><a id="more"></a>
-
-<h4 id="Parent-Component-Parent-tsx"><a href="#Parent-Component-Parent-tsx" class="headerlink" title="Parent Component ( Parent.tsx )"></a>Parent Component ( Parent.tsx )</h4><pre><code>import * as React from &#39;react&#39;;
-
-import &#123; ChildA &#125; from &#39;./ChildA&#39;;
-
-//多个子组件时可以先定义如下组件：
-class Childrens extends React.Component&lt;any, any&gt; &#123;
-  _childA: any;
-  _childB: any;
-  _childC: any;
-&#125;
-
-export class Parent extends Childrens &#123;
-
-  //调用子组件方式：
-  get_childA_sum = () =&gt; &#123;
-    this._childA.sum(1, 2)
-  &#125;
-
-  render() &#123;
-    const children = &#123;
-      on_childA_ref: ref =&gt; &#123;
-        this._childA = ref;
-      &#125;,
-      on_childB_ref: ref =&gt; &#123;
-        this._childB = ref;
-      &#125;,
-      on_childC_ref: ref =&gt; &#123;
-        this._childC = ref;
-      &#125;,
-    &#125;
-
-    return (
-      &lt;div&gt;
-        &lt;button onClick=&#123;() =&gt; this.get_childA_sum()&#125;&gt; SumA &lt;/button&gt;
-        &lt;ChildA _childA=&#123;children.on_childA_ref&#125; /&gt;
-      &lt;/div&gt;
-    )
-  &#125;
-&#125;
-
-
-</code></pre>
-<h4 id="Children-Component-ChildA-tsx"><a href="#Children-Component-ChildA-tsx" class="headerlink" title="Children Component  (ChildA.tsx)"></a>Children Component  (ChildA.tsx)</h4><pre><code>import * as React from &#39;react&#39;;
-
-interface ChildAProps &#123;
-  _childA:Function;
-&#125;
-
-export class ChildA extends React.Component&lt;ChildAProps, any&gt; &#123;
-
-  componentDidMount() &#123;
-        this.props._childA(this)
-    &#125;
-
-  sum = (a , b) =&gt; &#123;
-    alert(a+b)
-  &#125;
-
-  render()&#123;
-    return(
-      &lt;div&gt;
-        组件A
-      &lt;/div&gt;
-    )
-  &#125;
-
-&#125;</code></pre>
-]]></content>
+      
+      
+        <tags>
+            
+            <tag> React </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>一段js代码在浏览器中是如何执行的</title>
+      <link href="2020/09/22/JavaScript%E4%BB%A3%E7%A0%81%E5%9C%A8%E6%B5%8F%E8%A7%88%E5%99%A8%E4%B8%AD%E7%9A%84%E6%89%A7%E8%A1%8C%E9%A1%BA%E5%BA%8F/"/>
+      <url>2020/09/22/JavaScript%E4%BB%A3%E7%A0%81%E5%9C%A8%E6%B5%8F%E8%A7%88%E5%99%A8%E4%B8%AD%E7%9A%84%E6%89%A7%E8%A1%8C%E9%A1%BA%E5%BA%8F/</url>
+      
+        <content type="html"><![CDATA[<a id="more"></a><h1 id="一段js代码在浏览器中是如何执行的"><a href="#一段js代码在浏览器中是如何执行的" class="headerlink" title="一段js代码在浏览器中是如何执行的"></a>一段js代码在浏览器中是如何执行的</h1><p>在执行一段代码时，JS 引擎会首先创建一个执行栈<br>然后JS引擎会创建一个全局执行上下文，并push到执行栈中, </p><ul><li>这个过程JS引擎会为这段代码中所有变量分配内存并赋一个初始值（undefined）</li><li>在创建完成后，JS引擎会进入执行阶段，这个过程JS引擎会逐行的执行代码，即为之前分配好内存的变量逐个赋值(真实值)。</li><li>如果这段代码中存在function的声明和调用，那么JS引擎会创建一个函数执行上下文，并push到执行栈中，其创建和执行过程跟全局执行上下文一样。但有特殊情况，即当函数中存在对其它函数的调用时，JS引擎会在父函数执行的过程中，将子函数的全局执行上下文push到执行栈，这也是为什么子函数能够访问到父函数内所声明的变量。</li><li>还有一种特殊情况是，在子函数执行的过程中，父函数已经return了，这种情况下，JS引擎会将父函数的上下文从执行栈中移除，与此同时，JS引擎会为还在执行的子函数上下文创建一个闭包，这个闭包里保存了父函数内声明的变量及其赋值，子函数仍然能够在其上下文中访问并使用这边变量/常量。当子函数执行完毕，JS引擎才会将子函数的上下文及闭包一并从执行栈中移除。</li><li>最后，<strong>JS引擎是单线程的</strong>，那么它是如何处理高并发的呢？即当代码中存在异步调用时JS是如何执行的?</li></ul><p>比如setTimeout或fetch请求都是non-blocking的，当异步调用代码触发时，JS引擎会将需要异步执行的代码移出调用栈，直到等待到返回结果，JS引擎会立即将与之对应的回调函数push进任务队列中等待被调用，当调用(执行)栈中已经没有需要被执行的代码时，JS引擎会立刻将任务队列中的回调函数逐个push进调用栈并执行。这个过程我们也称之为事件循环。</p><p>转自: <a href="https://juejin.im/post/5e7426d15188254967069c00">https://juejin.im/post/5e7426d15188254967069c00</a></p>]]></content>
+      
+      
       <categories>
-        <category>React</category>
-        <category>TypeScript</category>
+          
+          <category> JavaScript </category>
+          
+          <category> 浏览器 </category>
+          
       </categories>
-  </entry>
-  <entry>
-    <title>JavaScript获取元素位置</title>
-    <url>/2020/09/24/JavaScript%E8%8E%B7%E5%8F%96%E5%85%83%E7%B4%A0%E5%9D%90%E6%A0%87%E9%97%AE%E9%A2%98/</url>
-    <content><![CDATA[<h2 id="js获取元素相对于父级元素的高度"><a href="#js获取元素相对于父级元素的高度" class="headerlink" title="js获取元素相对于父级元素的高度"></a>js获取元素相对于父级元素的高度</h2><a id="more"></a>
-<h4 id="1-offsetLeft-、offsetTop"><a href="#1-offsetLeft-、offsetTop" class="headerlink" title="1. offsetLeft 、offsetTop"></a>1. offsetLeft 、offsetTop</h4><p>offsetLeft/offsetTop -  用于获取子元素相对于父元素的位移（左位移、上位移）</p>
-<h4 id="2-offsetWidth、offsetHeight"><a href="#2-offsetWidth、offsetHeight" class="headerlink" title="2. offsetWidth、offsetHeight"></a>2. offsetWidth、offsetHeight</h4><p>offsetWidth/offsetHeight - 用于获取元素的可见宽度和可见高度</p>
-<h4 id="3-clientX-、clientY"><a href="#3-clientX-、clientY" class="headerlink" title="3. clientX 、clientY"></a>3. clientX 、clientY</h4><p>用于获取鼠标坐标（相对于页面的坐标）</p>
-<p>var event = event || window.event;</p>
-<ul>
-<li>event.clientX</li>
-<li>event.clientY</li>
-</ul>
-<h4 id="4-offsetLeft与style-left的区别"><a href="#4-offsetLeft与style-left的区别" class="headerlink" title="4.offsetLeft与style.left的区别"></a>4.offsetLeft与style.left的区别</h4><ol>
-<li>    <ul>
-<li>style.left返回的是字符串      //30px</li>
-<li>offsetLeft返回的是数值        //30</li>
-</ul>
-</li>
-<li>    <ul>
-<li>style.left可读可写</li>
-<li>offsetLeft只读</li>
-</ul>
-</li>
-<li>     <ul>
-<li>style.left的值需事先定义，否则取到的值为空</li>
-<li>offsetLeft不需提前定义，直接获取</li>
-</ul>
-</li>
-</ol>
-<h4 id="5-兼容问题"><a href="#5-兼容问题" class="headerlink" title="5.兼容问题"></a>5.兼容问题</h4><pre><code>chrome：
-
-e.pageX——相对整个页面的坐标
-e.layerX——相对当前坐标系的border左上角开始的坐标
-e.offsetX——相对当前坐标系的border左上角开始的坐标
-e.clientX——相对可视区域的坐标
-e.x——相对可视区域的坐标
-
-ff：
-
-e.pageX——相对整个页面的坐标
-e.layerX——相对当前坐标系的border左上角开始的坐标
-e.offsetX——无
-e.clientX——相对可视区域的坐标
-e.x——无
-
-opera：
-
-e.pageX——相对整个页面的坐标
-e.layerX——无
-e.offsetX——相对当前坐标系的内容区域左上角开始的坐标
-e.clientX——相对可视区域的坐标
-e.x——相对可视区域的坐标
-
-safari：（这个和chrome是一样的）
-
-e.pageX——相对整个页面的坐标
-e.layerX——相对当前坐标系的border左上角开始的坐标
-e.offsetX——相对当前坐标系的border左上角开始的坐标
-e.clientX——相对可视区域的坐标
-e.x——相对可视区域的坐标
-
-IE9：
-
-e.pageX——相对整个页面的坐标
-e.layerX——相对当前坐标系的border左上角开始的坐标 + 滚动条滚过的距离（这个NB轰轰了····=。=）
-e.offsetX——相对当前坐标系的内容区域左上角开始的坐标
-e.clientX——相对可视区域的坐标
-e.x——相对当前坐标系的border左上角开始
-
-IE8：
-
-e.pageX——无
-e.layerX——无
-e.offsetX——相对当前坐标系的内容区域左上角开始的坐标
-e.clientX——相对可视区域的坐标
-e.x——相对当前坐标系的border左上角开始
-
-IE7：
-
-e.pageX——无
-e.layerX——无
-e.offsetX——相对当前坐标系的内容区域左上角开始的坐标
-e.clientX——相对可视区域的坐标
-e.x——相对当前坐标系的border左上角开始
-
-IE6：
-
-e.pageX——无
-e.layerX——无
-e.offsetX——相对当前坐标系的内容区域左上角开始的坐标
-e.clientX——相对可视区域的坐标
-e.x——相对当前坐标系的border左上角开始</code></pre>
-]]></content>
+      
+      
+        <tags>
+            
+            <tag> JavaScript </tag>
+            
+            <tag> 浏览器 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>React中使用Echats</title>
+      <link href="2020/09/22/React-echart/"/>
+      <url>2020/09/22/React-echart/</url>
+      
+        <content type="html"><![CDATA[<a id="more"></a><h4 id="1-安装echats"><a href="#1-安装echats" class="headerlink" title="1.安装echats"></a>1.安装echats</h4><pre><code>npm install echarts --savenpm install --save echarts-for-react</code></pre><h4 id="2-引入所需模块"><a href="#2-引入所需模块" class="headerlink" title="2.引入所需模块"></a>2.引入所需模块</h4><pre><code class="javascript">// 引入 ECharts 主模块var echarts = require(&#39;echarts/lib/echarts&#39;);// 引入柱状图require(&#39;echarts/lib/chart/bar&#39;);// 引入提示框和标题组件require(&#39;echarts/lib/component/tooltip&#39;);require(&#39;echarts/lib/component/title&#39;);</code></pre><h4 id="3-实例"><a href="#3-实例" class="headerlink" title="3.实例"></a>3.实例</h4><pre><code class="javascript">showTrend() &#123;        // 基于准备好的dom，初始化echarts实例        var myChart = echarts.init(document.getElementById(&#39;trend&#39;));        //柱状图点击事件        myChart.on(&#39;click&#39;, params =&gt; &#123;        &#125;);              // 绘制图表        myChart.setOption(&#123;            title: &#123; text: &#39;近十五日趋势&#39; &#125;,            color: [&#39;#3398DB&#39;],            tooltip: &#123;                trigger: &#39;axis&#39;,                axisPointer: &#123;                    type: &#39;shadow&#39;,                &#125;,            &#125;,            grid: &#123;                left: &#39;3%&#39;,                right: &#39;4%&#39;,                bottom: &#39;3%&#39;,                containLabel: true,            &#125;,            xAxis: &#123;                type: &#39;category&#39;,                data: this.state.trendDate,                axisTick: &#123;                    alignWithLabel: true,                &#125;,            &#125;,            yAxis: [&#123; type: &#39;value&#39; &#125;],            series: [                &#123;                    name: &#39;告警总数&#39;,                    type: &#39;bar&#39;,                    barWidth: &#39;60%&#39;,                    data: this.state.trendData,                &#125;,            ],        &#125;);    &#125;</code></pre><h4 id="4-DOM部分"><a href="#4-DOM部分" class="headerlink" title="4.DOM部分"></a>4.DOM部分</h4><pre><code class="html">&lt;div id=&quot;trend&quot; style=&#123;&#123; height: 300 &#125;&#125;&gt;&lt;/div&gt;</code></pre><h4 id="5-效果图"><a href="#5-效果图" class="headerlink" title="5.效果图"></a>5.效果图</h4><p><img src="https://cdn.jsdelivr.net/gh/JuntengMa/Images@1.1/blog/echats.jpg"></p>]]></content>
+      
+      
       <categories>
-        <category>JavaScript</category>
+          
+          <category> React </category>
+          
       </categories>
-      <tags>
-        <tag>JavaScript</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>React-富文本框(braft-editor)</title>
-    <url>/2020/09/24/React-richText/</url>
-    <content><![CDATA[<h2 id="富文本编辑器"><a href="#富文本编辑器" class="headerlink" title="富文本编辑器"></a>富文本编辑器</h2><a id="more"></a>
-
-<p><a href="https://www.yuque.com/braft-editor/be/gz44tn#wx1vkv">https://www.yuque.com/braft-editor/be/gz44tn#wx1vkv</a></p>
-<pre><code>import React, &#123; Component &#125; from &#39;react&#39;;
-// 引入编辑器组件
-
-import BraftEditor from &#39;braft-editor&#39;;
-// 引入编辑器样式
-import &#39;braft-editor/dist/index.css&#39;;
-
-import &#123; UploadFn &#125; from &#39;./UploadFn&#39;;
-
-export class RichText extends Component &#123;
-    constructor() &#123;
-        super();
-        this.state = &#123;
-            editorState: BraftEditor.createEditorState(null),
-        &#125;;
-        RichText.submitContent = this.submitContent.bind(this);
-    &#125;
-
-    async componentDidMount() &#123;
-        // 假设此处从服务端获取html格式的编辑器内容
-        let htmlContent = this.props.htmlContent || null;
-        // 使用BraftEditor.createEditorState将html字符串转换为编辑器需要的editorStat
-        this.setState(&#123;
-            editorState: BraftEditor.createEditorState(htmlContent),
-        &#125;);
-    &#125;
-
-    componentWillReceiveProps(nextProps) &#123;
-        if (nextProps.htmlContent !== this.state.htmlContent) &#123;
-            this.setState(&#123;
-                editorState: BraftEditor.createEditorState(nextProps.htmlContent),
-            &#125;);
-        &#125;
-    &#125;
-
-    submitContent = async () =&gt; &#123;
-        // 在编辑器获得焦点时按下ctrl+s会执行此方法
-        // 编辑器内容提交到服务端之前，可直接调用editorState.toHTML()来获取HTML格式的内容
-        const htmlContent = this.state.editorState.toHTML();
-        return htmlContent;
-    &#125;;
-
-    handleEditorChange = editorState =&gt; &#123;
-        this.setState(&#123; editorState &#125;);
-    &#125;;
-
-    render() &#123;
-        return (
-            &lt;BraftEditor
-                value=&#123;this.state.editorState&#125;
-                onChange=&#123;this.handleEditorChange&#125;
-                onSave=&#123;this.submitContent&#125;
-                onBlur=&#123;() =&gt; &#123;
-                    const htmlContent = this.state.editorState.toHTML();
-                &#125;&#125;
-                // excludeControls=&#123;[&#39;options&#39;]&#125;
-                media=&#123;&#123; uploadFn: UploadFn &#125;&#125;
-            /&gt;
-        );
-    &#125;
-&#125;
-</code></pre>
-]]></content>
+      
+      
+        <tags>
+            
+            <tag> React </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>自己比较常用的一些git操作</title>
+      <link href="2020/09/22/Git%E5%91%BD%E4%BB%A4/"/>
+      <url>2020/09/22/Git%E5%91%BD%E4%BB%A4/</url>
+      
+        <content type="html"><![CDATA[<h1 id="GIT-常用命令"><a href="#GIT-常用命令" class="headerlink" title="GIT 常用命令"></a>GIT 常用命令</h1><a id="more"></a><h2 id="01-初始配置"><a href="#01-初始配置" class="headerlink" title="01 - 初始配置"></a>01 - 初始配置</h2><pre><code>- git init 初始化本地git仓库（创建新仓库）- git config --global user.name &quot;xxx&quot; 配置用户名- git config --global user.email &quot;xxx@xxx.com&quot; 配置用户邮箱- git clone &quot;git链接&quot; 克隆git仓库到本地- git status 查看当前在哪个分支</code></pre><h2 id="02-开发完毕将要上传代码仓库操作"><a href="#02-开发完毕将要上传代码仓库操作" class="headerlink" title="02 - 开发完毕将要上传代码仓库操作"></a>02 - 开发完毕将要上传代码仓库操作</h2><pre><code>git add .  增加当前子目录下所有更改过的文件至indexgit commit -m &quot;xxx&quot; 提交git push 推送改动到远端</code></pre><h2 id="03-新建分支操作"><a href="#03-新建分支操作" class="headerlink" title="03 - 新建分支操作"></a>03 - 新建分支操作</h2><pre><code>git branch &lt;分支名&gt; 创建新分支git checkout &lt;分支名&gt; 切换到该分支git push 如果是新建分支，push的时候需要跟远端仓库关联，一般会提示 git push --set-upstream 你的分支名 ， 复制提示信息并执行</code></pre><h2 id="04-合并分支操作"><a href="#04-合并分支操作" class="headerlink" title="04 - 合并分支操作"></a>04 - 合并分支操作</h2><pre><code>git pull origin master 多人协作，以防master已更新，本地代码版本没有更新，先同步一下master代码，以防产生合并冲突git checkout master 先切换到主分支再合并git merge &lt;需要合并到master上的分支名&gt; 合并某一个分支到该分支</code></pre><h2 id="05-删除本地，远程分支"><a href="#05-删除本地，远程分支" class="headerlink" title="05 - 删除本地，远程分支"></a>05 - 删除本地，远程分支</h2><pre><code>- git branch -d &lt;分支名&gt; 删除本地某一分支- git push origin --delete &lt;分支名&gt; 删除远端分支</code></pre><h2 id="06-版本回退"><a href="#06-版本回退" class="headerlink" title="06 - 版本回退"></a>06 - 版本回退</h2><pre><code>- git log 查看提交历史和commit 标记- git reset --hard &lt;commit 后面的字符串&gt; 将代码回退到某一版本- git push -f 远端仓库版本高于本地版本，需要强制推送上去</code></pre><h2 id="07-取消所有本地修改"><a href="#07-取消所有本地修改" class="headerlink" title="07 - 取消所有本地修改"></a>07 - 取消所有本地修改</h2><pre><code>git checkout .</code></pre><h2 id="09-查看修改"><a href="#09-查看修改" class="headerlink" title="09 - 查看修改"></a>09 - 查看修改</h2><pre><code>git show &lt;commit日志&gt;  显示详细更改</code></pre><h2 id="10-查看某一文件所有修改历史"><a href="#10-查看某一文件所有修改历史" class="headerlink" title="10 - 查看某一文件所有修改历史"></a>10 - 查看某一文件所有修改历史</h2><pre><code> git log --pretty=on 相对路径/绝对路径 git show &lt;commit日志&gt;</code></pre><h2 id="11-其他命令"><a href="#11-其他命令" class="headerlink" title="11 - 其他命令"></a>11 - 其他命令</h2><pre><code>git pull 从当前分支远端拉取代码git pull origin &lt;分支名&gt; 拉取某一分支的代码并合并到当前分支git branch 显示远程仓库分支git branch -a 显示所有分支git branch --merged 显示所有已合并到当前分支的分支git branch --no-merged 显示所有未合并到当前分支的分支git push origin master 推送到主分支git pull origin &lt;分支名&gt; 拉取远程分支合并到当前分支git log 显示提交日志git diff 显示所有变更git diff HEAD^ 显示与上个版本的差异git rm xxx 除某文件</code></pre>]]></content>
+      
+      
       <categories>
-        <category>React</category>
+          
+          <category> Git </category>
+          
       </categories>
-      <tags>
-        <tag>React</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>一段js代码在浏览器中是如何执行的</title>
-    <url>/2020/09/22/JavaScript%E4%BB%A3%E7%A0%81%E5%9C%A8%E6%B5%8F%E8%A7%88%E5%99%A8%E4%B8%AD%E7%9A%84%E6%89%A7%E8%A1%8C%E9%A1%BA%E5%BA%8F/</url>
-    <content><![CDATA[<a id="more"></a>
-
-
-<h1 id="一段js代码在浏览器中是如何执行的"><a href="#一段js代码在浏览器中是如何执行的" class="headerlink" title="一段js代码在浏览器中是如何执行的"></a>一段js代码在浏览器中是如何执行的</h1><p>在执行一段代码时，JS 引擎会首先创建一个执行栈<br>然后JS引擎会创建一个全局执行上下文，并push到执行栈中, </p>
-<ul>
-<li>这个过程JS引擎会为这段代码中所有变量分配内存并赋一个初始值（undefined）</li>
-<li>在创建完成后，JS引擎会进入执行阶段，这个过程JS引擎会逐行的执行代码，即为之前分配好内存的变量逐个赋值(真实值)。</li>
-<li>如果这段代码中存在function的声明和调用，那么JS引擎会创建一个函数执行上下文，并push到执行栈中，其创建和执行过程跟全局执行上下文一样。但有特殊情况，即当函数中存在对其它函数的调用时，JS引擎会在父函数执行的过程中，将子函数的全局执行上下文push到执行栈，这也是为什么子函数能够访问到父函数内所声明的变量。</li>
-<li>还有一种特殊情况是，在子函数执行的过程中，父函数已经return了，这种情况下，JS引擎会将父函数的上下文从执行栈中移除，与此同时，JS引擎会为还在执行的子函数上下文创建一个闭包，这个闭包里保存了父函数内声明的变量及其赋值，子函数仍然能够在其上下文中访问并使用这边变量/常量。当子函数执行完毕，JS引擎才会将子函数的上下文及闭包一并从执行栈中移除。</li>
-<li>最后，<strong>JS引擎是单线程的</strong>，那么它是如何处理高并发的呢？即当代码中存在异步调用时JS是如何执行的?</li>
-</ul>
-<p>比如setTimeout或fetch请求都是non-blocking的，当异步调用代码触发时，JS引擎会将需要异步执行的代码移出调用栈，直到等待到返回结果，JS引擎会立即将与之对应的回调函数push进任务队列中等待被调用，当调用(执行)栈中已经没有需要被执行的代码时，JS引擎会立刻将任务队列中的回调函数逐个push进调用栈并执行。这个过程我们也称之为事件循环。</p>
-<p>转自: <a href="https://juejin.im/post/5e7426d15188254967069c00">https://juejin.im/post/5e7426d15188254967069c00</a></p>
-]]></content>
+      
+      
+        <tags>
+            
+            <tag> Git </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>在react中实现文本复制</title>
+      <link href="2020/09/22/React-%E6%96%87%E6%9C%AC%E5%A4%8D%E5%88%B6/"/>
+      <url>2020/09/22/React-%E6%96%87%E6%9C%AC%E5%A4%8D%E5%88%B6/</url>
+      
+        <content type="html"><![CDATA[<a id="more"></a><h2 id="方案一："><a href="#方案一：" class="headerlink" title="方案一："></a>方案一：</h2><pre><code class="js">copyTranslateResult = () =&gt; &#123;        const copyDOM = document.querySelector(&#39;.translateResult&#39;);        if (copyDOM.innerHTML !== &#39;&#39;) &#123;            var range = document.createRange(); //创建一个range            window.getSelection().removeAllRanges(); //清楚页面中已有的selection            range.selectNode(copyDOM); // 选中需要复制的节点            window.getSelection().addRange(range); // 执行选中元素            var successful = document.execCommand(&#39;copy&#39;); // 执行 copy 操作            if (successful) &#123;                message.success(&#39;复制成功！&#39;);            &#125; else &#123;                message.warning(&#39;复制失败，请手动复制！&#39;);            &#125;            // 移除选中的元素            window.getSelection().removeAllRanges();        &#125; else &#123;            message.warning(&#39;没有内容&#39;);        &#125;    &#125;;</code></pre><h2 id="方案二-推荐，方案一兼容性不高-："><a href="#方案二-推荐，方案一兼容性不高-：" class="headerlink" title="方案二(推荐，方案一兼容性不高)："></a>方案二(推荐，方案一兼容性不高)：</h2><p><strong>react-copy-to-clipboard：</strong><br><a href="https://github.com/nkbt/react-copy-to-clipboard">https://github.com/nkbt/react-copy-to-clipboard</a></p><h4 id="Install"><a href="#Install" class="headerlink" title="Install"></a>Install</h4><pre><code>npm install --save react-copy-to-clipboardoryarn add react-copy-to-clipboard</code></pre><h4 id="Demo"><a href="#Demo" class="headerlink" title="Demo"></a>Demo</h4><pre><code class="jsx">import React from &#39;react&#39;;import ReactDOM from &#39;react-dom&#39;;import &#123;CopyToClipboard&#125; from &#39;react-copy-to-clipboard&#39;;class App extends React.Component &#123;  state = &#123;    value: &#39;&#39;,    copied: false,  &#125;;  render() &#123;    return (      &lt;div&gt;        &lt;input value=&#123;this.state.value&#125;          onChange=&#123;(&#123;target: &#123;value&#125;&#125;) =&gt; this.setState(&#123;value, copied: false&#125;)&#125; /&gt;        &lt;CopyToClipboard text=&#123;this.state.value&#125;          onCopy=&#123;() =&gt; this.setState(&#123;copied: true&#125;)&#125;&gt;          &lt;span&gt;Copy to clipboard with span&lt;/span&gt;        &lt;/CopyToClipboard&gt;        &lt;CopyToClipboard text=&#123;this.state.value&#125;          onCopy=&#123;() =&gt; this.setState(&#123;copied: true&#125;)&#125;&gt;          &lt;button&gt;Copy to clipboard with button&lt;/button&gt;        &lt;/CopyToClipboard&gt;        &#123;this.state.copied ? &lt;span style=&#123;&#123;color: 'red'&#125;&#125;&gt;Copied.&lt;/span&gt; : null&#125;      &lt;/div&gt;    );  &#125;&#125;const appRoot = document.createElement(&#39;div&#39;);document.body.appendChild(appRoot);ReactDOM.render(&lt;App /&gt;, appRoot);</code></pre>]]></content>
+      
+      
       <categories>
-        <category>JavaScript</category>
-        <category>浏览器</category>
+          
+          <category> React </category>
+          
       </categories>
-      <tags>
-        <tag>JavaScript</tag>
-        <tag>浏览器</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>React中使用Echats</title>
-    <url>/2020/09/22/React-echart/</url>
-    <content><![CDATA[<a id="more"></a>
-
-
-
-<h4 id="1-安装echats"><a href="#1-安装echats" class="headerlink" title="1.安装echats"></a>1.安装echats</h4><pre><code>npm install echarts --save
-npm install --save echarts-for-react</code></pre>
-<h4 id="2-引入所需模块"><a href="#2-引入所需模块" class="headerlink" title="2.引入所需模块"></a>2.引入所需模块</h4><pre><code class="javascript">// 引入 ECharts 主模块
-var echarts = require(&#39;echarts/lib/echarts&#39;);
-// 引入柱状图
-require(&#39;echarts/lib/chart/bar&#39;);
-// 引入提示框和标题组件
-require(&#39;echarts/lib/component/tooltip&#39;);
-require(&#39;echarts/lib/component/title&#39;);</code></pre>
-<h4 id="3-实例"><a href="#3-实例" class="headerlink" title="3.实例"></a>3.实例</h4><pre><code class="javascript">showTrend() &#123;
-        // 基于准备好的dom，初始化echarts实例
-        var myChart = echarts.init(document.getElementById(&#39;trend&#39;));
-        //柱状图点击事件
-        myChart.on(&#39;click&#39;, params =&gt; &#123;
-
-        &#125;);
-              // 绘制图表
-        myChart.setOption(&#123;
-            title: &#123; text: &#39;近十五日趋势&#39; &#125;,
-            color: [&#39;#3398DB&#39;],
-            tooltip: &#123;
-                trigger: &#39;axis&#39;,
-                axisPointer: &#123;
-                    type: &#39;shadow&#39;,
-                &#125;,
-            &#125;,
-            grid: &#123;
-                left: &#39;3%&#39;,
-                right: &#39;4%&#39;,
-                bottom: &#39;3%&#39;,
-                containLabel: true,
-            &#125;,
-            xAxis: &#123;
-                type: &#39;category&#39;,
-                data: this.state.trendDate,
-                axisTick: &#123;
-                    alignWithLabel: true,
-                &#125;,
-            &#125;,
-            yAxis: [&#123; type: &#39;value&#39; &#125;],
-            series: [
-                &#123;
-                    name: &#39;告警总数&#39;,
-                    type: &#39;bar&#39;,
-                    barWidth: &#39;60%&#39;,
-                    data: this.state.trendData,
-                &#125;,
-            ],
-        &#125;);
-    &#125;</code></pre>
-<h4 id="4-DOM部分"><a href="#4-DOM部分" class="headerlink" title="4.DOM部分"></a>4.DOM部分</h4><pre><code class="html">&lt;div id=&quot;trend&quot; style=&#123;&#123; height: 300 &#125;&#125;&gt;&lt;/div&gt;</code></pre>
-<h4 id="5-效果图"><a href="#5-效果图" class="headerlink" title="5.效果图"></a>5.效果图</h4><p><img src="https://cdn.jsdelivr.net/gh/JuntengMa/Images@1.1/blog/echats.jpg"></p>
-]]></content>
+      
+      
+        <tags>
+            
+            <tag> React </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>React - diffView</title>
+      <link href="2020/09/18/React-diffView/"/>
+      <url>2020/09/18/React-diffView/</url>
+      
+        <content type="html"><![CDATA[<a id="more"></a><h1 id="react-diff-view"><a href="#react-diff-view" class="headerlink" title="react-diff-view"></a>react-diff-view</h1><p><a href="https://github.com/praneshr/react-diff-viewer.git">https://github.com/praneshr/react-diff-viewer.git</a></p><h1 id="Install"><a href="#Install" class="headerlink" title="Install"></a>Install</h1><pre><code>yarn add react-diff-viewer# ornpm i react-diff-viewer</code></pre><h1 id="封装组件-DiffView-tsx"><a href="#封装组件-DiffView-tsx" class="headerlink" title="封装组件 DiffView.tsx"></a>封装组件 DiffView.tsx</h1><pre><code>import * as React from &#39;react&#39;;import ReactDiffViewer from &#39;react-diff-viewer&#39;;export interface DiffViewProps &#123;    oldValue: string;    newValue: string;    splitView?: boolean; //true 分两栏 | false  分一栏    leftTitle?: string;    rightTitle?: string;    style?: object&#125;export class DiffView extends React.Component&lt;DiffViewProps&gt; &#123;    public render() &#123;        const &#123; oldValue, newValue, splitView = true, leftTitle, rightTitle, style &#125; = this.props;        return (            &lt;div style=&#123;&#123;...style,overflowY: 'scroll',wordWrap: 'break-word',wordBreak: 'break-all'&#125;&#125;&gt;                &lt;ReactDiffViewer                    oldValue=&#123;oldValue&#125;                    newValue=&#123;newValue&#125;                    splitView=&#123;splitView&#125;                    leftTitle=&#123;leftTitle&#125;                    rightTitle=&#123;rightTitle&#125;                /&gt;            &lt;/div&gt;        );    &#125;&#125;</code></pre><h1 id="参数"><a href="#参数" class="headerlink" title="参数"></a>参数</h1><p><a href="https://github.com/praneshr/react-diff-viewer#props">https://github.com/praneshr/react-diff-viewer#props</a></p><table><thead><tr><th>Prop</th><th>Type</th><th>Default</th><th>Description</th></tr></thead><tbody><tr><td>oldValue</td><td><code>string</code></td><td><code>&#39;&#39;</code></td><td>Old value as string.</td></tr><tr><td>newValue</td><td><code>string</code></td><td><code>&#39;&#39;</code></td><td>New value as string.</td></tr><tr><td>splitView</td><td><code>boolean</code></td><td><code>true</code></td><td>Switch between <code>unified</code> and <code>split</code> view.</td></tr><tr><td>disableWordDiff</td><td><code>boolean</code></td><td><code>false</code></td><td>Show and hide word diff in a diff line.</td></tr><tr><td>compareMethod</td><td><code>DiffMethod</code></td><td><code>DiffMethod.CHARS</code></td><td>JsDiff text diff method used for diffing strings. Check out the <a href="https://github.com/praneshr/react-diff-viewer/tree/v3.0.0#text-block-diff-comparison">guide</a> to use different methods.</td></tr><tr><td>hideLineNumbers</td><td><code>boolean</code></td><td><code>false</code></td><td>Show and hide line numbers.</td></tr><tr><td>renderContent</td><td><code>function</code></td><td><code>undefined</code></td><td>Render Prop API to render code in the diff viewer. Helpful for <a href="https://github.com/praneshr/react-diff-viewer#syntax-highlighting">syntax highlighting</a></td></tr><tr><td>onLineNumberClick</td><td><code>function</code></td><td><code>undefined</code></td><td>Event handler for line number click. <code>(lineId: string) =&gt; void</code></td></tr><tr><td>highlightLines</td><td><code>array[string]</code></td><td><code>[]</code></td><td>List of lines to be highlighted. Works together with <code>onLineNumberClick</code>. Line number are prefixed with <code>L</code> and <code>R</code> for the left and right section of the diff viewer, respectively. For example, <code>L-20</code> means 20th line in the left pane. To highlight a range of line numbers, pass the prefixed line number as an array. For example, <code>[L-2, L-3, L-4, L-5]</code> will highlight the lines <code>2-5</code> in the left pane.</td></tr><tr><td>showDiffOnly</td><td><code>boolean</code></td><td><code>true</code></td><td>Shows only the diffed lines and folds the unchanged lines</td></tr><tr><td>extraLinesSurroundingDiff</td><td><code>number</code></td><td><code>3</code></td><td>Number of extra unchanged lines surrounding the diff. Works along with <code>showDiffOnly</code>.</td></tr><tr><td>codeFoldMessageRenderer</td><td><code>function</code></td><td><code>Expand &#123;number&#125; of lines ...</code></td><td>Render Prop API to render code fold message.</td></tr><tr><td>styles</td><td><code>object</code></td><td><code>&#123;&#125;</code></td><td>To override style variables and styles. Learn more about <a href="https://github.com/praneshr/react-diff-viewer#overriding-styles">overriding styles</a></td></tr><tr><td>useDarkTheme</td><td><code>boolean</code></td><td><code>true</code></td><td>To enable/disable dark theme.</td></tr><tr><td>leftTitle</td><td><code>string</code></td><td><code>undefined</code></td><td>Column title for left section of the diff in split view. This will be used as the only title in inline view.</td></tr><tr><td>rightTitle</td><td><code>string</code></td><td><code>undefined</code></td><td>Column title for right section of the diff in split view. This will be ignored in inline view.</td></tr><tr><td>linesOffset</td><td><code>number</code></td><td><code>0</code></td><td>Number to start count code lines from.</td></tr></tbody></table>]]></content>
+      
+      
       <categories>
-        <category>React</category>
+          
+          <category> React </category>
+          
       </categories>
-      <tags>
-        <tag>React</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>在react中实现文本复制</title>
-    <url>/2020/09/22/React-%E6%96%87%E6%9C%AC%E5%A4%8D%E5%88%B6/</url>
-    <content><![CDATA[<a id="more"></a>
-
-<h2 id="方案一："><a href="#方案一：" class="headerlink" title="方案一："></a>方案一：</h2><pre><code class="js">copyTranslateResult = () =&gt; &#123;
-        const copyDOM = document.querySelector(&#39;.translateResult&#39;);
-
-        if (copyDOM.innerHTML !== &#39;&#39;) &#123;
-
-            var range = document.createRange(); //创建一个range
-
-            window.getSelection().removeAllRanges(); //清楚页面中已有的selection
-
-            range.selectNode(copyDOM); // 选中需要复制的节点
-
-            window.getSelection().addRange(range); // 执行选中元素
-
-            var successful = document.execCommand(&#39;copy&#39;); // 执行 copy 操作
-
-            if (successful) &#123;
-
-                message.success(&#39;复制成功！&#39;);
-
-            &#125; else &#123;
-
-                message.warning(&#39;复制失败，请手动复制！&#39;);
-
-            &#125;
-
-            // 移除选中的元素
-
-            window.getSelection().removeAllRanges();
-
-        &#125; else &#123;
-
-            message.warning(&#39;没有内容&#39;);
-
-        &#125;
-
-    &#125;;</code></pre>
-<h2 id="方案二-推荐，方案一兼容性不高-："><a href="#方案二-推荐，方案一兼容性不高-：" class="headerlink" title="方案二(推荐，方案一兼容性不高)："></a>方案二(推荐，方案一兼容性不高)：</h2><p><strong>react-copy-to-clipboard：</strong><br><a href="https://github.com/nkbt/react-copy-to-clipboard">https://github.com/nkbt/react-copy-to-clipboard</a></p>
-<h4 id="Install"><a href="#Install" class="headerlink" title="Install"></a>Install</h4><pre><code>npm install --save react-copy-to-clipboard
-or
-yarn add react-copy-to-clipboard</code></pre>
-<h4 id="Demo"><a href="#Demo" class="headerlink" title="Demo"></a>Demo</h4><pre><code class="jsx">import React from &#39;react&#39;;
-import ReactDOM from &#39;react-dom&#39;;
-import &#123;CopyToClipboard&#125; from &#39;react-copy-to-clipboard&#39;;
-
-class App extends React.Component &#123;
-  state = &#123;
-    value: &#39;&#39;,
-    copied: false,
-  &#125;;
-
-  render() &#123;
-    return (
-      &lt;div&gt;
-        &lt;input value=&#123;this.state.value&#125;
-          onChange=&#123;(&#123;target: &#123;value&#125;&#125;) =&gt; this.setState(&#123;value, copied: false&#125;)&#125; /&gt;
-
-        &lt;CopyToClipboard text=&#123;this.state.value&#125;
-          onCopy=&#123;() =&gt; this.setState(&#123;copied: true&#125;)&#125;&gt;
-          &lt;span&gt;Copy to clipboard with span&lt;/span&gt;
-        &lt;/CopyToClipboard&gt;
-
-        &lt;CopyToClipboard text=&#123;this.state.value&#125;
-          onCopy=&#123;() =&gt; this.setState(&#123;copied: true&#125;)&#125;&gt;
-          &lt;button&gt;Copy to clipboard with button&lt;/button&gt;
-        &lt;/CopyToClipboard&gt;
-
-        &#123;this.state.copied ? &lt;span style=&#123;&#123;color: 'red'&#125;&#125;&gt;Copied.&lt;/span&gt; : null&#125;
-      &lt;/div&gt;
-    );
-  &#125;
-&#125;
-
-const appRoot = document.createElement(&#39;div&#39;);
-document.body.appendChild(appRoot);
-ReactDOM.render(&lt;App /&gt;, appRoot);
-</code></pre>
-]]></content>
+      
+      
+        <tags>
+            
+            <tag> React </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>css文本超出自动换行</title>
+      <link href="2020/09/18/Css%E6%96%87%E6%9C%AC%E8%B6%85%E5%87%BA%E8%87%AA%E5%8A%A8%E6%8D%A2%E8%A1%8C/"/>
+      <url>2020/09/18/Css%E6%96%87%E6%9C%AC%E8%B6%85%E5%87%BA%E8%87%AA%E5%8A%A8%E6%8D%A2%E8%A1%8C/</url>
+      
+        <content type="html"><![CDATA[<pre><code class="css">word-wrap:break-word; word-break:break-all; overflow: hidden;/*这个参数根据需要来绝对要不要*/</code></pre>]]></content>
+      
+      
       <categories>
-        <category>React</category>
+          
+          <category> Css </category>
+          
       </categories>
-      <tags>
-        <tag>React</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>React - diffView</title>
-    <url>/2020/09/18/React-diffView/</url>
-    <content><![CDATA[<a id="more"></a>
-
-
-<h1 id="react-diff-view"><a href="#react-diff-view" class="headerlink" title="react-diff-view"></a>react-diff-view</h1><p><a href="https://github.com/praneshr/react-diff-viewer.git">https://github.com/praneshr/react-diff-viewer.git</a></p>
-<h1 id="Install"><a href="#Install" class="headerlink" title="Install"></a>Install</h1><pre><code>yarn add react-diff-viewer
-
-# or
-
-npm i react-diff-viewer</code></pre>
-<h1 id="封装组件-DiffView-tsx"><a href="#封装组件-DiffView-tsx" class="headerlink" title="封装组件 DiffView.tsx"></a>封装组件 DiffView.tsx</h1><pre><code>import * as React from &#39;react&#39;;
-
-import ReactDiffViewer from &#39;react-diff-viewer&#39;;
-
-export interface DiffViewProps &#123;
-    oldValue: string;
-    newValue: string;
-    splitView?: boolean; //true 分两栏 | false  分一栏
-    leftTitle?: string;
-    rightTitle?: string;
-    style?: object
-&#125;
-
-export class DiffView extends React.Component&lt;DiffViewProps&gt; &#123;
-    public render() &#123;
-        const &#123; oldValue, newValue, splitView = true, leftTitle, rightTitle, style &#125; = this.props;
-        return (
-            &lt;div style=&#123;&#123;
-				...style,
-				overflowY: 'scroll',
-				wordWrap: 'break-word',
-				wordBreak: 'break-all'
-			&#125;&#125;&gt;
-                &lt;ReactDiffViewer
-                    oldValue=&#123;oldValue&#125;
-                    newValue=&#123;newValue&#125;
-                    splitView=&#123;splitView&#125;
-                    leftTitle=&#123;leftTitle&#125;
-                    rightTitle=&#123;rightTitle&#125;
-                /&gt;
-            &lt;/div&gt;
-
-        );
-    &#125;
-&#125;
-
-</code></pre>
-<h1 id="参数"><a href="#参数" class="headerlink" title="参数"></a>参数</h1><p><a href="https://github.com/praneshr/react-diff-viewer#props">https://github.com/praneshr/react-diff-viewer#props</a></p>
-<table>
-<thead>
-<tr>
-<th>Prop</th>
-<th>Type</th>
-<th>Default</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>oldValue</td>
-<td><code>string</code></td>
-<td><code>&#39;&#39;</code></td>
-<td>Old value as string.</td>
-</tr>
-<tr>
-<td>newValue</td>
-<td><code>string</code></td>
-<td><code>&#39;&#39;</code></td>
-<td>New value as string.</td>
-</tr>
-<tr>
-<td>splitView</td>
-<td><code>boolean</code></td>
-<td><code>true</code></td>
-<td>Switch between <code>unified</code> and <code>split</code> view.</td>
-</tr>
-<tr>
-<td>disableWordDiff</td>
-<td><code>boolean</code></td>
-<td><code>false</code></td>
-<td>Show and hide word diff in a diff line.</td>
-</tr>
-<tr>
-<td>compareMethod</td>
-<td><code>DiffMethod</code></td>
-<td><code>DiffMethod.CHARS</code></td>
-<td>JsDiff text diff method used for diffing strings. Check out the <a href="https://github.com/praneshr/react-diff-viewer/tree/v3.0.0#text-block-diff-comparison">guide</a> to use different methods.</td>
-</tr>
-<tr>
-<td>hideLineNumbers</td>
-<td><code>boolean</code></td>
-<td><code>false</code></td>
-<td>Show and hide line numbers.</td>
-</tr>
-<tr>
-<td>renderContent</td>
-<td><code>function</code></td>
-<td><code>undefined</code></td>
-<td>Render Prop API to render code in the diff viewer. Helpful for <a href="https://github.com/praneshr/react-diff-viewer#syntax-highlighting">syntax highlighting</a></td>
-</tr>
-<tr>
-<td>onLineNumberClick</td>
-<td><code>function</code></td>
-<td><code>undefined</code></td>
-<td>Event handler for line number click. <code>(lineId: string) =&gt; void</code></td>
-</tr>
-<tr>
-<td>highlightLines</td>
-<td><code>array[string]</code></td>
-<td><code>[]</code></td>
-<td>List of lines to be highlighted. Works together with <code>onLineNumberClick</code>. Line number are prefixed with <code>L</code> and <code>R</code> for the left and right section of the diff viewer, respectively. For example, <code>L-20</code> means 20th line in the left pane. To highlight a range of line numbers, pass the prefixed line number as an array. For example, <code>[L-2, L-3, L-4, L-5]</code> will highlight the lines <code>2-5</code> in the left pane.</td>
-</tr>
-<tr>
-<td>showDiffOnly</td>
-<td><code>boolean</code></td>
-<td><code>true</code></td>
-<td>Shows only the diffed lines and folds the unchanged lines</td>
-</tr>
-<tr>
-<td>extraLinesSurroundingDiff</td>
-<td><code>number</code></td>
-<td><code>3</code></td>
-<td>Number of extra unchanged lines surrounding the diff. Works along with <code>showDiffOnly</code>.</td>
-</tr>
-<tr>
-<td>codeFoldMessageRenderer</td>
-<td><code>function</code></td>
-<td><code>Expand &#123;number&#125; of lines ...</code></td>
-<td>Render Prop API to render code fold message.</td>
-</tr>
-<tr>
-<td>styles</td>
-<td><code>object</code></td>
-<td><code>&#123;&#125;</code></td>
-<td>To override style variables and styles. Learn more about <a href="https://github.com/praneshr/react-diff-viewer#overriding-styles">overriding styles</a></td>
-</tr>
-<tr>
-<td>useDarkTheme</td>
-<td><code>boolean</code></td>
-<td><code>true</code></td>
-<td>To enable/disable dark theme.</td>
-</tr>
-<tr>
-<td>leftTitle</td>
-<td><code>string</code></td>
-<td><code>undefined</code></td>
-<td>Column title for left section of the diff in split view. This will be used as the only title in inline view.</td>
-</tr>
-<tr>
-<td>rightTitle</td>
-<td><code>string</code></td>
-<td><code>undefined</code></td>
-<td>Column title for right section of the diff in split view. This will be ignored in inline view.</td>
-</tr>
-<tr>
-<td>linesOffset</td>
-<td><code>number</code></td>
-<td><code>0</code></td>
-<td>Number to start count code lines from.</td>
-</tr>
-</tbody></table>
-]]></content>
+      
+      
+        <tags>
+            
+            <tag> Css </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>React-antd-ImportExcel</title>
+      <link href="2020/09/04/React-antd-ImportExcel/"/>
+      <url>2020/09/04/React-antd-ImportExcel/</url>
+      
+        <content type="html"><![CDATA[<a id="more"></a><h1 id="React-antd-ImportExcel"><a href="#React-antd-ImportExcel" class="headerlink" title="React-antd-ImportExcel"></a>React-antd-ImportExcel</h1><p>工作需求，需要</p><pre><code class="js">import * as React from &#39;react&#39;;import * as XLSX from &#39;xlsx&#39;;import &#123; Button, Icon, message &#125; from &#39;antd&#39;;export interface ImportExcelProps &#123;    getFileInfo: Function;    notice?: string;&#125;//css文件为以下注释样式import &#39;./uploadStyle.css&#39;;&lt;!--.uploadBtn &#123;    position: absolute;    font-size: 5px;    width: &#39;100%&#39;;    height: &#39;100%&#39;;    right: 0;    top: 0;    opacity: 0;    filter: alpha(opacity = 0);    cursor: pointer;&#125;--&gt;export class ImportExcel extends React.Component&lt;ImportExcelProps, any&gt; &#123;    importExcel = file =&gt; &#123;        // 获取上传的文件对象        const &#123; files &#125; = file.target;        // 通过FileReader对象读取文件        const fileReader = new FileReader();        fileReader.onload = event =&gt; &#123;            try &#123;                const &#123; result &#125; = event.target;                // 以二进制流方式读取得到整份excel表格对象                const workbook = XLSX.read(result, &#123; type: &#39;binary&#39; &#125;);                let data = []; // 存储获取到的数据                // 遍历每张工作表进行读取（这里默认只读取第一张表）                for (const sheet in workbook.Sheets) &#123;                    if (workbook.Sheets.hasOwnProperty(sheet)) &#123;                        // 利用 sheet_to_json 方法将 excel 转成 json 数据                        data = data.concat(XLSX.utils.sheet_to_json(workbook.Sheets[sheet]));                        break; // 如果只取第一张表，就取消注释这行                    &#125;                &#125;                //这里获取解析好的excel内容                this.props.getFileInfo(data)            &#125; catch (e) &#123;                // 这里可以抛出文件类型错误不正确的相关提示                message.warning(&#39;error&#39;)            &#125;        &#125;;        // 以二进制方式打开文件        files.length &gt; 0 &amp;&amp; fileReader.readAsBinaryString(files[0]);    &#125;    render() &#123;        const &#123; notice &#125; = this.props        return (            &lt;Button type=&quot;primary&quot; style=&#123;&#123; position: 'relative' &#125;&#125;&gt;                &lt;input type=&#39;file&#39; accept=&#39;.xlsx, .xls&#39; onChange=&#123;e =&gt; this.importExcel(e)&#125; className=&quot;uploadBtn&quot; /&gt;&#123;notice || &#39;导入Excel&#39;&#125;                &lt; Icon type=&quot;upload&quot; /&gt;            &lt;/Button&gt;        );    &#125;&#125;</code></pre><p>使用</p><pre><code class="js">//getFileInfo 用于获取解析出来的数据，按需写接收函数&lt;ImportExcel getFileInfo=&#123;getFileInfo&#125; notice=&quot;导入EXcel&quot; /&gt;</code></pre>]]></content>
+      
+      
       <categories>
-        <category>React</category>
+          
+          <category> React </category>
+          
       </categories>
-      <tags>
-        <tag>React</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>css文本超出自动换行</title>
-    <url>/2020/09/18/Css%E6%96%87%E6%9C%AC%E8%B6%85%E5%87%BA%E8%87%AA%E5%8A%A8%E6%8D%A2%E8%A1%8C/</url>
-    <content><![CDATA[<pre><code class="css">word-wrap:break-word; 
-word-break:break-all; 
-overflow: hidden;/*这个参数根据需要来绝对要不要*/</code></pre>
-]]></content>
+      
+      
+        <tags>
+            
+            <tag> React </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>React-antd-exportExcel</title>
+      <link href="2020/09/04/React-antd-exportExcel/"/>
+      <url>2020/09/04/React-antd-exportExcel/</url>
+      
+        <content type="html"><![CDATA[<a id="more"></a><pre><code class="js">import * as React from &quot;react&quot;import * as XLSX from &quot;xlsx&quot;import &#123; Button, Icon &#125; from &quot;antd&quot;export interface ExportExcelProps &#123;  notice: string;  fileName: string;  headers: string[] | Function; //表头  getExportData: Function;&#125;export class ExportExcel extends React.Component&lt;ExportExcelProps, any&gt; &#123;  handleExport = async () =&gt; &#123;    const &#123; headers, fileName &#125; = this.props    //这里是获取导出数据的函数    const exportData = await this.props.getExportData()    this.exportExcel(headers, exportData, fileName)  &#125;  exportExcel(headers, data, fileName) &#123;    const _headers = headers      .map((item, i) =&gt;        Object.assign(          &#123;&#125;,          &#123;            key: item.key,            title: item.title,            position: String.fromCharCode(65 + i) + 1,          &#125;        )      )      .reduce(        (prev, next) =&gt;          Object.assign(&#123;&#125;, prev, &#123;            [next.position]: &#123; key: next.key, v: next.title &#125;,          &#125;),        &#123;&#125;      )    const _data = data      .map((item, i) =&gt;        headers.map((key, j) =&gt;          Object.assign(            &#123;&#125;,            &#123;              content: item[key.key],              position: String.fromCharCode(65 + j) + (i + 2),            &#125;          )        )      )      // 对刚才的结果进行降维处理（二维数组变成一维数组）      .reduce((prev, next) =&gt; prev.concat(next))      // 转换成 worksheet 需要的结构      .reduce(        (prev, next) =&gt;          Object.assign(&#123;&#125;, prev, &#123; [next.position]: &#123; v: next.content &#125; &#125;),        &#123;&#125;      )    // 合并 headers 和 data    const output = Object.assign(&#123;&#125;, _headers, _data)    // 获取所有单元格的位置    const outputPos = Object.keys(output)    // 计算出范围 ,[&quot;A1&quot;,..., &quot;H2&quot;]    const ref = `$&#123;outputPos[0]&#125;:$&#123;outputPos[outputPos.length - 1]&#125;`    // 构建 workbook 对象    const wb = &#123;      SheetNames: [&quot;mySheet&quot;],      Sheets: &#123;        mySheet: Object.assign(          &#123;&#125;,          output, //列宽          &#123;            &quot;!ref&quot;: ref,            &quot;!cols&quot;: [              &#123; wpx: 150 &#125;,              &#123; wpx: 150 &#125;,              &#123; wpx: 150 &#125;,              &#123; wpx: 150 &#125;,              &#123; wpx: 150 &#125;,              &#123; wpx: 150 &#125;,              &#123; wpx: 150 &#125;,              &#123; wpx: 150 &#125;,            ],          &#125;        ),      &#125;,    &#125;    // 导出 Excel    XLSX.writeFile(wb, `$&#123;fileName&#125;.xlsx`)  &#125;  render() &#123;    const &#123; notice &#125; = this.props    return (      &lt;Button type=&quot;primary&quot; onClick=&#123;() =&gt; this.handleExport()&#125;&gt;        &#123;notice&#125;        &lt;Icon type=&quot;download&quot; /&gt;      &lt;/Button&gt;    )  &#125;&#125;</code></pre><p>使用</p><pre><code class="js">&lt;ExportExcel  notice=&quot;Excel导出&quot;  fileName=&quot;test&quot;  headers=&#123;initColumn&#125;  getExportData=&#123;exportData&#125;/&gt;</code></pre><p>示例表头&amp;数据：</p><pre><code class="js">header=[    &#123;        title: 姓名,        dataIndex: name,        key: name,    &#125;,    &#123;        title: 性别,        dataIndex: sex,        key: sex,    &#125;,    &#123;        title: 年龄,        dataIndex: age,        key: age,    &#125;,]exportData=[    &#123;    name:&#39;小明&#39;，    sex:&#39;男&#39;，    age:18    &#125;,    &#123;    name:&#39;小张&#39;，    sex:&#39;女&#39;，    age:20    &#125;]</code></pre>]]></content>
+      
+      
       <categories>
-        <category>Css</category>
+          
+          <category> React </category>
+          
       </categories>
-      <tags>
-        <tag>Css</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>React-antd-ImportExcel</title>
-    <url>/2020/09/04/React-antd-ImportExcel/</url>
-    <content><![CDATA[<a id="more"></a>
-
-
-<h1 id="React-antd-ImportExcel"><a href="#React-antd-ImportExcel" class="headerlink" title="React-antd-ImportExcel"></a>React-antd-ImportExcel</h1><p>工作需求，需要</p>
-<pre><code class="js">import * as React from &#39;react&#39;;
-
-import * as XLSX from &#39;xlsx&#39;;
-
-import &#123; Button, Icon, message &#125; from &#39;antd&#39;;
-
-export interface ImportExcelProps &#123;
-    getFileInfo: Function;
-    notice?: string;
-&#125;
-
-//css文件为以下注释样式
-import &#39;./uploadStyle.css&#39;;
-&lt;!--
-.uploadBtn &#123;
-    position: absolute;
-    font-size: 5px;
-    width: &#39;100%&#39;;
-    height: &#39;100%&#39;;
-    right: 0;
-    top: 0;
-    opacity: 0;
-    filter: alpha(opacity = 0);
-    cursor: pointer;
-&#125;
---&gt;
-
-export class ImportExcel extends React.Component&lt;ImportExcelProps, any&gt; &#123;
-
-    importExcel = file =&gt; &#123;
-        // 获取上传的文件对象
-        const &#123; files &#125; = file.target;
-        // 通过FileReader对象读取文件
-        const fileReader = new FileReader();
-        fileReader.onload = event =&gt; &#123;
-            try &#123;
-                const &#123; result &#125; = event.target;
-                // 以二进制流方式读取得到整份excel表格对象
-                const workbook = XLSX.read(result, &#123; type: &#39;binary&#39; &#125;);
-                let data = []; // 存储获取到的数据
-                // 遍历每张工作表进行读取（这里默认只读取第一张表）
-                for (const sheet in workbook.Sheets) &#123;
-                    if (workbook.Sheets.hasOwnProperty(sheet)) &#123;
-                        // 利用 sheet_to_json 方法将 excel 转成 json 数据
-                        data = data.concat(XLSX.utils.sheet_to_json(workbook.Sheets[sheet]));
-                        break; // 如果只取第一张表，就取消注释这行
-                    &#125;
-                &#125;
-                //这里获取解析好的excel内容
-                this.props.getFileInfo(data)
-            &#125; catch (e) &#123;
-                // 这里可以抛出文件类型错误不正确的相关提示
-                message.warning(&#39;error&#39;)
-            &#125;
-        &#125;;
-        // 以二进制方式打开文件
-        files.length &gt; 0 &amp;&amp; fileReader.readAsBinaryString(files[0]);
-    &#125;
-
-    render() &#123;
-        const &#123; notice &#125; = this.props
-        return (
-            &lt;Button type=&quot;primary&quot; style=&#123;&#123; position: 'relative' &#125;&#125;&gt;
-                &lt;input type=&#39;file&#39; accept=&#39;.xlsx, .xls&#39; onChange=&#123;e =&gt; this.importExcel(e)&#125; className=&quot;uploadBtn&quot; /&gt;&#123;notice || &#39;导入Excel&#39;&#125;
-                &lt; Icon type=&quot;upload&quot; /&gt;
-            &lt;/Button&gt;
-        );
-    &#125;
-&#125;
-</code></pre>
-<p>使用</p>
-<pre><code class="js">//getFileInfo 用于获取解析出来的数据，按需写接收函数
-&lt;ImportExcel getFileInfo=&#123;getFileInfo&#125; notice=&quot;导入EXcel&quot; /&gt;</code></pre>
-]]></content>
+      
+      
+        <tags>
+            
+            <tag> React </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Yarn / npm 对比</title>
+      <link href="2020/09/02/yarn-npm%E5%AF%B9%E6%AF%94/"/>
+      <url>2020/09/02/yarn-npm%E5%AF%B9%E6%AF%94/</url>
+      
+        <content type="html"><![CDATA[<a id="more"></a><table><thead><tr><th align="left">作用</th><th align="left">npm</th><th align="center">Yarn</th></tr></thead><tbody><tr><td align="left">安装</td><td align="left">npm install(i)</td><td align="center">yarn</td></tr><tr><td align="left">卸载</td><td align="left">npm uninstall(un)</td><td align="center">yarn remove</td></tr><tr><td align="left">全局安装</td><td align="left">npm install xxx –global(-g)</td><td align="center">yarn global add xxx</td></tr><tr><td align="left">安装包</td><td align="left">npm install xxx –save(-S)</td><td align="center">yarn add xxx</td></tr><tr><td align="left">开发模式安装包</td><td align="left">npm install xxx –save-dev(-D)</td><td align="center">yarn add xxx –dev(-D)</td></tr><tr><td align="left">更新</td><td align="left">npm update –save</td><td align="center">yarn upgrade</td></tr><tr><td align="left">全局更新</td><td align="left">npm update –global</td><td align="center">yarn global upgrade</td></tr><tr><td align="left">卸载</td><td align="left">npm uninstall [–save/–save-dev]</td><td align="center">yarn remove xx</td></tr><tr><td align="left">清除缓存</td><td align="left">npm cache clean</td><td align="center">yarn cache clean</td></tr><tr><td align="left">重装</td><td align="left">rm -rf node_modules &amp;&amp; npm install</td><td align="center">yarn upgrade</td></tr></tbody></table>]]></content>
+      
+      
       <categories>
-        <category>React</category>
+          
+          <category> NPM </category>
+          
       </categories>
-      <tags>
-        <tag>React</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>React-antd-exportExcel</title>
-    <url>/2020/09/04/React-antd-exportExcel/</url>
-    <content><![CDATA[<a id="more"></a>
-
-<pre><code class="js">import * as React from &quot;react&quot;
-
-import * as XLSX from &quot;xlsx&quot;
-
-import &#123; Button, Icon &#125; from &quot;antd&quot;
-
-export interface ExportExcelProps &#123;
-  notice: string;
-  fileName: string;
-  headers: string[] | Function; //表头
-  getExportData: Function;
-&#125;
-
-export class ExportExcel extends React.Component&lt;ExportExcelProps, any&gt; &#123;
-  handleExport = async () =&gt; &#123;
-    const &#123; headers, fileName &#125; = this.props
-    //这里是获取导出数据的函数
-    const exportData = await this.props.getExportData()
-
-    this.exportExcel(headers, exportData, fileName)
-  &#125;
-
-  exportExcel(headers, data, fileName) &#123;
-    const _headers = headers
-      .map((item, i) =&gt;
-        Object.assign(
-          &#123;&#125;,
-          &#123;
-            key: item.key,
-            title: item.title,
-            position: String.fromCharCode(65 + i) + 1,
-          &#125;
-        )
-      )
-      .reduce(
-        (prev, next) =&gt;
-          Object.assign(&#123;&#125;, prev, &#123;
-            [next.position]: &#123; key: next.key, v: next.title &#125;,
-          &#125;),
-        &#123;&#125;
-      )
-
-    const _data = data
-      .map((item, i) =&gt;
-        headers.map((key, j) =&gt;
-          Object.assign(
-            &#123;&#125;,
-            &#123;
-              content: item[key.key],
-              position: String.fromCharCode(65 + j) + (i + 2),
-            &#125;
-          )
-        )
-      )
-      // 对刚才的结果进行降维处理（二维数组变成一维数组）
-      .reduce((prev, next) =&gt; prev.concat(next))
-      // 转换成 worksheet 需要的结构
-      .reduce(
-        (prev, next) =&gt;
-          Object.assign(&#123;&#125;, prev, &#123; [next.position]: &#123; v: next.content &#125; &#125;),
-        &#123;&#125;
-      )
-
-    // 合并 headers 和 data
-    const output = Object.assign(&#123;&#125;, _headers, _data)
-    // 获取所有单元格的位置
-    const outputPos = Object.keys(output)
-    // 计算出范围 ,[&quot;A1&quot;,..., &quot;H2&quot;]
-    const ref = `$&#123;outputPos[0]&#125;:$&#123;outputPos[outputPos.length - 1]&#125;`
-
-    // 构建 workbook 对象
-    const wb = &#123;
-      SheetNames: [&quot;mySheet&quot;],
-      Sheets: &#123;
-        mySheet: Object.assign(
-          &#123;&#125;,
-          output, //列宽
-          &#123;
-            &quot;!ref&quot;: ref,
-            &quot;!cols&quot;: [
-              &#123; wpx: 150 &#125;,
-              &#123; wpx: 150 &#125;,
-              &#123; wpx: 150 &#125;,
-              &#123; wpx: 150 &#125;,
-              &#123; wpx: 150 &#125;,
-              &#123; wpx: 150 &#125;,
-              &#123; wpx: 150 &#125;,
-              &#123; wpx: 150 &#125;,
-            ],
-          &#125;
-        ),
-      &#125;,
-    &#125;
-    // 导出 Excel
-    XLSX.writeFile(wb, `$&#123;fileName&#125;.xlsx`)
-  &#125;
-  render() &#123;
-    const &#123; notice &#125; = this.props
-    return (
-      &lt;Button type=&quot;primary&quot; onClick=&#123;() =&gt; this.handleExport()&#125;&gt;
-        &#123;notice&#125;
-        &lt;Icon type=&quot;download&quot; /&gt;
-      &lt;/Button&gt;
-    )
-  &#125;
-&#125;</code></pre>
-<p>使用</p>
-<pre><code class="js">&lt;ExportExcel
-  notice=&quot;Excel导出&quot;
-  fileName=&quot;test&quot;
-  headers=&#123;initColumn&#125;
-  getExportData=&#123;exportData&#125;
-/&gt;</code></pre>
-<p>示例表头&amp;数据：</p>
-<pre><code class="js">header=[
-    &#123;
-        title: 姓名,
-        dataIndex: name,
-        key: name,
-    &#125;,
-    &#123;
-        title: 性别,
-        dataIndex: sex,
-        key: sex,
-    &#125;,
-    &#123;
-        title: 年龄,
-        dataIndex: age,
-        key: age,
-    &#125;,
-]
-
-exportData=[
-    &#123;
-    name:&#39;小明&#39;，
-    sex:&#39;男&#39;，
-    age:18
-    &#125;,
-    &#123;
-    name:&#39;小张&#39;，
-    sex:&#39;女&#39;，
-    age:20
-    &#125;
-]</code></pre>
-]]></content>
+      
+      
+        <tags>
+            
+            <tag> Npm </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Honey</title>
+      <link href="2020/09/01/honey/"/>
+      <url>2020/09/01/honey/</url>
+      
+        <content type="html"><![CDATA[<center>"光洙宝贝😏😏😏"</center><center>"想你了哟~"</center>]]></content>
+      
+      
       <categories>
-        <category>React</category>
+          
+          <category> Honey </category>
+          
       </categories>
-      <tags>
-        <tag>React</tag>
-      </tags>
-  </entry>
+      
+      
+        <tags>
+            
+            <tag> Honey </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+  
+  
 </search>
