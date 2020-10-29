@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN">
+
+<head>
+  
+  <title>Axios二次封装 - June&#39;s Blog</title>
+  <meta charset="UTF-8">
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
+  
+  
+
+  <link rel="shortcut icon" href="/favicon.ico" type="image/png" />
+  <meta property="og:type" content="article">
+<meta property="og:title" content="Axios二次封装">
+<meta property="og:url" content="https://juntengma.github.io/2020/09/27/Axios/index.html">
+<meta property="og:site_name" content="June&#39;s Blog">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-09-27T13:04:10.758Z">
+<meta property="article:modified_time" content="2020-10-28T07:49:54.280Z">
+<meta property="article:author" content="June">
+<meta property="article:tag" content="Ajax">
+<meta property="article:tag" content="Axios">
+<meta name="twitter:card" content="summary">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/combine/gh/nexmoe/nexmoe.github.io@latest/css/style.css,npm/highlight.js@9.15.8/styles/atom-one-dark.css,gh/nexmoe/nexmoe.github.io@latest/lib/mdui_043tiny/css/mdui.css,gh/nexmoe/nexmoe.github.io@latest/lib/iconfont/iconfont.css" crossorigin>
+  
+  <!--<link rel="stylesheet" href="../../../../css/style.css?v=1603942888179">-->
+
+  
+<meta name="generator" content="Hexo 5.2.0"><link rel="alternate" href="atom.xml" title="June's Blog" type="application/atom+xml">
+</head>
+
+<body class="mdui-drawer-body-left">
+  
+  <div id="nexmoe-background">
+    <div class="nexmoe-bg" style="background-image: url(https://source.unsplash.com/user/erondu/1440x960)"></div>
+    <div class="mdui-appbar mdui-shadow-0">
+      <div class="mdui-toolbar">
+        <a mdui-drawer="{target: '#drawer', swipe: true}" title="menu" class="mdui-btn mdui-btn-icon mdui-ripple"><i class="mdui-icon nexmoefont icon-menu"></i></a>
+        <div class="mdui-toolbar-spacer"></div>
+        <!--<a href="javascript:;" class="mdui-btn mdui-btn-icon"><i class="mdui-icon material-icons">search</i></a>-->
+        <a href="../../../../index.html" title="June" class="mdui-btn mdui-btn-icon"><img src="https://cdn.jsdelivr.net/gh/JuntengMa/Images@1.0/blog/avatar.jpg" alt="June"></a>
+       </div>
+    </div>
+  </div>
+  <div id="nexmoe-header">
+      <div class="nexmoe-drawer mdui-drawer" id="drawer">
+    <div class="nexmoe-avatar mdui-ripple">
+        <a href="../../../../index.html" title="June">
+            <img src="https://cdn.jsdelivr.net/gh/JuntengMa/Images@1.0/blog/avatar.jpg" alt="June" alt="June">
+        </a>
+    </div>
+    <div class="nexmoe-count">
+        <div><span>文章</span>26</div>
+        <div><span>标签</span>17</div>
+        <div><span>分类</span>20</div>
+    </div>
+    <div class="nexmoe-list mdui-list" mdui-collapse="{accordion: true}">
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple" href="../../../../index.html" title="回到首页">
+            <i class="mdui-list-item-icon nexmoefont icon-home"></i>
+            <div class="mdui-list-item-content">
+                回到首页
+            </div>
+        </a>
+        
+    </div>
+    <aside id="nexmoe-sidebar">
+  
+  
+  <div class="nexmoe-widget-wrap">
+    <h3 class="nexmoe-widget-title">标签云</h3>
+    <div id="randomtagcloud" class="nexmoe-widget tagcloud nexmoe-rainbow">
+      <a href="../../../../tags/AJAX/" style="font-size: 10px;">AJAX</a> <a href="../../../../tags/Ajax/" style="font-size: 12.5px;">Ajax</a> <a href="../../../../tags/Axios/" style="font-size: 12.5px;">Axios</a> <a href="../../../../tags/BFC/" style="font-size: 10px;">BFC</a> <a href="../../../../tags/Css/" style="font-size: 10px;">Css</a> <a href="../../../../tags/DOM%E4%BA%8B%E4%BB%B6%E4%BA%8B%E4%BB%B6%E6%B5%81/" style="font-size: 10px;">DOM事件事件流</a> <a href="../../../../tags/Git/" style="font-size: 10px;">Git</a> <a href="../../../../tags/Honey/" style="font-size: 10px;">Honey</a> <a href="../../../../tags/JSONP/" style="font-size: 10px;">JSONP</a> <a href="../../../../tags/JavaScript/" style="font-size: 15px;">JavaScript</a> <a href="../../../../tags/Json-server/" style="font-size: 10px;">Json-server</a> <a href="../../../../tags/Npm/" style="font-size: 10px;">Npm</a> <a href="../../../../tags/React/" style="font-size: 20px;">React</a> <a href="../../../../tags/Webpack/" style="font-size: 10px;">Webpack</a> <a href="../../../../tags/%E5%90%8C%E6%BA%90%E7%AD%96%E7%95%A5/" style="font-size: 10px;">同源策略</a> <a href="../../../../tags/%E6%B5%8F%E8%A7%88%E5%99%A8/" style="font-size: 17.5px;">浏览器</a> <a href="../../../../tags/%E7%9B%92%E6%A8%A1%E5%9E%8B/" style="font-size: 10px;">盒模型</a>
+    </div>
+    
+  </div>
+
+  
+  
+  <div class="nexmoe-widget-wrap">
+    <h3 class="nexmoe-widget-title">文章分类</h3>
+    <div class="nexmoe-widget">
+
+      <ul class="category-list">
+
+        
+
+
+        
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/JSONP/AJAX/">AJAX</a>
+          <span class="category-list-count">1</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/Ajax/">Ajax</a>
+          <span class="category-list-count">2</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/Ajax/Axios/">Axios</a>
+          <span class="category-list-count">2</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/Css/盒模型/BFC/">BFC</a>
+          <span class="category-list-count">1</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/Css/">Css</a>
+          <span class="category-list-count">2</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/Git/">Git</a>
+          <span class="category-list-count">1</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/Honey/">Honey</a>
+          <span class="category-list-count">1</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/JSONP/">JSONP</a>
+          <span class="category-list-count">1</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/JavaScript/">JavaScript</a>
+          <span class="category-list-count">3</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/Json-server/">Json-server</a>
+          <span class="category-list-count">1</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/NPM/">NPM</a>
+          <span class="category-list-count">1</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/React/">React</a>
+          <span class="category-list-count">7</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/React/TypeScript/">TypeScript</a>
+          <span class="category-list-count">1</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/Webpack/">Webpack</a>
+          <span class="category-list-count">1</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/原型-原型链/">原型,原型链</a>
+          <span class="category-list-count">1</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/同源策略/">同源策略</a>
+          <span class="category-list-count">1</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/浏览器/">浏览器</a>
+          <span class="category-list-count">4</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/Css/盒模型/">盒模型</a>
+          <span class="category-list-count">1</span>
+        </li>
+
+        
+      </ul>
+
+    </div>
+  </div>
+
+
+  
+  
+  <div class="nexmoe-widget-wrap">
+    <h3 class="nexmoe-widget-title">最新文章</h3>
+    <div class="nexmoe-widget">
+      <ul>
+        
+          <li>
+            <a href="../../../10/29/JavaScript%E9%98%B2%E6%8A%96%E8%8A%82%E6%B5%81/">🌭 (no title)</a>
+          </li>
+        
+          <li>
+            <a href="../../../10/28/Json-server/">🌭 JSON-Server</a>
+          </li>
+        
+          <li>
+            <a href="../../../10/28/JsonP/">🌭 JSONP跨域请求及其原理</a>
+          </li>
+        
+          <li>
+            <a href="../../../10/28/Ajax/">🌭 Ajax</a>
+          </li>
+        
+          <li>
+            <a href="../../../10/28/%E7%9B%92%E6%A8%A1%E5%9E%8B/">🌭 盒模型,BFC</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+</div><!-- .nexmoe-drawer -->
+
+  </div>
+  <div id="nexmoe-content">
+    <div class="nexmoe-primary">
+        <div class="nexmoe-post">
+  
+      <div class="nexmoe-post-cover" style="padding-bottom: 62.5%;"> 
+          <img data-src="https://images.unsplash.com/photo-1597331788728-8d1850a02caa?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjg5ODI0fQ&w=750&dpi=2" data-sizes="auto" alt="Axios二次封装" class="lazyload">
+          <h1>Axios二次封装</h1>
+      </div>
+  
+  
+  <div class="nexmoe-post-meta nexmoe-rainbow" style="margin:10px 0!important;">
+    <a><i class="nexmoefont icon-calendar-fill"></i>2020年09月27日</a>
+    <a><i class="nexmoefont icon-areachart"></i>225 字</a>
+    <a><i class="nexmoefont icon-time-circle-fill"></i>大概 1 分钟</a>
+</div>
+
+  <div class="nexmoe-post-right">
+    
+      <div class="nexmoe-fixed">
+        <div class="nexmoe-valign" style="position:relative">
+            <div class="nexmoe-toc">
+              Toc
+                <!-- <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#01-%E6%96%B0%E5%BB%BAsrc-api%E6%96%87%E4%BB%B6%E5%A4%B9"><span class="toc-number">1.</span> <span class="toc-text">01-新建src&#x2F;api文件夹</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#02-%E6%96%B0%E5%BB%BAaxios-js%E6%96%87%E4%BB%B6"><span class="toc-number">2.</span> <span class="toc-text">02-新建axios.js文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#03-%E6%96%B0%E5%BB%BAindex-js%E6%96%87%E4%BB%B6"><span class="toc-number">3.</span> <span class="toc-text">03-新建index.js文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#04-api%E8%B0%83%E7%94%A8"><span class="toc-number">4.</span> <span class="toc-text">04-api调用</span></a></li></ol> -->
+            </div>
+        </div>
+      </div>
+    
+  </div>
+
+  <article>
+    <hr>
+<a id="more"></a>
+
+
+<h3 id="01-新建src-api文件夹"><a href="#01-新建src-api文件夹" class="headerlink" title="01-新建src/api文件夹"></a>01-新建src/api文件夹</h3><pre><code>api
+ - ajax.js
+ - index.js</code></pre>
+<h3 id="02-新建axios-js文件"><a href="#02-新建axios-js文件" class="headerlink" title="02-新建axios.js文件"></a>02-新建axios.js文件</h3><pre><code class="js">import axios from &#39;axios&#39;
+
+//封装ajax
+export default function ajax(url=&#39;&#39;,params=&#123;&#125;,type=&#39;GET&#39;)&#123;
+  let promise;
+  type = type.toUpperCase()
+  return new Promise(((resolve, reject) =&gt; &#123;
+    //1.判断请求方式
+    if (type===&#39;GET&#39;)&#123;
+      //1.1拼接字符串
+      let str = &#39;&#39;;
+      Object.keys(params).forEach((value,index) =&gt; &#123;
+        if (index+1===Object.keys(params).length)&#123;
+          str+=value+&#39;=&#39;+params[value];
+        &#125;else&#123;
+          str+=value+&#39;=&#39;+params[value]+&#39;&amp;&#39;;
+        &#125;
+      &#125;);
+      //1.2完整路径
+      url+=&#39;?&#39;+str;
+      //1.3发送get请求
+      promise = axios.get(url);
+    &#125;else if(type===&#39;POST&#39;)&#123;
+      //1.3发送post请求
+      promise = axios.post(url,params);
+    &#125;
+    //2.返回请求结果
+    promise.then((response)=&gt;&#123;
+      resolve(response.data);
+    &#125;).catch((error)=&gt;&#123;
+      reject(error);
+    &#125;);
+  &#125;))
+&#125;
+</code></pre>
+<h3 id="03-新建index-js文件"><a href="#03-新建index-js文件" class="headerlink" title="03-新建index.js文件"></a>03-新建index.js文件</h3><pre><code>import ajax from &#39;./ajax&#39;
+
+//发送请求
+export const getPhoneCode = (phone)=&gt;ajax(&#39;/api/getPhoneCode&#39;,&#123;phone&#125;);
+</code></pre>
+<h3 id="04-api调用"><a href="#04-api调用" class="headerlink" title="04-api调用"></a>04-api调用</h3><pre><code>import &#123; xxxxx &#125; from &#39;api/index.js (文件路径)&#39;</code></pre>
+
+  </article>
+
+  <div class="nexmoe-post-meta nexmoe-rainbow">
+    
+        <a class="nexmoefont icon-appstore-fill -link" href="../../../../categories/Ajax/">Ajax</a><a class="nexmoefont icon-appstore-fill -link" href="../../../../categories/Ajax/Axios/">Axios</a>
+    
+    
+        <a class="nexmoefont icon-tag-fill -none-link" href="../../../../tags/Ajax/" rel="tag">Ajax</a> <a class="nexmoefont icon-tag-fill -none-link" href="../../../../tags/Axios/" rel="tag">Axios</a>
+    
+</div>
+
+  <div class="nexmoe-post-footer">
+    
+      
+  <div class="nexmoe-post-copyright">
+    <strong>本文作者：</strong>June<br>
+    <strong>本文链接：</strong><a href="../../../../https:/juntengma.github.io/2020/09/27/Axios/" title="https:&#x2F;&#x2F;juntengma.github.io&#x2F;2020&#x2F;09&#x2F;27&#x2F;Axios&#x2F;" target="_blank" rel="noopener">https:&#x2F;&#x2F;juntengma.github.io&#x2F;2020&#x2F;09&#x2F;27&#x2F;Axios&#x2F;</a><br>
+    
+      <strong>版权声明：</strong>本文采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/cn/deed.zh" target="_blank">CC BY-NC-SA 3.0 CN</a> 协议进行许可
+    
+  </div>
+
+
+    
+    <section class="nexmoe-comment">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1.5.0/dist/gitalk.min.css">
+<div id="gitalk"></div>
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1.5.0/dist/gitalk.min.js"></script>
+<script type="text/javascript">
+    var gitalk = new Gitalk({
+        clientID: '',
+        clientSecret: '',
+        id: window.location.pathname,
+        repo: '',
+        owner: '',
+        admin: ''
+    })
+    gitalk.render('gitalk')
+</script>
+</section>
+  </div>
+</div>
+<style>
+.nexmoe-toc{
+  box-shadow: 0 0 1rem rgba(161,177,204,.4);
+  background-color: #fff;
+  border-radius: 15px;
+  white-space: normal;
+  padding: 15px;
+  position: absolute;
+  right: -120px;
+  top:10%;
+  overflow: hidden;
+  margin-right: -188px;
+}
+.nexmoe-toc-phone{
+  position: fixed;
+  top:27%;
+  padding: 15px;
+  right: -28%;
+  margin-right:0;
+  color: #ffff;
+  background-color:#282c34;
+  }
+</style>
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery/1.10.0/jquery.js"></script>
+
+<script>
+function IsPC(){
+  var userAgentInfo = navigator.userAgent;
+  var Agents = new Array("Android", "iPhone", "SymbianOS", "Windows Phone", "iPad", "iPod");
+  var flag = true;
+  for (var v = 0; v < Agents.length; v++) { if (userAgentInfo.indexOf(Agents[v])> 0) { flag = false; break; }
+    }
+ return flag;
+}
+
+$(document).ready(function(){
+  if(IsPC()){
+    $('.nexmoe-toc').removeClass('nexmoe-toc-phone')
+  }else{
+    $('.nexmoe-toc').addClass('nexmoe-toc-phone')
+  }
+  $('.nexmoe-toc').hover(function () {
+  $('.nexmoe-toc').html(`<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#01-%E6%96%B0%E5%BB%BAsrc-api%E6%96%87%E4%BB%B6%E5%A4%B9"><span class="toc-text">01-新建src&#x2F;api文件夹</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#02-%E6%96%B0%E5%BB%BAaxios-js%E6%96%87%E4%BB%B6"><span class="toc-text">02-新建axios.js文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#03-%E6%96%B0%E5%BB%BAindex-js%E6%96%87%E4%BB%B6"><span class="toc-text">03-新建index.js文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#04-api%E8%B0%83%E7%94%A8"><span class="toc-text">04-api调用</span></a></li></ol>`)
+  
+  if(IsPC()){
+    $('.nexmoe-toc').css({'margin-right':0})
+  }else{
+    $('.toc-text').css({'color':'#fff'})
+    $('.nexmoe-toc').css({'right':'13%'})
+  }}, function () {
+    $('.nexmoe-toc').html(`Toc`)
+
+    if(IsPC()){
+      $('.nexmoe-toc').css({'margin-right':'-188px'})
+    }else{
+      $('.nexmoe-toc').css({'right':'-28%'})
+    }
+}
+);
+});
+  
+</script>
+    </div>
+  </div>
+  <script src="https://cdn.jsdelivr.net/combine/npm/lazysizes@5.1.0/lazysizes.min.js,gh/highlightjs/cdn-release@9.15.8/build/highlight.min.js,npm/mdui@0.4.3/dist/js/mdui.min.js,gh/nexmoe/nexmoe.github.io@latest/js/app.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+<!--<script src="../../../../js/app.js?v=1603942888181"></script>-->
+
+
+
+
+  
+
+
+
+
+
+</body>
+
+</html>
