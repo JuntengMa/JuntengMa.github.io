@@ -12,22 +12,21 @@
   
 
   <link rel="shortcut icon" href="/favicon.ico" type="image/png" />
-  <meta name="description" content="jsonp及其原理 JSONP及其原理">
+  <meta name="description" content="JSONP及其原理">
 <meta property="og:type" content="article">
 <meta property="og:title" content="JSONP跨域请求及其原理">
 <meta property="og:url" content="https://juntengma.github.io/2020/10/28/JsonP/index.html">
 <meta property="og:site_name" content="June&#39;s Blog">
-<meta property="og:description" content="jsonp及其原理 JSONP及其原理">
+<meta property="og:description" content="JSONP及其原理">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-10-28T10:46:25.938Z">
-<meta property="article:modified_time" content="2020-10-29T04:31:01.350Z">
+<meta property="article:modified_time" content="2020-10-29T06:43:39.552Z">
 <meta property="article:author" content="June">
 <meta property="article:tag" content="JSONP">
-<meta property="article:tag" content="AJAX">
 <meta name="twitter:card" content="summary">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/combine/gh/nexmoe/nexmoe.github.io@latest/css/style.css,npm/highlight.js@9.15.8/styles/atom-one-dark.css,gh/nexmoe/nexmoe.github.io@latest/lib/mdui_043tiny/css/mdui.css,gh/nexmoe/nexmoe.github.io@latest/lib/iconfont/iconfont.css" crossorigin>
   
-  <!--<link rel="stylesheet" href="../../../../css/style.css?v=1603953351010">-->
+  <!--<link rel="stylesheet" href="../../../../css/style.css?v=1603955275845">-->
 
   
 <meta name="generator" content="Hexo 5.2.0"><link rel="alternate" href="atom.xml" title="June's Blog" type="application/atom+xml">
@@ -55,8 +54,8 @@
     </div>
     <div class="nexmoe-count">
         <div><span>文章</span>26</div>
-        <div><span>标签</span>17</div>
-        <div><span>分类</span>20</div>
+        <div><span>标签</span>16</div>
+        <div><span>分类</span>19</div>
     </div>
     <div class="nexmoe-list mdui-list" mdui-collapse="{accordion: true}">
         
@@ -74,7 +73,7 @@
   <div class="nexmoe-widget-wrap">
     <h3 class="nexmoe-widget-title">标签云</h3>
     <div id="randomtagcloud" class="nexmoe-widget tagcloud nexmoe-rainbow">
-      <a href="../../../../tags/AJAX/" style="font-size: 10px;">AJAX</a> <a href="../../../../tags/Ajax/" style="font-size: 12.5px;">Ajax</a> <a href="../../../../tags/Axios/" style="font-size: 12.5px;">Axios</a> <a href="../../../../tags/BFC/" style="font-size: 10px;">BFC</a> <a href="../../../../tags/Css/" style="font-size: 10px;">Css</a> <a href="../../../../tags/DOM%E4%BA%8B%E4%BB%B6%E4%BA%8B%E4%BB%B6%E6%B5%81/" style="font-size: 10px;">DOM事件事件流</a> <a href="../../../../tags/Git/" style="font-size: 10px;">Git</a> <a href="../../../../tags/Honey/" style="font-size: 10px;">Honey</a> <a href="../../../../tags/JSONP/" style="font-size: 10px;">JSONP</a> <a href="../../../../tags/JavaScript/" style="font-size: 15px;">JavaScript</a> <a href="../../../../tags/Json-server/" style="font-size: 10px;">Json-server</a> <a href="../../../../tags/Npm/" style="font-size: 10px;">Npm</a> <a href="../../../../tags/React/" style="font-size: 20px;">React</a> <a href="../../../../tags/Webpack/" style="font-size: 10px;">Webpack</a> <a href="../../../../tags/%E5%90%8C%E6%BA%90%E7%AD%96%E7%95%A5/" style="font-size: 10px;">同源策略</a> <a href="../../../../tags/%E6%B5%8F%E8%A7%88%E5%99%A8/" style="font-size: 17.5px;">浏览器</a> <a href="../../../../tags/%E7%9B%92%E6%A8%A1%E5%9E%8B/" style="font-size: 10px;">盒模型</a>
+      <a href="../../../../tags/Ajax/" style="font-size: 12.5px;">Ajax</a> <a href="../../../../tags/Axios/" style="font-size: 12.5px;">Axios</a> <a href="../../../../tags/BFC/" style="font-size: 10px;">BFC</a> <a href="../../../../tags/Css/" style="font-size: 10px;">Css</a> <a href="../../../../tags/DOM%E4%BA%8B%E4%BB%B6%E4%BA%8B%E4%BB%B6%E6%B5%81/" style="font-size: 10px;">DOM事件事件流</a> <a href="../../../../tags/Git/" style="font-size: 10px;">Git</a> <a href="../../../../tags/Honey/" style="font-size: 10px;">Honey</a> <a href="../../../../tags/JSONP/" style="font-size: 10px;">JSONP</a> <a href="../../../../tags/JavaScript/" style="font-size: 15px;">JavaScript</a> <a href="../../../../tags/Json-server/" style="font-size: 10px;">Json-server</a> <a href="../../../../tags/Npm/" style="font-size: 10px;">Npm</a> <a href="../../../../tags/React/" style="font-size: 20px;">React</a> <a href="../../../../tags/Webpack/" style="font-size: 10px;">Webpack</a> <a href="../../../../tags/%E5%90%8C%E6%BA%90%E7%AD%96%E7%95%A5/" style="font-size: 10px;">同源策略</a> <a href="../../../../tags/%E6%B5%8F%E8%A7%88%E5%99%A8/" style="font-size: 17.5px;">浏览器</a> <a href="../../../../tags/%E7%9B%92%E6%A8%A1%E5%9E%8B/" style="font-size: 10px;">盒模型</a>
     </div>
     
   </div>
@@ -91,13 +90,6 @@
 
 
         
-
-        
-
-        <li class="category-list-item">
-          <a class="category-list-link" href="/categories/JSONP/AJAX/">AJAX</a>
-          <span class="category-list-count">1</span>
-        </li>
 
         
 
@@ -273,7 +265,7 @@
   
   <div class="nexmoe-post-meta nexmoe-rainbow" style="margin:10px 0!important;">
     <a><i class="nexmoefont icon-calendar-fill"></i>2020年10月28日</a>
-    <a><i class="nexmoefont icon-areachart"></i>361 字</a>
+    <a><i class="nexmoefont icon-areachart"></i>356 字</a>
     <a><i class="nexmoefont icon-time-circle-fill"></i>大概 1 分钟</a>
 </div>
 
@@ -291,8 +283,7 @@
   </div>
 
   <article>
-    <p>jsonp及其原理</p>
-<p>JSONP及其原理</p>
+    <p>JSONP及其原理</p>
 <a id="more"></a>
 
 <h5 id="1-JSONP的产生"><a href="#1-JSONP的产生" class="headerlink" title="1/JSONP的产生"></a>1/JSONP的产生</h5><p><strong>背景:</strong></p>
@@ -318,10 +309,10 @@
 
   <div class="nexmoe-post-meta nexmoe-rainbow">
     
-        <a class="nexmoefont icon-appstore-fill -link" href="../../../../categories/JSONP/">JSONP</a><a class="nexmoefont icon-appstore-fill -link" href="../../../../categories/JSONP/AJAX/">AJAX</a>
+        <a class="nexmoefont icon-appstore-fill -link" href="../../../../categories/JSONP/">JSONP</a>
     
     
-        <a class="nexmoefont icon-tag-fill -none-link" href="../../../../tags/AJAX/" rel="tag">AJAX</a> <a class="nexmoefont icon-tag-fill -none-link" href="../../../../tags/JSONP/" rel="tag">JSONP</a>
+        <a class="nexmoefont icon-tag-fill -none-link" href="../../../../tags/JSONP/" rel="tag">JSONP</a>
     
 </div>
 
@@ -433,7 +424,7 @@ $(document).ready(function(){
   </div>
   <script src="https://cdn.jsdelivr.net/combine/npm/lazysizes@5.1.0/lazysizes.min.js,gh/highlightjs/cdn-release@9.15.8/build/highlight.min.js,npm/mdui@0.4.3/dist/js/mdui.min.js,gh/nexmoe/nexmoe.github.io@latest/js/app.js"></script>
 <script>hljs.initHighlightingOnLoad();</script>
-<!--<script src="../../../../js/app.js?v=1603953351011"></script>-->
+<!--<script src="../../../../js/app.js?v=1603955275847"></script>-->
 
 
 

@@ -66,24 +66,19 @@
     <link href="https://juntengma.github.io/2020/10/28/JsonP/"/>
     <id>https://juntengma.github.io/2020/10/28/JsonP/</id>
     <published>2020-10-28T10:46:25.938Z</published>
-    <updated>2020-10-29T04:31:01.350Z</updated>
+    <updated>2020-10-29T06:43:39.552Z</updated>
     
-    <content type="html"><![CDATA[<p>jsonp及其原理</p><p>JSONP及其原理</p><a id="more"></a><h5 id="1-JSONP的产生"><a href="#1-JSONP的产生" class="headerlink" title="1/JSONP的产生"></a>1/JSONP的产生</h5><p><strong>背景:</strong></p><ul><li><p>因为浏览器同源策略限制,AJAX跨域请求不到信息</p></li><li><p>Web页面上面调用js文件不受是否跨域影响(类似的还有<code>&lt;script&gt;</code>,<code>&lt;IMG&gt;</code>,<code>&lt;iframe&gt;</code>)</p></li><li><p>于是可以判断，当前阶段如果想通过纯web端（ActiveX控件、服务端代理、Web socket等方式不算）跨域访问数据就只有一种可能，那就是在远程服务器上设法把数据装进js格式的文件里，供客户端调用和进一步处理；</p></li><li><p>恰巧我们已经知道有一种叫做JSON的纯字符数据格式可以简洁的描述复杂数据，更妙的是JSON还被JS原生支持，所以在客户端几乎可以随心所欲的处理这种格式的数据；</p></li><li><p>客户端在对JSON文件调用成功之后,也就获得了自己所需要的数据,剩下的就是按自己的需求进行处理和展现了</p></li><li><p>为了方便客户使用数据,逐渐形成了一种非正式传输协议—JSONP.</p><blockquote><p>该协议允许用户传递一个callback参数给服务端,然后服务端返回数据时会将这个callback参数坐会函数名来包裹JSON数据,这样客户端就可以随意订制自己的函数来自动处理返回函数了</p></blockquote></li></ul>]]></content>
+    <content type="html"><![CDATA[<p>JSONP及其原理</p><a id="more"></a><h5 id="1-JSONP的产生"><a href="#1-JSONP的产生" class="headerlink" title="1/JSONP的产生"></a>1/JSONP的产生</h5><p><strong>背景:</strong></p><ul><li><p>因为浏览器同源策略限制,AJAX跨域请求不到信息</p></li><li><p>Web页面上面调用js文件不受是否跨域影响(类似的还有<code>&lt;script&gt;</code>,<code>&lt;IMG&gt;</code>,<code>&lt;iframe&gt;</code>)</p></li><li><p>于是可以判断，当前阶段如果想通过纯web端（ActiveX控件、服务端代理、Web socket等方式不算）跨域访问数据就只有一种可能，那就是在远程服务器上设法把数据装进js格式的文件里，供客户端调用和进一步处理；</p></li><li><p>恰巧我们已经知道有一种叫做JSON的纯字符数据格式可以简洁的描述复杂数据，更妙的是JSON还被JS原生支持，所以在客户端几乎可以随心所欲的处理这种格式的数据；</p></li><li><p>客户端在对JSON文件调用成功之后,也就获得了自己所需要的数据,剩下的就是按自己的需求进行处理和展现了</p></li><li><p>为了方便客户使用数据,逐渐形成了一种非正式传输协议—JSONP.</p><blockquote><p>该协议允许用户传递一个callback参数给服务端,然后服务端返回数据时会将这个callback参数坐会函数名来包裹JSON数据,这样客户端就可以随意订制自己的函数来自动处理返回函数了</p></blockquote></li></ul>]]></content>
     
     
-    <summary type="html">&lt;p&gt;jsonp及其原理&lt;/p&gt;
-&lt;p&gt;JSONP及其原理&lt;/p&gt;</summary>
+    <summary type="html">&lt;p&gt;JSONP及其原理&lt;/p&gt;</summary>
     
     
     
     <category term="JSONP" scheme="https://juntengma.github.io/categories/JSONP/"/>
     
-    <category term="AJAX" scheme="https://juntengma.github.io/categories/JSONP/AJAX/"/>
-    
     
     <category term="JSONP" scheme="https://juntengma.github.io/tags/JSONP/"/>
-    
-    <category term="AJAX" scheme="https://juntengma.github.io/tags/AJAX/"/>
     
   </entry>
   

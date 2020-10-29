@@ -357,8 +357,7 @@ git rm xxx 除某文件</code></pre>
   <entry>
     <title>JSONP跨域请求及其原理</title>
     <url>/2020/10/28/JsonP/</url>
-    <content><![CDATA[<p>jsonp及其原理</p>
-<p>JSONP及其原理</p>
+    <content><![CDATA[<p>JSONP及其原理</p>
 <a id="more"></a>
 
 <h5 id="1-JSONP的产生"><a href="#1-JSONP的产生" class="headerlink" title="1/JSONP的产生"></a>1/JSONP的产生</h5><p><strong>背景:</strong></p>
@@ -382,11 +381,9 @@ git rm xxx 除某文件</code></pre>
 ]]></content>
       <categories>
         <category>JSONP</category>
-        <category>AJAX</category>
       </categories>
       <tags>
         <tag>JSONP</tag>
-        <tag>AJAX</tag>
       </tags>
   </entry>
   <entry>
