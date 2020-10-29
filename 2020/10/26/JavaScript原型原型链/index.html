@@ -4,7 +4,7 @@
 
 <head>
   
-  <title>盒模型,BFC - June&#39;s Blog</title>
+  <title>原型,原型链 - June&#39;s Blog</title>
   <meta charset="UTF-8">
   <meta name="description" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
@@ -12,22 +12,21 @@
   
 
   <link rel="shortcut icon" href="/favicon.ico" type="image/png" />
-  <meta name="description" content="关于盒模型的一些总结">
+  <meta name="description" content="​    原型原型链">
 <meta property="og:type" content="article">
-<meta property="og:title" content="盒模型,BFC">
-<meta property="og:url" content="https://juntengma.github.io/2020/10/28/%E7%9B%92%E6%A8%A1%E5%9E%8B/index.html">
+<meta property="og:title" content="原型,原型链">
+<meta property="og:url" content="https://juntengma.github.io/2020/10/26/JavaScript%E5%8E%9F%E5%9E%8B%E5%8E%9F%E5%9E%8B%E9%93%BE/index.html">
 <meta property="og:site_name" content="June&#39;s Blog">
-<meta property="og:description" content="关于盒模型的一些总结">
+<meta property="og:description" content="​    原型原型链">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2020-10-28T07:57:01.036Z">
-<meta property="article:modified_time" content="2020-10-28T10:31:23.790Z">
+<meta property="article:published_time" content="2020-10-26T14:36:07.474Z">
+<meta property="article:modified_time" content="2020-10-29T07:31:56.436Z">
 <meta property="article:author" content="June">
-<meta property="article:tag" content="盒模型">
-<meta property="article:tag" content="BFC">
+<meta property="article:tag" content="JavaScript">
 <meta name="twitter:card" content="summary">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/combine/gh/nexmoe/nexmoe.github.io@latest/css/style.css,npm/highlight.js@9.15.8/styles/atom-one-dark.css,gh/nexmoe/nexmoe.github.io@latest/lib/mdui_043tiny/css/mdui.css,gh/nexmoe/nexmoe.github.io@latest/lib/iconfont/iconfont.css" crossorigin>
   
-  <!--<link rel="stylesheet" href="../../../../css/style.css?v=1603956562987">-->
+  <!--<link rel="stylesheet" href="../../../../css/style.css?v=1603956782511">-->
 
   
 <meta name="generator" content="Hexo 5.2.0"><link rel="alternate" href="atom.xml" title="June's Blog" type="application/atom+xml">
@@ -230,19 +229,19 @@
           </li>
         
           <li>
-            <a href="../Json-server/">🌭 JSON-Server</a>
+            <a href="../../28/Json-server/">🌭 JSON-Server</a>
           </li>
         
           <li>
-            <a href="../JsonP/">🌭 JSONP跨域请求及其原理</a>
+            <a href="../../28/JsonP/">🌭 JSONP跨域请求及其原理</a>
           </li>
         
           <li>
-            <a href="../Ajax/">🌭 Ajax</a>
+            <a href="../../28/Ajax/">🌭 Ajax</a>
           </li>
         
           <li>
-            <a href="">🌭 盒模型,BFC</a>
+            <a href="../../28/Css%E7%9B%92%E6%A8%A1%E5%9E%8B/">🌭 盒模型,BFC</a>
           </li>
         
       </ul>
@@ -258,15 +257,15 @@
     <div class="nexmoe-primary">
         <div class="nexmoe-post">
   
-      <div class="nexmoe-post-cover" style="padding-bottom: 62.5%;"> 
-          <img data-src="https://drscdn.500px.org/photo/178844193/h%3D1080/v2?sig=4684395e8888efec23951265e1383ddde8e80361bb60cf3ee35cab3d35bc765b" data-sizes="auto" alt="盒模型,BFC" class="lazyload">
-          <h1>盒模型,BFC</h1>
+      <div class="nexmoe-post-cover" style="padding-bottom: 58.333333333333336%;"> 
+          <img data-src="https://images.unsplash.com/photo-1601636358831-cfb548152c2d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjg5ODI0fQ&w=750&dpi=2" data-sizes="auto" alt="原型,原型链" class="lazyload">
+          <h1>原型,原型链</h1>
       </div>
   
   
   <div class="nexmoe-post-meta nexmoe-rainbow" style="margin:10px 0!important;">
-    <a><i class="nexmoefont icon-calendar-fill"></i>2020年10月28日</a>
-    <a><i class="nexmoefont icon-areachart"></i>158 字</a>
+    <a><i class="nexmoefont icon-calendar-fill"></i>2020年10月26日</a>
+    <a><i class="nexmoefont icon-areachart"></i>5 字</a>
     <a><i class="nexmoefont icon-time-circle-fill"></i>大概 1 分钟</a>
 </div>
 
@@ -276,7 +275,7 @@
         <div class="nexmoe-valign" style="position:relative">
             <div class="nexmoe-toc">
               Toc
-                <!-- <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%9B%92%E6%A8%A1%E5%9E%8B"><span class="toc-number">1.</span> <span class="toc-text">盒模型</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%A0%87%E5%87%86%E7%9B%92%E6%A8%A1%E5%9E%8B-box-sizing-content-box"><span class="toc-number">1.1.</span> <span class="toc-text">标准盒模型(box-sizing:content-box)</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%80%AA%E5%BC%82%E7%9B%92%E6%A8%A1%E5%9E%8B-box-sizing-border-box"><span class="toc-number">1.2.</span> <span class="toc-text">怪异盒模型(box-sizing:border-box)</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#BFC"><span class="toc-number">2.</span> <span class="toc-text">BFC</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#01-%E4%BB%80%E4%B9%88%E6%98%AFBFC"><span class="toc-number">2.1.</span> <span class="toc-text">01&#x2F;什么是BFC?</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#02-%E5%BB%BA%E7%AB%8BBFC"><span class="toc-number">2.2.</span> <span class="toc-text">02&#x2F;建立BFC</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#03-BFC%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF"><span class="toc-number">2.3.</span> <span class="toc-text">03&#x2F;BFC应用场景</span></a></li></ol></li></ol> -->
+                <!--  -->
             </div>
         </div>
       </div>
@@ -285,37 +284,17 @@
 
   <article>
     <blockquote>
-<p>   关于盒模型的一些总结</p>
+<p>​    原型原型链</p>
 </blockquote>
 <a id="more"></a>
-<h4 id="盒模型"><a href="#盒模型" class="headerlink" title="盒模型"></a>盒模型</h4><h5 id="标准盒模型-box-sizing-content-box"><a href="#标准盒模型-box-sizing-content-box" class="headerlink" title="标准盒模型(box-sizing:content-box)"></a>标准盒模型(box-sizing:content-box)</h5><pre><code>width = content width;
-height = content height;</code></pre>
-<h5 id="怪异盒模型-box-sizing-border-box"><a href="#怪异盒模型-box-sizing-border-box" class="headerlink" title="怪异盒模型(box-sizing:border-box)"></a>怪异盒模型(box-sizing:border-box)</h5><pre><code>width = content width + padding + border;
-height = content height + padding + border;</code></pre>
-<h4 id="BFC"><a href="#BFC" class="headerlink" title="BFC"></a>BFC</h4><h5 id="01-什么是BFC"><a href="#01-什么是BFC" class="headerlink" title="01/什么是BFC?"></a>01/什么是BFC?</h5><p>块级格式化上下文</p>
-<p>BFC是Web页面的可视CSS渲染的一部分，是块盒子的布局过程发生的区域，也是浮动元素与其他元素交互的区域。</p>
-<h5 id="02-建立BFC"><a href="#02-建立BFC" class="headerlink" title="02/建立BFC"></a>02/建立BFC</h5><ul>
-<li>浮动</li>
-<li>绝对定位</li>
-<li>行内块元素</li>
-<li>表格单元</li>
-<li>弹性盒</li>
-<li>overflow不为visible</li>
-</ul>
-<h5 id="03-BFC应用场景"><a href="#03-BFC应用场景" class="headerlink" title="03/BFC应用场景"></a>03/BFC应用场景</h5><ul>
-<li>清除浮动</li>
-<li>阻止元素被浮动元素覆盖</li>
-<li>实现两列自适应布局</li>
-</ul>
-
   </article>
 
   <div class="nexmoe-post-meta nexmoe-rainbow">
     
-        <a class="nexmoefont icon-appstore-fill -link" href="../../../../categories/Css/">Css</a><a class="nexmoefont icon-appstore-fill -link" href="../../../../categories/Css/%E7%9B%92%E6%A8%A1%E5%9E%8B/">盒模型</a><a class="nexmoefont icon-appstore-fill -link" href="../../../../categories/Css/%E7%9B%92%E6%A8%A1%E5%9E%8B/BFC/">BFC</a>
+        <a class="nexmoefont icon-appstore-fill -link" href="../../../../categories/%E5%8E%9F%E5%9E%8B-%E5%8E%9F%E5%9E%8B%E9%93%BE/">原型,原型链</a>
     
     
-        <a class="nexmoefont icon-tag-fill -none-link" href="../../../../tags/BFC/" rel="tag">BFC</a> <a class="nexmoefont icon-tag-fill -none-link" href="../../../../tags/%E7%9B%92%E6%A8%A1%E5%9E%8B/" rel="tag">盒模型</a>
+        <a class="nexmoefont icon-tag-fill -none-link" href="../../../../tags/JavaScript/" rel="tag">JavaScript</a>
     
 </div>
 
@@ -332,8 +311,8 @@ height = content height + padding + border;</code></pre>
   <strong>
     本文链接：
   </strong>
-  <a href="https://juntengma.github.io/2020/10/28/%E7%9B%92%E6%A8%A1%E5%9E%8B/" target="_blank">
-    https://juntengma.github.io/2020/10/28/%E7%9B%92%E6%A8%A1%E5%9E%8B/
+  <a href="https://juntengma.github.io/2020/10/26/JavaScript%E5%8E%9F%E5%9E%8B%E5%8E%9F%E5%9E%8B%E9%93%BE/" target="_blank">
+    https://juntengma.github.io/2020/10/26/JavaScript%E5%8E%9F%E5%9E%8B%E5%8E%9F%E5%9E%8B%E9%93%BE/
   </a>
   <br>
 
@@ -403,7 +382,7 @@ $(document).ready(function(){
     $('.nexmoe-toc').addClass('nexmoe-toc-phone')
   }
   $('.nexmoe-toc').hover(function () {
-  $('.nexmoe-toc').html(`<ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%9B%92%E6%A8%A1%E5%9E%8B"><span class="toc-text">盒模型</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%A0%87%E5%87%86%E7%9B%92%E6%A8%A1%E5%9E%8B-box-sizing-content-box"><span class="toc-text">标准盒模型(box-sizing:content-box)</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%80%AA%E5%BC%82%E7%9B%92%E6%A8%A1%E5%9E%8B-box-sizing-border-box"><span class="toc-text">怪异盒模型(box-sizing:border-box)</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#BFC"><span class="toc-text">BFC</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#01-%E4%BB%80%E4%B9%88%E6%98%AFBFC"><span class="toc-text">01&#x2F;什么是BFC?</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#02-%E5%BB%BA%E7%AB%8BBFC"><span class="toc-text">02&#x2F;建立BFC</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#03-BFC%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF"><span class="toc-text">03&#x2F;BFC应用场景</span></a></li></ol></li></ol>`)
+  $('.nexmoe-toc').html(``)
   
   if(IsPC()){
     $('.nexmoe-toc').css({'margin-right':0})
@@ -427,7 +406,7 @@ $(document).ready(function(){
   </div>
   <script src="https://cdn.jsdelivr.net/combine/npm/lazysizes@5.1.0/lazysizes.min.js,gh/highlightjs/cdn-release@9.15.8/build/highlight.min.js,npm/mdui@0.4.3/dist/js/mdui.min.js,gh/nexmoe/nexmoe.github.io@latest/js/app.js"></script>
 <script>hljs.initHighlightingOnLoad();</script>
-<!--<script src="../../../../js/app.js?v=1603956562991"></script>-->
+<!--<script src="../../../../js/app.js?v=1603956782513"></script>-->
 
 
 

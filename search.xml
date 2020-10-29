@@ -534,7 +534,7 @@ function Ajax(params)&#123;
   </entry>
   <entry>
     <title>盒模型,BFC</title>
-    <url>/2020/10/28/%E7%9B%92%E6%A8%A1%E5%9E%8B/</url>
+    <url>/2020/10/28/Css%E7%9B%92%E6%A8%A1%E5%9E%8B/</url>
     <content><![CDATA[<blockquote>
 <p>   关于盒模型的一些总结</p>
 </blockquote>
@@ -571,7 +571,7 @@ height = content height + padding + border;</code></pre>
   </entry>
   <entry>
     <title>DOM事件 , 事件流</title>
-    <url>/2020/10/28/DOM%E4%BA%8B%E4%BB%B6%E6%B5%81/</url>
+    <url>/2020/10/28/JavaScriptDOM%E4%BA%8B%E4%BB%B6%E6%B5%81/</url>
     <content><![CDATA[<blockquote>
 <p>DOM事件, 事件流</p>
 </blockquote>
@@ -753,7 +753,7 @@ setTimeout(function() &#123;
   </entry>
   <entry>
     <title>原型,原型链</title>
-    <url>/2020/10/26/%E5%8E%9F%E5%9E%8B%E5%8E%9F%E5%9E%8B%E9%93%BE/</url>
+    <url>/2020/10/26/JavaScript%E5%8E%9F%E5%9E%8B%E5%8E%9F%E5%9E%8B%E9%93%BE/</url>
     <content><![CDATA[<blockquote>
 <p>​    原型原型链</p>
 </blockquote>
@@ -1674,7 +1674,7 @@ export class DiffView extends React.Component&lt;DiffViewProps&gt; &#123;
   <entry>
     <title>Css文本超出自动换行</title>
     <url>/2020/09/18/Css%E6%96%87%E6%9C%AC%E8%B6%85%E5%87%BA%E8%87%AA%E5%8A%A8%E6%8D%A2%E8%A1%8C/</url>
-    <content><![CDATA[<pre><code class="css">word-wrap:break-word; 
+    <content><![CDATA[<pre><code>word-wrap:break-word; 
 word-break:break-all; 
 overflow: hidden;/*这个参数根据需要来绝对要不要*/</code></pre>
 ]]></content>
