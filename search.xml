@@ -237,7 +237,8 @@ git rm xxx 除某文件</code></pre>
   <entry>
     <title>算法</title>
     <url>/2020/10/30/%E7%AE%97%E6%B3%95/</url>
-    <content><![CDATA[<a id="more"></a>
+    <content><![CDATA[<p>复习做的几个算法练习题/…</p>
+<a id="more"></a>
 <p>一、不借助临时变量，进行两个整数的交换</p>
 <pre><code>let a = 1, b = 2;
 [a, b] = [b, a]
@@ -313,7 +314,10 @@ function getMax(counts) &#123;
   <entry>
     <title>Http各版本特性及其区别</title>
     <url>/2020/10/29/Http%E7%89%88%E6%9C%AC%E5%8F%8A%E5%85%B6%E7%89%B9%E6%80%A7/</url>
-    <content><![CDATA[<h3 id="HTTP各版本特性及区别"><a href="#HTTP各版本特性及区别" class="headerlink" title="HTTP各版本特性及区别"></a>HTTP各版本特性及区别</h3><p>本文参考:<br><a href="https://juejin.im/post/6844903923136856078">https://juejin.im/post/6844903923136856078</a><br><a href="https://segmentfault.com/a/1190000019891825">https://segmentfault.com/a/1190000019891825</a></p>
+    <content><![CDATA[<h3 id="HTTP各版本特性及区别"><a href="#HTTP各版本特性及区别" class="headerlink" title="HTTP各版本特性及区别"></a>HTTP各版本特性及区别</h3><a id="more"></a>
+
+
+<p>本文参考:<br><a href="https://juejin.im/post/6844903923136856078">https://juejin.im/post/6844903923136856078</a><br><a href="https://segmentfault.com/a/1190000019891825">https://segmentfault.com/a/1190000019891825</a></p>
 <p>HTTP 是基于 TCP/IP 协议的一个应用层协议，是现代互联网的一个基础协议。规定了客户端与服务端之间的通信格式以及所占用的服务端口80(HTTPS是443)。</p>
 <h3 id="版本"><a href="#版本" class="headerlink" title="版本"></a>版本</h3><p>HTTP 协议从开始立项到现在一共经历了 4 个版本:</p>
 <pre><code>HTTP 0.9 -&gt; HTTP 1.0 -&gt; HTTP 1.1 -&gt; HTTP 2</code></pre>
@@ -649,7 +653,8 @@ Last-Modified: Wed, 5 August 1996 15:55:28 GMT
   <entry>
     <title>Ajax</title>
     <url>/2020/10/28/Ajax/</url>
-    <content><![CDATA[<a id="more"></a>
+    <content><![CDATA[<p>AJAX复习一下~</p>
+<a id="more"></a>
 
 <h5 id="AJAX"><a href="#AJAX" class="headerlink" title="AJAX"></a>AJAX</h5><h5 id="01-ajax是什么"><a href="#01-ajax是什么" class="headerlink" title="01-ajax是什么"></a>01-ajax是什么</h5><blockquote>
 <p>​    JavaScript执行异步网络请求</p>
@@ -1204,7 +1209,8 @@ module.exports = smp.wrap(&#123;&#125;);</code></pre>
   <entry>
     <title>浏览器同源策略</title>
     <url>/2020/09/29/%E6%B5%8F%E8%A7%88%E5%99%A8%E5%90%8C%E6%BA%90%E7%AD%96%E7%95%A5/</url>
-    <content><![CDATA[<a id="more"></a>
+    <content><![CDATA[<p>关于同源策略的一点总结~</p>
+<a id="more"></a>
 
 
 <h2 id="同源策略"><a href="#同源策略" class="headerlink" title="同源策略"></a>同源策略</h2><h5 id="01、什么是同源策略"><a href="#01、什么是同源策略" class="headerlink" title="01、什么是同源策略"></a>01、什么是同源策略</h5><blockquote>
@@ -1324,9 +1330,10 @@ export const getPhoneCode = (phone)=&gt;ajax(&#39;/api/getPhoneCode&#39;,&#123;p
   <entry>
     <title>React父组件调用子组件</title>
     <url>/2020/09/25/React-%E7%88%B6%E7%BB%84%E4%BB%B6%E8%B0%83%E7%94%A8%E5%AD%90%E7%BB%84%E4%BB%B6/</url>
-    <content><![CDATA[<h2 id="方案一：-ref控制"><a href="#方案一：-ref控制" class="headerlink" title="方案一： ref控制"></a>方案一： ref控制</h2><a id="more"></a>
+    <content><![CDATA[<p>React父组件调用子组件方案</p>
+<a id="more"></a>
 
-<h4 id="Parent-Component-Parent-tsx"><a href="#Parent-Component-Parent-tsx" class="headerlink" title="Parent Component ( Parent.tsx )"></a>Parent Component ( Parent.tsx )</h4><pre><code>import * as React from &#39;react&#39;;
+<h2 id="方案一：-ref控制"><a href="#方案一：-ref控制" class="headerlink" title="方案一： ref控制"></a>方案一： ref控制</h2><h4 id="Parent-Component-Parent-tsx"><a href="#Parent-Component-Parent-tsx" class="headerlink" title="Parent Component ( Parent.tsx )"></a>Parent Component ( Parent.tsx )</h4><pre><code>import * as React from &#39;react&#39;;
 
 import &#123; ChildA &#125; from &#39;./ChildA&#39;;
 
@@ -1578,7 +1585,8 @@ export class RichText extends Component &#123;
   <entry>
     <title>一段js代码在浏览器中是如何执行的</title>
     <url>/2020/09/22/JavaScript%E4%BB%A3%E7%A0%81%E5%9C%A8%E6%B5%8F%E8%A7%88%E5%99%A8%E4%B8%AD%E7%9A%84%E6%89%A7%E8%A1%8C%E9%A1%BA%E5%BA%8F/</url>
-    <content><![CDATA[<a id="more"></a>
+    <content><![CDATA[<p>一段js代码在浏览器中是如何执行的?</p>
+<a id="more"></a>
 
 
 <h1 id="一段js代码在浏览器中是如何执行的"><a href="#一段js代码在浏览器中是如何执行的" class="headerlink" title="一段js代码在浏览器中是如何执行的"></a>一段js代码在浏览器中是如何执行的</h1><p>在执行一段代码时，JS 引擎会首先创建一个执行栈<br>然后JS引擎会创建一个全局执行上下文，并push到执行栈中, </p>
@@ -1604,7 +1612,8 @@ export class RichText extends Component &#123;
   <entry>
     <title>React中使用Echats</title>
     <url>/2020/09/22/React-echart/</url>
-    <content><![CDATA[<a id="more"></a>
+    <content><![CDATA[<p>React中使用Echats记录</p>
+<a id="more"></a>
 
 
 
@@ -1671,7 +1680,8 @@ require(&#39;echarts/lib/component/title&#39;);</code></pre>
   <entry>
     <title>在react中实现文本复制</title>
     <url>/2020/09/22/React-%E6%96%87%E6%9C%AC%E5%A4%8D%E5%88%B6/</url>
-    <content><![CDATA[<a id="more"></a>
+    <content><![CDATA[<p>‘在react中实现文本复制’</p>
+<a id="more"></a>
 
 <h2 id="方案一："><a href="#方案一：" class="headerlink" title="方案一："></a>方案一：</h2><pre><code class="js">copyTranslateResult = () =&gt; &#123;
         const copyDOM = document.querySelector(&#39;.translateResult&#39;);
@@ -1760,7 +1770,8 @@ ReactDOM.render(&lt;App /&gt;, appRoot);
   <entry>
     <title>React - diffView</title>
     <url>/2020/09/18/React-diffView/</url>
-    <content><![CDATA[<a id="more"></a>
+    <content><![CDATA[<p>文档对比组件封装…</p>
+<a id="more"></a>
 
 
 <h1 id="react-diff-view"><a href="#react-diff-view" class="headerlink" title="react-diff-view"></a>react-diff-view</h1><p><a href="https://github.com/praneshr/react-diff-viewer.git">https://github.com/praneshr/react-diff-viewer.git</a></p>
@@ -1944,7 +1955,9 @@ overflow: hidden;/*这个参数根据需要来绝对要不要*/</code></pre>
   <entry>
     <title>React-antd-ImportExcel</title>
     <url>/2020/09/04/React-antd-ImportExcel/</url>
-    <content><![CDATA[<a id="more"></a>
+    <content><![CDATA[<center>“基于 XLSX 封装的  Excel 并解析为 JSON格式数据的组件”</center>
+
+<a id="more"></a>
 
 
 <h1 id="React-antd-ImportExcel"><a href="#React-antd-ImportExcel" class="headerlink" title="React-antd-ImportExcel"></a>React-antd-ImportExcel</h1><p>工作需求，需要</p>
@@ -2032,7 +2045,9 @@ export class ImportExcel extends React.Component&lt;ImportExcelProps, any&gt; &#
   <entry>
     <title>React-antd-exportExcel</title>
     <url>/2020/09/04/React-antd-exportExcel/</url>
-    <content><![CDATA[<a id="more"></a>
+    <content><![CDATA[<center> “基于 XLSX 封装的 excel 导出组件”</center>
+
+<a id="more"></a>
 
 <pre><code class="js">import * as React from &quot;react&quot;
 
