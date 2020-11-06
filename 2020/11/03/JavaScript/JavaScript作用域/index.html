@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN">
+
+<head>
+  
+  <title>JavaScript作用域 - June&#39;s Blog</title>
+  <meta charset="UTF-8">
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
+  
+  
+
+    <!-- Site Verification -->
+    <meta name="baidu-site-verification" content="code-bB34m0ogBK" />
+
+  <link rel="shortcut icon" href="/favicon.ico" type="image/png" />
+  <meta name="description" content="JavaScript深入 - 作用域相关问题">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JavaScript作用域">
+<meta property="og:url" content="https://juntengma.github.io/2020/11/03/JavaScript/JavaScript%E4%BD%9C%E7%94%A8%E5%9F%9F/index.html">
+<meta property="og:site_name" content="June&#39;s Blog">
+<meta property="og:description" content="JavaScript深入 - 作用域相关问题">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-11-03T09:42:08.975Z">
+<meta property="article:modified_time" content="2020-11-03T11:28:15.228Z">
+<meta property="article:author" content="June">
+<meta property="article:tag" content="作用域">
+<meta name="twitter:card" content="summary">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/combine/gh/nexmoe/nexmoe.github.io@latest/css/style.css,npm/highlight.js@9.15.8/styles/atom-one-dark.css,gh/nexmoe/nexmoe.github.io@latest/lib/mdui_043tiny/css/mdui.css,gh/nexmoe/nexmoe.github.io@latest/lib/iconfont/iconfont.css" crossorigin>
+  
+  <!--<link rel="stylesheet" href="../../../../../css/style.css?v=1604628805137">-->
+
+  
+<meta name="generator" content="Hexo 5.2.0"><link rel="alternate" href="atom.xml" title="June's Blog" type="application/atom+xml">
+</head>
+
+<body class="mdui-drawer-body-left">
+  
+  <div id="nexmoe-background">
+    <div class="nexmoe-bg" style="background-image: url(https://source.unsplash.com/random?count=1/1600x900)"></div>
+    <div class="mdui-appbar mdui-shadow-0">
+      <div class="mdui-toolbar">
+        <a mdui-drawer="{target: '#drawer', swipe: true}" title="menu" class="mdui-btn mdui-btn-icon mdui-ripple"><i class="mdui-icon nexmoefont icon-menu"></i></a>
+        <div class="mdui-toolbar-spacer"></div>
+        <!--<a href="javascript:;" class="mdui-btn mdui-btn-icon"><i class="mdui-icon material-icons">search</i></a>-->
+        <a href="../../../../../index.html" title="June" class="mdui-btn mdui-btn-icon"><img src="https://cdn.jsdelivr.net/gh/JuntengMa/Images@1.0/blog/avatar.jpg" alt="June"></a>
+       </div>
+    </div>
+  </div>
+  <div id="nexmoe-header">
+      <div class="nexmoe-drawer mdui-drawer" id="drawer">
+    <div class="nexmoe-avatar mdui-ripple">
+        <a href="../../../../../index.html" title="June">
+            <img src="https://cdn.jsdelivr.net/gh/JuntengMa/Images@1.0/blog/avatar.jpg" alt="June" alt="June">
+        </a>
+    </div>
+    <div class="nexmoe-count">
+        <div><span>文章</span>36</div>
+        <div><span>标签</span>25</div>
+        <div><span>分类</span>21</div>
+    </div>
+    <div class="nexmoe-list mdui-list" mdui-collapse="{accordion: true}">
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple" href="../../../../../index.html" title="回到首页">
+            <i class="mdui-list-item-icon nexmoefont icon-home"></i>
+            <div class="mdui-list-item-content">
+                回到首页
+            </div>
+        </a>
+        
+    </div>
+    <aside id="nexmoe-sidebar">
+  
+  
+  <div class="nexmoe-widget-wrap">
+    <h3 class="nexmoe-widget-title">标签云</h3>
+    <div id="randomtagcloud" class="nexmoe-widget tagcloud nexmoe-rainbow">
+      <a href="../../../../../tags/Ajax/" style="font-size: 13.33px;">Ajax</a> <a href="../../../../../tags/Axios/" style="font-size: 13.33px;">Axios</a> <a href="../../../../../tags/BFC/" style="font-size: 10px;">BFC</a> <a href="../../../../../tags/Css/" style="font-size: 13.33px;">Css</a> <a href="../../../../../tags/DOM%E4%BA%8B%E4%BB%B6%E4%BA%8B%E4%BB%B6%E6%B5%81/" style="font-size: 10px;">DOM事件事件流</a> <a href="../../../../../tags/ES6/" style="font-size: 10px;">ES6</a> <a href="../../../../../tags/Git/" style="font-size: 10px;">Git</a> <a href="../../../../../tags/Honey/" style="font-size: 10px;">Honey</a> <a href="../../../../../tags/Http/" style="font-size: 13.33px;">Http</a> <a href="../../../../../tags/Https/" style="font-size: 10px;">Https</a> <a href="../../../../../tags/JSONP/" style="font-size: 10px;">JSONP</a> <a href="../../../../../tags/JavaScript/" style="font-size: 13.33px;">JavaScript</a> <a href="../../../../../tags/Json-server/" style="font-size: 10px;">Json-server</a> <a href="../../../../../tags/Npm/" style="font-size: 10px;">Npm</a> <a href="../../../../../tags/React/" style="font-size: 20px;">React</a> <a href="../../../../../tags/Webpack/" style="font-size: 10px;">Webpack</a> <a href="../../../../../tags/%E4%BD%9C%E7%94%A8%E5%9F%9F/" style="font-size: 10px;">作用域</a> <a href="../../../../../tags/%E5%89%8D%E7%AB%AF%E5%AE%89%E5%85%A8/" style="font-size: 10px;">前端安全</a> <a href="../../../../../tags/%E5%8E%9F%E5%9E%8B%E5%8E%9F%E5%9E%8B%E9%93%BE/" style="font-size: 10px;">原型原型链</a> <a href="../../../../../tags/%E5%90%8C%E6%BA%90%E7%AD%96%E7%95%A5/" style="font-size: 10px;">同源策略</a> <a href="../../../../../tags/%E6%B5%8F%E8%A7%88%E5%99%A8/" style="font-size: 16.67px;">浏览器</a> <a href="../../../../../tags/%E6%B7%B1%E6%8B%B7%E8%B4%9D%E6%B5%85%E6%8B%B7%E8%B4%9D/" style="font-size: 10px;">深拷贝浅拷贝</a> <a href="../../../../../tags/%E7%9B%92%E6%A8%A1%E5%9E%8B/" style="font-size: 10px;">盒模型</a> <a href="../../../../../tags/%E7%AE%97%E6%B3%95/" style="font-size: 10px;">算法</a> <a href="../../../../../tags/%E9%98%B2%E6%8A%96%E8%8A%82%E6%B5%81/" style="font-size: 10px;">防抖节流</a>
+    </div>
+    
+  </div>
+
+  
+  
+  <div class="nexmoe-widget-wrap">
+    <h3 class="nexmoe-widget-title">文章分类</h3>
+    <div class="nexmoe-widget">
+
+      <ul class="category-list">
+
+        
+
+
+        
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/Ajax/">Ajax</a>
+          <span class="category-list-count">2</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/Ajax/Axios/">Axios</a>
+          <span class="category-list-count">2</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/Css/盒模型/BFC/">BFC</a>
+          <span class="category-list-count">1</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/Css/">Css</a>
+          <span class="category-list-count">2</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/Git/">Git</a>
+          <span class="category-list-count">1</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/Honey/">Honey</a>
+          <span class="category-list-count">1</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/Http/">Http</a>
+          <span class="category-list-count">2</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/Https/">Https</a>
+          <span class="category-list-count">1</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/JSONP/">JSONP</a>
+          <span class="category-list-count">1</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/JavaScript/">JavaScript</a>
+          <span class="category-list-count">7</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/Json-server/">Json-server</a>
+          <span class="category-list-count">1</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/NPM/">NPM</a>
+          <span class="category-list-count">1</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/React/">React</a>
+          <span class="category-list-count">7</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/React/TypeScript/">TypeScript</a>
+          <span class="category-list-count">1</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/Webpack/">Webpack</a>
+          <span class="category-list-count">1</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/前端安全/">前端安全</a>
+          <span class="category-list-count">1</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/同源策略/">同源策略</a>
+          <span class="category-list-count">1</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/浏览器/">浏览器</a>
+          <span class="category-list-count">4</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/Css/盒模型/">盒模型</a>
+          <span class="category-list-count">1</span>
+        </li>
+
+        
+      </ul>
+
+    </div>
+  </div>
+
+
+  
+  
+  <div class="nexmoe-widget-wrap">
+    <h3 class="nexmoe-widget-title">最新文章</h3>
+    <div class="nexmoe-widget">
+      <ul>
+        
+          <li>
+            <a href="../../../04/Safe/CSRF%E6%94%BB%E5%87%BB/">🌭 (no title)</a>
+          </li>
+        
+          <li>
+            <a href="../../../04/Safe/XSS%E6%94%BB%E5%87%BB/">🌭 XSS攻击</a>
+          </li>
+        
+          <li>
+            <a href="">🌭 JavaScript作用域</a>
+          </li>
+        
+          <li>
+            <a href="../../../02/JavaScript/JavaScript-ES6/">🌭 (no title)</a>
+          </li>
+        
+          <li>
+            <a href="../../../02/JavaScript/forIn-forOF-Map-forEach%E5%8C%BA%E5%88%AB/">🌭 for-in &amp; for-of的区别 和 map-for &amp; Each区别</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+</div><!-- .nexmoe-drawer -->
+
+  </div>
+  <div id="nexmoe-content">
+    <div class="nexmoe-primary">
+        <div class="nexmoe-post">
+  
+  <div class="nexmoe-post-cover" style="padding-bottom: 62.5%;">
+    <img data-src="https://source.unsplash.com/user/erondu/1440x960" data-sizes="auto" alt="JavaScript作用域" class="lazyload">
+    <h1>JavaScript作用域</h1>
+  </div>
+  
+
+  <div class="nexmoe-post-meta nexmoe-rainbow" style="margin:10px 0!important;">
+    <a><i class="nexmoefont icon-calendar-fill"></i>2020年11月03日</a>
+    <a><i class="nexmoefont icon-areachart"></i>847 字</a>
+    <a><i class="nexmoefont icon-time-circle-fill"></i>大概 3 分钟</a>
+</div>
+
+  <div class="nexmoe-post-right">
+    
+    <div class="nexmoe-fixed">
+      <div class="nexmoe-valign" style="position:relative">
+        <div class="nexmoe-toc">
+          Toc
+          <!-- <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BD%9C%E7%94%A8%E5%9F%9F"><span class="toc-number">1.</span> <span class="toc-text">作用域</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%9D%99%E6%80%81%E4%BD%9C%E7%94%A8%E5%9F%9F"><span class="toc-number">2.</span> <span class="toc-text">静态作用域</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8A%A8%E6%80%81%E4%BD%9C%E7%94%A8%E5%9F%9F"><span class="toc-number">3.</span> <span class="toc-text">动态作用域</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%89%A7%E8%A1%8C%E4%B8%8A%E4%B8%8B%E6%96%87%E6%A0%88"><span class="toc-number">4.</span> <span class="toc-text">执行上下文栈</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8F%AF%E6%89%A7%E8%A1%8C%E4%BB%A3%E7%A0%81"><span class="toc-number">4.0.1.</span> <span class="toc-text">可执行代码</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%89%A7%E8%A1%8C%E4%B8%8A%E4%B8%8B%E6%96%87%E6%A0%88-1"><span class="toc-number">4.0.2.</span> <span class="toc-text">执行上下文栈</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E5%A0%86%E6%A0%88"><span class="toc-number">5.</span> <span class="toc-text">什么是堆栈</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%86%85%E9%83%A8%E5%B1%9E%E6%80%A7"><span class="toc-number">6.</span> <span class="toc-text">内部属性</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Js%E5%86%85%E7%BD%AE%E5%AF%B9%E8%B1%A1"><span class="toc-number">7.</span> <span class="toc-text">Js内置对象</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8E%9F%E5%9E%8B%E5%8E%9F%E5%9E%8B%E9%93%BE"><span class="toc-number">8.</span> <span class="toc-text">原型原型链</span></a></li></ol> -->
+        </div>
+      </div>
+    </div>
+    
+  </div>
+
+  <article>
+    <p>JavaScript深入 - 作用域相关问题</p>
+<a id="more"></a>
+
+<h2 id="作用域"><a href="#作用域" class="headerlink" title="作用域"></a>作用域</h2><p>作用域是指程序源代码中定义变量的区域</p>
+<ul>
+<li>规定了如何让查找变量,也就是当前执行代码对变量的访问权限</li>
+<li>JavaScript采用词法作用域(静态作用域)</li>
+</ul>
+<h2 id="静态作用域"><a href="#静态作用域" class="headerlink" title="静态作用域"></a>静态作用域</h2><p>函数的作用域在函数定义的时候就已经决定了</p>
+<h2 id="动态作用域"><a href="#动态作用域" class="headerlink" title="动态作用域"></a>动态作用域</h2><p>函数的作用域在函数调用的时候才决定</p>
+<h2 id="执行上下文栈"><a href="#执行上下文栈" class="headerlink" title="执行上下文栈"></a>执行上下文栈</h2><ul>
+<li>JavaScript代码是逐行执行的</li>
+<li>但是js引擎并非一行一行的分析执行程序,而是一段一段的分析执行</li>
+</ul>
+<h4 id="可执行代码"><a href="#可执行代码" class="headerlink" title="可执行代码"></a>可执行代码</h4><p>可执行代码有三种,全局代码,函数代码,eval代码,当执行到可执行代码的,就会进行准备一些工作—-&gt;执行上下文</p>
+<ul>
+<li>全局代码</li>
+<li>函数代码</li>
+<li>eval代码</li>
+</ul>
+<h4 id="执行上下文栈-1"><a href="#执行上下文栈-1" class="headerlink" title="执行上下文栈"></a>执行上下文栈</h4><p>为了管理js中大量的可执行上下文,JavaScript引擎创建了执行上下文栈来管理可执行上下文</p>
+<ul>
+<li>当 JavaScript 开始要解释执行代码的时候，最先遇到的就是全局代码，所以初始化的时候首先就会向执行上下文栈压入一个全局执行上下文，我们用 globalContext 表示它，并且只有当整个应用程序结束的时候，ECStack 才会被清空，所以程序结束之前， ECStack 最底部永远有个 globalContext.<ul>
+<li>当函数开始执行的时候,同样生成一个可以执行上下文并压入可执行上下文栈,当函数执行完毕的时候,再从执行上下文栈中弹出</li>
+</ul>
+</li>
+</ul>
+<h2 id="什么是堆栈"><a href="#什么是堆栈" class="headerlink" title="什么是堆栈"></a>什么是堆栈</h2><p>堆栈概念存在于数据结构和操作系统内存中</p>
+<ul>
+<li>在数据结构中<ul>
+<li>栈中的数据存取方式为先进后出</li>
+<li>堆是一个优先队列,按照优先级来进行排序的,优先级可以按照大小来规定</li>
+</ul>
+</li>
+<li>操作系统中,内存被分为栈区和堆区<ul>
+<li>栈区的内存由编译器自动分配释放,存放函数的参数值,局部变量值等</li>
+<li>堆内存一般由程序员释放,若没有手动释放则程序结束时由垃圾回收记住回收</li>
+</ul>
+</li>
+</ul>
+<h2 id="内部属性"><a href="#内部属性" class="headerlink" title="内部属性"></a>内部属性</h2><p>所有typeof返回Object的对象都有一个内部属性.可以通过以下代码查看</p>
+<pre><code>Object.prototype.toString.call(array)</code></pre>
+<h2 id="Js内置对象"><a href="#Js内置对象" class="headerlink" title="Js内置对象"></a>Js内置对象</h2><p>js内置对象主要是只在程序执行前存在全局作用域里面的由js定义的一些全局属性,函数和用来实例化其他对象的构造函数对象.</p>
+<p>一般我们经常用到的全局函数变量值 nan , undefined ,</p>
+<p>全局函数: parseInt() , paeseFloat()</p>
+<p>用来实例化的全局构造函数: Date , Object 等</p>
+<h2 id="原型原型链"><a href="#原型原型链" class="headerlink" title="原型原型链"></a>原型原型链</h2><ul>
+<li>js中我们使用构造函数新建对象,在每一个构造函数中都有一个prototype属性值,他的属性值是一个对象,该对象包含了可以由该构造函数的所有梳理共享的属性和方法</li>
+<li>当我们使用构造函数新建一个对象后,在这个对象的内部将包含一个指针,这个指针指向构造函数的prototype属性对应的值,es5该指针被称为对象的原型</li>
+<li>一般来说我们是不能</li>
+</ul>
+
+  </article>
+
+  <div class="nexmoe-post-meta nexmoe-rainbow">
+    
+        <a class="nexmoefont icon-appstore-fill -link" href="../../../../../categories/JavaScript/">JavaScript</a>
+    
+    
+        <a class="nexmoefont icon-tag-fill -none-link" href="../../../../../tags/%E4%BD%9C%E7%94%A8%E5%9F%9F/" rel="tag">作用域</a>
+    
+</div>
+
+  <div class="nexmoe-post-footer">
+    
+    
+<div class="nexmoe-post-copyright">
+  <strong>
+    本文作者：
+  </strong>
+  June
+  <br>
+
+  <strong>
+    本文链接：
+  </strong>
+  <a href="https://juntengma.github.io/2020/11/03/JavaScript/JavaScript%E4%BD%9C%E7%94%A8%E5%9F%9F/" target="_blank">
+    https://juntengma.github.io/2020/11/03/JavaScript/JavaScript%E4%BD%9C%E7%94%A8%E5%9F%9F/
+  </a>
+  <br>
+
+  
+  <strong>版权声明：</strong>本文采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/cn/deed.zh" target="_blank">CC BY-NC-SA 3.0 CN</a> 协议进行许可
+  
+</div>
+
+    
+    <section class="nexmoe-comment">
+    <div id="gitment"></div>
+<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+<script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+<script>
+var gitment = new Gitment({
+    owner: 'JuntengMa', // 你的 GitHub ID
+    repo: 'JuntengMa.github.io', // 存储评论的 repo
+    oauth: {
+        client_id: '9fd48748b067fb6d3d86', // 你的 client ID
+        client_secret: 'd8c7d412e13e5444bd0451bc1859cac49b4b7514' // 你的 client secret
+    },
+})
+gitment.render('gitment')
+</script>
+</section>
+  </div>
+</div>
+<style>
+  .nexmoe-toc {
+    box-shadow: 0 0 1rem rgba(161, 177, 204, .4);
+    background-color: #fff;
+    border-radius: 15px;
+    white-space: normal;
+    padding: 15px;
+    position: absolute;
+    right: -120px;
+    top: 10%;
+    overflow: hidden;
+    margin-right: -188px;
+  }
+
+  .nexmoe-toc-phone {
+    position: fixed;
+    top: 27%;
+    padding: 15px;
+    right: -50%;
+    margin-right: 0;
+    color: #ffff;
+    background-color: #282c34;
+  }
+</style>
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery/1.10.0/jquery.js"></script>
+
+<script>
+  function IsPC() {
+    var userAgentInfo = navigator.userAgent;
+    var Agents = new Array("Android", "iPhone", "SymbianOS", "Windows Phone", "iPad", "iPod");
+    var flag = true;
+    for (var v = 0; v < Agents.length; v++) {
+      if (userAgentInfo.indexOf(Agents[v]) > 0) {
+        flag = false;
+        break;
+      }
+    }
+    return flag;
+  }
+
+  $(document).ready(function () {
+    !IsPC() && $('.nexmoe-toc').addClass('nexmoe-toc-phone')
+
+    $('.nexmoe-fixed').hover(function () {
+      $('.nexmoe-toc').html(`<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BD%9C%E7%94%A8%E5%9F%9F"><span class="toc-text">作用域</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%9D%99%E6%80%81%E4%BD%9C%E7%94%A8%E5%9F%9F"><span class="toc-text">静态作用域</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8A%A8%E6%80%81%E4%BD%9C%E7%94%A8%E5%9F%9F"><span class="toc-text">动态作用域</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%89%A7%E8%A1%8C%E4%B8%8A%E4%B8%8B%E6%96%87%E6%A0%88"><span class="toc-text">执行上下文栈</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8F%AF%E6%89%A7%E8%A1%8C%E4%BB%A3%E7%A0%81"><span class="toc-text">可执行代码</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%89%A7%E8%A1%8C%E4%B8%8A%E4%B8%8B%E6%96%87%E6%A0%88-1"><span class="toc-text">执行上下文栈</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E5%A0%86%E6%A0%88"><span class="toc-text">什么是堆栈</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%86%85%E9%83%A8%E5%B1%9E%E6%80%A7"><span class="toc-text">内部属性</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Js%E5%86%85%E7%BD%AE%E5%AF%B9%E8%B1%A1"><span class="toc-text">Js内置对象</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8E%9F%E5%9E%8B%E5%8E%9F%E5%9E%8B%E9%93%BE"><span class="toc-text">原型原型链</span></a></li></ol>`)
+      IsPC() ?
+        $('.nexmoe-toc').css({
+          'margin-right': 0
+        }) :
+        ($('.nexmoe-toc-phone').css({
+          'right': 0,
+        }), $('.toc-link').css({
+          'color': '#fff',
+        }))
+    }, function () {
+      $('.nexmoe-toc').html(`Toc`)
+      IsPC() ?
+        $('.nexmoe-toc').css({
+          'margin-right': '-188px'
+        }) :
+        $('.nexmoe-toc').css({
+          'right': '-50%'
+        })
+    });
+  });
+</script>
+    </div>
+  </div>
+  <script src="https://cdn.jsdelivr.net/combine/npm/lazysizes@5.1.0/lazysizes.min.js,gh/highlightjs/cdn-release@9.15.8/build/highlight.min.js,npm/mdui@0.4.3/dist/js/mdui.min.js,gh/nexmoe/nexmoe.github.io@latest/js/app.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+<!--<script src="../../../../../js/app.js?v=1604628805138"></script>-->
+
+
+
+
+  
+
+
+
+
+
+</body>
+
+</html>

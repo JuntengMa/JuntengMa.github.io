@@ -2,7 +2,7 @@
 <search>
   <entry>
     <title>自己比较常用的一些git操作</title>
-    <url>/2020/09/22/Git%E5%91%BD%E4%BB%A4/</url>
+    <url>/2020/09/22/%E5%B7%A5%E5%85%B7/Git%E5%91%BD%E4%BB%A4/</url>
     <content><![CDATA[<h1 id="GIT-常用命令"><a href="#GIT-常用命令" class="headerlink" title="GIT 常用命令"></a>GIT 常用命令</h1><a id="more"></a>
 
 <h2 id="01-初始配置"><a href="#01-初始配置" class="headerlink" title="01 - 初始配置"></a>01 - 初始配置</h2><pre><code>- git init 初始化本地git仓库（创建新仓库）
@@ -88,7 +88,7 @@ git rm xxx 除某文件</code></pre>
   </entry>
   <entry>
     <title>Yarn / npm 对比</title>
-    <url>/2020/09/02/yarn-npm%E5%AF%B9%E6%AF%94/</url>
+    <url>/2020/09/02/%E5%B7%A5%E5%85%B7/yarn-npm%E5%AF%B9%E6%AF%94/</url>
     <content><![CDATA[<a id="more"></a>
 
 
@@ -161,9 +161,349 @@ git rm xxx 除某文件</code></pre>
       </tags>
   </entry>
   <entry>
-    <title>Https及其加密原理</title>
-    <url>/2020/10/30/Https/</url>
+    <title></title>
+    <url>/2020/11/04/Safe/CSRF%E6%94%BB%E5%87%BB/</url>
     <content><![CDATA[<a id="more"></a>]]></content>
+  </entry>
+  <entry>
+    <title>XSS攻击</title>
+    <url>/2020/11/04/Safe/XSS%E6%94%BB%E5%87%BB/</url>
+    <content><![CDATA[<p>前端知识回顾之 - XSS攻击</p>
+<a id="more"></a>
+
+<h2 id="XSS攻击"><a href="#XSS攻击" class="headerlink" title="XSS攻击"></a>XSS攻击</h2><h4 id="1-什么是xss攻击"><a href="#1-什么是xss攻击" class="headerlink" title="1.什么是xss攻击"></a>1.什么是xss攻击</h4><ul>
+<li>xss攻击即跨站脚本攻击,是一种恶意代码注入攻击,攻击者通过在网站上面注入恶意代码,使之在浏览器上面运行,从而获取用户的敏感信息如cookie等</li>
+<li>xss的本质是因为网站没有对恶意代码进行过滤, 与正常代码混在一起,但是浏览器不能识别代码哪些可信哪些不可信,从而导致了恶意代码的执行.</li>
+</ul>
+<h4 id="2-XSS攻击分类"><a href="#2-XSS攻击分类" class="headerlink" title="2.XSS攻击分类"></a>2.XSS攻击分类</h4><ul>
+<li><p>存储型</p>
+<blockquote>
+<p>存储型XSS攻击是将恶意代码提交到网站服务器中,当用户请求数据的时候,服务器将恶意代码拼接到HTML里面后返回,导致恶意代码的执行</p>
+</blockquote>
+</li>
+<li><p>反射型</p>
+<blockquote>
+<p>反射型指的是某些通过url参数获取数据的网站,攻击者构建特殊的url,当服务器收到请求之后,从url中获取数据,并将其拼接为html后返回,从而导致了恶意代码的执行</p>
+</blockquote>
+</li>
+<li><p>DOM型</p>
+<blockquote>
+<p>DOM型XSS攻击指的是攻击者构建了特殊的URL,当用户打开了网站之后,js脚本从url中获取数据,从而导致了恶意代码的执行</p>
+</blockquote>
+</li>
+</ul>
+<h4 id="3-如何预防XSS攻击"><a href="#3-如何预防XSS攻击" class="headerlink" title="3.如何预防XSS攻击"></a>3.如何预防XSS攻击</h4><p>​    预防XSS攻击主要有两个方案</p>
+<ul>
+<li><p>恶意代码提交的时候(不可靠)</p>
+<blockquote>
+<p>当数据即将存入数据库的时候进行转义,但是数据库的数据可能在多个地方使用,有些地方不需要转义,由于我们无法判断这些数据最后的使用场景,所以该方法是<strong>不可靠的</strong></p>
+</blockquote>
+</li>
+<li><p>浏览器执行之前</p>
+<blockquote>
+<ul>
+<li>使用纯前端的方式,不用服务器拼接HTML返回    </li>
+<li>对需要插入的HTML进行充分的转义</li>
+</ul>
+</blockquote>
+</li>
+<li><p>对于DOM性XSS攻击还有以下几种方式</p>
+<blockquote>
+<ul>
+<li>CSP,CSP本质是简历一个白名单,告诉浏览器哪些外部资源是可以加载和执行,从而防止恶意代码的注入攻击</li>
+<li>对敏感信息进行保护,比如cookie使用http-only,禁止脚本获取cookie</li>
+<li>使用验证码,防止脚本伪装用户进行操作</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+<h4 id="4-什么是CSP"><a href="#4-什么是CSP" class="headerlink" title="4.什么是CSP"></a>4.什么是CSP</h4><p>​    CSP指的是内容安全侧策略</p>
+<p>​    他的本质是建立一个白名单,告诉浏览器哪些外部资源可以加在和执行.</p>
+<p>​    <strong>开启SCP方式:</strong></p>
+<ul>
+<li>一种是设置 HTTP 首部中的 <code>Content-Security-Policy</code></li>
+<li>一种是设置 meta 标签的方式 <code>&lt;meta http-equiv=&quot;Content-Security-Policy&quot;&gt;</code></li>
+</ul>
+<p>详细资料可以参考： <a href="https://juejin.im/post/5bad9140e51d450e935c6d64">《前端安全系列（一）：如何防止 XSS 攻击？》</a></p>
+]]></content>
+      <categories>
+        <category>前端安全</category>
+      </categories>
+      <tags>
+        <tag>前端安全</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>JavaScript作用域</title>
+    <url>/2020/11/03/JavaScript/JavaScript%E4%BD%9C%E7%94%A8%E5%9F%9F/</url>
+    <content><![CDATA[<p>JavaScript深入 - 作用域相关问题</p>
+<a id="more"></a>
+
+<h2 id="作用域"><a href="#作用域" class="headerlink" title="作用域"></a>作用域</h2><p>作用域是指程序源代码中定义变量的区域</p>
+<ul>
+<li>规定了如何让查找变量,也就是当前执行代码对变量的访问权限</li>
+<li>JavaScript采用词法作用域(静态作用域)</li>
+</ul>
+<h2 id="静态作用域"><a href="#静态作用域" class="headerlink" title="静态作用域"></a>静态作用域</h2><p>函数的作用域在函数定义的时候就已经决定了</p>
+<h2 id="动态作用域"><a href="#动态作用域" class="headerlink" title="动态作用域"></a>动态作用域</h2><p>函数的作用域在函数调用的时候才决定</p>
+<h2 id="执行上下文栈"><a href="#执行上下文栈" class="headerlink" title="执行上下文栈"></a>执行上下文栈</h2><ul>
+<li>JavaScript代码是逐行执行的</li>
+<li>但是js引擎并非一行一行的分析执行程序,而是一段一段的分析执行</li>
+</ul>
+<h4 id="可执行代码"><a href="#可执行代码" class="headerlink" title="可执行代码"></a>可执行代码</h4><p>可执行代码有三种,全局代码,函数代码,eval代码,当执行到可执行代码的,就会进行准备一些工作—-&gt;执行上下文</p>
+<ul>
+<li>全局代码</li>
+<li>函数代码</li>
+<li>eval代码</li>
+</ul>
+<h4 id="执行上下文栈-1"><a href="#执行上下文栈-1" class="headerlink" title="执行上下文栈"></a>执行上下文栈</h4><p>为了管理js中大量的可执行上下文,JavaScript引擎创建了执行上下文栈来管理可执行上下文</p>
+<ul>
+<li>当 JavaScript 开始要解释执行代码的时候，最先遇到的就是全局代码，所以初始化的时候首先就会向执行上下文栈压入一个全局执行上下文，我们用 globalContext 表示它，并且只有当整个应用程序结束的时候，ECStack 才会被清空，所以程序结束之前， ECStack 最底部永远有个 globalContext.<ul>
+<li>当函数开始执行的时候,同样生成一个可以执行上下文并压入可执行上下文栈,当函数执行完毕的时候,再从执行上下文栈中弹出</li>
+</ul>
+</li>
+</ul>
+<h2 id="什么是堆栈"><a href="#什么是堆栈" class="headerlink" title="什么是堆栈"></a>什么是堆栈</h2><p>堆栈概念存在于数据结构和操作系统内存中</p>
+<ul>
+<li>在数据结构中<ul>
+<li>栈中的数据存取方式为先进后出</li>
+<li>堆是一个优先队列,按照优先级来进行排序的,优先级可以按照大小来规定</li>
+</ul>
+</li>
+<li>操作系统中,内存被分为栈区和堆区<ul>
+<li>栈区的内存由编译器自动分配释放,存放函数的参数值,局部变量值等</li>
+<li>堆内存一般由程序员释放,若没有手动释放则程序结束时由垃圾回收记住回收</li>
+</ul>
+</li>
+</ul>
+<h2 id="内部属性"><a href="#内部属性" class="headerlink" title="内部属性"></a>内部属性</h2><p>所有typeof返回Object的对象都有一个内部属性.可以通过以下代码查看</p>
+<pre><code>Object.prototype.toString.call(array)</code></pre>
+<h2 id="Js内置对象"><a href="#Js内置对象" class="headerlink" title="Js内置对象"></a>Js内置对象</h2><p>js内置对象主要是只在程序执行前存在全局作用域里面的由js定义的一些全局属性,函数和用来实例化其他对象的构造函数对象.</p>
+<p>一般我们经常用到的全局函数变量值 nan , undefined ,</p>
+<p>全局函数: parseInt() , paeseFloat()</p>
+<p>用来实例化的全局构造函数: Date , Object 等</p>
+<h2 id="原型原型链"><a href="#原型原型链" class="headerlink" title="原型原型链"></a>原型原型链</h2><ul>
+<li>js中我们使用构造函数新建对象,在每一个构造函数中都有一个prototype属性值,他的属性值是一个对象,该对象包含了可以由该构造函数的所有梳理共享的属性和方法</li>
+<li>当我们使用构造函数新建一个对象后,在这个对象的内部将包含一个指针,这个指针指向构造函数的prototype属性对应的值,es5该指针被称为对象的原型</li>
+<li>一般来说我们是不能</li>
+</ul>
+]]></content>
+      <categories>
+        <category>JavaScript</category>
+      </categories>
+      <tags>
+        <tag>作用域</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title></title>
+    <url>/2020/11/02/JavaScript/JavaScript-ES6/</url>
+    <content><![CDATA[<a id="more"></a>
+
+
+
+<h2 id="ES6"><a href="#ES6" class="headerlink" title="ES6"></a>ES6</h2><h4 id="ES6是什么"><a href="#ES6是什么" class="headerlink" title="ES6是什么"></a>ES6是什么</h4><p>es6是ECMA为JavaScript订制的第6个版本,2015年6月发行,涵盖了2015 - 2020</p>
+<h4 id="ES6特性"><a href="#ES6特性" class="headerlink" title="ES6特性"></a>ES6特性</h4><ul>
+<li>表达式<ul>
+<li>[声明 (let/const)](#### 声明)</li>
+<li>解构赋值</li>
+</ul>
+</li>
+<li>内置对象<ul>
+<li>字符串扩展</li>
+<li>数值扩展</li>
+<li>对象扩展</li>
+<li>数组扩展</li>
+<li>函数扩展</li>
+<li>正则扩展</li>
+<li>Symbol / set /Map / Proxy /Reflect</li>
+</ul>
+</li>
+<li>语句与运算<ul>
+<li>class</li>
+<li>Module</li>
+<li>Iterator</li>
+</ul>
+</li>
+<li>异步编程<ul>
+<li>Promise</li>
+<li>Generator</li>
+<li>Async</li>
+</ul>
+</li>
+</ul>
+<h4 id="声明"><a href="#声明" class="headerlink" title="声明"></a>声明</h4><ul>
+<li>let (声明变量,类似var,但是只在代码块中有效)<ul>
+<li>let声明的变量只在所处于的块级有效；</li>
+<li>let没有‘变量提升’的特性，而是‘暂时性死区（temporal dead zone）’特性</li>
+</ul>
+</li>
+<li>const (声明常量)<ul>
+<li>声明恒定变量，声明的同时就必须赋值，否则会报错</li>
+</ul>
+</li>
+</ul>
+<h4 id="块级作用域"><a href="#块级作用域" class="headerlink" title="块级作用域:"></a>块级作用域:</h4><h5 id="ES6之前"><a href="#ES6之前" class="headerlink" title="ES6之前"></a>ES6之前</h5><ul>
+<li>全局作用域</li>
+<li>函数作用域</li>
+</ul>
+<p>因此会产生变量提升的问题</p>
+<pre><code>function func()&#123;
+    console.log(test);
+    var test = 1;
+&#125;;
+func();
+//undefind
+在进入func之前,所有通过var声明的变量提前声明并赋予undefinded值</code></pre>
+<h5 id="ES6-1"><a href="#ES6-1" class="headerlink" title="ES6"></a>ES6</h5><ul>
+<li>全局作用域</li>
+<li>函数作用域</li>
+<li>块级作用域</li>
+</ul>
+<pre><code>function f1() &#123;
+  let n = 5;
+  if (true) &#123;
+    let n = 10;
+  &#125;
+  console.log(n); // 5
+&#125;
+
+
+function f1() &#123;
+  var n = 5;
+  if (true) &#123;
+    var n = 10;
+  &#125;
+  console.log(n); // 10
+&#125;</code></pre>
+]]></content>
+      <categories>
+        <category>JavaScript</category>
+      </categories>
+      <tags>
+        <tag>ES6</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>for-in &amp; for-of的区别 和 map-for &amp; Each区别</title>
+    <url>/2020/11/02/JavaScript/forIn-forOF-Map-forEach%E5%8C%BA%E5%88%AB/</url>
+    <content><![CDATA[<a id="more"></a>
+
+<h3 id="for-in"><a href="#for-in" class="headerlink" title="for-in"></a>for-in</h3><ul>
+<li>遍历一个对象的除<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Symbol">Symbol</a>以外的<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Enumerability_and_ownership_of_properties">可枚举</a>属性, <strong>用于遍历对象</strong></li>
+<li>for…in循环出的是key</li>
+</ul>
+<pre><code>const obj = &#123;
+    name: &#39;哇塞&#39;,
+    age: 18
+&#125;
+
+for(let item in obj)&#123;
+    console.log(item)
+&#125;
+// Output:
+//name
+//age</code></pre>
+<h3 id="for-of"><a href="#for-of" class="headerlink" title="for-of"></a>for-of</h3><ul>
+<li><strong>用于遍历数组</strong></li>
+<li>for-of 是ES6引入属性</li>
+<li>for-of不能用来遍例普通对象,需要和Obect.keys()搭配使用</li>
+<li>for…of循环出的是value</li>
+</ul>
+<pre><code>let aArray = [&#39;a&#39;,123,&#123;a:&#39;1&#39;,b:&#39;2&#39;&#125;]</code></pre>
+<p>结论:</p>
+<ul>
+<li>推荐在<strong>循环对象</strong>属性的时候，使用<strong>for…in</strong></li>
+<li>在<strong>遍历数组</strong>的时候的时候使用<strong>for…of</strong>。</li>
+<li>for…in循环出的是key，for…of循环出的是value</li>
+<li>注意，for…of是ES6新引入的特性。修复了ES5引入的for…in的不足</li>
+<li>for…of不能循环普通的对象，需要通过和Object.keys()搭配使用</li>
+</ul>
+<h3 id="Map"><a href="#Map" class="headerlink" title="Map"></a>Map</h3><h3 id="forEach"><a href="#forEach" class="headerlink" title="forEach"></a>forEach</h3>]]></content>
+  </entry>
+  <entry>
+    <title>深拷贝浅拷贝</title>
+    <url>/2020/11/02/JavaScript/JavaScript%E6%B5%85%E6%8B%B7%E8%B4%9D%E6%B7%B1%E6%8B%B7%E8%B4%9D/</url>
+    <content><![CDATA[<a id="more"></a>
+
+
+
+<p><a href="https://juejin.im/post/6844903929705136141">https://juejin.im/post/6844903929705136141</a></p>
+<h3 id="浅拷贝"><a href="#浅拷贝" class="headerlink" title="浅拷贝"></a>浅拷贝</h3><blockquote>
+<p>创建一个新对象，这个对象有着原始对象属性值的一份精确拷贝。</p>
+<p>如果属性是基本类型，拷贝的就是基本类型的值，如果属性是引用类型，拷贝的就是内存地址 ，所以如果其中一个对象改变了这个地址，就会影响到另一个对象。</p>
+</blockquote>
+<p>浅拷贝只拷贝一层属性,无法拷贝引用数据类型</p>
+<ul>
+<li><code>Object.assign(&#123;&#125;,obj)</code>浅拷贝object</li>
+<li><code>newobj = &#123;...obj2&#125;</code>  展开运算符浅拷贝</li>
+<li><code>Object.fromEntries( Object.entriens(obj) ) </code>通过生成迭代器,在通过迭代器生成对象</li>
+<li><code>Object.create(&#123;&#125;,Object.getOwnPropertyDescriptors(obj))</code></li>
+</ul>
+<p><strong>简单浅拷贝:</strong></p>
+<pre><code>function clone(target)&#123;
+    let cloneTarget=&#123;&#125;;
+    for(let key in target)&#123;
+        cloneTarget[key] = target[key]
+    &#125;
+    return cloneTarget
+&#125;</code></pre>
+<h3 id="深拷贝"><a href="#深拷贝" class="headerlink" title="深拷贝"></a>深拷贝</h3><blockquote>
+<p>将一个对象从内存中完整的拷贝一份出来,从堆内存中开辟一个新的区域存放新对象,且修改新对象不会影响原对象</p>
+</blockquote>
+<ul>
+<li><code>JSON.parse(JSON.stringfy( obj ))</code>通过<strong>JSON的2次转换深拷贝obj</strong><ul>
+<li>无法拷贝<code>undefined</code>与<code>symbol</code>属性</li>
+<li>无法拷贝<strong>循环引用</strong>对象</li>
+</ul>
+</li>
+<li>loadsh:<a href="http://lodash.think2011.net/cloneDeep"><em>.cloneDeep</em></a></li>
+</ul>
+<p>简单深拷贝(可以处理<strong>原始数据类型 + Object</strong>):</p>
+<ul>
+<li>如果是原始类型，无需继续拷贝，直接返回</li>
+<li>如果是引用类型，创建一个新的对象，遍历需要克隆的对象，将需要克隆对象的属性执行深拷贝后依次添加到新对象上。</li>
+</ul>
+<pre><code>function smpleDeepCopy(target) &#123;
+  let type = typeof target
+  if (type === &quot;object&quot;) &#123;
+    let copy = &#123;&#125;;
+    for (let key in target) &#123;
+      copy[key] = smpleDeepCopy(target[key])
+    &#125;
+    return copy
+  &#125;
+  return target
+&#125;</code></pre>
+]]></content>
+      <tags>
+        <tag>深拷贝浅拷贝</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Https及其加密原理</title>
+    <url>/2020/10/30/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/Https/</url>
+    <content><![CDATA[<p>Https协议</p>
+<a id="more"></a>
+
+<h2 id="http-协议存在的一些问题"><a href="#http-协议存在的一些问题" class="headerlink" title="http 协议存在的一些问题"></a>http 协议存在的一些问题</h2><ul>
+<li>http报文明文发送,可能会被第三方窃听</li>
+<li>http报文可能会被第三方截取之后修改通信内容,接收方没有办法发现报文内容的修改</li>
+<li>http还存在认证问题,第三方可以冒充他人参与通信</li>
+</ul>
+<h2 id="Https简介"><a href="#Https简介" class="headerlink" title="Https简介"></a>Https简介</h2><ul>
+<li>HTTPS指的是超文本传输安全协议,HTTPS是基于HTTTP协议的,不过它会使用TLS/SSL来对数据进行加密.</li>
+<li>使用TLS和SSL协议,所有的信息都是加密的,第三方没有办法窃听,并且他提供了一种校验机制,信息一旦被篡改,通信双方立刻就会发现</li>
+<li>它还配备了身份证书,防止身份被冒充的情况出现</li>
+</ul>
+<h2 id="TSL握手过程"><a href="#TSL握手过程" class="headerlink" title="TSL握手过程"></a>TSL握手过程</h2><ul>
+<li>第一步:客户端向服务端发起请求,请求中包含使用的<strong>协议版本号</strong>,生成的一个<strong>随机数</strong>,以及<strong>客户端支持的加密方法</strong>.</li>
+<li>第二步:服务端接收到请求之后,确认双方使用的<strong>加密方法</strong>,并给出服务器的证书和服务器生成的随机数</li>
+<li>第三步:客户端确认服务器证书有效之后,生成一个新的随机数,并使用数字证书的公匙,加密这个随机数,然后发给服务器,并且还会提供一个前面所有内容的hash值,用来提供服务器检验</li>
+<li>第四步:服务器使用自己的私匙,来解密客户端发送过来的随机数,并提供给前面所有内容的hash值来给客户端检验</li>
+<li>第五步: 客户端和服务端根据约定的加密方法使用前面的三个随机数,生成对话密匙,以后对话的过程都使用这个秘钥来加密信息</li>
+</ul>
+]]></content>
       <categories>
         <category>Https</category>
       </categories>
@@ -173,7 +513,7 @@ git rm xxx 除某文件</code></pre>
   </entry>
   <entry>
     <title>Http</title>
-    <url>/2020/10/30/Http/</url>
+    <url>/2020/10/30/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/Http/</url>
     <content><![CDATA[<p>HTTPS的一些知识</p>
 <a id="more"></a>
 
@@ -313,7 +653,7 @@ function getMax(counts) &#123;
   </entry>
   <entry>
     <title>Http各版本特性及其区别</title>
-    <url>/2020/10/29/Http%E7%89%88%E6%9C%AC%E5%8F%8A%E5%85%B6%E7%89%B9%E6%80%A7/</url>
+    <url>/2020/10/29/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/Http%E7%89%88%E6%9C%AC%E5%8F%8A%E5%85%B6%E7%89%B9%E6%80%A7/</url>
     <content><![CDATA[<h3 id="HTTP各版本特性及区别"><a href="#HTTP各版本特性及区别" class="headerlink" title="HTTP各版本特性及区别"></a>HTTP各版本特性及区别</h3><a id="more"></a>
 
 
@@ -409,7 +749,7 @@ Last-Modified: Wed, 5 August 1996 15:55:28 GMT
   </entry>
   <entry>
     <title>防抖节流及其应用场景</title>
-    <url>/2020/10/29/JavaScript%E9%98%B2%E6%8A%96%E8%8A%82%E6%B5%81/</url>
+    <url>/2020/10/29/JavaScript/JavaScript%E9%98%B2%E6%8A%96%E8%8A%82%E6%B5%81/</url>
     <content><![CDATA[<blockquote>
 <p>​    复习一下防抖节流及其应用场景</p>
 </blockquote>
@@ -421,24 +761,23 @@ Last-Modified: Wed, 5 August 1996 15:55:28 GMT
     // 设置一个 timer
     return function (args) &#123;
       let _this = this
-      // 取debounce执行作用域的this
       let _args = args
       clearTimeout(timer)
       timer = setTimeout(function () &#123;
-        fun.call(_this, args);
+        fun.call(_this, _args);
       &#125;, delay);
     &#125;
   &#125;</code></pre>
 <h3 id="函数节流"><a href="#函数节流" class="headerlink" title="函数节流"></a>函数节流</h3><p>规定在一个单位时间内，只能触发一次函数。如果这个单位时间内触发多次函数，只有一次生效。</p>
 <pre><code>function throttle(fun, delay) &#123;
-    let last, deferTimer
+    let last, timer
     return function (args) &#123;
       let _this = this
-      let _args = arguments
+      let _args = args
       let now = +new Date()
       if (last &amp;&amp; now &lt; last + delay) &#123;
-        clearTimeout(deferTimer)
-        deferTimer = setTimeout(function () &#123;
+        clearTimeout(timer)
+        timer = setTimeout(function () &#123;
           last = now
           fun.apply(_this, _args)
         &#125;, delay)
@@ -451,7 +790,7 @@ Last-Modified: Wed, 5 August 1996 15:55:28 GMT
 <h3 id="demo"><a href="#demo" class="headerlink" title="demo:"></a>demo:</h3><h5 id="模拟ajax请求"><a href="#模拟ajax请求" class="headerlink" title="模拟ajax请求"></a>模拟ajax请求</h5><pre><code>function ajax(params) &#123;
     console.log(&#39;ajax request : &#39; + params)
 &#125;</code></pre>
-<h5 id="未加入节流"><a href="#未加入节流" class="headerlink" title="未加入节流:"></a>未加入节流:</h5><p><img src="https://user-gold-cdn.xitu.io/2018/9/4/165a252be5c94d6b?imageslim"></p>
+<h5 id="普通input"><a href="#普通input" class="headerlink" title="普通input:"></a>普通input:</h5><p><img src="https://user-gold-cdn.xitu.io/2018/9/4/165a252be5c94d6b?imageslim"></p>
 <h5 id="加入防抖"><a href="#加入防抖" class="headerlink" title="加入防抖:"></a>加入防抖:</h5><p><img src="https://user-gold-cdn.xitu.io/2018/9/4/165a252b4b429b56?imageslim"></p>
 <h5 id="加入节流"><a href="#加入节流" class="headerlink" title="加入节流:"></a>加入节流:</h5><p><img src="https://user-gold-cdn.xitu.io/2018/9/4/165a252b4c1a9686?imageslim"></p>
 <h3 id="demo代码"><a href="#demo代码" class="headerlink" title="demo代码"></a>demo代码</h3><pre><code>&lt;!DOCTYPE html&gt;
@@ -508,14 +847,14 @@ Last-Modified: Wed, 5 August 1996 15:55:28 GMT
   /**********************节流********************************/
 
   function throttle(fun, delay) &#123;
-    let last, deferTimer
+    let last, timer
     return function (args) &#123;
       let _this = this
-      let _args = arguments
+      let _args = args
       let now = +new Date()
       if (last &amp;&amp; now &lt; last + delay) &#123;
-        clearTimeout(deferTimer)
-        deferTimer = setTimeout(function () &#123;
+        clearTimeout(timer)
+        timer = setTimeout(function () &#123;
           last = now
           fun.apply(_this, _args)
         &#125;, delay)
@@ -525,6 +864,7 @@ Last-Modified: Wed, 5 August 1996 15:55:28 GMT
       &#125;
     &#125;
   &#125;
+
   let inputValue2 = document.querySelector(&#39;.htrottle&#39;)
 
   let htrottle_ajax = throttle(ajax, 2000)
@@ -545,7 +885,7 @@ Last-Modified: Wed, 5 August 1996 15:55:28 GMT
   </entry>
   <entry>
     <title>JSON-Server</title>
-    <url>/2020/10/28/Json-server/</url>
+    <url>/2020/10/28/%E5%B7%A5%E5%85%B7/Json-server/</url>
     <content><![CDATA[<h1 id="json-server"><a href="#json-server" class="headerlink" title="json-server"></a>json-server</h1><p>json-server 是什么？如何使用？</p>
 <blockquote>
 <p>json-server 是一个 npm 管理的包，可以提供前端提供mock的功能。</p>
@@ -609,7 +949,7 @@ Last-Modified: Wed, 5 August 1996 15:55:28 GMT
   </entry>
   <entry>
     <title>JSONP跨域请求及其原理</title>
-    <url>/2020/10/28/JsonP/</url>
+    <url>/2020/10/28/Ajax/JsonP/</url>
     <content><![CDATA[<p>JSONP及其原理</p>
 <a id="more"></a>
 
@@ -652,7 +992,7 @@ Last-Modified: Wed, 5 August 1996 15:55:28 GMT
   </entry>
   <entry>
     <title>Ajax</title>
-    <url>/2020/10/28/Ajax/</url>
+    <url>/2020/10/28/Ajax/Ajax/</url>
     <content><![CDATA[<p>AJAX复习一下~</p>
 <a id="more"></a>
 
@@ -799,7 +1139,7 @@ function Ajax(params)&#123;
   </entry>
   <entry>
     <title>盒模型,BFC</title>
-    <url>/2020/10/28/Css%E7%9B%92%E6%A8%A1%E5%9E%8B/</url>
+    <url>/2020/10/28/Css/Css%E7%9B%92%E6%A8%A1%E5%9E%8B/</url>
     <content><![CDATA[<blockquote>
 <p>   关于盒模型的一些总结</p>
 </blockquote>
@@ -837,7 +1177,7 @@ height = content height + padding + border;</code></pre>
   </entry>
   <entry>
     <title>DOM事件 , 事件流</title>
-    <url>/2020/10/28/JavaScriptDOM%E4%BA%8B%E4%BB%B6%E6%B5%81/</url>
+    <url>/2020/10/28/JavaScript/JavaScriptDOM%E4%BA%8B%E4%BB%B6%E6%B5%81/</url>
     <content><![CDATA[<blockquote>
 <p>DOM事件, 事件流</p>
 </blockquote>
@@ -1019,21 +1359,69 @@ setTimeout(function() &#123;
   </entry>
   <entry>
     <title>原型,原型链</title>
-    <url>/2020/10/26/JavaScript%E5%8E%9F%E5%9E%8B%E5%8E%9F%E5%9E%8B%E9%93%BE/</url>
+    <url>/2020/10/26/JavaScript/JavaScript%E5%8E%9F%E5%9E%8B%E5%8E%9F%E5%9E%8B%E9%93%BE/</url>
     <content><![CDATA[<blockquote>
 <p>​    原型原型链</p>
 </blockquote>
-<a id="more"></a>]]></content>
+<a id="more"></a>
+
+
+
+<h3 id="前置知识"><a href="#前置知识" class="headerlink" title="前置知识:"></a>前置知识:</h3><ul>
+<li><p>js分为函数对象和普通对象,,每个对象都有<code>_proto_</code>属性,但是只有函数对象才有<code>prototype</code>属性</p>
+</li>
+<li><p>Object,Function都是js内置函数,类似的还有Array , RegExp , Date , Boolean , Nuber , String </p>
+</li>
+<li><p><code>_porto_</code>,<code>constructor</code>属性是<strong>对象</strong>所独有的</p>
+</li>
+<li><p><code>prototype</code>属性是<strong>函数</strong>所独有的</p>
+</li>
+<li><p>函数也是对象的一种,所以函数中也有<code>_protot_</code>和<code>constructor</code></p>
+</li>
+</ul>
+<h3 id="构造函数创建对象"><a href="#构造函数创建对象" class="headerlink" title="构造函数创建对象"></a>构造函数创建对象</h3><pre><code>function Peron() &#123; &#125;
+var person = new Person()
+person.name = &#39;kevin&#39;
+console.log(person.name)</code></pre>
+<h3 id="Prototype"><a href="#Prototype" class="headerlink" title="Prototype"></a>Prototype</h3><p>每个函数都有<code>prototype</code>属性</p>
+<pre><code>function Person() &#123; &#125;
+
+Person.prototype.name = &#39;kavin&#39;
+
+var person1 = new Person()
+var person2 = new Person()
+
+console.log(person1.name); //kavin
+console.log(person2.name); //kavin</code></pre>
+<ul>
+<li>函数的 prototype 属性指向了一个对象，这个对象正是调用该构造函数而创建的实例的原型，也就是这个例子中的 person1 和 person2 的原型。</li>
+<li>那什么是原型呢？每一个JavaScript对象(null除外)在创建的时候就会与之关联另一个对象，这个对象就是我们所说的原型，每一个对象都会从原型中继承属性</li>
+</ul>
+<p><strong>构造函数和实例原型之间的关系</strong></p>
+<p><img src="https://github.com/mqyqingfeng/Blog/raw/master/Images/prototype1.png"></p>
+<h3 id="proto"><a href="#proto" class="headerlink" title="_proto_"></a><code>_proto_</code></h3><p>每一个js对象都有一个属性,就是<code>_Proto_</code>,这个属性会指向该对象的原型</p>
+<pre><code>function Person() &#123; &#125;
+
+var person = new Person()
+
+console.log(person.__proto__ === Person.prototype); //true
+</code></pre>
+<p><img src="https://github.com/mqyqingfeng/Blog/raw/master/Images/prototype2.png"></p>
+<h3 id="constructor-NaN"><a href="#constructor-NaN" class="headerlink" title="constructor"></a>constructor</h3><p>consttructor指向该构造函数本身,即</p>
+<pre><code>Person.prototype.constructor = Person</code></pre>
+<p><img src="https://github.com/mqyqingfeng/Blog/raw/master/Images/prototype3.png"></p>
+<h3 id="原型链"><a href="#原型链" class="headerlink" title="原型链"></a><a href="https://segmentfault.com/a/1190000008959943">原型链</a></h3><p><img src="https://github.com/mqyqingfeng/Blog/raw/master/Images/prototype5.png"></p>
+]]></content>
       <categories>
-        <category>原型,原型链</category>
+        <category>JavaScript</category>
       </categories>
       <tags>
-        <tag>JavaScript</tag>
+        <tag>原型原型链</tag>
       </tags>
   </entry>
   <entry>
     <title>浏览器解析js流程</title>
-    <url>/2020/10/26/JavaScript%E8%A7%A3%E6%9E%90%E6%B5%81%E7%A8%8B/</url>
+    <url>/2020/10/26/JavaScript/JavaScript%E8%A7%A3%E6%9E%90%E6%B5%81%E7%A8%8B/</url>
     <content><![CDATA[<blockquote>
 <p>浏览器解析js流程</p>
 </blockquote>
@@ -1063,18 +1451,19 @@ setTimeout(function() &#123;
   </entry>
   <entry>
     <title>从输入URL到页面加载发生了什么</title>
-    <url>/2020/10/26/%E4%BB%8E%E8%BE%93%E5%85%A5url%E5%88%B0%E9%A1%B5%E9%9D%A2%E5%8A%A0%E8%BD%BD%E8%BF%87%E7%A8%8B/</url>
+    <url>/2020/10/26/JavaScript/%E4%BB%8E%E8%BE%93%E5%85%A5url%E5%88%B0%E9%A1%B5%E9%9D%A2%E5%8A%A0%E8%BD%BD%E8%BF%87%E7%A8%8B/</url>
     <content><![CDATA[<blockquote>
 <p>从输入URL到页面加载发生了什么</p>
 </blockquote>
+<p>[TOC]</p>
 <a id="more"></a>
 <p>总体来说分为以下几个过程:</p>
 <ul>
-<li>DNS解析</li>
+<li>[DNS解析](### DNS解析)</li>
 <li>TCP连接</li>
-<li>发送HTTP请求</li>
-<li>服务器处理请求并返回HTTP报文</li>
-<li>浏览器解析渲染页面</li>
+<li>[发送HTTP请求](### HTTPS协议)</li>
+<li>[服务器处理请求并返回HTTP报文](### 服务器处理请求并返回HTTP报文)</li>
+<li>[浏览器解析渲染页面](### 浏览器解析渲染页面)</li>
 <li>连接结束</li>
 </ul>
 <h3 id="DNS解析"><a href="#DNS解析" class="headerlink" title="DNS解析"></a>DNS解析</h3><p>DNS解析的过程就是在寻找哪台机器上有你需要的资源的全过程.<br>当你在浏览器中输入一个地址时,将网址转换为IP的过程叫做DNS解析</p>
@@ -1140,12 +1529,12 @@ setTimeout(function() &#123;
   </entry>
   <entry>
     <title>[object Object]</title>
-    <url>/2020/10/26/typeScript/</url>
+    <url>/2020/10/26/TypeScript/TypeScript/</url>
     <content><![CDATA[<a id="more"></a>]]></content>
   </entry>
   <entry>
     <title>webpack配置</title>
-    <url>/2020/10/19/webpack/</url>
+    <url>/2020/10/19/%E5%B7%A5%E5%85%B7/webpack/</url>
     <content><![CDATA[<p>webpack基本配置</p>
 <a id="more"></a>
 
@@ -1208,7 +1597,7 @@ module.exports = smp.wrap(&#123;&#125;);</code></pre>
   </entry>
   <entry>
     <title>浏览器同源策略</title>
-    <url>/2020/09/29/%E6%B5%8F%E8%A7%88%E5%99%A8%E5%90%8C%E6%BA%90%E7%AD%96%E7%95%A5/</url>
+    <url>/2020/09/29/%E6%B5%8F%E8%A7%88%E5%99%A8/%E6%B5%8F%E8%A7%88%E5%99%A8%E5%90%8C%E6%BA%90%E7%AD%96%E7%95%A5/</url>
     <content><![CDATA[<p>关于同源策略的一点总结~</p>
 <a id="more"></a>
 
@@ -1268,7 +1657,7 @@ module.exports = smp.wrap(&#123;&#125;);</code></pre>
   </entry>
   <entry>
     <title>Axios二次封装</title>
-    <url>/2020/09/27/Axios/</url>
+    <url>/2020/09/27/Ajax/Axios/</url>
     <content><![CDATA[<hr>
 <a id="more"></a>
 
@@ -1329,7 +1718,7 @@ export const getPhoneCode = (phone)=&gt;ajax(&#39;/api/getPhoneCode&#39;,&#123;p
   </entry>
   <entry>
     <title>React父组件调用子组件</title>
-    <url>/2020/09/25/React-%E7%88%B6%E7%BB%84%E4%BB%B6%E8%B0%83%E7%94%A8%E5%AD%90%E7%BB%84%E4%BB%B6/</url>
+    <url>/2020/09/25/React/React-%E7%88%B6%E7%BB%84%E4%BB%B6%E8%B0%83%E7%94%A8%E5%AD%90%E7%BB%84%E4%BB%B6/</url>
     <content><![CDATA[<p>React父组件调用子组件方案</p>
 <a id="more"></a>
 
@@ -1408,7 +1797,7 @@ export class ChildA extends React.Component&lt;ChildAProps, any&gt; &#123;
   </entry>
   <entry>
     <title>JavaScript获取元素位置</title>
-    <url>/2020/09/24/JavaScript%E8%8E%B7%E5%8F%96%E5%85%83%E7%B4%A0%E5%9D%90%E6%A0%87%E9%97%AE%E9%A2%98/</url>
+    <url>/2020/09/24/JavaScript/JavaScript%E8%8E%B7%E5%8F%96%E5%85%83%E7%B4%A0%E5%9D%90%E6%A0%87%E9%97%AE%E9%A2%98/</url>
     <content><![CDATA[<h2 id="js获取元素相对于父级元素的高度"><a href="#js获取元素相对于父级元素的高度" class="headerlink" title="js获取元素相对于父级元素的高度"></a>js获取元素相对于父级元素的高度</h2><a id="more"></a>
 <h4 id="1-offsetLeft-、offsetTop"><a href="#1-offsetLeft-、offsetTop" class="headerlink" title="1. offsetLeft 、offsetTop"></a>1. offsetLeft 、offsetTop</h4><p>offsetLeft/offsetTop -  用于获取子元素相对于父元素的位移（左位移、上位移）</p>
 <h4 id="2-offsetWidth、offsetHeight"><a href="#2-offsetWidth、offsetHeight" class="headerlink" title="2. offsetWidth、offsetHeight"></a>2. offsetWidth、offsetHeight</h4><p>offsetWidth/offsetHeight - 用于获取元素的可见宽度和可见高度</p>
@@ -1508,7 +1897,7 @@ e.x——相对当前坐标系的border左上角开始</code></pre>
   </entry>
   <entry>
     <title>React-富文本框(braft-editor)</title>
-    <url>/2020/09/24/React-richText/</url>
+    <url>/2020/09/24/React/React-richText/</url>
     <content><![CDATA[<h2 id="富文本编辑器"><a href="#富文本编辑器" class="headerlink" title="富文本编辑器"></a>富文本编辑器</h2><a id="more"></a>
 
 <p><a href="https://www.yuque.com/braft-editor/be/gz44tn#wx1vkv">https://www.yuque.com/braft-editor/be/gz44tn#wx1vkv</a></p>
@@ -1584,7 +1973,7 @@ export class RichText extends Component &#123;
   </entry>
   <entry>
     <title>一段js代码在浏览器中是如何执行的</title>
-    <url>/2020/09/22/JavaScript%E4%BB%A3%E7%A0%81%E5%9C%A8%E6%B5%8F%E8%A7%88%E5%99%A8%E4%B8%AD%E7%9A%84%E6%89%A7%E8%A1%8C%E9%A1%BA%E5%BA%8F/</url>
+    <url>/2020/09/22/JavaScript/JavaScript%E4%BB%A3%E7%A0%81%E5%9C%A8%E6%B5%8F%E8%A7%88%E5%99%A8%E4%B8%AD%E7%9A%84%E6%89%A7%E8%A1%8C%E9%A1%BA%E5%BA%8F/</url>
     <content><![CDATA[<p>一段js代码在浏览器中是如何执行的?</p>
 <a id="more"></a>
 
@@ -1611,7 +2000,7 @@ export class RichText extends Component &#123;
   </entry>
   <entry>
     <title>React中使用Echats</title>
-    <url>/2020/09/22/React-echart/</url>
+    <url>/2020/09/22/React/React-echart/</url>
     <content><![CDATA[<p>React中使用Echats记录</p>
 <a id="more"></a>
 
@@ -1679,7 +2068,7 @@ require(&#39;echarts/lib/component/title&#39;);</code></pre>
   </entry>
   <entry>
     <title>在react中实现文本复制</title>
-    <url>/2020/09/22/React-%E6%96%87%E6%9C%AC%E5%A4%8D%E5%88%B6/</url>
+    <url>/2020/09/22/React/React-%E6%96%87%E6%9C%AC%E5%A4%8D%E5%88%B6/</url>
     <content><![CDATA[<p>‘在react中实现文本复制’</p>
 <a id="more"></a>
 
@@ -1769,7 +2158,7 @@ ReactDOM.render(&lt;App /&gt;, appRoot);
   </entry>
   <entry>
     <title>React - diffView</title>
-    <url>/2020/09/18/React-diffView/</url>
+    <url>/2020/09/18/React/React-diffView/</url>
     <content><![CDATA[<p>文档对比组件封装…</p>
 <a id="more"></a>
 
@@ -1940,7 +2329,7 @@ export class DiffView extends React.Component&lt;DiffViewProps&gt; &#123;
   </entry>
   <entry>
     <title>Css文本超出自动换行</title>
-    <url>/2020/09/18/Css%E6%96%87%E6%9C%AC%E8%B6%85%E5%87%BA%E8%87%AA%E5%8A%A8%E6%8D%A2%E8%A1%8C/</url>
+    <url>/2020/09/18/Css/Css%E6%96%87%E6%9C%AC%E8%B6%85%E5%87%BA%E8%87%AA%E5%8A%A8%E6%8D%A2%E8%A1%8C/</url>
     <content><![CDATA[<pre><code>word-wrap:break-word; 
 word-break:break-all; 
 overflow: hidden;/*这个参数根据需要来绝对要不要*/</code></pre>
@@ -1954,7 +2343,7 @@ overflow: hidden;/*这个参数根据需要来绝对要不要*/</code></pre>
   </entry>
   <entry>
     <title>React-antd-ImportExcel</title>
-    <url>/2020/09/04/React-antd-ImportExcel/</url>
+    <url>/2020/09/04/React/React-antd-ImportExcel/</url>
     <content><![CDATA[<center>“基于 XLSX 封装的  Excel 并解析为 JSON格式数据的组件”</center>
 
 <a id="more"></a>
@@ -2044,7 +2433,7 @@ export class ImportExcel extends React.Component&lt;ImportExcelProps, any&gt; &#
   </entry>
   <entry>
     <title>React-antd-exportExcel</title>
-    <url>/2020/09/04/React-antd-exportExcel/</url>
+    <url>/2020/09/04/React/React-antd-exportExcel/</url>
     <content><![CDATA[<center> “基于 XLSX 封装的 excel 导出组件”</center>
 
 <a id="more"></a>

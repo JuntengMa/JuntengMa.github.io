@@ -6,7 +6,7 @@
   <link href="https://juntengma.github.io/atom.xml" rel="self"/>
   
   <link href="https://juntengma.github.io/"/>
-  <updated>2020-10-30T09:00:13.846Z</updated>
+  <updated>2020-11-04T08:23:27.164Z</updated>
   <id>https://juntengma.github.io/</id>
   
   <author>
@@ -17,11 +17,11 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>Https及其加密原理</title>
-    <link href="https://juntengma.github.io/2020/10/30/Https/"/>
-    <id>https://juntengma.github.io/2020/10/30/Https/</id>
-    <published>2020-10-30T08:59:24.175Z</published>
-    <updated>2020-10-30T09:00:13.846Z</updated>
+    <title></title>
+    <link href="https://juntengma.github.io/2020/11/04/Safe/CSRF%E6%94%BB%E5%87%BB/"/>
+    <id>https://juntengma.github.io/2020/11/04/Safe/CSRF%E6%94%BB%E5%87%BB/</id>
+    <published>2020-11-04T07:53:26.651Z</published>
+    <updated>2020-11-04T08:23:27.164Z</updated>
     
     <content type="html"><![CDATA[<a id="more"></a>]]></content>
     
@@ -30,6 +30,143 @@
       
     <summary type="html">&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;</summary>
       
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>XSS攻击</title>
+    <link href="https://juntengma.github.io/2020/11/04/Safe/XSS%E6%94%BB%E5%87%BB/"/>
+    <id>https://juntengma.github.io/2020/11/04/Safe/XSS%E6%94%BB%E5%87%BB/</id>
+    <published>2020-11-04T07:53:15.118Z</published>
+    <updated>2020-11-04T09:48:21.387Z</updated>
+    
+    <content type="html"><![CDATA[<p>前端知识回顾之 - XSS攻击</p><a id="more"></a><h2 id="XSS攻击"><a href="#XSS攻击" class="headerlink" title="XSS攻击"></a>XSS攻击</h2><h4 id="1-什么是xss攻击"><a href="#1-什么是xss攻击" class="headerlink" title="1.什么是xss攻击"></a>1.什么是xss攻击</h4><ul><li>xss攻击即跨站脚本攻击,是一种恶意代码注入攻击,攻击者通过在网站上面注入恶意代码,使之在浏览器上面运行,从而获取用户的敏感信息如cookie等</li><li>xss的本质是因为网站没有对恶意代码进行过滤, 与正常代码混在一起,但是浏览器不能识别代码哪些可信哪些不可信,从而导致了恶意代码的执行.</li></ul><h4 id="2-XSS攻击分类"><a href="#2-XSS攻击分类" class="headerlink" title="2.XSS攻击分类"></a>2.XSS攻击分类</h4><ul><li><p>存储型</p><blockquote><p>存储型XSS攻击是将恶意代码提交到网站服务器中,当用户请求数据的时候,服务器将恶意代码拼接到HTML里面后返回,导致恶意代码的执行</p></blockquote></li><li><p>反射型</p><blockquote><p>反射型指的是某些通过url参数获取数据的网站,攻击者构建特殊的url,当服务器收到请求之后,从url中获取数据,并将其拼接为html后返回,从而导致了恶意代码的执行</p></blockquote></li><li><p>DOM型</p><blockquote><p>DOM型XSS攻击指的是攻击者构建了特殊的URL,当用户打开了网站之后,js脚本从url中获取数据,从而导致了恶意代码的执行</p></blockquote></li></ul><h4 id="3-如何预防XSS攻击"><a href="#3-如何预防XSS攻击" class="headerlink" title="3.如何预防XSS攻击"></a>3.如何预防XSS攻击</h4><p>​    预防XSS攻击主要有两个方案</p><ul><li><p>恶意代码提交的时候(不可靠)</p><blockquote><p>当数据即将存入数据库的时候进行转义,但是数据库的数据可能在多个地方使用,有些地方不需要转义,由于我们无法判断这些数据最后的使用场景,所以该方法是<strong>不可靠的</strong></p></blockquote></li><li><p>浏览器执行之前</p><blockquote><ul><li>使用纯前端的方式,不用服务器拼接HTML返回    </li><li>对需要插入的HTML进行充分的转义</li></ul></blockquote></li><li><p>对于DOM性XSS攻击还有以下几种方式</p><blockquote><ul><li>CSP,CSP本质是简历一个白名单,告诉浏览器哪些外部资源是可以加载和执行,从而防止恶意代码的注入攻击</li><li>对敏感信息进行保护,比如cookie使用http-only,禁止脚本获取cookie</li><li>使用验证码,防止脚本伪装用户进行操作</li></ul></blockquote></li></ul><h4 id="4-什么是CSP"><a href="#4-什么是CSP" class="headerlink" title="4.什么是CSP"></a>4.什么是CSP</h4><p>​    CSP指的是内容安全侧策略</p><p>​    他的本质是建立一个白名单,告诉浏览器哪些外部资源可以加在和执行.</p><p>​    <strong>开启SCP方式:</strong></p><ul><li>一种是设置 HTTP 首部中的 <code>Content-Security-Policy</code></li><li>一种是设置 meta 标签的方式 <code>&lt;meta http-equiv=&quot;Content-Security-Policy&quot;&gt;</code></li></ul><p>详细资料可以参考： <a href="https://juejin.im/post/5bad9140e51d450e935c6d64">《前端安全系列（一）：如何防止 XSS 攻击？》</a></p>]]></content>
+    
+    
+    <summary type="html">&lt;p&gt;前端知识回顾之 - XSS攻击&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="前端安全" scheme="https://juntengma.github.io/categories/%E5%89%8D%E7%AB%AF%E5%AE%89%E5%85%A8/"/>
+    
+    
+    <category term="前端安全" scheme="https://juntengma.github.io/tags/%E5%89%8D%E7%AB%AF%E5%AE%89%E5%85%A8/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>JavaScript作用域</title>
+    <link href="https://juntengma.github.io/2020/11/03/JavaScript/JavaScript%E4%BD%9C%E7%94%A8%E5%9F%9F/"/>
+    <id>https://juntengma.github.io/2020/11/03/JavaScript/JavaScript%E4%BD%9C%E7%94%A8%E5%9F%9F/</id>
+    <published>2020-11-03T09:42:08.975Z</published>
+    <updated>2020-11-03T11:28:15.228Z</updated>
+    
+    <content type="html"><![CDATA[<p>JavaScript深入 - 作用域相关问题</p><a id="more"></a><h2 id="作用域"><a href="#作用域" class="headerlink" title="作用域"></a>作用域</h2><p>作用域是指程序源代码中定义变量的区域</p><ul><li>规定了如何让查找变量,也就是当前执行代码对变量的访问权限</li><li>JavaScript采用词法作用域(静态作用域)</li></ul><h2 id="静态作用域"><a href="#静态作用域" class="headerlink" title="静态作用域"></a>静态作用域</h2><p>函数的作用域在函数定义的时候就已经决定了</p><h2 id="动态作用域"><a href="#动态作用域" class="headerlink" title="动态作用域"></a>动态作用域</h2><p>函数的作用域在函数调用的时候才决定</p><h2 id="执行上下文栈"><a href="#执行上下文栈" class="headerlink" title="执行上下文栈"></a>执行上下文栈</h2><ul><li>JavaScript代码是逐行执行的</li><li>但是js引擎并非一行一行的分析执行程序,而是一段一段的分析执行</li></ul><h4 id="可执行代码"><a href="#可执行代码" class="headerlink" title="可执行代码"></a>可执行代码</h4><p>可执行代码有三种,全局代码,函数代码,eval代码,当执行到可执行代码的,就会进行准备一些工作—-&gt;执行上下文</p><ul><li>全局代码</li><li>函数代码</li><li>eval代码</li></ul><h4 id="执行上下文栈-1"><a href="#执行上下文栈-1" class="headerlink" title="执行上下文栈"></a>执行上下文栈</h4><p>为了管理js中大量的可执行上下文,JavaScript引擎创建了执行上下文栈来管理可执行上下文</p><ul><li>当 JavaScript 开始要解释执行代码的时候，最先遇到的就是全局代码，所以初始化的时候首先就会向执行上下文栈压入一个全局执行上下文，我们用 globalContext 表示它，并且只有当整个应用程序结束的时候，ECStack 才会被清空，所以程序结束之前， ECStack 最底部永远有个 globalContext.<ul><li>当函数开始执行的时候,同样生成一个可以执行上下文并压入可执行上下文栈,当函数执行完毕的时候,再从执行上下文栈中弹出</li></ul></li></ul><h2 id="什么是堆栈"><a href="#什么是堆栈" class="headerlink" title="什么是堆栈"></a>什么是堆栈</h2><p>堆栈概念存在于数据结构和操作系统内存中</p><ul><li>在数据结构中<ul><li>栈中的数据存取方式为先进后出</li><li>堆是一个优先队列,按照优先级来进行排序的,优先级可以按照大小来规定</li></ul></li><li>操作系统中,内存被分为栈区和堆区<ul><li>栈区的内存由编译器自动分配释放,存放函数的参数值,局部变量值等</li><li>堆内存一般由程序员释放,若没有手动释放则程序结束时由垃圾回收记住回收</li></ul></li></ul><h2 id="内部属性"><a href="#内部属性" class="headerlink" title="内部属性"></a>内部属性</h2><p>所有typeof返回Object的对象都有一个内部属性.可以通过以下代码查看</p><pre><code>Object.prototype.toString.call(array)</code></pre><h2 id="Js内置对象"><a href="#Js内置对象" class="headerlink" title="Js内置对象"></a>Js内置对象</h2><p>js内置对象主要是只在程序执行前存在全局作用域里面的由js定义的一些全局属性,函数和用来实例化其他对象的构造函数对象.</p><p>一般我们经常用到的全局函数变量值 nan , undefined ,</p><p>全局函数: parseInt() , paeseFloat()</p><p>用来实例化的全局构造函数: Date , Object 等</p><h2 id="原型原型链"><a href="#原型原型链" class="headerlink" title="原型原型链"></a>原型原型链</h2><ul><li>js中我们使用构造函数新建对象,在每一个构造函数中都有一个prototype属性值,他的属性值是一个对象,该对象包含了可以由该构造函数的所有梳理共享的属性和方法</li><li>当我们使用构造函数新建一个对象后,在这个对象的内部将包含一个指针,这个指针指向构造函数的prototype属性对应的值,es5该指针被称为对象的原型</li><li>一般来说我们是不能</li></ul>]]></content>
+    
+    
+    <summary type="html">&lt;p&gt;JavaScript深入 - 作用域相关问题&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="JavaScript" scheme="https://juntengma.github.io/categories/JavaScript/"/>
+    
+    
+    <category term="作用域" scheme="https://juntengma.github.io/tags/%E4%BD%9C%E7%94%A8%E5%9F%9F/"/>
+    
+  </entry>
+  
+  <entry>
+    <title></title>
+    <link href="https://juntengma.github.io/2020/11/02/JavaScript/JavaScript-ES6/"/>
+    <id>https://juntengma.github.io/2020/11/02/JavaScript/JavaScript-ES6/</id>
+    <published>2020-11-02T08:41:06.847Z</published>
+    <updated>2020-11-02T09:48:38.394Z</updated>
+    
+    <content type="html"><![CDATA[<a id="more"></a><h2 id="ES6"><a href="#ES6" class="headerlink" title="ES6"></a>ES6</h2><h4 id="ES6是什么"><a href="#ES6是什么" class="headerlink" title="ES6是什么"></a>ES6是什么</h4><p>es6是ECMA为JavaScript订制的第6个版本,2015年6月发行,涵盖了2015 - 2020</p><h4 id="ES6特性"><a href="#ES6特性" class="headerlink" title="ES6特性"></a>ES6特性</h4><ul><li>表达式<ul><li>[声明 (let/const)](#### 声明)</li><li>解构赋值</li></ul></li><li>内置对象<ul><li>字符串扩展</li><li>数值扩展</li><li>对象扩展</li><li>数组扩展</li><li>函数扩展</li><li>正则扩展</li><li>Symbol / set /Map / Proxy /Reflect</li></ul></li><li>语句与运算<ul><li>class</li><li>Module</li><li>Iterator</li></ul></li><li>异步编程<ul><li>Promise</li><li>Generator</li><li>Async</li></ul></li></ul><h4 id="声明"><a href="#声明" class="headerlink" title="声明"></a>声明</h4><ul><li>let (声明变量,类似var,但是只在代码块中有效)<ul><li>let声明的变量只在所处于的块级有效；</li><li>let没有‘变量提升’的特性，而是‘暂时性死区（temporal dead zone）’特性</li></ul></li><li>const (声明常量)<ul><li>声明恒定变量，声明的同时就必须赋值，否则会报错</li></ul></li></ul><h4 id="块级作用域"><a href="#块级作用域" class="headerlink" title="块级作用域:"></a>块级作用域:</h4><h5 id="ES6之前"><a href="#ES6之前" class="headerlink" title="ES6之前"></a>ES6之前</h5><ul><li>全局作用域</li><li>函数作用域</li></ul><p>因此会产生变量提升的问题</p><pre><code>function func()&#123;    console.log(test);    var test = 1;&#125;;func();//undefind在进入func之前,所有通过var声明的变量提前声明并赋予undefinded值</code></pre><h5 id="ES6-1"><a href="#ES6-1" class="headerlink" title="ES6"></a>ES6</h5><ul><li>全局作用域</li><li>函数作用域</li><li>块级作用域</li></ul><pre><code>function f1() &#123;  let n = 5;  if (true) &#123;    let n = 10;  &#125;  console.log(n); // 5&#125;function f1() &#123;  var n = 5;  if (true) &#123;    var n = 10;  &#125;  console.log(n); // 10&#125;</code></pre>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+
+
+
+&lt;h2 id=&quot;ES6&quot;&gt;&lt;a href=&quot;#ES6&quot; class=&quot;headerlink&quot; title=&quot;ES6&quot;&gt;&lt;/a&gt;ES6&lt;/h2&gt;&lt;h4 id=&quot;ES6是什么&quot;&gt;&lt;a href=&quot;#ES6是什么&quot; class=&quot;headerl</summary>
+      
+    
+    
+    
+    <category term="JavaScript" scheme="https://juntengma.github.io/categories/JavaScript/"/>
+    
+    
+    <category term="ES6" scheme="https://juntengma.github.io/tags/ES6/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>for-in &amp; for-of的区别 和 map-for &amp; Each区别</title>
+    <link href="https://juntengma.github.io/2020/11/02/JavaScript/forIn-forOF-Map-forEach%E5%8C%BA%E5%88%AB/"/>
+    <id>https://juntengma.github.io/2020/11/02/JavaScript/forIn-forOF-Map-forEach%E5%8C%BA%E5%88%AB/</id>
+    <published>2020-11-02T07:52:25.395Z</published>
+    <updated>2020-11-02T08:15:36.487Z</updated>
+    
+    <content type="html"><![CDATA[<a id="more"></a><h3 id="for-in"><a href="#for-in" class="headerlink" title="for-in"></a>for-in</h3><ul><li>遍历一个对象的除<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Symbol">Symbol</a>以外的<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Enumerability_and_ownership_of_properties">可枚举</a>属性, <strong>用于遍历对象</strong></li><li>for…in循环出的是key</li></ul><pre><code>const obj = &#123;    name: &#39;哇塞&#39;,    age: 18&#125;for(let item in obj)&#123;    console.log(item)&#125;// Output://name//age</code></pre><h3 id="for-of"><a href="#for-of" class="headerlink" title="for-of"></a>for-of</h3><ul><li><strong>用于遍历数组</strong></li><li>for-of 是ES6引入属性</li><li>for-of不能用来遍例普通对象,需要和Obect.keys()搭配使用</li><li>for…of循环出的是value</li></ul><pre><code>let aArray = [&#39;a&#39;,123,&#123;a:&#39;1&#39;,b:&#39;2&#39;&#125;]</code></pre><p>结论:</p><ul><li>推荐在<strong>循环对象</strong>属性的时候，使用<strong>for…in</strong></li><li>在<strong>遍历数组</strong>的时候的时候使用<strong>for…of</strong>。</li><li>for…in循环出的是key，for…of循环出的是value</li><li>注意，for…of是ES6新引入的特性。修复了ES5引入的for…in的不足</li><li>for…of不能循环普通的对象，需要通过和Object.keys()搭配使用</li></ul><h3 id="Map"><a href="#Map" class="headerlink" title="Map"></a>Map</h3><h3 id="forEach"><a href="#forEach" class="headerlink" title="forEach"></a>forEach</h3>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+
+&lt;h3 id=&quot;for-in&quot;&gt;&lt;a href=&quot;#for-in&quot; class=&quot;headerlink&quot; title=&quot;for-in&quot;&gt;&lt;/a&gt;for-in&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;遍历一个对象的除&lt;a href=&quot;https://deve</summary>
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>深拷贝浅拷贝</title>
+    <link href="https://juntengma.github.io/2020/11/02/JavaScript/JavaScript%E6%B5%85%E6%8B%B7%E8%B4%9D%E6%B7%B1%E6%8B%B7%E8%B4%9D/"/>
+    <id>https://juntengma.github.io/2020/11/02/JavaScript/JavaScript%E6%B5%85%E6%8B%B7%E8%B4%9D%E6%B7%B1%E6%8B%B7%E8%B4%9D/</id>
+    <published>2020-11-02T07:28:19.796Z</published>
+    <updated>2020-11-02T11:51:38.328Z</updated>
+    
+    <content type="html"><![CDATA[<a id="more"></a><p><a href="https://juejin.im/post/6844903929705136141">https://juejin.im/post/6844903929705136141</a></p><h3 id="浅拷贝"><a href="#浅拷贝" class="headerlink" title="浅拷贝"></a>浅拷贝</h3><blockquote><p>创建一个新对象，这个对象有着原始对象属性值的一份精确拷贝。</p><p>如果属性是基本类型，拷贝的就是基本类型的值，如果属性是引用类型，拷贝的就是内存地址 ，所以如果其中一个对象改变了这个地址，就会影响到另一个对象。</p></blockquote><p>浅拷贝只拷贝一层属性,无法拷贝引用数据类型</p><ul><li><code>Object.assign(&#123;&#125;,obj)</code>浅拷贝object</li><li><code>newobj = &#123;...obj2&#125;</code>  展开运算符浅拷贝</li><li><code>Object.fromEntries( Object.entriens(obj) ) </code>通过生成迭代器,在通过迭代器生成对象</li><li><code>Object.create(&#123;&#125;,Object.getOwnPropertyDescriptors(obj))</code></li></ul><p><strong>简单浅拷贝:</strong></p><pre><code>function clone(target)&#123;    let cloneTarget=&#123;&#125;;    for(let key in target)&#123;        cloneTarget[key] = target[key]    &#125;    return cloneTarget&#125;</code></pre><h3 id="深拷贝"><a href="#深拷贝" class="headerlink" title="深拷贝"></a>深拷贝</h3><blockquote><p>将一个对象从内存中完整的拷贝一份出来,从堆内存中开辟一个新的区域存放新对象,且修改新对象不会影响原对象</p></blockquote><ul><li><code>JSON.parse(JSON.stringfy( obj ))</code>通过<strong>JSON的2次转换深拷贝obj</strong><ul><li>无法拷贝<code>undefined</code>与<code>symbol</code>属性</li><li>无法拷贝<strong>循环引用</strong>对象</li></ul></li><li>loadsh:<a href="http://lodash.think2011.net/cloneDeep"><em>.cloneDeep</em></a></li></ul><p>简单深拷贝(可以处理<strong>原始数据类型 + Object</strong>):</p><ul><li>如果是原始类型，无需继续拷贝，直接返回</li><li>如果是引用类型，创建一个新的对象，遍历需要克隆的对象，将需要克隆对象的属性执行深拷贝后依次添加到新对象上。</li></ul><pre><code>function smpleDeepCopy(target) &#123;  let type = typeof target  if (type === &quot;object&quot;) &#123;    let copy = &#123;&#125;;    for (let key in target) &#123;      copy[key] = smpleDeepCopy(target[key])    &#125;    return copy  &#125;  return target&#125;</code></pre>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+
+
+
+&lt;p&gt;&lt;a href=&quot;https://juejin.im/post/6844903929705136141&quot;&gt;https://juejin.im/post/6844903929705136141&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&quot;浅拷贝&quot;</summary>
+      
+    
+    
+    
+    
+    <category term="深拷贝浅拷贝" scheme="https://juntengma.github.io/tags/%E6%B7%B1%E6%8B%B7%E8%B4%9D%E6%B5%85%E6%8B%B7%E8%B4%9D/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Https及其加密原理</title>
+    <link href="https://juntengma.github.io/2020/10/30/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/Https/"/>
+    <id>https://juntengma.github.io/2020/10/30/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/Https/</id>
+    <published>2020-10-30T08:59:24.175Z</published>
+    <updated>2020-11-03T12:38:01.460Z</updated>
+    
+    <content type="html"><![CDATA[<p>Https协议</p><a id="more"></a><h2 id="http-协议存在的一些问题"><a href="#http-协议存在的一些问题" class="headerlink" title="http 协议存在的一些问题"></a>http 协议存在的一些问题</h2><ul><li>http报文明文发送,可能会被第三方窃听</li><li>http报文可能会被第三方截取之后修改通信内容,接收方没有办法发现报文内容的修改</li><li>http还存在认证问题,第三方可以冒充他人参与通信</li></ul><h2 id="Https简介"><a href="#Https简介" class="headerlink" title="Https简介"></a>Https简介</h2><ul><li>HTTPS指的是超文本传输安全协议,HTTPS是基于HTTTP协议的,不过它会使用TLS/SSL来对数据进行加密.</li><li>使用TLS和SSL协议,所有的信息都是加密的,第三方没有办法窃听,并且他提供了一种校验机制,信息一旦被篡改,通信双方立刻就会发现</li><li>它还配备了身份证书,防止身份被冒充的情况出现</li></ul><h2 id="TSL握手过程"><a href="#TSL握手过程" class="headerlink" title="TSL握手过程"></a>TSL握手过程</h2><ul><li>第一步:客户端向服务端发起请求,请求中包含使用的<strong>协议版本号</strong>,生成的一个<strong>随机数</strong>,以及<strong>客户端支持的加密方法</strong>.</li><li>第二步:服务端接收到请求之后,确认双方使用的<strong>加密方法</strong>,并给出服务器的证书和服务器生成的随机数</li><li>第三步:客户端确认服务器证书有效之后,生成一个新的随机数,并使用数字证书的公匙,加密这个随机数,然后发给服务器,并且还会提供一个前面所有内容的hash值,用来提供服务器检验</li><li>第四步:服务器使用自己的私匙,来解密客户端发送过来的随机数,并提供给前面所有内容的hash值来给客户端检验</li><li>第五步: 客户端和服务端根据约定的加密方法使用前面的三个随机数,生成对话密匙,以后对话的过程都使用这个秘钥来加密信息</li></ul>]]></content>
+    
+    
+    <summary type="html">&lt;p&gt;Https协议&lt;/p&gt;</summary>
     
     
     
@@ -42,8 +179,8 @@
   
   <entry>
     <title>Http</title>
-    <link href="https://juntengma.github.io/2020/10/30/Http/"/>
-    <id>https://juntengma.github.io/2020/10/30/Http/</id>
+    <link href="https://juntengma.github.io/2020/10/30/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/Http/"/>
+    <id>https://juntengma.github.io/2020/10/30/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/Http/</id>
     <published>2020-10-30T08:49:32.136Z</published>
     <updated>2020-10-30T09:19:17.633Z</updated>
     
@@ -82,8 +219,8 @@
   
   <entry>
     <title>Http各版本特性及其区别</title>
-    <link href="https://juntengma.github.io/2020/10/29/Http%E7%89%88%E6%9C%AC%E5%8F%8A%E5%85%B6%E7%89%B9%E6%80%A7/"/>
-    <id>https://juntengma.github.io/2020/10/29/Http%E7%89%88%E6%9C%AC%E5%8F%8A%E5%85%B6%E7%89%B9%E6%80%A7/</id>
+    <link href="https://juntengma.github.io/2020/10/29/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/Http%E7%89%88%E6%9C%AC%E5%8F%8A%E5%85%B6%E7%89%B9%E6%80%A7/"/>
+    <id>https://juntengma.github.io/2020/10/29/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/Http%E7%89%88%E6%9C%AC%E5%8F%8A%E5%85%B6%E7%89%B9%E6%80%A7/</id>
     <published>2020-10-29T08:21:42.848Z</published>
     <updated>2020-10-30T11:15:50.413Z</updated>
     
@@ -103,12 +240,12 @@
   
   <entry>
     <title>防抖节流及其应用场景</title>
-    <link href="https://juntengma.github.io/2020/10/29/JavaScript%E9%98%B2%E6%8A%96%E8%8A%82%E6%B5%81/"/>
-    <id>https://juntengma.github.io/2020/10/29/JavaScript%E9%98%B2%E6%8A%96%E8%8A%82%E6%B5%81/</id>
+    <link href="https://juntengma.github.io/2020/10/29/JavaScript/JavaScript%E9%98%B2%E6%8A%96%E8%8A%82%E6%B5%81/"/>
+    <id>https://juntengma.github.io/2020/10/29/JavaScript/JavaScript%E9%98%B2%E6%8A%96%E8%8A%82%E6%B5%81/</id>
     <published>2020-10-29T02:30:59.717Z</published>
-    <updated>2020-10-29T07:40:03.647Z</updated>
+    <updated>2020-11-02T07:04:49.744Z</updated>
     
-    <content type="html"><![CDATA[<blockquote><p>​    复习一下防抖节流及其应用场景</p></blockquote><a id="more"></a><h3 id="函数防抖"><a href="#函数防抖" class="headerlink" title="函数防抖"></a>函数防抖</h3><p>在事件被触发的n秒后再执行回调,如果在这n秒内又被触发,则重新计时</p><pre><code>function debounse(fun, delay) &#123;    let timer;    // 设置一个 timer    return function (args) &#123;      let _this = this      // 取debounce执行作用域的this      let _args = args      clearTimeout(timer)      timer = setTimeout(function () &#123;        fun.call(_this, args);      &#125;, delay);    &#125;  &#125;</code></pre><h3 id="函数节流"><a href="#函数节流" class="headerlink" title="函数节流"></a>函数节流</h3><p>规定在一个单位时间内，只能触发一次函数。如果这个单位时间内触发多次函数，只有一次生效。</p><pre><code>function throttle(fun, delay) &#123;    let last, deferTimer    return function (args) &#123;      let _this = this      let _args = arguments      let now = +new Date()      if (last &amp;&amp; now &lt; last + delay) &#123;        clearTimeout(deferTimer)        deferTimer = setTimeout(function () &#123;          last = now          fun.apply(_this, _args)        &#125;, delay)      &#125; else &#123;        last = now        fun.apply(_this, _args)      &#125;    &#125;  &#125;</code></pre><h3 id="demo"><a href="#demo" class="headerlink" title="demo:"></a>demo:</h3><h5 id="模拟ajax请求"><a href="#模拟ajax请求" class="headerlink" title="模拟ajax请求"></a>模拟ajax请求</h5><pre><code>function ajax(params) &#123;    console.log(&#39;ajax request : &#39; + params)&#125;</code></pre><h5 id="未加入节流"><a href="#未加入节流" class="headerlink" title="未加入节流:"></a>未加入节流:</h5><p><img src="https://user-gold-cdn.xitu.io/2018/9/4/165a252be5c94d6b?imageslim"></p><h5 id="加入防抖"><a href="#加入防抖" class="headerlink" title="加入防抖:"></a>加入防抖:</h5><p><img src="https://user-gold-cdn.xitu.io/2018/9/4/165a252b4b429b56?imageslim"></p><h5 id="加入节流"><a href="#加入节流" class="headerlink" title="加入节流:"></a>加入节流:</h5><p><img src="https://user-gold-cdn.xitu.io/2018/9/4/165a252b4c1a9686?imageslim"></p><h3 id="demo代码"><a href="#demo代码" class="headerlink" title="demo代码"></a>demo代码</h3><pre><code>&lt;!DOCTYPE html&gt;&lt;html lang=&quot;en&quot;&gt;&lt;head&gt;  &lt;meta charset=&quot;UTF-8&quot;&gt;  &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;  &lt;title&gt;Document&lt;/title&gt;&lt;/head&gt;&lt;body&gt;  没有防抖的Input &lt;input type=&quot;text&quot; class=&quot;unDebounce&quot;&gt;  &lt;br&gt;  加入防抖的Input &lt;input type=&quot;text&quot; class=&quot;debounce&quot;&gt;  &lt;br&gt;  加入截留的Input &lt;input type=&quot;text&quot; class=&quot;htrottle&quot;&gt;&lt;/body&gt;&lt;script&gt;  function ajax(params) &#123;    console.log(&#39;ajax request : &#39; + params)  &#125;  let inputValue0 = document.querySelector(&#39;.unDebounce&#39;)  inputValue0.addEventListener(&#39;keyup&#39;, function (e) &#123;    ajax(e.target.value)  &#125;)  /**********************防抖********************************/  function debounse(fun, delay) &#123;    let timer;    // 设置一个 timer    return function (args) &#123;      let _this = this      // 取debounce执行作用域的this      let _args = args      clearTimeout(timer)      timer = setTimeout(function () &#123;        fun.call(_this, args);      &#125;, delay);    &#125;  &#125;  let inputValue1 = document.querySelector(&#39;.debounce&#39;)  let debounse_ajax = debounse(ajax, 500)  inputValue1.addEventListener(&#39;keyup&#39;, function (e) &#123;    debounse_ajax(e.target.value)  &#125;)  /**********************节流********************************/  function throttle(fun, delay) &#123;    let last, deferTimer    return function (args) &#123;      let _this = this      let _args = arguments      let now = +new Date()      if (last &amp;&amp; now &lt; last + delay) &#123;        clearTimeout(deferTimer)        deferTimer = setTimeout(function () &#123;          last = now          fun.apply(_this, _args)        &#125;, delay)      &#125; else &#123;        last = now        fun.apply(_this, _args)      &#125;    &#125;  &#125;  let inputValue2 = document.querySelector(&#39;.htrottle&#39;)  let htrottle_ajax = throttle(ajax, 2000)  inputValue2.addEventListener(&#39;keyup&#39;, function (e) &#123;    htrottle_ajax(e.target.value)  &#125;)&lt;/script&gt;&lt;/html&gt;</code></pre>]]></content>
+    <content type="html"><![CDATA[<blockquote><p>​    复习一下防抖节流及其应用场景</p></blockquote><a id="more"></a><h3 id="函数防抖"><a href="#函数防抖" class="headerlink" title="函数防抖"></a>函数防抖</h3><p>在事件被触发的n秒后再执行回调,如果在这n秒内又被触发,则重新计时</p><pre><code>function debounse(fun, delay) &#123;    let timer;    // 设置一个 timer    return function (args) &#123;      let _this = this      let _args = args      clearTimeout(timer)      timer = setTimeout(function () &#123;        fun.call(_this, _args);      &#125;, delay);    &#125;  &#125;</code></pre><h3 id="函数节流"><a href="#函数节流" class="headerlink" title="函数节流"></a>函数节流</h3><p>规定在一个单位时间内，只能触发一次函数。如果这个单位时间内触发多次函数，只有一次生效。</p><pre><code>function throttle(fun, delay) &#123;    let last, timer    return function (args) &#123;      let _this = this      let _args = args      let now = +new Date()      if (last &amp;&amp; now &lt; last + delay) &#123;        clearTimeout(timer)        timer = setTimeout(function () &#123;          last = now          fun.apply(_this, _args)        &#125;, delay)      &#125; else &#123;        last = now        fun.apply(_this, _args)      &#125;    &#125;  &#125;</code></pre><h3 id="demo"><a href="#demo" class="headerlink" title="demo:"></a>demo:</h3><h5 id="模拟ajax请求"><a href="#模拟ajax请求" class="headerlink" title="模拟ajax请求"></a>模拟ajax请求</h5><pre><code>function ajax(params) &#123;    console.log(&#39;ajax request : &#39; + params)&#125;</code></pre><h5 id="普通input"><a href="#普通input" class="headerlink" title="普通input:"></a>普通input:</h5><p><img src="https://user-gold-cdn.xitu.io/2018/9/4/165a252be5c94d6b?imageslim"></p><h5 id="加入防抖"><a href="#加入防抖" class="headerlink" title="加入防抖:"></a>加入防抖:</h5><p><img src="https://user-gold-cdn.xitu.io/2018/9/4/165a252b4b429b56?imageslim"></p><h5 id="加入节流"><a href="#加入节流" class="headerlink" title="加入节流:"></a>加入节流:</h5><p><img src="https://user-gold-cdn.xitu.io/2018/9/4/165a252b4c1a9686?imageslim"></p><h3 id="demo代码"><a href="#demo代码" class="headerlink" title="demo代码"></a>demo代码</h3><pre><code>&lt;!DOCTYPE html&gt;&lt;html lang=&quot;en&quot;&gt;&lt;head&gt;  &lt;meta charset=&quot;UTF-8&quot;&gt;  &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;  &lt;title&gt;Document&lt;/title&gt;&lt;/head&gt;&lt;body&gt;  没有防抖的Input &lt;input type=&quot;text&quot; class=&quot;unDebounce&quot;&gt;  &lt;br&gt;  加入防抖的Input &lt;input type=&quot;text&quot; class=&quot;debounce&quot;&gt;  &lt;br&gt;  加入截留的Input &lt;input type=&quot;text&quot; class=&quot;htrottle&quot;&gt;&lt;/body&gt;&lt;script&gt;  function ajax(params) &#123;    console.log(&#39;ajax request : &#39; + params)  &#125;  let inputValue0 = document.querySelector(&#39;.unDebounce&#39;)  inputValue0.addEventListener(&#39;keyup&#39;, function (e) &#123;    ajax(e.target.value)  &#125;)  /**********************防抖********************************/  function debounse(fun, delay) &#123;    let timer;    // 设置一个 timer    return function (args) &#123;      let _this = this      // 取debounce执行作用域的this      let _args = args      clearTimeout(timer)      timer = setTimeout(function () &#123;        fun.call(_this, args);      &#125;, delay);    &#125;  &#125;  let inputValue1 = document.querySelector(&#39;.debounce&#39;)  let debounse_ajax = debounse(ajax, 500)  inputValue1.addEventListener(&#39;keyup&#39;, function (e) &#123;    debounse_ajax(e.target.value)  &#125;)  /**********************节流********************************/  function throttle(fun, delay) &#123;    let last, timer    return function (args) &#123;      let _this = this      let _args = args      let now = +new Date()      if (last &amp;&amp; now &lt; last + delay) &#123;        clearTimeout(timer)        timer = setTimeout(function () &#123;          last = now          fun.apply(_this, _args)        &#125;, delay)      &#125; else &#123;        last = now        fun.apply(_this, _args)      &#125;    &#125;  &#125;  let inputValue2 = document.querySelector(&#39;.htrottle&#39;)  let htrottle_ajax = throttle(ajax, 2000)  inputValue2.addEventListener(&#39;keyup&#39;, function (e) &#123;    htrottle_ajax(e.target.value)  &#125;)&lt;/script&gt;&lt;/html&gt;</code></pre>]]></content>
     
     
     <summary type="html">&lt;blockquote&gt;
@@ -126,8 +263,8 @@
   
   <entry>
     <title>JSON-Server</title>
-    <link href="https://juntengma.github.io/2020/10/28/Json-server/"/>
-    <id>https://juntengma.github.io/2020/10/28/Json-server/</id>
+    <link href="https://juntengma.github.io/2020/10/28/%E5%B7%A5%E5%85%B7/Json-server/"/>
+    <id>https://juntengma.github.io/2020/10/28/%E5%B7%A5%E5%85%B7/Json-server/</id>
     <published>2020-10-28T11:04:41.772Z</published>
     <updated>2020-10-29T07:41:14.959Z</updated>
     
@@ -150,8 +287,8 @@
   
   <entry>
     <title>JSONP跨域请求及其原理</title>
-    <link href="https://juntengma.github.io/2020/10/28/JsonP/"/>
-    <id>https://juntengma.github.io/2020/10/28/JsonP/</id>
+    <link href="https://juntengma.github.io/2020/10/28/Ajax/JsonP/"/>
+    <id>https://juntengma.github.io/2020/10/28/Ajax/JsonP/</id>
     <published>2020-10-28T10:46:25.938Z</published>
     <updated>2020-10-29T08:12:22.160Z</updated>
     
@@ -171,8 +308,8 @@
   
   <entry>
     <title>Ajax</title>
-    <link href="https://juntengma.github.io/2020/10/28/Ajax/"/>
-    <id>https://juntengma.github.io/2020/10/28/Ajax/</id>
+    <link href="https://juntengma.github.io/2020/10/28/Ajax/Ajax/"/>
+    <id>https://juntengma.github.io/2020/10/28/Ajax/Ajax/</id>
     <published>2020-10-28T08:18:31.341Z</published>
     <updated>2020-10-30T11:16:15.122Z</updated>
     
@@ -196,8 +333,8 @@
   
   <entry>
     <title>盒模型,BFC</title>
-    <link href="https://juntengma.github.io/2020/10/28/Css%E7%9B%92%E6%A8%A1%E5%9E%8B/"/>
-    <id>https://juntengma.github.io/2020/10/28/Css%E7%9B%92%E6%A8%A1%E5%9E%8B/</id>
+    <link href="https://juntengma.github.io/2020/10/28/Css/Css%E7%9B%92%E6%A8%A1%E5%9E%8B/"/>
+    <id>https://juntengma.github.io/2020/10/28/Css/Css%E7%9B%92%E6%A8%A1%E5%9E%8B/</id>
     <published>2020-10-28T07:57:01.036Z</published>
     <updated>2020-10-29T07:36:20.410Z</updated>
     
@@ -227,8 +364,8 @@
   
   <entry>
     <title>DOM事件 , 事件流</title>
-    <link href="https://juntengma.github.io/2020/10/28/JavaScriptDOM%E4%BA%8B%E4%BB%B6%E6%B5%81/"/>
-    <id>https://juntengma.github.io/2020/10/28/JavaScriptDOM%E4%BA%8B%E4%BB%B6%E6%B5%81/</id>
+    <link href="https://juntengma.github.io/2020/10/28/JavaScript/JavaScriptDOM%E4%BA%8B%E4%BB%B6%E6%B5%81/"/>
+    <id>https://juntengma.github.io/2020/10/28/JavaScript/JavaScriptDOM%E4%BA%8B%E4%BB%B6%E6%B5%81/</id>
     <published>2020-10-28T01:52:53.368Z</published>
     <updated>2020-10-29T07:31:46.752Z</updated>
     
@@ -250,12 +387,12 @@
   
   <entry>
     <title>原型,原型链</title>
-    <link href="https://juntengma.github.io/2020/10/26/JavaScript%E5%8E%9F%E5%9E%8B%E5%8E%9F%E5%9E%8B%E9%93%BE/"/>
-    <id>https://juntengma.github.io/2020/10/26/JavaScript%E5%8E%9F%E5%9E%8B%E5%8E%9F%E5%9E%8B%E9%93%BE/</id>
+    <link href="https://juntengma.github.io/2020/10/26/JavaScript/JavaScript%E5%8E%9F%E5%9E%8B%E5%8E%9F%E5%9E%8B%E9%93%BE/"/>
+    <id>https://juntengma.github.io/2020/10/26/JavaScript/JavaScript%E5%8E%9F%E5%9E%8B%E5%8E%9F%E5%9E%8B%E9%93%BE/</id>
     <published>2020-10-26T14:36:07.474Z</published>
-    <updated>2020-10-29T07:31:56.436Z</updated>
+    <updated>2020-11-04T08:21:17.467Z</updated>
     
-    <content type="html"><![CDATA[<blockquote><p>​    原型原型链</p></blockquote><a id="more"></a>]]></content>
+    <content type="html"><![CDATA[<blockquote><p>​    原型原型链</p></blockquote><a id="more"></a><h3 id="前置知识"><a href="#前置知识" class="headerlink" title="前置知识:"></a>前置知识:</h3><ul><li><p>js分为函数对象和普通对象,,每个对象都有<code>_proto_</code>属性,但是只有函数对象才有<code>prototype</code>属性</p></li><li><p>Object,Function都是js内置函数,类似的还有Array , RegExp , Date , Boolean , Nuber , String </p></li><li><p><code>_porto_</code>,<code>constructor</code>属性是<strong>对象</strong>所独有的</p></li><li><p><code>prototype</code>属性是<strong>函数</strong>所独有的</p></li><li><p>函数也是对象的一种,所以函数中也有<code>_protot_</code>和<code>constructor</code></p></li></ul><h3 id="构造函数创建对象"><a href="#构造函数创建对象" class="headerlink" title="构造函数创建对象"></a>构造函数创建对象</h3><pre><code>function Peron() &#123; &#125;var person = new Person()person.name = &#39;kevin&#39;console.log(person.name)</code></pre><h3 id="Prototype"><a href="#Prototype" class="headerlink" title="Prototype"></a>Prototype</h3><p>每个函数都有<code>prototype</code>属性</p><pre><code>function Person() &#123; &#125;Person.prototype.name = &#39;kavin&#39;var person1 = new Person()var person2 = new Person()console.log(person1.name); //kavinconsole.log(person2.name); //kavin</code></pre><ul><li>函数的 prototype 属性指向了一个对象，这个对象正是调用该构造函数而创建的实例的原型，也就是这个例子中的 person1 和 person2 的原型。</li><li>那什么是原型呢？每一个JavaScript对象(null除外)在创建的时候就会与之关联另一个对象，这个对象就是我们所说的原型，每一个对象都会从原型中继承属性</li></ul><p><strong>构造函数和实例原型之间的关系</strong></p><p><img src="https://github.com/mqyqingfeng/Blog/raw/master/Images/prototype1.png"></p><h3 id="proto"><a href="#proto" class="headerlink" title="_proto_"></a><code>_proto_</code></h3><p>每一个js对象都有一个属性,就是<code>_Proto_</code>,这个属性会指向该对象的原型</p><pre><code>function Person() &#123; &#125;var person = new Person()console.log(person.__proto__ === Person.prototype); //true</code></pre><p><img src="https://github.com/mqyqingfeng/Blog/raw/master/Images/prototype2.png"></p><h3 id="constructor-NaN"><a href="#constructor-NaN" class="headerlink" title="constructor"></a>constructor</h3><p>consttructor指向该构造函数本身,即</p><pre><code>Person.prototype.constructor = Person</code></pre><p><img src="https://github.com/mqyqingfeng/Blog/raw/master/Images/prototype3.png"></p><h3 id="原型链"><a href="#原型链" class="headerlink" title="原型链"></a><a href="https://segmentfault.com/a/1190000008959943">原型链</a></h3><p><img src="https://github.com/mqyqingfeng/Blog/raw/master/Images/prototype5.png"></p>]]></content>
     
     
     <summary type="html">&lt;blockquote&gt;
@@ -264,17 +401,17 @@
     
     
     
-    <category term="原型,原型链" scheme="https://juntengma.github.io/categories/%E5%8E%9F%E5%9E%8B-%E5%8E%9F%E5%9E%8B%E9%93%BE/"/>
+    <category term="JavaScript" scheme="https://juntengma.github.io/categories/JavaScript/"/>
     
     
-    <category term="JavaScript" scheme="https://juntengma.github.io/tags/JavaScript/"/>
+    <category term="原型原型链" scheme="https://juntengma.github.io/tags/%E5%8E%9F%E5%9E%8B%E5%8E%9F%E5%9E%8B%E9%93%BE/"/>
     
   </entry>
   
   <entry>
     <title>浏览器解析js流程</title>
-    <link href="https://juntengma.github.io/2020/10/26/JavaScript%E8%A7%A3%E6%9E%90%E6%B5%81%E7%A8%8B/"/>
-    <id>https://juntengma.github.io/2020/10/26/JavaScript%E8%A7%A3%E6%9E%90%E6%B5%81%E7%A8%8B/</id>
+    <link href="https://juntengma.github.io/2020/10/26/JavaScript/JavaScript%E8%A7%A3%E6%9E%90%E6%B5%81%E7%A8%8B/"/>
+    <id>https://juntengma.github.io/2020/10/26/JavaScript/JavaScript%E8%A7%A3%E6%9E%90%E6%B5%81%E7%A8%8B/</id>
     <published>2020-10-26T10:14:39.943Z</published>
     <updated>2020-10-29T03:49:55.892Z</updated>
     
@@ -296,17 +433,18 @@
   
   <entry>
     <title>从输入URL到页面加载发生了什么</title>
-    <link href="https://juntengma.github.io/2020/10/26/%E4%BB%8E%E8%BE%93%E5%85%A5url%E5%88%B0%E9%A1%B5%E9%9D%A2%E5%8A%A0%E8%BD%BD%E8%BF%87%E7%A8%8B/"/>
-    <id>https://juntengma.github.io/2020/10/26/%E4%BB%8E%E8%BE%93%E5%85%A5url%E5%88%B0%E9%A1%B5%E9%9D%A2%E5%8A%A0%E8%BD%BD%E8%BF%87%E7%A8%8B/</id>
+    <link href="https://juntengma.github.io/2020/10/26/JavaScript/%E4%BB%8E%E8%BE%93%E5%85%A5url%E5%88%B0%E9%A1%B5%E9%9D%A2%E5%8A%A0%E8%BD%BD%E8%BF%87%E7%A8%8B/"/>
+    <id>https://juntengma.github.io/2020/10/26/JavaScript/%E4%BB%8E%E8%BE%93%E5%85%A5url%E5%88%B0%E9%A1%B5%E9%9D%A2%E5%8A%A0%E8%BD%BD%E8%BF%87%E7%A8%8B/</id>
     <published>2020-10-26T06:38:03.324Z</published>
-    <updated>2020-10-30T09:19:48.004Z</updated>
+    <updated>2020-11-02T09:02:45.444Z</updated>
     
-    <content type="html"><![CDATA[<blockquote><p>从输入URL到页面加载发生了什么</p></blockquote><a id="more"></a><p>总体来说分为以下几个过程:</p><ul><li>DNS解析</li><li>TCP连接</li><li>发送HTTP请求</li><li>服务器处理请求并返回HTTP报文</li><li>浏览器解析渲染页面</li><li>连接结束</li></ul><h3 id="DNS解析"><a href="#DNS解析" class="headerlink" title="DNS解析"></a>DNS解析</h3><p>DNS解析的过程就是在寻找哪台机器上有你需要的资源的全过程.<br>当你在浏览器中输入一个地址时,将网址转换为IP的过程叫做DNS解析</p><h4 id="DNS解析过程"><a href="#DNS解析过程" class="headerlink" title="DNS解析过程"></a>DNS解析过程</h4><p>DNS解析本质上是一个递归查询的过程<br><a href="https://imgchr.com/i/BuniZV"><img src="https://s1.ax1x.com/2020/10/26/BuniZV.png" alt="BuniZV.png"></a></p><p>上图是查找<code>www.google.com</code>这个网址的过程</p><ol><li>在<code>本地域名服务器</code>中查询IP地址–&gt;无</li><li><code>本地域名服务器</code>向<code>根域名服务器</code>发送请求–&gt;无</li><li><code>本地域名服务器</code> 向<code>COM顶级域名服务器</code>发送请求–&gt;无</li><li>……</li><li>最后本地服务器得到Google的IP的字号并缓存到本地,功下次使用</li></ol><p>由上可以看出网址解析是一个 从右到左的过程:<br><code>com</code> –&gt; <code>google.com</code> –&gt; <code>www.google.com</code><br>根域名服务器呢?<br>默认情况下所有网址最后一位都是. , 即<code>www.google.com.</code>,方便用户一般都会省略,浏览器在请求DNS的时候会自动加上,<br>即NDS解析流程:<br><code>.</code>–&gt;<code>com.</code>–&gt;<code>google.com.</code>–&gt;<code>www.google.com.</code></p><h3 id="HTTPS协议"><a href="#HTTPS协议" class="headerlink" title="HTTPS协议"></a>HTTPS协议</h3><ul><li>HTTP报文是包裹在tcp报文中发送的,服务端的吼道TCP报文时会解包提取出HTTP报文,但是该过程存在一定风险,HTTP报文是明文,如果中间被截取的话会存在一些信息泄露的风险</li><li>HTTPS协议本质就是HTTP+SSL,在HTTP报文进入TCP报文之前,先使用SSL报文进行加密.从网络层的结构看它位于HTTP协议与TCP协议之间<br><a href="https://imgchr.com/i/BunpMn"><img src="https://s1.ax1x.com/2020/10/26/BunpMn.png" alt="BunpMn.png"></a></li></ul><p><strong>HTTPS过程</strong><br>HTTPS在传输数据之前需要客户端与服务器进行一个握手(TSL/SSL握手),在握手的过程中将确立对方家里传输数据的密码信息.TLS/SSL使用了非对称加密,对称加密以及hash等.</p><p>HTTPS相对于HTTP,虽然提供了安全保证,但势必会造成一些时间上的损耗,如握手和加密等过程,使用前需要做好安全和性能方面的权衡<br><strong>HTTP请求</strong><br>http请求主要发生在客户端.发送http请求的过程就是构建HTTP请求报文并通过TCP协议中发送到服务器指定端口(HTTP协议80/8080,HTTPS协议443)<br>http请求报文由三部分组成</p><ul><li>请求行 ( 常用方法有get,post,put,delete…等)</li><li>请求报头(请求报头允许客户端向度武器传递请求的附加信息和客户端自身的信息)</li><li>请求正文(客户端向服务端传递的数据)<h3 id="服务器处理请求并返回HTTP报文"><a href="#服务器处理请求并返回HTTP报文" class="headerlink" title="服务器处理请求并返回HTTP报文"></a>服务器处理请求并返回HTTP报文</h3>HTTP响应报文也是由三部分组成: <strong>状态码</strong>, <strong>响应报头</strong>和<strong>响应报文</strong>。</li></ul><p><strong>状态码</strong><br>状态码是由3位数组成，第一个数字定义了响应的类别，且有五种可能取值:</p><ul><li>1xx:指示信息 - 表示请求已接收,继续处理</li><li>2xx:成功,表示请求已被成功接收,理解,处理</li><li>3xx:重定向 -  要完成请求必须进行更进一步的操作</li><li>4xx:客户端错误 - 请求有语法错误或请求无法实现.</li><li>5xx:服务端错误 - 服务器未能实现合法请求</li></ul><p><strong>常见错误码:</strong></p><ul><li>200:请求成功</li><li>204:无内容。服务器成功处理，但未返回内容。在未更新网页的情况下，可确保浏览器继续显示当前文档</li><li>301:永久移动。请求的资源已被永久的重定向到新URI，返回信息会包括新的URI，浏览器会自动定向到新URI。今后任何新的请求都应使用新的URI代替</li><li>302:临时移动。与301类似。但资源只是临时被移动。客户端应继续使用原有URI</li><li>304:未修改。所请求的资源未修改，服务器返回此状态码时，不会返回任何资源。客户端通常会缓存访问过的资源，通过提供一个头信息指出客户端希望只返回在指定日期之后修改的资源</li><li>400:客户端请求的语法错误，服务器无法理解</li><li>401:请求要求用户的身份认证</li><li>403:服务器理解请求客户端的请求，但是拒绝执行此请求</li><li>404:服务器无法根据客户端的请求找到资源（网页）。通过此代码，网站设计人员可设置”您所请求的资源无法找到”的个性页面</li><li>422:请求格式正确，但是由于含有语义错误，无法响应。</li><li>500:服务器内部错误，无法完成请求</li></ul><h3 id="浏览器解析渲染页面"><a href="#浏览器解析渲染页面" class="headerlink" title="浏览器解析渲染页面"></a>浏览器解析渲染页面</h3><p>浏览器在收到HTML,CSS,JS文件后，它是如何把页面呈现到屏幕上的？下图对应的就是WebKit渲染的过程。</p><p>`<a href="https://imgchr.com/i/BufqgK"><img src="https://s1.ax1x.com/2020/10/26/BufqgK.png" alt="BufqgK.png"></a></p><p>浏览器是一个边解析边渲染的过程.</p><p>首先在浏览器解析HTML文件构建DOM树,然后解析css文件构建渲染树,等到渲染完成后,浏览器开封市布局渲染树并将其绘制到屏幕上.</p><p>该过程涉及到两个概念 : <strong>重绘</strong>,<strong>回流</strong></p><ul><li>**回流:**DOM节点中的各个元素都是以盒模型的形式存在,需要浏览器来计算其位置和大小等,该过程叫做回流</li><li>**重绘:**当盒模型的位置,大小以及其他属性,如颜色,字体等确定下来之后,浏览器就开始绘制内容,该过程叫做重绘</li></ul>]]></content>
+    <content type="html"><![CDATA[<blockquote><p>从输入URL到页面加载发生了什么</p></blockquote><p>[TOC]</p><a id="more"></a><p>总体来说分为以下几个过程:</p><ul><li>[DNS解析](### DNS解析)</li><li>TCP连接</li><li>[发送HTTP请求](### HTTPS协议)</li><li>[服务器处理请求并返回HTTP报文](### 服务器处理请求并返回HTTP报文)</li><li>[浏览器解析渲染页面](### 浏览器解析渲染页面)</li><li>连接结束</li></ul><h3 id="DNS解析"><a href="#DNS解析" class="headerlink" title="DNS解析"></a>DNS解析</h3><p>DNS解析的过程就是在寻找哪台机器上有你需要的资源的全过程.<br>当你在浏览器中输入一个地址时,将网址转换为IP的过程叫做DNS解析</p><h4 id="DNS解析过程"><a href="#DNS解析过程" class="headerlink" title="DNS解析过程"></a>DNS解析过程</h4><p>DNS解析本质上是一个递归查询的过程<br><a href="https://imgchr.com/i/BuniZV"><img src="https://s1.ax1x.com/2020/10/26/BuniZV.png" alt="BuniZV.png"></a></p><p>上图是查找<code>www.google.com</code>这个网址的过程</p><ol><li>在<code>本地域名服务器</code>中查询IP地址–&gt;无</li><li><code>本地域名服务器</code>向<code>根域名服务器</code>发送请求–&gt;无</li><li><code>本地域名服务器</code> 向<code>COM顶级域名服务器</code>发送请求–&gt;无</li><li>……</li><li>最后本地服务器得到Google的IP的字号并缓存到本地,功下次使用</li></ol><p>由上可以看出网址解析是一个 从右到左的过程:<br><code>com</code> –&gt; <code>google.com</code> –&gt; <code>www.google.com</code><br>根域名服务器呢?<br>默认情况下所有网址最后一位都是. , 即<code>www.google.com.</code>,方便用户一般都会省略,浏览器在请求DNS的时候会自动加上,<br>即NDS解析流程:<br><code>.</code>–&gt;<code>com.</code>–&gt;<code>google.com.</code>–&gt;<code>www.google.com.</code></p><h3 id="HTTPS协议"><a href="#HTTPS协议" class="headerlink" title="HTTPS协议"></a>HTTPS协议</h3><ul><li>HTTP报文是包裹在tcp报文中发送的,服务端的吼道TCP报文时会解包提取出HTTP报文,但是该过程存在一定风险,HTTP报文是明文,如果中间被截取的话会存在一些信息泄露的风险</li><li>HTTPS协议本质就是HTTP+SSL,在HTTP报文进入TCP报文之前,先使用SSL报文进行加密.从网络层的结构看它位于HTTP协议与TCP协议之间<br><a href="https://imgchr.com/i/BunpMn"><img src="https://s1.ax1x.com/2020/10/26/BunpMn.png" alt="BunpMn.png"></a></li></ul><p><strong>HTTPS过程</strong><br>HTTPS在传输数据之前需要客户端与服务器进行一个握手(TSL/SSL握手),在握手的过程中将确立对方家里传输数据的密码信息.TLS/SSL使用了非对称加密,对称加密以及hash等.</p><p>HTTPS相对于HTTP,虽然提供了安全保证,但势必会造成一些时间上的损耗,如握手和加密等过程,使用前需要做好安全和性能方面的权衡<br><strong>HTTP请求</strong><br>http请求主要发生在客户端.发送http请求的过程就是构建HTTP请求报文并通过TCP协议中发送到服务器指定端口(HTTP协议80/8080,HTTPS协议443)<br>http请求报文由三部分组成</p><ul><li>请求行 ( 常用方法有get,post,put,delete…等)</li><li>请求报头(请求报头允许客户端向度武器传递请求的附加信息和客户端自身的信息)</li><li>请求正文(客户端向服务端传递的数据)<h3 id="服务器处理请求并返回HTTP报文"><a href="#服务器处理请求并返回HTTP报文" class="headerlink" title="服务器处理请求并返回HTTP报文"></a>服务器处理请求并返回HTTP报文</h3>HTTP响应报文也是由三部分组成: <strong>状态码</strong>, <strong>响应报头</strong>和<strong>响应报文</strong>。</li></ul><p><strong>状态码</strong><br>状态码是由3位数组成，第一个数字定义了响应的类别，且有五种可能取值:</p><ul><li>1xx:指示信息 - 表示请求已接收,继续处理</li><li>2xx:成功,表示请求已被成功接收,理解,处理</li><li>3xx:重定向 -  要完成请求必须进行更进一步的操作</li><li>4xx:客户端错误 - 请求有语法错误或请求无法实现.</li><li>5xx:服务端错误 - 服务器未能实现合法请求</li></ul><p><strong>常见错误码:</strong></p><ul><li>200:请求成功</li><li>204:无内容。服务器成功处理，但未返回内容。在未更新网页的情况下，可确保浏览器继续显示当前文档</li><li>301:永久移动。请求的资源已被永久的重定向到新URI，返回信息会包括新的URI，浏览器会自动定向到新URI。今后任何新的请求都应使用新的URI代替</li><li>302:临时移动。与301类似。但资源只是临时被移动。客户端应继续使用原有URI</li><li>304:未修改。所请求的资源未修改，服务器返回此状态码时，不会返回任何资源。客户端通常会缓存访问过的资源，通过提供一个头信息指出客户端希望只返回在指定日期之后修改的资源</li><li>400:客户端请求的语法错误，服务器无法理解</li><li>401:请求要求用户的身份认证</li><li>403:服务器理解请求客户端的请求，但是拒绝执行此请求</li><li>404:服务器无法根据客户端的请求找到资源（网页）。通过此代码，网站设计人员可设置”您所请求的资源无法找到”的个性页面</li><li>422:请求格式正确，但是由于含有语义错误，无法响应。</li><li>500:服务器内部错误，无法完成请求</li></ul><h3 id="浏览器解析渲染页面"><a href="#浏览器解析渲染页面" class="headerlink" title="浏览器解析渲染页面"></a>浏览器解析渲染页面</h3><p>浏览器在收到HTML,CSS,JS文件后，它是如何把页面呈现到屏幕上的？下图对应的就是WebKit渲染的过程。</p><p>`<a href="https://imgchr.com/i/BufqgK"><img src="https://s1.ax1x.com/2020/10/26/BufqgK.png" alt="BufqgK.png"></a></p><p>浏览器是一个边解析边渲染的过程.</p><p>首先在浏览器解析HTML文件构建DOM树,然后解析css文件构建渲染树,等到渲染完成后,浏览器开封市布局渲染树并将其绘制到屏幕上.</p><p>该过程涉及到两个概念 : <strong>重绘</strong>,<strong>回流</strong></p><ul><li>**回流:**DOM节点中的各个元素都是以盒模型的形式存在,需要浏览器来计算其位置和大小等,该过程叫做回流</li><li>**重绘:**当盒模型的位置,大小以及其他属性,如颜色,字体等确定下来之后,浏览器就开始绘制内容,该过程叫做重绘</li></ul>]]></content>
     
     
     <summary type="html">&lt;blockquote&gt;
 &lt;p&gt;从输入URL到页面加载发生了什么&lt;/p&gt;
-&lt;/blockquote&gt;</summary>
+&lt;/blockquote&gt;
+&lt;p&gt;[TOC]&lt;/p&gt;</summary>
     
     
     
@@ -319,8 +457,8 @@
   
   <entry>
     <title>[object Object]</title>
-    <link href="https://juntengma.github.io/2020/10/26/typeScript/"/>
-    <id>https://juntengma.github.io/2020/10/26/typeScript/</id>
+    <link href="https://juntengma.github.io/2020/10/26/TypeScript/TypeScript/"/>
+    <id>https://juntengma.github.io/2020/10/26/TypeScript/TypeScript/</id>
     <published>2020-10-26T04:23:04.617Z</published>
     <updated>2020-10-29T04:31:47.705Z</updated>
     
@@ -334,140 +472,6 @@
     
     
     
-    
-  </entry>
-  
-  <entry>
-    <title>webpack配置</title>
-    <link href="https://juntengma.github.io/2020/10/19/webpack/"/>
-    <id>https://juntengma.github.io/2020/10/19/webpack/</id>
-    <published>2020-10-19T11:42:26.340Z</published>
-    <updated>2020-10-29T04:31:54.133Z</updated>
-    
-    <content type="html"><![CDATA[<p>webpack基本配置</p><a id="more"></a><h3 id="1-什么是-webpack"><a href="#1-什么是-webpack" class="headerlink" title="1. 什么是 webpack"></a>1. 什么是 webpack</h3><blockquote><p>webpack 是一个现代 javaScript 应用程序的静态模块打包器, 分析项目结构，处理模块化依赖，转换成为浏览器 可运行的代码。</p></blockquote><h3 id="2-webpack-用来做什么"><a href="#2-webpack-用来做什么" class="headerlink" title="2. webpack 用来做什么"></a>2. webpack 用来做什么</h3><blockquote><ul><li>代码转换: TypeScript 编译成 JavaScript、SCSS,LESS 编译成 CSS。</li><li>文件优化：压缩 JavaScript、CSS、HTML 代码，压缩合并图片。</li><li>代码分割：提取多个页面的公共代码、提取首屏不需要执行部分的代码让其异步加载。</li><li>模块合并：在采用模块化的项目里会有很多个模块和文件，需要构建功能把模块分类合并成一个文件</li><li>自动刷新：监听本地源代码的变化，自动重新构建、刷新浏览器。</li></ul></blockquote><h3 id="3-webpack安装"><a href="#3-webpack安装" class="headerlink" title="3.webpack安装"></a>3.webpack安装</h3><pre><code>//全局安装webpack及webpack-cli模块yarn global add webpack webpack--cli//本地安装项目模块（一般本地安装，防止本地和全局版本不一致）yarn add webpack webpack-cli -dev(-D)//打包命令npx webpack</code></pre><h3 id="4-插件"><a href="#4-插件" class="headerlink" title="4.插件"></a>4.插件</h3><h4 id="1-webpack-dev-server"><a href="#1-webpack-dev-server" class="headerlink" title="1. webpack-dev-server"></a>1. webpack-dev-server</h4><pre><code class="node">devServer: &#123;//这里做开发服务器配置    port: 3000,    contentBase: path.join(__dirname, &#39;dist&#39;),//_dirname：表示在当前目录    compress: true,//启动gzip压缩&#125;</code></pre><h4 id="2-HtmlWebpackPlugin"><a href="#2-HtmlWebpackPlugin" class="headerlink" title="2.  HtmlWebpackPlugin"></a>2.  HtmlWebpackPlugin</h4><pre><code>const HtmlWebpackPlugin = require(&#39;html-webpack-plugin&#39;);new HtmlWebpackPlugin(&#123;  template: &#39;./src/index.html&#39;,  filename: &#39;index.html&#39;,  minify: &#123;//用于对文件进行压缩    removeAttributeQuotes: true,// 移除属性的引号    collapseWhitespace: true,    removeComments: true,    removeRedundantAttributes: true,    removeScriptTypeAttributes: true,    removeStyleLinkTypeAttributes: true,    useShortDoctype: true  &#125;,  hash: true&#125;)</code></pre><h4 id="3-热更新"><a href="#3-热更新" class="headerlink" title="3.  热更新"></a>3.  热更新</h4><pre><code>new webpack.HotModuleReplacementPlugin(),</code></pre><h4 id="4-打包分析插件"><a href="#4-打包分析插件" class="headerlink" title="4. 打包分析插件"></a>4. 打包分析插件</h4><pre><code>https://github.com/webpack-contrib/webpack-bundle-analyzernew BundleAnalyzerPlugin(),</code></pre><h4 id="5-开启进度条"><a href="#5-开启进度条" class="headerlink" title="5.  开启进度条"></a>5.  开启进度条</h4><pre><code>const ProgressBarPlugin = require(&#39;progress-bar-webpack-plugin&#39;);new ProgressBarPlugin(),</code></pre><h4 id="6-打包时长测试"><a href="#6-打包时长测试" class="headerlink" title="6. 打包时长测试"></a>6. 打包时长测试</h4><pre><code>const SpeedMeasurePlugin = require(&quot;speed-measure-webpack-plugin&quot;);const smp = new SpeedMeasurePlugin();module.exports = smp.wrap(&#123;&#125;);</code></pre>]]></content>
-    
-    
-    <summary type="html">&lt;p&gt;webpack基本配置&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="Webpack" scheme="https://juntengma.github.io/categories/Webpack/"/>
-    
-    
-    <category term="Webpack" scheme="https://juntengma.github.io/tags/Webpack/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>浏览器同源策略</title>
-    <link href="https://juntengma.github.io/2020/09/29/%E6%B5%8F%E8%A7%88%E5%99%A8%E5%90%8C%E6%BA%90%E7%AD%96%E7%95%A5/"/>
-    <id>https://juntengma.github.io/2020/09/29/%E6%B5%8F%E8%A7%88%E5%99%A8%E5%90%8C%E6%BA%90%E7%AD%96%E7%95%A5/</id>
-    <published>2020-09-29T07:10:38.805Z</published>
-    <updated>2020-10-30T11:16:47.218Z</updated>
-    
-    <content type="html"><![CDATA[<p>关于同源策略的一点总结~</p><a id="more"></a><h2 id="同源策略"><a href="#同源策略" class="headerlink" title="同源策略"></a>同源策略</h2><h5 id="01、什么是同源策略"><a href="#01、什么是同源策略" class="headerlink" title="01、什么是同源策略"></a>01、什么是同源策略</h5><blockquote><p>同源策略是浏览器安全的基石</p><p>同源：</p><ul><li>协议相同</li><li>域名相同</li><li>端口相同</li></ul><p>举例来说，<code>http://www.example.com/dir/page.html</code>这个网址，协议是<code>http://</code>，域名是<code>www.example.com</code>，端口是<code>80</code>（默认端口可以省略）。</p><p>它的同源情况如下：</p><ul><li><code>http://www.example.com/dir2/other.html</code>：同源</li><li><code>http://example.com/dir/other.html</code>：不同源（域名不同）</li><li><code>http://v2.www.example.com/dir/other.html</code>：不同源（域名不同）</li><li><code>http://www.example.com:81/dir/other.html</code>：不同源（端口不同）</li></ul></blockquote><h5 id="02、同源策略目的"><a href="#02、同源策略目的" class="headerlink" title="02、同源策略目的"></a>02、同源策略目的</h5><blockquote><p>同源策略目的，是为了保证用户信息安全，防止恶意网站窃取数据</p></blockquote><h5 id="03、同源策略限制范围"><a href="#03、同源策略限制范围" class="headerlink" title="03、同源策略限制范围"></a>03、同源策略限制范围</h5><blockquote><ul><li>Cookie、LocalStorage 和 IndexDB 无法读取</li><li>DOM无法获得</li><li>AJAX请求不能发送</li></ul></blockquote><h5 id="04、规避同源策略方案"><a href="#04、规避同源策略方案" class="headerlink" title="04、规避同源策略方案"></a>04、规避同源策略方案</h5><blockquote><ul><li>JSONP</li><li>WebSocket</li><li>CORS</li></ul></blockquote><h5 id="05、JSONP"><a href="#05、JSONP" class="headerlink" title="05、JSONP"></a>05、JSONP</h5><blockquote><ul><li><p>什么是JSONP<br>JSONP是服务器与客户端跨原通信的常用方案。最大特点就是简单适用，老式浏览器全部支持，服务器改造小</p></li><li><p>原理</p><p>网页通过添加一个<code>&lt;script&gt;</code>元素，向服务器请求JSON数据，该方法不受同源策略限制，服务器收到请求之后，将数据放在指定的名字回调函数中传回来</p></li></ul></blockquote>]]></content>
-    
-    
-    <summary type="html">&lt;p&gt;关于同源策略的一点总结~&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="同源策略" scheme="https://juntengma.github.io/categories/%E5%90%8C%E6%BA%90%E7%AD%96%E7%95%A5/"/>
-    
-    <category term="浏览器" scheme="https://juntengma.github.io/categories/%E5%90%8C%E6%BA%90%E7%AD%96%E7%95%A5/%E6%B5%8F%E8%A7%88%E5%99%A8/"/>
-    
-    
-    <category term="浏览器" scheme="https://juntengma.github.io/tags/%E6%B5%8F%E8%A7%88%E5%99%A8/"/>
-    
-    <category term="同源策略" scheme="https://juntengma.github.io/tags/%E5%90%8C%E6%BA%90%E7%AD%96%E7%95%A5/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Axios二次封装</title>
-    <link href="https://juntengma.github.io/2020/09/27/Axios/"/>
-    <id>https://juntengma.github.io/2020/09/27/Axios/</id>
-    <published>2020-09-27T13:04:10.758Z</published>
-    <updated>2020-10-28T07:49:54.280Z</updated>
-    
-    <content type="html"><![CDATA[<hr><a id="more"></a><h3 id="01-新建src-api文件夹"><a href="#01-新建src-api文件夹" class="headerlink" title="01-新建src/api文件夹"></a>01-新建src/api文件夹</h3><pre><code>api - ajax.js - index.js</code></pre><h3 id="02-新建axios-js文件"><a href="#02-新建axios-js文件" class="headerlink" title="02-新建axios.js文件"></a>02-新建axios.js文件</h3><pre><code class="js">import axios from &#39;axios&#39;//封装ajaxexport default function ajax(url=&#39;&#39;,params=&#123;&#125;,type=&#39;GET&#39;)&#123;  let promise;  type = type.toUpperCase()  return new Promise(((resolve, reject) =&gt; &#123;    //1.判断请求方式    if (type===&#39;GET&#39;)&#123;      //1.1拼接字符串      let str = &#39;&#39;;      Object.keys(params).forEach((value,index) =&gt; &#123;        if (index+1===Object.keys(params).length)&#123;          str+=value+&#39;=&#39;+params[value];        &#125;else&#123;          str+=value+&#39;=&#39;+params[value]+&#39;&amp;&#39;;        &#125;      &#125;);      //1.2完整路径      url+=&#39;?&#39;+str;      //1.3发送get请求      promise = axios.get(url);    &#125;else if(type===&#39;POST&#39;)&#123;      //1.3发送post请求      promise = axios.post(url,params);    &#125;    //2.返回请求结果    promise.then((response)=&gt;&#123;      resolve(response.data);    &#125;).catch((error)=&gt;&#123;      reject(error);    &#125;);  &#125;))&#125;</code></pre><h3 id="03-新建index-js文件"><a href="#03-新建index-js文件" class="headerlink" title="03-新建index.js文件"></a>03-新建index.js文件</h3><pre><code>import ajax from &#39;./ajax&#39;//发送请求export const getPhoneCode = (phone)=&gt;ajax(&#39;/api/getPhoneCode&#39;,&#123;phone&#125;);</code></pre><h3 id="04-api调用"><a href="#04-api调用" class="headerlink" title="04-api调用"></a>04-api调用</h3><pre><code>import &#123; xxxxx &#125; from &#39;api/index.js (文件路径)&#39;</code></pre>]]></content>
-    
-    
-    <summary type="html">&lt;hr&gt;</summary>
-    
-    
-    
-    <category term="Ajax" scheme="https://juntengma.github.io/categories/Ajax/"/>
-    
-    <category term="Axios" scheme="https://juntengma.github.io/categories/Ajax/Axios/"/>
-    
-    
-    <category term="Ajax" scheme="https://juntengma.github.io/tags/Ajax/"/>
-    
-    <category term="Axios" scheme="https://juntengma.github.io/tags/Axios/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>React父组件调用子组件</title>
-    <link href="https://juntengma.github.io/2020/09/25/React-%E7%88%B6%E7%BB%84%E4%BB%B6%E8%B0%83%E7%94%A8%E5%AD%90%E7%BB%84%E4%BB%B6/"/>
-    <id>https://juntengma.github.io/2020/09/25/React-%E7%88%B6%E7%BB%84%E4%BB%B6%E8%B0%83%E7%94%A8%E5%AD%90%E7%BB%84%E4%BB%B6/</id>
-    <published>2020-09-25T08:37:00.658Z</published>
-    <updated>2020-10-30T11:19:27.024Z</updated>
-    
-    <content type="html"><![CDATA[<p>React父组件调用子组件方案</p><a id="more"></a><h2 id="方案一：-ref控制"><a href="#方案一：-ref控制" class="headerlink" title="方案一： ref控制"></a>方案一： ref控制</h2><h4 id="Parent-Component-Parent-tsx"><a href="#Parent-Component-Parent-tsx" class="headerlink" title="Parent Component ( Parent.tsx )"></a>Parent Component ( Parent.tsx )</h4><pre><code>import * as React from &#39;react&#39;;import &#123; ChildA &#125; from &#39;./ChildA&#39;;//多个子组件时可以先定义如下组件：class Childrens extends React.Component&lt;any, any&gt; &#123;  _childA: any;  _childB: any;  _childC: any;&#125;export class Parent extends Childrens &#123;  //调用子组件方式：  get_childA_sum = () =&gt; &#123;    this._childA.sum(1, 2)  &#125;  render() &#123;    const children = &#123;      on_childA_ref: ref =&gt; &#123;        this._childA = ref;      &#125;,      on_childB_ref: ref =&gt; &#123;        this._childB = ref;      &#125;,      on_childC_ref: ref =&gt; &#123;        this._childC = ref;      &#125;,    &#125;    return (      &lt;div&gt;        &lt;button onClick=&#123;() =&gt; this.get_childA_sum()&#125;&gt; SumA &lt;/button&gt;        &lt;ChildA _childA=&#123;children.on_childA_ref&#125; /&gt;      &lt;/div&gt;    )  &#125;&#125;</code></pre><h4 id="Children-Component-ChildA-tsx"><a href="#Children-Component-ChildA-tsx" class="headerlink" title="Children Component  (ChildA.tsx)"></a>Children Component  (ChildA.tsx)</h4><pre><code>import * as React from &#39;react&#39;;interface ChildAProps &#123;  _childA:Function;&#125;export class ChildA extends React.Component&lt;ChildAProps, any&gt; &#123;  componentDidMount() &#123;        this.props._childA(this)    &#125;  sum = (a , b) =&gt; &#123;    alert(a+b)  &#125;  render()&#123;    return(      &lt;div&gt;        组件A      &lt;/div&gt;    )  &#125;&#125;</code></pre>]]></content>
-    
-    
-    <summary type="html">&lt;p&gt;React父组件调用子组件方案&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="React" scheme="https://juntengma.github.io/categories/React/"/>
-    
-    <category term="TypeScript" scheme="https://juntengma.github.io/categories/React/TypeScript/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>JavaScript获取元素位置</title>
-    <link href="https://juntengma.github.io/2020/09/24/JavaScript%E8%8E%B7%E5%8F%96%E5%85%83%E7%B4%A0%E5%9D%90%E6%A0%87%E9%97%AE%E9%A2%98/"/>
-    <id>https://juntengma.github.io/2020/09/24/JavaScript%E8%8E%B7%E5%8F%96%E5%85%83%E7%B4%A0%E5%9D%90%E6%A0%87%E9%97%AE%E9%A2%98/</id>
-    <published>2020-09-24T11:52:43.097Z</published>
-    <updated>2020-10-29T04:34:36.187Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="js获取元素相对于父级元素的高度"><a href="#js获取元素相对于父级元素的高度" class="headerlink" title="js获取元素相对于父级元素的高度"></a>js获取元素相对于父级元素的高度</h2><a id="more"></a><h4 id="1-offsetLeft-、offsetTop"><a href="#1-offsetLeft-、offsetTop" class="headerlink" title="1. offsetLeft 、offsetTop"></a>1. offsetLeft 、offsetTop</h4><p>offsetLeft/offsetTop -  用于获取子元素相对于父元素的位移（左位移、上位移）</p><h4 id="2-offsetWidth、offsetHeight"><a href="#2-offsetWidth、offsetHeight" class="headerlink" title="2. offsetWidth、offsetHeight"></a>2. offsetWidth、offsetHeight</h4><p>offsetWidth/offsetHeight - 用于获取元素的可见宽度和可见高度</p><h4 id="3-clientX-、clientY"><a href="#3-clientX-、clientY" class="headerlink" title="3. clientX 、clientY"></a>3. clientX 、clientY</h4><p>用于获取鼠标坐标（相对于页面的坐标）</p><p>var event = event || window.event;</p><ul><li>event.clientX</li><li>event.clientY</li></ul><h4 id="4-offsetLeft与style-left的区别"><a href="#4-offsetLeft与style-left的区别" class="headerlink" title="4.offsetLeft与style.left的区别"></a>4.offsetLeft与style.left的区别</h4><ol><li>    <ul><li>style.left返回的是字符串      //30px</li><li>offsetLeft返回的是数值        //30</li></ul></li><li>    <ul><li>style.left可读可写</li><li>offsetLeft只读</li></ul></li><li>     <ul><li>style.left的值需事先定义，否则取到的值为空</li><li>offsetLeft不需提前定义，直接获取</li></ul></li></ol><h4 id="5-兼容问题"><a href="#5-兼容问题" class="headerlink" title="5.兼容问题"></a>5.兼容问题</h4><pre><code>chrome：e.pageX——相对整个页面的坐标e.layerX——相对当前坐标系的border左上角开始的坐标e.offsetX——相对当前坐标系的border左上角开始的坐标e.clientX——相对可视区域的坐标e.x——相对可视区域的坐标ff：e.pageX——相对整个页面的坐标e.layerX——相对当前坐标系的border左上角开始的坐标e.offsetX——无e.clientX——相对可视区域的坐标e.x——无opera：e.pageX——相对整个页面的坐标e.layerX——无e.offsetX——相对当前坐标系的内容区域左上角开始的坐标e.clientX——相对可视区域的坐标e.x——相对可视区域的坐标safari：（这个和chrome是一样的）e.pageX——相对整个页面的坐标e.layerX——相对当前坐标系的border左上角开始的坐标e.offsetX——相对当前坐标系的border左上角开始的坐标e.clientX——相对可视区域的坐标e.x——相对可视区域的坐标IE9：e.pageX——相对整个页面的坐标e.layerX——相对当前坐标系的border左上角开始的坐标 + 滚动条滚过的距离（这个NB轰轰了····=。=）e.offsetX——相对当前坐标系的内容区域左上角开始的坐标e.clientX——相对可视区域的坐标e.x——相对当前坐标系的border左上角开始IE8：e.pageX——无e.layerX——无e.offsetX——相对当前坐标系的内容区域左上角开始的坐标e.clientX——相对可视区域的坐标e.x——相对当前坐标系的border左上角开始IE7：e.pageX——无e.layerX——无e.offsetX——相对当前坐标系的内容区域左上角开始的坐标e.clientX——相对可视区域的坐标e.x——相对当前坐标系的border左上角开始IE6：e.pageX——无e.layerX——无e.offsetX——相对当前坐标系的内容区域左上角开始的坐标e.clientX——相对可视区域的坐标e.x——相对当前坐标系的border左上角开始</code></pre>]]></content>
-    
-    
-    <summary type="html">&lt;h2 id=&quot;js获取元素相对于父级元素的高度&quot;&gt;&lt;a href=&quot;#js获取元素相对于父级元素的高度&quot; class=&quot;headerlink&quot; title=&quot;js获取元素相对于父级元素的高度&quot;&gt;&lt;/a&gt;js获取元素相对于父级元素的高度&lt;/h2&gt;</summary>
-    
-    
-    
-    <category term="JavaScript" scheme="https://juntengma.github.io/categories/JavaScript/"/>
-    
-    
-    <category term="JavaScript" scheme="https://juntengma.github.io/tags/JavaScript/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>React-富文本框(braft-editor)</title>
-    <link href="https://juntengma.github.io/2020/09/24/React-richText/"/>
-    <id>https://juntengma.github.io/2020/09/24/React-richText/</id>
-    <published>2020-09-24T01:40:54.594Z</published>
-    <updated>2020-10-29T04:31:41.849Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="富文本编辑器"><a href="#富文本编辑器" class="headerlink" title="富文本编辑器"></a>富文本编辑器</h2><a id="more"></a><p><a href="https://www.yuque.com/braft-editor/be/gz44tn#wx1vkv">https://www.yuque.com/braft-editor/be/gz44tn#wx1vkv</a></p><pre><code>import React, &#123; Component &#125; from &#39;react&#39;;// 引入编辑器组件import BraftEditor from &#39;braft-editor&#39;;// 引入编辑器样式import &#39;braft-editor/dist/index.css&#39;;import &#123; UploadFn &#125; from &#39;./UploadFn&#39;;export class RichText extends Component &#123;    constructor() &#123;        super();        this.state = &#123;            editorState: BraftEditor.createEditorState(null),        &#125;;        RichText.submitContent = this.submitContent.bind(this);    &#125;    async componentDidMount() &#123;        // 假设此处从服务端获取html格式的编辑器内容        let htmlContent = this.props.htmlContent || null;        // 使用BraftEditor.createEditorState将html字符串转换为编辑器需要的editorStat        this.setState(&#123;            editorState: BraftEditor.createEditorState(htmlContent),        &#125;);    &#125;    componentWillReceiveProps(nextProps) &#123;        if (nextProps.htmlContent !== this.state.htmlContent) &#123;            this.setState(&#123;                editorState: BraftEditor.createEditorState(nextProps.htmlContent),            &#125;);        &#125;    &#125;    submitContent = async () =&gt; &#123;        // 在编辑器获得焦点时按下ctrl+s会执行此方法        // 编辑器内容提交到服务端之前，可直接调用editorState.toHTML()来获取HTML格式的内容        const htmlContent = this.state.editorState.toHTML();        return htmlContent;    &#125;;    handleEditorChange = editorState =&gt; &#123;        this.setState(&#123; editorState &#125;);    &#125;;    render() &#123;        return (            &lt;BraftEditor                value=&#123;this.state.editorState&#125;                onChange=&#123;this.handleEditorChange&#125;                onSave=&#123;this.submitContent&#125;                onBlur=&#123;() =&gt; &#123;                    const htmlContent = this.state.editorState.toHTML();                &#125;&#125;                // excludeControls=&#123;[&#39;options&#39;]&#125;                media=&#123;&#123; uploadFn: UploadFn &#125;&#125;            /&gt;        );    &#125;&#125;</code></pre>]]></content>
-    
-    
-    <summary type="html">&lt;h2 id=&quot;富文本编辑器&quot;&gt;&lt;a href=&quot;#富文本编辑器&quot; class=&quot;headerlink&quot; title=&quot;富文本编辑器&quot;&gt;&lt;/a&gt;富文本编辑器&lt;/h2&gt;</summary>
-    
-    
-    
-    <category term="React" scheme="https://juntengma.github.io/categories/React/"/>
-    
-    
-    <category term="React" scheme="https://juntengma.github.io/tags/React/"/>
     
   </entry>
   

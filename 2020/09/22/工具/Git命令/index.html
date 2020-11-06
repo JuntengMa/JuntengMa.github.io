@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN">
+
+<head>
+  
+  <title>自己比较常用的一些git操作 - June&#39;s Blog</title>
+  <meta charset="UTF-8">
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
+  
+  
+
+    <!-- Site Verification -->
+    <meta name="baidu-site-verification" content="code-bB34m0ogBK" />
+
+  <link rel="shortcut icon" href="/favicon.ico" type="image/png" />
+  <meta name="description" content="GIT 常用命令">
+<meta property="og:type" content="article">
+<meta property="og:title" content="自己比较常用的一些git操作">
+<meta property="og:url" content="https://juntengma.github.io/2020/09/22/%E5%B7%A5%E5%85%B7/Git%E5%91%BD%E4%BB%A4/index.html">
+<meta property="og:site_name" content="June&#39;s Blog">
+<meta property="og:description" content="GIT 常用命令">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-09-22T08:19:57.075Z">
+<meta property="article:modified_time" content="2020-10-26T12:00:03.189Z">
+<meta property="article:author" content="June">
+<meta property="article:tag" content="Git">
+<meta name="twitter:card" content="summary">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/combine/gh/nexmoe/nexmoe.github.io@latest/css/style.css,npm/highlight.js@9.15.8/styles/atom-one-dark.css,gh/nexmoe/nexmoe.github.io@latest/lib/mdui_043tiny/css/mdui.css,gh/nexmoe/nexmoe.github.io@latest/lib/iconfont/iconfont.css" crossorigin>
+  
+  <!--<link rel="stylesheet" href="../../../../../css/style.css?v=1604628805199">-->
+
+  
+<meta name="generator" content="Hexo 5.2.0"><link rel="alternate" href="atom.xml" title="June's Blog" type="application/atom+xml">
+</head>
+
+<body class="mdui-drawer-body-left">
+  
+  <div id="nexmoe-background">
+    <div class="nexmoe-bg" style="background-image: url(https://source.unsplash.com/random?count=1/1600x900)"></div>
+    <div class="mdui-appbar mdui-shadow-0">
+      <div class="mdui-toolbar">
+        <a mdui-drawer="{target: '#drawer', swipe: true}" title="menu" class="mdui-btn mdui-btn-icon mdui-ripple"><i class="mdui-icon nexmoefont icon-menu"></i></a>
+        <div class="mdui-toolbar-spacer"></div>
+        <!--<a href="javascript:;" class="mdui-btn mdui-btn-icon"><i class="mdui-icon material-icons">search</i></a>-->
+        <a href="../../../../../index.html" title="June" class="mdui-btn mdui-btn-icon"><img src="https://cdn.jsdelivr.net/gh/JuntengMa/Images@1.0/blog/avatar.jpg" alt="June"></a>
+       </div>
+    </div>
+  </div>
+  <div id="nexmoe-header">
+      <div class="nexmoe-drawer mdui-drawer" id="drawer">
+    <div class="nexmoe-avatar mdui-ripple">
+        <a href="../../../../../index.html" title="June">
+            <img src="https://cdn.jsdelivr.net/gh/JuntengMa/Images@1.0/blog/avatar.jpg" alt="June" alt="June">
+        </a>
+    </div>
+    <div class="nexmoe-count">
+        <div><span>文章</span>36</div>
+        <div><span>标签</span>25</div>
+        <div><span>分类</span>21</div>
+    </div>
+    <div class="nexmoe-list mdui-list" mdui-collapse="{accordion: true}">
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple" href="../../../../../index.html" title="回到首页">
+            <i class="mdui-list-item-icon nexmoefont icon-home"></i>
+            <div class="mdui-list-item-content">
+                回到首页
+            </div>
+        </a>
+        
+    </div>
+    <aside id="nexmoe-sidebar">
+  
+  
+  <div class="nexmoe-widget-wrap">
+    <h3 class="nexmoe-widget-title">标签云</h3>
+    <div id="randomtagcloud" class="nexmoe-widget tagcloud nexmoe-rainbow">
+      <a href="../../../../../tags/Ajax/" style="font-size: 13.33px;">Ajax</a> <a href="../../../../../tags/Axios/" style="font-size: 13.33px;">Axios</a> <a href="../../../../../tags/BFC/" style="font-size: 10px;">BFC</a> <a href="../../../../../tags/Css/" style="font-size: 13.33px;">Css</a> <a href="../../../../../tags/DOM%E4%BA%8B%E4%BB%B6%E4%BA%8B%E4%BB%B6%E6%B5%81/" style="font-size: 10px;">DOM事件事件流</a> <a href="../../../../../tags/ES6/" style="font-size: 10px;">ES6</a> <a href="../../../../../tags/Git/" style="font-size: 10px;">Git</a> <a href="../../../../../tags/Honey/" style="font-size: 10px;">Honey</a> <a href="../../../../../tags/Http/" style="font-size: 13.33px;">Http</a> <a href="../../../../../tags/Https/" style="font-size: 10px;">Https</a> <a href="../../../../../tags/JSONP/" style="font-size: 10px;">JSONP</a> <a href="../../../../../tags/JavaScript/" style="font-size: 13.33px;">JavaScript</a> <a href="../../../../../tags/Json-server/" style="font-size: 10px;">Json-server</a> <a href="../../../../../tags/Npm/" style="font-size: 10px;">Npm</a> <a href="../../../../../tags/React/" style="font-size: 20px;">React</a> <a href="../../../../../tags/Webpack/" style="font-size: 10px;">Webpack</a> <a href="../../../../../tags/%E4%BD%9C%E7%94%A8%E5%9F%9F/" style="font-size: 10px;">作用域</a> <a href="../../../../../tags/%E5%89%8D%E7%AB%AF%E5%AE%89%E5%85%A8/" style="font-size: 10px;">前端安全</a> <a href="../../../../../tags/%E5%8E%9F%E5%9E%8B%E5%8E%9F%E5%9E%8B%E9%93%BE/" style="font-size: 10px;">原型原型链</a> <a href="../../../../../tags/%E5%90%8C%E6%BA%90%E7%AD%96%E7%95%A5/" style="font-size: 10px;">同源策略</a> <a href="../../../../../tags/%E6%B5%8F%E8%A7%88%E5%99%A8/" style="font-size: 16.67px;">浏览器</a> <a href="../../../../../tags/%E6%B7%B1%E6%8B%B7%E8%B4%9D%E6%B5%85%E6%8B%B7%E8%B4%9D/" style="font-size: 10px;">深拷贝浅拷贝</a> <a href="../../../../../tags/%E7%9B%92%E6%A8%A1%E5%9E%8B/" style="font-size: 10px;">盒模型</a> <a href="../../../../../tags/%E7%AE%97%E6%B3%95/" style="font-size: 10px;">算法</a> <a href="../../../../../tags/%E9%98%B2%E6%8A%96%E8%8A%82%E6%B5%81/" style="font-size: 10px;">防抖节流</a>
+    </div>
+    
+  </div>
+
+  
+  
+  <div class="nexmoe-widget-wrap">
+    <h3 class="nexmoe-widget-title">文章分类</h3>
+    <div class="nexmoe-widget">
+
+      <ul class="category-list">
+
+        
+
+
+        
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/Ajax/">Ajax</a>
+          <span class="category-list-count">2</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/Ajax/Axios/">Axios</a>
+          <span class="category-list-count">2</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/Css/盒模型/BFC/">BFC</a>
+          <span class="category-list-count">1</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/Css/">Css</a>
+          <span class="category-list-count">2</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/Git/">Git</a>
+          <span class="category-list-count">1</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/Honey/">Honey</a>
+          <span class="category-list-count">1</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/Http/">Http</a>
+          <span class="category-list-count">2</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/Https/">Https</a>
+          <span class="category-list-count">1</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/JSONP/">JSONP</a>
+          <span class="category-list-count">1</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/JavaScript/">JavaScript</a>
+          <span class="category-list-count">7</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/Json-server/">Json-server</a>
+          <span class="category-list-count">1</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/NPM/">NPM</a>
+          <span class="category-list-count">1</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/React/">React</a>
+          <span class="category-list-count">7</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/React/TypeScript/">TypeScript</a>
+          <span class="category-list-count">1</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/Webpack/">Webpack</a>
+          <span class="category-list-count">1</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/前端安全/">前端安全</a>
+          <span class="category-list-count">1</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/同源策略/">同源策略</a>
+          <span class="category-list-count">1</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/浏览器/">浏览器</a>
+          <span class="category-list-count">4</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/Css/盒模型/">盒模型</a>
+          <span class="category-list-count">1</span>
+        </li>
+
+        
+      </ul>
+
+    </div>
+  </div>
+
+
+  
+  
+  <div class="nexmoe-widget-wrap">
+    <h3 class="nexmoe-widget-title">最新文章</h3>
+    <div class="nexmoe-widget">
+      <ul>
+        
+          <li>
+            <a href="../../../../11/04/Safe/CSRF%E6%94%BB%E5%87%BB/">🌭 (no title)</a>
+          </li>
+        
+          <li>
+            <a href="../../../../11/04/Safe/XSS%E6%94%BB%E5%87%BB/">🌭 XSS攻击</a>
+          </li>
+        
+          <li>
+            <a href="../../../../11/03/JavaScript/JavaScript%E4%BD%9C%E7%94%A8%E5%9F%9F/">🌭 JavaScript作用域</a>
+          </li>
+        
+          <li>
+            <a href="../../../../11/02/JavaScript/JavaScript-ES6/">🌭 (no title)</a>
+          </li>
+        
+          <li>
+            <a href="../../../../11/02/JavaScript/forIn-forOF-Map-forEach%E5%8C%BA%E5%88%AB/">🌭 for-in &amp; for-of的区别 和 map-for &amp; Each区别</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+</div><!-- .nexmoe-drawer -->
+
+  </div>
+  <div id="nexmoe-content">
+    <div class="nexmoe-primary">
+        <div class="nexmoe-post">
+  
+  <div class="nexmoe-post-cover" style="padding-bottom: 62.5%;">
+    <img data-src="https://drscdn.500px.org/photo/266684907/q%3D80_h%3D450/v2?sig=fddd93a565bfc0a0a823bc71cd0423438214b85fcf84920f0a505614f87b5e75" data-sizes="auto" alt="自己比较常用的一些git操作" class="lazyload">
+    <h1>自己比较常用的一些git操作</h1>
+  </div>
+  
+
+  <div class="nexmoe-post-meta nexmoe-rainbow" style="margin:10px 0!important;">
+    <a><i class="nexmoefont icon-calendar-fill"></i>2020年09月22日</a>
+    <a><i class="nexmoefont icon-areachart"></i>624 字</a>
+    <a><i class="nexmoefont icon-time-circle-fill"></i>大概 2 分钟</a>
+</div>
+
+  <div class="nexmoe-post-right">
+    
+    <div class="nexmoe-fixed">
+      <div class="nexmoe-valign" style="position:relative">
+        <div class="nexmoe-toc">
+          Toc
+          <!-- <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#GIT-%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4"><span class="toc-number">1.</span> <span class="toc-text">GIT 常用命令</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#01-%E5%88%9D%E5%A7%8B%E9%85%8D%E7%BD%AE"><span class="toc-number">1.1.</span> <span class="toc-text">01 - 初始配置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#02-%E5%BC%80%E5%8F%91%E5%AE%8C%E6%AF%95%E5%B0%86%E8%A6%81%E4%B8%8A%E4%BC%A0%E4%BB%A3%E7%A0%81%E4%BB%93%E5%BA%93%E6%93%8D%E4%BD%9C"><span class="toc-number">1.2.</span> <span class="toc-text">02 - 开发完毕将要上传代码仓库操作</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#03-%E6%96%B0%E5%BB%BA%E5%88%86%E6%94%AF%E6%93%8D%E4%BD%9C"><span class="toc-number">1.3.</span> <span class="toc-text">03 - 新建分支操作</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#04-%E5%90%88%E5%B9%B6%E5%88%86%E6%94%AF%E6%93%8D%E4%BD%9C"><span class="toc-number">1.4.</span> <span class="toc-text">04 - 合并分支操作</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#05-%E5%88%A0%E9%99%A4%E6%9C%AC%E5%9C%B0%EF%BC%8C%E8%BF%9C%E7%A8%8B%E5%88%86%E6%94%AF"><span class="toc-number">1.5.</span> <span class="toc-text">05 - 删除本地，远程分支</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#06-%E7%89%88%E6%9C%AC%E5%9B%9E%E9%80%80"><span class="toc-number">1.6.</span> <span class="toc-text">06 - 版本回退</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#07-%E5%8F%96%E6%B6%88%E6%89%80%E6%9C%89%E6%9C%AC%E5%9C%B0%E4%BF%AE%E6%94%B9"><span class="toc-number">1.7.</span> <span class="toc-text">07 - 取消所有本地修改</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#09-%E6%9F%A5%E7%9C%8B%E4%BF%AE%E6%94%B9"><span class="toc-number">1.8.</span> <span class="toc-text">09 - 查看修改</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#10-%E6%9F%A5%E7%9C%8B%E6%9F%90%E4%B8%80%E6%96%87%E4%BB%B6%E6%89%80%E6%9C%89%E4%BF%AE%E6%94%B9%E5%8E%86%E5%8F%B2"><span class="toc-number">1.9.</span> <span class="toc-text">10 - 查看某一文件所有修改历史</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#11-%E5%85%B6%E4%BB%96%E5%91%BD%E4%BB%A4"><span class="toc-number">1.10.</span> <span class="toc-text">11 - 其他命令</span></a></li></ol></li></ol> -->
+        </div>
+      </div>
+    </div>
+    
+  </div>
+
+  <article>
+    <h1 id="GIT-常用命令"><a href="#GIT-常用命令" class="headerlink" title="GIT 常用命令"></a>GIT 常用命令</h1><a id="more"></a>
+
+<h2 id="01-初始配置"><a href="#01-初始配置" class="headerlink" title="01 - 初始配置"></a>01 - 初始配置</h2><pre><code>- git init 初始化本地git仓库（创建新仓库）
+
+- git config --global user.name &quot;xxx&quot; 配置用户名
+
+- git config --global user.email &quot;xxx@xxx.com&quot; 配置用户邮箱
+
+- git clone &quot;git链接&quot; 克隆git仓库到本地
+
+- git status 查看当前在哪个分支</code></pre>
+<h2 id="02-开发完毕将要上传代码仓库操作"><a href="#02-开发完毕将要上传代码仓库操作" class="headerlink" title="02 - 开发完毕将要上传代码仓库操作"></a>02 - 开发完毕将要上传代码仓库操作</h2><pre><code>git add .  增加当前子目录下所有更改过的文件至index
+
+git commit -m &quot;xxx&quot; 提交
+
+git push 推送改动到远端</code></pre>
+<h2 id="03-新建分支操作"><a href="#03-新建分支操作" class="headerlink" title="03 - 新建分支操作"></a>03 - 新建分支操作</h2><pre><code>git branch &lt;分支名&gt; 创建新分支
+
+git checkout &lt;分支名&gt; 切换到该分支
+
+git push 如果是新建分支，push的时候需要跟远端仓库关联，一般会提示 git push --set-upstream 你的分支名 ， 复制提示信息并执行</code></pre>
+<h2 id="04-合并分支操作"><a href="#04-合并分支操作" class="headerlink" title="04 - 合并分支操作"></a>04 - 合并分支操作</h2><pre><code>git pull origin master 多人协作，以防master已更新，本地代码版本没有更新，先同步一下master代码，以防产生合并冲突
+
+git checkout master 先切换到主分支再合并
+
+git merge &lt;需要合并到master上的分支名&gt; 合并某一个分支到该分支</code></pre>
+<h2 id="05-删除本地，远程分支"><a href="#05-删除本地，远程分支" class="headerlink" title="05 - 删除本地，远程分支"></a>05 - 删除本地，远程分支</h2><pre><code>- git branch -d &lt;分支名&gt; 删除本地某一分支
+
+- git push origin --delete &lt;分支名&gt; 删除远端分支</code></pre>
+<h2 id="06-版本回退"><a href="#06-版本回退" class="headerlink" title="06 - 版本回退"></a>06 - 版本回退</h2><pre><code>- git log 查看提交历史和commit 标记
+
+- git reset --hard &lt;commit 后面的字符串&gt; 将代码回退到某一版本
+
+- git push -f 远端仓库版本高于本地版本，需要强制推送上去</code></pre>
+<h2 id="07-取消所有本地修改"><a href="#07-取消所有本地修改" class="headerlink" title="07 - 取消所有本地修改"></a>07 - 取消所有本地修改</h2><pre><code>git checkout .</code></pre>
+<h2 id="09-查看修改"><a href="#09-查看修改" class="headerlink" title="09 - 查看修改"></a>09 - 查看修改</h2><pre><code>git show &lt;commit日志&gt;  显示详细更改</code></pre>
+<h2 id="10-查看某一文件所有修改历史"><a href="#10-查看某一文件所有修改历史" class="headerlink" title="10 - 查看某一文件所有修改历史"></a>10 - 查看某一文件所有修改历史</h2><pre><code> git log --pretty=on 相对路径/绝对路径
+
+ git show &lt;commit日志&gt;</code></pre>
+<h2 id="11-其他命令"><a href="#11-其他命令" class="headerlink" title="11 - 其他命令"></a>11 - 其他命令</h2><pre><code>git pull 从当前分支远端拉取代码
+
+git pull origin &lt;分支名&gt; 拉取某一分支的代码并合并到当前分支
+
+git branch 显示远程仓库分支
+
+git branch -a 显示所有分支
+
+git branch --merged 显示所有已合并到当前分支的分支
+
+git branch --no-merged 显示所有未合并到当前分支的分支
+
+git push origin master 推送到主分支
+
+git pull origin &lt;分支名&gt; 拉取远程分支合并到当前分支
+
+git log 显示提交日志
+
+git diff 显示所有变更
+
+git diff HEAD^ 显示与上个版本的差异
+
+git rm xxx 除某文件</code></pre>
+
+  </article>
+
+  <div class="nexmoe-post-meta nexmoe-rainbow">
+    
+        <a class="nexmoefont icon-appstore-fill -link" href="../../../../../categories/Git/">Git</a>
+    
+    
+        <a class="nexmoefont icon-tag-fill -none-link" href="../../../../../tags/Git/" rel="tag">Git</a>
+    
+</div>
+
+  <div class="nexmoe-post-footer">
+    
+    
+<div class="nexmoe-post-copyright">
+  <strong>
+    本文作者：
+  </strong>
+  June
+  <br>
+
+  <strong>
+    本文链接：
+  </strong>
+  <a href="https://juntengma.github.io/2020/09/22/%E5%B7%A5%E5%85%B7/Git%E5%91%BD%E4%BB%A4/" target="_blank">
+    https://juntengma.github.io/2020/09/22/%E5%B7%A5%E5%85%B7/Git%E5%91%BD%E4%BB%A4/
+  </a>
+  <br>
+
+  
+  <strong>版权声明：</strong>本文采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/cn/deed.zh" target="_blank">CC BY-NC-SA 3.0 CN</a> 协议进行许可
+  
+</div>
+
+    
+    <section class="nexmoe-comment">
+    <div id="gitment"></div>
+<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+<script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+<script>
+var gitment = new Gitment({
+    owner: 'JuntengMa', // 你的 GitHub ID
+    repo: 'JuntengMa.github.io', // 存储评论的 repo
+    oauth: {
+        client_id: '9fd48748b067fb6d3d86', // 你的 client ID
+        client_secret: 'd8c7d412e13e5444bd0451bc1859cac49b4b7514' // 你的 client secret
+    },
+})
+gitment.render('gitment')
+</script>
+</section>
+  </div>
+</div>
+<style>
+  .nexmoe-toc {
+    box-shadow: 0 0 1rem rgba(161, 177, 204, .4);
+    background-color: #fff;
+    border-radius: 15px;
+    white-space: normal;
+    padding: 15px;
+    position: absolute;
+    right: -120px;
+    top: 10%;
+    overflow: hidden;
+    margin-right: -188px;
+  }
+
+  .nexmoe-toc-phone {
+    position: fixed;
+    top: 27%;
+    padding: 15px;
+    right: -50%;
+    margin-right: 0;
+    color: #ffff;
+    background-color: #282c34;
+  }
+</style>
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery/1.10.0/jquery.js"></script>
+
+<script>
+  function IsPC() {
+    var userAgentInfo = navigator.userAgent;
+    var Agents = new Array("Android", "iPhone", "SymbianOS", "Windows Phone", "iPad", "iPod");
+    var flag = true;
+    for (var v = 0; v < Agents.length; v++) {
+      if (userAgentInfo.indexOf(Agents[v]) > 0) {
+        flag = false;
+        break;
+      }
+    }
+    return flag;
+  }
+
+  $(document).ready(function () {
+    !IsPC() && $('.nexmoe-toc').addClass('nexmoe-toc-phone')
+
+    $('.nexmoe-fixed').hover(function () {
+      $('.nexmoe-toc').html(`<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#GIT-%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4"><span class="toc-text">GIT 常用命令</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#01-%E5%88%9D%E5%A7%8B%E9%85%8D%E7%BD%AE"><span class="toc-text">01 - 初始配置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#02-%E5%BC%80%E5%8F%91%E5%AE%8C%E6%AF%95%E5%B0%86%E8%A6%81%E4%B8%8A%E4%BC%A0%E4%BB%A3%E7%A0%81%E4%BB%93%E5%BA%93%E6%93%8D%E4%BD%9C"><span class="toc-text">02 - 开发完毕将要上传代码仓库操作</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#03-%E6%96%B0%E5%BB%BA%E5%88%86%E6%94%AF%E6%93%8D%E4%BD%9C"><span class="toc-text">03 - 新建分支操作</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#04-%E5%90%88%E5%B9%B6%E5%88%86%E6%94%AF%E6%93%8D%E4%BD%9C"><span class="toc-text">04 - 合并分支操作</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#05-%E5%88%A0%E9%99%A4%E6%9C%AC%E5%9C%B0%EF%BC%8C%E8%BF%9C%E7%A8%8B%E5%88%86%E6%94%AF"><span class="toc-text">05 - 删除本地，远程分支</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#06-%E7%89%88%E6%9C%AC%E5%9B%9E%E9%80%80"><span class="toc-text">06 - 版本回退</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#07-%E5%8F%96%E6%B6%88%E6%89%80%E6%9C%89%E6%9C%AC%E5%9C%B0%E4%BF%AE%E6%94%B9"><span class="toc-text">07 - 取消所有本地修改</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#09-%E6%9F%A5%E7%9C%8B%E4%BF%AE%E6%94%B9"><span class="toc-text">09 - 查看修改</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#10-%E6%9F%A5%E7%9C%8B%E6%9F%90%E4%B8%80%E6%96%87%E4%BB%B6%E6%89%80%E6%9C%89%E4%BF%AE%E6%94%B9%E5%8E%86%E5%8F%B2"><span class="toc-text">10 - 查看某一文件所有修改历史</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#11-%E5%85%B6%E4%BB%96%E5%91%BD%E4%BB%A4"><span class="toc-text">11 - 其他命令</span></a></li></ol></li></ol>`)
+      IsPC() ?
+        $('.nexmoe-toc').css({
+          'margin-right': 0
+        }) :
+        ($('.nexmoe-toc-phone').css({
+          'right': 0,
+        }), $('.toc-link').css({
+          'color': '#fff',
+        }))
+    }, function () {
+      $('.nexmoe-toc').html(`Toc`)
+      IsPC() ?
+        $('.nexmoe-toc').css({
+          'margin-right': '-188px'
+        }) :
+        $('.nexmoe-toc').css({
+          'right': '-50%'
+        })
+    });
+  });
+</script>
+    </div>
+  </div>
+  <script src="https://cdn.jsdelivr.net/combine/npm/lazysizes@5.1.0/lazysizes.min.js,gh/highlightjs/cdn-release@9.15.8/build/highlight.min.js,npm/mdui@0.4.3/dist/js/mdui.min.js,gh/nexmoe/nexmoe.github.io@latest/js/app.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+<!--<script src="../../../../../js/app.js?v=1604628805200"></script>-->
+
+
+
+
+  
+
+
+
+
+
+</body>
+
+</html>
