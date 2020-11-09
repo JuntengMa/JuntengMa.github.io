@@ -4,7 +4,7 @@
 
 <head>
   
-  <title>一段js代码在浏览器中是如何执行的 - June&#39;s Blog</title>
+  <title>React生命周期函数 - June&#39;s Blog</title>
   <meta charset="UTF-8">
   <meta name="description" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
@@ -15,22 +15,23 @@
     <meta name="baidu-site-verification" content="code-bB34m0ogBK" />
 
   <link rel="shortcut icon" href="/favicon.ico" type="image/png" />
-  <meta name="description" content="“”">
+  <meta name="description" content="​    温故而知新~ ​    越基础,越重要哦~">
 <meta property="og:type" content="article">
-<meta property="og:title" content="一段js代码在浏览器中是如何执行的">
-<meta property="og:url" content="https://juntengma.github.io/2020/09/22/JavaScript/JavaScript%E4%BB%A3%E7%A0%81%E5%9C%A8%E6%B5%8F%E8%A7%88%E5%99%A8%E4%B8%AD%E7%9A%84%E6%89%A7%E8%A1%8C%E9%A1%BA%E5%BA%8F/index.html">
+<meta property="og:title" content="React生命周期函数">
+<meta property="og:url" content="https://juntengma.github.io/2020/11/06/React/React-%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/index.html">
 <meta property="og:site_name" content="June&#39;s Blog">
-<meta property="og:description" content="“”">
+<meta property="og:description" content="​    温故而知新~ ​    越基础,越重要哦~">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2020-09-22T11:14:44.228Z">
-<meta property="article:modified_time" content="2020-10-30T11:17:25.952Z">
+<meta property="og:image" content="https://s1.ax1x.com/2020/11/06/Bf52x1.jpg">
+<meta property="article:published_time" content="2020-11-06T07:28:31.113Z">
+<meta property="article:modified_time" content="2020-11-06T08:06:12.710Z">
 <meta property="article:author" content="June">
-<meta property="article:tag" content="JavaScript">
-<meta property="article:tag" content="浏览器">
+<meta property="article:tag" content="React-生命周期">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://s1.ax1x.com/2020/11/06/Bf52x1.jpg">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/combine/gh/nexmoe/nexmoe.github.io@latest/css/style.css,npm/highlight.js@9.15.8/styles/atom-one-dark.css,gh/nexmoe/nexmoe.github.io@latest/lib/mdui_043tiny/css/mdui.css,gh/nexmoe/nexmoe.github.io@latest/lib/iconfont/iconfont.css" crossorigin>
   
-  <!--<link rel="stylesheet" href="../../../../../css/style.css?v=1604628805197">-->
+  <!--<link rel="stylesheet" href="../../../../../css/style.css?v=1604915948559">-->
 
   
 <meta name="generator" content="Hexo 5.2.0"><link rel="alternate" href="atom.xml" title="June's Blog" type="application/atom+xml">
@@ -57,8 +58,8 @@
         </a>
     </div>
     <div class="nexmoe-count">
-        <div><span>文章</span>36</div>
-        <div><span>标签</span>25</div>
+        <div><span>文章</span>43</div>
+        <div><span>标签</span>28</div>
         <div><span>分类</span>21</div>
     </div>
     <div class="nexmoe-list mdui-list" mdui-collapse="{accordion: true}">
@@ -77,7 +78,7 @@
   <div class="nexmoe-widget-wrap">
     <h3 class="nexmoe-widget-title">标签云</h3>
     <div id="randomtagcloud" class="nexmoe-widget tagcloud nexmoe-rainbow">
-      <a href="../../../../../tags/Ajax/" style="font-size: 13.33px;">Ajax</a> <a href="../../../../../tags/Axios/" style="font-size: 13.33px;">Axios</a> <a href="../../../../../tags/BFC/" style="font-size: 10px;">BFC</a> <a href="../../../../../tags/Css/" style="font-size: 13.33px;">Css</a> <a href="../../../../../tags/DOM%E4%BA%8B%E4%BB%B6%E4%BA%8B%E4%BB%B6%E6%B5%81/" style="font-size: 10px;">DOM事件事件流</a> <a href="../../../../../tags/ES6/" style="font-size: 10px;">ES6</a> <a href="../../../../../tags/Git/" style="font-size: 10px;">Git</a> <a href="../../../../../tags/Honey/" style="font-size: 10px;">Honey</a> <a href="../../../../../tags/Http/" style="font-size: 13.33px;">Http</a> <a href="../../../../../tags/Https/" style="font-size: 10px;">Https</a> <a href="../../../../../tags/JSONP/" style="font-size: 10px;">JSONP</a> <a href="../../../../../tags/JavaScript/" style="font-size: 13.33px;">JavaScript</a> <a href="../../../../../tags/Json-server/" style="font-size: 10px;">Json-server</a> <a href="../../../../../tags/Npm/" style="font-size: 10px;">Npm</a> <a href="../../../../../tags/React/" style="font-size: 20px;">React</a> <a href="../../../../../tags/Webpack/" style="font-size: 10px;">Webpack</a> <a href="../../../../../tags/%E4%BD%9C%E7%94%A8%E5%9F%9F/" style="font-size: 10px;">作用域</a> <a href="../../../../../tags/%E5%89%8D%E7%AB%AF%E5%AE%89%E5%85%A8/" style="font-size: 10px;">前端安全</a> <a href="../../../../../tags/%E5%8E%9F%E5%9E%8B%E5%8E%9F%E5%9E%8B%E9%93%BE/" style="font-size: 10px;">原型原型链</a> <a href="../../../../../tags/%E5%90%8C%E6%BA%90%E7%AD%96%E7%95%A5/" style="font-size: 10px;">同源策略</a> <a href="../../../../../tags/%E6%B5%8F%E8%A7%88%E5%99%A8/" style="font-size: 16.67px;">浏览器</a> <a href="../../../../../tags/%E6%B7%B1%E6%8B%B7%E8%B4%9D%E6%B5%85%E6%8B%B7%E8%B4%9D/" style="font-size: 10px;">深拷贝浅拷贝</a> <a href="../../../../../tags/%E7%9B%92%E6%A8%A1%E5%9E%8B/" style="font-size: 10px;">盒模型</a> <a href="../../../../../tags/%E7%AE%97%E6%B3%95/" style="font-size: 10px;">算法</a> <a href="../../../../../tags/%E9%98%B2%E6%8A%96%E8%8A%82%E6%B5%81/" style="font-size: 10px;">防抖节流</a>
+      <a href="../../../../../tags/Ajax/" style="font-size: 13.33px;">Ajax</a> <a href="../../../../../tags/Axios/" style="font-size: 13.33px;">Axios</a> <a href="../../../../../tags/BFC/" style="font-size: 10px;">BFC</a> <a href="../../../../../tags/Css/" style="font-size: 13.33px;">Css</a> <a href="../../../../../tags/DOM%E4%BA%8B%E4%BB%B6%E4%BA%8B%E4%BB%B6%E6%B5%81/" style="font-size: 10px;">DOM事件事件流</a> <a href="../../../../../tags/ES6/" style="font-size: 10px;">ES6</a> <a href="../../../../../tags/Git/" style="font-size: 10px;">Git</a> <a href="../../../../../tags/Honey/" style="font-size: 10px;">Honey</a> <a href="../../../../../tags/Hook/" style="font-size: 10px;">Hook</a> <a href="../../../../../tags/Http/" style="font-size: 13.33px;">Http</a> <a href="../../../../../tags/Https/" style="font-size: 10px;">Https</a> <a href="../../../../../tags/JSONP/" style="font-size: 10px;">JSONP</a> <a href="../../../../../tags/JavaScript/" style="font-size: 13.33px;">JavaScript</a> <a href="../../../../../tags/JavaSctipt/" style="font-size: 10px;">JavaSctipt</a> <a href="../../../../../tags/Json-server/" style="font-size: 10px;">Json-server</a> <a href="../../../../../tags/Npm/" style="font-size: 10px;">Npm</a> <a href="../../../../../tags/React/" style="font-size: 20px;">React</a> <a href="../../../../../tags/React-%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/" style="font-size: 10px;">React-生命周期</a> <a href="../../../../../tags/Webpack/" style="font-size: 10px;">Webpack</a> <a href="../../../../../tags/%E4%BD%9C%E7%94%A8%E5%9F%9F/" style="font-size: 10px;">作用域</a> <a href="../../../../../tags/%E5%89%8D%E7%AB%AF%E5%AE%89%E5%85%A8/" style="font-size: 10px;">前端安全</a> <a href="../../../../../tags/%E5%8E%9F%E5%9E%8B%E5%8E%9F%E5%9E%8B%E9%93%BE/" style="font-size: 10px;">原型原型链</a> <a href="../../../../../tags/%E5%90%8C%E6%BA%90%E7%AD%96%E7%95%A5/" style="font-size: 10px;">同源策略</a> <a href="../../../../../tags/%E6%B5%8F%E8%A7%88%E5%99%A8/" style="font-size: 16.67px;">浏览器</a> <a href="../../../../../tags/%E6%B7%B1%E6%8B%B7%E8%B4%9D%E6%B5%85%E6%8B%B7%E8%B4%9D/" style="font-size: 10px;">深拷贝浅拷贝</a> <a href="../../../../../tags/%E7%9B%92%E6%A8%A1%E5%9E%8B/" style="font-size: 10px;">盒模型</a> <a href="../../../../../tags/%E7%AE%97%E6%B3%95/" style="font-size: 10px;">算法</a> <a href="../../../../../tags/%E9%98%B2%E6%8A%96%E8%8A%82%E6%B5%81/" style="font-size: 10px;">防抖节流</a>
     </div>
     
   </div>
@@ -162,7 +163,7 @@
 
         <li class="category-list-item">
           <a class="category-list-link" href="/categories/JavaScript/">JavaScript</a>
-          <span class="category-list-count">7</span>
+          <span class="category-list-count">8</span>
         </li>
 
         
@@ -183,7 +184,7 @@
 
         <li class="category-list-item">
           <a class="category-list-link" href="/categories/React/">React</a>
-          <span class="category-list-count">7</span>
+          <span class="category-list-count">9</span>
         </li>
 
         
@@ -243,23 +244,23 @@
       <ul>
         
           <li>
-            <a href="../../../../11/04/Safe/CSRF%E6%94%BB%E5%87%BB/">🌭 (no title)</a>
+            <a href="../../../09/JavaScript/JavaScript-promise/">🌭 (no title)</a>
           </li>
         
           <li>
-            <a href="../../../../11/04/Safe/XSS%E6%94%BB%E5%87%BB/">🌭 XSS攻击</a>
+            <a href="../../../09/JavaScript/JavsScript-%E5%A4%84%E7%90%86%E5%BC%82%E6%AD%A5%E5%87%BD%E6%95%B0%E5%87%A0%E7%A7%8D%E6%96%B9%E6%A1%88/">🌭 (no title)</a>
           </li>
         
           <li>
-            <a href="../../../../11/03/JavaScript/JavaScript%E4%BD%9C%E7%94%A8%E5%9F%9F/">🌭 JavaScript作用域</a>
+            <a href="../../../09/React/React%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/">🌭 (no title)</a>
           </li>
         
           <li>
-            <a href="../../../../11/02/JavaScript/JavaScript-ES6/">🌭 (no title)</a>
+            <a href="../../../09/JavaScript/01%20-%20JavaScript%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E7%BB%BC%E5%90%88/">🌭 JavaScript基础知识综合</a>
           </li>
         
           <li>
-            <a href="../../../../11/02/JavaScript/forIn-forOF-Map-forEach%E5%8C%BA%E5%88%AB/">🌭 for-in &amp; for-of的区别 和 map-for &amp; Each区别</a>
+            <a href="../../../09/JavaScript/08%20-%20JavaScript-%E9%97%AD%E5%8C%85/">🌭 (no title)</a>
           </li>
         
       </ul>
@@ -276,15 +277,15 @@
         <div class="nexmoe-post">
   
   <div class="nexmoe-post-cover" style="padding-bottom: 62.5%;">
-    <img data-src="https://drscdn.500px.org/photo/146543971/h%3D1080_k%3D1/v2?sig=9327a36e10963e5a969fb06c8544b8d1e302d1dc8e2c9512188c4ac860355498" data-sizes="auto" alt="一段js代码在浏览器中是如何执行的" class="lazyload">
-    <h1>一段js代码在浏览器中是如何执行的</h1>
+    <img data-src="https://images.unsplash.com/photo-1604573798783-6b5fb01260f9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80" data-sizes="auto" alt="React生命周期函数" class="lazyload">
+    <h1>React生命周期函数</h1>
   </div>
   
 
   <div class="nexmoe-post-meta nexmoe-rainbow" style="margin:10px 0!important;">
-    <a><i class="nexmoefont icon-calendar-fill"></i>2020年09月22日</a>
-    <a><i class="nexmoefont icon-areachart"></i>630 字</a>
-    <a><i class="nexmoefont icon-time-circle-fill"></i>大概 2 分钟</a>
+    <a><i class="nexmoefont icon-calendar-fill"></i>2020年11月06日</a>
+    <a><i class="nexmoefont icon-areachart"></i>12 字</a>
+    <a><i class="nexmoefont icon-time-circle-fill"></i>大概 1 分钟</a>
 </div>
 
   <div class="nexmoe-post-right">
@@ -293,7 +294,7 @@
       <div class="nexmoe-valign" style="position:relative">
         <div class="nexmoe-toc">
           Toc
-          <!-- <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%80%E6%AE%B5js%E4%BB%A3%E7%A0%81%E5%9C%A8%E6%B5%8F%E8%A7%88%E5%99%A8%E4%B8%AD%E6%98%AF%E5%A6%82%E4%BD%95%E6%89%A7%E8%A1%8C%E7%9A%84"><span class="toc-number">1.</span> <span class="toc-text">一段js代码在浏览器中是如何执行的</span></a></li></ol> -->
+          <!--  -->
         </div>
       </div>
     </div>
@@ -301,29 +302,20 @@
   </div>
 
   <article>
-    <p>一段js代码在浏览器中是如何执行的?</p>
-<a id="more"></a>
-
-
-<h1 id="一段js代码在浏览器中是如何执行的"><a href="#一段js代码在浏览器中是如何执行的" class="headerlink" title="一段js代码在浏览器中是如何执行的"></a>一段js代码在浏览器中是如何执行的</h1><p>在执行一段代码时，JS 引擎会首先创建一个执行栈<br>然后JS引擎会创建一个全局执行上下文，并push到执行栈中, </p>
-<ul>
-<li>这个过程JS引擎会为这段代码中所有变量分配内存并赋一个初始值（undefined）</li>
-<li>在创建完成后，JS引擎会进入执行阶段，这个过程JS引擎会逐行的执行代码，即为之前分配好内存的变量逐个赋值(真实值)。</li>
-<li>如果这段代码中存在function的声明和调用，那么JS引擎会创建一个函数执行上下文，并push到执行栈中，其创建和执行过程跟全局执行上下文一样。但有特殊情况，即当函数中存在对其它函数的调用时，JS引擎会在父函数执行的过程中，将子函数的全局执行上下文push到执行栈，这也是为什么子函数能够访问到父函数内所声明的变量。</li>
-<li>还有一种特殊情况是，在子函数执行的过程中，父函数已经return了，这种情况下，JS引擎会将父函数的上下文从执行栈中移除，与此同时，JS引擎会为还在执行的子函数上下文创建一个闭包，这个闭包里保存了父函数内声明的变量及其赋值，子函数仍然能够在其上下文中访问并使用这边变量/常量。当子函数执行完毕，JS引擎才会将子函数的上下文及闭包一并从执行栈中移除。</li>
-<li>最后，<strong>JS引擎是单线程的</strong>，那么它是如何处理高并发的呢？即当代码中存在异步调用时JS是如何执行的?</li>
-</ul>
-<p>比如setTimeout或fetch请求都是non-blocking的，当异步调用代码触发时，JS引擎会将需要异步执行的代码移出调用栈，直到等待到返回结果，JS引擎会立即将与之对应的回调函数push进任务队列中等待被调用，当调用(执行)栈中已经没有需要被执行的代码时，JS引擎会立刻将任务队列中的回调函数逐个push进调用栈并执行。这个过程我们也称之为事件循环。</p>
-<p>转自: <a target="_blank" rel="noopener" href="https://juejin.im/post/5e7426d15188254967069c00">https://juejin.im/post/5e7426d15188254967069c00</a></p>
+    <blockquote>
+<p>​    温故而知新<del>~</del></p>
+<p>​    越基础,越重要哦~</p>
+</blockquote>
+<p><img src="https://s1.ax1x.com/2020/11/06/Bf52x1.jpg"></p>
 
   </article>
 
   <div class="nexmoe-post-meta nexmoe-rainbow">
     
-        <a class="nexmoefont icon-appstore-fill -link" href="../../../../../categories/JavaScript/">JavaScript</a><a class="nexmoefont icon-appstore-fill -link" href="../../../../../categories/JavaScript/%E6%B5%8F%E8%A7%88%E5%99%A8/">浏览器</a>
+        <a class="nexmoefont icon-appstore-fill -link" href="../../../../../categories/React/">React</a>
     
     
-        <a class="nexmoefont icon-tag-fill -none-link" href="../../../../../tags/JavaScript/" rel="tag">JavaScript</a> <a class="nexmoefont icon-tag-fill -none-link" href="../../../../../tags/%E6%B5%8F%E8%A7%88%E5%99%A8/" rel="tag">浏览器</a>
+        <a class="nexmoefont icon-tag-fill -none-link" href="../../../../../tags/React-%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/" rel="tag">React-生命周期</a>
     
 </div>
 
@@ -340,8 +332,8 @@
   <strong>
     本文链接：
   </strong>
-  <a href="https://juntengma.github.io/2020/09/22/JavaScript/JavaScript%E4%BB%A3%E7%A0%81%E5%9C%A8%E6%B5%8F%E8%A7%88%E5%99%A8%E4%B8%AD%E7%9A%84%E6%89%A7%E8%A1%8C%E9%A1%BA%E5%BA%8F/" target="_blank">
-    https://juntengma.github.io/2020/09/22/JavaScript/JavaScript%E4%BB%A3%E7%A0%81%E5%9C%A8%E6%B5%8F%E8%A7%88%E5%99%A8%E4%B8%AD%E7%9A%84%E6%89%A7%E8%A1%8C%E9%A1%BA%E5%BA%8F/
+  <a href="https://juntengma.github.io/2020/11/06/React/React-%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/" target="_blank">
+    https://juntengma.github.io/2020/11/06/React/React-%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/
   </a>
   <br>
 
@@ -413,7 +405,7 @@ gitment.render('gitment')
     !IsPC() && $('.nexmoe-toc').addClass('nexmoe-toc-phone')
 
     $('.nexmoe-fixed').hover(function () {
-      $('.nexmoe-toc').html(`<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%80%E6%AE%B5js%E4%BB%A3%E7%A0%81%E5%9C%A8%E6%B5%8F%E8%A7%88%E5%99%A8%E4%B8%AD%E6%98%AF%E5%A6%82%E4%BD%95%E6%89%A7%E8%A1%8C%E7%9A%84"><span class="toc-text">一段js代码在浏览器中是如何执行的</span></a></li></ol>`)
+      $('.nexmoe-toc').html(``)
       IsPC() ?
         $('.nexmoe-toc').css({
           'margin-right': 0
@@ -439,7 +431,7 @@ gitment.render('gitment')
   </div>
   <script src="https://cdn.jsdelivr.net/combine/npm/lazysizes@5.1.0/lazysizes.min.js,gh/highlightjs/cdn-release@9.15.8/build/highlight.min.js,npm/mdui@0.4.3/dist/js/mdui.min.js,gh/nexmoe/nexmoe.github.io@latest/js/app.js"></script>
 <script>hljs.initHighlightingOnLoad();</script>
-<!--<script src="../../../../../js/app.js?v=1604628805198"></script>-->
+<!--<script src="../../../../../js/app.js?v=1604915948561"></script>-->
 
 
 

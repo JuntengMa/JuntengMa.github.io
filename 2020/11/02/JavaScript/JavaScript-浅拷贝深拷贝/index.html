@@ -4,7 +4,7 @@
 
 <head>
   
-  <title>原型,原型链 - June&#39;s Blog</title>
+  <title>深拷贝浅拷贝 - June&#39;s Blog</title>
   <meta charset="UTF-8">
   <meta name="description" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
@@ -15,26 +15,21 @@
     <meta name="baidu-site-verification" content="code-bB34m0ogBK" />
 
   <link rel="shortcut icon" href="/favicon.ico" type="image/png" />
-  <meta name="description" content="​    原型原型链">
+  <meta name="description" content="https:&#x2F;&#x2F;juejin.im&#x2F;post&#x2F;6844903929705136141 浅拷贝 创建一个新对象，这个对象有着原始对象属性值的一份精确拷贝。 如果属性是基本类型，拷贝的就是基本类型的值，如果属性是引用类型，拷贝的就是内存地址 ，所以如果其中一个对象改变了这个地址，就会影响到另一个对象。  浅拷贝只拷贝一层属性,无法拷贝引用数据类型  Object.assign(&amp;#123;&amp;#">
 <meta property="og:type" content="article">
-<meta property="og:title" content="原型,原型链">
-<meta property="og:url" content="https://juntengma.github.io/2020/10/26/JavaScript/JavaScript%E5%8E%9F%E5%9E%8B%E5%8E%9F%E5%9E%8B%E9%93%BE/index.html">
+<meta property="og:title" content="深拷贝浅拷贝">
+<meta property="og:url" content="https://juntengma.github.io/2020/11/02/JavaScript/JavaScript-%E6%B5%85%E6%8B%B7%E8%B4%9D%E6%B7%B1%E6%8B%B7%E8%B4%9D/index.html">
 <meta property="og:site_name" content="June&#39;s Blog">
-<meta property="og:description" content="​    原型原型链">
+<meta property="og:description" content="https:&#x2F;&#x2F;juejin.im&#x2F;post&#x2F;6844903929705136141 浅拷贝 创建一个新对象，这个对象有着原始对象属性值的一份精确拷贝。 如果属性是基本类型，拷贝的就是基本类型的值，如果属性是引用类型，拷贝的就是内存地址 ，所以如果其中一个对象改变了这个地址，就会影响到另一个对象。  浅拷贝只拷贝一层属性,无法拷贝引用数据类型  Object.assign(&amp;#123;&amp;#">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://github.com/mqyqingfeng/Blog/raw/master/Images/prototype1.png">
-<meta property="og:image" content="https://github.com/mqyqingfeng/Blog/raw/master/Images/prototype2.png">
-<meta property="og:image" content="https://github.com/mqyqingfeng/Blog/raw/master/Images/prototype3.png">
-<meta property="og:image" content="https://github.com/mqyqingfeng/Blog/raw/master/Images/prototype5.png">
-<meta property="article:published_time" content="2020-10-26T14:36:07.474Z">
-<meta property="article:modified_time" content="2020-11-04T08:21:17.467Z">
+<meta property="article:published_time" content="2020-11-02T07:28:19.796Z">
+<meta property="article:modified_time" content="2020-11-09T09:54:36.833Z">
 <meta property="article:author" content="June">
-<meta property="article:tag" content="原型原型链">
+<meta property="article:tag" content="深拷贝浅拷贝">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://github.com/mqyqingfeng/Blog/raw/master/Images/prototype1.png">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/combine/gh/nexmoe/nexmoe.github.io@latest/css/style.css,npm/highlight.js@9.15.8/styles/atom-one-dark.css,gh/nexmoe/nexmoe.github.io@latest/lib/mdui_043tiny/css/mdui.css,gh/nexmoe/nexmoe.github.io@latest/lib/iconfont/iconfont.css" crossorigin>
   
-  <!--<link rel="stylesheet" href="../../../../../css/style.css?v=1604628805173">-->
+  <!--<link rel="stylesheet" href="../../../../../css/style.css?v=1604915948567">-->
 
   
 <meta name="generator" content="Hexo 5.2.0"><link rel="alternate" href="atom.xml" title="June's Blog" type="application/atom+xml">
@@ -61,8 +56,8 @@
         </a>
     </div>
     <div class="nexmoe-count">
-        <div><span>文章</span>36</div>
-        <div><span>标签</span>25</div>
+        <div><span>文章</span>43</div>
+        <div><span>标签</span>28</div>
         <div><span>分类</span>21</div>
     </div>
     <div class="nexmoe-list mdui-list" mdui-collapse="{accordion: true}">
@@ -81,7 +76,7 @@
   <div class="nexmoe-widget-wrap">
     <h3 class="nexmoe-widget-title">标签云</h3>
     <div id="randomtagcloud" class="nexmoe-widget tagcloud nexmoe-rainbow">
-      <a href="../../../../../tags/Ajax/" style="font-size: 13.33px;">Ajax</a> <a href="../../../../../tags/Axios/" style="font-size: 13.33px;">Axios</a> <a href="../../../../../tags/BFC/" style="font-size: 10px;">BFC</a> <a href="../../../../../tags/Css/" style="font-size: 13.33px;">Css</a> <a href="../../../../../tags/DOM%E4%BA%8B%E4%BB%B6%E4%BA%8B%E4%BB%B6%E6%B5%81/" style="font-size: 10px;">DOM事件事件流</a> <a href="../../../../../tags/ES6/" style="font-size: 10px;">ES6</a> <a href="../../../../../tags/Git/" style="font-size: 10px;">Git</a> <a href="../../../../../tags/Honey/" style="font-size: 10px;">Honey</a> <a href="../../../../../tags/Http/" style="font-size: 13.33px;">Http</a> <a href="../../../../../tags/Https/" style="font-size: 10px;">Https</a> <a href="../../../../../tags/JSONP/" style="font-size: 10px;">JSONP</a> <a href="../../../../../tags/JavaScript/" style="font-size: 13.33px;">JavaScript</a> <a href="../../../../../tags/Json-server/" style="font-size: 10px;">Json-server</a> <a href="../../../../../tags/Npm/" style="font-size: 10px;">Npm</a> <a href="../../../../../tags/React/" style="font-size: 20px;">React</a> <a href="../../../../../tags/Webpack/" style="font-size: 10px;">Webpack</a> <a href="../../../../../tags/%E4%BD%9C%E7%94%A8%E5%9F%9F/" style="font-size: 10px;">作用域</a> <a href="../../../../../tags/%E5%89%8D%E7%AB%AF%E5%AE%89%E5%85%A8/" style="font-size: 10px;">前端安全</a> <a href="../../../../../tags/%E5%8E%9F%E5%9E%8B%E5%8E%9F%E5%9E%8B%E9%93%BE/" style="font-size: 10px;">原型原型链</a> <a href="../../../../../tags/%E5%90%8C%E6%BA%90%E7%AD%96%E7%95%A5/" style="font-size: 10px;">同源策略</a> <a href="../../../../../tags/%E6%B5%8F%E8%A7%88%E5%99%A8/" style="font-size: 16.67px;">浏览器</a> <a href="../../../../../tags/%E6%B7%B1%E6%8B%B7%E8%B4%9D%E6%B5%85%E6%8B%B7%E8%B4%9D/" style="font-size: 10px;">深拷贝浅拷贝</a> <a href="../../../../../tags/%E7%9B%92%E6%A8%A1%E5%9E%8B/" style="font-size: 10px;">盒模型</a> <a href="../../../../../tags/%E7%AE%97%E6%B3%95/" style="font-size: 10px;">算法</a> <a href="../../../../../tags/%E9%98%B2%E6%8A%96%E8%8A%82%E6%B5%81/" style="font-size: 10px;">防抖节流</a>
+      <a href="../../../../../tags/Ajax/" style="font-size: 13.33px;">Ajax</a> <a href="../../../../../tags/Axios/" style="font-size: 13.33px;">Axios</a> <a href="../../../../../tags/BFC/" style="font-size: 10px;">BFC</a> <a href="../../../../../tags/Css/" style="font-size: 13.33px;">Css</a> <a href="../../../../../tags/DOM%E4%BA%8B%E4%BB%B6%E4%BA%8B%E4%BB%B6%E6%B5%81/" style="font-size: 10px;">DOM事件事件流</a> <a href="../../../../../tags/ES6/" style="font-size: 10px;">ES6</a> <a href="../../../../../tags/Git/" style="font-size: 10px;">Git</a> <a href="../../../../../tags/Honey/" style="font-size: 10px;">Honey</a> <a href="../../../../../tags/Hook/" style="font-size: 10px;">Hook</a> <a href="../../../../../tags/Http/" style="font-size: 13.33px;">Http</a> <a href="../../../../../tags/Https/" style="font-size: 10px;">Https</a> <a href="../../../../../tags/JSONP/" style="font-size: 10px;">JSONP</a> <a href="../../../../../tags/JavaScript/" style="font-size: 13.33px;">JavaScript</a> <a href="../../../../../tags/JavaSctipt/" style="font-size: 10px;">JavaSctipt</a> <a href="../../../../../tags/Json-server/" style="font-size: 10px;">Json-server</a> <a href="../../../../../tags/Npm/" style="font-size: 10px;">Npm</a> <a href="../../../../../tags/React/" style="font-size: 20px;">React</a> <a href="../../../../../tags/React-%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/" style="font-size: 10px;">React-生命周期</a> <a href="../../../../../tags/Webpack/" style="font-size: 10px;">Webpack</a> <a href="../../../../../tags/%E4%BD%9C%E7%94%A8%E5%9F%9F/" style="font-size: 10px;">作用域</a> <a href="../../../../../tags/%E5%89%8D%E7%AB%AF%E5%AE%89%E5%85%A8/" style="font-size: 10px;">前端安全</a> <a href="../../../../../tags/%E5%8E%9F%E5%9E%8B%E5%8E%9F%E5%9E%8B%E9%93%BE/" style="font-size: 10px;">原型原型链</a> <a href="../../../../../tags/%E5%90%8C%E6%BA%90%E7%AD%96%E7%95%A5/" style="font-size: 10px;">同源策略</a> <a href="../../../../../tags/%E6%B5%8F%E8%A7%88%E5%99%A8/" style="font-size: 16.67px;">浏览器</a> <a href="../../../../../tags/%E6%B7%B1%E6%8B%B7%E8%B4%9D%E6%B5%85%E6%8B%B7%E8%B4%9D/" style="font-size: 10px;">深拷贝浅拷贝</a> <a href="../../../../../tags/%E7%9B%92%E6%A8%A1%E5%9E%8B/" style="font-size: 10px;">盒模型</a> <a href="../../../../../tags/%E7%AE%97%E6%B3%95/" style="font-size: 10px;">算法</a> <a href="../../../../../tags/%E9%98%B2%E6%8A%96%E8%8A%82%E6%B5%81/" style="font-size: 10px;">防抖节流</a>
     </div>
     
   </div>
@@ -166,7 +161,7 @@
 
         <li class="category-list-item">
           <a class="category-list-link" href="/categories/JavaScript/">JavaScript</a>
-          <span class="category-list-count">7</span>
+          <span class="category-list-count">8</span>
         </li>
 
         
@@ -187,7 +182,7 @@
 
         <li class="category-list-item">
           <a class="category-list-link" href="/categories/React/">React</a>
-          <span class="category-list-count">7</span>
+          <span class="category-list-count">9</span>
         </li>
 
         
@@ -247,23 +242,23 @@
       <ul>
         
           <li>
-            <a href="../../../../11/04/Safe/CSRF%E6%94%BB%E5%87%BB/">🌭 (no title)</a>
+            <a href="../../../09/JavaScript/JavaScript-promise/">🌭 (no title)</a>
           </li>
         
           <li>
-            <a href="../../../../11/04/Safe/XSS%E6%94%BB%E5%87%BB/">🌭 XSS攻击</a>
+            <a href="../../../09/JavaScript/JavsScript-%E5%A4%84%E7%90%86%E5%BC%82%E6%AD%A5%E5%87%BD%E6%95%B0%E5%87%A0%E7%A7%8D%E6%96%B9%E6%A1%88/">🌭 (no title)</a>
           </li>
         
           <li>
-            <a href="../../../../11/03/JavaScript/JavaScript%E4%BD%9C%E7%94%A8%E5%9F%9F/">🌭 JavaScript作用域</a>
+            <a href="../../../09/React/React%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/">🌭 (no title)</a>
           </li>
         
           <li>
-            <a href="../../../../11/02/JavaScript/JavaScript-ES6/">🌭 (no title)</a>
+            <a href="../../../09/JavaScript/01%20-%20JavaScript%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E7%BB%BC%E5%90%88/">🌭 JavaScript基础知识综合</a>
           </li>
         
           <li>
-            <a href="../../../../11/02/JavaScript/forIn-forOF-Map-forEach%E5%8C%BA%E5%88%AB/">🌭 for-in &amp; for-of的区别 和 map-for &amp; Each区别</a>
+            <a href="../../../09/JavaScript/08%20-%20JavaScript-%E9%97%AD%E5%8C%85/">🌭 (no title)</a>
           </li>
         
       </ul>
@@ -279,15 +274,15 @@
     <div class="nexmoe-primary">
         <div class="nexmoe-post">
   
-  <div class="nexmoe-post-cover" style="padding-bottom: 58.333333333333336%;">
-    <img data-src="https://images.unsplash.com/photo-1601636358831-cfb548152c2d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjg5ODI0fQ&w=750&dpi=2" data-sizes="auto" alt="原型,原型链" class="lazyload">
-    <h1>原型,原型链</h1>
+  <div class="nexmoe-post-cover" style="padding-bottom: 62.5%;">
+    <img data-src="https://source.unsplash.com/user/erondu/1440x960" data-sizes="auto" alt="深拷贝浅拷贝" class="lazyload">
+    <h1>深拷贝浅拷贝</h1>
   </div>
   
 
   <div class="nexmoe-post-meta nexmoe-rainbow" style="margin:10px 0!important;">
-    <a><i class="nexmoefont icon-calendar-fill"></i>2020年10月26日</a>
-    <a><i class="nexmoefont icon-areachart"></i>349 字</a>
+    <a><i class="nexmoefont icon-calendar-fill"></i>2020年11月02日</a>
+    <a><i class="nexmoefont icon-areachart"></i>402 字</a>
     <a><i class="nexmoefont icon-time-circle-fill"></i>大概 1 分钟</a>
 </div>
 
@@ -297,7 +292,7 @@
       <div class="nexmoe-valign" style="position:relative">
         <div class="nexmoe-toc">
           Toc
-          <!-- <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%89%8D%E7%BD%AE%E7%9F%A5%E8%AF%86"><span class="toc-number">1.</span> <span class="toc-text">前置知识:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0%E5%88%9B%E5%BB%BA%E5%AF%B9%E8%B1%A1"><span class="toc-number">2.</span> <span class="toc-text">构造函数创建对象</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Prototype"><span class="toc-number">3.</span> <span class="toc-text">Prototype</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#proto"><span class="toc-number">4.</span> <span class="toc-text">_proto_</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#constructor-NaN"><span class="toc-number">5.</span> <span class="toc-text">constructor</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8E%9F%E5%9E%8B%E9%93%BE"><span class="toc-number">6.</span> <span class="toc-text">原型链</span></a></li></ol> -->
+          <!-- <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B5%85%E6%8B%B7%E8%B4%9D"><span class="toc-number">1.</span> <span class="toc-text">浅拷贝</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B7%B1%E6%8B%B7%E8%B4%9D"><span class="toc-number">2.</span> <span class="toc-text">深拷贝</span></a></li></ol> -->
         </div>
       </div>
     </div>
@@ -305,66 +300,64 @@
   </div>
 
   <article>
-    <blockquote>
-<p>​    原型原型链</p>
+    <a id="more"></a>
+
+
+
+<p><a target="_blank" rel="noopener" href="https://juejin.im/post/6844903929705136141">https://juejin.im/post/6844903929705136141</a></p>
+<h3 id="浅拷贝"><a href="#浅拷贝" class="headerlink" title="浅拷贝"></a>浅拷贝</h3><blockquote>
+<p>创建一个新对象，这个对象有着原始对象属性值的一份精确拷贝。</p>
+<p>如果属性是基本类型，拷贝的就是基本类型的值，如果属性是引用类型，拷贝的就是内存地址 ，所以如果其中一个对象改变了这个地址，就会影响到另一个对象。</p>
 </blockquote>
-<a id="more"></a>
-
-
-
-<h3 id="前置知识"><a href="#前置知识" class="headerlink" title="前置知识:"></a>前置知识:</h3><ul>
-<li><p>js分为函数对象和普通对象,,每个对象都有<code>_proto_</code>属性,但是只有函数对象才有<code>prototype</code>属性</p>
-</li>
-<li><p>Object,Function都是js内置函数,类似的还有Array , RegExp , Date , Boolean , Nuber , String </p>
-</li>
-<li><p><code>_porto_</code>,<code>constructor</code>属性是<strong>对象</strong>所独有的</p>
-</li>
-<li><p><code>prototype</code>属性是<strong>函数</strong>所独有的</p>
-</li>
-<li><p>函数也是对象的一种,所以函数中也有<code>_protot_</code>和<code>constructor</code></p>
-</li>
-</ul>
-<h3 id="构造函数创建对象"><a href="#构造函数创建对象" class="headerlink" title="构造函数创建对象"></a>构造函数创建对象</h3><pre><code>function Peron() &#123; &#125;
-var person = new Person()
-person.name = &#39;kevin&#39;
-console.log(person.name)</code></pre>
-<h3 id="Prototype"><a href="#Prototype" class="headerlink" title="Prototype"></a>Prototype</h3><p>每个函数都有<code>prototype</code>属性</p>
-<pre><code>function Person() &#123; &#125;
-
-Person.prototype.name = &#39;kavin&#39;
-
-var person1 = new Person()
-var person2 = new Person()
-
-console.log(person1.name); //kavin
-console.log(person2.name); //kavin</code></pre>
+<p>浅拷贝只拷贝一层属性,无法拷贝引用数据类型</p>
 <ul>
-<li>函数的 prototype 属性指向了一个对象，这个对象正是调用该构造函数而创建的实例的原型，也就是这个例子中的 person1 和 person2 的原型。</li>
-<li>那什么是原型呢？每一个JavaScript对象(null除外)在创建的时候就会与之关联另一个对象，这个对象就是我们所说的原型，每一个对象都会从原型中继承属性</li>
+<li><code>Object.assign(&#123;&#125;,obj)</code>浅拷贝object</li>
+<li><code>newobj = &#123;...obj2&#125;</code>  展开运算符浅拷贝</li>
+<li><code>Object.fromEntries( Object.entriens(obj) ) </code>通过生成迭代器,在通过迭代器生成对象</li>
+<li><code>Object.create(&#123;&#125;,Object.getOwnPropertyDescriptors(obj))</code></li>
 </ul>
-<p><strong>构造函数和实例原型之间的关系</strong></p>
-<p><img src="https://github.com/mqyqingfeng/Blog/raw/master/Images/prototype1.png"></p>
-<h3 id="proto"><a href="#proto" class="headerlink" title="_proto_"></a><code>_proto_</code></h3><p>每一个js对象都有一个属性,就是<code>_Proto_</code>,这个属性会指向该对象的原型</p>
-<pre><code>function Person() &#123; &#125;
-
-var person = new Person()
-
-console.log(person.__proto__ === Person.prototype); //true
-</code></pre>
-<p><img src="https://github.com/mqyqingfeng/Blog/raw/master/Images/prototype2.png"></p>
-<h3 id="constructor-NaN"><a href="#constructor-NaN" class="headerlink" title="constructor"></a>constructor</h3><p>consttructor指向该构造函数本身,即</p>
-<pre><code>Person.prototype.constructor = Person</code></pre>
-<p><img src="https://github.com/mqyqingfeng/Blog/raw/master/Images/prototype3.png"></p>
-<h3 id="原型链"><a href="#原型链" class="headerlink" title="原型链"></a><a target="_blank" rel="noopener" href="https://segmentfault.com/a/1190000008959943">原型链</a></h3><p><img src="https://github.com/mqyqingfeng/Blog/raw/master/Images/prototype5.png"></p>
+<p><strong>简单浅拷贝:</strong></p>
+<pre><code>function clone(target)&#123;
+    let cloneTarget=&#123;&#125;;
+    for(let key in target)&#123;
+        cloneTarget[key] = target[key]
+    &#125;
+    return cloneTarget
+&#125;</code></pre>
+<h3 id="深拷贝"><a href="#深拷贝" class="headerlink" title="深拷贝"></a>深拷贝</h3><blockquote>
+<p>将一个对象从内存中完整的拷贝一份出来,从堆内存中开辟一个新的区域存放新对象,且修改新对象不会影响原对象</p>
+</blockquote>
+<ul>
+<li><code>JSON.parse(JSON.stringfy( obj ))</code>通过<strong>JSON的2次转换深拷贝obj</strong><ul>
+<li>无法拷贝<code>undefined</code>与<code>symbol</code>属性</li>
+<li>无法拷贝<strong>循环引用</strong>对象</li>
+</ul>
+</li>
+<li>loadsh:<a target="_blank" rel="noopener" href="http://lodash.think2011.net/cloneDeep"><em>.cloneDeep</em></a></li>
+</ul>
+<p>简单深拷贝(可以处理<strong>原始数据类型 + Object</strong>):</p>
+<ul>
+<li>如果是原始类型，无需继续拷贝，直接返回</li>
+<li>如果是引用类型，创建一个新的对象，遍历需要克隆的对象，将需要克隆对象的属性执行深拷贝后依次添加到新对象上。</li>
+</ul>
+<pre><code>function smpleDeepCopy(target) &#123;
+  let type = typeof target
+  if (type === &quot;object&quot;) &#123;
+    let copy = &#123;&#125;;
+    for (let key in target) &#123;
+      copy[key] = smpleDeepCopy(target[key])
+    &#125;
+    return copy
+  &#125;
+  return target
+&#125;</code></pre>
 
   </article>
 
   <div class="nexmoe-post-meta nexmoe-rainbow">
     
-        <a class="nexmoefont icon-appstore-fill -link" href="../../../../../categories/JavaScript/">JavaScript</a>
     
-    
-        <a class="nexmoefont icon-tag-fill -none-link" href="../../../../../tags/%E5%8E%9F%E5%9E%8B%E5%8E%9F%E5%9E%8B%E9%93%BE/" rel="tag">原型原型链</a>
+        <a class="nexmoefont icon-tag-fill -none-link" href="../../../../../tags/%E6%B7%B1%E6%8B%B7%E8%B4%9D%E6%B5%85%E6%8B%B7%E8%B4%9D/" rel="tag">深拷贝浅拷贝</a>
     
 </div>
 
@@ -381,8 +374,8 @@ console.log(person.__proto__ === Person.prototype); //true
   <strong>
     本文链接：
   </strong>
-  <a href="https://juntengma.github.io/2020/10/26/JavaScript/JavaScript%E5%8E%9F%E5%9E%8B%E5%8E%9F%E5%9E%8B%E9%93%BE/" target="_blank">
-    https://juntengma.github.io/2020/10/26/JavaScript/JavaScript%E5%8E%9F%E5%9E%8B%E5%8E%9F%E5%9E%8B%E9%93%BE/
+  <a href="https://juntengma.github.io/2020/11/02/JavaScript/JavaScript-%E6%B5%85%E6%8B%B7%E8%B4%9D%E6%B7%B1%E6%8B%B7%E8%B4%9D/" target="_blank">
+    https://juntengma.github.io/2020/11/02/JavaScript/JavaScript-%E6%B5%85%E6%8B%B7%E8%B4%9D%E6%B7%B1%E6%8B%B7%E8%B4%9D/
   </a>
   <br>
 
@@ -454,7 +447,7 @@ gitment.render('gitment')
     !IsPC() && $('.nexmoe-toc').addClass('nexmoe-toc-phone')
 
     $('.nexmoe-fixed').hover(function () {
-      $('.nexmoe-toc').html(`<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%89%8D%E7%BD%AE%E7%9F%A5%E8%AF%86"><span class="toc-text">前置知识:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0%E5%88%9B%E5%BB%BA%E5%AF%B9%E8%B1%A1"><span class="toc-text">构造函数创建对象</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Prototype"><span class="toc-text">Prototype</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#proto"><span class="toc-text">_proto_</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#constructor-NaN"><span class="toc-text">constructor</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8E%9F%E5%9E%8B%E9%93%BE"><span class="toc-text">原型链</span></a></li></ol>`)
+      $('.nexmoe-toc').html(`<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B5%85%E6%8B%B7%E8%B4%9D"><span class="toc-text">浅拷贝</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B7%B1%E6%8B%B7%E8%B4%9D"><span class="toc-text">深拷贝</span></a></li></ol>`)
       IsPC() ?
         $('.nexmoe-toc').css({
           'margin-right': 0
@@ -480,7 +473,7 @@ gitment.render('gitment')
   </div>
   <script src="https://cdn.jsdelivr.net/combine/npm/lazysizes@5.1.0/lazysizes.min.js,gh/highlightjs/cdn-release@9.15.8/build/highlight.min.js,npm/mdui@0.4.3/dist/js/mdui.min.js,gh/nexmoe/nexmoe.github.io@latest/js/app.js"></script>
 <script>hljs.initHighlightingOnLoad();</script>
-<!--<script src="../../../../../js/app.js?v=1604628805174"></script>-->
+<!--<script src="../../../../../js/app.js?v=1604915948568"></script>-->
 
 
 

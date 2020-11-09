@@ -18,18 +18,18 @@
   <meta name="description" content="JavaScript深入 - 作用域相关问题">
 <meta property="og:type" content="article">
 <meta property="og:title" content="JavaScript作用域">
-<meta property="og:url" content="https://juntengma.github.io/2020/11/03/JavaScript/JavaScript%E4%BD%9C%E7%94%A8%E5%9F%9F/index.html">
+<meta property="og:url" content="https://juntengma.github.io/2020/11/03/JavaScript/03%20-%20JavaScript-%E4%BD%9C%E7%94%A8%E5%9F%9F&%E5%8F%AF%E6%89%A7%E8%A1%8C%E4%B8%8A%E4%B8%8B%E6%96%87/index.html">
 <meta property="og:site_name" content="June&#39;s Blog">
 <meta property="og:description" content="JavaScript深入 - 作用域相关问题">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-11-03T09:42:08.975Z">
-<meta property="article:modified_time" content="2020-11-03T11:28:15.228Z">
+<meta property="article:modified_time" content="2020-11-09T09:56:33.915Z">
 <meta property="article:author" content="June">
 <meta property="article:tag" content="作用域">
 <meta name="twitter:card" content="summary">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/combine/gh/nexmoe/nexmoe.github.io@latest/css/style.css,npm/highlight.js@9.15.8/styles/atom-one-dark.css,gh/nexmoe/nexmoe.github.io@latest/lib/mdui_043tiny/css/mdui.css,gh/nexmoe/nexmoe.github.io@latest/lib/iconfont/iconfont.css" crossorigin>
   
-  <!--<link rel="stylesheet" href="../../../../../css/style.css?v=1604628805137">-->
+  <!--<link rel="stylesheet" href="../../../../../css/style.css?v=1604915948564">-->
 
   
 <meta name="generator" content="Hexo 5.2.0"><link rel="alternate" href="atom.xml" title="June's Blog" type="application/atom+xml">
@@ -56,8 +56,8 @@
         </a>
     </div>
     <div class="nexmoe-count">
-        <div><span>文章</span>36</div>
-        <div><span>标签</span>25</div>
+        <div><span>文章</span>43</div>
+        <div><span>标签</span>28</div>
         <div><span>分类</span>21</div>
     </div>
     <div class="nexmoe-list mdui-list" mdui-collapse="{accordion: true}">
@@ -76,7 +76,7 @@
   <div class="nexmoe-widget-wrap">
     <h3 class="nexmoe-widget-title">标签云</h3>
     <div id="randomtagcloud" class="nexmoe-widget tagcloud nexmoe-rainbow">
-      <a href="../../../../../tags/Ajax/" style="font-size: 13.33px;">Ajax</a> <a href="../../../../../tags/Axios/" style="font-size: 13.33px;">Axios</a> <a href="../../../../../tags/BFC/" style="font-size: 10px;">BFC</a> <a href="../../../../../tags/Css/" style="font-size: 13.33px;">Css</a> <a href="../../../../../tags/DOM%E4%BA%8B%E4%BB%B6%E4%BA%8B%E4%BB%B6%E6%B5%81/" style="font-size: 10px;">DOM事件事件流</a> <a href="../../../../../tags/ES6/" style="font-size: 10px;">ES6</a> <a href="../../../../../tags/Git/" style="font-size: 10px;">Git</a> <a href="../../../../../tags/Honey/" style="font-size: 10px;">Honey</a> <a href="../../../../../tags/Http/" style="font-size: 13.33px;">Http</a> <a href="../../../../../tags/Https/" style="font-size: 10px;">Https</a> <a href="../../../../../tags/JSONP/" style="font-size: 10px;">JSONP</a> <a href="../../../../../tags/JavaScript/" style="font-size: 13.33px;">JavaScript</a> <a href="../../../../../tags/Json-server/" style="font-size: 10px;">Json-server</a> <a href="../../../../../tags/Npm/" style="font-size: 10px;">Npm</a> <a href="../../../../../tags/React/" style="font-size: 20px;">React</a> <a href="../../../../../tags/Webpack/" style="font-size: 10px;">Webpack</a> <a href="../../../../../tags/%E4%BD%9C%E7%94%A8%E5%9F%9F/" style="font-size: 10px;">作用域</a> <a href="../../../../../tags/%E5%89%8D%E7%AB%AF%E5%AE%89%E5%85%A8/" style="font-size: 10px;">前端安全</a> <a href="../../../../../tags/%E5%8E%9F%E5%9E%8B%E5%8E%9F%E5%9E%8B%E9%93%BE/" style="font-size: 10px;">原型原型链</a> <a href="../../../../../tags/%E5%90%8C%E6%BA%90%E7%AD%96%E7%95%A5/" style="font-size: 10px;">同源策略</a> <a href="../../../../../tags/%E6%B5%8F%E8%A7%88%E5%99%A8/" style="font-size: 16.67px;">浏览器</a> <a href="../../../../../tags/%E6%B7%B1%E6%8B%B7%E8%B4%9D%E6%B5%85%E6%8B%B7%E8%B4%9D/" style="font-size: 10px;">深拷贝浅拷贝</a> <a href="../../../../../tags/%E7%9B%92%E6%A8%A1%E5%9E%8B/" style="font-size: 10px;">盒模型</a> <a href="../../../../../tags/%E7%AE%97%E6%B3%95/" style="font-size: 10px;">算法</a> <a href="../../../../../tags/%E9%98%B2%E6%8A%96%E8%8A%82%E6%B5%81/" style="font-size: 10px;">防抖节流</a>
+      <a href="../../../../../tags/Ajax/" style="font-size: 13.33px;">Ajax</a> <a href="../../../../../tags/Axios/" style="font-size: 13.33px;">Axios</a> <a href="../../../../../tags/BFC/" style="font-size: 10px;">BFC</a> <a href="../../../../../tags/Css/" style="font-size: 13.33px;">Css</a> <a href="../../../../../tags/DOM%E4%BA%8B%E4%BB%B6%E4%BA%8B%E4%BB%B6%E6%B5%81/" style="font-size: 10px;">DOM事件事件流</a> <a href="../../../../../tags/ES6/" style="font-size: 10px;">ES6</a> <a href="../../../../../tags/Git/" style="font-size: 10px;">Git</a> <a href="../../../../../tags/Honey/" style="font-size: 10px;">Honey</a> <a href="../../../../../tags/Hook/" style="font-size: 10px;">Hook</a> <a href="../../../../../tags/Http/" style="font-size: 13.33px;">Http</a> <a href="../../../../../tags/Https/" style="font-size: 10px;">Https</a> <a href="../../../../../tags/JSONP/" style="font-size: 10px;">JSONP</a> <a href="../../../../../tags/JavaScript/" style="font-size: 13.33px;">JavaScript</a> <a href="../../../../../tags/JavaSctipt/" style="font-size: 10px;">JavaSctipt</a> <a href="../../../../../tags/Json-server/" style="font-size: 10px;">Json-server</a> <a href="../../../../../tags/Npm/" style="font-size: 10px;">Npm</a> <a href="../../../../../tags/React/" style="font-size: 20px;">React</a> <a href="../../../../../tags/React-%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/" style="font-size: 10px;">React-生命周期</a> <a href="../../../../../tags/Webpack/" style="font-size: 10px;">Webpack</a> <a href="../../../../../tags/%E4%BD%9C%E7%94%A8%E5%9F%9F/" style="font-size: 10px;">作用域</a> <a href="../../../../../tags/%E5%89%8D%E7%AB%AF%E5%AE%89%E5%85%A8/" style="font-size: 10px;">前端安全</a> <a href="../../../../../tags/%E5%8E%9F%E5%9E%8B%E5%8E%9F%E5%9E%8B%E9%93%BE/" style="font-size: 10px;">原型原型链</a> <a href="../../../../../tags/%E5%90%8C%E6%BA%90%E7%AD%96%E7%95%A5/" style="font-size: 10px;">同源策略</a> <a href="../../../../../tags/%E6%B5%8F%E8%A7%88%E5%99%A8/" style="font-size: 16.67px;">浏览器</a> <a href="../../../../../tags/%E6%B7%B1%E6%8B%B7%E8%B4%9D%E6%B5%85%E6%8B%B7%E8%B4%9D/" style="font-size: 10px;">深拷贝浅拷贝</a> <a href="../../../../../tags/%E7%9B%92%E6%A8%A1%E5%9E%8B/" style="font-size: 10px;">盒模型</a> <a href="../../../../../tags/%E7%AE%97%E6%B3%95/" style="font-size: 10px;">算法</a> <a href="../../../../../tags/%E9%98%B2%E6%8A%96%E8%8A%82%E6%B5%81/" style="font-size: 10px;">防抖节流</a>
     </div>
     
   </div>
@@ -161,7 +161,7 @@
 
         <li class="category-list-item">
           <a class="category-list-link" href="/categories/JavaScript/">JavaScript</a>
-          <span class="category-list-count">7</span>
+          <span class="category-list-count">8</span>
         </li>
 
         
@@ -182,7 +182,7 @@
 
         <li class="category-list-item">
           <a class="category-list-link" href="/categories/React/">React</a>
-          <span class="category-list-count">7</span>
+          <span class="category-list-count">9</span>
         </li>
 
         
@@ -242,23 +242,23 @@
       <ul>
         
           <li>
-            <a href="../../../04/Safe/CSRF%E6%94%BB%E5%87%BB/">🌭 (no title)</a>
+            <a href="../../../09/JavaScript/JavaScript-promise/">🌭 (no title)</a>
           </li>
         
           <li>
-            <a href="../../../04/Safe/XSS%E6%94%BB%E5%87%BB/">🌭 XSS攻击</a>
+            <a href="../../../09/JavaScript/JavsScript-%E5%A4%84%E7%90%86%E5%BC%82%E6%AD%A5%E5%87%BD%E6%95%B0%E5%87%A0%E7%A7%8D%E6%96%B9%E6%A1%88/">🌭 (no title)</a>
           </li>
         
           <li>
-            <a href="">🌭 JavaScript作用域</a>
+            <a href="../../../09/React/React%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/">🌭 (no title)</a>
           </li>
         
           <li>
-            <a href="../../../02/JavaScript/JavaScript-ES6/">🌭 (no title)</a>
+            <a href="../../../09/JavaScript/01%20-%20JavaScript%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E7%BB%BC%E5%90%88/">🌭 JavaScript基础知识综合</a>
           </li>
         
           <li>
-            <a href="../../../02/JavaScript/forIn-forOF-Map-forEach%E5%8C%BA%E5%88%AB/">🌭 for-in &amp; for-of的区别 和 map-for &amp; Each区别</a>
+            <a href="../../../09/JavaScript/08%20-%20JavaScript-%E9%97%AD%E5%8C%85/">🌭 (no title)</a>
           </li>
         
       </ul>
@@ -282,8 +282,8 @@
 
   <div class="nexmoe-post-meta nexmoe-rainbow" style="margin:10px 0!important;">
     <a><i class="nexmoefont icon-calendar-fill"></i>2020年11月03日</a>
-    <a><i class="nexmoefont icon-areachart"></i>847 字</a>
-    <a><i class="nexmoefont icon-time-circle-fill"></i>大概 3 分钟</a>
+    <a><i class="nexmoefont icon-areachart"></i>676 字</a>
+    <a><i class="nexmoefont icon-time-circle-fill"></i>大概 2 分钟</a>
 </div>
 
   <div class="nexmoe-post-right">
@@ -292,7 +292,7 @@
       <div class="nexmoe-valign" style="position:relative">
         <div class="nexmoe-toc">
           Toc
-          <!-- <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BD%9C%E7%94%A8%E5%9F%9F"><span class="toc-number">1.</span> <span class="toc-text">作用域</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%9D%99%E6%80%81%E4%BD%9C%E7%94%A8%E5%9F%9F"><span class="toc-number">2.</span> <span class="toc-text">静态作用域</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8A%A8%E6%80%81%E4%BD%9C%E7%94%A8%E5%9F%9F"><span class="toc-number">3.</span> <span class="toc-text">动态作用域</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%89%A7%E8%A1%8C%E4%B8%8A%E4%B8%8B%E6%96%87%E6%A0%88"><span class="toc-number">4.</span> <span class="toc-text">执行上下文栈</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8F%AF%E6%89%A7%E8%A1%8C%E4%BB%A3%E7%A0%81"><span class="toc-number">4.0.1.</span> <span class="toc-text">可执行代码</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%89%A7%E8%A1%8C%E4%B8%8A%E4%B8%8B%E6%96%87%E6%A0%88-1"><span class="toc-number">4.0.2.</span> <span class="toc-text">执行上下文栈</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E5%A0%86%E6%A0%88"><span class="toc-number">5.</span> <span class="toc-text">什么是堆栈</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%86%85%E9%83%A8%E5%B1%9E%E6%80%A7"><span class="toc-number">6.</span> <span class="toc-text">内部属性</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Js%E5%86%85%E7%BD%AE%E5%AF%B9%E8%B1%A1"><span class="toc-number">7.</span> <span class="toc-text">Js内置对象</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8E%9F%E5%9E%8B%E5%8E%9F%E5%9E%8B%E9%93%BE"><span class="toc-number">8.</span> <span class="toc-text">原型原型链</span></a></li></ol> -->
+          <!-- <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#01-%E4%BB%80%E4%B9%88%E6%98%AF%E4%BD%9C%E7%94%A8%E5%9F%9F"><span class="toc-number">1.</span> <span class="toc-text">01 &#x2F; 什么是作用域?</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#02-%E8%AF%8D%E6%B3%95%E4%BD%9C%E7%94%A8%E5%9F%9F%E5%92%8C%E9%9D%99%E6%80%81%E4%BD%9C%E7%94%A8%E5%9F%9F%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="toc-number">2.</span> <span class="toc-text">02 &#x2F; 词法作用域和静态作用域的区别?</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#03-JS%E4%BB%A3%E7%A0%81%E6%89%A7%E8%A1%8C%E9%A1%BA%E5%BA%8F%E6%98%AF%E4%BB%80%E4%B9%88"><span class="toc-number">3.</span> <span class="toc-text">03 &#x2F; JS代码执行顺序是什么</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#04-%E5%8F%AF%E6%89%A7%E8%A1%8C%E4%BB%A3%E7%A0%81"><span class="toc-number">4.</span> <span class="toc-text">04 &#x2F; 可执行代码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#05-%E6%89%A7%E8%A1%8C%E4%B8%8A%E4%B8%8B%E6%96%87%E6%A0%88"><span class="toc-number">5.</span> <span class="toc-text">05 &#x2F; 执行上下文栈</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#06-%E4%BB%80%E4%B9%88%E6%98%AF%E5%A0%86%E6%A0%88"><span class="toc-number"></span> <span class="toc-text">06 &#x2F; 什么是堆栈</span></a> -->
         </div>
       </div>
     </div>
@@ -303,53 +303,54 @@
     <p>JavaScript深入 - 作用域相关问题</p>
 <a id="more"></a>
 
-<h2 id="作用域"><a href="#作用域" class="headerlink" title="作用域"></a>作用域</h2><p>作用域是指程序源代码中定义变量的区域</p>
+<h3 id="01-什么是作用域"><a href="#01-什么是作用域" class="headerlink" title="01 / 什么是作用域?"></a>01 / 什么是作用域?</h3><p>作用域是指程序源代码中定义变量的区域</p>
 <ul>
-<li>规定了如何让查找变量,也就是当前执行代码对变量的访问权限</li>
+<li>作用域规定了查找变量,也就是当前执行代码对变量的访问权限</li>
 <li>JavaScript采用词法作用域(静态作用域)</li>
 </ul>
-<h2 id="静态作用域"><a href="#静态作用域" class="headerlink" title="静态作用域"></a>静态作用域</h2><p>函数的作用域在函数定义的时候就已经决定了</p>
-<h2 id="动态作用域"><a href="#动态作用域" class="headerlink" title="动态作用域"></a>动态作用域</h2><p>函数的作用域在函数调用的时候才决定</p>
-<h2 id="执行上下文栈"><a href="#执行上下文栈" class="headerlink" title="执行上下文栈"></a>执行上下文栈</h2><ul>
-<li>JavaScript代码是逐行执行的</li>
-<li>但是js引擎并非一行一行的分析执行程序,而是一段一段的分析执行</li>
+<h3 id="02-词法作用域和静态作用域的区别"><a href="#02-词法作用域和静态作用域的区别" class="headerlink" title="02 / 词法作用域和静态作用域的区别?"></a>02 / 词法作用域和静态作用域的区别?</h3><ul>
+<li>静态作用域:    函数的作用域在函数定义的时候就已经决定了</li>
+<li>动态作用域:    函数的作用域在函数调用的时候才决定</li>
 </ul>
-<h4 id="可执行代码"><a href="#可执行代码" class="headerlink" title="可执行代码"></a>可执行代码</h4><p>可执行代码有三种,全局代码,函数代码,eval代码,当执行到可执行代码的,就会进行准备一些工作—-&gt;执行上下文</p>
+<h3 id="03-JS代码执行顺序是什么"><a href="#03-JS代码执行顺序是什么" class="headerlink" title="03 / JS代码执行顺序是什么"></a>03 / JS代码执行顺序是什么</h3><p>JavaScript代码是逐行执行的 , 但是js引擎并非一行一行的解析执行程序,而是一段一段的分析执行,为什么是分段执行的呢?又按什么规则来分段的呢?这里我们需要再了解一下什么是<strong>可执行代码</strong></p>
+<h3 id="04-可执行代码"><a href="#04-可执行代码" class="headerlink" title="04 / 可执行代码"></a>04 / 可执行代码</h3><p>可执行代码有三种,全局代码,函数代码,eval代码,当执行到可执行代码的时候,就会进行准备一些工作 . 这个准备工作就是执行上下文</p>
 <ul>
 <li>全局代码</li>
 <li>函数代码</li>
-<li>eval代码</li>
+<li>eval代码(evla()函数可以将传入的字符串当做 JavaScript 代码进行执行)</li>
 </ul>
-<h4 id="执行上下文栈-1"><a href="#执行上下文栈-1" class="headerlink" title="执行上下文栈"></a>执行上下文栈</h4><p>为了管理js中大量的可执行上下文,JavaScript引擎创建了执行上下文栈来管理可执行上下文</p>
+<h3 id="05-执行上下文栈"><a href="#05-执行上下文栈" class="headerlink" title="05 / 执行上下文栈"></a>05 / 执行上下文栈</h3><p>为了管理js中大量的可执行上下文,JavaScript引擎创建了<strong>执行上下文栈</strong>来管理可执行上下文</p>
 <ul>
-<li>当 JavaScript 开始要解释执行代码的时候，最先遇到的就是全局代码，所以初始化的时候首先就会向执行上下文栈压入一个全局执行上下文，我们用 globalContext 表示它，并且只有当整个应用程序结束的时候，ECStack 才会被清空，所以程序结束之前， ECStack 最底部永远有个 globalContext.<ul>
-<li>当函数开始执行的时候,同样生成一个可以执行上下文并压入可执行上下文栈,当函数执行完毕的时候,再从执行上下文栈中弹出</li>
-</ul>
+<li><p>当 JavaScript 开始要解释执行代码的时候，最先遇到的就是全局代码，所以初始化的时候首先就会向执行上下文栈压入一个全局执行上下文，我们用 globalContext 表示它，并且只有当整个应用程序结束的时候，ECStack 才会被清空，所以程序结束之前， ECStack 最底部永远有个 globalContext.</p>
+<pre><code>const ECStack  = [    
+    globalContext 
+]</code></pre>
 </li>
 </ul>
-<h2 id="什么是堆栈"><a href="#什么是堆栈" class="headerlink" title="什么是堆栈"></a>什么是堆栈</h2><p>堆栈概念存在于数据结构和操作系统内存中</p>
 <ul>
-<li>在数据结构中<ul>
+<li><p>当函数开始执行的时候,同样生成一个可以执行上下文并压入可执行上下文栈,当函数执行完毕的时候,再从执行上下文栈中弹出</p>
+<pre><code>const ECStack  = [
+    eval()
+    function()
+    globalContext 
+]</code></pre>
+</li>
+</ul>
+<h2 id="06-什么是堆栈"><a href="#06-什么是堆栈" class="headerlink" title="06 / 什么是堆栈"></a>06 / 什么是堆栈</h2><p>堆栈概念存在于<strong>数据结构</strong>和<strong>操作系统</strong>内存中</p>
+<ul>
+<li><p>在数据结构中:</p>
+<ul>
 <li>栈中的数据存取方式为先进后出</li>
 <li>堆是一个优先队列,按照优先级来进行排序的,优先级可以按照大小来规定</li>
 </ul>
 </li>
-<li>操作系统中,内存被分为栈区和堆区<ul>
+<li><p>操作系统中: </p>
+<p><strong>内存被分为栈区和堆区</strong></p>
+<ul>
 <li>栈区的内存由编译器自动分配释放,存放函数的参数值,局部变量值等</li>
-<li>堆内存一般由程序员释放,若没有手动释放则程序结束时由垃圾回收记住回收</li>
+<li>堆内存一般由程序员释放,若没有手动释放则程序结束时由垃圾回收机制回收</li>
 </ul>
 </li>
-</ul>
-<h2 id="内部属性"><a href="#内部属性" class="headerlink" title="内部属性"></a>内部属性</h2><p>所有typeof返回Object的对象都有一个内部属性.可以通过以下代码查看</p>
-<pre><code>Object.prototype.toString.call(array)</code></pre>
-<h2 id="Js内置对象"><a href="#Js内置对象" class="headerlink" title="Js内置对象"></a>Js内置对象</h2><p>js内置对象主要是只在程序执行前存在全局作用域里面的由js定义的一些全局属性,函数和用来实例化其他对象的构造函数对象.</p>
-<p>一般我们经常用到的全局函数变量值 nan , undefined ,</p>
-<p>全局函数: parseInt() , paeseFloat()</p>
-<p>用来实例化的全局构造函数: Date , Object 等</p>
-<h2 id="原型原型链"><a href="#原型原型链" class="headerlink" title="原型原型链"></a>原型原型链</h2><ul>
-<li>js中我们使用构造函数新建对象,在每一个构造函数中都有一个prototype属性值,他的属性值是一个对象,该对象包含了可以由该构造函数的所有梳理共享的属性和方法</li>
-<li>当我们使用构造函数新建一个对象后,在这个对象的内部将包含一个指针,这个指针指向构造函数的prototype属性对应的值,es5该指针被称为对象的原型</li>
-<li>一般来说我们是不能</li>
 </ul>
 
   </article>
@@ -376,8 +377,8 @@
   <strong>
     本文链接：
   </strong>
-  <a href="https://juntengma.github.io/2020/11/03/JavaScript/JavaScript%E4%BD%9C%E7%94%A8%E5%9F%9F/" target="_blank">
-    https://juntengma.github.io/2020/11/03/JavaScript/JavaScript%E4%BD%9C%E7%94%A8%E5%9F%9F/
+  <a href="https://juntengma.github.io/2020/11/03/JavaScript/03%20-%20JavaScript-%E4%BD%9C%E7%94%A8%E5%9F%9F&amp;%E5%8F%AF%E6%89%A7%E8%A1%8C%E4%B8%8A%E4%B8%8B%E6%96%87/" target="_blank">
+    https://juntengma.github.io/2020/11/03/JavaScript/03%20-%20JavaScript-%E4%BD%9C%E7%94%A8%E5%9F%9F&amp;%E5%8F%AF%E6%89%A7%E8%A1%8C%E4%B8%8A%E4%B8%8B%E6%96%87/
   </a>
   <br>
 
@@ -449,7 +450,7 @@ gitment.render('gitment')
     !IsPC() && $('.nexmoe-toc').addClass('nexmoe-toc-phone')
 
     $('.nexmoe-fixed').hover(function () {
-      $('.nexmoe-toc').html(`<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BD%9C%E7%94%A8%E5%9F%9F"><span class="toc-text">作用域</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%9D%99%E6%80%81%E4%BD%9C%E7%94%A8%E5%9F%9F"><span class="toc-text">静态作用域</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8A%A8%E6%80%81%E4%BD%9C%E7%94%A8%E5%9F%9F"><span class="toc-text">动态作用域</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%89%A7%E8%A1%8C%E4%B8%8A%E4%B8%8B%E6%96%87%E6%A0%88"><span class="toc-text">执行上下文栈</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8F%AF%E6%89%A7%E8%A1%8C%E4%BB%A3%E7%A0%81"><span class="toc-text">可执行代码</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%89%A7%E8%A1%8C%E4%B8%8A%E4%B8%8B%E6%96%87%E6%A0%88-1"><span class="toc-text">执行上下文栈</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E5%A0%86%E6%A0%88"><span class="toc-text">什么是堆栈</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%86%85%E9%83%A8%E5%B1%9E%E6%80%A7"><span class="toc-text">内部属性</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Js%E5%86%85%E7%BD%AE%E5%AF%B9%E8%B1%A1"><span class="toc-text">Js内置对象</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8E%9F%E5%9E%8B%E5%8E%9F%E5%9E%8B%E9%93%BE"><span class="toc-text">原型原型链</span></a></li></ol>`)
+      $('.nexmoe-toc').html(`<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#01-%E4%BB%80%E4%B9%88%E6%98%AF%E4%BD%9C%E7%94%A8%E5%9F%9F"><span class="toc-text">01 &#x2F; 什么是作用域?</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#02-%E8%AF%8D%E6%B3%95%E4%BD%9C%E7%94%A8%E5%9F%9F%E5%92%8C%E9%9D%99%E6%80%81%E4%BD%9C%E7%94%A8%E5%9F%9F%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="toc-text">02 &#x2F; 词法作用域和静态作用域的区别?</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#03-JS%E4%BB%A3%E7%A0%81%E6%89%A7%E8%A1%8C%E9%A1%BA%E5%BA%8F%E6%98%AF%E4%BB%80%E4%B9%88"><span class="toc-text">03 &#x2F; JS代码执行顺序是什么</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#04-%E5%8F%AF%E6%89%A7%E8%A1%8C%E4%BB%A3%E7%A0%81"><span class="toc-text">04 &#x2F; 可执行代码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#05-%E6%89%A7%E8%A1%8C%E4%B8%8A%E4%B8%8B%E6%96%87%E6%A0%88"><span class="toc-text">05 &#x2F; 执行上下文栈</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#06-%E4%BB%80%E4%B9%88%E6%98%AF%E5%A0%86%E6%A0%88"><span class="toc-text">06 &#x2F; 什么是堆栈</span></a>`)
       IsPC() ?
         $('.nexmoe-toc').css({
           'margin-right': 0
@@ -475,7 +476,7 @@ gitment.render('gitment')
   </div>
   <script src="https://cdn.jsdelivr.net/combine/npm/lazysizes@5.1.0/lazysizes.min.js,gh/highlightjs/cdn-release@9.15.8/build/highlight.min.js,npm/mdui@0.4.3/dist/js/mdui.min.js,gh/nexmoe/nexmoe.github.io@latest/js/app.js"></script>
 <script>hljs.initHighlightingOnLoad();</script>
-<!--<script src="../../../../../js/app.js?v=1604628805138"></script>-->
+<!--<script src="../../../../../js/app.js?v=1604915948565"></script>-->
 
 
 

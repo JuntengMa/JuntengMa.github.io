@@ -162,6 +162,558 @@ git rm xxx 除某文件</code></pre>
   </entry>
   <entry>
     <title></title>
+    <url>/2020/11/09/JavaScript/JavaScript-promise/</url>
+    <content><![CDATA[<h1 id="promise"><a href="#promise" class="headerlink" title="promise"></a>promise</h1><h4 id="1-什么是promise"><a href="#1-什么是promise" class="headerlink" title="1.什么是promise?"></a>1.什么是promise?</h4><p> console.dir(Promise)<br> Promise是一个构造函数,身上有all,reject,resolve几个方法,prototype上有then,catch等方法</p>
+<blockquote>
+<p>Promise对象是一个代理对象(代理一个值),被代理的值再Promise对象创建时可能是未知的.它允许你为异步操作的成功和失败分别绑定相应的处理方法.<br>似的异步方法可以像同步方法一样返回值,但并不是立即返回最终执行结果,而是一个<strong>能代表未来出现的结果的Promise对象</strong>???</p>
+</blockquote>
+<h4 id="2-promise怎么创建"><a href="#2-promise怎么创建" class="headerlink" title="2.promise怎么创建?"></a>2.promise怎么创建?</h4><pre><code class="js">var p = new Promise(function(resolve,reject))&#123;
+         //做异步操作
+         setTimeout(()=&gt;&#123;
+        resolve(&#39;一些数据信息&#39;)
+&#125;,10)                    </code></pre>
+<h4 id="3-promise的三种状态"><a href="#3-promise的三种状态" class="headerlink" title="3.promise的三种状态"></a>3.promise的三种状态</h4><p>promise是异步操作,所以只有操作结果才可以改变promise状态</p>
+<blockquote>
+<p>01-pending : 待定</p>
+<p>02-fulfilled : 已解决/已实现</p>
+<p>03-rejected:已拒绝/未实现</p>
+<p>状态改变:</p>
+<p>pending—&gt;fulfiled<br>pending—&gt;rejected</p>
+</blockquote>
+<p>​                        </p>
+]]></content>
+  </entry>
+  <entry>
+    <title></title>
+    <url>/2020/11/09/JavaScript/JavsScript-%E5%A4%84%E7%90%86%E5%BC%82%E6%AD%A5%E5%87%BD%E6%95%B0%E5%87%A0%E7%A7%8D%E6%96%B9%E6%A1%88/</url>
+    <content><![CDATA[<h1 id="JS处理异步函数几种方案"><a href="#JS处理异步函数几种方案" class="headerlink" title="JS处理异步函数几种方案"></a>JS处理异步函数几种方案</h1><h4 id="1-回调函数"><a href="#1-回调函数" class="headerlink" title="1.回调函数"></a>1.回调函数</h4><p>顾名思义: 将一个函数作为参数传入另外一个函数中,等父级函数执行完再执行回调函数</p>
+<pre><code class="js">function f1(callBack)&#123;
+    console.log(&quot;hello&quot;)
+    let data = &quot;world&quot;
+    callBack(data)
+&#125;
+f1((data)=&gt;console.log(data))
+// hello
+// world</code></pre>
+<p>回调函数优缺点:</p>
+<blockquote>
+<p>优点: 简单方便,适用于<strong>只有一个异步的操作</strong><br>缺点:如果嵌套层级过深,会形成回调地狱,耦合度过强</p>
+</blockquote>
+<pre><code class="js">getData(&#39;x&#39;,()=&gt;&#123;
+    //callBack函数体
+    getData2(&#39;y&#39;,()=&gt;&#123;
+        //callBack函数体
+        getData3(&#39;z&#39;,()=&gt;&#123;
+            //callBack函数体
+            ...
+        &#125;)
+    &#125;)
+&#125;)</code></pre>
+<h4 id="2-Promise对象-async-await-最常用-终极解决方案"><a href="#2-Promise对象-async-await-最常用-终极解决方案" class="headerlink" title="2.Promise对象+async+await(最常用,终极解决方案)"></a>2.Promise对象+async+await(最常用,终极解决方案)</h4><ul>
+<li><p>promise严格来说是一种模式,可以来管理异步代码</p>
+</li>
+<li><p>什么是Promise?</p>
+<blockquote>
+<p>Promise是解决异步编程的一种方案</p>
+</blockquote>
+</li>
+<li><p>优点:</p>
+<blockquote>
+<p>可以解决回调地狱问题,且Promise只有resolve 和 reject 两种状态</p>
+</blockquote>
+</li>
+<li><p>常用API:</p>
+<blockquote>
+<p>resolve : 返回异步操作成功结果<br>reject    : 返回异步操作失败结果<br>then      : 执行Promise状态为成功的操作<br>catch     :执行Promise状态为失败的操作<br>finally    :不管Promise是否成功都执行的操作</p>
+</blockquote>
+</li>
+<li><p>使用:</p>
+<pre><code class="js">    const p  = new Promise((resolve,reject)=&gt;&#123;
+        //异步操作
+        if(success)&#123;
+            resolve(&#39;some message&#39;)
+        &#125;else&#123;
+            reject(err)
+        &#125;
+    &#125;)
+    p.then(res=&gt;&#123;
+        //resolve数据
+    &#125;).catch(err=&gt;&#123;
+        //rejects数据
+    &#125;).finally(()=&gt;&#123;
+        //执行一些操作
+    &#125;)</code></pre>
+</li>
+<li><p>使用案例2: 封装nodejs的request模块</p>
+<pre><code class="js">const request = require(&quot;request&quot;);
+const requestData = (uri) =&gt; &#123;
+    return new Promise((resolve, reject) =&gt; &#123;
+        request(&#123;
+            uri
+        &#125;, (err, res, body) =&gt; &#123;
+            resolve(&#123;
+                err,
+                res,
+                body
+            &#125;)
+        &#125;)
+    &#125;)
+&#125;;
+//使用
+let url = &quot;https://imgcache.qq.com/wss/security//ssl/build/ssl-444feca18a7857546ff9b39bbc95a17c.js&quot;;
+(async() =&gt; &#123;
+    let &#123;
+        err,
+        res,
+        body
+    &#125; = await requestData(url)
+    console.log(res)
+&#125;)()</code></pre>
+</li>
+</ul>
+<h4 id="3-事件绑定"><a href="#3-事件绑定" class="headerlink" title="3.事件绑定"></a>3.事件绑定</h4><p>事件绑定的方法有三种</p>
+<p>一，事件监听，<br>二，对象.on方法，<br>三，直接在行内写<br>事件监听有两种方法，</p>
+<blockquote>
+<ul>
+<li>addlisenerevent</li>
+<li>attachevent</li>
+</ul>
+</blockquote>
+<p>两种事件监听的区别:<br>addeventlistener参数个数一般是三个，参数书写（事件类型）不写on执行顺序为：顺序注册倒序执行，兼容非IE7.8，最后一个参数是TRUE或FALSE，TRUE为捕获，FALSE为冒泡，默认FALSE<br>attachevent参数个数为两个，参数书写不写on，执行顺序：顺序注册倒序执行，兼容ie78</p>
+<h4 id="4-Generator函数"><a href="#4-Generator函数" class="headerlink" title="4.Generator函数"></a>4.Generator函数</h4>]]></content>
+  </entry>
+  <entry>
+    <title></title>
+    <url>/2020/11/09/React/React%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/</url>
+    <content><![CDATA[<h4 id="React基础知识汇总"><a href="#React基础知识汇总" class="headerlink" title="React基础知识汇总"></a>React基础知识汇总</h4><h4 id="01-Virtual-Dom"><a href="#01-Virtual-Dom" class="headerlink" title="01 / Virtual Dom"></a>01 / Virtual Dom</h4><p><img src="https://s1.ax1x.com/2020/11/09/BH1gUK.png"></p>
+<ul>
+<li><p>什么是Virtual Dom?</p>
+<ul>
+<li>在原生的<code>JavaScript</code>程序中，我们直接对<code>DOM</code>进行创建和更改，而<code>DOM</code>元素通过我们监听的事件和我们的应用程序进行通讯。</li>
+<li><code>React</code>会先将你的代码转换成一个<code>JavaScript</code>对象，然后这个<code>JavaScript</code>对象再转换成真实<code>DOM</code>。这个<code>JavaScript</code>对象就是所谓的虚拟<code>DOM</code>。</li>
+<li>当我们需要创建或更新元素时，<code>React</code>首先会让这个<code>VitrualDom</code>对象进行创建和更改，然后再将<code>VitrualDom</code>对象渲染成真实<code>DOM</code>；</li>
+<li>当我们需要对<code>DOM</code>进行事件监听时，首先对<code>VitrualDom</code>进行事件监听，<code>VitrualDom</code>会代理原生的<code>DOM</code>事件从而做出响应。</li>
+</ul>
+</li>
+<li><p>为什么使用虚拟dom?</p>
+<ul>
+<li><p>可以提高开发效率</p>
+<pre><code>使用JavaScript，我们在编写应用程序时的关注点在于如何更新DOM。
+
+使用React，你只需要告诉React你想让视图处于什么状态，React则通过VitrualDom确保DOM与该状态相匹配。你不必自己去完成属性操作、事件处理、DOM更新，React会替你完成这一切。
+
+这让我们更关注我们的业务逻辑而非DOM操作，这一点即可大大提升我们的开发效率。</code></pre>
+</li>
+<li><p>性能提升?(有一些矛盾)</p>
+<pre><code>- 直接说虚拟DOM可以提升性能这种说法是很片面的,直接操作dom非常耗费性能这一点毋庸置疑,但是react同样也无法避免操作dom
+-    如果是首次渲染,virtualDom不具有任何优势,甚至要进行更多的计算和耗费更多的内存
+- virtualDOm优势在于diff算法和批量处理策略,在react页面更新之前,已经提前计算好了如何更新和渲染dom,减少重绘回流,因此可以理解为提升了性能</code></pre>
+</li>
+<li><p>跨浏览器兼容</p>
+<pre><code>virtualDom自己实现了一套事件机制,模拟了事件捕获和冒泡的过程,采用了事件代理和批量更新的方法,可以抹平各浏览器事件处理不兼容的问题</code></pre>
+</li>
+</ul>
+</li>
+<li><p>React组件的渲染流程</p>
+<ul>
+<li><p>使用<code>React.createElement</code>或<code>JSX</code>编写<code>React</code>组件，<code>Babel</code>帮助我们把所有的<code>JSX </code>代码最后都会转换成<code>React.createElement(...) </code>格式</p>
+<ul>
+<li><p>JSX编写</p>
+<pre><code>class Hello extends Component &#123;
+  render() &#123;
+    return &lt;div&gt;Hello ConardLi&lt;/div&gt;;
+  &#125;
+&#125;</code></pre>
+</li>
+<li><p><code>React.createElement</code>编写</p>
+<pre><code>class Hello extends Component &#123;
+  render() &#123;
+    return React.createElement(&#39;div&#39;, null, `Hello ConardLi`);
+  &#125;
+&#125;</code></pre>
+</li>
+<li><p><code>Babel</code>转化demo</p>
+<pre><code>&lt;div&gt;
+  &lt;img src=&quot;avatar.png&quot; className=&quot;profile&quot; /&gt;
+  &lt;Hello /&gt;
+&lt;/div&gt;;</code></pre>
+<pre><code>React.createElement(&quot;div&quot;, null, 
+    React.createElement(&quot;img&quot;, &#123;
+      src: &quot;avatar.png&quot;,
+      className: &quot;profile&quot;
+    &#125;), 
+    React.createElement(Hello, null)
+);</code></pre>
+</li>
+</ul>
+</li>
+<li><p><code>createElement</code>函数对<code>key</code>和<code>ref</code>等特殊的<code>props</code>进行处理，并获取<code>defaultProps</code>对默认<code>props</code>进行赋值，并且对传入的孩子节点进行处理，最终构造成一个<code>ReactElement</code>对象（所谓的虚拟<code>DOM</code>）。</p>
+</li>
+<li><p><code>ReactDOM.render</code>将生成好的虚拟<code>DOM</code>渲染到指定容器上，其中采用了批处理、事务等机制并且对特定浏览器进行了性能优化，最终转换为真实<code>DOM</code>。</p>
+</li>
+</ul>
+</li>
+</ul>
+<p>​    </p>
+<ul>
+<li><p>virtualDom的组成</p>
+<p>即<code>ReactElement</code>element对象，我们的组件最终会被渲染成下面的结构</p>
+<ul>
+<li><code>type</code>：元素的类型，可以是原生html类型（字符串），或者自定义组件（函数或<code>class</code>）</li>
+<li><code>key</code>：组件的唯一标识，用于<code>Diff</code>算法</li>
+<li><code>ref</code>：用于访问原生<code>dom</code>节点</li>
+<li><code>props</code>：传入组件的<code>props</code>，<code>chidren</code>是<code>props</code>中的一个属性，它存储了当前组件的孩子节点，可以是数组（多个孩子节点）或对象（只有一个孩子节点）</li>
+<li><code>owner</code>：当前正在构建的<code>Component</code>所属的<code>Component</code></li>
+<li><code>self</code>：（非生产环境）指定当前位于哪个组件实例</li>
+<li><code>_source</code>：（非生产环境）指定调试代码来自的文件(<code>fileName</code>)和代码行数(<code>lineNumber</code>)</li>
+</ul>
+<p>例如;</p>
+<pre><code>&lt;div class=&quot;title&quot;&gt;
+      &lt;span&gt;Hello ConardLi&lt;/span&gt;
+      &lt;ul&gt;
+        &lt;li&gt;苹果&lt;/li&gt;
+        &lt;li&gt;橘子&lt;/li&gt;
+      &lt;/ul&gt;
+&lt;/div&gt;</code></pre>
+<pre><code>
+const VitrualDom = &#123;
+  type: &#39;div&#39;,
+  props: &#123; class: &#39;title&#39; &#125;,
+  children: [
+    &#123;
+      type: &#39;span&#39;,
+      children: &#39;Hello ConardLi&#39;
+    &#125;,
+    &#123;
+      type: &#39;ul&#39;,
+      children: [
+        &#123; type: &#39;li&#39;, children: &#39;苹果&#39; &#125;,
+        &#123; type: &#39;li&#39;, children: &#39;橘子&#39; &#125;
+      ]
+    &#125;
+  ]
+&#125;</code></pre>
+</li>
+</ul>
+<h4 id="02-diff算法"><a href="#02-diff算法" class="headerlink" title="02 / diff算法"></a>02 / diff算法</h4>]]></content>
+  </entry>
+  <entry>
+    <title>JavaScript基础知识综合</title>
+    <url>/2020/11/09/JavaScript/01%20-%20JavaScript%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E7%BB%BC%E5%90%88/</url>
+    <content><![CDATA[<p>[TOC]</p>
+<h4 id="01-JS数据类型-6-1"><a href="#01-JS数据类型-6-1" class="headerlink" title="01 / JS数据类型(6+1)"></a>01 / JS数据类型(6+1)</h4><p><strong>基本数据类型:</strong></p>
+<pre><code>- null
+- undefined
+- number
+- string
+- boolean
+- symbol:代表创建后独一无二且不可变的数据类型，它的出现我认为主要是为了解决可能出现的全局变量冲突的问题。</code></pre>
+<p><strong>引用数据类型:</strong></p>
+<p>引用数据类型指的是object类型,其他如Array,Date等数据类型都可以理解为Object的子类</p>
+<pre><code>object =  [
+   Array,
+   Date,
+   Math,
+   ...
+]</code></pre>
+<p><strong>基本数据类型和引用数据类型区别:</strong></p>
+<ul>
+<li>基本数据类型在内存中占固定大小的空间,因此被保存在栈中</li>
+<li>引用类型值是对象，保存在 <strong>堆内存</strong> 中。包含引用类型值的变量实际包含并非对象本身，而是指向该对象的指针。一个变量从另一个变量复制引用类型的值时，复制的也是指向该对象的指针。</li>
+</ul>
+<h4 id="02-什么是堆-栈"><a href="#02-什么是堆-栈" class="headerlink" title="02 / 什么是堆/栈?"></a>02 / 什么是堆/栈?</h4><p>堆栈概念存在于<strong>数据结构</strong>和<strong>操作系统</strong>内存中</p>
+<ul>
+<li><p>在数据结构中:</p>
+<ul>
+<li>栈中的数据存取方式为先进后出</li>
+<li>堆是一个优先队列,按照优先级来进行排序的,优先级可以按照大小来规定</li>
+</ul>
+</li>
+<li><p>操作系统中 ,内存被分为栈区和堆区:</p>
+<ul>
+<li>栈区的内存由编译器自动分配释放,存放函数的参数值,局部变量值等</li>
+</ul>
+</li>
+<li><p>堆内存一般由程序员释放,若没有手动释放则程序结束时由垃圾回收机制回收</p>
+</li>
+</ul>
+<h4 id="03-什么是JavaSctipt垃圾回收机制"><a href="#03-什么是JavaSctipt垃圾回收机制" class="headerlink" title="03 / 什么是JavaSctipt垃圾回收机制?"></a>03 / 什么是JavaSctipt垃圾回收机制?</h4><ul>
+<li><p><strong>为什么要垃圾回收?</strong></p>
+<pre><code>随着前端业务需求的不断增多，相比以前，我们会占用更多的内存。但是内存并不是无限的，而对于那些我们不再需要的变量、对象该怎么处理呢？这里就是垃圾回收机制的作用</code></pre>
+</li>
+<li><p><strong>垃圾回收机制的特点:</strong></p>
+<p>垃圾回收机制，会定期对那些我们不再使用的变量、对象所占用的内存进行释放</p>
+<pre><code>原理:
+    -    找出那些不再使用的变量，然后释放其占用的内存。
+    - 垃圾收集器会按照固定的时间间隔(或预定的收集时间)周期性地执行此操作。</code></pre>
+</li>
+<li><p><strong>垃圾回收的方式有哪些?</strong></p>
+<ul>
+<li><p>标记清除</p>
+<ul>
+<li><p>当变量进入环境时,就将其标记为”进入环境”,此时”进入环境”的变量是不可以被回收的”</p>
+</li>
+<li><p>当变量离开环境时,就将其标记为”离开环境”,此时”离开环境”的变量可以被回收</p>
+<pre><code>function func () &#123;
+      const a = 1
+    const b = 2
+      // 函数执行时，a b 分别被标记 进入环境
+&#125;
+
+func() // 函数执行结束，a b 被标记 离开环境，被回收</code></pre>
+</li>
+</ul>
+</li>
+<li><p>引用计数</p>
+<ul>
+<li><p>统计引用类型变量声明后被引用的次数，当次数为 0 时，该变量将被回收</p>
+<pre><code>function func1 () &#123;
+      const c = &#123;&#125; // 引用类型变量 c的引用计数为 0
+      let d = c // c 被 d 引用 c的引用计数为 1
+      let e = c // c 被 e 引用 c的引用计数为 2
+      d = &#123;&#125; // d 不再引用c c的引用计数减为 1
+      e = null // e 不再引用 c c的引用计数减为 0 将被回收
+&#125;</code></pre>
+</li>
+<li><p>但是引用计数的方式，有一个相对明显的缺点——<strong>循环引用</strong></p>
+<pre><code>function func5 () &#123;
+      let f = &#123;&#125;
+      let g = &#123;&#125;
+      f.prop = g
+      g.prop = f
+      // 由于 f 和 g 互相引用，计数永远不可能为 0
+&#125;</code></pre>
+</li>
+<li><p>像上面这种情况就需要<strong>手动将变量的内存释放</strong></p>
+<pre><code>f.prop = null
+g.prop = null</code></pre>
+<p>参考:</p>
+<pre><code> [&lt;&lt;javascript 垃圾回收机制&gt;&gt;](https://juejin.im/post/6844903652331618312)    
+ [&lt;&lt;JavaScript 垃圾回收机制&gt;&gt;](https://juejin.im/post/6844903858972409869#heading-3)</code></pre>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="04-什么是循环引用"><a href="#04-什么是循环引用" class="headerlink" title="04 / 什么是循环引用 ?"></a>04 / 什么是循环引用 ?</h4><p>当对象 1 中的某个属性指向对象 2，对象 2 中的某个属性指向对象 1 就会出现循环引用(最简单的例子)</p>
+<pre><code>  function circularReference() &#123;
+      let obj1 = &#123; &#125;;
+      let obj2 = &#123; &#125;;
+      obj1.a = obj2;
+      obj2.b = obj1;
+  &#125;</code></pre>
+<h4 id="05-内存泄露"><a href="#05-内存泄露" class="headerlink" title="05 / 内存泄露"></a>05 / 内存泄露</h4><ul>
+<li><p>什么时候是内存泄露?</p>
+<pre><code></code></pre>
+</li>
+<li><p>常见的内存泄露有哪些?</p>
+<pre><code></code></pre>
+</li>
+</ul>
+<h4 id="06-JavaScript可执行上下文"><a href="#06-JavaScript可执行上下文" class="headerlink" title="06 /  JavaScript可执行上下文"></a>06 /  JavaScript可执行上下文</h4><p><a href="">&lt;&lt;&gt;&gt;</a></p>
+<h4 id="07-JavaScript在浏览器中执行顺序"><a href="#07-JavaScript在浏览器中执行顺序" class="headerlink" title="07 /  JavaScript在浏览器中执行顺序"></a>07 /  JavaScript在浏览器中执行顺序</h4><p><a href="">&lt;&lt;&gt;&gt;</a></p>
+<h4 id="08-从输入url到页面加载过程"><a href="#08-从输入url到页面加载过程" class="headerlink" title="08 /  从输入url到页面加载过程"></a>08 /  从输入url到页面加载过程</h4><p><a href="">&lt;&lt;从输入url到页面加载过程&gt;&gt;</a></p>
+<h4 id="09-内部属性-class-是什么"><a href="#09-内部属性-class-是什么" class="headerlink" title="09 / 内部属性[[class]]是什么"></a>09 / 内部属性[[class]]是什么</h4><p>所有typeof返回Object的对象都有一个内部属性.可以通过以下代码查看</p>
+<pre><code>Object.prototype.toString.call(Array)  //&quot;[object Function]&quot;</code></pre>
+<h4 id="10-Js内置对象都有哪些"><a href="#10-Js内置对象都有哪些" class="headerlink" title="10 / Js内置对象都有哪些"></a>10 / Js内置对象都有哪些</h4><pre><code>js内置对象主要是只在程序执行前存在全局作用域里面的由js定义的一些全局属性,函数和用来实例化其他对象的构造函数对象.
+
+一般我们经常用到的全局函数变量值 NaN , undefined ,
+
+全局函数: parseInt() , paeseFloat()
+
+用来实例化的全局构造函数: Date , Object 等</code></pre>
+<h4 id="11-原型原型链"><a href="#11-原型原型链" class="headerlink" title="11 / 原型原型链"></a>11 / 原型原型链</h4><p><a href="">&lt;&lt;JavaScript原型原型链&gt;&gt;</a></p>
+<h4 id="12-闭包"><a href="#12-闭包" class="headerlink" title="12 / 闭包"></a>12 / 闭包</h4><h4 id="13-继承"><a href="#13-继承" class="headerlink" title="13 / 继承"></a>13 / 继承</h4><pre><code>继承实现方式:
+- 原型链继承
+- 构造函数继承
+- 组合继承(原型链+构造函数继承)
+- 原型式继承
+- 寄生式继承
+- 寄生组合式继承</code></pre>
+<p><a href="https://github.com/mqyqingfeng/Blog/issues/16">&lt;&lt;JavaScript深入之继承的多种方式和优缺点&gt;&gt;</a></p>
+]]></content>
+      <categories>
+        <category>JavaScript</category>
+      </categories>
+      <tags>
+        <tag>JavaSctipt</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title></title>
+    <url>/2020/11/09/JavaScript/08%20-%20JavaScript-%E9%97%AD%E5%8C%85/</url>
+    <content><![CDATA[<a id="more"></a>
+
+<h4 id="0-前置知识"><a href="#0-前置知识" class="headerlink" title="0/前置知识:"></a>0/前置知识:</h4><p><a href="https://juntengma.github.io/2020/11/03/JavaScript/JavaScript%E4%BD%9C%E7%94%A8%E5%9F%9F/">&lt;&lt;JavaScript作用域&amp;可执行上下文&gt;&gt;</a></p>
+<h4 id="1-什么是闭包"><a href="#1-什么是闭包" class="headerlink" title="1/什么是闭包?"></a>1/什么是闭包?</h4><pre><code>- 内部函数可以访问其所在的外部函数中声明的参数和变量
+- 闭包找到的是同一地址中,父级函数中对应变量最终的值</code></pre>
+<h4 id="2-闭包的特点"><a href="#2-闭包的特点" class="headerlink" title="2/闭包的特点"></a>2/闭包的特点</h4><pre><code>- 让外部访问函数内部变量成为可能；
+-    局部变量会常驻在内存中；
+- 可以避免使用全局变量，防止全局变量污染；
+- 可能会造成内存泄露</code></pre>
+<h4 id="3-实际使用案例"><a href="#3-实际使用案例" class="headerlink" title="3/实际使用案例"></a>3/实际使用案例</h4><ul>
+<li><p>函数防抖节流</p>
+<pre><code>function debounce(fun, delay) &#123;
+  let timer
+  return function (args) &#123;
+    let _this = this
+    let _args = args
+      clearTimeout(timer)
+    timer = setTimeout(() =&gt; &#123;
+        fun.call(_this, _args)
+    &#125;, delay);
+  &#125;
+&#125;</code></pre>
+</li>
+<li><p>使用闭包设计单例模式</p>
+<pre><code>class CreateUser &#123;
+    constructor(name) &#123;
+        this.name = name;
+        this.getName();
+    &#125;
+    getName() &#123;
+         return this.name;
+    &#125;
+&#125;
+// 代理实现单例模式
+var ProxyMode = (function() &#123;
+    var instance = null;
+    return function(name) &#123;
+        if(!instance) &#123;
+            instance = new CreateUser(name);
+        &#125;
+        return instance;
+    &#125;
+&#125;)();
+// 测试单体模式的实例
+var a = ProxyMode(&quot;aaa&quot;);
+var b = ProxyMode(&quot;bbb&quot;);
+// 因为单体模式是只实例化一次，所以下面的实例是相等的
+console.log(a === b);    //true</code></pre>
+</li>
+<li><p>为多个组件独立属性</p>
+<p>假如我现在要在页面中使用echarts画6个线状图，需要6个容器 </p>
+<p>需要为每个容器元素声明一个独立id,不然会混乱</p>
+<pre><code> constructor()&#123;
+ this.state = &#123;id: &quot;EchartsLine&quot;+Util.clourse()&#125;;
+ &#125;
+  componentDidMount() &#123;
+      this.myEChart =echarts.init(document.getElementById(this.state.id));//不同id
+  &#125;</code></pre>
+<pre><code>&lt;div id=&#123;this.state.id&#125; className=&#39;echarts-line&#39;&gt;&lt;/div&gt;</code></pre>
+<pre><code>clourse()&#123;
+    let clourse = (function()&#123;
+        var a = 1;
+        return function()&#123;
+            return a++;
+        &#125;
+    &#125;)(this);
+    this.clourse = clourse;
+&#125;
+//使用数字命名 不用害怕被篡改</code></pre>
+</li>
+<li><p>设置私有变量</p>
+<pre><code>let _width = Symbol();
+    class Private &#123;
+        constructor(s) &#123;
+            this[_width] = s
+        &#125;
+        foo() &#123;
+            console.log(this[_width])
+        &#125;
+    var p = new Private(&quot;50&quot;);
+    p.foo();
+    console.log(p[_width]);//可以拿到</code></pre>
+<pre><code> //赋值到闭包里
+    let sque = (function () &#123;
+        let _width = Symbol();
+
+        class Squery &#123;
+            constructor(s) &#123;
+                this[_width] = s
+            &#125;
+
+            foo() &#123;
+                console.log(this[_width])
+            &#125;
+        &#125;
+        return Squery
+    &#125;)();
+    let ss = new sque(20);
+    ss.foo();
+    console.log(ss[_width])</code></pre>
+</li>
+<li><p>拿到正确的值（老掉牙的问题了😝）</p>
+<pre><code>for(var i=0;i&lt;10;i++)&#123;
+    setTimeout(function()&#123;
+        console.log(i)//10个10
+    &#125;,1000)
+&#125;</code></pre>
+<pre><code>for(var i=0;i&lt;10;i++)&#123;
+((j)=&gt;&#123;
+  setTimeout(function()&#123;
+        console.log(j)//1-10
+    &#125;,1000)&#125;)(i)
+&#125;</code></pre>
+<p>原理是 声明了10个自执行函数，保存当时的值到内部</p>
+</li>
+</ul>
+]]></content>
+  </entry>
+  <entry>
+    <title>React生命周期函数</title>
+    <url>/2020/11/06/React/React-%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/</url>
+    <content><![CDATA[<blockquote>
+<p>​    温故而知新<del>~</del></p>
+<p>​    越基础,越重要哦~</p>
+</blockquote>
+<p><img src="https://s1.ax1x.com/2020/11/06/Bf52x1.jpg"></p>
+]]></content>
+      <categories>
+        <category>React</category>
+      </categories>
+      <tags>
+        <tag>React-生命周期</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>React-Hook学习</title>
+    <url>/2020/11/06/React/React-hooks/</url>
+    <content><![CDATA[<blockquote>
+<p>一直都知道Hook这个新技术,但是工作过程中几乎没有用到,最近刚好有时间来学习一下<del>~</del></p>
+</blockquote>
+<a id="more"></a>
+
+<h3 id="01-什么是Hook"><a href="#01-什么是Hook" class="headerlink" title="01/什么是Hook?"></a>01/什么是Hook?</h3><p>Hook是react16.8新增特性,可以在不编写class的情况下使用state以及其他React特性</p>
+<h3 id="02-什么是Hook"><a href="#02-什么是Hook" class="headerlink" title="02/什么是Hook?"></a>02/什么是Hook?</h3><ul>
+<li>Hook顾名思义是钩子的意思,它可以使函数组件中可以勾入React-State以及生命周期特性等等.</li>
+<li>Hook不能在class组件中使用</li>
+</ul>
+<h3 id="03-Hook内置组件"><a href="#03-Hook内置组件" class="headerlink" title="03/Hook内置组件"></a>03/Hook内置组件</h3><ul>
+<li><p><strong>useState</strong>    (用于操控state)</p>
+<ul>
+<li><p><strong>使用:</strong></p>
+<pre><code>const [stateName , stateChangeFun] = useState(初始值)</code></pre>
+<pre><code>const [count , setCount] = useState(0)
+&lt;Button onClick=&#123;()=&gt;setCount(count++)&#125;&gt;Click&lt;/Button&gt;    </code></pre>
+</li>
+</ul>
+</li>
+<li><p><strong>useEffect</strong></p>
+<p>Effect Hook 可以让我们在react中执行副作用操作</p>
+</li>
+</ul>
+]]></content>
+      <categories>
+        <category>React</category>
+      </categories>
+      <tags>
+        <tag>Hook</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title></title>
     <url>/2020/11/04/Safe/CSRF%E6%94%BB%E5%87%BB/</url>
     <content><![CDATA[<a id="more"></a>]]></content>
   </entry>
@@ -235,57 +787,58 @@ git rm xxx 除某文件</code></pre>
   </entry>
   <entry>
     <title>JavaScript作用域</title>
-    <url>/2020/11/03/JavaScript/JavaScript%E4%BD%9C%E7%94%A8%E5%9F%9F/</url>
+    <url>/2020/11/03/JavaScript/03%20-%20JavaScript-%E4%BD%9C%E7%94%A8%E5%9F%9F&amp;%E5%8F%AF%E6%89%A7%E8%A1%8C%E4%B8%8A%E4%B8%8B%E6%96%87/</url>
     <content><![CDATA[<p>JavaScript深入 - 作用域相关问题</p>
 <a id="more"></a>
 
-<h2 id="作用域"><a href="#作用域" class="headerlink" title="作用域"></a>作用域</h2><p>作用域是指程序源代码中定义变量的区域</p>
+<h3 id="01-什么是作用域"><a href="#01-什么是作用域" class="headerlink" title="01 / 什么是作用域?"></a>01 / 什么是作用域?</h3><p>作用域是指程序源代码中定义变量的区域</p>
 <ul>
-<li>规定了如何让查找变量,也就是当前执行代码对变量的访问权限</li>
+<li>作用域规定了查找变量,也就是当前执行代码对变量的访问权限</li>
 <li>JavaScript采用词法作用域(静态作用域)</li>
 </ul>
-<h2 id="静态作用域"><a href="#静态作用域" class="headerlink" title="静态作用域"></a>静态作用域</h2><p>函数的作用域在函数定义的时候就已经决定了</p>
-<h2 id="动态作用域"><a href="#动态作用域" class="headerlink" title="动态作用域"></a>动态作用域</h2><p>函数的作用域在函数调用的时候才决定</p>
-<h2 id="执行上下文栈"><a href="#执行上下文栈" class="headerlink" title="执行上下文栈"></a>执行上下文栈</h2><ul>
-<li>JavaScript代码是逐行执行的</li>
-<li>但是js引擎并非一行一行的分析执行程序,而是一段一段的分析执行</li>
+<h3 id="02-词法作用域和静态作用域的区别"><a href="#02-词法作用域和静态作用域的区别" class="headerlink" title="02 / 词法作用域和静态作用域的区别?"></a>02 / 词法作用域和静态作用域的区别?</h3><ul>
+<li>静态作用域:    函数的作用域在函数定义的时候就已经决定了</li>
+<li>动态作用域:    函数的作用域在函数调用的时候才决定</li>
 </ul>
-<h4 id="可执行代码"><a href="#可执行代码" class="headerlink" title="可执行代码"></a>可执行代码</h4><p>可执行代码有三种,全局代码,函数代码,eval代码,当执行到可执行代码的,就会进行准备一些工作—-&gt;执行上下文</p>
+<h3 id="03-JS代码执行顺序是什么"><a href="#03-JS代码执行顺序是什么" class="headerlink" title="03 / JS代码执行顺序是什么"></a>03 / JS代码执行顺序是什么</h3><p>JavaScript代码是逐行执行的 , 但是js引擎并非一行一行的解析执行程序,而是一段一段的分析执行,为什么是分段执行的呢?又按什么规则来分段的呢?这里我们需要再了解一下什么是<strong>可执行代码</strong></p>
+<h3 id="04-可执行代码"><a href="#04-可执行代码" class="headerlink" title="04 / 可执行代码"></a>04 / 可执行代码</h3><p>可执行代码有三种,全局代码,函数代码,eval代码,当执行到可执行代码的时候,就会进行准备一些工作 . 这个准备工作就是执行上下文</p>
 <ul>
 <li>全局代码</li>
 <li>函数代码</li>
-<li>eval代码</li>
+<li>eval代码(evla()函数可以将传入的字符串当做 JavaScript 代码进行执行)</li>
 </ul>
-<h4 id="执行上下文栈-1"><a href="#执行上下文栈-1" class="headerlink" title="执行上下文栈"></a>执行上下文栈</h4><p>为了管理js中大量的可执行上下文,JavaScript引擎创建了执行上下文栈来管理可执行上下文</p>
+<h3 id="05-执行上下文栈"><a href="#05-执行上下文栈" class="headerlink" title="05 / 执行上下文栈"></a>05 / 执行上下文栈</h3><p>为了管理js中大量的可执行上下文,JavaScript引擎创建了<strong>执行上下文栈</strong>来管理可执行上下文</p>
 <ul>
-<li>当 JavaScript 开始要解释执行代码的时候，最先遇到的就是全局代码，所以初始化的时候首先就会向执行上下文栈压入一个全局执行上下文，我们用 globalContext 表示它，并且只有当整个应用程序结束的时候，ECStack 才会被清空，所以程序结束之前， ECStack 最底部永远有个 globalContext.<ul>
-<li>当函数开始执行的时候,同样生成一个可以执行上下文并压入可执行上下文栈,当函数执行完毕的时候,再从执行上下文栈中弹出</li>
-</ul>
+<li><p>当 JavaScript 开始要解释执行代码的时候，最先遇到的就是全局代码，所以初始化的时候首先就会向执行上下文栈压入一个全局执行上下文，我们用 globalContext 表示它，并且只有当整个应用程序结束的时候，ECStack 才会被清空，所以程序结束之前， ECStack 最底部永远有个 globalContext.</p>
+<pre><code>const ECStack  = [    
+    globalContext 
+]</code></pre>
 </li>
 </ul>
-<h2 id="什么是堆栈"><a href="#什么是堆栈" class="headerlink" title="什么是堆栈"></a>什么是堆栈</h2><p>堆栈概念存在于数据结构和操作系统内存中</p>
 <ul>
-<li>在数据结构中<ul>
+<li><p>当函数开始执行的时候,同样生成一个可以执行上下文并压入可执行上下文栈,当函数执行完毕的时候,再从执行上下文栈中弹出</p>
+<pre><code>const ECStack  = [
+    eval()
+    function()
+    globalContext 
+]</code></pre>
+</li>
+</ul>
+<h2 id="06-什么是堆栈"><a href="#06-什么是堆栈" class="headerlink" title="06 / 什么是堆栈"></a>06 / 什么是堆栈</h2><p>堆栈概念存在于<strong>数据结构</strong>和<strong>操作系统</strong>内存中</p>
+<ul>
+<li><p>在数据结构中:</p>
+<ul>
 <li>栈中的数据存取方式为先进后出</li>
 <li>堆是一个优先队列,按照优先级来进行排序的,优先级可以按照大小来规定</li>
 </ul>
 </li>
-<li>操作系统中,内存被分为栈区和堆区<ul>
+<li><p>操作系统中: </p>
+<p><strong>内存被分为栈区和堆区</strong></p>
+<ul>
 <li>栈区的内存由编译器自动分配释放,存放函数的参数值,局部变量值等</li>
-<li>堆内存一般由程序员释放,若没有手动释放则程序结束时由垃圾回收记住回收</li>
+<li>堆内存一般由程序员释放,若没有手动释放则程序结束时由垃圾回收机制回收</li>
 </ul>
 </li>
-</ul>
-<h2 id="内部属性"><a href="#内部属性" class="headerlink" title="内部属性"></a>内部属性</h2><p>所有typeof返回Object的对象都有一个内部属性.可以通过以下代码查看</p>
-<pre><code>Object.prototype.toString.call(array)</code></pre>
-<h2 id="Js内置对象"><a href="#Js内置对象" class="headerlink" title="Js内置对象"></a>Js内置对象</h2><p>js内置对象主要是只在程序执行前存在全局作用域里面的由js定义的一些全局属性,函数和用来实例化其他对象的构造函数对象.</p>
-<p>一般我们经常用到的全局函数变量值 nan , undefined ,</p>
-<p>全局函数: parseInt() , paeseFloat()</p>
-<p>用来实例化的全局构造函数: Date , Object 等</p>
-<h2 id="原型原型链"><a href="#原型原型链" class="headerlink" title="原型原型链"></a>原型原型链</h2><ul>
-<li>js中我们使用构造函数新建对象,在每一个构造函数中都有一个prototype属性值,他的属性值是一个对象,该对象包含了可以由该构造函数的所有梳理共享的属性和方法</li>
-<li>当我们使用构造函数新建一个对象后,在这个对象的内部将包含一个指针,这个指针指向构造函数的prototype属性对应的值,es5该指针被称为对象的原型</li>
-<li>一般来说我们是不能</li>
 </ul>
 ]]></content>
       <categories>
@@ -423,7 +976,7 @@ for(let item in obj)&#123;
   </entry>
   <entry>
     <title>深拷贝浅拷贝</title>
-    <url>/2020/11/02/JavaScript/JavaScript%E6%B5%85%E6%8B%B7%E8%B4%9D%E6%B7%B1%E6%8B%B7%E8%B4%9D/</url>
+    <url>/2020/11/02/JavaScript/JavaScript-%E6%B5%85%E6%8B%B7%E8%B4%9D%E6%B7%B1%E6%8B%B7%E8%B4%9D/</url>
     <content><![CDATA[<a id="more"></a>
 
 
@@ -749,7 +1302,7 @@ Last-Modified: Wed, 5 August 1996 15:55:28 GMT
   </entry>
   <entry>
     <title>防抖节流及其应用场景</title>
-    <url>/2020/10/29/JavaScript/JavaScript%E9%98%B2%E6%8A%96%E8%8A%82%E6%B5%81/</url>
+    <url>/2020/10/29/JavaScript/08.1%20-%20JavaScript-%E9%98%B2%E6%8A%96%E8%8A%82%E6%B5%81/</url>
     <content><![CDATA[<blockquote>
 <p>​    复习一下防抖节流及其应用场景</p>
 </blockquote>
@@ -1177,7 +1730,7 @@ height = content height + padding + border;</code></pre>
   </entry>
   <entry>
     <title>DOM事件 , 事件流</title>
-    <url>/2020/10/28/JavaScript/JavaScriptDOM%E4%BA%8B%E4%BB%B6%E6%B5%81/</url>
+    <url>/2020/10/28/JavaScript/02%20-%20JavaScript-DOM%E4%BA%8B%E4%BB%B6%E6%B5%81/</url>
     <content><![CDATA[<blockquote>
 <p>DOM事件, 事件流</p>
 </blockquote>
@@ -1359,7 +1912,7 @@ setTimeout(function() &#123;
   </entry>
   <entry>
     <title>原型,原型链</title>
-    <url>/2020/10/26/JavaScript/JavaScript%E5%8E%9F%E5%9E%8B%E5%8E%9F%E5%9E%8B%E9%93%BE/</url>
+    <url>/2020/10/26/JavaScript/07%20-%20JavaScript-%E5%8E%9F%E5%9E%8B%E5%8E%9F%E5%9E%8B%E9%93%BE/</url>
     <content><![CDATA[<blockquote>
 <p>​    原型原型链</p>
 </blockquote>
@@ -1421,7 +1974,7 @@ console.log(person.__proto__ === Person.prototype); //true
   </entry>
   <entry>
     <title>浏览器解析js流程</title>
-    <url>/2020/10/26/JavaScript/JavaScript%E8%A7%A3%E6%9E%90%E6%B5%81%E7%A8%8B/</url>
+    <url>/2020/10/26/JavaScript/05%20-%20JavaScript-%E8%A7%A3%E6%9E%90%E6%B5%81%E7%A8%8B%E4%BA%8B%E4%BB%B6%E5%BE%AA%E7%8E%AF(Event%20Loop)/</url>
     <content><![CDATA[<blockquote>
 <p>浏览器解析js流程</p>
 </blockquote>
@@ -1434,7 +1987,7 @@ console.log(person.__proto__ === Person.prototype); //true
 <p>同步任务就是主线程上面执行的任务 , 异步任务就是放在任务队列的任务</p>
 <p>所有的同步任务都在主线程上面执行,形成一个执行栈</p>
 <p>异步任务有了运行结果就会在任务队列中放置一个事件,脚本运行时依次运行执行栈,然后会从任务队列中提取事件,</p>
-<p>运行任务队列中的任务,该过程是不断重复的,所以又叫做事件循环(Event loop)</p>
+<p>运行任务队列中的任务,该过程是不断重复的,所以又叫<strong>做事件循环</strong>(Event loop)</p>
 <ul>
 <li>浏览器在解析过程中，如果遇到请求外部资源时，如图像,iconfont,JS等。浏览器将重复1-6过程下载该资源。</li>
 <li>请求过程是异步的，并不会影响HTML文档进行加载，但是当文档加载过程中遇到JS文件，HTML文档会挂起渲染过程，不仅要等到文档中JS文件加载完毕还要等待解析执行完毕，才会继续HTML的渲染过程。</li>
@@ -1451,7 +2004,7 @@ console.log(person.__proto__ === Person.prototype); //true
   </entry>
   <entry>
     <title>从输入URL到页面加载发生了什么</title>
-    <url>/2020/10/26/JavaScript/%E4%BB%8E%E8%BE%93%E5%85%A5url%E5%88%B0%E9%A1%B5%E9%9D%A2%E5%8A%A0%E8%BD%BD%E8%BF%87%E7%A8%8B/</url>
+    <url>/2020/10/26/JavaScript/06%20-%20%E4%BB%8E%E8%BE%93%E5%85%A5url%E5%88%B0%E9%A1%B5%E9%9D%A2%E5%8A%A0%E8%BD%BD%E8%BF%87%E7%A8%8B/</url>
     <content><![CDATA[<blockquote>
 <p>从输入URL到页面加载发生了什么</p>
 </blockquote>
@@ -1797,7 +2350,7 @@ export class ChildA extends React.Component&lt;ChildAProps, any&gt; &#123;
   </entry>
   <entry>
     <title>JavaScript获取元素位置</title>
-    <url>/2020/09/24/JavaScript/JavaScript%E8%8E%B7%E5%8F%96%E5%85%83%E7%B4%A0%E5%9D%90%E6%A0%87%E9%97%AE%E9%A2%98/</url>
+    <url>/2020/09/24/JavaScript/JavaScript-%E8%8E%B7%E5%8F%96%E5%85%83%E7%B4%A0%E5%9D%90%E6%A0%87%E9%97%AE%E9%A2%98/</url>
     <content><![CDATA[<h2 id="js获取元素相对于父级元素的高度"><a href="#js获取元素相对于父级元素的高度" class="headerlink" title="js获取元素相对于父级元素的高度"></a>js获取元素相对于父级元素的高度</h2><a id="more"></a>
 <h4 id="1-offsetLeft-、offsetTop"><a href="#1-offsetLeft-、offsetTop" class="headerlink" title="1. offsetLeft 、offsetTop"></a>1. offsetLeft 、offsetTop</h4><p>offsetLeft/offsetTop -  用于获取子元素相对于父元素的位移（左位移、上位移）</p>
 <h4 id="2-offsetWidth、offsetHeight"><a href="#2-offsetWidth、offsetHeight" class="headerlink" title="2. offsetWidth、offsetHeight"></a>2. offsetWidth、offsetHeight</h4><p>offsetWidth/offsetHeight - 用于获取元素的可见宽度和可见高度</p>
@@ -1973,14 +2526,14 @@ export class RichText extends Component &#123;
   </entry>
   <entry>
     <title>一段js代码在浏览器中是如何执行的</title>
-    <url>/2020/09/22/JavaScript/JavaScript%E4%BB%A3%E7%A0%81%E5%9C%A8%E6%B5%8F%E8%A7%88%E5%99%A8%E4%B8%AD%E7%9A%84%E6%89%A7%E8%A1%8C%E9%A1%BA%E5%BA%8F/</url>
+    <url>/2020/09/22/JavaScript/04%20-%20JavaScript-%E4%BB%A3%E7%A0%81%E5%9C%A8%E6%B5%8F%E8%A7%88%E5%99%A8%E4%B8%AD%E7%9A%84%E6%89%A7%E8%A1%8C%E9%A1%BA%E5%BA%8F/</url>
     <content><![CDATA[<p>一段js代码在浏览器中是如何执行的?</p>
 <a id="more"></a>
 
 
-<h1 id="一段js代码在浏览器中是如何执行的"><a href="#一段js代码在浏览器中是如何执行的" class="headerlink" title="一段js代码在浏览器中是如何执行的"></a>一段js代码在浏览器中是如何执行的</h1><p>在执行一段代码时，JS 引擎会首先创建一个执行栈<br>然后JS引擎会创建一个全局执行上下文，并push到执行栈中, </p>
+<h3 id="一段js代码在浏览器中是如何执行的"><a href="#一段js代码在浏览器中是如何执行的" class="headerlink" title="一段js代码在浏览器中是如何执行的"></a>一段js代码在浏览器中是如何执行的</h3><p>在执行一段代码时，JS 引擎会首先创建一个执行栈,然后JS引擎会创建一个全局执行上下文，并push到执行栈中, </p>
 <ul>
-<li>这个过程JS引擎会为这段代码中所有变量分配内存并赋一个初始值（undefined）</li>
+<li>这个过程JS引擎会为这段代码中<strong>所有变量</strong>分配内存并赋一个初始值（undefined）</li>
 <li>在创建完成后，JS引擎会进入执行阶段，这个过程JS引擎会逐行的执行代码，即为之前分配好内存的变量逐个赋值(真实值)。</li>
 <li>如果这段代码中存在function的声明和调用，那么JS引擎会创建一个函数执行上下文，并push到执行栈中，其创建和执行过程跟全局执行上下文一样。但有特殊情况，即当函数中存在对其它函数的调用时，JS引擎会在父函数执行的过程中，将子函数的全局执行上下文push到执行栈，这也是为什么子函数能够访问到父函数内所声明的变量。</li>
 <li>还有一种特殊情况是，在子函数执行的过程中，父函数已经return了，这种情况下，JS引擎会将父函数的上下文从执行栈中移除，与此同时，JS引擎会为还在执行的子函数上下文创建一个闭包，这个闭包里保存了父函数内声明的变量及其赋值，子函数仍然能够在其上下文中访问并使用这边变量/常量。当子函数执行完毕，JS引擎才会将子函数的上下文及闭包一并从执行栈中移除。</li>
