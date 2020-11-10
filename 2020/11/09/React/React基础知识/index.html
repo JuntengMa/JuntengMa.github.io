@@ -79,7 +79,7 @@
 <meta property="og:image" content="https://s1.ax1x.com/2020/11/09/BH1gUK.png">
 <meta property="og:image" content="https://s1.ax1x.com/2020/11/10/BL0HNF.png">
 <meta property="article:published_time" content="2020-11-09T08:58:59.845Z">
-<meta property="article:modified_time" content="2020-11-10T10:30:02.421Z">
+<meta property="article:modified_time" content="2020-11-10T12:18:10.682Z">
 <meta property="article:author" content="June">
 <meta property="article:tag" content="React">
 <meta name="twitter:card" content="summary">
@@ -282,8 +282,8 @@
 
   <div class="nexmoe-post-meta nexmoe-rainbow" style="margin:10px 0!important;">
     <a><i class="nexmoefont icon-calendar-fill"></i>2020年11月09日</a>
-    <a><i class="nexmoefont icon-areachart"></i>2.1k 字</a>
-    <a><i class="nexmoefont icon-time-circle-fill"></i>大概 9 分钟</a>
+    <a><i class="nexmoefont icon-areachart"></i>2.4k 字</a>
+    <a><i class="nexmoefont icon-time-circle-fill"></i>大概 10 分钟</a>
 </div>
 
   <div class="nexmoe-post-right">
@@ -291,9 +291,10 @@
   </div>
 
   <article>
-    <h4 id="React基础知识汇总"><a href="#React基础知识汇总" class="headerlink" title="React基础知识汇总"></a>React基础知识汇总</h4><a id="more"></a>
+    <h4 id="React基础知识汇总"><a href="#React基础知识汇总" class="headerlink" title="React基础知识汇总"></a>React基础知识汇总</h4><p>[TOC]</p>
+<a id="more"></a>
 
-<h4 id="01-生命周期"><a href="#01-生命周期" class="headerlink" title="01 / 生命周期"></a>01 / 生命周期</h4><h5 id="react15生命周期"><a href="#react15生命周期" class="headerlink" title="react15生命周期"></a>react15生命周期<img src="https://s1.ax1x.com/2020/11/10/BLFB1P.png"></h5><p>React的生命周期就是组件从初始化到卸载到全过程，可以分为以下几个阶段</p>
+<h4 id="01-生命周期"><a href="#01-生命周期" class="headerlink" title="01 / 生命周期"></a>01 / 生命周期</h4><h5 id="react15生命周期"><a href="#react15生命周期" class="headerlink" title="react15生命周期"></a><strong>react15生命周期</strong><img src="https://s1.ax1x.com/2020/11/10/BLFB1P.png"></h5><p>React的生命周期就是组件从初始化到卸载到全过程，可以分为以下几个阶段</p>
 <ul>
 <li>初始化阶段(<ul>
 <li><strong>constructor()</strong>, </li>
@@ -316,9 +317,9 @@
 </li>
 </ul>
 <p>这里需要注意的是更新阶段，componentWillReceiveProps是由父组件触发的更新，只要父组件更新，子组件的该生命周期就会被执行，跟props无关。同是，shouldComponentUpdate可以用来做性能优化</p>
-<h5 id="react16生命周期"><a href="#react16生命周期" class="headerlink" title="react16生命周期"></a>react16生命周期</h5><p><img src="https://s1.ax1x.com/2020/11/10/BLkabF.png"></p>
+<h5 id="react16生命周期"><a href="#react16生命周期" class="headerlink" title="react16生命周期"></a><strong>react16生命周期</strong></h5><p><img src="https://s1.ax1x.com/2020/11/10/BLkabF.png"></p>
 <p>在React16的生命周期中，去掉了曾经的<strong>componentWillMount</strong>和<strong>componentWillUpdate</strong>，使用<strong>getDerivedStateFromProps</strong>代替这两个方法。同时在更新阶段的render方法和componentDidUpdate之间，新增了一个<strong>getSnapshotBeforeUpdate</strong>方法。接下来就来详细了解一下React这么做的原理以及这些新增生命周期的具体使用</p>
-<h5 id="react15和react16的区别"><a href="#react15和react16的区别" class="headerlink" title="react15和react16的区别"></a>react15和react16的区别</h5><ul>
+<h5 id="react15和react16的区别"><a href="#react15和react16的区别" class="headerlink" title="react15和react16的区别"></a><strong>react15和react16的区别</strong></h5><ul>
 <li><h6 id="初始化阶段"><a href="#初始化阶段" class="headerlink" title="初始化阶段"></a>初始化阶段</h6><p><img src="https://s1.ax1x.com/2020/11/10/BLu3c9.png"></p>
 <ul>
 <li><p><code>-</code>    componentWillMount()</p>
@@ -523,7 +524,28 @@ const VitrualDom = &#123;
 </blockquote>
 <h5 id="4-3-说回生命周期"><a href="#4-3-说回生命周期" class="headerlink" title="4.3 说回生命周期"></a><strong>4.3 说回生命周期</strong></h5><p>在最开始给出生命周期图的时候，细心的同学会发现，在下面这张图的左边，React又将生命周期划分了如下三个阶段</p>
 <p><img src="https://s1.ax1x.com/2020/11/10/BL0HNF.png"></p>
-<p>render：纯净且没有副作用，可能会被暂停或者终止，重新启动<br>Pre-commit阶段：可以读取DOM<br>commit阶段：可以使用DOM，运行副作用，安排更新</p>
+<ul>
+<li>render：纯净且没有副作用，可能会被暂停或者终止，重新启动</li>
+<li>Pre-commit阶段：可以读取DOM</li>
+<li>commit阶段：可以使用DOM，运行副作用，安排更新</li>
+</ul>
+<p><strong>为什么会这样分呢？</strong></p>
+<blockquote>
+<p>总的来说，render 阶段在执行过程中允许被打断，而 commit 阶段则总是同步执行的。</p>
+<p>为什么这样设计呢？简单来说，由于 render 阶段的操作对用户来说其实是“不可见”的，所以就算打断再重启，对用户来说也是零感知。而 commit 阶段的操作则涉及真实 DOM 的渲染，再狂的框架也不敢在用户眼皮子底下胡乱更改视图，所以这个过程必须用同步渲染来求稳。</p>
+</blockquote>
+<p><strong>废除的生命周期跟Fiber之间的联系</strong></p>
+<pre><code>在 Fiber 机制下，render 阶段是允许暂停、终止和重启的。当一个任务执行到一半被打断后，下一次渲染线程抢回主动权时，这个任务被重启的形式是“重复执行一遍整个任务”而非“接着上次执行到的那行代码往下走”。这就导致 render 阶段的生命周期都是有可能被重复执行的。
+
+带着这个结论，我们再来看看 React 16 打算废弃的是哪些生命周期：
+
+componentWillMount；
+
+componentWillUpdate；
+
+componentWillReceiveProps。
+
+这些生命周期的共性，就是它们都处于 render 阶段，都可能重复被执行，而且由于这些 API 常年被滥用，它们在重复执行的过程中都存在着不可小觑的风险。</code></pre>
 
   </article>
 
@@ -586,7 +608,7 @@ gitment.render('gitment')
   </div>
   <script src="https://cdn.jsdelivr.net/combine/npm/lazysizes@5.1.0/lazysizes.min.js,gh/highlightjs/cdn-release@9.15.8/build/highlight.min.js,npm/mdui@0.4.3/dist/js/mdui.min.js,gh/nexmoe/nexmoe.github.io@latest/js/app.js"></script>
 <script>hljs.initHighlightingOnLoad();</script>
-<!--<script src="../../../../../js/app.js?v=1605010539068"></script>-->
+<!--<script src="../../../../../js/app.js?v=1605010891134"></script>-->
 
 
 
@@ -605,8 +627,8 @@ gitment.render('gitment')
   !IsPC() && $('.nexmoe-toc').addClass('nexmoe-toc-phone')
  
   let pathname = window.location.pathname
-  
-  if(pathname === '/index.html'){
+
+  if(pathname === '/index.html'||pathname === '/'){
     $('.nexmoe-toc').css({'display':'none'})
   }else{
     $('.nexmoe-toc').css({'display':'block'})
