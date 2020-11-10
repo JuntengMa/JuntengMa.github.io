@@ -1,6 +1,56 @@
 <!DOCTYPE html>
 
 <html lang="zh-CN">
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery/1.10.0/jquery.js"></script>
+<style>
+ .nexmoe-toc {
+    position: fixed;
+    top: 10%;
+    right: 0;
+    width:60px;
+    box-shadow: 0 0 1rem rgba(161, 177, 204, .4);
+    background-color: #fff;
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 15px;
+    white-space: normal;
+    padding: 15px;
+    overflow: hidden;
+  }
+  .toc{
+    max-height: 500px;
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
+  .toc a{
+    color: rgba(0,0,0,.6);
+    height: 30px;
+    display: inline-block;
+  }
+  .nexmoe-toc-phone {
+    position: fixed;
+    top: 27%;
+    padding: 15px;
+    right: 0;
+    margin-right: 0;
+    color: #ffff;
+    background-color: #282c34;
+  }
+ .up{
+    cursor:pointer;
+    position:fixed;
+    right:2%;
+    top:90%;
+    height: 40px;
+    width: 40px;
+    line-height: 40px;
+    border-radius: 4px;
+    background-color: #ff4e6a;
+    color: #fff;
+    text-align: center;
+    font-size: 14px;
+    display:none;
+ }
+</style>
 
 <head>
   
@@ -31,7 +81,6 @@
 <meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/JuntengMa/Images@1.1/blog/echats.jpg">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/combine/gh/nexmoe/nexmoe.github.io@latest/css/style.css,npm/highlight.js@9.15.8/styles/atom-one-dark.css,gh/nexmoe/nexmoe.github.io@latest/lib/mdui_043tiny/css/mdui.css,gh/nexmoe/nexmoe.github.io@latest/lib/iconfont/iconfont.css" crossorigin>
   
-  <!--<link rel="stylesheet" href="../../../../../css/style.css?v=1605003596306">-->
 
   
 <meta name="generator" content="Hexo 5.2.0"><link rel="alternate" href="atom.xml" title="June's Blog" type="application/atom+xml">
@@ -162,7 +211,7 @@
         
 
         <li class="category-list-item">
-          <a class="category-list-link" href="/categories/JavaScript/浏览器/">浏览器</a>
+          <a class="category-list-link" href="/categories/浏览器/">浏览器</a>
           <span class="category-list-count">2</span>
         </li>
 
@@ -196,15 +245,15 @@
           </li>
         
           <li>
+            <a href="../../../../11/09/React/React%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/">🌭 React学习</a>
+          </li>
+        
+          <li>
             <a href="../../../../11/09/JavaScript/01%20-%20JavaScript%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/">🌭 JavaScript基础知识综合</a>
           </li>
         
           <li>
             <a href="../../../../11/09/JavaScript/08%20-%20JavaScript-%E9%97%AD%E5%8C%85/">🌭 (no title)</a>
-          </li>
-        
-          <li>
-            <a href="../../../../11/06/React/React-%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/">🌭 React生命周期函数</a>
           </li>
         
       </ul>
@@ -233,15 +282,6 @@
 </div>
 
   <div class="nexmoe-post-right">
-    
-    <div class="nexmoe-fixed">
-      <div class="nexmoe-valign" style="position:relative">
-        <div class="nexmoe-toc">
-          Toc
-          <!-- <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-%E5%AE%89%E8%A3%85echats"><span class="toc-number">1.</span> <span class="toc-text">1.安装echats</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-%E5%BC%95%E5%85%A5%E6%89%80%E9%9C%80%E6%A8%A1%E5%9D%97"><span class="toc-number">2.</span> <span class="toc-text">2.引入所需模块</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-%E5%AE%9E%E4%BE%8B"><span class="toc-number">3.</span> <span class="toc-text">3.实例</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-DOM%E9%83%A8%E5%88%86"><span class="toc-number">4.</span> <span class="toc-text">4.DOM部分</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-%E6%95%88%E6%9E%9C%E5%9B%BE"><span class="toc-number">5.</span> <span class="toc-text">5.效果图</span></a></li></ol> -->
-        </div>
-      </div>
-    </div>
     
   </div>
 
@@ -357,37 +397,48 @@ gitment.render('gitment')
 </section>
   </div>
 </div>
-<style>
-  .nexmoe-toc {
-    box-shadow: 0 0 1rem rgba(161, 177, 204, .4);
-    background-color: #fff;
-    border-radius: 15px;
-    white-space: normal;
-    padding: 15px;
-    position: absolute;
-    right: -120px;
-    top: 10%;
-    overflow: hidden;
-    margin-right: -188px;
-   
-  }
-  .toc{
- max-height: 500px;
- overflow: auto;
-  }
-  .nexmoe-toc-phone {
-    position: fixed;
-    top: 27%;
-    padding: 15px;
-    right: -50%;
-    margin-right: 0;
-    color: #ffff;
-    background-color: #282c34;
-  }
-</style>
-<script src="https://cdn.bootcdn.net/ajax/libs/jquery/1.10.0/jquery.js"></script>
+        
+           <div class="nexmoe-toc">Toc</div>
+        
+        <div class="up" onclick="scrollToTop()">UP</div>
+    </div>
+  </div>
+  <script src="https://cdn.jsdelivr.net/combine/npm/lazysizes@5.1.0/lazysizes.min.js,gh/highlightjs/cdn-release@9.15.8/build/highlight.min.js,npm/mdui@0.4.3/dist/js/mdui.min.js,gh/nexmoe/nexmoe.github.io@latest/js/app.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+<!--<script src="../../../../../js/app.js?v=1605010539170"></script>-->
+
+
+
+
+  
+
+
+
+
+
+
+</body>
 
 <script>
+  
+  !IsPC() && $('.nexmoe-toc').addClass('nexmoe-toc-phone')
+ 
+  let pathname = window.location.pathname
+  
+  if(pathname === '/index.html'){
+    $('.nexmoe-toc').css({'display':'none'})
+  }else{
+    $('.nexmoe-toc').css({'display':'block'})
+  }
+
+  function scrollToTop() {
+ 	   var c = document.documentElement.scrollTop || document.body.scrollTop;
+ 	   if(c > 0) {
+ 	   	  window.requestAnimationFrame(scrollToTop);
+ 	      window.scrollTo(0, c - c / 8);
+ 	  }
+  }
+
   function IsPC() {
     var userAgentInfo = navigator.userAgent;
     var Agents = new Array("Android", "iPhone", "SymbianOS", "Windows Phone", "iPad", "iPod");
@@ -400,48 +451,29 @@ gitment.render('gitment')
     }
     return flag;
   }
+ 
+  window.addEventListener('scroll',()=>{
+    let scrollTop = document.documentElement.scrollTop || window.pageYOffset || document.body.scrollTop;
+    if(scrollTop>1000){
+       $('.up').css({display:'block'})
+    }else{
+       $('.up').css({display:'none'})
+    }
+ },false);
 
-  $(document).ready(function () {
-    !IsPC() && $('.nexmoe-toc').addClass('nexmoe-toc-phone')
+ $(document).ready(function(){
+    $(".nexmoe-toc").hover(function(){
+       $('.nexmoe-toc').html(`<ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-%E5%AE%89%E8%A3%85echats"><span class="toc-text">1.安装echats</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-%E5%BC%95%E5%85%A5%E6%89%80%E9%9C%80%E6%A8%A1%E5%9D%97"><span class="toc-text">2.引入所需模块</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-%E5%AE%9E%E4%BE%8B"><span class="toc-text">3.实例</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-DOM%E9%83%A8%E5%88%86"><span class="toc-text">4.DOM部分</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-%E6%95%88%E6%9E%9C%E5%9B%BE"><span class="toc-text">5.效果图</span></a></li></ol>`)
+       $('.nexmoe-toc').css({'width': '300px'})
+       !IsPC() && $('.toc-link').css({'color': '#fff'})
 
-    $('.nexmoe-fixed').hover(function () {
-      $('.nexmoe-toc').html(`<ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-%E5%AE%89%E8%A3%85echats"><span class="toc-text">1.安装echats</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-%E5%BC%95%E5%85%A5%E6%89%80%E9%9C%80%E6%A8%A1%E5%9D%97"><span class="toc-text">2.引入所需模块</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-%E5%AE%9E%E4%BE%8B"><span class="toc-text">3.实例</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-DOM%E9%83%A8%E5%88%86"><span class="toc-text">4.DOM部分</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-%E6%95%88%E6%9E%9C%E5%9B%BE"><span class="toc-text">5.效果图</span></a></li></ol>`)
-      IsPC() ?
-        $('.nexmoe-toc').css({
-          'margin-right': 0
-        }) :
-        ($('.nexmoe-toc-phone').css({
-          'right': 0,
-        }), $('.toc-link').css({
-          'color': '#fff',
-        }))
-    }, function () {
-      $('.nexmoe-toc').html(`Toc`)
-      IsPC() ?
-        $('.nexmoe-toc').css({
-          'margin-right': '-188px'
-        }) :
-        $('.nexmoe-toc').css({
-          'right': '-50%'
-        })
+    },function(){
+       $('.nexmoe-toc').html(`Toc`)
+       $('.nexmoe-toc').css({'width': '60px'})
     });
-  });
+ })
+
 </script>
-    </div>
-  </div>
-  <script src="https://cdn.jsdelivr.net/combine/npm/lazysizes@5.1.0/lazysizes.min.js,gh/highlightjs/cdn-release@9.15.8/build/highlight.min.js,npm/mdui@0.4.3/dist/js/mdui.min.js,gh/nexmoe/nexmoe.github.io@latest/js/app.js"></script>
-<script>hljs.initHighlightingOnLoad();</script>
-<!--<script src="../../../../../js/app.js?v=1605003596308"></script>-->
 
-
-
-
-  
-
-
-
-
-
-</body>
 
 </html>

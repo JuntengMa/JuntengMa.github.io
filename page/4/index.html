@@ -1,6 +1,56 @@
 <!DOCTYPE html>
 
 <html lang="zh-CN">
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery/1.10.0/jquery.js"></script>
+<style>
+ .nexmoe-toc {
+    position: fixed;
+    top: 10%;
+    right: 0;
+    width:60px;
+    box-shadow: 0 0 1rem rgba(161, 177, 204, .4);
+    background-color: #fff;
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 15px;
+    white-space: normal;
+    padding: 15px;
+    overflow: hidden;
+  }
+  .toc{
+    max-height: 500px;
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
+  .toc a{
+    color: rgba(0,0,0,.6);
+    height: 30px;
+    display: inline-block;
+  }
+  .nexmoe-toc-phone {
+    position: fixed;
+    top: 27%;
+    padding: 15px;
+    right: 0;
+    margin-right: 0;
+    color: #ffff;
+    background-color: #282c34;
+  }
+ .up{
+    cursor:pointer;
+    position:fixed;
+    right:2%;
+    top:90%;
+    height: 40px;
+    width: 40px;
+    line-height: 40px;
+    border-radius: 4px;
+    background-color: #ff4e6a;
+    color: #fff;
+    text-align: center;
+    font-size: 14px;
+    display:none;
+ }
+</style>
 
 <head>
   
@@ -24,7 +74,6 @@
 <meta name="twitter:card" content="summary">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/combine/gh/nexmoe/nexmoe.github.io@latest/css/style.css,npm/highlight.js@9.15.8/styles/atom-one-dark.css,gh/nexmoe/nexmoe.github.io@latest/lib/mdui_043tiny/css/mdui.css,gh/nexmoe/nexmoe.github.io@latest/lib/iconfont/iconfont.css" crossorigin>
   
-  <!--<link rel="stylesheet" href="../../css/style.css?v=1605003596386">-->
 
   
 <meta name="generator" content="Hexo 5.2.0"><link rel="alternate" href="atom.xml" title="June's Blog" type="application/atom+xml">
@@ -155,7 +204,7 @@
         
 
         <li class="category-list-item">
-          <a class="category-list-link" href="/categories/JavaScript/浏览器/">浏览器</a>
+          <a class="category-list-link" href="/categories/浏览器/">浏览器</a>
           <span class="category-list-count">2</span>
         </li>
 
@@ -189,15 +238,15 @@
           </li>
         
           <li>
+            <a href="../../2020/11/09/React/React%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/">🌭 React学习</a>
+          </li>
+        
+          <li>
             <a href="../../2020/11/09/JavaScript/01%20-%20JavaScript%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/">🌭 JavaScript基础知识综合</a>
           </li>
         
           <li>
             <a href="../../2020/11/09/JavaScript/08%20-%20JavaScript-%E9%97%AD%E5%8C%85/">🌭 (no title)</a>
-          </li>
-        
-          <li>
-            <a href="../../2020/11/06/React/React-%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/">🌭 React生命周期函数</a>
           </li>
         
       </ul>
@@ -212,6 +261,31 @@
   <div id="nexmoe-content">
     <div class="nexmoe-primary">
         <section class="nexmoe-posts">
+    
+    <div class="nexmoe-post">
+        <a href="../../2020/10/19/%E5%B7%A5%E5%85%B7/webpack/">
+            
+            <div class="nexmoe-post-cover mdui-ripple"
+                style="padding-bottom: 62.5%;">
+                <img data-src="https://source.unsplash.com/random?count=14/1600x900" data-sizes="auto" alt="webpack配置" class="lazyload">
+                <h1>webpack配置</h1>
+            </div>
+            
+        </a>
+
+        <div class="nexmoe-post-meta nexmoe-rainbow">
+            <a><i class="nexmoefont icon-calendar-fill"></i>2020年10月19日</a>
+            <a><i class="nexmoefont icon-areachart"></i>423 字</a>
+            <a><i class="nexmoefont icon-time-circle-fill"></i>大概 2
+                分钟</a>
+        </div>
+
+        <article>
+            
+            <p>webpack基本配置</p>
+            
+        </article>
+    </div>
     
     <div class="nexmoe-post">
         <a href="../../2020/09/29/%E6%B5%8F%E8%A7%88%E5%99%A8/%E6%B5%8F%E8%A7%88%E5%99%A8%E5%90%8C%E6%BA%90%E7%AD%96%E7%95%A5/">
@@ -438,34 +512,6 @@
         </article>
     </div>
     
-    <div class="nexmoe-post">
-        <a href="../../2020/09/18/Css/Css%E6%96%87%E6%9C%AC%E8%B6%85%E5%87%BA%E8%87%AA%E5%8A%A8%E6%8D%A2%E8%A1%8C/">
-            
-            <div class="nexmoe-post-cover mdui-ripple"
-                style="padding-bottom: 62.5%;">
-                <img data-src="https://drscdn.500px.org/photo/232709117/h%3D1080/v2?sig=96b93532e8ed13df61f81e532cff75ab75a1e2a8adcddf6668e97a8e121bf2a5" data-sizes="auto" alt="Css文本超出自动换行" class="lazyload">
-                <h1>Css文本超出自动换行</h1>
-            </div>
-            
-        </a>
-
-        <div class="nexmoe-post-meta nexmoe-rainbow">
-            <a><i class="nexmoefont icon-calendar-fill"></i>2020年09月18日</a>
-            <a><i class="nexmoefont icon-areachart"></i>24 字</a>
-            <a><i class="nexmoefont icon-time-circle-fill"></i>大概 1
-                分钟</a>
-        </div>
-
-        <article>
-            
-            <pre><code>word-wrap:break-word; 
-word-break:break-all; 
-overflow: hidden;/*这个参数根据需要来绝对要不要*/</code></pre>
-
-            
-        </article>
-    </div>
-    
 </section>
 
 
@@ -473,11 +519,17 @@ overflow: hidden;/*这个参数根据需要来绝对要不要*/</code></pre>
       <a class="extend prev" rel="prev" href="../3/"><i class="nexmoefont icon-left"></i></a><a class="page-number" href="../../">1</a><a class="page-number" href="../2/">2</a><a class="page-number" href="../3/">3</a><span class="page-number current">4</span><a class="page-number" href="../5/">5</a><a class="extend next" rel="next" href="../5/"><i class="nexmoefont icon-right"></i></a>
     </nav>
   
+
+
+        
+           <div class="nexmoe-toc">Toc</div>
+        
+        <div class="up" onclick="scrollToTop()">UP</div>
     </div>
   </div>
   <script src="https://cdn.jsdelivr.net/combine/npm/lazysizes@5.1.0/lazysizes.min.js,gh/highlightjs/cdn-release@9.15.8/build/highlight.min.js,npm/mdui@0.4.3/dist/js/mdui.min.js,gh/nexmoe/nexmoe.github.io@latest/js/app.js"></script>
 <script>hljs.initHighlightingOnLoad();</script>
-<!--<script src="../../js/app.js?v=1605003596387"></script>-->
+<!--<script src="../../js/app.js?v=1605010539291"></script>-->
 
 
 
@@ -488,6 +540,64 @@ overflow: hidden;/*这个参数根据需要来绝对要不要*/</code></pre>
 
 
 
+
 </body>
+
+<script>
+  
+  !IsPC() && $('.nexmoe-toc').addClass('nexmoe-toc-phone')
+ 
+  let pathname = window.location.pathname
+  
+  if(pathname === '/index.html'){
+    $('.nexmoe-toc').css({'display':'none'})
+  }else{
+    $('.nexmoe-toc').css({'display':'block'})
+  }
+
+  function scrollToTop() {
+ 	   var c = document.documentElement.scrollTop || document.body.scrollTop;
+ 	   if(c > 0) {
+ 	   	  window.requestAnimationFrame(scrollToTop);
+ 	      window.scrollTo(0, c - c / 8);
+ 	  }
+  }
+
+  function IsPC() {
+    var userAgentInfo = navigator.userAgent;
+    var Agents = new Array("Android", "iPhone", "SymbianOS", "Windows Phone", "iPad", "iPod");
+    var flag = true;
+    for (var v = 0; v < Agents.length; v++) {
+      if (userAgentInfo.indexOf(Agents[v]) > 0) {
+        flag = false;
+        break;
+      }
+    }
+    return flag;
+  }
+ 
+  window.addEventListener('scroll',()=>{
+    let scrollTop = document.documentElement.scrollTop || window.pageYOffset || document.body.scrollTop;
+    if(scrollTop>1000){
+       $('.up').css({display:'block'})
+    }else{
+       $('.up').css({display:'none'})
+    }
+ },false);
+
+ $(document).ready(function(){
+    $(".nexmoe-toc").hover(function(){
+       $('.nexmoe-toc').html(``)
+       $('.nexmoe-toc').css({'width': '300px'})
+       !IsPC() && $('.toc-link').css({'color': '#fff'})
+
+    },function(){
+       $('.nexmoe-toc').html(`Toc`)
+       $('.nexmoe-toc').css({'width': '60px'})
+    });
+ })
+
+</script>
+
 
 </html>

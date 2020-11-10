@@ -1,6 +1,56 @@
 <!DOCTYPE html>
 
 <html lang="zh-CN">
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery/1.10.0/jquery.js"></script>
+<style>
+ .nexmoe-toc {
+    position: fixed;
+    top: 10%;
+    right: 0;
+    width:60px;
+    box-shadow: 0 0 1rem rgba(161, 177, 204, .4);
+    background-color: #fff;
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 15px;
+    white-space: normal;
+    padding: 15px;
+    overflow: hidden;
+  }
+  .toc{
+    max-height: 500px;
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
+  .toc a{
+    color: rgba(0,0,0,.6);
+    height: 30px;
+    display: inline-block;
+  }
+  .nexmoe-toc-phone {
+    position: fixed;
+    top: 27%;
+    padding: 15px;
+    right: 0;
+    margin-right: 0;
+    color: #ffff;
+    background-color: #282c34;
+  }
+ .up{
+    cursor:pointer;
+    position:fixed;
+    right:2%;
+    top:90%;
+    height: 40px;
+    width: 40px;
+    line-height: 40px;
+    border-radius: 4px;
+    background-color: #ff4e6a;
+    color: #fff;
+    text-align: center;
+    font-size: 14px;
+    display:none;
+ }
+</style>
 
 <head>
   
@@ -24,7 +74,6 @@
 <meta name="twitter:card" content="summary">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/combine/gh/nexmoe/nexmoe.github.io@latest/css/style.css,npm/highlight.js@9.15.8/styles/atom-one-dark.css,gh/nexmoe/nexmoe.github.io@latest/lib/mdui_043tiny/css/mdui.css,gh/nexmoe/nexmoe.github.io@latest/lib/iconfont/iconfont.css" crossorigin>
   
-  <!--<link rel="stylesheet" href="css/style.css?v=1605003596382">-->
 
   
 <meta name="generator" content="Hexo 5.2.0"><link rel="alternate" href="atom.xml" title="June's Blog" type="application/atom+xml">
@@ -155,7 +204,7 @@
         
 
         <li class="category-list-item">
-          <a class="category-list-link" href="/categories/JavaScript/浏览器/">浏览器</a>
+          <a class="category-list-link" href="/categories/浏览器/">浏览器</a>
           <span class="category-list-count">2</span>
         </li>
 
@@ -189,15 +238,15 @@
           </li>
         
           <li>
+            <a href="2020/11/09/React/React%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/">🌭 React学习</a>
+          </li>
+        
+          <li>
             <a href="2020/11/09/JavaScript/01%20-%20JavaScript%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/">🌭 JavaScript基础知识综合</a>
           </li>
         
           <li>
             <a href="2020/11/09/JavaScript/08%20-%20JavaScript-%E9%97%AD%E5%8C%85/">🌭 (no title)</a>
-          </li>
-        
-          <li>
-            <a href="2020/11/06/React/React-%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/">🌭 React生命周期函数</a>
           </li>
         
       </ul>
@@ -511,6 +560,31 @@ let url = &quot;https://imgcache.qq.com/wss/security//ssl/build/ssl-444feca18a78
 </blockquote>
 <p>两种事件监听的区别:<br>addeventlistener参数个数一般是三个，参数书写（事件类型）不写on执行顺序为：顺序注册倒序执行，兼容非IE7.8，最后一个参数是TRUE或FALSE，TRUE为捕获，FALSE为冒泡，默认FALSE<br>attachevent参数个数为两个，参数书写不写on，执行顺序：顺序注册倒序执行，兼容ie78</p>
 <h4 id="4-Generator函数"><a href="#4-Generator函数" class="headerlink" title="4.Generator函数"></a>4.Generator函数</h4>
+            
+        </article>
+    </div>
+    
+    <div class="nexmoe-post">
+        <a href="2020/11/09/React/React%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/">
+            
+            <div class="nexmoe-post-cover mdui-ripple"
+                style="padding-bottom: 62.5%;">
+                <img data-src="https://source.unsplash.com/random?count=10/1600x900" data-sizes="auto" alt="React学习" class="lazyload">
+                <h1>React学习</h1>
+            </div>
+            
+        </a>
+
+        <div class="nexmoe-post-meta nexmoe-rainbow">
+            <a><i class="nexmoefont icon-calendar-fill"></i>2020年11月09日</a>
+            <a><i class="nexmoefont icon-areachart"></i>2.1k 字</a>
+            <a><i class="nexmoefont icon-time-circle-fill"></i>大概 9
+                分钟</a>
+        </div>
+
+        <article>
+            
+            <h4 id="React基础知识汇总"><a href="#React基础知识汇总" class="headerlink" title="React基础知识汇总"></a>React基础知识汇总</h4>
             
         </article>
     </div>
@@ -896,31 +970,6 @@ console.log(a === b);    //true</code></pre>
         </article>
     </div>
     
-    <div class="nexmoe-post">
-        <a href="2020/11/04/Safe/CSRF%E6%94%BB%E5%87%BB/">
-            
-            <div class="nexmoe-post-cover mdui-ripple"
-                style="padding-bottom: 62.5%;">
-                <img data-src="https://source.unsplash.com/user/erondu/1440x960" data-sizes="auto" alt="CSRF攻击" class="lazyload">
-                <h1>CSRF攻击</h1>
-            </div>
-            
-        </a>
-
-        <div class="nexmoe-post-meta nexmoe-rainbow">
-            <a><i class="nexmoefont icon-calendar-fill"></i>2020年11月04日</a>
-            <a><i class="nexmoefont icon-areachart"></i>0 字</a>
-            <a><i class="nexmoefont icon-time-circle-fill"></i>大概 1
-                分钟</a>
-        </div>
-
-        <article>
-            
-            <a id="more"></a>
-            
-        </article>
-    </div>
-    
 </section>
 
 
@@ -928,11 +977,17 @@ console.log(a === b);    //true</code></pre>
       <span class="page-number current">1</span><a class="page-number" href="page/2/">2</a><a class="page-number" href="page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="page/5/">5</a><a class="extend next" rel="next" href="page/2/"><i class="nexmoefont icon-right"></i></a>
     </nav>
   
+
+
+        
+           <div class="nexmoe-toc">Toc</div>
+        
+        <div class="up" onclick="scrollToTop()">UP</div>
     </div>
   </div>
   <script src="https://cdn.jsdelivr.net/combine/npm/lazysizes@5.1.0/lazysizes.min.js,gh/highlightjs/cdn-release@9.15.8/build/highlight.min.js,npm/mdui@0.4.3/dist/js/mdui.min.js,gh/nexmoe/nexmoe.github.io@latest/js/app.js"></script>
 <script>hljs.initHighlightingOnLoad();</script>
-<!--<script src="js/app.js?v=1605003596383"></script>-->
+<!--<script src="js/app.js?v=1605010539283"></script>-->
 
 
 
@@ -943,6 +998,64 @@ console.log(a === b);    //true</code></pre>
 
 
 
+
 </body>
+
+<script>
+  
+  !IsPC() && $('.nexmoe-toc').addClass('nexmoe-toc-phone')
+ 
+  let pathname = window.location.pathname
+  
+  if(pathname === '/index.html'){
+    $('.nexmoe-toc').css({'display':'none'})
+  }else{
+    $('.nexmoe-toc').css({'display':'block'})
+  }
+
+  function scrollToTop() {
+ 	   var c = document.documentElement.scrollTop || document.body.scrollTop;
+ 	   if(c > 0) {
+ 	   	  window.requestAnimationFrame(scrollToTop);
+ 	      window.scrollTo(0, c - c / 8);
+ 	  }
+  }
+
+  function IsPC() {
+    var userAgentInfo = navigator.userAgent;
+    var Agents = new Array("Android", "iPhone", "SymbianOS", "Windows Phone", "iPad", "iPod");
+    var flag = true;
+    for (var v = 0; v < Agents.length; v++) {
+      if (userAgentInfo.indexOf(Agents[v]) > 0) {
+        flag = false;
+        break;
+      }
+    }
+    return flag;
+  }
+ 
+  window.addEventListener('scroll',()=>{
+    let scrollTop = document.documentElement.scrollTop || window.pageYOffset || document.body.scrollTop;
+    if(scrollTop>1000){
+       $('.up').css({display:'block'})
+    }else{
+       $('.up').css({display:'none'})
+    }
+ },false);
+
+ $(document).ready(function(){
+    $(".nexmoe-toc").hover(function(){
+       $('.nexmoe-toc').html(``)
+       $('.nexmoe-toc').css({'width': '300px'})
+       !IsPC() && $('.toc-link').css({'color': '#fff'})
+
+    },function(){
+       $('.nexmoe-toc').html(`Toc`)
+       $('.nexmoe-toc').css({'width': '60px'})
+    });
+ })
+
+</script>
+
 
 </html>
