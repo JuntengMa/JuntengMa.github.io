@@ -1,6 +1,268 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>JavaScript基础知识综合</title>
+    <url>/2020/11/09/JavaScript/01%20-%20JavaScript%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/</url>
+    <content><![CDATA[<blockquote>
+<h4> 
+整理一些js基础知识点和总结...
+</h4>
+</blockquote>
+<p>[TOC]</p>
+<a id="more"></a>
+
+<h4 id="01-JS数据类型-6-1"><a href="#01-JS数据类型-6-1" class="headerlink" title="01 / JS数据类型(6+1)"></a>01 / JS数据类型(6+1)</h4><p><strong>基本数据类型:</strong></p>
+<pre><code>- null
+- undefined
+- number
+- string
+- boolean
+- symbol:代表创建后独一无二且不可变的数据类型，它的出现我认为主要是为了解决可能出现的全局变量冲突的问题。</code></pre>
+<p><strong>引用数据类型:</strong></p>
+<p>引用数据类型指的是object类型,其他如Array,Date等数据类型都可以理解为Object的子类</p>
+<pre><code>object =  [
+   Array,
+   Date,
+   Math,
+   ...
+]</code></pre>
+<p><strong>基本数据类型和引用数据类型区别:</strong></p>
+<ul>
+<li>基本数据类型在内存中占固定大小的空间,因此被保存在栈中</li>
+<li>引用类型值是对象，保存在 <strong>堆内存</strong> 中。包含引用类型值的变量实际包含并非对象本身，而是指向该对象的指针。一个变量从另一个变量复制引用类型的值时，复制的也是指向该对象的指针。</li>
+</ul>
+<h4 id="02-什么是堆-栈"><a href="#02-什么是堆-栈" class="headerlink" title="02 / 什么是堆/栈?"></a>02 / 什么是堆/栈?</h4><p>堆栈概念存在于<strong>数据结构</strong>和<strong>操作系统</strong>内存中</p>
+<ul>
+<li><p>在数据结构中:</p>
+<ul>
+<li>栈中的数据存取方式为先进后出</li>
+<li>堆是一个优先队列,按照优先级来进行排序的,优先级可以按照大小来规定</li>
+</ul>
+</li>
+<li><p>操作系统中 ,内存被分为栈区和堆区:</p>
+<ul>
+<li>栈区的内存由编译器自动分配释放,存放函数的参数值,局部变量值等</li>
+</ul>
+</li>
+<li><p>堆内存一般由程序员释放,若没有手动释放则程序结束时由垃圾回收机制回收</p>
+</li>
+</ul>
+<h4 id="03-什么是JavaSctipt垃圾回收机制"><a href="#03-什么是JavaSctipt垃圾回收机制" class="headerlink" title="03 / 什么是JavaSctipt垃圾回收机制?"></a>03 / 什么是JavaSctipt垃圾回收机制?</h4><ul>
+<li><p><strong>为什么要垃圾回收?</strong></p>
+<pre><code class="html">随着前端业务需求的不断增多，相比以前，我们会占用更多的内存。
+但是内存并不是无限的，而对于那些我们不再需要的变量、对象该怎么处理呢？
+这里就是垃圾回收机制的作用</code></pre>
+</li>
+<li><p><strong>垃圾回收机制的特点:</strong></p>
+<p>垃圾回收机制，会定期对那些我们不再使用的变量、对象所占用的内存进行释放</p>
+<pre><code>原理:
+    + 找出那些不再使用的变量，然后释放其占用的内存。
+    + 垃圾收集器会按照固定的时间间隔(或预定的收集时间)周期性地执行此操作。</code></pre>
+</li>
+<li><p><strong>垃圾回收的方式有哪些?</strong></p>
+<ul>
+<li><p>标记清除</p>
+<ul>
+<li><p>当变量进入环境时,就将其标记为”进入环境”,此时”进入环境”的变量是不可以被回收的”</p>
+</li>
+<li><p>当变量离开环境时,就将其标记为”离开环境”,此时”离开环境”的变量可以被回收</p>
+<pre><code>function func () &#123;
+      const a = 1
+    const b = 2
+      // 函数执行时，a b 分别被标记 进入环境
+&#125;
+
+func() // 函数执行结束，a b 被标记 离开环境，被回收</code></pre>
+</li>
+</ul>
+</li>
+<li><p>引用计数</p>
+<ul>
+<li><p>统计引用类型变量声明后被引用的次数，当次数为 0 时，该变量将被回收</p>
+<pre><code>function func1 () &#123;
+      const c = &#123;&#125; // 引用类型变量 c的引用计数为 0
+      let d = c // c 被 d 引用 c的引用计数为 1
+      let e = c // c 被 e 引用 c的引用计数为 2
+      d = &#123;&#125; // d 不再引用c c的引用计数减为 1
+      e = null // e 不再引用 c c的引用计数减为 0 将被回收
+&#125;</code></pre>
+</li>
+<li><p>但是引用计数的方式，有一个相对明显的缺点——<strong>循环引用</strong></p>
+<pre><code>function func5 () &#123;
+      let f = &#123;&#125;
+      let g = &#123;&#125;
+      f.prop = g
+      g.prop = f
+      // 由于 f 和 g 互相引用，计数永远不可能为 0
+&#125;</code></pre>
+</li>
+<li><p>像上面这种情况就需要<strong>手动将变量的内存释放</strong></p>
+<pre><code>f.prop = null
+g.prop = null</code></pre>
+<p>参考:</p>
+<pre><code> [&lt;&lt;javascript 垃圾回收机制&gt;&gt;](https://juejin.im/post/6844903652331618312)    
+ [&lt;&lt;JavaScript 垃圾回收机制&gt;&gt;](https://juejin.im/post/6844903858972409869#heading-3)</code></pre>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="04-什么是循环引用"><a href="#04-什么是循环引用" class="headerlink" title="04 / 什么是循环引用 ?"></a>04 / 什么是循环引用 ?</h4><p>当对象 1 中的某个属性指向对象 2，对象 2 中的某个属性指向对象 1 就会出现循环引用(最简单的例子)</p>
+<pre><code>  function circularReference() &#123;
+      let obj1 = &#123; &#125;;
+      let obj2 = &#123; &#125;;
+      obj1.a = obj2;
+      obj2.b = obj1;
+  &#125;</code></pre>
+<h4 id="05-内存泄露"><a href="#05-内存泄露" class="headerlink" title="05 / 内存泄露"></a>05 / 内存泄露</h4><ul>
+<li><p>什么是内存泄露?</p>
+<pre><code>程序的运行需要内存。只要程序提出要求，操作系统或者运行时（runtime）就必须供给内存。
+对于持续运行的服务进程（daemon），必须及时释放不再用到的内存。
+否则，内存占用越来越高，轻则影响系统性能，重则导致进程崩溃。
+不再用到的内存，没有及时释放，就叫做内存泄漏（memory leak）。</code></pre>
+</li>
+<li><p>常见的内存泄露有哪些?</p>
+<ul>
+<li><p>全局变量(在非严格模式下当引用未声明的变量时，会在全局对象中创建一个新变量。)</p>
+<pre><code class="js">function foo（arg）&#123; 
+    bar =“some text”; // bar将泄漏到全局.
+&#125;</code></pre>
+</li>
+<li><p>被遗忘的定时器和回调函数</p>
+</li>
+<li><p>DOM引用</p>
+</li>
+<li><p>闭包</p>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="06-JavaScript可执行上下文"><a href="#06-JavaScript可执行上下文" class="headerlink" title="06 /  JavaScript可执行上下文"></a>06 /  JavaScript可执行上下文</h4><p><a href="/2020/11/03/JavaScript/03%20-%20JavaScript-作用域&可执行上下文/" target="_blank">&lt;&lt;JavaScript可执行上下文&gt;&gt;</a></p>
+<h4 id="07-JavaScript在浏览器中执行顺序"><a href="#07-JavaScript在浏览器中执行顺序" class="headerlink" title="07 /  JavaScript在浏览器中执行顺序"></a>07 /  JavaScript在浏览器中执行顺序</h4><p><a href="/2020/09/22/JavaScript/04%20-%20JavaScript-一段js代码在浏览器中是如何执行的/" target="_blank">&lt;&lt;JavaScript在浏览器中执行顺序&gt;&gt;</a></p>
+<h4 id="08-从输入url到页面加载过程"><a href="#08-从输入url到页面加载过程" class="headerlink" title="08 /  从输入url到页面加载过程"></a>08 /  从输入url到页面加载过程</h4><p><a href="/2020/10/26/JavaScript/06%20-%20从输入url到页面加载过程/" target="_blank">&lt;&lt;从输入url到页面加载过程&gt;&gt;</a></p>
+<h4 id="09-内部属性-class-是什么"><a href="#09-内部属性-class-是什么" class="headerlink" title="09 / 内部属性[[class]]是什么"></a>09 / 内部属性[[class]]是什么</h4><p>所有typeof返回Object的对象都有一个内部属性.可以通过以下代码查看</p>
+<pre><code>Object.prototype.toString.call(Array)  //&quot;[object Function]&quot;</code></pre>
+<h4 id="10-Js内置对象都有哪些"><a href="#10-Js内置对象都有哪些" class="headerlink" title="10 / Js内置对象都有哪些"></a>10 / Js内置对象都有哪些</h4><pre><code>js内置对象主要是只在程序执行前存在全局作用域里面的由js定义的一些全局属性,函数和用来实例化其他对象的构造函数对象.
+
+一般我们经常用到的全局函数变量值 NaN , undefined ,
+
+全局函数: parseInt() , paeseFloat()
+
+用来实例化的全局构造函数: Date , Object 等</code></pre>
+<h4 id="11-原型原型链"><a href="#11-原型原型链" class="headerlink" title="11 / 原型原型链"></a>11 / 原型原型链</h4><pre><code>01/ 原型:
+-    Js中我们使用构造函数来新建对象的
+-    每个构造函数内部都有一个prototype属性,这个属性值是一个对象,包含了可以由该构造函数共享的实例和方法
+- 我们使用构造函数新建一个对象后,这个对象内部有一个`__proto__`指针,可以指向构造函数prototype属性对应的值,es5中我们一般称他为对象的原型 浏览器可以通过`__proto__`值来获取,也可以用Object.getPrototypeOf()找到对象的原型
+
+02/ 原型链:
+- 当我们访问一个对象的属性时,如果这个对象里面不存在该属性的时候,那么就会到这个对象的原型对象中找这个属性,就这样一层层的找就构成了原型链,最后找到Object.proptotype,如果还没找到就会返回null.
+
+03/ 获取原型的办法:
+- `p.__proto__`
+- `p.constructor.prototype`
+- `Object.getPrototypeOf(p)`
+
+04/ 原型可以做什么?
+- 实现继承
+- 共享我们的一些实例和方法</code></pre>
+<p><a href="">&lt;&lt;JavaScript原型原型链&gt;&gt;</a></p>
+<h4 id="12-闭包"><a href="#12-闭包" class="headerlink" title="12 / 闭包"></a>12 / 闭包</h4><pre><code>闭包是指内部函数可以访问其所在的外部函数中声明的参数和变量;
+
+创建闭包最常用的方法是在一个函数内创建另外一个函数,创建的函数可以访问父级函数的局部变量;
+
+闭包主要有两个用途:
+
+1/ 使我们可以在函数外部访问到函数内部的变量,通过这个方法,我们可以在函数外部调用闭包函数,在函数外部访问到函数内部变量
+
+2/ 使已经运行过的函数上下文的变量对象继续保存在内存中,不被垃圾回收机制释放内存,但是操作不当可能会造成内存泄露</code></pre>
+<h4 id="13-继承"><a href="#13-继承" class="headerlink" title="13 / 继承"></a>13 / 继承</h4><pre><code>继承实现方式:
+- 原型链继承
+- 构造函数继承
+- 组合继承(原型链+构造函数继承)
+- 原型式继承
+- 寄生式继承
+- 寄生组合式继承</code></pre>
+<p><a href="https://github.com/mqyqingfeng/Blog/issues/16">&lt;&lt;JavaScript深入之继承的多种方式和优缺点&gt;&gt;</a></p>
+<h4 id="14-什么是-pure-function"><a href="#14-什么是-pure-function" class="headerlink" title="14 / 什么是 pure function"></a>14 / 什么是 pure function</h4><p>如果一个函数没有任何副作用（side-effects)，不会影响任何外部状态，对于任何一个相同的输入（参数），无论何时调用这个函数总是返回同样的结果，这个函数就是一个 pure function。</p>
+<h4 id="15-重绘回流"><a href="#15-重绘回流" class="headerlink" title="15 / 重绘回流"></a>15 / 重绘回流</h4><ul>
+<li>**回流:**DOM节点中的各个元素都是以盒模型的形式存在,需要浏览器来计算其位置和大小等,该过程叫做回流</li>
+<li>**重绘:**当盒模型的位置,大小以及其他属性,如颜色,字体等确定下来之后,浏览器就开始绘制内容,该过程叫做重绘</li>
+</ul>
+<h4 id="16-http缓存"><a href="#16-http缓存" class="headerlink" title="16 / http缓存"></a>16 / http缓存</h4><p>http缓存按我自己的理解:</p>
+<blockquote>
+<p>我更愿意叫做浏览器缓存,缓存主要发生在浏览器端,而http起到的作用是告诉浏览器是否使用缓存资源,是否进行缓存…</p>
+</blockquote>
+<p>01/ 为什么要缓存呢?</p>
+<blockquote>
+<p>用于性能提升,减少延迟,提高网页加载速度;同时,由于缓存文件可以重复利用,还可以减少带宽,降低网络负荷</p>
+</blockquote>
+<p>02/ 浏览器怎么才能缓存?</p>
+<blockquote>
+<p>http缓存机制主要在http响应头中设定，响应头中相关字段为Expires、Cache-Control、Last-Modified、Etag。<br>可以控制浏览器是否使用缓存、缓存多久</p>
+</blockquote>
+<p>03/ 那么如何知晓浏览器是读取了缓存还是直接请求服务器？如下图网站来做个示例：</p>
+<p><img src="https://s3.ax1x.com/2020/11/12/BzalAP.png"></p>
+<p>第一次打开该网站后，如果再次刷新页面。会发现浏览器加载的众多资源中，有一部分size有具体数值，然而还有一部分请求，比如图片、css和js等文件并没有显示文件大小，而是显示了 from dis cache 或者 from memory cache 字样。这就说明了，该资源直接从本地硬盘或者浏览器内存读取，而并没有请求服务器。</p>
+<p>04/ 浏览器缓存方式?<br>浏览器缓存分为两种:</p>
+<ul>
+<li>强制缓存</li>
+<li>协商缓存</li>
+</ul>
+<p>05/ 浏览器缓存机制</p>
+<blockquote>
+<p>1\ 浏览器加载资源的时候,先根据资源的http header判断他是否命中强缓存,</p>
+<pre><code>-    如果命中,浏览器就先从自己的缓存(先从内存中找,找不到再去磁盘中找)中读取资源,不会发送请求到服务器</code></pre>
+<p>2\ 没有命中的时候,浏览器会发送一个请求给服务器,通过服务器端的另外的一些http header来验证这个资源是否命中协商缓存</p>
+<ul>
+<li>如果命中协商缓存,服务器会将这个请求返回,但是不会返回这个请求的数据,而是告诉客户端可以直接从缓存中加载资源,然后浏览器重新去缓存中读取数据</li>
+</ul>
+<p>3\强缓存和协商缓存相同点:</p>
+<ul>
+<li>命中都是从浏览器缓存中加载资源</li>
+</ul>
+<p>4\不同点</p>
+<ul>
+<li>强缓存不发请求到服务器</li>
+<li>协商缓存会发请求给服务器</li>
+</ul>
+<p>05\协商缓存也没有命中的时候,浏览器直接去服务器获取数据</p>
+</blockquote>
+<p>06/ 判断缓存机制</p>
+<p><img src="https://s3.ax1x.com/2020/11/12/BzB1bj.png"></p>
+<p>参考:</p>
+<ul>
+<li><a href="https://juejin.im/post/6844903672556552205#heading-2">&lt;&lt;前端优化：浏览器缓存技术介绍&gt;&gt;</a></li>
+<li><a href="https://juejin.im/post/6844903838768431118#heading-0">&lt;&lt;http面试必会的：强制缓存和协商缓存&gt;&gt;</a></li>
+</ul>
+<h4 id="17-SSR-BSR区别"><a href="#17-SSR-BSR区别" class="headerlink" title="17 / SSR/BSR区别"></a>17 / SSR/BSR区别</h4><ul>
+<li><p>SSR:服务端渲染</p>
+<p>对营销推广的要求比较高的产品,比如官网等</p>
+<pre><code>- M+V发生在服务端,服务器压力较大
+- 页面访问和显示速度更快(DOM比较少)
+- 有利于SEO搜索引擎优化
+- 前后端不分离,后端开发压力大
+- 功能不能过于复杂,多用于功能交互都比较简单的产品</code></pre>
+</li>
+<li><p>BSR:客户端渲染</p>
+<p>对营销推广要求没有那么搞的产品,例如后台管理系统</p>
+<pre><code>- M+v过程发生在浏览器,浏览器压力较大
+- 页面访问和加载速度没有服务端渲染快
+- 不利于SEO优化
+- 前后端分离,便于代码调试和维护
+- 可以做更加复杂的产品</code></pre>
+</li>
+</ul>
+<h4 id="18-SEO优化"><a href="#18-SEO优化" class="headerlink" title="18 / SEO优化"></a>18 / SEO优化</h4><p>………………</p>
+]]></content>
+      <categories>
+        <category>JavaScript</category>
+      </categories>
+      <tags>
+        <tag>JavaScript</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>自己比较常用的一些git操作</title>
     <url>/2020/09/22/%E5%B7%A5%E5%85%B7/Git%E5%91%BD%E4%BB%A4/</url>
     <content><![CDATA[<h1 id="GIT-常用命令"><a href="#GIT-常用命令" class="headerlink" title="GIT 常用命令"></a>GIT 常用命令</h1><a id="more"></a>
@@ -71,19 +333,6 @@ git rm xxx 除某文件</code></pre>
       </categories>
       <tags>
         <tag>Git</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Honey</title>
-    <url>/2020/09/01/honey/</url>
-    <content><![CDATA[<center>"光洙宝贝😏😏😏"</center>
-<center>"想你了哟~"</center>
-]]></content>
-      <categories>
-        <category>Honey</category>
-      </categories>
-      <tags>
-        <tag>Honey</tag>
       </tags>
   </entry>
   <entry>
@@ -186,7 +435,14 @@ git rm xxx 除某文件</code></pre>
   <entry>
     <title>JavaScript处理异步函数几种方案</title>
     <url>/2020/11/09/JavaScript/JavaScript-%E5%A4%84%E7%90%86%E5%BC%82%E6%AD%A5%E5%87%BD%E6%95%B0%E5%87%A0%E7%A7%8D%E6%96%B9%E6%A1%88/</url>
-    <content><![CDATA[<h1 id="JS处理异步函数几种方案"><a href="#JS处理异步函数几种方案" class="headerlink" title="JS处理异步函数几种方案"></a>JS处理异步函数几种方案</h1><h4 id="1-回调函数"><a href="#1-回调函数" class="headerlink" title="1.回调函数"></a>1.回调函数</h4><p>顾名思义: 将一个函数作为参数传入另外一个函数中,等父级函数执行完再执行回调函数</p>
+    <content><![CDATA[<blockquote>
+<h4> 
+ for-in & for-of的区别 和 map-for & Each区别
+</h4>
+</blockquote>
+<a id="more"></a>
+
+<h1 id="JS处理异步函数几种方案"><a href="#JS处理异步函数几种方案" class="headerlink" title="JS处理异步函数几种方案"></a>JS处理异步函数几种方案</h1><h4 id="1-回调函数"><a href="#1-回调函数" class="headerlink" title="1.回调函数"></a>1.回调函数</h4><p>顾名思义: 将一个函数作为参数传入另外一个函数中,等父级函数执行完再执行回调函数</p>
 <pre><code class="js">function f1(callBack)&#123;
     console.log(&quot;hello&quot;)
     let data = &quot;world&quot;
@@ -562,178 +818,14 @@ componentWillReceiveProps。
       </tags>
   </entry>
   <entry>
-    <title>JavaScript基础知识综合</title>
-    <url>/2020/11/09/JavaScript/01%20-%20JavaScript%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/</url>
-    <content><![CDATA[<p>[TOC]</p>
-<h4 id="01-JS数据类型-6-1"><a href="#01-JS数据类型-6-1" class="headerlink" title="01 / JS数据类型(6+1)"></a>01 / JS数据类型(6+1)</h4><p><strong>基本数据类型:</strong></p>
-<pre><code>- null
-- undefined
-- number
-- string
-- boolean
-- symbol:代表创建后独一无二且不可变的数据类型，它的出现我认为主要是为了解决可能出现的全局变量冲突的问题。</code></pre>
-<p><strong>引用数据类型:</strong></p>
-<p>引用数据类型指的是object类型,其他如Array,Date等数据类型都可以理解为Object的子类</p>
-<pre><code>object =  [
-   Array,
-   Date,
-   Math,
-   ...
-]</code></pre>
-<p><strong>基本数据类型和引用数据类型区别:</strong></p>
-<ul>
-<li>基本数据类型在内存中占固定大小的空间,因此被保存在栈中</li>
-<li>引用类型值是对象，保存在 <strong>堆内存</strong> 中。包含引用类型值的变量实际包含并非对象本身，而是指向该对象的指针。一个变量从另一个变量复制引用类型的值时，复制的也是指向该对象的指针。</li>
-</ul>
-<h4 id="02-什么是堆-栈"><a href="#02-什么是堆-栈" class="headerlink" title="02 / 什么是堆/栈?"></a>02 / 什么是堆/栈?</h4><p>堆栈概念存在于<strong>数据结构</strong>和<strong>操作系统</strong>内存中</p>
-<ul>
-<li><p>在数据结构中:</p>
-<ul>
-<li>栈中的数据存取方式为先进后出</li>
-<li>堆是一个优先队列,按照优先级来进行排序的,优先级可以按照大小来规定</li>
-</ul>
-</li>
-<li><p>操作系统中 ,内存被分为栈区和堆区:</p>
-<ul>
-<li>栈区的内存由编译器自动分配释放,存放函数的参数值,局部变量值等</li>
-</ul>
-</li>
-<li><p>堆内存一般由程序员释放,若没有手动释放则程序结束时由垃圾回收机制回收</p>
-</li>
-</ul>
-<h4 id="03-什么是JavaSctipt垃圾回收机制"><a href="#03-什么是JavaSctipt垃圾回收机制" class="headerlink" title="03 / 什么是JavaSctipt垃圾回收机制?"></a>03 / 什么是JavaSctipt垃圾回收机制?</h4><ul>
-<li><p><strong>为什么要垃圾回收?</strong></p>
-<pre><code class="html">随着前端业务需求的不断增多，相比以前，我们会占用更多的内存。
-但是内存并不是无限的，而对于那些我们不再需要的变量、对象该怎么处理呢？
-这里就是垃圾回收机制的作用</code></pre>
-</li>
-<li><p><strong>垃圾回收机制的特点:</strong></p>
-<p>垃圾回收机制，会定期对那些我们不再使用的变量、对象所占用的内存进行释放</p>
-<pre><code>原理:
-    + 找出那些不再使用的变量，然后释放其占用的内存。
-    + 垃圾收集器会按照固定的时间间隔(或预定的收集时间)周期性地执行此操作。</code></pre>
-</li>
-<li><p><strong>垃圾回收的方式有哪些?</strong></p>
-<ul>
-<li><p>标记清除</p>
-<ul>
-<li><p>当变量进入环境时,就将其标记为”进入环境”,此时”进入环境”的变量是不可以被回收的”</p>
-</li>
-<li><p>当变量离开环境时,就将其标记为”离开环境”,此时”离开环境”的变量可以被回收</p>
-<pre><code>function func () &#123;
-      const a = 1
-    const b = 2
-      // 函数执行时，a b 分别被标记 进入环境
-&#125;
-
-func() // 函数执行结束，a b 被标记 离开环境，被回收</code></pre>
-</li>
-</ul>
-</li>
-<li><p>引用计数</p>
-<ul>
-<li><p>统计引用类型变量声明后被引用的次数，当次数为 0 时，该变量将被回收</p>
-<pre><code>function func1 () &#123;
-      const c = &#123;&#125; // 引用类型变量 c的引用计数为 0
-      let d = c // c 被 d 引用 c的引用计数为 1
-      let e = c // c 被 e 引用 c的引用计数为 2
-      d = &#123;&#125; // d 不再引用c c的引用计数减为 1
-      e = null // e 不再引用 c c的引用计数减为 0 将被回收
-&#125;</code></pre>
-</li>
-<li><p>但是引用计数的方式，有一个相对明显的缺点——<strong>循环引用</strong></p>
-<pre><code>function func5 () &#123;
-      let f = &#123;&#125;
-      let g = &#123;&#125;
-      f.prop = g
-      g.prop = f
-      // 由于 f 和 g 互相引用，计数永远不可能为 0
-&#125;</code></pre>
-</li>
-<li><p>像上面这种情况就需要<strong>手动将变量的内存释放</strong></p>
-<pre><code>f.prop = null
-g.prop = null</code></pre>
-<p>参考:</p>
-<pre><code> [&lt;&lt;javascript 垃圾回收机制&gt;&gt;](https://juejin.im/post/6844903652331618312)    
- [&lt;&lt;JavaScript 垃圾回收机制&gt;&gt;](https://juejin.im/post/6844903858972409869#heading-3)</code></pre>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<h4 id="04-什么是循环引用"><a href="#04-什么是循环引用" class="headerlink" title="04 / 什么是循环引用 ?"></a>04 / 什么是循环引用 ?</h4><p>当对象 1 中的某个属性指向对象 2，对象 2 中的某个属性指向对象 1 就会出现循环引用(最简单的例子)</p>
-<pre><code>  function circularReference() &#123;
-      let obj1 = &#123; &#125;;
-      let obj2 = &#123; &#125;;
-      obj1.a = obj2;
-      obj2.b = obj1;
-  &#125;</code></pre>
-<h4 id="05-内存泄露"><a href="#05-内存泄露" class="headerlink" title="05 / 内存泄露"></a>05 / 内存泄露</h4><ul>
-<li><p>什么是内存泄露?</p>
-<pre><code>程序的运行需要内存。只要程序提出要求，操作系统或者运行时（runtime）就必须供给内存。
-对于持续运行的服务进程（daemon），必须及时释放不再用到的内存。
-否则，内存占用越来越高，轻则影响系统性能，重则导致进程崩溃。
-不再用到的内存，没有及时释放，就叫做内存泄漏（memory leak）。</code></pre>
-</li>
-<li><p>常见的内存泄露有哪些?</p>
-<ul>
-<li><p>全局变量(在非严格模式下当引用未声明的变量时，会在全局对象中创建一个新变量。)</p>
-<pre><code class="js">function foo（arg）&#123; 
-    bar =“some text”; // bar将泄漏到全局.
-&#125;</code></pre>
-</li>
-<li><p>被遗忘的定时器和回调函数</p>
-</li>
-<li><p>DOM引用</p>
-</li>
-<li><p>闭包</p>
-</li>
-</ul>
-</li>
-</ul>
-<h4 id="06-JavaScript可执行上下文"><a href="#06-JavaScript可执行上下文" class="headerlink" title="06 /  JavaScript可执行上下文"></a>06 /  JavaScript可执行上下文</h4><p><a href="/2020/11/03/JavaScript/03%20-%20JavaScript-作用域&可执行上下文/" target="_blank">&lt;&lt;JavaScript可执行上下文&gt;&gt;</a></p>
-<h4 id="07-JavaScript在浏览器中执行顺序"><a href="#07-JavaScript在浏览器中执行顺序" class="headerlink" title="07 /  JavaScript在浏览器中执行顺序"></a>07 /  JavaScript在浏览器中执行顺序</h4><p><a href="/2020/11/03/JavaScript/03%20-%20JavaScript-作用域&可执行上下文/" target="_blank">&lt;&lt;JavaScript在浏览器中执行顺序&gt;&gt;</a></p>
-<h4 id="08-从输入url到页面加载过程"><a href="#08-从输入url到页面加载过程" class="headerlink" title="08 /  从输入url到页面加载过程"></a>08 /  从输入url到页面加载过程</h4><p><a href="/2020/11/03/JavaScript/03%20-%20JavaScript-作用域&可执行上下文/" target="_blank">&lt;&lt;从输入url到页面加载过程&gt;&gt;</a></p>
-<h4 id="09-内部属性-class-是什么"><a href="#09-内部属性-class-是什么" class="headerlink" title="09 / 内部属性[[class]]是什么"></a>09 / 内部属性[[class]]是什么</h4><p>所有typeof返回Object的对象都有一个内部属性.可以通过以下代码查看</p>
-<pre><code>Object.prototype.toString.call(Array)  //&quot;[object Function]&quot;</code></pre>
-<h4 id="10-Js内置对象都有哪些"><a href="#10-Js内置对象都有哪些" class="headerlink" title="10 / Js内置对象都有哪些"></a>10 / Js内置对象都有哪些</h4><pre><code>js内置对象主要是只在程序执行前存在全局作用域里面的由js定义的一些全局属性,函数和用来实例化其他对象的构造函数对象.
-
-一般我们经常用到的全局函数变量值 NaN , undefined ,
-
-全局函数: parseInt() , paeseFloat()
-
-用来实例化的全局构造函数: Date , Object 等</code></pre>
-<h4 id="11-原型原型链"><a href="#11-原型原型链" class="headerlink" title="11 / 原型原型链"></a>11 / 原型原型链</h4><p><a href="">&lt;&lt;JavaScript原型原型链&gt;&gt;</a></p>
-<h4 id="12-闭包"><a href="#12-闭包" class="headerlink" title="12 / 闭包"></a>12 / 闭包</h4><pre><code>闭包是指内部函数可以访问其所在的外部函数中声明的参数和变量;
-
-创建闭包最常用的方法是在一个函数内创建另外一个函数,创建的函数可以访问父级函数的局部变量;
-
-闭包主要有两个用途:
-
-1/ 使我们可以在函数外部访问到函数内部的变量,通过这个方法,我们可以在函数外部调用闭包函数,在函数外部访问到函数内部变量
-
-2/ 使已经运行过的函数上下文的变量对象继续保存在内存中,不被垃圾回收机制释放内存,但是操作不当可能会造成内存泄露</code></pre>
-<h4 id="13-继承"><a href="#13-继承" class="headerlink" title="13 / 继承"></a>13 / 继承</h4><pre><code>继承实现方式:
-- 原型链继承
-- 构造函数继承
-- 组合继承(原型链+构造函数继承)
-- 原型式继承
-- 寄生式继承
-- 寄生组合式继承</code></pre>
-<p><a href="https://github.com/mqyqingfeng/Blog/issues/16">&lt;&lt;JavaScript深入之继承的多种方式和优缺点&gt;&gt;</a></p>
-]]></content>
-      <categories>
-        <category>JavaScript</category>
-      </categories>
-      <tags>
-        <tag>JavaScript</tag>
-      </tags>
-  </entry>
-  <entry>
     <title></title>
     <url>/2020/11/09/JavaScript/08%20-%20JavaScript-%E9%97%AD%E5%8C%85/</url>
-    <content><![CDATA[<a id="more"></a>
+    <content><![CDATA[<blockquote>
+<h4> 
+ 闭包
+</h4>
+</blockquote>
+<a id="more"></a>
 
 <h4 id="0-前置知识"><a href="#0-前置知识" class="headerlink" title="0/前置知识:"></a>0/前置知识:</h4><p><a href="https://juntengma.github.io/2020/11/03/JavaScript/JavaScript%E4%BD%9C%E7%94%A8%E5%9F%9F/">&lt;&lt;JavaScript作用域&amp;可执行上下文&gt;&gt;</a></p>
 <h4 id="1-什么是闭包"><a href="#1-什么是闭包" class="headerlink" title="1/什么是闭包?"></a>1/什么是闭包?</h4><pre><code>- 内部函数可以访问其所在的外部函数中声明的参数和变量
@@ -990,7 +1082,11 @@ console.log(a === b);    //true</code></pre>
   <entry>
     <title>JavaScript作用域&amp;可执行上下文</title>
     <url>/2020/11/03/JavaScript/03%20-%20JavaScript-%E4%BD%9C%E7%94%A8%E5%9F%9F&amp;%E5%8F%AF%E6%89%A7%E8%A1%8C%E4%B8%8A%E4%B8%8B%E6%96%87/</url>
-    <content><![CDATA[<p>JavaScript深入 - 作用域相关问题</p>
+    <content><![CDATA[<blockquote>
+<h4> 
+JavaScript深入 - 作用域相关问题
+</h4>
+</blockquote>
 <a id="more"></a>
 
 <h3 id="01-什么是作用域"><a href="#01-什么是作用域" class="headerlink" title="01 / 什么是作用域?"></a>01 / 什么是作用域?</h3><p>作用域是指程序源代码中定义变量的区域</p>
@@ -1053,7 +1149,12 @@ console.log(a === b);    //true</code></pre>
   <entry>
     <title></title>
     <url>/2020/11/02/JavaScript/JavaScript-ES6/</url>
-    <content><![CDATA[<a id="more"></a>
+    <content><![CDATA[<blockquote>
+<h4> 
+ ES6
+</h4>
+</blockquote>
+<a id="more"></a>
 
 
 
@@ -1142,7 +1243,12 @@ function f1() &#123;
   <entry>
     <title>for-in &amp; for-of的区别 和 map-for &amp; Each区别</title>
     <url>/2020/11/02/JavaScript/forIn-forOF-Map-forEach%E5%8C%BA%E5%88%AB/</url>
-    <content><![CDATA[<a id="more"></a>
+    <content><![CDATA[<blockquote>
+<h4> 
+ for-in & for-of的区别 和 map-for & Each区别
+</h4>
+</blockquote>
+<a id="more"></a>
 
 <h3 id="for-in"><a href="#for-in" class="headerlink" title="for-in"></a>for-in</h3><ul>
 <li>遍历一个对象的除<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Symbol">Symbol</a>以外的<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Enumerability_and_ownership_of_properties">可枚举</a>属性, <strong>用于遍历对象</strong></li>
@@ -1182,9 +1288,12 @@ for(let item in obj)&#123;
   <entry>
     <title>深拷贝浅拷贝</title>
     <url>/2020/11/02/JavaScript/JavaScript-%E6%B5%85%E6%8B%B7%E8%B4%9D%E6%B7%B1%E6%8B%B7%E8%B4%9D/</url>
-    <content><![CDATA[<a id="more"></a>
-
-
+    <content><![CDATA[<blockquote>
+<h4> 
+ 深拷贝浅拷贝
+</h4>
+</blockquote>
+<a id="more"></a>
 
 <p><a href="https://juejin.im/post/6844903929705136141">https://juejin.im/post/6844903929705136141</a></p>
 <h3 id="浅拷贝"><a href="#浅拷贝" class="headerlink" title="浅拷贝"></a>浅拷贝</h3><blockquote>
@@ -1399,7 +1508,7 @@ for(let item in obj)&#123;
   </entry>
   <entry>
     <title>算法</title>
-    <url>/2020/10/30/%E7%AE%97%E6%B3%95/</url>
+    <url>/2020/10/30/%E7%AE%97%E6%B3%95%E9%A2%98/%E7%AE%97%E6%B3%95/</url>
     <content><![CDATA[<p>复习做的几个算法练习题/…</p>
 <a id="more"></a>
 <p>一、不借助临时变量，进行两个整数的交换</p>
@@ -1577,7 +1686,9 @@ Last-Modified: Wed, 5 August 1996 15:55:28 GMT
     <title>防抖节流及其应用场景</title>
     <url>/2020/10/29/JavaScript/08.1%20-%20JavaScript-%E9%98%B2%E6%8A%96%E8%8A%82%E6%B5%81/</url>
     <content><![CDATA[<blockquote>
-<p>​    复习一下防抖节流及其应用场景</p>
+<h4> 
+ 复习一下防抖节流及其应用场景
+</h4>
 </blockquote>
 <a id="more"></a>
 
@@ -2001,7 +2112,9 @@ height = content height + padding + border;</code></pre>
     <title>DOM事件 , 事件流</title>
     <url>/2020/10/28/JavaScript/02%20-%20JavaScript-DOM%E4%BA%8B%E4%BB%B6%E6%B5%81/</url>
     <content><![CDATA[<blockquote>
-<p>DOM事件, 事件流</p>
+<h4> 
+DOM事件, 事件流
+</h4>
 </blockquote>
 <a id="more"></a>
 
@@ -2068,7 +2181,6 @@ setTimeout(function() &#123;
 </ul>
 <p>发生的顺序是：事件捕获阶段 –&gt; 目标事件阶段 –&gt; 事件冒泡阶段</p>
 </blockquote>
-<p><img src="https://s1.ax1x.com/2020/10/28/B1tIz9.png" alt="B1tIz9.png"></p>
 <h4 id="事件冒泡"><a href="#事件冒泡" class="headerlink" title="事件冒泡"></a>事件冒泡</h4><blockquote>
 <p>​    事件起始元素逐级向上传播</p>
 </blockquote>
@@ -2119,7 +2231,6 @@ setTimeout(function() &#123;
   &#125;, false)
 &lt;/script&gt;</code></pre>
 <p>运行结果：</p>
-<p><img src="https://s1.ax1x.com/2020/10/28/B1UStU.gif" alt="B1UStU.gif"></p>
 <h4 id="事件捕获"><a href="#事件捕获" class="headerlink" title="事件捕获"></a>事件捕获</h4><blockquote>
 <p>​    事件按 window -&gt; document -&gt; html -&gt; body -&gt; … -&gt; 目标元素 的方向向下层元素传递。</p>
 </blockquote>
@@ -2170,7 +2281,6 @@ setTimeout(function() &#123;
   &#125;, true)
 &lt;/script&gt;</code></pre>
 <p>运行结果:</p>
-<p><img src="https://s1.ax1x.com/2020/10/28/B1UCp4.gif" alt="B1UCp4.gif"></p>
 ]]></content>
       <categories>
         <category>JavaScript</category>
@@ -2183,7 +2293,9 @@ setTimeout(function() &#123;
     <title>原型,原型链</title>
     <url>/2020/10/26/JavaScript/07%20-%20JavaScript-%E5%8E%9F%E5%9E%8B%E5%8E%9F%E5%9E%8B%E9%93%BE/</url>
     <content><![CDATA[<blockquote>
-<p>​    原型原型链</p>
+<h4> 
+ 原型,原型链
+</h4>
 </blockquote>
 <a id="more"></a>
 
@@ -2245,7 +2357,9 @@ console.log(person.__proto__ === Person.prototype); //true
     <title>浏览器解析js流程</title>
     <url>/2020/10/26/JavaScript/05%20-%20JavaScript-%E8%A7%A3%E6%9E%90%E6%B5%81%E7%A8%8B%E4%BA%8B%E4%BB%B6%E5%BE%AA%E7%8E%AF(Event%20Loop)/</url>
     <content><![CDATA[<blockquote>
-<p>浏览器解析js流程</p>
+<h4> 
+ 浏览器解析js流程
+</h4>
 </blockquote>
 <a id="more"></a>
 <h4 id="JS解析"><a href="#JS解析" class="headerlink" title="JS解析"></a>JS解析</h4><p><a href="https://imgchr.com/i/BufjDe"><img src="https://s1.ax1x.com/2020/10/26/BufjDe.png" alt="BufjDe.png"></a></p>
@@ -2275,10 +2389,13 @@ console.log(person.__proto__ === Person.prototype); //true
     <title>从输入URL到页面加载发生了什么</title>
     <url>/2020/10/26/JavaScript/06%20-%20%E4%BB%8E%E8%BE%93%E5%85%A5url%E5%88%B0%E9%A1%B5%E9%9D%A2%E5%8A%A0%E8%BD%BD%E8%BF%87%E7%A8%8B/</url>
     <content><![CDATA[<blockquote>
-<p>从输入URL到页面加载发生了什么</p>
+<h4> 
+ 从输入URL到页面加载发生了什么???
+</h4>
 </blockquote>
-<p>[TOC]</p>
 <a id="more"></a>
+
+<p>[TOC]</p>
 <p>总体来说分为以下几个过程:</p>
 <ul>
 <li><a href="#dns%E8%A7%A3%E6%9E%90">DNS解析</a><ul>
@@ -2290,7 +2407,7 @@ console.log(person.__proto__ === Person.prototype); //true
 <li><a href="#%E6%B5%8F%E8%A7%88%E5%99%A8%E8%A7%A3%E6%9E%90%E6%B8%B2%E6%9F%93%E9%A1%B5%E9%9D%A2">浏览器解析渲染页面</a></li>
 </ul>
 <h3 id="DNS解析"><a href="#DNS解析" class="headerlink" title="DNS解析"></a>DNS解析</h3><p>DNS解析的过程就是在寻找哪台机器上有你需要的资源的全过程.<br>当你在浏览器中输入一个地址时,将网址转换为IP的过程叫做DNS解析</p>
-<h4 id="DNS解析过程"><a href="#DNS解析过程" class="headerlink" title="DNS解析过程"></a>DNS解析过程</h4><p>DNS解析本质上是一个递归查询的过程<br><a href="https://imgchr.com/i/BuniZV"><img src="https://s1.ax1x.com/2020/10/26/BuniZV.png" alt="BuniZV.png"></a></p>
+<h4 id="DNS解析过程"><a href="#DNS解析过程" class="headerlink" title="DNS解析过程"></a>DNS解析过程</h4><p>DNS解析本质上是一个递归查询的过程</p>
 <p>上图是查找<code>www.google.com</code>这个网址的过程</p>
 <ol>
 <li>在<code>本地域名服务器</code>中查询IP地址–&gt;无</li>
@@ -2334,7 +2451,6 @@ console.log(person.__proto__ === Person.prototype); //true
 <li>500:服务器内部错误，无法完成请求</li>
 </ul>
 <h3 id="浏览器解析渲染页面"><a href="#浏览器解析渲染页面" class="headerlink" title="浏览器解析渲染页面"></a>浏览器解析渲染页面</h3><p>浏览器在收到HTML,CSS,JS文件后，它是如何把页面呈现到屏幕上的？下图对应的就是WebKit渲染的过程。</p>
-<p>`<a href="https://imgchr.com/i/BufqgK"><img src="https://s1.ax1x.com/2020/10/26/BufqgK.png" alt="BufqgK.png"></a></p>
 <p>浏览器是一个边解析边渲染的过程.</p>
 <p>首先在浏览器解析HTML文件构建DOM树,然后解析css文件构建渲染树,等到渲染完成后,浏览器开封市布局渲染树并将其绘制到屏幕上.</p>
 <p>该过程涉及到两个概念 : <strong>重绘</strong>,<strong>回流</strong></p>
@@ -2479,8 +2595,8 @@ module.exports = smp.wrap(&#123;&#125;);</code></pre>
         <category>浏览器</category>
       </categories>
       <tags>
-        <tag>浏览器</tag>
         <tag>同源策略</tag>
+        <tag>浏览器</tag>
       </tags>
   </entry>
   <entry>
@@ -2627,8 +2743,13 @@ export class ChildA extends React.Component&lt;ChildAProps, any&gt; &#123;
   <entry>
     <title>JavaScript获取元素位置</title>
     <url>/2020/09/24/JavaScript/JavaScript-%E8%8E%B7%E5%8F%96%E5%85%83%E7%B4%A0%E5%9D%90%E6%A0%87%E9%97%AE%E9%A2%98/</url>
-    <content><![CDATA[<h2 id="js获取元素相对于父级元素的高度"><a href="#js获取元素相对于父级元素的高度" class="headerlink" title="js获取元素相对于父级元素的高度"></a>js获取元素相对于父级元素的高度</h2><a id="more"></a>
-<h4 id="1-offsetLeft-、offsetTop"><a href="#1-offsetLeft-、offsetTop" class="headerlink" title="1. offsetLeft 、offsetTop"></a>1. offsetLeft 、offsetTop</h4><p>offsetLeft/offsetTop -  用于获取子元素相对于父元素的位移（左位移、上位移）</p>
+    <content><![CDATA[<blockquote>
+<h4> 
+ JavaScript获取元素位置
+</h4>
+</blockquote>
+<a id="more"></a>
+<h2 id="js获取元素相对于父级元素的高度"><a href="#js获取元素相对于父级元素的高度" class="headerlink" title="js获取元素相对于父级元素的高度"></a>js获取元素相对于父级元素的高度</h2><h4 id="1-offsetLeft-、offsetTop"><a href="#1-offsetLeft-、offsetTop" class="headerlink" title="1. offsetLeft 、offsetTop"></a>1. offsetLeft 、offsetTop</h4><p>offsetLeft/offsetTop -  用于获取子元素相对于父元素的位移（左位移、上位移）</p>
 <h4 id="2-offsetWidth、offsetHeight"><a href="#2-offsetWidth、offsetHeight" class="headerlink" title="2. offsetWidth、offsetHeight"></a>2. offsetWidth、offsetHeight</h4><p>offsetWidth/offsetHeight - 用于获取元素的可见宽度和可见高度</p>
 <h4 id="3-clientX-、clientY"><a href="#3-clientX-、clientY" class="headerlink" title="3. clientX 、clientY"></a>3. clientX 、clientY</h4><p>用于获取鼠标坐标（相对于页面的坐标）</p>
 <p>var event = event || window.event;</p>
@@ -2802,8 +2923,12 @@ export class RichText extends Component &#123;
   </entry>
   <entry>
     <title>一段js代码在浏览器中是如何执行的</title>
-    <url>/2020/09/22/JavaScript/04%20-%20JavaScript-%E4%BB%A3%E7%A0%81%E5%9C%A8%E6%B5%8F%E8%A7%88%E5%99%A8%E4%B8%AD%E7%9A%84%E6%89%A7%E8%A1%8C%E9%A1%BA%E5%BA%8F/</url>
-    <content><![CDATA[<p>一段js代码在浏览器中是如何执行的?</p>
+    <url>/2020/09/22/JavaScript/04%20-%20JavaScript-%E4%B8%80%E6%AE%B5js%E4%BB%A3%E7%A0%81%E5%9C%A8%E6%B5%8F%E8%A7%88%E5%99%A8%E4%B8%AD%E6%98%AF%E5%A6%82%E4%BD%95%E6%89%A7%E8%A1%8C%E7%9A%84/</url>
+    <content><![CDATA[<blockquote>
+<h4> 
+一段js代码在浏览器中是如何执行的?
+</h4>
+</blockquote>
 <a id="more"></a>
 
 
@@ -2820,11 +2945,9 @@ export class RichText extends Component &#123;
 ]]></content>
       <categories>
         <category>JavaScript</category>
-        <category>浏览器</category>
       </categories>
       <tags>
         <tag>JavaScript</tag>
-        <tag>浏览器</tag>
       </tags>
   </entry>
   <entry>
@@ -2896,99 +3019,89 @@ require(&#39;echarts/lib/component/title&#39;);</code></pre>
       </tags>
   </entry>
   <entry>
-    <title>在react中实现文本复制</title>
-    <url>/2020/09/22/React/React-%E6%96%87%E6%9C%AC%E5%A4%8D%E5%88%B6/</url>
-    <content><![CDATA[<p>‘在react中实现文本复制’</p>
-<a id="more"></a>
-
-<h2 id="方案一："><a href="#方案一：" class="headerlink" title="方案一："></a>方案一：</h2><pre><code class="js">copyTranslateResult = () =&gt; &#123;
-        const copyDOM = document.querySelector(&#39;.translateResult&#39;);
-
-        if (copyDOM.innerHTML !== &#39;&#39;) &#123;
-
-            var range = document.createRange(); //创建一个range
-
-            window.getSelection().removeAllRanges(); //清楚页面中已有的selection
-
-            range.selectNode(copyDOM); // 选中需要复制的节点
-
-            window.getSelection().addRange(range); // 执行选中元素
-
-            var successful = document.execCommand(&#39;copy&#39;); // 执行 copy 操作
-
-            if (successful) &#123;
-
-                message.success(&#39;复制成功！&#39;);
-
-            &#125; else &#123;
-
-                message.warning(&#39;复制失败，请手动复制！&#39;);
-
-            &#125;
-
-            // 移除选中的元素
-
-            window.getSelection().removeAllRanges();
-
-        &#125; else &#123;
-
-            message.warning(&#39;没有内容&#39;);
-
-        &#125;
-
-    &#125;;</code></pre>
-<h2 id="方案二-推荐，方案一兼容性不高-："><a href="#方案二-推荐，方案一兼容性不高-：" class="headerlink" title="方案二(推荐，方案一兼容性不高)："></a>方案二(推荐，方案一兼容性不高)：</h2><p><strong>react-copy-to-clipboard：</strong><br><a href="https://github.com/nkbt/react-copy-to-clipboard">https://github.com/nkbt/react-copy-to-clipboard</a></p>
-<h4 id="Install"><a href="#Install" class="headerlink" title="Install"></a>Install</h4><pre><code>npm install --save react-copy-to-clipboard
-or
-yarn add react-copy-to-clipboard</code></pre>
-<h4 id="Demo"><a href="#Demo" class="headerlink" title="Demo"></a>Demo</h4><pre><code class="jsx">import React from &#39;react&#39;;
-import ReactDOM from &#39;react-dom&#39;;
-import &#123;CopyToClipboard&#125; from &#39;react-copy-to-clipboard&#39;;
-
-class App extends React.Component &#123;
-  state = &#123;
-    value: &#39;&#39;,
-    copied: false,
-  &#125;;
-
-  render() &#123;
-    return (
-      &lt;div&gt;
-        &lt;input value=&#123;this.state.value&#125;
-          onChange=&#123;(&#123;target: &#123;value&#125;&#125;) =&gt; this.setState(&#123;value, copied: false&#125;)&#125; /&gt;
-
-        &lt;CopyToClipboard text=&#123;this.state.value&#125;
-          onCopy=&#123;() =&gt; this.setState(&#123;copied: true&#125;)&#125;&gt;
-          &lt;span&gt;Copy to clipboard with span&lt;/span&gt;
-        &lt;/CopyToClipboard&gt;
-
-        &lt;CopyToClipboard text=&#123;this.state.value&#125;
-          onCopy=&#123;() =&gt; this.setState(&#123;copied: true&#125;)&#125;&gt;
-          &lt;button&gt;Copy to clipboard with button&lt;/button&gt;
-        &lt;/CopyToClipboard&gt;
-
-        &#123;this.state.copied ? &lt;span style=&#123;&#123;color: 'red'&#125;&#125;&gt;Copied.&lt;/span&gt; : null&#125;
-      &lt;/div&gt;
-    );
-  &#125;
-&#125;
-
-const appRoot = document.createElement(&#39;div&#39;);
-document.body.appendChild(appRoot);
-ReactDOM.render(&lt;App /&gt;, appRoot);
-</code></pre>
-]]></content>
-      <categories>
-        <category>React</category>
-      </categories>
-      <tags>
-        <tag>React</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>在react传值问题--context传值</title>
     <url>/2020/09/22/React/React-Redux/</url>
-    <content><![CDATA[]]></content>
+    <content><![CDATA[<h1 id="Redux-的基础概念"><a href="#Redux-的基础概念" class="headerlink" title="Redux 的基础概念"></a>Redux 的基础概念</h1><h2 id="三个基本原则"><a href="#三个基本原则" class="headerlink" title="三个基本原则"></a>三个基本原则</h2><ul>
+<li>整个应用只有一个可信数据源 —  store</li>
+<li>State只能通过Action更改</li>
+<li>State的更改只能写成一个纯函数,也就是每次更改必须返回一个新的State——Reducer</li>
+</ul>
+<h2 id="Action"><a href="#Action" class="headerlink" title="Action"></a>Action</h2><p>Action 就是一个单纯的包含 { type , pyload }的对象, </p>
+<ul>
+<li><p>type 用来标识动作类型</p>
+</li>
+<li><p>pyload用来携带数据</p>
+</li>
+<li><p>Action需要通过store.dispatch()方法来发送</p>
+</li>
+</ul>
+<p>比如一个最简单的 action：</p>
+<pre><code>&#123;
+  type: &#39;ADD_TODO&#39;,
+  text: &#39;Build my first Redux app&#39;
+&#125;</code></pre>
+<h2 id="Reducers"><a href="#Reducers" class="headerlink" title="Reducers"></a>Reducers</h2><p>Reducers用来处理Action触发的对状态的更改</p>
+<p>Reducer接受<code>oldState</code>和<code>action</code>两个参数,并返回一个新的state</p>
+<p>一个Reducer_demo:</p>
+<pre><code>const initialState = &#123;
+  a: &#39;a&#39;,
+  b: &#39;b&#39;
+&#125;;
+
+function someApp(state = initialState, action) &#123;
+  switch (action.type) &#123;
+    case &#39;CHANGE_A&#39;:
+      return &#123; ...state, a: &#39;Modified a&#39; &#125;;
+    case &#39;CHANGE_B&#39;:
+      return &#123; ...state, b: action.payload &#125;;
+    default:
+      return state
+  &#125;
+&#125;</code></pre>
+<p>Reducer 也是 <strong>pure function</strong>，这点非常重要，所以绝对不要在 reducer 里面做一些引入 side-effects 的事情，比如：</p>
+<ul>
+<li>直接修改 state 参数对象</li>
+<li>请求 API</li>
+<li>调用不纯的函数，比如 <code>Data.now()</code> <code>Math.random()</code></li>
+</ul>
+<p>因为 Redux 里面只有一个 Store，对应一个 State 状态，所以整个 State 对象就是由一个 reducer 函数管理，但是如果所有的状态更改逻辑都放在这一个 reducer 里面，显然会变得越来越巨大，越来越难以维护。得益于纯函数的实现，我们只需要稍微变通一下，让状态树上的每个字段都有一个 reducer 函数来管理就可以拆分成很小的 reducer 了：</p>
+<pre><code class="javascript">function someApp(state = &#123;&#125;, action) &#123;
+  return &#123;
+    a: reducerA(state.a, action),
+    b: reducerB(state.b, action)
+  &#125;;
+&#125;</code></pre>
+<p>Redux 提供了一个工具函数 <code>combineReducers</code> 来简化这种 reducer 合并：</p>
+<pre><code class="javascript">import &#123; combineReducers &#125; from &#39;redux&#39;;
+
+const someApp = combineReducers(&#123;
+  a: reducerA,
+  b: reducerB
+&#125;);</code></pre>
+<h2 id="Store"><a href="#Store" class="headerlink" title="Store"></a>Store</h2><p>现在有了 Action 和 Reducer，Store 的作用就是连接这两者，Store 的作用有这么几个：</p>
+<ul>
+<li>Hold 住整个应用的 State 状态树</li>
+<li>提供一个 <code>getState()</code> 方法获取 State</li>
+<li>提供一个 <code>dispatch()</code> 方法发送 action 更改 State</li>
+<li>提供一个 <code>subscribe()</code> 方法注册回调函数监听 State 的更改</li>
+</ul>
+<p>创建一个 Store 很容易，将 <strong>root reducer</strong> 函数传递给 <code>createStore</code> 方法即可：</p>
+<pre><code>import &#123; createStore &#125; from &#39;redux&#39;;
+import someApp from &#39;./reducers&#39;;
+let store = createStore(someApp);
+
+// 你也可以额外指定一个初始 State（initialState），这对于服务端渲染很有用
+// let store = createStore(someApp, window.STATE_FROM_SERVER);
+
+let unsubscribe = store.subscribe(() =&gt; console.log(store.getState()));
+
+// Dispatch
+store.dispatch(&#123; type: &#39;CHANGE_A&#39; &#125;);
+store.dispatch(&#123; type: &#39;CHANGE_B&#39;, payload: &#39;Modified b&#39; &#125;);
+
+// Stop listening to state updates
+unsubscribe();</code></pre>
+]]></content>
       <categories>
         <category>React</category>
       </categories>
@@ -3141,6 +3254,96 @@ export class Consumers extends React.Component &#123;
 <p><a href="https://github.com/JuntengMa/react_demo_js">demo代码</a></p>
 <p>06/ 注意事项</p>
 <p>react官网写的很明白,context是一个实验性的api,在未来的版本中可能会被移除,还是尽量谨慎使用吧….</p>
+]]></content>
+      <categories>
+        <category>React</category>
+      </categories>
+      <tags>
+        <tag>React</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>在react中实现文本复制</title>
+    <url>/2020/09/22/React/React-%E6%96%87%E6%9C%AC%E5%A4%8D%E5%88%B6/</url>
+    <content><![CDATA[<p>‘在react中实现文本复制’</p>
+<a id="more"></a>
+
+<h2 id="方案一："><a href="#方案一：" class="headerlink" title="方案一："></a>方案一：</h2><pre><code class="js">copyTranslateResult = () =&gt; &#123;
+        const copyDOM = document.querySelector(&#39;.translateResult&#39;);
+
+        if (copyDOM.innerHTML !== &#39;&#39;) &#123;
+
+            var range = document.createRange(); //创建一个range
+
+            window.getSelection().removeAllRanges(); //清楚页面中已有的selection
+
+            range.selectNode(copyDOM); // 选中需要复制的节点
+
+            window.getSelection().addRange(range); // 执行选中元素
+
+            var successful = document.execCommand(&#39;copy&#39;); // 执行 copy 操作
+
+            if (successful) &#123;
+
+                message.success(&#39;复制成功！&#39;);
+
+            &#125; else &#123;
+
+                message.warning(&#39;复制失败，请手动复制！&#39;);
+
+            &#125;
+
+            // 移除选中的元素
+
+            window.getSelection().removeAllRanges();
+
+        &#125; else &#123;
+
+            message.warning(&#39;没有内容&#39;);
+
+        &#125;
+
+    &#125;;</code></pre>
+<h2 id="方案二-推荐，方案一兼容性不高-："><a href="#方案二-推荐，方案一兼容性不高-：" class="headerlink" title="方案二(推荐，方案一兼容性不高)："></a>方案二(推荐，方案一兼容性不高)：</h2><p><strong>react-copy-to-clipboard：</strong><br><a href="https://github.com/nkbt/react-copy-to-clipboard">https://github.com/nkbt/react-copy-to-clipboard</a></p>
+<h4 id="Install"><a href="#Install" class="headerlink" title="Install"></a>Install</h4><pre><code>npm install --save react-copy-to-clipboard
+or
+yarn add react-copy-to-clipboard</code></pre>
+<h4 id="Demo"><a href="#Demo" class="headerlink" title="Demo"></a>Demo</h4><pre><code class="jsx">import React from &#39;react&#39;;
+import ReactDOM from &#39;react-dom&#39;;
+import &#123;CopyToClipboard&#125; from &#39;react-copy-to-clipboard&#39;;
+
+class App extends React.Component &#123;
+  state = &#123;
+    value: &#39;&#39;,
+    copied: false,
+  &#125;;
+
+  render() &#123;
+    return (
+      &lt;div&gt;
+        &lt;input value=&#123;this.state.value&#125;
+          onChange=&#123;(&#123;target: &#123;value&#125;&#125;) =&gt; this.setState(&#123;value, copied: false&#125;)&#125; /&gt;
+
+        &lt;CopyToClipboard text=&#123;this.state.value&#125;
+          onCopy=&#123;() =&gt; this.setState(&#123;copied: true&#125;)&#125;&gt;
+          &lt;span&gt;Copy to clipboard with span&lt;/span&gt;
+        &lt;/CopyToClipboard&gt;
+
+        &lt;CopyToClipboard text=&#123;this.state.value&#125;
+          onCopy=&#123;() =&gt; this.setState(&#123;copied: true&#125;)&#125;&gt;
+          &lt;button&gt;Copy to clipboard with button&lt;/button&gt;
+        &lt;/CopyToClipboard&gt;
+
+        &#123;this.state.copied ? &lt;span style=&#123;&#123;color: 'red'&#125;&#125;&gt;Copied.&lt;/span&gt; : null&#125;
+      &lt;/div&gt;
+    );
+  &#125;
+&#125;
+
+const appRoot = document.createElement(&#39;div&#39;);
+document.body.appendChild(appRoot);
+ReactDOM.render(&lt;App /&gt;, appRoot);
+</code></pre>
 ]]></content>
       <categories>
         <category>React</category>
