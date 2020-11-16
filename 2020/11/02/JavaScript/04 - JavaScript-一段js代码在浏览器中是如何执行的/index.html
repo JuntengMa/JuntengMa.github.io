@@ -72,12 +72,12 @@
   <meta name="description" content="一段js代码在浏览器中是如何执行的?">
 <meta property="og:type" content="article">
 <meta property="og:title" content="一段js代码在浏览器中是如何执行的">
-<meta property="og:url" content="https://juntengma.github.io/2020/09/22/JavaScript/04%20-%20JavaScript-%E4%B8%80%E6%AE%B5js%E4%BB%A3%E7%A0%81%E5%9C%A8%E6%B5%8F%E8%A7%88%E5%99%A8%E4%B8%AD%E6%98%AF%E5%A6%82%E4%BD%95%E6%89%A7%E8%A1%8C%E7%9A%84/index.html">
+<meta property="og:url" content="https://juntengma.github.io/2020/11/02/JavaScript/04%20-%20JavaScript-%E4%B8%80%E6%AE%B5js%E4%BB%A3%E7%A0%81%E5%9C%A8%E6%B5%8F%E8%A7%88%E5%99%A8%E4%B8%AD%E6%98%AF%E5%A6%82%E4%BD%95%E6%89%A7%E8%A1%8C%E7%9A%84/index.html">
 <meta property="og:site_name" content="June&#39;s Blog">
 <meta property="og:description" content="一段js代码在浏览器中是如何执行的?">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2020-09-22T11:14:44.228Z">
-<meta property="article:modified_time" content="2020-11-12T12:30:39.090Z">
+<meta property="article:published_time" content="2020-11-02T00:00:00.000Z">
+<meta property="article:modified_time" content="2020-11-16T07:00:40.621Z">
 <meta property="article:author" content="June">
 <meta property="article:tag" content="JavaScript">
 <meta name="twitter:card" content="summary">
@@ -236,23 +236,23 @@
       <ul>
         
           <li>
-            <a href="../../../../11/12/%E7%AE%97%E6%B3%95%E9%A2%98/%E5%89%91%E6%8C%87offer/">🌭 算法</a>
+            <a href="../../../12/%E7%AE%97%E6%B3%95%E9%A2%98/%E5%89%91%E6%8C%87offer/">🌭 算法</a>
           </li>
         
           <li>
-            <a href="../../../../11/09/JavaScript/09%20-%20JavaScript-Promise/">🌭 Promise</a>
+            <a href="../../../09/JavaScript/09%20-%20JavaScript-Promise/">🌭 Promise</a>
           </li>
         
           <li>
-            <a href="../../../../11/09/JavaScript/JavaScript-%E5%A4%84%E7%90%86%E5%BC%82%E6%AD%A5%E5%87%BD%E6%95%B0%E5%87%A0%E7%A7%8D%E6%96%B9%E6%A1%88/">🌭 JavaScript处理异步函数几种方案</a>
+            <a href="../../../09/JavaScript/JavaScript-%E5%A4%84%E7%90%86%E5%BC%82%E6%AD%A5%E5%87%BD%E6%95%B0%E5%87%A0%E7%A7%8D%E6%96%B9%E6%A1%88/">🌭 JavaScript处理异步函数几种方案</a>
           </li>
         
           <li>
-            <a href="../../../../11/09/React/React%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/">🌭 React学习</a>
+            <a href="../../../09/React/React%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/">🌭 React学习</a>
           </li>
         
           <li>
-            <a href="../../../../11/09/JavaScript/01%20-%20JavaScript%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/">🌭 JavaScript基础知识综合</a>
+            <a href="../../../09/JavaScript/08%20-%20JavaScript-%E9%97%AD%E5%8C%85/">🌭 (no title)</a>
           </li>
         
       </ul>
@@ -275,9 +275,9 @@
   
 
   <div class="nexmoe-post-meta nexmoe-rainbow" style="margin:10px 0!important;">
-    <a><i class="nexmoefont icon-calendar-fill"></i>2020年09月22日</a>
-    <a><i class="nexmoefont icon-areachart"></i>630 字</a>
-    <a><i class="nexmoefont icon-time-circle-fill"></i>大概 2 分钟</a>
+    <a><i class="nexmoefont icon-calendar-fill"></i>2020年11月02日</a>
+    <a><i class="nexmoefont icon-areachart"></i>1k 字</a>
+    <a><i class="nexmoefont icon-time-circle-fill"></i>大概 4 分钟</a>
 </div>
 
   <div class="nexmoe-post-right">
@@ -286,23 +286,52 @@
 
   <article>
     <blockquote>
-<h4> 
-一段js代码在浏览器中是如何执行的?
-</h4>
+<p>一段js代码在浏览器中是如何执行的?</p>
 </blockquote>
 <a id="more"></a>
 
 
-<h3 id="一段js代码在浏览器中是如何执行的"><a href="#一段js代码在浏览器中是如何执行的" class="headerlink" title="一段js代码在浏览器中是如何执行的"></a>一段js代码在浏览器中是如何执行的</h3><p>在执行一段代码时，JS 引擎会首先创建一个执行栈,然后JS引擎会创建一个全局执行上下文，并push到执行栈中, </p>
+<h3 id="01-JS代码执行顺序是什么"><a href="#01-JS代码执行顺序是什么" class="headerlink" title="01 / JS代码执行顺序是什么"></a>01 / JS代码执行顺序是什么</h3><p>JavaScript代码是逐行执行的 , 但是js引擎并非一行一行的<strong>解析</strong>执行程序,而是一段一段的分析执行,为什么是分段执行的呢?又按什么规则来分段的呢?这里我们需要再了解一下什么是<strong>可执行代码</strong></p>
+<h3 id="02-可执行代码-amp-执行上下文"><a href="#02-可执行代码-amp-执行上下文" class="headerlink" title="02 / 可执行代码 &amp; 执行上下文"></a>02 / 可执行代码 &amp; 执行上下文</h3><p>可执行代码有三种,全局代码,函数代码,eval代码,当执行到可执行代码的时候,就会进行准备一些工作 . 这个准备工作就是<strong>执行上下文</strong></p>
+<ul>
+<li>全局代码</li>
+<li>函数代码</li>
+<li>eval代码( evla()函数可以将传入的字符串当做 JavaScript 代码进行执行 )</li>
+</ul>
+<h3 id="05-执行上下文栈"><a href="#05-执行上下文栈" class="headerlink" title="05 / 执行上下文栈"></a>05 / 执行上下文栈</h3><p>为了管理js中大量的可执行上下文,JavaScript引擎创建了<strong>执行上下文栈</strong>来管理可执行上下文</p>
+<ul>
+<li><p>当 JavaScript 开始要解释执行代码的时候，最先遇到的就是全局代码，所以初始化的时候首先就会向执行上下文栈压入一个全局执行上下文，我们用 globalContext 表示它，并且只有当整个应用程序结束的时候，ECStack 才会被清空，所以程序结束之前， ECStack 最底部永远有个 globalContext.</p>
+<pre><code>const ECStack  = [    
+    globalContext 
+]</code></pre>
+</li>
+</ul>
+<ul>
+<li><p>当函数开始执行的时候,同样生成一个可以执行上下文并压入可执行上下文栈,当函数执行完毕的时候,再从执行上下文栈中弹出</p>
+<pre><code>const ECStack  = [
+    eval()
+    function()
+    globalContext 
+]</code></pre>
+</li>
+</ul>
+<h3 id="06-总结"><a href="#06-总结" class="headerlink" title="06 / 总结:"></a>06 / 总结:</h3><ul>
+<li>在执行一段代码时，JS 引擎会首先<strong>创建一个执行栈</strong>,然后JS引擎会创建一个<strong>全局执行上下文</strong>，并push到执行栈中</li>
+</ul>
 <ul>
 <li>这个过程JS引擎会为这段代码中<strong>所有变量</strong>分配内存并赋一个初始值（undefined）</li>
-<li>在创建完成后，JS引擎会进入执行阶段，这个过程JS引擎会逐行的执行代码，即为之前分配好内存的变量逐个赋值(真实值)。</li>
-<li>如果这段代码中存在function的声明和调用，那么JS引擎会创建一个函数执行上下文，并push到执行栈中，其创建和执行过程跟全局执行上下文一样。但有特殊情况，即当函数中存在对其它函数的调用时，JS引擎会在父函数执行的过程中，将子函数的全局执行上下文push到执行栈，这也是为什么子函数能够访问到父函数内所声明的变量。</li>
-<li>还有一种特殊情况是，在子函数执行的过程中，父函数已经return了，这种情况下，JS引擎会将父函数的上下文从执行栈中移除，与此同时，JS引擎会为还在执行的子函数上下文创建一个闭包，这个闭包里保存了父函数内声明的变量及其赋值，子函数仍然能够在其上下文中访问并使用这边变量/常量。当子函数执行完毕，JS引擎才会将子函数的上下文及闭包一并从执行栈中移除。</li>
-<li>最后，<strong>JS引擎是单线程的</strong>，那么它是如何处理高并发的呢？即当代码中存在异步调用时JS是如何执行的?</li>
 </ul>
-<p>比如setTimeout或fetch请求都是non-blocking的，当异步调用代码触发时，JS引擎会将需要异步执行的代码移出调用栈，直到等待到返回结果，JS引擎会立即将与之对应的回调函数push进任务队列中等待被调用，当调用(执行)栈中已经没有需要被执行的代码时，JS引擎会立刻将任务队列中的回调函数逐个push进调用栈并执行。这个过程我们也称之为事件循环。</p>
-<p>转自: <a target="_blank" rel="noopener" href="https://juejin.im/post/5e7426d15188254967069c00">https://juejin.im/post/5e7426d15188254967069c00</a></p>
+<ul>
+<li>在创建完成后，JS引擎会进入<strong>执行阶段</strong>，这个过程JS引擎会逐行的执行代码，即为之前分配好内存的变量逐个赋值(真实值)。</li>
+</ul>
+<ul>
+<li>如果这段代码中存在function的声明和调用，那么JS引擎会创建一个函数执行上下文，并push到执行栈中，其创建和执行过程跟全局执行上下文一样。但有特殊情况，即当函数中存在对其它函数的调用时，JS引擎会在父函数执行的过程中，将子函数的全局执行上下文push到执行栈，这也是为什么子函数能够访问到父函数内所声明的变量。</li>
+</ul>
+<ul>
+<li>还有一种特殊情况是，在子函数执行的过程中，父函数已经return了，这种情况下，JS引擎会将父函数的上下文从执行栈中移除，与此同时，JS引擎会为还在执行的子函数上下文创建一个闭包，这个闭包里保存了父函数内声明的变量及其赋值，子函数仍然能够在其上下文中访问并使用这边变量/常量。当子函数执行完毕，JS引擎才会将子函数的上下文及闭包一并从执行栈中移除。</li>
+</ul>
+<h3 id="JS引擎如何处理高并发"><a href="#JS引擎如何处理高并发" class="headerlink" title="JS引擎如何处理高并发?"></a>JS引擎如何处理高并发?</h3><p><strong>JS引擎是单线程的</strong>，那么它是如何处理高并发的呢？即当代码中存在异步调用时JS是如何执行的?</p>
+<p>比如setTimeout或fetch请求都是non-blocking的，<br>当异步调用代码触发时，JS引擎会将需要异步执行的代码移出调用栈，直到等待到返回结果，JS引擎会立即将与之对应的回调函数push进任务队列中等待被调用，<br>当调用(执行)栈中已经没有需要被执行的代码时，JS引擎会立刻将任务队列中的回调函数逐个push进调用栈并执行。这个过程我们也称之为<strong>事件循环</strong>。<br><a href="/2020/11/02/JavaScript/04%20-%20JavaScript-%E4%B8%80%E6%AE%B5js%E4%BB%A3%E7%A0%81%E5%9C%A8%E6%B5%8F%E8%A7%88%E5%99%A8%E4%B8%AD%E6%98%AF%E5%A6%82%E4%BD%95%E6%89%A7%E8%A1%8C%E7%9A%84/">&lt;&lt;浏览器解析js流程&gt;&gt;</a></p>
 
   </article>
 
@@ -328,8 +357,8 @@
   <strong>
     本文链接：
   </strong>
-  <a href="https://juntengma.github.io/2020/09/22/JavaScript/04%20-%20JavaScript-%E4%B8%80%E6%AE%B5js%E4%BB%A3%E7%A0%81%E5%9C%A8%E6%B5%8F%E8%A7%88%E5%99%A8%E4%B8%AD%E6%98%AF%E5%A6%82%E4%BD%95%E6%89%A7%E8%A1%8C%E7%9A%84/" target="_blank">
-    https://juntengma.github.io/2020/09/22/JavaScript/04%20-%20JavaScript-%E4%B8%80%E6%AE%B5js%E4%BB%A3%E7%A0%81%E5%9C%A8%E6%B5%8F%E8%A7%88%E5%99%A8%E4%B8%AD%E6%98%AF%E5%A6%82%E4%BD%95%E6%89%A7%E8%A1%8C%E7%9A%84/
+  <a href="https://juntengma.github.io/2020/11/02/JavaScript/04%20-%20JavaScript-%E4%B8%80%E6%AE%B5js%E4%BB%A3%E7%A0%81%E5%9C%A8%E6%B5%8F%E8%A7%88%E5%99%A8%E4%B8%AD%E6%98%AF%E5%A6%82%E4%BD%95%E6%89%A7%E8%A1%8C%E7%9A%84/" target="_blank">
+    https://juntengma.github.io/2020/11/02/JavaScript/04%20-%20JavaScript-%E4%B8%80%E6%AE%B5js%E4%BB%A3%E7%A0%81%E5%9C%A8%E6%B5%8F%E8%A7%88%E5%99%A8%E4%B8%AD%E6%98%AF%E5%A6%82%E4%BD%95%E6%89%A7%E8%A1%8C%E7%9A%84/
   </a>
   <br>
 
@@ -365,7 +394,7 @@ gitment.render('gitment')
   </div>
   <script src="https://cdn.jsdelivr.net/combine/npm/lazysizes@5.1.0/lazysizes.min.js,gh/highlightjs/cdn-release@9.15.8/build/highlight.min.js,npm/mdui@0.4.3/dist/js/mdui.min.js,gh/nexmoe/nexmoe.github.io@latest/js/app.js"></script>
 <script>hljs.initHighlightingOnLoad();</script>
-<!--<script src="../../../../../js/app.js?v=1605496851359"></script>-->
+<!--<script src="../../../../../js/app.js?v=1605528832036"></script>-->
 
 
 
@@ -430,9 +459,7 @@ gitment.render('gitment')
 
   $(document).ready(function () {
     $(".nexmoe-toc").hover(function () {
-      $('.nexmoe-toc').html(`<ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link"><span class="toc-text"> 
-一段js代码在浏览器中是如何执行的?
-</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%80%E6%AE%B5js%E4%BB%A3%E7%A0%81%E5%9C%A8%E6%B5%8F%E8%A7%88%E5%99%A8%E4%B8%AD%E6%98%AF%E5%A6%82%E4%BD%95%E6%89%A7%E8%A1%8C%E7%9A%84"><span class="toc-text">一段js代码在浏览器中是如何执行的</span></a>`),
+      $('.nexmoe-toc').html(`<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#01-JS%E4%BB%A3%E7%A0%81%E6%89%A7%E8%A1%8C%E9%A1%BA%E5%BA%8F%E6%98%AF%E4%BB%80%E4%B9%88"><span class="toc-text">01 &#x2F; JS代码执行顺序是什么</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#02-%E5%8F%AF%E6%89%A7%E8%A1%8C%E4%BB%A3%E7%A0%81-amp-%E6%89%A7%E8%A1%8C%E4%B8%8A%E4%B8%8B%E6%96%87"><span class="toc-text">02 &#x2F; 可执行代码 &amp; 执行上下文</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#05-%E6%89%A7%E8%A1%8C%E4%B8%8A%E4%B8%8B%E6%96%87%E6%A0%88"><span class="toc-text">05 &#x2F; 执行上下文栈</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#06-%E6%80%BB%E7%BB%93"><span class="toc-text">06 &#x2F; 总结:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#JS%E5%BC%95%E6%93%8E%E5%A6%82%E4%BD%95%E5%A4%84%E7%90%86%E9%AB%98%E5%B9%B6%E5%8F%91"><span class="toc-text">JS引擎如何处理高并发?</span></a></li></ol>`),
       $('.nexmoe-toc').css({ 'width': '300px'}),
       !IsPC() && $('.toc-link').css({'color': '#fff'})
     }, function () {
