@@ -23,7 +23,8 @@
     overflow-x: hidden;
   }
 
-  .toc a,.toc-link {
+  .toc a,
+  .toc-link {
     color: rgba(0, 0, 0, .6);
     height: 30px;
     display: inline-block;
@@ -113,7 +114,7 @@
         </a>
     </div>
     <div class="nexmoe-count">
-        <div><span>文章</span>45</div>
+        <div><span>文章</span>47</div>
         <div><span>标签</span>30</div>
         <div><span>分类</span>10</div>
     </div>
@@ -236,6 +237,14 @@
       <ul>
         
           <li>
+            <a href="../../../../11/19/TypeScript/Untitled/">🌭 (no title)</a>
+          </li>
+        
+          <li>
+            <a href="../../../../11/18/Safe/JWT%E9%89%B4%E6%9D%83/">🌭 (no title)</a>
+          </li>
+        
+          <li>
             <a href="../../../../11/12/%E7%AE%97%E6%B3%95%E9%A2%98/%E5%89%91%E6%8C%87offer/">🌭 算法</a>
           </li>
         
@@ -245,14 +254,6 @@
         
           <li>
             <a href="../../../../11/09/JavaScript/JavaScript-%E5%A4%84%E7%90%86%E5%BC%82%E6%AD%A5%E5%87%BD%E6%95%B0%E5%87%A0%E7%A7%8D%E6%96%B9%E6%A1%88/">🌭 JavaScript处理异步函数几种方案</a>
-          </li>
-        
-          <li>
-            <a href="../../../../11/09/React/React%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/">🌭 React学习</a>
-          </li>
-        
-          <li>
-            <a href="../../../../11/09/JavaScript/08%20-%20JavaScript-%E9%97%AD%E5%8C%85/">🌭 (no title)</a>
           </li>
         
       </ul>
@@ -409,7 +410,7 @@ gitment.render('gitment')
   </div>
   <script src="https://cdn.jsdelivr.net/combine/npm/lazysizes@5.1.0/lazysizes.min.js,gh/highlightjs/cdn-release@9.15.8/build/highlight.min.js,npm/mdui@0.4.3/dist/js/mdui.min.js,gh/nexmoe/nexmoe.github.io@latest/js/app.js"></script>
 <script>hljs.initHighlightingOnLoad();</script>
-<!--<script src="../../../../../js/app.js?v=1605528832096"></script>-->
+<!--<script src="../../../../../js/app.js?v=1606104531493"></script>-->
 
 
 
@@ -428,7 +429,7 @@ gitment.render('gitment')
 
   let pathname = window.location.pathname
 
-  if (pathname.match(/.html$|.io$|categories|tags/g)) {
+  if (pathname.match(/html$|io$|categories|tags/g)) {
     $('.nexmoe-toc').css({
       'display': 'none'
     })
@@ -475,8 +476,12 @@ gitment.render('gitment')
   $(document).ready(function () {
     $(".nexmoe-toc").hover(function () {
       $('.nexmoe-toc').html(`<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#GIT-%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4"><span class="toc-text">GIT 常用命令</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#01-%E5%88%9D%E5%A7%8B%E9%85%8D%E7%BD%AE"><span class="toc-text">01 - 初始配置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#02-%E5%BC%80%E5%8F%91%E5%AE%8C%E6%AF%95%E5%B0%86%E8%A6%81%E4%B8%8A%E4%BC%A0%E4%BB%A3%E7%A0%81%E4%BB%93%E5%BA%93%E6%93%8D%E4%BD%9C"><span class="toc-text">02 - 开发完毕将要上传代码仓库操作</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#03-%E6%96%B0%E5%BB%BA%E5%88%86%E6%94%AF%E6%93%8D%E4%BD%9C"><span class="toc-text">03 - 新建分支操作</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#04-%E5%90%88%E5%B9%B6%E5%88%86%E6%94%AF%E6%93%8D%E4%BD%9C"><span class="toc-text">04 - 合并分支操作</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#05-%E5%88%A0%E9%99%A4%E6%9C%AC%E5%9C%B0%EF%BC%8C%E8%BF%9C%E7%A8%8B%E5%88%86%E6%94%AF"><span class="toc-text">05 - 删除本地，远程分支</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#06-%E7%89%88%E6%9C%AC%E5%9B%9E%E9%80%80"><span class="toc-text">06 - 版本回退</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#07-%E5%8F%96%E6%B6%88%E6%89%80%E6%9C%89%E6%9C%AC%E5%9C%B0%E4%BF%AE%E6%94%B9"><span class="toc-text">07 - 取消所有本地修改</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#09-%E6%9F%A5%E7%9C%8B%E4%BF%AE%E6%94%B9"><span class="toc-text">09 - 查看修改</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#10-%E6%9F%A5%E7%9C%8B%E6%9F%90%E4%B8%80%E6%96%87%E4%BB%B6%E6%89%80%E6%9C%89%E4%BF%AE%E6%94%B9%E5%8E%86%E5%8F%B2"><span class="toc-text">10 - 查看某一文件所有修改历史</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#11-%E5%85%B6%E4%BB%96%E5%91%BD%E4%BB%A4"><span class="toc-text">11 - 其他命令</span></a></li></ol></li></ol>`),
-      $('.nexmoe-toc').css({ 'width': '300px'}),
-      !IsPC() && $('.toc-link').css({'color': '#fff'})
+        $('.nexmoe-toc').css({
+          'width': '300px'
+        }),
+        !IsPC() && $('.toc-link').css({
+          'color': '#fff'
+        })
     }, function () {
       $('.nexmoe-toc').html(`Toc`)
       $('.nexmoe-toc').css({

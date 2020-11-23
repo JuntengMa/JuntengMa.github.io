@@ -23,7 +23,8 @@
     overflow-x: hidden;
   }
 
-  .toc a,.toc-link {
+  .toc a,
+  .toc-link {
     color: rgba(0, 0, 0, .6);
     height: 30px;
     display: inline-block;
@@ -113,7 +114,7 @@
         </a>
     </div>
     <div class="nexmoe-count">
-        <div><span>文章</span>45</div>
+        <div><span>文章</span>47</div>
         <div><span>标签</span>30</div>
         <div><span>分类</span>10</div>
     </div>
@@ -236,6 +237,14 @@
       <ul>
         
           <li>
+            <a href="../../../../11/19/TypeScript/Untitled/">🌭 (no title)</a>
+          </li>
+        
+          <li>
+            <a href="../../../../11/18/Safe/JWT%E9%89%B4%E6%9D%83/">🌭 (no title)</a>
+          </li>
+        
+          <li>
             <a href="../../../../11/12/%E7%AE%97%E6%B3%95%E9%A2%98/%E5%89%91%E6%8C%87offer/">🌭 算法</a>
           </li>
         
@@ -245,14 +254,6 @@
         
           <li>
             <a href="../../../../11/09/JavaScript/JavaScript-%E5%A4%84%E7%90%86%E5%BC%82%E6%AD%A5%E5%87%BD%E6%95%B0%E5%87%A0%E7%A7%8D%E6%96%B9%E6%A1%88/">🌭 JavaScript处理异步函数几种方案</a>
-          </li>
-        
-          <li>
-            <a href="../../../../11/09/React/React%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/">🌭 React学习</a>
-          </li>
-        
-          <li>
-            <a href="../../../../11/09/JavaScript/08%20-%20JavaScript-%E9%97%AD%E5%8C%85/">🌭 (no title)</a>
           </li>
         
       </ul>
@@ -399,7 +400,7 @@ gitment.render('gitment')
   </div>
   <script src="https://cdn.jsdelivr.net/combine/npm/lazysizes@5.1.0/lazysizes.min.js,gh/highlightjs/cdn-release@9.15.8/build/highlight.min.js,npm/mdui@0.4.3/dist/js/mdui.min.js,gh/nexmoe/nexmoe.github.io@latest/js/app.js"></script>
 <script>hljs.initHighlightingOnLoad();</script>
-<!--<script src="../../../../../js/app.js?v=1605528832044"></script>-->
+<!--<script src="../../../../../js/app.js?v=1606104531434"></script>-->
 
 
 
@@ -418,7 +419,7 @@ gitment.render('gitment')
 
   let pathname = window.location.pathname
 
-  if (pathname.match(/.html$|.io$|categories|tags/g)) {
+  if (pathname.match(/html$|io$|categories|tags/g)) {
     $('.nexmoe-toc').css({
       'display': 'none'
     })
@@ -465,8 +466,12 @@ gitment.render('gitment')
   $(document).ready(function () {
     $(".nexmoe-toc").hover(function () {
       $('.nexmoe-toc').html(`<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E4%BB%80%E4%B9%88%E6%98%AFHTTP%E5%8D%8F%E8%AE%AE"><span class="toc-text">1&#x2F;什么是HTTP协议</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-HTTP%E5%8D%8F%E8%AE%AE%E7%9A%84%E7%89%B9%E6%80%A7"><span class="toc-text">2&#x2F;HTTP协议的特性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-HTTP%E6%8A%A5%E6%96%87%E7%BB%84%E6%88%90"><span class="toc-text">3&#x2F;HTTP报文组成</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%AF%B7%E6%B1%82%E6%8A%A5%E9%97%AE"><span class="toc-text">请求报问</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%93%8D%E5%BA%94%E6%8A%A5%E6%96%87"><span class="toc-text">响应报文</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-%E5%B8%B8%E8%A7%81%E8%AF%B7%E6%B1%82%E6%96%B9%E6%B3%95"><span class="toc-text">4&#x2F;常见请求方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-%E5%93%8D%E5%BA%94%E7%8A%B6%E6%80%81%E7%A0%81"><span class="toc-text">5&#x2F;响应状态码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-%E5%B8%B8%E8%A7%81%E7%8A%B6%E6%80%81%E7%A0%81"><span class="toc-text">6&#x2F;常见状态码</span></a></li></ol>`),
-      $('.nexmoe-toc').css({ 'width': '300px'}),
-      !IsPC() && $('.toc-link').css({'color': '#fff'})
+        $('.nexmoe-toc').css({
+          'width': '300px'
+        }),
+        !IsPC() && $('.toc-link').css({
+          'color': '#fff'
+        })
     }, function () {
       $('.nexmoe-toc').html(`Toc`)
       $('.nexmoe-toc').css({

@@ -23,7 +23,8 @@
     overflow-x: hidden;
   }
 
-  .toc a,.toc-link {
+  .toc a,
+  .toc-link {
     color: rgba(0, 0, 0, .6);
     height: 30px;
     display: inline-block;
@@ -108,7 +109,7 @@
         </a>
     </div>
     <div class="nexmoe-count">
-        <div><span>文章</span>45</div>
+        <div><span>文章</span>47</div>
         <div><span>标签</span>30</div>
         <div><span>分类</span>10</div>
     </div>
@@ -231,6 +232,14 @@
       <ul>
         
           <li>
+            <a href="../../../2020/11/19/TypeScript/Untitled/">🌭 (no title)</a>
+          </li>
+        
+          <li>
+            <a href="../../../2020/11/18/Safe/JWT%E9%89%B4%E6%9D%83/">🌭 (no title)</a>
+          </li>
+        
+          <li>
             <a href="../../../2020/11/12/%E7%AE%97%E6%B3%95%E9%A2%98/%E5%89%91%E6%8C%87offer/">🌭 算法</a>
           </li>
         
@@ -240,14 +249,6 @@
         
           <li>
             <a href="../../../2020/11/09/JavaScript/JavaScript-%E5%A4%84%E7%90%86%E5%BC%82%E6%AD%A5%E5%87%BD%E6%95%B0%E5%87%A0%E7%A7%8D%E6%96%B9%E6%A1%88/">🌭 JavaScript处理异步函数几种方案</a>
-          </li>
-        
-          <li>
-            <a href="../../../2020/11/09/React/React%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/">🌭 React学习</a>
-          </li>
-        
-          <li>
-            <a href="../../../2020/11/09/JavaScript/08%20-%20JavaScript-%E9%97%AD%E5%8C%85/">🌭 (no title)</a>
           </li>
         
       </ul>
@@ -271,6 +272,10 @@
             <h2>2020</h2>
             <ul>
             
+                <li><span>11-04</span><a href="../../../2020/11/04/Safe/XSS%E6%94%BB%E5%87%BB/" >XSS攻击</a></li>
+            
+                <li><span>11-03</span><a href="../../../2020/11/03/JavaScript/03%20-%20JavaScript-%E4%BD%9C%E7%94%A8%E5%9F%9F&%E5%8F%AF%E6%89%A7%E8%A1%8C%E4%B8%8A%E4%B8%8B%E6%96%87/" >JavaScript作用域&可执行上下文</a></li>
+            
                 <li><span>11-02</span><a href="../../../2020/11/02/JavaScript/JavaScript-ES6/" ></a></li>
             
                 <li><span>11-02</span><a href="../../../2020/11/02/JavaScript/forIn-forOF-Map-forEach%E5%8C%BA%E5%88%AB/" >for-in & for-of的区别 和 map-for & Each区别</a></li>
@@ -286,10 +291,6 @@
                 <li><span>10-30</span><a href="../../../2020/10/30/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/Http%E5%8D%8F%E8%AE%AE%E6%9C%BA%E5%99%A8%E5%B8%B8%E8%A7%81%E7%8A%B6%E6%80%81%E7%A0%81/" >Http</a></li>
             
                 <li><span>10-30</span><a href="../../../2020/10/30/%E7%AE%97%E6%B3%95%E9%A2%98/%E7%AE%97%E6%B3%95/" >算法</a></li>
-            
-                <li><span>10-29</span><a href="../../../2020/10/29/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/Http%E7%89%88%E6%9C%AC%E5%8F%8A%E5%85%B6%E7%89%B9%E6%80%A7/" >Http各版本特性及其区别</a></li>
-            
-                <li><span>10-29</span><a href="../../../2020/10/29/JavaScript/08.1%20-%20JavaScript-%E9%98%B2%E6%8A%96%E8%8A%82%E6%B5%81/" >防抖节流及其应用场景</a></li>
             
             </ul>
         
@@ -354,7 +355,7 @@
   </div>
   <script src="https://cdn.jsdelivr.net/combine/npm/lazysizes@5.1.0/lazysizes.min.js,gh/highlightjs/cdn-release@9.15.8/build/highlight.min.js,npm/mdui@0.4.3/dist/js/mdui.min.js,gh/nexmoe/nexmoe.github.io@latest/js/app.js"></script>
 <script>hljs.initHighlightingOnLoad();</script>
-<!--<script src="../../../js/app.js?v=1605528832113"></script>-->
+<!--<script src="../../../js/app.js?v=1606104531500"></script>-->
 
 
 
@@ -373,7 +374,7 @@
 
   let pathname = window.location.pathname
 
-  if (pathname.match(/.html$|.io$|categories|tags/g)) {
+  if (pathname.match(/html$|io$|categories|tags/g)) {
     $('.nexmoe-toc').css({
       'display': 'none'
     })
@@ -420,8 +421,12 @@
   $(document).ready(function () {
     $(".nexmoe-toc").hover(function () {
       $('.nexmoe-toc').html(``),
-      $('.nexmoe-toc').css({ 'width': '300px'}),
-      !IsPC() && $('.toc-link').css({'color': '#fff'})
+        $('.nexmoe-toc').css({
+          'width': '300px'
+        }),
+        !IsPC() && $('.toc-link').css({
+          'color': '#fff'
+        })
     }, function () {
       $('.nexmoe-toc').html(`Toc`)
       $('.nexmoe-toc').css({

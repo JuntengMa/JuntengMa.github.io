@@ -23,7 +23,8 @@
     overflow-x: hidden;
   }
 
-  .toc a,.toc-link {
+  .toc a,
+  .toc-link {
     color: rgba(0, 0, 0, .6);
     height: 30px;
     display: inline-block;
@@ -113,7 +114,7 @@
         </a>
     </div>
     <div class="nexmoe-count">
-        <div><span>文章</span>45</div>
+        <div><span>文章</span>47</div>
         <div><span>标签</span>30</div>
         <div><span>分类</span>10</div>
     </div>
@@ -236,6 +237,14 @@
       <ul>
         
           <li>
+            <a href="../../../../11/19/TypeScript/Untitled/">🌭 (no title)</a>
+          </li>
+        
+          <li>
+            <a href="../../../../11/18/Safe/JWT%E9%89%B4%E6%9D%83/">🌭 (no title)</a>
+          </li>
+        
+          <li>
             <a href="../../../../11/12/%E7%AE%97%E6%B3%95%E9%A2%98/%E5%89%91%E6%8C%87offer/">🌭 算法</a>
           </li>
         
@@ -245,14 +254,6 @@
         
           <li>
             <a href="../../../../11/09/JavaScript/JavaScript-%E5%A4%84%E7%90%86%E5%BC%82%E6%AD%A5%E5%87%BD%E6%95%B0%E5%87%A0%E7%A7%8D%E6%96%B9%E6%A1%88/">🌭 JavaScript处理异步函数几种方案</a>
-          </li>
-        
-          <li>
-            <a href="../../../../11/09/React/React%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/">🌭 React学习</a>
-          </li>
-        
-          <li>
-            <a href="../../../../11/09/JavaScript/08%20-%20JavaScript-%E9%97%AD%E5%8C%85/">🌭 (no title)</a>
           </li>
         
       </ul>
@@ -410,7 +411,7 @@ gitment.render('gitment')
   </div>
   <script src="https://cdn.jsdelivr.net/combine/npm/lazysizes@5.1.0/lazysizes.min.js,gh/highlightjs/cdn-release@9.15.8/build/highlight.min.js,npm/mdui@0.4.3/dist/js/mdui.min.js,gh/nexmoe/nexmoe.github.io@latest/js/app.js"></script>
 <script>hljs.initHighlightingOnLoad();</script>
-<!--<script src="../../../../../js/app.js?v=1605528832084"></script>-->
+<!--<script src="../../../../../js/app.js?v=1606104531466"></script>-->
 
 
 
@@ -429,7 +430,7 @@ gitment.render('gitment')
 
   let pathname = window.location.pathname
 
-  if (pathname.match(/.html$|.io$|categories|tags/g)) {
+  if (pathname.match(/html$|io$|categories|tags/g)) {
     $('.nexmoe-toc').css({
       'display': 'none'
     })
@@ -476,8 +477,12 @@ gitment.render('gitment')
   $(document).ready(function () {
     $(".nexmoe-toc").hover(function () {
       $('.nexmoe-toc').html(`<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E4%BB%80%E4%B9%88%E6%98%AF-webpack"><span class="toc-text">1. 什么是 webpack</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-webpack-%E7%94%A8%E6%9D%A5%E5%81%9A%E4%BB%80%E4%B9%88"><span class="toc-text">2. webpack 用来做什么</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-webpack%E5%AE%89%E8%A3%85"><span class="toc-text">3.webpack安装</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-%E6%8F%92%E4%BB%B6"><span class="toc-text">4.插件</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-webpack-dev-server"><span class="toc-text">1. webpack-dev-server</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-HtmlWebpackPlugin"><span class="toc-text">2.  HtmlWebpackPlugin</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-%E7%83%AD%E6%9B%B4%E6%96%B0"><span class="toc-text">3.  热更新</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-%E6%89%93%E5%8C%85%E5%88%86%E6%9E%90%E6%8F%92%E4%BB%B6"><span class="toc-text">4. 打包分析插件</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-%E5%BC%80%E5%90%AF%E8%BF%9B%E5%BA%A6%E6%9D%A1"><span class="toc-text">5.  开启进度条</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#6-%E6%89%93%E5%8C%85%E6%97%B6%E9%95%BF%E6%B5%8B%E8%AF%95"><span class="toc-text">6. 打包时长测试</span></a></li></ol></li></ol>`),
-      $('.nexmoe-toc').css({ 'width': '300px'}),
-      !IsPC() && $('.toc-link').css({'color': '#fff'})
+        $('.nexmoe-toc').css({
+          'width': '300px'
+        }),
+        !IsPC() && $('.toc-link').css({
+          'color': '#fff'
+        })
     }, function () {
       $('.nexmoe-toc').html(`Toc`)
       $('.nexmoe-toc').css({
