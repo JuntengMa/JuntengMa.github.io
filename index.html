@@ -67,7 +67,7 @@
   
 
     <!-- Site Verification -->
-    <meta name="baidu-site-verification" content="code-bB34m0ogBK" />
+    <meta name="baidu-site-verification" content="code-NJL7Lod2fe" />
 
   <link rel="shortcut icon" href="/favicon.ico" type="image/png" />
   <meta property="og:type" content="website">
@@ -109,7 +109,7 @@
         </a>
     </div>
     <div class="nexmoe-count">
-        <div><span>文章</span>47</div>
+        <div><span>文章</span>48</div>
         <div><span>标签</span>30</div>
         <div><span>分类</span>10</div>
     </div>
@@ -172,7 +172,7 @@
 
         <li class="category-list-item">
           <a class="category-list-link" href="/categories/JavaScript/">JavaScript</a>
-          <span class="category-list-count">15</span>
+          <span class="category-list-count">14</span>
         </li>
 
         
@@ -232,6 +232,10 @@
       <ul>
         
           <li>
+            <a href="2020/11/23/React/%E8%87%AA%E5%AE%9A%E4%B9%89webpack%E9%85%8D%E7%BD%AE/">🌭 自定义webpack配置</a>
+          </li>
+        
+          <li>
             <a href="2020/11/19/TypeScript/Untitled/">🌭 (no title)</a>
           </li>
         
@@ -245,10 +249,6 @@
         
           <li>
             <a href="2020/11/09/JavaScript/09%20-%20JavaScript-Promise/">🌭 Promise</a>
-          </li>
-        
-          <li>
-            <a href="2020/11/09/JavaScript/JavaScript-%E5%A4%84%E7%90%86%E5%BC%82%E6%AD%A5%E5%87%BD%E6%95%B0%E5%87%A0%E7%A7%8D%E6%96%B9%E6%A1%88/">🌭 JavaScript处理异步函数几种方案</a>
           </li>
         
       </ul>
@@ -402,6 +402,41 @@
 <td align="center">yarn upgrade</td>
 </tr>
 </tbody></table>
+
+            
+        </article>
+    </div>
+    
+    <div class="nexmoe-post">
+        <a href="2020/11/23/React/%E8%87%AA%E5%AE%9A%E4%B9%89webpack%E9%85%8D%E7%BD%AE/">
+            
+            <div class="nexmoe-post-cover mdui-ripple"
+                style="padding-bottom: 66.66666666666666%;">
+                <img data-src="https://source.unsplash.com/random?count=1/1600x900" data-sizes="auto" alt="自定义webpack配置" class="lazyload">
+                <h1>自定义webpack配置</h1>
+            </div>
+            
+        </a>
+
+        <div class="nexmoe-post-meta nexmoe-rainbow">
+            <a><i class="nexmoefont icon-calendar-fill"></i>2020年11月23日</a>
+            <a><i class="nexmoefont icon-areachart"></i>109 字</a>
+            <a><i class="nexmoefont icon-time-circle-fill"></i>大概 1
+                分钟</a>
+        </div>
+
+        <article>
+            
+            <h1 id="create-react-app-自定义配置webpack"><a href="#create-react-app-自定义配置webpack" class="headerlink" title="create-react-app 自定义配置webpack"></a>create-react-app 自定义配置webpack</h1><h4 id="1、修改webpack配置文件，需要安装-react-app-rewired-customize-cra"><a href="#1、修改webpack配置文件，需要安装-react-app-rewired-customize-cra" class="headerlink" title="1、修改webpack配置文件，需要安装 react-app-rewired customize-cra"></a>1、修改webpack配置文件，需要安装 react-app-rewired customize-cra</h4><pre><code>yarn add react-app-rewired customize-cra -D</code></pre>
+<h4 id="2、修改package-json文件"><a href="#2、修改package-json文件" class="headerlink" title="2、修改package.json文件"></a>2、修改package.json文件</h4><pre><code>&quot;scripts&quot;: &#123;
+    &quot;start&quot;: &quot;react-app-rewired start&quot;,
+    &quot;build&quot;: &quot;react-app-rewired build&quot;,
+    &quot;test&quot;: &quot;react-app-rewired test --env=jsdom&quot;,
+    &quot;eject&quot;: &quot;react-scripts eject&quot;
+  &#125;,</code></pre>
+<h4 id="3、在项目根目录新建config-overrides-js"><a href="#3、在项目根目录新建config-overrides-js" class="headerlink" title="3、在项目根目录新建config-overrides.js"></a>3、在项目根目录新建config-overrides.js</h4><pre><code>const &#123; override &#125; = require(&#39;customize-cra&#39;);
+module.exports = &#123;&#125;;</code></pre>
+<h4 id="4、一些plugins"><a href="#4、一些plugins" class="headerlink" title="4、一些plugins"></a>4、一些plugins</h4><pre><code></code></pre>
 
             
         </article>
@@ -668,35 +703,6 @@ print(token)
         </article>
     </div>
     
-    <div class="nexmoe-post">
-        <a href="2020/11/09/JavaScript/08%20-%20JavaScript-%E9%97%AD%E5%8C%85/">
-            
-            <div class="nexmoe-post-cover mdui-ripple"
-                style="padding-bottom: 62.5%;">
-                <img data-src="https://source.unsplash.com/user/erondu/1440x960" data-sizes="auto" alt="" class="lazyload">
-                <h1></h1>
-            </div>
-            
-        </a>
-
-        <div class="nexmoe-post-meta nexmoe-rainbow">
-            <a><i class="nexmoefont icon-calendar-fill"></i>2020年11月09日</a>
-            <a><i class="nexmoefont icon-areachart"></i>591 字</a>
-            <a><i class="nexmoefont icon-time-circle-fill"></i>大概 3
-                分钟</a>
-        </div>
-
-        <article>
-            
-            <blockquote>
-<h4> 
- 闭包
-</h4>
-</blockquote>
-            
-        </article>
-    </div>
-    
 </section>
 
 
@@ -714,7 +720,7 @@ print(token)
   </div>
   <script src="https://cdn.jsdelivr.net/combine/npm/lazysizes@5.1.0/lazysizes.min.js,gh/highlightjs/cdn-release@9.15.8/build/highlight.min.js,npm/mdui@0.4.3/dist/js/mdui.min.js,gh/nexmoe/nexmoe.github.io@latest/js/app.js"></script>
 <script>hljs.initHighlightingOnLoad();</script>
-<!--<script src="js/app.js?v=1606107454217"></script>-->
+<!--<script src="js/app.js?v=1606286301387"></script>-->
 
 
 

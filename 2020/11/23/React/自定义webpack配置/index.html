@@ -59,7 +59,7 @@
 
 <head>
   
-  <title>React-antd-ImportExcel - June&#39;s Blog</title>
+  <title>自定义webpack配置 - June&#39;s Blog</title>
   <meta charset="UTF-8">
   <meta name="description" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
@@ -70,17 +70,16 @@
     <meta name="baidu-site-verification" content="code-NJL7Lod2fe" />
 
   <link rel="shortcut icon" href="/favicon.ico" type="image/png" />
-  <meta name="description" content="“基于 XLSX 封装的  Excel 并解析为 JSON格式数据的组件”">
+  <meta name="description" content="create-react-app 自定义配置webpack1、修改webpack配置文件，需要安装 react-app-rewired customize-crayarn add react-app-rewired customize-cra -D 2、修改package.json文件&quot;scripts&quot;: &amp;#123;     &quot;start&quot;: &quot;">
 <meta property="og:type" content="article">
-<meta property="og:title" content="React-antd-ImportExcel">
-<meta property="og:url" content="https://juntengma.github.io/2020/09/04/React/React-antd-ImportExcel/index.html">
+<meta property="og:title" content="自定义webpack配置">
+<meta property="og:url" content="https://juntengma.github.io/2020/11/23/React/%E8%87%AA%E5%AE%9A%E4%B9%89webpack%E9%85%8D%E7%BD%AE/index.html">
 <meta property="og:site_name" content="June&#39;s Blog">
-<meta property="og:description" content="“基于 XLSX 封装的  Excel 并解析为 JSON格式数据的组件”">
+<meta property="og:description" content="create-react-app 自定义配置webpack1、修改webpack配置文件，需要安装 react-app-rewired customize-crayarn add react-app-rewired customize-cra -D 2、修改package.json文件&quot;scripts&quot;: &amp;#123;     &quot;start&quot;: &quot;">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2020-09-04T03:29:18.000Z">
-<meta property="article:modified_time" content="2020-10-30T11:18:54.691Z">
+<meta property="article:published_time" content="2020-11-23T07:29:16.000Z">
+<meta property="article:modified_time" content="2020-11-23T07:59:55.307Z">
 <meta property="article:author" content="June">
-<meta property="article:tag" content="React">
 <meta name="twitter:card" content="summary">
   <link rel="stylesheet"
     href="https://cdn.jsdelivr.net/combine/gh/nexmoe/nexmoe.github.io@latest/css/style.css,npm/highlight.js@9.15.8/styles/atom-one-dark.css,gh/nexmoe/nexmoe.github.io@latest/lib/mdui_043tiny/css/mdui.css,gh/nexmoe/nexmoe.github.io@latest/lib/iconfont/iconfont.css"
@@ -237,23 +236,23 @@
       <ul>
         
           <li>
-            <a href="../../../../11/23/React/%E8%87%AA%E5%AE%9A%E4%B9%89webpack%E9%85%8D%E7%BD%AE/">🌭 自定义webpack配置</a>
+            <a href="">🌭 自定义webpack配置</a>
           </li>
         
           <li>
-            <a href="../../../../11/19/TypeScript/Untitled/">🌭 (no title)</a>
+            <a href="../../../19/TypeScript/Untitled/">🌭 (no title)</a>
           </li>
         
           <li>
-            <a href="../../../../11/18/Safe/JWT%E9%89%B4%E6%9D%83/">🌭 (no title)</a>
+            <a href="../../../18/Safe/JWT%E9%89%B4%E6%9D%83/">🌭 (no title)</a>
           </li>
         
           <li>
-            <a href="../../../../11/12/%E7%AE%97%E6%B3%95%E9%A2%98/%E5%89%91%E6%8C%87offer/">🌭 算法</a>
+            <a href="../../../12/%E7%AE%97%E6%B3%95%E9%A2%98/%E5%89%91%E6%8C%87offer/">🌭 算法</a>
           </li>
         
           <li>
-            <a href="../../../../11/09/JavaScript/09%20-%20JavaScript-Promise/">🌭 Promise</a>
+            <a href="../../../09/JavaScript/09%20-%20JavaScript-Promise/">🌭 Promise</a>
           </li>
         
       </ul>
@@ -269,16 +268,16 @@
     <div class="nexmoe-primary">
       <div class="nexmoe-post">
   
-  <div class="nexmoe-post-cover" style="padding-bottom: 62.5%;">
-    <img data-src="https://source.unsplash.com/random?count=10/1600x900" data-sizes="auto" alt="React-antd-ImportExcel" class="lazyload">
-    <h1>React-antd-ImportExcel</h1>
+  <div class="nexmoe-post-cover" style="padding-bottom: 66.66666666666666%;">
+    <img data-src="https://source.unsplash.com/random?count=1/1600x900" data-sizes="auto" alt="自定义webpack配置" class="lazyload">
+    <h1>自定义webpack配置</h1>
   </div>
   
 
   <div class="nexmoe-post-meta nexmoe-rainbow" style="margin:10px 0!important;">
-    <a><i class="nexmoefont icon-calendar-fill"></i>2020年09月04日</a>
-    <a><i class="nexmoefont icon-areachart"></i>443 字</a>
-    <a><i class="nexmoefont icon-time-circle-fill"></i>大概 2 分钟</a>
+    <a><i class="nexmoefont icon-calendar-fill"></i>2020年11月23日</a>
+    <a><i class="nexmoefont icon-areachart"></i>109 字</a>
+    <a><i class="nexmoefont icon-time-circle-fill"></i>大概 1 分钟</a>
 </div>
 
   <div class="nexmoe-post-right">
@@ -286,94 +285,21 @@
   </div>
 
   <article>
-    <center>“基于 XLSX 封装的  Excel 并解析为 JSON格式数据的组件”</center>
-
-<a id="more"></a>
-
-
-<h1 id="React-antd-ImportExcel"><a href="#React-antd-ImportExcel" class="headerlink" title="React-antd-ImportExcel"></a>React-antd-ImportExcel</h1><p>工作需求，需要</p>
-<pre><code class="js">import * as React from &#39;react&#39;;
-
-import * as XLSX from &#39;xlsx&#39;;
-
-import &#123; Button, Icon, message &#125; from &#39;antd&#39;;
-
-export interface ImportExcelProps &#123;
-    getFileInfo: Function;
-    notice?: string;
-&#125;
-
-//css文件为以下注释样式
-import &#39;./uploadStyle.css&#39;;
-&lt;!--
-.uploadBtn &#123;
-    position: absolute;
-    font-size: 5px;
-    width: &#39;100%&#39;;
-    height: &#39;100%&#39;;
-    right: 0;
-    top: 0;
-    opacity: 0;
-    filter: alpha(opacity = 0);
-    cursor: pointer;
-&#125;
---&gt;
-
-export class ImportExcel extends React.Component&lt;ImportExcelProps, any&gt; &#123;
-
-    importExcel = file =&gt; &#123;
-        // 获取上传的文件对象
-        const &#123; files &#125; = file.target;
-        // 通过FileReader对象读取文件
-        const fileReader = new FileReader();
-        fileReader.onload = event =&gt; &#123;
-            try &#123;
-                const &#123; result &#125; = event.target;
-                // 以二进制流方式读取得到整份excel表格对象
-                const workbook = XLSX.read(result, &#123; type: &#39;binary&#39; &#125;);
-                let data = []; // 存储获取到的数据
-                // 遍历每张工作表进行读取（这里默认只读取第一张表）
-                for (const sheet in workbook.Sheets) &#123;
-                    if (workbook.Sheets.hasOwnProperty(sheet)) &#123;
-                        // 利用 sheet_to_json 方法将 excel 转成 json 数据
-                        data = data.concat(XLSX.utils.sheet_to_json(workbook.Sheets[sheet]));
-                        break; // 如果只取第一张表，就取消注释这行
-                    &#125;
-                &#125;
-                //这里获取解析好的excel内容
-                this.props.getFileInfo(data)
-            &#125; catch (e) &#123;
-                // 这里可以抛出文件类型错误不正确的相关提示
-                message.warning(&#39;error&#39;)
-            &#125;
-        &#125;;
-        // 以二进制方式打开文件
-        files.length &gt; 0 &amp;&amp; fileReader.readAsBinaryString(files[0]);
-    &#125;
-
-    render() &#123;
-        const &#123; notice &#125; = this.props
-        return (
-            &lt;Button type=&quot;primary&quot; style=&#123;&#123; position: 'relative' &#125;&#125;&gt;
-                &lt;input type=&#39;file&#39; accept=&#39;.xlsx, .xls&#39; onChange=&#123;e =&gt; this.importExcel(e)&#125; className=&quot;uploadBtn&quot; /&gt;&#123;notice || &#39;导入Excel&#39;&#125;
-                &lt; Icon type=&quot;upload&quot; /&gt;
-            &lt;/Button&gt;
-        );
-    &#125;
-&#125;
-</code></pre>
-<p>使用</p>
-<pre><code class="js">//getFileInfo 用于获取解析出来的数据，按需写接收函数
-&lt;ImportExcel getFileInfo=&#123;getFileInfo&#125; notice=&quot;导入EXcel&quot; /&gt;</code></pre>
+    <h1 id="create-react-app-自定义配置webpack"><a href="#create-react-app-自定义配置webpack" class="headerlink" title="create-react-app 自定义配置webpack"></a>create-react-app 自定义配置webpack</h1><h4 id="1、修改webpack配置文件，需要安装-react-app-rewired-customize-cra"><a href="#1、修改webpack配置文件，需要安装-react-app-rewired-customize-cra" class="headerlink" title="1、修改webpack配置文件，需要安装 react-app-rewired customize-cra"></a>1、修改webpack配置文件，需要安装 react-app-rewired customize-cra</h4><pre><code>yarn add react-app-rewired customize-cra -D</code></pre>
+<h4 id="2、修改package-json文件"><a href="#2、修改package-json文件" class="headerlink" title="2、修改package.json文件"></a>2、修改package.json文件</h4><pre><code>&quot;scripts&quot;: &#123;
+    &quot;start&quot;: &quot;react-app-rewired start&quot;,
+    &quot;build&quot;: &quot;react-app-rewired build&quot;,
+    &quot;test&quot;: &quot;react-app-rewired test --env=jsdom&quot;,
+    &quot;eject&quot;: &quot;react-scripts eject&quot;
+  &#125;,</code></pre>
+<h4 id="3、在项目根目录新建config-overrides-js"><a href="#3、在项目根目录新建config-overrides-js" class="headerlink" title="3、在项目根目录新建config-overrides.js"></a>3、在项目根目录新建config-overrides.js</h4><pre><code>const &#123; override &#125; = require(&#39;customize-cra&#39;);
+module.exports = &#123;&#125;;</code></pre>
+<h4 id="4、一些plugins"><a href="#4、一些plugins" class="headerlink" title="4、一些plugins"></a>4、一些plugins</h4><pre><code></code></pre>
 
   </article>
 
   <div class="nexmoe-post-meta nexmoe-rainbow">
     
-        <a class="nexmoefont icon-appstore-fill -link" href="../../../../../categories/React/">React</a>
-    
-    
-        <a class="nexmoefont icon-tag-fill -none-link" href="../../../../../tags/React/" rel="tag">React</a>
     
 </div>
 
@@ -390,8 +316,8 @@ export class ImportExcel extends React.Component&lt;ImportExcelProps, any&gt; &#
   <strong>
     本文链接：
   </strong>
-  <a href="https://juntengma.github.io/2020/09/04/React/React-antd-ImportExcel/" target="_blank">
-    https://juntengma.github.io/2020/09/04/React/React-antd-ImportExcel/
+  <a href="https://juntengma.github.io/2020/11/23/React/%E8%87%AA%E5%AE%9A%E4%B9%89webpack%E9%85%8D%E7%BD%AE/" target="_blank">
+    https://juntengma.github.io/2020/11/23/React/%E8%87%AA%E5%AE%9A%E4%B9%89webpack%E9%85%8D%E7%BD%AE/
   </a>
   <br>
 
@@ -427,7 +353,7 @@ gitment.render('gitment')
   </div>
   <script src="https://cdn.jsdelivr.net/combine/npm/lazysizes@5.1.0/lazysizes.min.js,gh/highlightjs/cdn-release@9.15.8/build/highlight.min.js,npm/mdui@0.4.3/dist/js/mdui.min.js,gh/nexmoe/nexmoe.github.io@latest/js/app.js"></script>
 <script>hljs.initHighlightingOnLoad();</script>
-<!--<script src="../../../../../js/app.js?v=1606286301312"></script>-->
+<!--<script src="../../../../../js/app.js?v=1606286301155"></script>-->
 
 
 
@@ -492,7 +418,7 @@ gitment.render('gitment')
 
   $(document).ready(function () {
     $(".nexmoe-toc").hover(function () {
-      $('.nexmoe-toc').html(`<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#React-antd-ImportExcel"><span class="toc-text">React-antd-ImportExcel</span></a></li></ol>`),
+      $('.nexmoe-toc').html(`<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#create-react-app-%E8%87%AA%E5%AE%9A%E4%B9%89%E9%85%8D%E7%BD%AEwebpack"><span class="toc-text">create-react-app 自定义配置webpack</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1%E3%80%81%E4%BF%AE%E6%94%B9webpack%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%EF%BC%8C%E9%9C%80%E8%A6%81%E5%AE%89%E8%A3%85-react-app-rewired-customize-cra"><span class="toc-text">1、修改webpack配置文件，需要安装 react-app-rewired customize-cra</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2%E3%80%81%E4%BF%AE%E6%94%B9package-json%E6%96%87%E4%BB%B6"><span class="toc-text">2、修改package.json文件</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3%E3%80%81%E5%9C%A8%E9%A1%B9%E7%9B%AE%E6%A0%B9%E7%9B%AE%E5%BD%95%E6%96%B0%E5%BB%BAconfig-overrides-js"><span class="toc-text">3、在项目根目录新建config-overrides.js</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4%E3%80%81%E4%B8%80%E4%BA%9Bplugins"><span class="toc-text">4、一些plugins</span></a></li></ol></li></ol></li></ol></li></ol>`),
         $('.nexmoe-toc').css({
           'width': '300px'
         }),
