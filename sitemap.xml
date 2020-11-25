@@ -347,27 +347,6 @@
 
   
   <url>
-    <loc>https://juntengma.github.io/tags/Ajax/</loc>
-    <lastmod>2020-11-25</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://juntengma.github.io/tags/Axios/</loc>
-    <lastmod>2020-11-25</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://juntengma.github.io/tags/JSONP/</loc>
-    <lastmod>2020-11-25</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://juntengma.github.io/tags/DOM%E4%BA%8B%E4%BB%B6%E4%BA%8B%E4%BB%B6%E6%B5%81/</loc>
     <lastmod>2020-11-25</lastmod>
     <changefreq>daily</changefreq>
@@ -396,13 +375,6 @@
   </url>
   
   <url>
-    <loc>https://juntengma.github.io/tags/%E5%8E%9F%E5%9E%8B%E5%8E%9F%E5%9E%8B%E9%93%BE/</loc>
-    <lastmod>2020-11-25</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://juntengma.github.io/tags/%E9%97%AD%E5%8C%85/</loc>
     <lastmod>2020-11-25</lastmod>
     <changefreq>daily</changefreq>
@@ -410,7 +382,7 @@
   </url>
   
   <url>
-    <loc>https://juntengma.github.io/tags/%E9%98%B2%E6%8A%96%E8%8A%82%E6%B5%81/</loc>
+    <loc>https://juntengma.github.io/tags/%E5%8E%9F%E5%9E%8B%E5%8E%9F%E5%9E%8B%E9%93%BE/</loc>
     <lastmod>2020-11-25</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -418,6 +390,13 @@
   
   <url>
     <loc>https://juntengma.github.io/tags/Promise/</loc>
+    <lastmod>2020-11-25</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://juntengma.github.io/tags/%E9%98%B2%E6%8A%96%E8%8A%82%E6%B5%81/</loc>
     <lastmod>2020-11-25</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -466,7 +445,21 @@
   </url>
   
   <url>
-    <loc>https://juntengma.github.io/tags/%E5%89%8D%E7%AB%AF%E5%AE%89%E5%85%A8/</loc>
+    <loc>https://juntengma.github.io/tags/Ajax/</loc>
+    <lastmod>2020-11-25</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://juntengma.github.io/tags/Axios/</loc>
+    <lastmod>2020-11-25</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://juntengma.github.io/tags/JSONP/</loc>
     <lastmod>2020-11-25</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -487,6 +480,13 @@
   </url>
   
   <url>
+    <loc>https://juntengma.github.io/tags/%E5%89%8D%E7%AB%AF%E5%AE%89%E5%85%A8/</loc>
+    <lastmod>2020-11-25</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://juntengma.github.io/tags/TypeScript/</loc>
     <lastmod>2020-11-25</lastmod>
     <changefreq>daily</changefreq>
@@ -494,14 +494,14 @@
   </url>
   
   <url>
-    <loc>https://juntengma.github.io/tags/Git/</loc>
+    <loc>https://juntengma.github.io/tags/JsonServer/</loc>
     <lastmod>2020-11-25</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://juntengma.github.io/tags/JsonServer/</loc>
+    <loc>https://juntengma.github.io/tags/Git/</loc>
     <lastmod>2020-11-25</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -559,13 +559,6 @@
 
   
   <url>
-    <loc>https://juntengma.github.io/categories/Ajax/</loc>
-    <lastmod>2020-11-25</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://juntengma.github.io/categories/JavaScript/</loc>
     <lastmod>2020-11-25</lastmod>
     <changefreq>daily</changefreq>
@@ -580,7 +573,7 @@
   </url>
   
   <url>
-    <loc>https://juntengma.github.io/categories/%E5%89%8D%E7%AB%AF%E5%AE%89%E5%85%A8/</loc>
+    <loc>https://juntengma.github.io/categories/Ajax/</loc>
     <lastmod>2020-11-25</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -588,6 +581,13 @@
   
   <url>
     <loc>https://juntengma.github.io/categories/React/</loc>
+    <lastmod>2020-11-25</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://juntengma.github.io/categories/%E5%89%8D%E7%AB%AF%E5%AE%89%E5%85%A8/</loc>
     <lastmod>2020-11-25</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
