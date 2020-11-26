@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN" >
+
+<head>
+  <script src="https://cdn.bootcdn.net/ajax/libs/jquery/1.10.0/jquery.js"></script>
+
+  <style>
+    .nexmoe-toc {
+      position: fixed;
+      top: 10%;
+      right: 0;
+      width: 60px;
+      box-shadow: 0 0 1rem rgba(161, 177, 204, .4);
+      background-color: #fff;
+      border-top-left-radius: 15px;
+      border-bottom-left-radius: 15px;
+      white-space: normal;
+      padding: 15px;
+      overflow: hidden;
+    }
+
+    .toc {
+      max-height: 500px;
+      overflow-y: auto;
+      overflow-x: hidden;
+    }
+
+    .toc a,
+    .toc-link {
+      color: rgba(0, 0, 0, .6);
+      height: 30px;
+      display: inline-block;
+    }
+
+    .nexmoe-toc-phone {
+      position: fixed;
+      top: 27%;
+      padding: 15px;
+      right: 0;
+      margin-right: 0;
+      color: #ffff;
+      background-color: #282c34;
+    }
+
+    .up {
+      cursor: pointer;
+      position: fixed;
+      right: 2%;
+      top: 90%;
+      height: 40px;
+      width: 40px;
+      line-height: 40px;
+      border-radius: 4px;
+      background-color: #ff4e6a;
+      color: #fff;
+      text-align: center;
+      font-size: 14px;
+      display: none;
+    }
+  </style>
+
+  
+  <title>原型,原型链 - June&#39;s Blog</title>
+  <!-- <meta charset="UTF-8"> -->
+  <meta charset="utf-8">
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+  
+  
+    <meta name="google-site-verification" content="dpEwU-QD2ECVmxi_KbUlXQTuk_PnZk4xXxRobXuB5JI" />
+
+
+  <link rel="shortcut icon" href="/favicon.ico" type="image/png" />
+  <meta name="description" content="原型,原型链">
+<meta property="og:type" content="article">
+<meta property="og:title" content="原型,原型链">
+<meta property="og:url" content="https://juntengma.github.io/2020/11/20/JavaScript/07%20-%20JavaScript-%E5%8E%9F%E5%9E%8B%E5%8E%9F%E5%9E%8B%E9%93%BE/index.html">
+<meta property="og:site_name" content="June&#39;s Blog">
+<meta property="og:description" content="原型,原型链">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://github.com/mqyqingfeng/Blog/raw/master/Images/prototype1.png">
+<meta property="og:image" content="https://github.com/mqyqingfeng/Blog/raw/master/Images/prototype2.png">
+<meta property="og:image" content="https://github.com/mqyqingfeng/Blog/raw/master/Images/prototype3.png">
+<meta property="og:image" content="https://github.com/mqyqingfeng/Blog/raw/master/Images/prototype5.png">
+<meta property="article:published_time" content="2020-11-19T16:00:00.000Z">
+<meta property="article:modified_time" content="2020-11-26T07:47:58.947Z">
+<meta property="article:author" content="June">
+<meta property="article:tag" content="原型原型链">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://github.com/mqyqingfeng/Blog/raw/master/Images/prototype1.png">
+  <link rel="stylesheet"
+    href="https://cdn.jsdelivr.net/combine/npm/highlight.js@9.15.8/styles/atom-one-dark.css,gh/nexmoe/nexmoe.github.io@latest/lib/mdui_043tiny/css/mdui.css,gh/nexmoe/nexmoe.github.io@latest/lib/iconfont/iconfont.css,gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css?v=233"
+    crossorigin>
+  
+  <link rel="stylesheet" href="../../../../../css/style.css?v=1606377108269">
+<meta name="generator" content="Hexo 5.2.0"><link rel="alternate" href="atom.xml" title="June's Blog" type="application/atom+xml">
+</head>
+
+<body class="mdui-drawer-body-left">
+  
+  <div id="nexmoe-background">
+    <div class="nexmoe-bg" style="background-image: url(https://source.unsplash.com/random?count=1/1600x900)"></div>
+    <div class="mdui-appbar mdui-shadow-0">
+      <div class="mdui-toolbar">
+        <a mdui-drawer="{target: '#drawer', swipe: true}" title="menu" class="mdui-btn mdui-btn-icon mdui-ripple"><i
+            class="mdui-icon nexmoefont icon-menu"></i></a>
+        <div class="mdui-toolbar-spacer"></div>
+        <!--<a href="javascript:;" class="mdui-btn mdui-btn-icon"><i class="mdui-icon material-icons">search</i></a>-->
+        <a href="../../../../../index.html" title="June" class="mdui-btn mdui-btn-icon"><img
+            src="https://cdn.jsdelivr.net/gh/JuntengMa/Images@1.0/blog/avatar.jpg" alt="June"></a>
+      </div>
+    </div>
+  </div>
+  <div id="nexmoe-header">
+    <div class="nexmoe-drawer mdui-drawer" id="drawer">
+    <div class="nexmoe-avatar mdui-ripple">
+        <a href="../../../../../index.html" title="June">
+            <img src="https://cdn.jsdelivr.net/gh/JuntengMa/Images@1.0/blog/avatar.jpg" alt="June" alt="June">
+        </a>
+    </div>
+    <div class="nexmoe-count">
+        <div><span>文章</span>49</div>
+        <div><span>标签</span>30</div>
+        <div><span>分类</span>10</div>
+    </div>
+    <div class="nexmoe-list mdui-list" mdui-collapse="{accordion: true}">
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple" href="../../../../../index.html" title="回到首页">
+            <i class="mdui-list-item-icon nexmoefont icon-home"></i>
+            <div class="mdui-list-item-content">
+                回到首页
+            </div>
+        </a>
+        
+    </div>
+    <aside id="nexmoe-sidebar">
+  
+  
+  <div class="nexmoe-widget-wrap">
+    <div id="randomtagcloud" class="nexmoe-widget tagcloud nexmoe-rainbow">
+      <a href="../../../../../tags/Ajax/" style="font-size: 13.33px;">Ajax</a> <a href="../../../../../tags/Axios/" style="font-size: 13.33px;">Axios</a> <a href="../../../../../tags/BFC/" style="font-size: 10px;">BFC</a> <a href="../../../../../tags/Css/" style="font-size: 13.33px;">Css</a> <a href="../../../../../tags/DOM%E4%BA%8B%E4%BB%B6%E4%BA%8B%E4%BB%B6%E6%B5%81/" style="font-size: 10px;">DOM事件事件流</a> <a href="../../../../../tags/ES6/" style="font-size: 10px;">ES6</a> <a href="../../../../../tags/Git/" style="font-size: 10px;">Git</a> <a href="../../../../../tags/Hook/" style="font-size: 10px;">Hook</a> <a href="../../../../../tags/Http/" style="font-size: 13.33px;">Http</a> <a href="../../../../../tags/Https/" style="font-size: 10px;">Https</a> <a href="../../../../../tags/JSONP/" style="font-size: 10px;">JSONP</a> <a href="../../../../../tags/JavaScript/" style="font-size: 16.67px;">JavaScript</a> <a href="../../../../../tags/JsonServer/" style="font-size: 10px;">JsonServer</a> <a href="../../../../../tags/Npm/" style="font-size: 10px;">Npm</a> <a href="../../../../../tags/Promise/" style="font-size: 10px;">Promise</a> <a href="../../../../../tags/React/" style="font-size: 20px;">React</a> <a href="../../../../../tags/TypeScript/" style="font-size: 10px;">TypeScript</a> <a href="../../../../../tags/Webpack/" style="font-size: 10px;">Webpack</a> <a href="../../../../../tags/%E4%BB%8E%E8%BE%93%E5%85%A5URL%E5%88%B0%E9%A1%B5%E9%9D%A2%E5%8A%A0%E8%BD%BD%E5%8F%91%E7%94%9F%E4%BA%86%E4%BB%80%E4%B9%88/" style="font-size: 10px;">从输入URL到页面加载发生了什么</a> <a href="../../../../../tags/%E4%BD%9C%E7%94%A8%E5%9F%9F-%E5%8F%AF%E6%89%A7%E8%A1%8C%E4%B8%8A%E4%B8%8B%E6%96%87/" style="font-size: 10px;">作用域&可执行上下文</a> <a href="../../../../../tags/%E5%89%8D%E7%AB%AF%E5%AE%89%E5%85%A8/" style="font-size: 13.33px;">前端安全</a> <a href="../../../../../tags/%E5%8E%9F%E5%9E%8B%E5%8E%9F%E5%9E%8B%E9%93%BE/" style="font-size: 10px;">原型原型链</a> <a href="../../../../../tags/%E5%90%8C%E6%BA%90%E7%AD%96%E7%95%A5/" style="font-size: 10px;">同源策略</a> <a href="../../../../../tags/%E6%B5%8F%E8%A7%88%E5%99%A8/" style="font-size: 10px;">浏览器</a> <a href="../../../../../tags/%E6%B5%8F%E8%A7%88%E5%99%A8%E8%A7%A3%E6%9E%90js%E6%B5%81%E7%A8%8B/" style="font-size: 10px;">浏览器解析js流程</a> <a href="../../../../../tags/%E6%B7%B1%E6%8B%B7%E8%B4%9D%E6%B5%85%E6%8B%B7%E8%B4%9D/" style="font-size: 10px;">深拷贝浅拷贝</a> <a href="../../../../../tags/%E7%9B%92%E6%A8%A1%E5%9E%8B/" style="font-size: 10px;">盒模型</a> <a href="../../../../../tags/%E7%AE%97%E6%B3%95/" style="font-size: 13.33px;">算法</a> <a href="../../../../../tags/%E9%97%AD%E5%8C%85/" style="font-size: 10px;">闭包</a> <a href="../../../../../tags/%E9%98%B2%E6%8A%96%E8%8A%82%E6%B5%81/" style="font-size: 10px;">防抖节流</a>
+    </div>
+    
+  </div>
+
+  
+  
+  <div class="nexmoe-widget-wrap">
+    <h3 class="nexmoe-widget-title">文章分类</h3>
+    <div class="nexmoe-widget">
+
+      <ul class="category-list">
+
+        
+
+
+        
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/Ajax/">Ajax</a>
+          <span class="category-list-count">3</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/Css/">Css</a>
+          <span class="category-list-count">2</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/Http-Https/">Http&amp;Https</a>
+          <span class="category-list-count">3</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/JavaScript/">JavaScript</a>
+          <span class="category-list-count">16</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/React/">React</a>
+          <span class="category-list-count">12</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/TypeScript/">TypeScript</a>
+          <span class="category-list-count">1</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/tools/">tools</a>
+          <span class="category-list-count">4</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/前端安全/">前端安全</a>
+          <span class="category-list-count">2</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/浏览器/">浏览器</a>
+          <span class="category-list-count">1</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/算法/">算法</a>
+          <span class="category-list-count">2</span>
+        </li>
+
+        
+      </ul>
+
+    </div>
+  </div>
+
+
+  
+  
+  <div class="nexmoe-widget-wrap">
+    <h3 class="nexmoe-widget-title">最新文章</h3>
+    <div class="nexmoe-widget">
+      <ul>
+        
+          <li>
+            <a href="../../../26/JavaScript/JavaScript-a%E6%A0%87%E7%AD%BE%E4%B9%B1%E7%A0%81%E9%97%AE%E9%A2%98/">a标签的url怎么会乱码嘞？？？？</a>
+          </li>
+        
+          <li>
+            <a href="../../../23/React/%E8%87%AA%E5%AE%9A%E4%B9%89webpack%E9%85%8D%E7%BD%AE/">自定义webpack配置</a>
+          </li>
+        
+          <li>
+            <a href="">原型,原型链</a>
+          </li>
+        
+          <li>
+            <a href="../08.1%20-%20JavaScript-%E9%98%B2%E6%8A%96%E8%8A%82%E6%B5%81/">防抖节流及其应用场景</a>
+          </li>
+        
+          <li>
+            <a href="../../../19/TypeScript/Untitled/">(no title)</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+    <div class="nexmoe-copyright">
+        &copy; 2020 June
+        Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+        & <a href="https://github.com/theme-nexmoe/hexo-theme-nexmoe" target="_blank">Nexmoe</a>
+    </div>
+</div><!-- .nexmoe-drawer -->
+  </div>
+  <div id="nexmoe-content">
+    <div class="nexmoe-primary">
+      <div class="nexmoe-post">
+  
+      <div class="nexmoe-post-cover" style="padding-bottom: 58.333333333333336%;"> 
+          <img data-src="https://images.unsplash.com/photo-1601636358831-cfb548152c2d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjg5ODI0fQ&w=750&dpi=2" data-sizes="auto" alt="原型,原型链" class="lazyload">
+          <h1>原型,原型链</h1>
+      </div>
+  
+  
+  <div class="nexmoe-post-meta nexmoe-rainbow" style="margin:10px 0!important;">
+    <a><i class="nexmoefont icon-calendar-fill"></i>2020年11月20日</a>
+    <a><i class="nexmoefont icon-areachart"></i>349 字</a>
+    <a><i class="nexmoefont icon-time-circle-fill"></i>大概 1 分钟</a>
+</div>
+
+  <article>
+    <blockquote>
+<h4> 
+ 原型,原型链
+</h4>
+</blockquote>
+<a id="more"></a>
+
+
+
+<h3 id="前置知识"><a href="#前置知识" class="headerlink" title="前置知识:"></a>前置知识:</h3><ul>
+<li><p>js分为函数对象和普通对象,,每个对象都有<code>_proto_</code>属性,但是只有函数对象才有<code>prototype</code>属性</p>
+</li>
+<li><p>Object,Function都是js内置函数,类似的还有Array , RegExp , Date , Boolean , Nuber , String </p>
+</li>
+<li><p><code>_porto_</code>,<code>constructor</code>属性是<strong>对象</strong>所独有的</p>
+</li>
+<li><p><code>prototype</code>属性是<strong>函数</strong>所独有的</p>
+</li>
+<li><p>函数也是对象的一种,所以函数中也有<code>_protot_</code>和<code>constructor</code></p>
+</li>
+</ul>
+<h3 id="构造函数创建对象"><a href="#构造函数创建对象" class="headerlink" title="构造函数创建对象"></a>构造函数创建对象</h3><pre><code>function Peron() &#123; &#125;
+var person = new Person()
+person.name = &#39;kevin&#39;
+console.log(person.name)</code></pre>
+<h3 id="Prototype"><a href="#Prototype" class="headerlink" title="Prototype"></a>Prototype</h3><p>每个函数都有<code>prototype</code>属性</p>
+<pre><code>function Person() &#123; &#125;
+
+Person.prototype.name = &#39;kavin&#39;
+
+var person1 = new Person()
+var person2 = new Person()
+
+console.log(person1.name); //kavin
+console.log(person2.name); //kavin</code></pre>
+<ul>
+<li>函数的 prototype 属性指向了一个对象，这个对象正是调用该构造函数而创建的实例的原型，也就是这个例子中的 person1 和 person2 的原型。</li>
+<li>那什么是原型呢？每一个JavaScript对象(null除外)在创建的时候就会与之关联另一个对象，这个对象就是我们所说的原型，每一个对象都会从原型中继承属性</li>
+</ul>
+<p><strong>构造函数和实例原型之间的关系</strong></p>
+<p><img src="https://github.com/mqyqingfeng/Blog/raw/master/Images/prototype1.png"></p>
+<h3 id="proto"><a href="#proto" class="headerlink" title="_proto_"></a><code>_proto_</code></h3><p>每一个js对象都有一个属性,就是<code>_Proto_</code>,这个属性会指向该对象的原型</p>
+<pre><code>function Person() &#123; &#125;
+
+var person = new Person()
+
+console.log(person.__proto__ === Person.prototype); //true
+</code></pre>
+<p><img src="https://github.com/mqyqingfeng/Blog/raw/master/Images/prototype2.png"></p>
+<h3 id="constructor-NaN"><a href="#constructor-NaN" class="headerlink" title="constructor"></a>constructor</h3><p>consttructor指向该构造函数本身,即</p>
+<pre><code>Person.prototype.constructor = Person</code></pre>
+<p><img src="https://github.com/mqyqingfeng/Blog/raw/master/Images/prototype3.png"></p>
+<h3 id="原型链"><a href="#原型链" class="headerlink" title="原型链"></a><a target="_blank" rel="noopener" href="https://segmentfault.com/a/1190000008959943">原型链</a></h3><p><img src="https://github.com/mqyqingfeng/Blog/raw/master/Images/prototype5.png"></p>
+
+  </article>
+
+  
+    
+<div class="nexmoe-post-copyright">
+  <strong>
+    本文作者：
+  </strong>
+  June
+  <br>
+
+  <strong>
+    本文链接：
+  </strong>
+  <a href="https://juntengma.github.io/2020/11/20/JavaScript/07 - JavaScript-原型原型链/" target="_blank">
+    https://juntengma.github.io/2020/11/20/JavaScript/07 - JavaScript-原型原型链/
+  </a>
+  <br>
+
+  
+  <strong>版权声明：</strong>本文采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/cn/deed.zh" target="_blank">CC BY-NC-SA 3.0 CN</a> 协议进行许可
+  
+</div>
+
+  
+  
+  <div class="nexmoe-post-meta nexmoe-rainbow">
+    
+        <a class="nexmoefont icon-appstore-fill -link" href="../../../../../categories/JavaScript/">JavaScript</a>
+    
+    
+        <a class="nexmoefont icon-tag-fill -none-link" href="../../../../../tags/%E5%8E%9F%E5%9E%8B%E5%8E%9F%E5%9E%8B%E9%93%BE/" rel="tag">原型原型链</a>
+    
+</div>
+
+  <div class="nexmoe-post-footer">
+    <section class="nexmoe-comment">
+    <div class="valine"></div>
+<script src='//unpkg.com/valine'></script>
+<script>
+    const avatars = ['mp','monsterid','wavatar','robohash','retro']
+    // 使用方法 https://valine.js.org/quickstart.html
+    new Valine({
+        el: '.valine',
+        appId: 'EXfaHINEjW6dequ2YJDLCbkq-gzGzoHsz',
+        appKey: 'YL1UAIQ0es4sjgwjuzc7Sana',
+        highlight: true,
+        enableQQ: true,
+        pageSize: 10,
+        avatar: avatars[Math.floor(Math.random()*avatars.length)],
+        placeholder: "大家有问题可以在这边给我留言哈，看到看会及时回复~~",
+        emojiCDN: 'https://img.t.sinajs.cn/t4/appstyle/expression/ext/normal/',
+    })
+</script>
+</section>
+  </div>
+</div>
+      
+      <div class="nexmoe-toc">Toc</div>
+      
+      <div class="up" onclick="scrollToTop()">UP</div>
+    </div>
+  </div>
+  <script src="https://cdn.jsdelivr.net/combine/npm/lazysizes@5.1.0/lazysizes.min.js,gh/highlightjs/cdn-release@9.15.8/build/highlight.min.js,npm/mdui@0.4.3/dist/js/mdui.min.js?v=1"></script>
+<script>
+	hljs.initHighlightingOnLoad();
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+
+ <script src="../../../../../js/app.js?v=1606377108272"></script>
+
+  
+
+
+
+
+
+    <script>
+    var _hmt = _hmt || [];
+    (function () {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?c60071cb5352259680fd76b38305f88c";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+
+
+</body>
+
+<script>
+  !IsPC() && $('.nexmoe-toc').addClass('nexmoe-toc-phone')
+
+  let pathname = window.location.pathname
+
+  if (pathname.match(/html|io|categories|tags/g)) {
+    $('.nexmoe-toc').css({
+      'display': 'none'
+    })
+  } else {
+    $('.nexmoe-toc').css({
+      'display': 'block'
+    })
+  }
+
+  function scrollToTop() {
+    var c = document.documentElement.scrollTop || document.body.scrollTop;
+    if (c > 0) {
+      window.requestAnimationFrame(scrollToTop);
+      window.scrollTo(0, c - c / 8);
+    }
+  }
+
+  function IsPC() {
+    var userAgentInfo = navigator.userAgent;
+    var Agents = new Array("Android", "iPhone", "SymbianOS", "Windows Phone", "iPad", "iPod");
+    var flag = true;
+    for (var v = 0; v < Agents.length; v++) {
+      if (userAgentInfo.indexOf(Agents[v]) > 0) {
+        flag = false;
+        break;
+      }
+    }
+    return flag;
+  }
+
+  window.addEventListener('scroll', () => {
+    let scrollTop = document.documentElement.scrollTop || window.pageYOffset || document.body.scrollTop;
+    if (scrollTop > 1000) {
+      $('.up').css({
+        display: 'block'
+      })
+    } else {
+      $('.up').css({
+        display: 'none'
+      })
+    }
+  }, false);
+
+  $(document).ready(function () {
+    $(".nexmoe-toc").hover(function () {
+      $('.nexmoe-toc').html(`<ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link"><span class="toc-text"> 
+ 原型,原型链
+</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%89%8D%E7%BD%AE%E7%9F%A5%E8%AF%86"><span class="toc-text">前置知识:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0%E5%88%9B%E5%BB%BA%E5%AF%B9%E8%B1%A1"><span class="toc-text">构造函数创建对象</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Prototype"><span class="toc-text">Prototype</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#proto"><span class="toc-text">_proto_</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#constructor-NaN"><span class="toc-text">constructor</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8E%9F%E5%9E%8B%E9%93%BE"><span class="toc-text">原型链</span></a>`),
+        $('.nexmoe-toc').css({
+          'width': '300px'
+        }),
+        !IsPC() && $('.toc-link').css({
+          'color': '#fff'
+        })
+    }, function () {
+      $('.nexmoe-toc').html(`Toc`)
+      $('.nexmoe-toc').css({
+        'width': '60px'
+      })
+    });
+  })
+</script>
+
+
+</html>

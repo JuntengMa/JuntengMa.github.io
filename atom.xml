@@ -6,7 +6,7 @@
   <link href="https://juntengma.github.io/atom.xml" rel="self"/>
   
   <link href="https://juntengma.github.io/"/>
-  <updated>2020-11-23T07:59:55.307Z</updated>
+  <updated>2020-11-26T07:33:47.637Z</updated>
   <id>https://juntengma.github.io/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>a标签的url怎么会乱码嘞？？？？</title>
+    <link href="https://juntengma.github.io/2020/11/26/JavaScript/JavaScript-a%E6%A0%87%E7%AD%BE%E4%B9%B1%E7%A0%81%E9%97%AE%E9%A2%98/"/>
+    <id>https://juntengma.github.io/2020/11/26/JavaScript/JavaScript-a%E6%A0%87%E7%AD%BE%E4%B9%B1%E7%A0%81%E9%97%AE%E9%A2%98/</id>
+    <published>2020-11-25T16:00:00.000Z</published>
+    <updated>2020-11-26T07:33:47.637Z</updated>
+    
+    <content type="html"><![CDATA[<p>最近写博客发现自己博客链接居然是一堆乱码 ，这哪是我忍受的了的， 没注意还好， 注意到了怎么看怎么碍眼 ，<br> 类似下面这样👿👿👿👿👿：<br><img src="https://s3.ax1x.com/2020/11/26/D0M9N8.png"></p><p>具体百度过程😁和调试过程🙄（调试个棒槌）就不细说了 ， 这里是我得到的解决方案 ：<br>通过<code>decodeURI()</code>对链接进行解码 ， 我是这么写的</p><pre><code class="ejs"> &lt;a href=&quot;&lt;%= decodeURI(page.permalink) %&gt;&quot; target=&quot;_blank&quot;&gt;    &lt;%= decodeURI(page.permalink) %&gt;  &lt;/a&gt;</code></pre><p>所以最后我的链接就可以变回我需要的样子：<br><img src="https://s3.ax1x.com/2020/11/26/D0QdZq.png"></p><p>说到这里就有人问我了：马老师 ， 你这个 <code>decodeURI</code> 是干肾么用的呀？</p><p>我就啪的一下，很快啊~ ，给你甩出一个别人写的博客 <a href="https://segmentfault.com/a/1190000013236956">JS对url进行编码和解码（三种方式）</a> , 并告诉你这个知识点我也是刚学从他这边学的</p><a id="more"></a>]]></content>
+    
+    
+    <summary type="html">&lt;p&gt;最近写博客发现自己博客链接居然是一堆乱码 ，这哪是我忍受的了的， 没注意还好， 注意到了怎么看怎么碍眼 ，&lt;br&gt; 类似下面这样👿👿👿👿👿：&lt;br&gt;&lt;img src=&quot;https://s3.ax1x.com/2020/11/26/D0M9N8.png&quot;&gt;&lt;/p&gt;
+&lt;p&gt;具体百度过程😁和调试过程🙄（调试个棒槌）就不细说了 ， 这里是我得到的解决方案 ：&lt;br&gt;通过&lt;code&gt;decodeURI()&lt;/code&gt;对链接进行解码 ， 我是这么写的&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;ejs&quot;&gt; &amp;lt;a href=&amp;quot;&amp;lt;%= decodeURI(page.permalink) %&amp;gt;&amp;quot; target=&amp;quot;_blank&amp;quot;&amp;gt;
+    &amp;lt;%= decodeURI(page.permalink) %&amp;gt;
+  &amp;lt;/a&amp;gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;所以最后我的链接就可以变回我需要的样子：&lt;br&gt;&lt;img src=&quot;https://s3.ax1x.com/2020/11/26/D0QdZq.png&quot;&gt;&lt;/p&gt;
+&lt;p&gt;说到这里就有人问我了：马老师 ， 你这个 &lt;code&gt;decodeURI&lt;/code&gt; 是干肾么用的呀？&lt;/p&gt;
+&lt;p&gt;我就啪的一下，很快啊~ ，给你甩出一个别人写的博客 &lt;a href=&quot;https://segmentfault.com/a/1190000013236956&quot;&gt;JS对url进行编码和解码（三种方式）&lt;/a&gt; , 并告诉你这个知识点我也是刚学从他这边学的&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="JavaScript" scheme="https://juntengma.github.io/categories/JavaScript/"/>
+    
+    
+    <category term="JavaScript" scheme="https://juntengma.github.io/tags/JavaScript/"/>
+    
+  </entry>
   
   <entry>
     <title>自定义webpack配置</title>
@@ -33,6 +61,56 @@
     
     
     
+    
+  </entry>
+  
+  <entry>
+    <title>原型,原型链</title>
+    <link href="https://juntengma.github.io/2020/11/20/JavaScript/07%20-%20JavaScript-%E5%8E%9F%E5%9E%8B%E5%8E%9F%E5%9E%8B%E9%93%BE/"/>
+    <id>https://juntengma.github.io/2020/11/20/JavaScript/07%20-%20JavaScript-%E5%8E%9F%E5%9E%8B%E5%8E%9F%E5%9E%8B%E9%93%BE/</id>
+    <published>2020-11-19T16:00:00.000Z</published>
+    <updated>2020-11-26T07:47:58.947Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote><h4>  原型,原型链</h4></blockquote><a id="more"></a><h3 id="前置知识"><a href="#前置知识" class="headerlink" title="前置知识:"></a>前置知识:</h3><ul><li><p>js分为函数对象和普通对象,,每个对象都有<code>_proto_</code>属性,但是只有函数对象才有<code>prototype</code>属性</p></li><li><p>Object,Function都是js内置函数,类似的还有Array , RegExp , Date , Boolean , Nuber , String </p></li><li><p><code>_porto_</code>,<code>constructor</code>属性是<strong>对象</strong>所独有的</p></li><li><p><code>prototype</code>属性是<strong>函数</strong>所独有的</p></li><li><p>函数也是对象的一种,所以函数中也有<code>_protot_</code>和<code>constructor</code></p></li></ul><h3 id="构造函数创建对象"><a href="#构造函数创建对象" class="headerlink" title="构造函数创建对象"></a>构造函数创建对象</h3><pre><code>function Peron() &#123; &#125;var person = new Person()person.name = &#39;kevin&#39;console.log(person.name)</code></pre><h3 id="Prototype"><a href="#Prototype" class="headerlink" title="Prototype"></a>Prototype</h3><p>每个函数都有<code>prototype</code>属性</p><pre><code>function Person() &#123; &#125;Person.prototype.name = &#39;kavin&#39;var person1 = new Person()var person2 = new Person()console.log(person1.name); //kavinconsole.log(person2.name); //kavin</code></pre><ul><li>函数的 prototype 属性指向了一个对象，这个对象正是调用该构造函数而创建的实例的原型，也就是这个例子中的 person1 和 person2 的原型。</li><li>那什么是原型呢？每一个JavaScript对象(null除外)在创建的时候就会与之关联另一个对象，这个对象就是我们所说的原型，每一个对象都会从原型中继承属性</li></ul><p><strong>构造函数和实例原型之间的关系</strong></p><p><img src="https://github.com/mqyqingfeng/Blog/raw/master/Images/prototype1.png"></p><h3 id="proto"><a href="#proto" class="headerlink" title="_proto_"></a><code>_proto_</code></h3><p>每一个js对象都有一个属性,就是<code>_Proto_</code>,这个属性会指向该对象的原型</p><pre><code>function Person() &#123; &#125;var person = new Person()console.log(person.__proto__ === Person.prototype); //true</code></pre><p><img src="https://github.com/mqyqingfeng/Blog/raw/master/Images/prototype2.png"></p><h3 id="constructor-NaN"><a href="#constructor-NaN" class="headerlink" title="constructor"></a>constructor</h3><p>consttructor指向该构造函数本身,即</p><pre><code>Person.prototype.constructor = Person</code></pre><p><img src="https://github.com/mqyqingfeng/Blog/raw/master/Images/prototype3.png"></p><h3 id="原型链"><a href="#原型链" class="headerlink" title="原型链"></a><a href="https://segmentfault.com/a/1190000008959943">原型链</a></h3><p><img src="https://github.com/mqyqingfeng/Blog/raw/master/Images/prototype5.png"></p>]]></content>
+    
+    
+    <summary type="html">&lt;blockquote&gt;
+&lt;h4&gt; 
+ 原型,原型链
+&lt;/h4&gt;
+&lt;/blockquote&gt;</summary>
+    
+    
+    
+    <category term="JavaScript" scheme="https://juntengma.github.io/categories/JavaScript/"/>
+    
+    
+    <category term="原型原型链" scheme="https://juntengma.github.io/tags/%E5%8E%9F%E5%9E%8B%E5%8E%9F%E5%9E%8B%E9%93%BE/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>防抖节流及其应用场景</title>
+    <link href="https://juntengma.github.io/2020/11/20/JavaScript/08.1%20-%20JavaScript-%E9%98%B2%E6%8A%96%E8%8A%82%E6%B5%81/"/>
+    <id>https://juntengma.github.io/2020/11/20/JavaScript/08.1%20-%20JavaScript-%E9%98%B2%E6%8A%96%E8%8A%82%E6%B5%81/</id>
+    <published>2020-11-19T16:00:00.000Z</published>
+    <updated>2020-11-26T07:47:41.524Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote><h4>  复习一下防抖节流及其应用场景</h4></blockquote><a id="more"></a><h3 id="函数防抖"><a href="#函数防抖" class="headerlink" title="函数防抖"></a>函数防抖</h3><p>在事件被触发的n秒后再执行回调,如果在这n秒内又被触发,则重新计时</p><pre><code>function debounse(fun, delay) &#123;    let timer;    // 设置一个 timer    return function (args) &#123;      let _this = this      let _args = args      clearTimeout(timer)      timer = setTimeout(function () &#123;        fun.call(_this, _args);      &#125;, delay);    &#125;  &#125;</code></pre><h3 id="函数节流"><a href="#函数节流" class="headerlink" title="函数节流"></a>函数节流</h3><p>规定在一个单位时间内，只能触发一次函数。如果这个单位时间内触发多次函数，只有一次生效。</p><pre><code>function throttle(fun, delay) &#123;    let last, timer    return function (args) &#123;      let _this = this      let _args = args      let now = +new Date()      if (last &amp;&amp; now &lt; last + delay) &#123;        clearTimeout(timer)        timer = setTimeout(function () &#123;          last = now          fun.apply(_this, _args)        &#125;, delay)      &#125; else &#123;        last = now        fun.apply(_this, _args)      &#125;    &#125;  &#125;</code></pre><h3 id="demo"><a href="#demo" class="headerlink" title="demo:"></a>demo:</h3><h5 id="模拟ajax请求"><a href="#模拟ajax请求" class="headerlink" title="模拟ajax请求"></a>模拟ajax请求</h5><pre><code>function ajax(params) &#123;    console.log(&#39;ajax request : &#39; + params)&#125;</code></pre><h5 id="普通input"><a href="#普通input" class="headerlink" title="普通input:"></a>普通input:</h5><p><img src="https://user-gold-cdn.xitu.io/2018/9/4/165a252be5c94d6b?imageslim"></p><h5 id="加入防抖"><a href="#加入防抖" class="headerlink" title="加入防抖:"></a>加入防抖:</h5><p><img src="https://user-gold-cdn.xitu.io/2018/9/4/165a252b4b429b56?imageslim"></p><h5 id="加入节流"><a href="#加入节流" class="headerlink" title="加入节流:"></a>加入节流:</h5><p><img src="https://user-gold-cdn.xitu.io/2018/9/4/165a252b4c1a9686?imageslim"></p><h3 id="demo代码"><a href="#demo代码" class="headerlink" title="demo代码"></a>demo代码</h3><pre><code>&lt;!DOCTYPE html&gt;&lt;html lang=&quot;en&quot;&gt;&lt;head&gt;  &lt;meta charset=&quot;UTF-8&quot;&gt;  &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;  &lt;title&gt;Document&lt;/title&gt;&lt;/head&gt;&lt;body&gt;  没有防抖的Input &lt;input type=&quot;text&quot; class=&quot;unDebounce&quot;&gt;  &lt;br&gt;  加入防抖的Input &lt;input type=&quot;text&quot; class=&quot;debounce&quot;&gt;  &lt;br&gt;  加入截留的Input &lt;input type=&quot;text&quot; class=&quot;htrottle&quot;&gt;&lt;/body&gt;&lt;script&gt;  function ajax(params) &#123;    console.log(&#39;ajax request : &#39; + params)  &#125;  let inputValue0 = document.querySelector(&#39;.unDebounce&#39;)  inputValue0.addEventListener(&#39;keyup&#39;, function (e) &#123;    ajax(e.target.value)  &#125;)  /**********************防抖********************************/  function debounse(fun, delay) &#123;    let timer;    // 设置一个 timer    return function (args) &#123;      let _this = this      // 取debounce执行作用域的this      let _args = args      clearTimeout(timer)      timer = setTimeout(function () &#123;        fun.call(_this, args);      &#125;, delay);    &#125;  &#125;  let inputValue1 = document.querySelector(&#39;.debounce&#39;)  let debounse_ajax = debounse(ajax, 500)  inputValue1.addEventListener(&#39;keyup&#39;, function (e) &#123;    debounse_ajax(e.target.value)  &#125;)  /**********************节流********************************/  function throttle(fun, delay) &#123;    let last, timer    return function (args) &#123;      let _this = this      let _args = args      let now = +new Date()      if (last &amp;&amp; now &lt; last + delay) &#123;        clearTimeout(timer)        timer = setTimeout(function () &#123;          last = now          fun.apply(_this, _args)        &#125;, delay)      &#125; else &#123;        last = now        fun.apply(_this, _args)      &#125;    &#125;  &#125;  let inputValue2 = document.querySelector(&#39;.htrottle&#39;)  let htrottle_ajax = throttle(ajax, 2000)  inputValue2.addEventListener(&#39;keyup&#39;, function (e) &#123;    htrottle_ajax(e.target.value)  &#125;)&lt;/script&gt;&lt;/html&gt;</code></pre>]]></content>
+    
+    
+    <summary type="html">&lt;blockquote&gt;
+&lt;h4&gt; 
+ 复习一下防抖节流及其应用场景
+&lt;/h4&gt;
+&lt;/blockquote&gt;</summary>
+    
+    
+    
+    <category term="JavaScript" scheme="https://juntengma.github.io/categories/JavaScript/"/>
+    
+    
+    <category term="防抖节流" scheme="https://juntengma.github.io/tags/%E9%98%B2%E6%8A%96%E8%8A%82%E6%B5%81/"/>
     
   </entry>
   
@@ -78,6 +156,129 @@
   </entry>
   
   <entry>
+    <title>JavaScript作用域&amp;可执行上下文</title>
+    <link href="https://juntengma.github.io/2020/11/16/JavaScript/03%20-%20JavaScript-%E4%BD%9C%E7%94%A8%E5%9F%9F&amp;%E5%8F%AF%E6%89%A7%E8%A1%8C%E4%B8%8A%E4%B8%8B%E6%96%87/"/>
+    <id>https://juntengma.github.io/2020/11/16/JavaScript/03%20-%20JavaScript-%E4%BD%9C%E7%94%A8%E5%9F%9F&amp;%E5%8F%AF%E6%89%A7%E8%A1%8C%E4%B8%8A%E4%B8%8B%E6%96%87/</id>
+    <published>2020-11-15T16:00:00.000Z</published>
+    <updated>2020-11-26T07:48:45.076Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote><p>JavaScript深入 - 作用域相关问题</p></blockquote><a id="more"></a><h3 id="01-什么是作用域"><a href="#01-什么是作用域" class="headerlink" title="01 / 什么是作用域?"></a>01 / 什么是作用域?</h3><p><strong>作用域是指程序源代码中定义变量的区域:</strong></p><ul><li>作用域规定了当前执行代码对变量的访问权限</li><li>JavaScript采用词法作用域(静态作用域)</li></ul><h3 id="02-词法作用域和静态作用域的区别"><a href="#02-词法作用域和静态作用域的区别" class="headerlink" title="02 / 词法作用域和静态作用域的区别?"></a>02 / 词法作用域和静态作用域的区别?</h3><ul><li>静态作用域:    函数的作用域在函数定义的时候就已经决定了</li><li>动态作用域: 函数的作用域在函数调用的时候才决定</li></ul><h3 id="03-作用域包含两种"><a href="#03-作用域包含两种" class="headerlink" title="03 / 作用域包含两种:"></a>03 / 作用域包含两种:</h3><ul><li>全局作用域<ul><li>最外层函数和在最外层函数外面定义的变量拥有全局作用域</li><li>所有末定义直接赋值的变量自动声明为拥有全局作用域</li><li>所有 window 对象的属性拥有全局作用域</li></ul></li><li>函数作用域<ul><li>指声明在函数内部的变量，和全局作用域相反，局部作用域一般只在固定的代码片段内可访问到</li></ul></li><li>块级作用域<ul><li>块级作用域可通过新增命令 let 和 const 声明，所声明的变量在指定块的作用域外无法被访问</li></ul></li></ul>]]></content>
+    
+    
+    <summary type="html">&lt;blockquote&gt;
+&lt;p&gt;JavaScript深入 - 作用域相关问题&lt;/p&gt;
+&lt;/blockquote&gt;</summary>
+    
+    
+    
+    <category term="JavaScript" scheme="https://juntengma.github.io/categories/JavaScript/"/>
+    
+    
+    <category term="作用域&amp;可执行上下文" scheme="https://juntengma.github.io/tags/%E4%BD%9C%E7%94%A8%E5%9F%9F-%E5%8F%AF%E6%89%A7%E8%A1%8C%E4%B8%8A%E4%B8%8B%E6%96%87/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>浏览器解析js流程</title>
+    <link href="https://juntengma.github.io/2020/11/16/JavaScript/05%20-%20JavaScript-%E8%A7%A3%E6%9E%90%E6%B5%81%E7%A8%8B%E4%BA%8B%E4%BB%B6%E5%BE%AA%E7%8E%AF(Event%20Loop)/"/>
+    <id>https://juntengma.github.io/2020/11/16/JavaScript/05%20-%20JavaScript-%E8%A7%A3%E6%9E%90%E6%B5%81%E7%A8%8B%E4%BA%8B%E4%BB%B6%E5%BE%AA%E7%8E%AF(Event%20Loop)/</id>
+    <published>2020-11-15T16:00:00.000Z</published>
+    <updated>2020-11-26T07:48:25.503Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote><h4>  浏览器解析js流程</h4></blockquote><a id="more"></a><h4 id="JS解析"><a href="#JS解析" class="headerlink" title="JS解析"></a>JS解析</h4><p><a href="https://imgchr.com/i/BufjDe"><img src="https://s1.ax1x.com/2020/10/26/BufjDe.png" alt="BufjDe.png"></a></p><p>js解析是由浏览器    </p><p>js是单线程运行,也就是说同时只能做一件事,所有任务都需要排队,</p><p>为了解决某些任务比较耗时,需要一种机制来使其可以执行排在后面的任务,就出现了同步任务和异步任务</p><p>JS执行机制可以看做一个主线程加上一个任务队列.</p><p>同步任务就是主线程上面执行的任务 , 异步任务就是放在任务队列的任务</p><p>所有的同步任务都在主线程上面执行,形成一个执行栈</p><p>异步任务有了运行结果就会在任务队列中放置一个事件,脚本运行时依次运行执行栈,然后会从任务队列中提取事件,</p><p>运行任务队列中的任务,该过程是不断重复的,所以又叫<strong>做事件循环</strong>(Event loop)</p><ul><li>浏览器在解析过程中，如果遇到请求外部资源时，如图像,iconfont,JS等。浏览器将重复1-6过程下载该资源。</li><li>请求过程是异步的，并不会影响HTML文档进行加载，但是当文档加载过程中遇到JS文件，HTML文档会挂起渲染过程，不仅要等到文档中JS文件加载完毕还要等待解析执行完毕，才会继续HTML的渲染过程。</li><li>原因是因为JS有可能修改DOM结构，这就意味着JS执行完成前，后续所有资源的下载是没有必要的，这就是JS阻塞后续资源下载的根本原因。</li><li>CSS文件的加载不影响JS文件的加载，但是却影响JS文件的执行。JS代码执行前浏览器必须保证CSS文件已经下载并加载完毕。</li></ul>]]></content>
+    
+    
+    <summary type="html">&lt;blockquote&gt;
+&lt;h4&gt; 
+ 浏览器解析js流程
+&lt;/h4&gt;
+&lt;/blockquote&gt;</summary>
+    
+    
+    
+    <category term="JavaScript" scheme="https://juntengma.github.io/categories/JavaScript/"/>
+    
+    
+    <category term="浏览器解析js流程" scheme="https://juntengma.github.io/tags/%E6%B5%8F%E8%A7%88%E5%99%A8%E8%A7%A3%E6%9E%90js%E6%B5%81%E7%A8%8B/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>从输入URL到页面加载发生了什么</title>
+    <link href="https://juntengma.github.io/2020/11/16/JavaScript/06%20-%20%E4%BB%8E%E8%BE%93%E5%85%A5url%E5%88%B0%E9%A1%B5%E9%9D%A2%E5%8A%A0%E8%BD%BD%E8%BF%87%E7%A8%8B/"/>
+    <id>https://juntengma.github.io/2020/11/16/JavaScript/06%20-%20%E4%BB%8E%E8%BE%93%E5%85%A5url%E5%88%B0%E9%A1%B5%E9%9D%A2%E5%8A%A0%E8%BD%BD%E8%BF%87%E7%A8%8B/</id>
+    <published>2020-11-15T16:00:00.000Z</published>
+    <updated>2020-11-26T07:48:12.967Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote><h4>  从输入URL到页面加载发生了什么???</h4></blockquote><a id="more"></a><p>总体来说分为以下几个过程:</p><ul><li><a href="#01-dns%E8%A7%A3%E6%9E%90">01/ DNS解析</a><ul><li><a href="#dns%E8%A7%A3%E6%9E%90%E8%BF%87%E7%A8%8B">DNS解析过程</a></li></ul></li><li><a href="#02-tcp%E8%BF%9E%E6%8E%A5">02 /TCP连接</a></li><li><a href="#03-%E5%8F%91%E9%80%81http%E8%AF%B7%E6%B1%82">03 /发送HTTP请求</a></li><li><a href="#04-%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%A4%84%E7%90%86%E8%AF%B7%E6%B1%82%E5%B9%B6%E8%BF%94%E5%9B%9Ehttp%E6%8A%A5%E6%96%87">04 /服务器处理请求并返回HTTP报文</a></li><li><a href="#05-%E6%B5%8F%E8%A7%88%E5%99%A8%E8%A7%A3%E6%9E%90%E6%B8%B2%E6%9F%93%E9%A1%B5%E9%9D%A2">05 /浏览器解析渲染页面</a></li></ul><h3 id="01-DNS解析"><a href="#01-DNS解析" class="headerlink" title="01/ DNS解析"></a>01/ DNS解析</h3><p>DNS解析的过程就是在寻找哪台机器上有你需要的资源的全过程.<br>当你在浏览器中输入一个地址时,将网址转换为IP的过程叫做DNS解析</p><h4 id="DNS解析过程"><a href="#DNS解析过程" class="headerlink" title="DNS解析过程"></a>DNS解析过程</h4><p>DNS解析本质上是一个递归查询的过程</p><p><img src="https://s3.ax1x.com/2020/11/16/DAFZeU.png"></p><p>上图是查找<code>www.google.com</code>这个网址的过程</p><ol><li>在<code>本地域名服务器</code>中查询IP地址–&gt;无</li><li><code>本地域名服务器</code>向<code>根域名服务器</code>发送请求–&gt;无</li><li><code>本地域名服务器</code> 向<code>COM顶级域名服务器</code>发送请求–&gt;无</li><li>……</li><li>最后本地服务器得到Google的IP的字号并缓存到本地,功下次使用</li></ol><p>由上可以看出网址解析是一个 从右到左的过程:<br><code>com</code> –&gt; <code>google.com</code> –&gt; <code>www.google.com</code><br>根域名服务器呢?<br>默认情况下所有网址最后一位都是. , 即<code>www.google.com.</code>,方便用户一般都会省略,浏览器在请求DNS的时候会自动加上,<br>即NDS解析流程:<br><code>.</code>–&gt;<code>com.</code>–&gt;<code>google.com.</code>–&gt;<code>www.google.com.</code></p><h3 id="02-TCP连接"><a href="#02-TCP连接" class="headerlink" title="02 /TCP连接"></a>02 /TCP连接</h3><p>HTTP协议是使用TCP作为其传输层协议的，当TCP出现瓶颈时，HTTP也会受到影响。</p><p>三次握手:</p><ul><li>主机A向主机B发送TCP连接请求数据包</li><li>主机B收到请求后，会发回连接确认数据包。 </li><li>第三次，主机A收到主机B的确认报文后，还需作出确认，即发送一个序列号seq(A)=x+1；确认号为ack(A)=y+1的报文；</li></ul><p>四次挥手:(假设主机A为客户端，主机B为服务器，其释放TCP连接的过程如下)</p><ul><li>客户端向服务端发送关闭链接的请求</li><li>服务器收到请求之后,回复这个请求并确认</li><li>服务端也发送一个关闭链接的请求给客户端</li><li>客户端收到请求之后确认关闭然后断开tcp链接</li></ul><h3 id="03-发送HTTP请求"><a href="#03-发送HTTP请求" class="headerlink" title="03 /发送HTTP请求"></a>03 /发送HTTP请求</h3><ul><li>HTTP报文是包裹在tcp报文中发送的,服务端收到TCP报文时会解包提取出HTTP报文,但是该过程存在一定风险,HTTP报文是明文,如果中间被截取的话会存在一些信息泄露的风险</li><li>HTTPS协议本质就是HTTP+SSL,在HTTP报文进入TCP报文之前,先使用SSL报文进行加密.从网络层的结构看它位于HTTP协议与TCP协议之间<br><a href="https://imgchr.com/i/BunpMn"><img src="https://s1.ax1x.com/2020/10/26/BunpMn.png" alt="BunpMn.png"></a></li></ul><p><strong>HTTPS过程:</strong></p><p>HTTPS在传输数据之前需要客户端与服务器进行一个握手(TSL/SSL握手),在握手的过程中将确立对方家里传输数据的密码信息.TLS/SSL使用了非对称加密,对称加密以及hash等.</p><p>HTTPS相对于HTTP,虽然提供了安全保证,但势必会造成一些时间上的损耗,如握手和加密等过程,使用前需要做好安全和性能方面的权衡</p><p><strong>HTTP请求:</strong></p><p>http请求主要发生在客户端.发送http请求的过程就是构建HTTP请求报文并通过TCP协议中发送到服务器指定端口(HTTP协议80/8080,HTTPS协议443)<br>http请求报文由三部分组成</p><ul><li><p>请求行 ( 常用方法有get,post,put,delete…等)</p></li><li><p>请求报头(请求报头允许客户端向服务器传递请求的附加信息和客户端自身的信息)</p><p><img src="https://s3.ax1x.com/2020/11/16/DAklNQ.png"></p><blockquote><p>上图是使用Chrome开发者工具截取的对百度的HTTP请求以及响应报文，从图中可以看出，请求报头中使用了Accept, Accept-Encoding, Accept-Language, Cache-Control, Connection, Cookie等字段。Accept用于指定客户端用于接受哪些类型的信息，Accept-Encoding与Accept类似，它用于指定接受的编码方式。Connection设置为Keep-alive用于告诉客户端本次HTTP请求结束之后并不需要关闭TCP连接，这样可以使下次HTTP请求使用相同的TCP通道，节省TCP连接建立的时间。</p></blockquote></li><li><p>请求正文(客户端向服务端传递的数据)</p><blockquote><p>上图是使用Chrome开发者工具截取的对百度的HTTP请求以及响应报文，从图中可以看出，请求报头中使用了Accept, Accept-Encoding, Accept-Language, Cache-Control, Connection, Cookie等字段。Accept用于指定客户端用于接受哪些类型的信息，Accept-Encoding与Accept类似，它用于指定接受的编码方式。Connection设置为Keep-alive用于告诉客户端本次HTTP请求结束之后并不需要关闭TCP连接，这样可以使下次HTTP请求使用相同的TCP通道，节省TCP连接建立的时间。</p></blockquote><h3 id="04-服务器处理请求并返回HTTP报文"><a href="#04-服务器处理请求并返回HTTP报文" class="headerlink" title="04 /服务器处理请求并返回HTTP报文"></a>04 /服务器处理请求并返回HTTP报文</h3><p>HTTP响应报文也是由三部分组成: <strong>状态码</strong>, <strong>响应报头</strong>和<strong>响应报文</strong>。</p></li></ul><p><strong>状态码</strong><br>状态码是由3位数组成，第一个数字定义了响应的类别，且有五种可能取值:</p><ul><li>1xx:指示信息 - 表示请求已接收,继续处理</li><li>2xx:成功 - 表示请求已被成功接收,理解,处理</li><li>3xx:重定向 -  要完成请求必须进行更进一步的操作</li><li>4xx:客户端错误 - 请求有语法错误或请求无法实现.</li><li>5xx:服务端错误 - 服务器未能实现合法请求</li></ul><p><strong>常见错误码:</strong></p><ul><li>200:请求成功</li><li>204:无内容。服务器成功处理，但未返回内容。在未更新网页的情况下，可确保浏览器继续显示当前文档</li><li>301:永久移动。请求的资源已被永久的重定向到新URI，返回信息会包括新的URI，浏览器会自动定向到新URI。今后任何新的请求都应使用新的URI代替</li><li>302:临时移动。与301类似。但资源只是临时被移动。客户端应继续使用原有URI</li><li>304:未修改。所请求的资源未修改，服务器返回此状态码时，不会返回任何资源。客户端通常会缓存访问过的资源，通过提供一个头信息指出客户端希望只返回在指定日期之后修改的资源</li><li>400:客户端请求的语法错误，服务器无法理解</li><li>401:请求要求用户的身份认证</li><li>403:服务器理解请求客户端的请求，但是拒绝执行此请求</li><li>404:服务器无法根据客户端的请求找到资源（网页）。通过此代码，网站设计人员可设置”您所请求的资源无法找到”的个性页面</li><li>422:请求格式正确，但是由于含有语义错误，无法响应。</li><li>500:服务器内部错误，无法完成请求</li></ul><h3 id="05-浏览器解析渲染页面"><a href="#05-浏览器解析渲染页面" class="headerlink" title="05 /浏览器解析渲染页面"></a>05 /浏览器解析渲染页面</h3><p>浏览器在收到HTML,CSS,JS文件后，它是如何把页面呈现到屏幕上的？下图对应的就是WebKit渲染的过程。</p><p><img src="https://s3.ax1x.com/2020/11/16/DAAsIg.png"></p><p>浏览器是一个边解析边渲染的过程。</p><ul><li>首先浏览器解析HTML文件构建DOM树，然后解析CSS文件构建渲染树，等到渲染树构建完成后，浏览器开始布局渲染树并将其绘制到屏幕上。</li><li>这个过程比较复杂，涉及到两个概念: reflow(回流)和repain(重绘)。DOM节点中的各个元素都是以盒模型的形式存在，这些都需要浏览器去计算其位置和大小等，这个过程称为relow;</li><li>当盒模型的位置,大小以及其他属性，如颜色,字体,等确定下来之后，浏览器便开始绘制内容，这个过程称为repain。</li><li>页面在首次加载时必然会经历reflow和repain。reflow和repain过程是非常消耗性能的，尤其是在移动设备上，它会破坏用户体验，有时会造成页面卡顿。所以我们应该尽可能少的减少reflow和repain。</li></ul><p>该过程涉及到两个概念 : <strong>重绘</strong>,<strong>回流</strong></p><ul><li>**回流:**DOM节点中的各个元素都是以盒模型的形式存在,需要浏览器来计算其位置和大小等,该过程叫做回流</li><li>**重绘:**当盒模型的位置,大小以及其他属性,如颜色,字体等确定下来之后,浏览器就开始绘制内容,该过程叫做重绘</li></ul>]]></content>
+    
+    
+    <summary type="html">&lt;blockquote&gt;
+&lt;h4&gt; 
+ 从输入URL到页面加载发生了什么???
+&lt;/h4&gt;
+&lt;/blockquote&gt;</summary>
+    
+    
+    
+    <category term="JavaScript" scheme="https://juntengma.github.io/categories/JavaScript/"/>
+    
+    
+    <category term="从输入URL到页面加载发生了什么" scheme="https://juntengma.github.io/tags/%E4%BB%8E%E8%BE%93%E5%85%A5URL%E5%88%B0%E9%A1%B5%E9%9D%A2%E5%8A%A0%E8%BD%BD%E5%8F%91%E7%94%9F%E4%BA%86%E4%BB%80%E4%B9%88/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Promise</title>
+    <link href="https://juntengma.github.io/2020/11/15/JavaScript/09%20-%20JavaScript-Promise/"/>
+    <id>https://juntengma.github.io/2020/11/15/JavaScript/09%20-%20JavaScript-Promise/</id>
+    <published>2020-11-14T16:00:00.000Z</published>
+    <updated>2020-11-26T07:47:33.254Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote><h4> 前端异步处理之 - Promise vs async/await</h4></blockquote><a id="more"></a><h3 id="前置知识"><a href="#前置知识" class="headerlink" title="前置知识"></a>前置知识</h3><h4 id="1-js回调地狱"><a href="#1-js回调地狱" class="headerlink" title="1/ js回调地狱"></a>1/ js回调地狱</h4><blockquote><p>在开发过程中我们经常遇到这种情况: </p><p>异步js或使用回调的js很难直观地得到正确的结果 , 一个异步函数的输出是另外一个异步函数的输入,如果嵌套层数过多，可读性和可以维护性都会变得很差，产生所谓的“回调地狱</p></blockquote><pre><code>let fs = require(&#39;fs&#39;)fs.readFile(&#39;./name.txt&#39;,&#39;utf8&#39;,function(err,data)&#123;  fs.readFile(data, &#39;utf8&#39;,function(err,data)&#123;    fs.readFile(data,&#39;utf8&#39;,function(err,data)&#123;      console.log(data);    &#125;)  &#125;)&#125;)</code></pre><p>总结一下回调地狱出现的原因:</p><ul><li><strong>嵌套调用</strong>，第一个函数的输出往往是第二个函数的输入；<ul><li><strong>处理多个异步请求并发</strong>，开发时往往需要同步请求最终的结果;</li></ul></li></ul><h4 id="2-怎么处理回调地狱"><a href="#2-怎么处理回调地狱" class="headerlink" title="2/ 怎么处理回调地狱"></a>2/ 怎么处理回调地狱</h4><ul><li><strong>消灭嵌套调用</strong>：通过 Promise 的链式调用可以解决(.then())；</li><li><strong>合并多个任务的请求结果</strong>：使用 Promise.all 获取合并多个任务的错误处理。</li></ul><h3 id="Promise"><a href="#Promise" class="headerlink" title="Promise"></a>Promise</h3><h4 id="1-什么是promise"><a href="#1-什么是promise" class="headerlink" title="1.什么是promise?"></a>1.什么是promise?</h4><p><img src="https://s3.ax1x.com/2020/11/13/DS4cZt.png"><br> 如上图所示,Promise是一个构造函数,身上有</p><ul><li><p>all()</p></li><li><p>reject()</p></li><li><p>resolve()几个方法,</p></li></ul><p>prototype上有</p><ul><li>then()</li><li>catch()等方法</li></ul><h4 id="2-Promise的特征"><a href="#2-Promise的特征" class="headerlink" title="2.Promise的特征"></a>2.Promise的特征</h4><ul><li>对象的状态不受外界影响,<code>Promise</code>对象代表一个异步操作，有下面这三种状态,只有异步操作可以决定当前是哪种状态<ul><li>pending(进行中)</li><li>fulfilled(成功)</li><li>rejected(失败)</li></ul></li><li>状态一旦改变, 结果就不再变化,Promise状态只可能会出现下面两种情况<ul><li>pending —&gt; fulfilled</li><li>pending —&gt; rejected</li></ul></li></ul><p><strong><code>Promise</code>的优点：</strong></p><p><strong>可以将异步操作以同步操作的流程表达出来，避免了层层嵌套的回调函数。</strong></p><h4 id="3-Promise怎么创建"><a href="#3-Promise怎么创建" class="headerlink" title="3.Promise怎么创建?"></a>3.Promise怎么创建?</h4><ul><li><code>Promise</code>构造函数接受一个函数作为参数，该函数的两个参数分别是<code>resolve</code>和<code>reject</code>。它们是两个函数，由 <code>JavaScript</code> 引擎提供，不用自己部署</li><li><code>resolve</code>函数的作用是，将<code>Promise</code>对象的状态从“未完成”变为“成功”（即从 <code>pending</code> 变为 <code>resolved</code>），在异步操作成功时调用，并将异步操作的结果，作为参数传递出去；</li><li><code>reject</code>函数的作用是，将<code>Promise</code>对象的状态从“未完成”变为“失败”（即从 <code>pending</code>变为 <code>rejected</code>），在异步操作失败时调用，并将异步操作报出的错误，作为参数传递出去。</li></ul><pre><code class="js">let promise = new Promise((resolve, reject) =&gt; &#123;  //此处执行一些异步操作（调用后台API，定时器等）  if (/*异步操作成功*/) &#123;    resolve(value);  &#125; else &#123;    reject(error)  &#125;&#125;)</code></pre><ul><li><code>then</code>方法可以接受两个回调函数作为参数。第一个回调函数是<code>Promise</code>对象的状态变为<code>resolved</code>时调用，第二个回调函数是<code>Promise</code>对象的状态变为<code>rejected</code>时调用。</li><li>其中，第二个函数是可选的，不一定要提供。这两个函数都接受<code>Promise</code>对象传出的值作为参数。</li></ul><pre><code>promise.then(res=&gt;&#123;    //对于成功回调接受的数据做处理&#125;,err=&gt;&#123;    //对于失败的回调数据做处理&#125;)</code></pre><h4 id="4-实现一个符合PromiseA-规范的Promise"><a href="#4-实现一个符合PromiseA-规范的Promise" class="headerlink" title="4. 实现一个符合PromiseA+规范的Promise"></a>4. 实现一个符合PromiseA+规范的Promise</h4><p>该版本只能简单实现处理同步/异步函数, then的链式调用并没有真正实现…需要再做研究</p><pre><code>//1.先定义三个状态const PENDING = &quot;PENDING&quot;;const FULFILLED = &quot;FULFILLED&quot;;const REJECTED = &quot;REJECTED&quot;;//2.clss实例化一个promiseclass Promise &#123;  constructor(executor) &#123;    this.status = PENDING;    //存放成功状态    this.success = undefined;    //存放失败状态    this.error = undefined;    // 存放成功的回调    this.onResolvedCallbacks = [];    // 存放失败的回调    this.onRejectedCallbacks = [];        //3.实现resolve , reject    let resolve = (value) =&gt; &#123;      if (this.status === PENDING) &#123;        this.status = FULFILLED;        this.success = value;        //这句话的意思是把存储起来的异步回调也执行掉        this.onResolvedCallbacks.forEach(fn =&gt; fn());      &#125;    &#125;    let reject = (error) =&gt; &#123;      if (this.status === PENDING) &#123;        this.status = REJECTED;        this.error = error;        this.onRejectedCallbacks.forEach(fn =&gt; fn());      &#125;    &#125;     //异常捕获    try &#123;      executor(resolve, reject)    &#125; catch (error) &#123;      reject(error)    &#125;  &#125;    //4.实现then方法  then(onFulfilled, onRejected) &#123;    if (this.status === FULFILLED) &#123;      return onFulfilled(this.success)    &#125;    if (this.status === REJECTED) &#123;      return onRejected(this.error)    &#125;    if (this.status === PENDING) &#123;      // 如果promise的状态是 pending，需要将 onFulfilled 和 onRejected 函数存放起来，等待状态确定后，再依次将对应的函数执行      this.onResolvedCallbacks.push(() =&gt; &#123;        onFulfilled(this.success)      &#125;);      this.onRejectedCallbacks.push(() =&gt; &#123;        onRejected(this.error);      &#125;)    &#125;  &#125;&#125;//测试demolet promise = new Promise((resolve, reject) =&gt; &#123;  setTimeout(() =&gt; &#123;    resolve(&#39;ok&#39;)  &#125;, 2000)&#125;).then((success) =&gt; &#123;  console.log(&#39;success&#39;, success)&#125;, (error) =&gt; &#123;  console.log(&#39;error&#39;)&#125;)// success ok</code></pre><h4 id="5-async-await"><a href="#5-async-await" class="headerlink" title="5. async/await"></a>5. async/await</h4><blockquote><p>一种相对Promise更为优雅的异步函数处理方案</p></blockquote><p>5.1    什么是async/await</p><ul><li><code>async</code>是异步的意思</li><li><code>await</code>有等待的意思</li><li><code>async</code>用于申明一个<code>function</code>是异步的，而<code>await</code> 用于等待一个异步方法执行完成。</li></ul><p>5.2     使用</p><pre><code>async getAjaxData()&#123;    let res = await sendAjax()&#125;</code></pre><p>5.3 注意事项</p><pre><code>- await操作符等的是一个返回的结果，那么如果是同步的情况，那就直接返回了。- 如果是异步的情况下，await会阻塞整一个流程，直到结果返回之后，才会继续下面的代码。阻塞代码是一个很可怕的事情，而async函数，会被包在一个promise中，异步去执行。所以await只能在async函数中使用，如果在正常程序中使用，会造成整个程序阻塞，得不偿失。</code></pre><h4 id="6-Promise-和-async-await区别"><a href="#6-Promise-和-async-await区别" class="headerlink" title="6.Promise 和 async/await区别"></a>6.Promise 和 async/await区别</h4><p>直接上代码</p><ul><li>Promise版本</li></ul><pre><code>function doIt() &#123;    console.time(&quot;doIt&quot;);    const time1 = 300;    step1(time1)        .then(time2 =&gt; &#123;            return step2(time1, time2)                .then(time3 =&gt; [time1, time2, time3]);        &#125;)        .then(times =&gt; &#123;            const [time1, time2, time3] = times;            return step3(time1, time2, time3);        &#125;)        .then(result =&gt; &#123;            console.log(`result is $&#123;result&#125;`);            console.timeEnd(&quot;doIt&quot;);        &#125;);&#125;doIt();</code></pre><ul><li>async / await 版本</li></ul><pre><code>async function doIt() &#123;    console.time(&quot;doIt&quot;);    const time1 = 300;    const time2 = await step1(time1);    const time3 = await step2(time1, time2);    const result = await step3(time1, time2, time3);    console.log(`result is $&#123;result&#125;`);    console.timeEnd(&quot;doIt&quot;);&#125;doIt();</code></pre><p>更详细的可以参考:</p><ul><li><a href="https://zhuanlan.zhihu.com/p/288384170">&lt;&lt;你不知道的promise&gt;&gt;</a></li><li><a href="https://juejin.im/post/6844903843507994632">&lt;&lt;学习Promise基础及手写Promise&gt;&gt;</a></li><li><a href="https://juejin.im/post/6844903960910757902">&lt;&lt;理解async/await&gt;&gt;</a></li></ul>]]></content>
+    
+    
+    <summary type="html">&lt;blockquote&gt;
+&lt;h4&gt; 
+前端异步处理之 - Promise vs async/await
+&lt;/h4&gt;
+&lt;/blockquote&gt;</summary>
+    
+    
+    
+    <category term="JavaScript" scheme="https://juntengma.github.io/categories/JavaScript/"/>
+    
+    
+    <category term="Promise" scheme="https://juntengma.github.io/tags/Promise/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>深拷贝浅拷贝</title>
+    <link href="https://juntengma.github.io/2020/11/15/JavaScript/JavaScript-%E6%B5%85%E6%8B%B7%E8%B4%9D%E6%B7%B1%E6%8B%B7%E8%B4%9D/"/>
+    <id>https://juntengma.github.io/2020/11/15/JavaScript/JavaScript-%E6%B5%85%E6%8B%B7%E8%B4%9D%E6%B7%B1%E6%8B%B7%E8%B4%9D/</id>
+    <published>2020-11-14T16:00:00.000Z</published>
+    <updated>2020-11-26T07:46:24.433Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote><h4>  深拷贝浅拷贝</h4></blockquote><a id="more"></a><p><a href="https://juejin.im/post/6844903929705136141">https://juejin.im/post/6844903929705136141</a></p><h3 id="浅拷贝"><a href="#浅拷贝" class="headerlink" title="浅拷贝"></a>浅拷贝</h3><blockquote><p>创建一个新对象，这个对象有着原始对象属性值的一份精确拷贝。</p><p>如果属性是基本类型，拷贝的就是基本类型的值，如果属性是引用类型，拷贝的就是内存地址 ，所以如果其中一个对象改变了这个地址，就会影响到另一个对象。</p></blockquote><p>浅拷贝只拷贝一层属性,无法拷贝引用数据类型</p><ul><li><code>Object.assign(&#123;&#125;,obj)</code>浅拷贝object</li><li><code>newobj = &#123;...obj2&#125;</code>  展开运算符浅拷贝</li><li><code>Object.fromEntries( Object.entriens(obj) ) </code>通过生成迭代器,在通过迭代器生成对象</li><li><code>Object.create(&#123;&#125;,Object.getOwnPropertyDescriptors(obj))</code></li></ul><p><strong>简单浅拷贝:</strong></p><pre><code>function clone(target)&#123;    let cloneTarget=&#123;&#125;;    for(let key in target)&#123;        cloneTarget[key] = target[key]    &#125;    return cloneTarget&#125;</code></pre><h3 id="深拷贝"><a href="#深拷贝" class="headerlink" title="深拷贝"></a>深拷贝</h3><blockquote><p>将一个对象从内存中完整的拷贝一份出来,从堆内存中开辟一个新的区域存放新对象,且修改新对象不会影响原对象</p></blockquote><ul><li><code>JSON.parse(JSON.stringfy( obj ))</code>通过<strong>JSON的2次转换深拷贝obj</strong><ul><li>无法拷贝<code>undefined</code>与<code>symbol</code>属性</li><li>无法拷贝<strong>循环引用</strong>对象</li></ul></li><li>loadsh:<a href="http://lodash.think2011.net/cloneDeep"><em>.cloneDeep</em></a></li></ul><p>简单深拷贝(可以处理<strong>原始数据类型 + Object</strong>):</p><ul><li>如果是原始类型，无需继续拷贝，直接返回</li><li>如果是引用类型，创建一个新的对象，遍历需要克隆的对象，将需要克隆对象的属性执行深拷贝后依次添加到新对象上。</li></ul><pre><code>function smpleDeepCopy(target) &#123;  let type = typeof target  if (type === &quot;object&quot;) &#123;    let copy = &#123;&#125;;    for (let key in target) &#123;      copy[key] = smpleDeepCopy(target[key])    &#125;    return copy  &#125;  return target&#125;</code></pre>]]></content>
+    
+    
+    <summary type="html">&lt;blockquote&gt;
+&lt;h4&gt; 
+ 深拷贝浅拷贝
+&lt;/h4&gt;
+&lt;/blockquote&gt;</summary>
+    
+    
+    
+    <category term="JavaScript" scheme="https://juntengma.github.io/categories/JavaScript/"/>
+    
+    
+    <category term="深拷贝浅拷贝" scheme="https://juntengma.github.io/tags/%E6%B7%B1%E6%8B%B7%E8%B4%9D%E6%B5%85%E6%8B%B7%E8%B4%9D/"/>
+    
+  </entry>
+  
+  <entry>
     <title>算法</title>
     <link href="https://juntengma.github.io/2020/11/12/%E7%AE%97%E6%B3%95%E9%A2%98/%E5%89%91%E6%8C%87offer/"/>
     <id>https://juntengma.github.io/2020/11/12/%E7%AE%97%E6%B3%95%E9%A2%98/%E5%89%91%E6%8C%87offer/</id>
@@ -104,56 +305,6 @@
   </entry>
   
   <entry>
-    <title>Promise</title>
-    <link href="https://juntengma.github.io/2020/11/09/JavaScript/09%20-%20JavaScript-Promise/"/>
-    <id>https://juntengma.github.io/2020/11/09/JavaScript/09%20-%20JavaScript-Promise/</id>
-    <published>2020-11-09T09:53:53.461Z</published>
-    <updated>2020-11-17T05:21:51.359Z</updated>
-    
-    <content type="html"><![CDATA[<blockquote><h4> 前端异步处理之 - Promise vs async/await</h4></blockquote><a id="more"></a><h3 id="前置知识"><a href="#前置知识" class="headerlink" title="前置知识"></a>前置知识</h3><h4 id="1-js回调地狱"><a href="#1-js回调地狱" class="headerlink" title="1/ js回调地狱"></a>1/ js回调地狱</h4><blockquote><p>在开发过程中我们经常遇到这种情况: </p><p>异步js或使用回调的js很难直观地得到正确的结果 , 一个异步函数的输出是另外一个异步函数的输入,如果嵌套层数过多，可读性和可以维护性都会变得很差，产生所谓的“回调地狱</p></blockquote><pre><code>let fs = require(&#39;fs&#39;)fs.readFile(&#39;./name.txt&#39;,&#39;utf8&#39;,function(err,data)&#123;  fs.readFile(data, &#39;utf8&#39;,function(err,data)&#123;    fs.readFile(data,&#39;utf8&#39;,function(err,data)&#123;      console.log(data);    &#125;)  &#125;)&#125;)</code></pre><p>总结一下回调地狱出现的原因:</p><ul><li><strong>嵌套调用</strong>，第一个函数的输出往往是第二个函数的输入；<ul><li><strong>处理多个异步请求并发</strong>，开发时往往需要同步请求最终的结果;</li></ul></li></ul><h4 id="2-怎么处理回调地狱"><a href="#2-怎么处理回调地狱" class="headerlink" title="2/ 怎么处理回调地狱"></a>2/ 怎么处理回调地狱</h4><ul><li><strong>消灭嵌套调用</strong>：通过 Promise 的链式调用可以解决(.then())；</li><li><strong>合并多个任务的请求结果</strong>：使用 Promise.all 获取合并多个任务的错误处理。</li></ul><h3 id="Promise"><a href="#Promise" class="headerlink" title="Promise"></a>Promise</h3><h4 id="1-什么是promise"><a href="#1-什么是promise" class="headerlink" title="1.什么是promise?"></a>1.什么是promise?</h4><p><img src="https://s3.ax1x.com/2020/11/13/DS4cZt.png"><br> 如上图所示,Promise是一个构造函数,身上有</p><ul><li><p>all()</p></li><li><p>reject()</p></li><li><p>resolve()几个方法,</p></li></ul><p>prototype上有</p><ul><li>then()</li><li>catch()等方法</li></ul><h4 id="2-Promise的特征"><a href="#2-Promise的特征" class="headerlink" title="2.Promise的特征"></a>2.Promise的特征</h4><ul><li>对象的状态不受外界影响,<code>Promise</code>对象代表一个异步操作，有下面这三种状态,只有异步操作可以决定当前是哪种状态<ul><li>pending(进行中)</li><li>fulfilled(成功)</li><li>rejected(失败)</li></ul></li><li>状态一旦改变, 结果就不再变化,Promise状态只可能会出现下面两种情况<ul><li>pending —&gt; fulfilled</li><li>pending —&gt; rejected</li></ul></li></ul><p><strong><code>Promise</code>的优点：</strong></p><p><strong>可以将异步操作以同步操作的流程表达出来，避免了层层嵌套的回调函数。</strong></p><h4 id="3-Promise怎么创建"><a href="#3-Promise怎么创建" class="headerlink" title="3.Promise怎么创建?"></a>3.Promise怎么创建?</h4><ul><li><code>Promise</code>构造函数接受一个函数作为参数，该函数的两个参数分别是<code>resolve</code>和<code>reject</code>。它们是两个函数，由 <code>JavaScript</code> 引擎提供，不用自己部署</li><li><code>resolve</code>函数的作用是，将<code>Promise</code>对象的状态从“未完成”变为“成功”（即从 <code>pending</code> 变为 <code>resolved</code>），在异步操作成功时调用，并将异步操作的结果，作为参数传递出去；</li><li><code>reject</code>函数的作用是，将<code>Promise</code>对象的状态从“未完成”变为“失败”（即从 <code>pending</code>变为 <code>rejected</code>），在异步操作失败时调用，并将异步操作报出的错误，作为参数传递出去。</li></ul><pre><code class="js">let promise = new Promise((resolve, reject) =&gt; &#123;  //此处执行一些异步操作（调用后台API，定时器等）  if (/*异步操作成功*/) &#123;    resolve(value);  &#125; else &#123;    reject(error)  &#125;&#125;)</code></pre><ul><li><code>then</code>方法可以接受两个回调函数作为参数。第一个回调函数是<code>Promise</code>对象的状态变为<code>resolved</code>时调用，第二个回调函数是<code>Promise</code>对象的状态变为<code>rejected</code>时调用。</li><li>其中，第二个函数是可选的，不一定要提供。这两个函数都接受<code>Promise</code>对象传出的值作为参数。</li></ul><pre><code>promise.then(res=&gt;&#123;    //对于成功回调接受的数据做处理&#125;,err=&gt;&#123;    //对于失败的回调数据做处理&#125;)</code></pre><h4 id="4-实现一个符合PromiseA-规范的Promise"><a href="#4-实现一个符合PromiseA-规范的Promise" class="headerlink" title="4. 实现一个符合PromiseA+规范的Promise"></a>4. 实现一个符合PromiseA+规范的Promise</h4><p>该版本只能简单实现处理同步/异步函数, then的链式调用并没有真正实现…需要再做研究</p><pre><code>//1.先定义三个状态const PENDING = &quot;PENDING&quot;;const FULFILLED = &quot;FULFILLED&quot;;const REJECTED = &quot;REJECTED&quot;;//2.clss实例化一个promiseclass Promise &#123;  constructor(executor) &#123;    this.status = PENDING;    //存放成功状态    this.success = undefined;    //存放失败状态    this.error = undefined;    // 存放成功的回调    this.onResolvedCallbacks = [];    // 存放失败的回调    this.onRejectedCallbacks = [];        //3.实现resolve , reject    let resolve = (value) =&gt; &#123;      if (this.status === PENDING) &#123;        this.status = FULFILLED;        this.success = value;        //这句话的意思是把存储起来的异步回调也执行掉        this.onResolvedCallbacks.forEach(fn =&gt; fn());      &#125;    &#125;    let reject = (error) =&gt; &#123;      if (this.status === PENDING) &#123;        this.status = REJECTED;        this.error = error;        this.onRejectedCallbacks.forEach(fn =&gt; fn());      &#125;    &#125;     //异常捕获    try &#123;      executor(resolve, reject)    &#125; catch (error) &#123;      reject(error)    &#125;  &#125;    //4.实现then方法  then(onFulfilled, onRejected) &#123;    if (this.status === FULFILLED) &#123;      return onFulfilled(this.success)    &#125;    if (this.status === REJECTED) &#123;      return onRejected(this.error)    &#125;    if (this.status === PENDING) &#123;      // 如果promise的状态是 pending，需要将 onFulfilled 和 onRejected 函数存放起来，等待状态确定后，再依次将对应的函数执行      this.onResolvedCallbacks.push(() =&gt; &#123;        onFulfilled(this.success)      &#125;);      this.onRejectedCallbacks.push(() =&gt; &#123;        onRejected(this.error);      &#125;)    &#125;  &#125;&#125;//测试demolet promise = new Promise((resolve, reject) =&gt; &#123;  setTimeout(() =&gt; &#123;    resolve(&#39;ok&#39;)  &#125;, 2000)&#125;).then((success) =&gt; &#123;  console.log(&#39;success&#39;, success)&#125;, (error) =&gt; &#123;  console.log(&#39;error&#39;)&#125;)// success ok</code></pre><h4 id="5-async-await"><a href="#5-async-await" class="headerlink" title="5. async/await"></a>5. async/await</h4><blockquote><p>一种相对Promise更为优雅的异步函数处理方案</p></blockquote><p>5.1    什么是async/await</p><ul><li><code>async</code>是异步的意思</li><li><code>await</code>有等待的意思</li><li><code>async</code>用于申明一个<code>function</code>是异步的，而<code>await</code> 用于等待一个异步方法执行完成。</li></ul><p>5.2     使用</p><pre><code>async getAjaxData()&#123;    let res = await sendAjax()&#125;</code></pre><p>5.3 注意事项</p><pre><code>- await操作符等的是一个返回的结果，那么如果是同步的情况，那就直接返回了。- 如果是异步的情况下，await会阻塞整一个流程，直到结果返回之后，才会继续下面的代码。阻塞代码是一个很可怕的事情，而async函数，会被包在一个promise中，异步去执行。所以await只能在async函数中使用，如果在正常程序中使用，会造成整个程序阻塞，得不偿失。</code></pre><h4 id="6-Promise-和-async-await区别"><a href="#6-Promise-和-async-await区别" class="headerlink" title="6.Promise 和 async/await区别"></a>6.Promise 和 async/await区别</h4><p>直接上代码</p><ul><li>Promise版本</li></ul><pre><code>function doIt() &#123;    console.time(&quot;doIt&quot;);    const time1 = 300;    step1(time1)        .then(time2 =&gt; &#123;            return step2(time1, time2)                .then(time3 =&gt; [time1, time2, time3]);        &#125;)        .then(times =&gt; &#123;            const [time1, time2, time3] = times;            return step3(time1, time2, time3);        &#125;)        .then(result =&gt; &#123;            console.log(`result is $&#123;result&#125;`);            console.timeEnd(&quot;doIt&quot;);        &#125;);&#125;doIt();</code></pre><ul><li>async / await 版本</li></ul><pre><code>async function doIt() &#123;    console.time(&quot;doIt&quot;);    const time1 = 300;    const time2 = await step1(time1);    const time3 = await step2(time1, time2);    const result = await step3(time1, time2, time3);    console.log(`result is $&#123;result&#125;`);    console.timeEnd(&quot;doIt&quot;);&#125;doIt();</code></pre><p>更详细的可以参考:</p><ul><li><a href="https://zhuanlan.zhihu.com/p/288384170">&lt;&lt;你不知道的promise&gt;&gt;</a></li><li><a href="https://juejin.im/post/6844903843507994632">&lt;&lt;学习Promise基础及手写Promise&gt;&gt;</a></li><li><a href="https://juejin.im/post/6844903960910757902">&lt;&lt;理解async/await&gt;&gt;</a></li></ul>]]></content>
-    
-    
-    <summary type="html">&lt;blockquote&gt;
-&lt;h4&gt; 
-前端异步处理之 - Promise vs async/await
-&lt;/h4&gt;
-&lt;/blockquote&gt;</summary>
-    
-    
-    
-    <category term="JavaScript" scheme="https://juntengma.github.io/categories/JavaScript/"/>
-    
-    
-    <category term="Promise" scheme="https://juntengma.github.io/tags/Promise/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>JavaScript处理异步函数几种方案</title>
-    <link href="https://juntengma.github.io/2020/11/09/JavaScript/JavaScript-%E5%A4%84%E7%90%86%E5%BC%82%E6%AD%A5%E5%87%BD%E6%95%B0%E5%87%A0%E7%A7%8D%E6%96%B9%E6%A1%88/"/>
-    <id>https://juntengma.github.io/2020/11/09/JavaScript/JavaScript-%E5%A4%84%E7%90%86%E5%BC%82%E6%AD%A5%E5%87%BD%E6%95%B0%E5%87%A0%E7%A7%8D%E6%96%B9%E6%A1%88/</id>
-    <published>2020-11-09T09:53:53.397Z</published>
-    <updated>2020-11-12T12:32:36.756Z</updated>
-    
-    <content type="html"><![CDATA[<blockquote><h4>  for-in & for-of的区别 和 map-for & Each区别</h4></blockquote><a id="more"></a><h1 id="JS处理异步函数几种方案"><a href="#JS处理异步函数几种方案" class="headerlink" title="JS处理异步函数几种方案"></a>JS处理异步函数几种方案</h1><h4 id="1-回调函数"><a href="#1-回调函数" class="headerlink" title="1.回调函数"></a>1.回调函数</h4><p>顾名思义: 将一个函数作为参数传入另外一个函数中,等父级函数执行完再执行回调函数</p><pre><code class="js">function f1(callBack)&#123;    console.log(&quot;hello&quot;)    let data = &quot;world&quot;    callBack(data)&#125;f1((data)=&gt;console.log(data))// hello// world</code></pre><p>回调函数优缺点:</p><blockquote><p>优点: 简单方便,适用于<strong>只有一个异步的操作</strong><br>缺点:如果嵌套层级过深,会形成回调地狱,耦合度过强</p></blockquote><pre><code class="js">getData(&#39;x&#39;,()=&gt;&#123;    //callBack函数体    getData2(&#39;y&#39;,()=&gt;&#123;        //callBack函数体        getData3(&#39;z&#39;,()=&gt;&#123;            //callBack函数体            ...        &#125;)    &#125;)&#125;)</code></pre><h4 id="2-Promise对象-async-await-最常用-终极解决方案"><a href="#2-Promise对象-async-await-最常用-终极解决方案" class="headerlink" title="2.Promise对象+async+await(最常用,终极解决方案)"></a>2.Promise对象+async+await(最常用,终极解决方案)</h4><ul><li><p>promise严格来说是一种模式,可以来管理异步代码</p></li><li><p>什么是Promise?</p><blockquote><p>Promise是解决异步编程的一种方案</p></blockquote></li><li><p>优点:</p><blockquote><p>可以解决回调地狱问题,且Promise只有resolve 和 reject 两种状态</p></blockquote></li><li><p>常用API:</p><blockquote><p>resolve : 返回异步操作成功结果<br>reject    : 返回异步操作失败结果<br>then      : 执行Promise状态为成功的操作<br>catch     :执行Promise状态为失败的操作<br>finally    :不管Promise是否成功都执行的操作</p></blockquote></li><li><p>使用:</p><pre><code class="js">    const p  = new Promise((resolve,reject)=&gt;&#123;        //异步操作        if(success)&#123;            resolve(&#39;some message&#39;)        &#125;else&#123;            reject(err)        &#125;    &#125;)    p.then(res=&gt;&#123;        //resolve数据    &#125;).catch(err=&gt;&#123;        //rejects数据    &#125;).finally(()=&gt;&#123;        //执行一些操作    &#125;)</code></pre></li><li><p>使用案例2: 封装nodejs的request模块</p><pre><code class="js">const request = require(&quot;request&quot;);const requestData = (uri) =&gt; &#123;    return new Promise((resolve, reject) =&gt; &#123;        request(&#123;            uri        &#125;, (err, res, body) =&gt; &#123;            resolve(&#123;                err,                res,                body            &#125;)        &#125;)    &#125;)&#125;;//使用let url = &quot;https://imgcache.qq.com/wss/security//ssl/build/ssl-444feca18a7857546ff9b39bbc95a17c.js&quot;;(async() =&gt; &#123;    let &#123;        err,        res,        body    &#125; = await requestData(url)    console.log(res)&#125;)()</code></pre></li></ul><h4 id="3-事件绑定"><a href="#3-事件绑定" class="headerlink" title="3.事件绑定"></a>3.事件绑定</h4><p>事件绑定的方法有三种</p><p>一，事件监听，<br>二，对象.on方法，<br>三，直接在行内写<br>事件监听有两种方法，</p><blockquote><ul><li>addlisenerevent</li><li>attachevent</li></ul></blockquote><p>两种事件监听的区别:<br>addeventlistener参数个数一般是三个，参数书写（事件类型）不写on执行顺序为：顺序注册倒序执行，兼容非IE7.8，最后一个参数是TRUE或FALSE，TRUE为捕获，FALSE为冒泡，默认FALSE<br>attachevent参数个数为两个，参数书写不写on，执行顺序：顺序注册倒序执行，兼容ie78</p><h4 id="4-Generator函数"><a href="#4-Generator函数" class="headerlink" title="4.Generator函数"></a>4.Generator函数</h4>]]></content>
-    
-    
-    <summary type="html">&lt;blockquote&gt;
-&lt;h4&gt; 
- for-in &amp; for-of的区别 和 map-for &amp; Each区别
-&lt;/h4&gt;
-&lt;/blockquote&gt;</summary>
-    
-    
-    
-    <category term="JavaScript" scheme="https://juntengma.github.io/categories/JavaScript/"/>
-    
-    
-    <category term="JavaScript" scheme="https://juntengma.github.io/tags/JavaScript/"/>
-    
-  </entry>
-  
-  <entry>
     <title>React学习</title>
     <link href="https://juntengma.github.io/2020/11/09/React/React%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/"/>
     <id>https://juntengma.github.io/2020/11/09/React/React%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/</id>
@@ -171,31 +322,6 @@
     
     
     <category term="React" scheme="https://juntengma.github.io/tags/React/"/>
-    
-  </entry>
-  
-  <entry>
-    <title></title>
-    <link href="https://juntengma.github.io/2020/11/09/JavaScript/08%20-%20JavaScript-%E9%97%AD%E5%8C%85/"/>
-    <id>https://juntengma.github.io/2020/11/09/JavaScript/08%20-%20JavaScript-%E9%97%AD%E5%8C%85/</id>
-    <published>2020-11-09T06:39:32.085Z</published>
-    <updated>2020-11-12T12:31:51.203Z</updated>
-    
-    <content type="html"><![CDATA[<blockquote><h4>  闭包</h4></blockquote><a id="more"></a><h4 id="0-前置知识"><a href="#0-前置知识" class="headerlink" title="0/前置知识:"></a>0/前置知识:</h4><p><a href="https://juntengma.github.io/2020/11/03/JavaScript/JavaScript%E4%BD%9C%E7%94%A8%E5%9F%9F/">&lt;&lt;JavaScript作用域&amp;可执行上下文&gt;&gt;</a></p><h4 id="1-什么是闭包"><a href="#1-什么是闭包" class="headerlink" title="1/什么是闭包?"></a>1/什么是闭包?</h4><pre><code>- 内部函数可以访问其所在的外部函数中声明的参数和变量- 闭包找到的是同一地址中,父级函数中对应变量最终的值</code></pre><h4 id="2-闭包的特点"><a href="#2-闭包的特点" class="headerlink" title="2/闭包的特点"></a>2/闭包的特点</h4><pre><code>- 让外部访问函数内部变量成为可能；-    局部变量会常驻在内存中；- 可以避免使用全局变量，防止全局变量污染；- 可能会造成内存泄露</code></pre><h4 id="3-实际使用案例"><a href="#3-实际使用案例" class="headerlink" title="3/实际使用案例"></a>3/实际使用案例</h4><ul><li><p>函数防抖节流</p><pre><code>function debounce(fun, delay) &#123;  let timer  return function (args) &#123;    let _this = this    let _args = args      clearTimeout(timer)    timer = setTimeout(() =&gt; &#123;        fun.call(_this, _args)    &#125;, delay);  &#125;&#125;</code></pre></li><li><p>使用闭包设计单例模式</p><pre><code>class CreateUser &#123;    constructor(name) &#123;        this.name = name;        this.getName();    &#125;    getName() &#123;         return this.name;    &#125;&#125;// 代理实现单例模式var ProxyMode = (function() &#123;    var instance = null;    return function(name) &#123;        if(!instance) &#123;            instance = new CreateUser(name);        &#125;        return instance;    &#125;&#125;)();// 测试单体模式的实例var a = ProxyMode(&quot;aaa&quot;);var b = ProxyMode(&quot;bbb&quot;);// 因为单体模式是只实例化一次，所以下面的实例是相等的console.log(a === b);    //true</code></pre></li><li><p>为多个组件独立属性</p><p>假如我现在要在页面中使用echarts画6个线状图，需要6个容器 </p><p>需要为每个容器元素声明一个独立id,不然会混乱</p><pre><code> constructor()&#123; this.state = &#123;id: &quot;EchartsLine&quot;+Util.clourse()&#125;; &#125;  componentDidMount() &#123;      this.myEChart =echarts.init(document.getElementById(this.state.id));//不同id  &#125;</code></pre><pre><code>&lt;div id=&#123;this.state.id&#125; className=&#39;echarts-line&#39;&gt;&lt;/div&gt;</code></pre><pre><code>clourse()&#123;    let clourse = (function()&#123;        var a = 1;        return function()&#123;            return a++;        &#125;    &#125;)(this);    this.clourse = clourse;&#125;//使用数字命名 不用害怕被篡改</code></pre></li><li><p>设置私有变量</p><pre><code>let _width = Symbol();    class Private &#123;        constructor(s) &#123;            this[_width] = s        &#125;        foo() &#123;            console.log(this[_width])        &#125;    var p = new Private(&quot;50&quot;);    p.foo();    console.log(p[_width]);//可以拿到</code></pre><pre><code> //赋值到闭包里    let sque = (function () &#123;        let _width = Symbol();        class Squery &#123;            constructor(s) &#123;                this[_width] = s            &#125;            foo() &#123;                console.log(this[_width])            &#125;        &#125;        return Squery    &#125;)();    let ss = new sque(20);    ss.foo();    console.log(ss[_width])</code></pre></li><li><p>拿到正确的值（老掉牙的问题了😝）</p><pre><code>for(var i=0;i&lt;10;i++)&#123;    setTimeout(function()&#123;        console.log(i)//10个10    &#125;,1000)&#125;</code></pre><pre><code>for(var i=0;i&lt;10;i++)&#123;((j)=&gt;&#123;  setTimeout(function()&#123;        console.log(j)//1-10    &#125;,1000)&#125;)(i)&#125;</code></pre><p>原理是 声明了10个自执行函数，保存当时的值到内部</p></li></ul>]]></content>
-    
-    
-    <summary type="html">&lt;blockquote&gt;
-&lt;h4&gt; 
- 闭包
-&lt;/h4&gt;
-&lt;/blockquote&gt;</summary>
-    
-    
-    
-    <category term="JavaScript" scheme="https://juntengma.github.io/categories/JavaScript/"/>
-    
-    
-    <category term="闭包" scheme="https://juntengma.github.io/tags/%E9%97%AD%E5%8C%85/"/>
     
   </entry>
   
@@ -299,41 +425,18 @@
   </entry>
   
   <entry>
-    <title>JavaScript作用域&amp;可执行上下文</title>
-    <link href="https://juntengma.github.io/2020/11/03/JavaScript/03%20-%20JavaScript-%E4%BD%9C%E7%94%A8%E5%9F%9F&amp;%E5%8F%AF%E6%89%A7%E8%A1%8C%E4%B8%8A%E4%B8%8B%E6%96%87/"/>
-    <id>https://juntengma.github.io/2020/11/03/JavaScript/03%20-%20JavaScript-%E4%BD%9C%E7%94%A8%E5%9F%9F&amp;%E5%8F%AF%E6%89%A7%E8%A1%8C%E4%B8%8A%E4%B8%8B%E6%96%87/</id>
-    <published>2020-11-03T09:42:08.975Z</published>
-    <updated>2020-11-16T06:50:05.206Z</updated>
+    <title>DOM事件 , 事件流</title>
+    <link href="https://juntengma.github.io/2020/11/03/JavaScript/02%20-%20JavaScript-DOM%E4%BA%8B%E4%BB%B6%E6%B5%81/"/>
+    <id>https://juntengma.github.io/2020/11/03/JavaScript/02%20-%20JavaScript-DOM%E4%BA%8B%E4%BB%B6%E6%B5%81/</id>
+    <published>2020-11-02T16:00:00.000Z</published>
+    <updated>2020-11-26T07:49:01.240Z</updated>
     
-    <content type="html"><![CDATA[<blockquote><p>JavaScript深入 - 作用域相关问题</p></blockquote><a id="more"></a><h3 id="01-什么是作用域"><a href="#01-什么是作用域" class="headerlink" title="01 / 什么是作用域?"></a>01 / 什么是作用域?</h3><p><strong>作用域是指程序源代码中定义变量的区域:</strong></p><ul><li>作用域规定了当前执行代码对变量的访问权限</li><li>JavaScript采用词法作用域(静态作用域)</li></ul><h3 id="02-词法作用域和静态作用域的区别"><a href="#02-词法作用域和静态作用域的区别" class="headerlink" title="02 / 词法作用域和静态作用域的区别?"></a>02 / 词法作用域和静态作用域的区别?</h3><ul><li>静态作用域:    函数的作用域在函数定义的时候就已经决定了</li><li>动态作用域: 函数的作用域在函数调用的时候才决定</li></ul><h3 id="03-作用域包含两种"><a href="#03-作用域包含两种" class="headerlink" title="03 / 作用域包含两种:"></a>03 / 作用域包含两种:</h3><ul><li>全局作用域<ul><li>最外层函数和在最外层函数外面定义的变量拥有全局作用域</li><li>所有末定义直接赋值的变量自动声明为拥有全局作用域</li><li>所有 window 对象的属性拥有全局作用域</li></ul></li><li>函数作用域<ul><li>指声明在函数内部的变量，和全局作用域相反，局部作用域一般只在固定的代码片段内可访问到</li></ul></li><li>块级作用域<ul><li>块级作用域可通过新增命令 let 和 const 声明，所声明的变量在指定块的作用域外无法被访问</li></ul></li></ul>]]></content>
-    
-    
-    <summary type="html">&lt;blockquote&gt;
-&lt;p&gt;JavaScript深入 - 作用域相关问题&lt;/p&gt;
-&lt;/blockquote&gt;</summary>
-    
-    
-    
-    <category term="JavaScript" scheme="https://juntengma.github.io/categories/JavaScript/"/>
-    
-    
-    <category term="作用域&amp;可执行上下文" scheme="https://juntengma.github.io/tags/%E4%BD%9C%E7%94%A8%E5%9F%9F-%E5%8F%AF%E6%89%A7%E8%A1%8C%E4%B8%8A%E4%B8%8B%E6%96%87/"/>
-    
-  </entry>
-  
-  <entry>
-    <title></title>
-    <link href="https://juntengma.github.io/2020/11/02/JavaScript/JavaScript-ES6/"/>
-    <id>https://juntengma.github.io/2020/11/02/JavaScript/JavaScript-ES6/</id>
-    <published>2020-11-02T08:41:06.847Z</published>
-    <updated>2020-11-12T12:33:29.327Z</updated>
-    
-    <content type="html"><![CDATA[<blockquote><h4>  ES6</h4></blockquote><a id="more"></a><h2 id="ES6"><a href="#ES6" class="headerlink" title="ES6"></a>ES6</h2><h4 id="ES6是什么"><a href="#ES6是什么" class="headerlink" title="ES6是什么"></a>ES6是什么</h4><p>es6是ECMA为JavaScript订制的第6个版本,2015年6月发行,涵盖了2015 - 2020</p><h4 id="ES6特性"><a href="#ES6特性" class="headerlink" title="ES6特性"></a>ES6特性</h4><ul><li>表达式<ul><li>[声明 (let/const)](#### 声明)</li><li>解构赋值</li></ul></li><li>内置对象<ul><li>字符串扩展</li><li>数值扩展</li><li>对象扩展</li><li>数组扩展</li><li>函数扩展</li><li>正则扩展</li><li>Symbol / set /Map / Proxy /Reflect</li></ul></li><li>语句与运算<ul><li>class</li><li>Module</li><li>Iterator</li></ul></li><li>异步编程<ul><li>Promise</li><li>Generator</li><li>Async</li></ul></li></ul><h4 id="声明"><a href="#声明" class="headerlink" title="声明"></a>声明</h4><ul><li>let (声明变量,类似var,但是只在代码块中有效)<ul><li>let声明的变量只在所处于的块级有效；</li><li>let没有‘变量提升’的特性，而是‘暂时性死区（temporal dead zone）’特性</li></ul></li><li>const (声明常量)<ul><li>声明恒定变量，声明的同时就必须赋值，否则会报错</li></ul></li></ul><h4 id="块级作用域"><a href="#块级作用域" class="headerlink" title="块级作用域:"></a>块级作用域:</h4><h5 id="ES6之前"><a href="#ES6之前" class="headerlink" title="ES6之前"></a>ES6之前</h5><ul><li>全局作用域</li><li>函数作用域</li></ul><p>因此会产生变量提升的问题</p><pre><code>function func()&#123;    console.log(test);    var test = 1;&#125;;func();//undefind在进入func之前,所有通过var声明的变量提前声明并赋予undefinded值</code></pre><h5 id="ES6-1"><a href="#ES6-1" class="headerlink" title="ES6"></a>ES6</h5><ul><li>全局作用域</li><li>函数作用域</li><li>块级作用域</li></ul><pre><code>function f1() &#123;  let n = 5;  if (true) &#123;    let n = 10;  &#125;  console.log(n); // 5&#125;function f1() &#123;  var n = 5;  if (true) &#123;    var n = 10;  &#125;  console.log(n); // 10&#125;</code></pre>]]></content>
+    <content type="html"><![CDATA[<blockquote><h4> DOM事件, 事件流</h4></blockquote><a id="more"></a><h3 id="DOM事件"><a href="#DOM事件" class="headerlink" title="DOM事件"></a>DOM事件</h3><blockquote><p>事件是指JavaScript与HTML交互的基础.要实现用户与页面的交互,先要对目标元素绑定特定的事件,设置事件处理函数,用户触发事件,事件处理函数执行,产生交互效果</p></blockquote><h4 id="DOM事件级别"><a href="#DOM事件级别" class="headerlink" title="DOM事件级别"></a>DOM事件级别</h4><p>DOM 级别分为四个级别：DOM0 级、DOM1 级、DOM2 级、DOM3 级；<br><img src="https://s1.ax1x.com/2020/10/28/B1JoY4.md.jpg" alt="B1JoY4.md.jpg"></p><p>DOM事件分为三个级别:<br>DOM0 级事件: 给元素绑定事件</p><pre><code>&lt;button id=&quot;btn&quot; type=&quot;button&quot;&gt;&lt;/button&gt;&lt;script&gt;    var btn = document.getElementById(&#39;btn&#39;)    btn.onclick = function() &#123;        console.log(&#39;Hello World&#39;)    &#125;    // btn.onclick = null // 解绑事件&lt;/script&gt;</code></pre><blockquote><p>   缺点：无法设置多个事件处理函数</p></blockquote><p>DOM2 级事件:用到了事件监听</p><pre><code>&lt;button id=&quot;btn&quot; type=&quot;button&quot;&gt;&lt;/button&gt;&lt;script&gt;    var btn = document.getElementById(&#39;btn&#39;);        btn.addEventListener(&#39;click&#39;, showFn, false)    btn.addEventListener(&#39;click&#39;, showFn2, false)    // btn.removeEventListener(&#39;click&#39;, showFn, false) // 解绑事件     function showFn() &#123;        alert(&#39;Hello World&#39;);    &#125;     function showFn2() &#123;        alert(&#39;Hello World2&#39;);    &#125; &lt;/script&gt;</code></pre><blockquote><p>可以为事件设置多个事件处理函数，可以通过第三个参数 ( useCapture ) 设置在什么阶段执行事件处理函数，默认是 false， 即在事件冒泡阶段执行事件处理函数。</p></blockquote><blockquote><p>需要注意的是在 IE8 及以下版本需要用 attachEvent 和 detachEvent 实现，只有两个参数，事件名需要以 on 开头，只支持在事件冒泡阶段执行事件处理函数。</p></blockquote><p>DOM3 级事件</p><blockquote><p>DOM3 级事件是在 DOM2 级事件的基础上添加了更多的事件类型，允许自定义事件。</p></blockquote><p>UI事件，当用户与页面上的元素交互时触发，如：load、scroll<br>焦点事件，当元素获得或失去焦点时触发，如：blur、focus<br>鼠标事件，当用户通过鼠标在页面执行操作时触发如：dbclick、mouseup<br>滚轮事件，当使用鼠标滚轮或类似设备时触发，如：mousewheel<br>文本事件，当在文档中输入文本时触发，如：textInput<br>键盘事件，当用户通过键盘在页面上执行操作时触发，如：keydown、keypress<br>合成事件，当为IME（输入法编辑器）输入字符时触发，如：compositionstart<br>变动事件，当底层DOM结构发生变化时触发，如：DOMsubtreeModified</p><pre><code>// 自定义事件var event = new Event(&#39;test&#39;)// 给元素绑定事件domElement.addEventListener(&#39;test&#39;, function() &#123;    console.log(&#39;event test&#39;)&#125;,)// 触发事件setTimeout(function() &#123;    domElement.dispatchEvent(event)&#125;, 1000)</code></pre><h3 id="DOM事件流"><a href="#DOM事件流" class="headerlink" title="DOM事件流"></a>DOM事件流</h3><blockquote><p>事件流又称为事件传播，描述的是从<strong>页面中接收事件的顺序</strong>。</p><p>DOM2 级事件规定事件流包括三个阶段: </p><ul><li>事件捕获(capturing phase)</li><li>目标事件(target phase)</li><li>事件冒泡(bubbling phase)</li></ul><p>发生的顺序是：事件捕获阶段 –&gt; 目标事件阶段 –&gt; 事件冒泡阶段</p></blockquote><h4 id="事件冒泡"><a href="#事件冒泡" class="headerlink" title="事件冒泡"></a>事件冒泡</h4><blockquote><p>​    事件起始元素逐级向上传播</p></blockquote><pre><code>&lt;style&gt;  #parent &#123;      width: 200px;      height: 200px;      background-color: green;  &#125;  #child &#123;      width: 100px;      height: 100px;      background-color: yellow;  &#125;&lt;/style&gt;&lt;div id=&quot;parent&quot;&gt;  &lt;div id=&quot;child&quot;&gt;目标元素&lt;/div&gt;  父级元素&lt;/div&gt;&lt;script&gt;  var parent = document.getElementById(&#39;parent&#39;)  var child = document.getElementById(&#39;child&#39;)  parent.addEventListener(&#39;click&#39;, function(e) &#123;      console.log(&#39;parent bubbling&#39;)  &#125;, false)  child.addEventListener(&#39;click&#39;, function() &#123;      console.log(&#39;target bubbling&#39;)  &#125;, false)  document.body.addEventListener(&#39;click&#39;, function() &#123;      console.log(&#39;body bubbling&#39;)  &#125;, false)  document.documentElement.addEventListener(&#39;click&#39;, function() &#123;      console.log(&#39;html bubbling&#39;)  &#125;, false)  document.addEventListener(&#39;click&#39;, function() &#123;      console.log(&#39;document bubbling&#39;)  &#125;, false)  window.addEventListener(&#39;click&#39;, function() &#123;      console.log(&#39;window bubbling&#39;)  &#125;, false)&lt;/script&gt;</code></pre><p>运行结果：</p><h4 id="事件捕获"><a href="#事件捕获" class="headerlink" title="事件捕获"></a>事件捕获</h4><blockquote><p>​    事件按 window -&gt; document -&gt; html -&gt; body -&gt; … -&gt; 目标元素 的方向向下层元素传递。</p></blockquote><pre><code>&lt;style&gt;  #parent &#123;      width: 200px;      height: 200px;      background-color: green;  &#125;  #child &#123;      width: 100px;      height: 100px;      background-color: yellow;  &#125;&lt;/style&gt;&lt;div id=&quot;parent&quot;&gt;  &lt;div id=&quot;child&quot;&gt;目标元素&lt;/div&gt;  父级元素&lt;/div&gt;&lt;script&gt;  var parent = document.getElementById(&#39;parent&#39;)  var child = document.getElementById(&#39;child&#39;)  parent.addEventListener(&#39;click&#39;, function(e) &#123;      console.log(&#39;parent capture&#39;)  &#125;, true)  child.addEventListener(&#39;click&#39;, function() &#123;      console.log(&#39;target capture&#39;)  &#125;, true)  document.body.addEventListener(&#39;click&#39;, function() &#123;      console.log(&#39;body capture&#39;)  &#125;, true)  document.documentElement.addEventListener(&#39;click&#39;, function() &#123;      console.log(&#39;html capture&#39;)  &#125;, true)  document.addEventListener(&#39;click&#39;, function() &#123;      console.log(&#39;document capture&#39;)  &#125;, true)  window.addEventListener(&#39;click&#39;, function() &#123;      console.log(&#39;window capture&#39;)  &#125;, true)&lt;/script&gt;</code></pre><p>运行结果:</p>]]></content>
     
     
     <summary type="html">&lt;blockquote&gt;
 &lt;h4&gt; 
- ES6
+DOM事件, 事件流
 &lt;/h4&gt;
 &lt;/blockquote&gt;</summary>
     
@@ -342,55 +445,33 @@
     <category term="JavaScript" scheme="https://juntengma.github.io/categories/JavaScript/"/>
     
     
-    <category term="ES6" scheme="https://juntengma.github.io/tags/ES6/"/>
+    <category term="DOM事件事件流" scheme="https://juntengma.github.io/tags/DOM%E4%BA%8B%E4%BB%B6%E4%BA%8B%E4%BB%B6%E6%B5%81/"/>
     
   </entry>
   
   <entry>
-    <title>for-in &amp; for-of的区别 和 map-for &amp; Each区别</title>
-    <link href="https://juntengma.github.io/2020/11/02/JavaScript/forIn-forOF-Map-forEach%E5%8C%BA%E5%88%AB/"/>
-    <id>https://juntengma.github.io/2020/11/02/JavaScript/forIn-forOF-Map-forEach%E5%8C%BA%E5%88%AB/</id>
-    <published>2020-11-02T07:52:25.395Z</published>
-    <updated>2020-11-12T12:32:22.079Z</updated>
+    <title>一段js代码在浏览器中是如何执行的</title>
+    <link href="https://juntengma.github.io/2020/11/02/JavaScript/04%20-%20JavaScript-%E4%B8%80%E6%AE%B5js%E4%BB%A3%E7%A0%81%E5%9C%A8%E6%B5%8F%E8%A7%88%E5%99%A8%E4%B8%AD%E6%98%AF%E5%A6%82%E4%BD%95%E6%89%A7%E8%A1%8C%E7%9A%84/"/>
+    <id>https://juntengma.github.io/2020/11/02/JavaScript/04%20-%20JavaScript-%E4%B8%80%E6%AE%B5js%E4%BB%A3%E7%A0%81%E5%9C%A8%E6%B5%8F%E8%A7%88%E5%99%A8%E4%B8%AD%E6%98%AF%E5%A6%82%E4%BD%95%E6%89%A7%E8%A1%8C%E7%9A%84/</id>
+    <published>2020-11-01T16:00:00.000Z</published>
+    <updated>2020-11-26T07:48:40.226Z</updated>
     
-    <content type="html"><![CDATA[<blockquote><h4>  for-in & for-of的区别 和 map-for & Each区别</h4></blockquote><a id="more"></a><h3 id="for-in"><a href="#for-in" class="headerlink" title="for-in"></a>for-in</h3><ul><li>遍历一个对象的除<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Symbol">Symbol</a>以外的<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Enumerability_and_ownership_of_properties">可枚举</a>属性, <strong>用于遍历对象</strong></li><li>for…in循环出的是key</li></ul><pre><code>const obj = &#123;    name: &#39;哇塞&#39;,    age: 18&#125;for(let item in obj)&#123;    console.log(item)&#125;// Output://name//age</code></pre><h3 id="for-of"><a href="#for-of" class="headerlink" title="for-of"></a>for-of</h3><ul><li><strong>用于遍历数组</strong></li><li>for-of 是ES6引入属性</li><li>for-of不能用来遍例普通对象,需要和Obect.keys()搭配使用</li><li>for…of循环出的是value</li></ul><pre><code>let aArray = [&#39;a&#39;,123,&#123;a:&#39;1&#39;,b:&#39;2&#39;&#125;]</code></pre><p>结论:</p><ul><li>推荐在<strong>循环对象</strong>属性的时候，使用<strong>for…in</strong></li><li>在<strong>遍历数组</strong>的时候的时候使用<strong>for…of</strong>。</li><li>for…in循环出的是key，for…of循环出的是value</li><li>注意，for…of是ES6新引入的特性。修复了ES5引入的for…in的不足</li><li>for…of不能循环普通的对象，需要通过和Object.keys()搭配使用</li></ul><h3 id="Map"><a href="#Map" class="headerlink" title="Map"></a>Map</h3><h3 id="forEach"><a href="#forEach" class="headerlink" title="forEach"></a>forEach</h3>]]></content>
+    <content type="html"><![CDATA[<h3 id="一段js代码在浏览器中是如何执行的"><a href="#一段js代码在浏览器中是如何执行的" class="headerlink" title="一段js代码在浏览器中是如何执行的?"></a>一段js代码在浏览器中是如何执行的?</h3><blockquote><p>   在了解代码执行流程之前 , 我们需要知道一点前置知识 , </p><ul><li>js解析顺序</li><li>可执行代码</li><li>执行上下文栈<br>当我们这些前置知识都捋清楚了 , js执行流程也就清楚了…..<a id="more"></a></li></ul></blockquote><h3 id="01-JS代码执行顺序是什么"><a href="#01-JS代码执行顺序是什么" class="headerlink" title="01 / JS代码执行顺序是什么"></a>01 / JS代码执行顺序是什么</h3><p>  JavaScript代码是逐行执行的 , 但是js引擎并非一行一行的<strong>解析</strong>执行程序,而是一段一段的分析执行,为什么是分段执行的呢?又按什么规则来分段的呢?这里我们需要再了解一下什么是<strong>可执行代码</strong></p><p>  (Js代码是逐行执行的,但是js引擎并非逐行解析程序执行的,而是判断是否可执行代码一段一段的执行的)</p><h3 id="02-可执行代码-amp-执行上下文"><a href="#02-可执行代码-amp-执行上下文" class="headerlink" title="02 / 可执行代码 &amp; 执行上下文"></a>02 / 可执行代码 &amp; 执行上下文</h3><p>  可执行代码有三种,全局代码,函数代码,eval代码,当执行到可执行代码的时候,就会进行准备一些工作 . 这个准备工作就是<strong>执行上下文</strong></p><ul><li><p>全局代码</p></li><li><p>函数代码</p></li><li><p>eval代码( evla()函数可以将传入的字符串当做 JavaScript 代码进行执行 )</p><h3 id="05-执行上下文栈"><a href="#05-执行上下文栈" class="headerlink" title="05 / 执行上下文栈"></a>05 / 执行上下文栈</h3><p>为了管理js中大量的可执行上下文,JavaScript引擎创建了<strong>执行上下文栈</strong>来管理可执行上下文</p></li><li><p>当 JavaScript 开始要解释执行代码的时候，最先遇到的就是全局代码，所以初始化的时候首先就会向执行上下文栈(ECStack)压入一个全局执行上下文，我们用 globalContext 表示它，并且只有当整个应用程序结束的时候，ECStack 才会被清空，所以程序结束之前， ECStack 最底部永远有个 globalContext.</p><pre><code>const ECStack  = [      globalContext ]</code></pre></li></ul><ul><li><p>当函数开始执行的时候,同样生成一个可以执行上下文并压入可执行上下文栈,当函数执行完毕的时候,再从执行上下文栈中弹出</p><pre><code>const ECStack  = [  eval()  function()  globalContext ]</code></pre></li></ul><h3 id="06-总结"><a href="#06-总结" class="headerlink" title="06 / 总结:"></a>06 / 总结:</h3><ul><li>在执行一段代码时，JS 引擎会首先<strong>创建一个执行栈</strong>,然后JS引擎会创建一个<strong>全局执行上下文</strong>，并push到执行栈中</li></ul><ul><li>这个过程JS引擎会为这段代码中<strong>所有变量</strong>分配内存并赋一个初始值（undefined）</li></ul><ul><li>在创建完成后，JS引擎会进入<strong>执行阶段</strong>，这个<strong>过程JS引擎会逐行的执行代码</strong>，即为之前分配好内存的变量逐个赋值(真实值)。</li></ul><ul><li>如果这段代码中存在function的声明和调用，那么JS引擎会创建一个<strong>函数执行上下文</strong>，并push到执行栈中，其创建和执行过程跟全局执行上下文一样。但有特殊情况，即当函数中存在对其它函数的调用时，JS引擎会在父函数执行的过程中，将子函数的全局执行上下文push到执行栈，这也是为什么子函数能够访问到父函数内所声明的变量。</li></ul><ul><li><p>还有一种特殊情况是，在子函数执行的过程中，父函数已经return了，这种情况下，JS引擎会将父函数的上下文从执行栈中移除，与此同时，JS引擎会为还在执行的子函数上下文创建一个闭包，这个闭包里保存了父函数内声明的变量及其赋值，子函数仍然能够在其上下文中访问并使用这边变量/常量。当子函数执行完毕，JS引擎才会将子函数的上下文及闭包一并从执行栈中移除。</p><h3 id="JS引擎如何处理高并发"><a href="#JS引擎如何处理高并发" class="headerlink" title="JS引擎如何处理高并发?"></a>JS引擎如何处理高并发?</h3></li></ul><p>  <strong>JS引擎是单线程的</strong>，那么它是如何处理高并发的呢？即当代码中存在异步调用时JS是如何执行的?</p><p>  比如setTimeout或fetch请求都是non-blocking的，<br>  当异步调用代码触发时，JS引擎会将需要异步执行的代码移出调用栈，直到等待到返回结果，JS引擎会立即将与之对应的回调函数push进任务队列中等待被调用，<br>  当调用(执行)栈中已经没有需要被执行的代码时，JS引擎会立刻将任务队列中的回调函数逐个push进调用栈并执行。这个过程我们也称之为<strong>事件循环</strong>。</p>]]></content>
     
     
-    <summary type="html">&lt;blockquote&gt;
-&lt;h4&gt; 
- for-in &amp; for-of的区别 和 map-for &amp; Each区别
-&lt;/h4&gt;
-&lt;/blockquote&gt;</summary>
+    <summary type="html">&lt;h3 id=&quot;一段js代码在浏览器中是如何执行的&quot;&gt;&lt;a href=&quot;#一段js代码在浏览器中是如何执行的&quot; class=&quot;headerlink&quot; title=&quot;一段js代码在浏览器中是如何执行的?&quot;&gt;&lt;/a&gt;一段js代码在浏览器中是如何执行的?&lt;/h3&gt;&lt;blockquote&gt;
+&lt;p&gt;   在了解代码执行流程之前 , 我们需要知道一点前置知识 , &lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;js解析顺序&lt;/li&gt;
+&lt;li&gt;可执行代码&lt;/li&gt;
+&lt;li&gt;执行上下文栈&lt;br&gt;当我们这些前置知识都捋清楚了 , js执行流程也就清楚了…..</summary>
     
     
     
     <category term="JavaScript" scheme="https://juntengma.github.io/categories/JavaScript/"/>
     
     
-  </entry>
-  
-  <entry>
-    <title>深拷贝浅拷贝</title>
-    <link href="https://juntengma.github.io/2020/11/02/JavaScript/JavaScript-%E6%B5%85%E6%8B%B7%E8%B4%9D%E6%B7%B1%E6%8B%B7%E8%B4%9D/"/>
-    <id>https://juntengma.github.io/2020/11/02/JavaScript/JavaScript-%E6%B5%85%E6%8B%B7%E8%B4%9D%E6%B7%B1%E6%8B%B7%E8%B4%9D/</id>
-    <published>2020-11-02T07:28:19.796Z</published>
-    <updated>2020-11-12T12:33:18.744Z</updated>
-    
-    <content type="html"><![CDATA[<blockquote><h4>  深拷贝浅拷贝</h4></blockquote><a id="more"></a><p><a href="https://juejin.im/post/6844903929705136141">https://juejin.im/post/6844903929705136141</a></p><h3 id="浅拷贝"><a href="#浅拷贝" class="headerlink" title="浅拷贝"></a>浅拷贝</h3><blockquote><p>创建一个新对象，这个对象有着原始对象属性值的一份精确拷贝。</p><p>如果属性是基本类型，拷贝的就是基本类型的值，如果属性是引用类型，拷贝的就是内存地址 ，所以如果其中一个对象改变了这个地址，就会影响到另一个对象。</p></blockquote><p>浅拷贝只拷贝一层属性,无法拷贝引用数据类型</p><ul><li><code>Object.assign(&#123;&#125;,obj)</code>浅拷贝object</li><li><code>newobj = &#123;...obj2&#125;</code>  展开运算符浅拷贝</li><li><code>Object.fromEntries( Object.entriens(obj) ) </code>通过生成迭代器,在通过迭代器生成对象</li><li><code>Object.create(&#123;&#125;,Object.getOwnPropertyDescriptors(obj))</code></li></ul><p><strong>简单浅拷贝:</strong></p><pre><code>function clone(target)&#123;    let cloneTarget=&#123;&#125;;    for(let key in target)&#123;        cloneTarget[key] = target[key]    &#125;    return cloneTarget&#125;</code></pre><h3 id="深拷贝"><a href="#深拷贝" class="headerlink" title="深拷贝"></a>深拷贝</h3><blockquote><p>将一个对象从内存中完整的拷贝一份出来,从堆内存中开辟一个新的区域存放新对象,且修改新对象不会影响原对象</p></blockquote><ul><li><code>JSON.parse(JSON.stringfy( obj ))</code>通过<strong>JSON的2次转换深拷贝obj</strong><ul><li>无法拷贝<code>undefined</code>与<code>symbol</code>属性</li><li>无法拷贝<strong>循环引用</strong>对象</li></ul></li><li>loadsh:<a href="http://lodash.think2011.net/cloneDeep"><em>.cloneDeep</em></a></li></ul><p>简单深拷贝(可以处理<strong>原始数据类型 + Object</strong>):</p><ul><li>如果是原始类型，无需继续拷贝，直接返回</li><li>如果是引用类型，创建一个新的对象，遍历需要克隆的对象，将需要克隆对象的属性执行深拷贝后依次添加到新对象上。</li></ul><pre><code>function smpleDeepCopy(target) &#123;  let type = typeof target  if (type === &quot;object&quot;) &#123;    let copy = &#123;&#125;;    for (let key in target) &#123;      copy[key] = smpleDeepCopy(target[key])    &#125;    return copy  &#125;  return target&#125;</code></pre>]]></content>
-    
-    
-    <summary type="html">&lt;blockquote&gt;
-&lt;h4&gt; 
- 深拷贝浅拷贝
-&lt;/h4&gt;
-&lt;/blockquote&gt;</summary>
-    
-    
-    
-    <category term="JavaScript" scheme="https://juntengma.github.io/categories/JavaScript/"/>
-    
-    
-    <category term="深拷贝浅拷贝" scheme="https://juntengma.github.io/tags/%E6%B7%B1%E6%8B%B7%E8%B4%9D%E6%B5%85%E6%8B%B7%E8%B4%9D/"/>
+    <category term="JavaScript" scheme="https://juntengma.github.io/tags/JavaScript/"/>
     
   </entry>
   
@@ -398,8 +479,8 @@
     <title>JavaScript基础知识综合</title>
     <link href="https://juntengma.github.io/2020/11/01/JavaScript/01%20-%20JavaScript%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/"/>
     <id>https://juntengma.github.io/2020/11/01/JavaScript/01%20-%20JavaScript%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/</id>
-    <published>2020-11-01T00:00:00.000Z</published>
-    <updated>2020-11-23T06:42:39.267Z</updated>
+    <published>2020-10-31T16:00:00.000Z</published>
+    <updated>2020-11-26T07:49:06.619Z</updated>
     
     <content type="html"><![CDATA[<blockquote><h4> 整理一些js基础知识点和总结...</h4></blockquote><p>[TOC]</p><a id="more"></a><h4 id="01-JS数据类型-6-1"><a href="#01-JS数据类型-6-1" class="headerlink" title="01 / JS数据类型(6+1)"></a>01 / JS数据类型(6+1)</h4><ul><li><p><strong>基本数据类型:</strong></p><pre><code>- null- undefined- number- string- boolean- symbol:代表创建后独一无二且不可变的数据类型，它的出现我认为主要是为了解决可能出现的全局变量冲突的问题。</code></pre></li><li><p><strong>引用数据类型:</strong></p><p>引用数据类型指的是object类型,其他如Array,Date等数据类型都可以理解为Object的子类</p><pre><code>object =  [   Array,   Date,   Math,   ...]</code></pre></li><li><p><strong>基本数据类型和引用数据类型区别:</strong></p><ul><li>基本数据类型在内存中占固定大小的空间,因此被保存在栈中</li><li>引用类型值是对象，保存在 <strong>堆内存</strong> 中。包含引用类型值的变量实际包含并非对象本身，而是指向该对象的指针。一个变量从另一个变量复制引用类型的值时，复制的也是指向该对象的指针。</li></ul></li></ul><h4 id="02-什么是堆-栈"><a href="#02-什么是堆-栈" class="headerlink" title="02 / 什么是堆/栈?"></a>02 / 什么是堆/栈?</h4><pre><code>堆栈概念存在于数据结构和操作系统内存中- 在数据结构中:  - 栈中的数据存取方式为先进后出  - 堆是一个优先队列,按照优先级来进行排序的,优先级可以按照大小来规定- 操作系统中 ,内存被分为栈区和堆区:  - 栈区的内存由编译器自动分配释放,存放函数的参数值,局部变量值等    - 堆内存一般由程序员释放,若没有手动释放则程序结束时由垃圾回收机制回收</code></pre><h4 id="03-什么是JavaSctipt垃圾回收机制"><a href="#03-什么是JavaSctipt垃圾回收机制" class="headerlink" title="03 / 什么是JavaSctipt垃圾回收机制?"></a>03 / 什么是JavaSctipt垃圾回收机制?</h4><ul><li><p><strong>为什么要垃圾回收?</strong></p><pre><code class="html">随着前端业务需求的不断增多，相比以前，我们会占用更多的内存。但是内存并不是无限的，我们需要垃圾回收机制去处理那些我们不再需要的变量、对象 </code></pre></li><li><p><strong>垃圾回收机制的特点:</strong></p><p>垃圾回收机制会定期对那些我们不再使用的变量、对象所占用的内存释放     </p><pre><code>原理:    + 找出那些不再使用的变量，然后释放其占用的内存。    + 垃圾收集器会按照固定的时间间隔(或预定的收集时间)周期性地执行此操作。</code></pre></li><li><p><strong>垃圾回收的方式有哪些?</strong></p><ul><li><p>标记清除</p><ul><li><p>当变量进入环境时,就将其标记为”进入环境”,此时”进入环境”的变量是不可以被回收的”</p></li><li><p>当变量离开环境时,就将其标记为”离开环境”,此时”离开环境”的变量可以被回收</p><pre><code>function func () &#123;      const a = 1    const b = 2      // 函数执行时，a b 分别被标记 进入环境&#125;func() // 函数执行结束，a b 被标记 离开环境，被回收</code></pre></li></ul></li><li><p>引用计数</p><ul><li><p>统计引用类型变量声明后被引用的次数，当次数为 0 时，该变量将被回收</p><pre><code>function func1 () &#123;      const c = &#123;&#125; // 引用类型变量 c的引用计数为 0      let d = c // c 被 d 引用 c的引用计数为 1      let e = c // c 被 e 引用 c的引用计数为 2      d = &#123;&#125; // d 不再引用c c的引用计数减为 1      e = null // e 不再引用 c c的引用计数减为 0 将被回收&#125;</code></pre></li><li><p>但是引用计数的方式，有一个相对明显的缺点——<strong>循环引用</strong></p><pre><code>function func5 () &#123;      let f = &#123;&#125;      let g = &#123;&#125;      f.prop = g      g.prop = f      // 由于 f 和 g 互相引用，计数永远不可能为 0&#125;</code></pre></li><li><p>像上面这种情况就需要<strong>手动将变量的内存释放</strong></p><pre><code>f.prop = nullg.prop = null</code></pre></li></ul></li></ul></li></ul><p>参考:<br>    <a href="https://juejin.im/post/6844903652331618312">&lt;&lt;javascript 垃圾回收机制&gt;&gt;</a><br>    <a href="https://juejin.im/post/6844903858972409869#heading-3">&lt;&lt;JavaScript 垃圾回收机制&gt;&gt;</a></p><h4 id="04-什么是循环引用"><a href="#04-什么是循环引用" class="headerlink" title="04 / 什么是循环引用 ?"></a>04 / 什么是循环引用 ?</h4><p>当对象 1 中的某个属性指向对象 2，对象 2 中的某个属性指向对象 1 就会出现循环引用(最简单的例子)</p><pre><code>  function circularReference() &#123;      let obj1 = &#123; &#125;;      let obj2 = &#123; &#125;;      obj1.a = obj2;      obj2.b = obj1;  &#125;</code></pre><h4 id="05-内存泄露"><a href="#05-内存泄露" class="headerlink" title="05 / 内存泄露"></a>05 / 内存泄露</h4><ul><li><p>什么是内存泄露?</p><pre><code>程序的运行需要内存。只要程序提出要求，操作系统或者运行时（runtime）就必须供给内存。对于持续运行的服务进程（daemon），必须及时释放不再用到的内存。否则，内存占用越来越高，轻则影响系统性能，重则导致进程崩溃。不再用到的内存，没有及时释放，就叫做内存泄漏（memory leak）。</code></pre></li><li><p>常见的内存泄露有哪些?</p><ul><li><p>全局变量(在非严格模式下当引用未声明的变量时，会在全局对象中创建一个新变量。)</p></li><li><p>被遗忘的定时器和回调函数</p></li><li><p>DOM引用</p></li><li><p>闭包</p></li></ul></li></ul><h4 id="06-JavaScript可执行上下文"><a href="#06-JavaScript可执行上下文" class="headerlink" title="06 /  JavaScript可执行上下文"></a>06 /  JavaScript可执行上下文</h4><p><a href="/2020/11/03/JavaScript/03%20-%20JavaScript-作用域&可执行上下文/" target="_blank">&lt;&lt;JavaScript可执行上下文&gt;&gt;</a></p><h4 id="07-JavaScript在浏览器中如何执行的"><a href="#07-JavaScript在浏览器中如何执行的" class="headerlink" title="07 /  JavaScript在浏览器中如何执行的"></a>07 /  JavaScript在浏览器中如何执行的</h4><p><a href="/2020/09/22/JavaScript/04%20-%20JavaScript-一段js代码在浏览器中是如何执行的/" target="_blank">&lt;&lt;JavaScript在浏览器中如何执行的&gt;&gt;</a></p><h4 id="08-从输入url到页面加载过程"><a href="#08-从输入url到页面加载过程" class="headerlink" title="08 /  从输入url到页面加载过程"></a>08 /  从输入url到页面加载过程</h4><p><a href="/2020/10/26/JavaScript/06%20-%20从输入url到页面加载过程/" target="_blank">&lt;&lt;从输入url到页面加载过程&gt;&gt;</a></p><h4 id="09-内部属性-class-是什么"><a href="#09-内部属性-class-是什么" class="headerlink" title="09 / 内部属性[[class]]是什么"></a>09 / 内部属性[[class]]是什么</h4><p>所有<code>typeof</code>返回值为 <code>object</code> 的对象（如数组）都包含一个内部属性 [[Class]],这个属性无法直接访问，一般通过以下代码查看</p><pre><code>Object.prototype.toString.call(Array)  //&quot;[object Function]&quot;</code></pre><h4 id="10-Js内置对象都有哪些"><a href="#10-Js内置对象都有哪些" class="headerlink" title="10 / Js内置对象都有哪些"></a>10 / Js内置对象都有哪些</h4><pre><code>js内置对象主要是只在程序执行前存在全局作用域里面的由js定义的一些全局属性,函数和用来实例化其他对象的构造函数对象.一般我们经常用到的全局函数变量值: NaN , undefined ,全局函数: parseInt() , paeseFloat()用来实例化的全局构造函数: Date , Object 等</code></pre><h4 id="11-原型原型链"><a href="#11-原型原型链" class="headerlink" title="11 / 原型原型链"></a>11 / 原型原型链</h4><pre><code>01/ 原型:-    Js中我们使用构造函数来新建对象的-    每个构造函数内部都有一个prototype属性,这个属性值是一个对象,包含了可以由该构造函数共享的实例和方法- 我们使用构造函数新建一个对象后,这个对象内部有一个`__proto__`指针,可以指向构造函数prototype属性对应的值,es5中我们一般称他为对象的原型 浏览器可以通过`__proto__`值来获取,也可以用Object.getPrototypeOf()找到对象的原型02/ 原型链:- 当我们访问一个对象的属性时,如果这个对象里面不存在该属性的时候,那么就会到这个对象的原型对象中找这个属性,就这样一层层的找就构成了原型链,最后找到Object.proptotype,如果还没找到就会返回null.03/ 获取原型的办法:- `p.__proto__`- `p.constructor.prototype`- `Object.getPrototypeOf(p)`04/ 原型可以做什么?- 实现继承- 共享我们的一些实例和方法</code></pre><p><a href="">&lt;&lt;JavaScript原型原型链&gt;&gt;</a></p><h4 id="12-闭包"><a href="#12-闭包" class="headerlink" title="12 / 闭包"></a>12 / 闭包</h4><pre><code>闭包是指内部函数可以访问其所在的外部函数中声明的参数和变量;创建闭包最常用的方法是在一个函数内创建另外一个函数,创建的函数可以访问父级函数的局部变量;闭包主要有两个用途:1/ 使我们可以在函数外部访问到函数内部的变量,通过这个方法,我们可以在函数外部调用闭包函数,在函数外部访问到函数内部变量2/ 使已经运行过的函数上下文的变量对象继续保存在内存中,不被垃圾回收机制释放内存,但是操作不当可能会造成内存泄露</code></pre><h4 id="13-继承"><a href="#13-继承" class="headerlink" title="13 / 继承"></a>13 / 继承</h4><pre><code>继承实现方式:- 原型链继承- 构造函数继承- 组合继承(原型链+构造函数继承)- 原型式继承- 寄生式继承- 寄生组合式继承</code></pre><p><a href="https://github.com/mqyqingfeng/Blog/issues/16">&lt;&lt;JavaScript深入之继承的多种方式和优缺点&gt;&gt;</a></p><h4 id="14-什么是-pure-function"><a href="#14-什么是-pure-function" class="headerlink" title="14 / 什么是 pure function"></a>14 / 什么是 pure function</h4><p>如果一个函数没有任何副作用（side-effects)，不会影响任何外部状态，对于任何一个相同的输入（参数），无论何时调用这个函数总是返回同样的结果，这个函数就是一个 pure function。</p><h4 id="15-重绘回流"><a href="#15-重绘回流" class="headerlink" title="15 / 重绘回流"></a>15 / 重绘回流</h4><p><strong>01/ 前置知识:</strong></p><ol><li><p>浏览器使用流式布局模型 (Flow Based Layout)。</p></li><li><p>浏览器会把<code>HTML</code>解析成<code>DOM</code>，把<code>CSS</code>解析成<code>CSSOM</code>，<code>DOM</code>和<code>CSSOM</code>合并就产生了<code>Render Tree</code>。</p></li><li><p>有了<code>RenderTree</code>，我们就知道了所有节点的样式，然后计算他们在页面上的大小和位置，最后把节点绘制到页面上。</p></li><li><p>由于浏览器使用流式布局，对<code>Render Tree</code>的计算通常只需要遍历一次就可以完成，但<code>table</code>及其内部元素除外，他们可能需要多次计算，通常要花3倍于同等元素的时间，这也是为什么要避免使用<code>table</code>布局的原因之一。 </p></li></ol><p><strong>02/ 什么是回流:</strong></p><p>当<code>Render Tree</code>中部分或全部元素的尺寸、结构、或某些属性发生改变时，浏览器重新渲染部分或全部文档的过程称为回流。</p><p><strong>02.1/ 会导致回流的操作：</strong></p><ul><li>页面首次渲染</li><li>浏览器窗口大小发生改变</li><li>元素尺寸或位置发生改变</li><li>元素内容变化（文字数量或图片大小等等）</li><li>元素字体大小变化</li><li>添加或者删除<strong>可见</strong>的<code>DOM</code>元素</li><li>激活<code>CSS</code>伪类（例如：<code>:hover</code>）</li><li>查询某些属性或调用某些方法</li></ul><p><strong>02.2/ 一些常用且会导致回流的属性和方法：</strong></p><ul><li><code>clientWidth</code>、<code>clientHeight</code>、<code>clientTop</code>、<code>clientLeft</code></li><li><code>offsetWidth</code>、<code>offsetHeight</code>、<code>offsetTop</code>、<code>offsetLeft</code></li><li><code>scrollWidth</code>、<code>scrollHeight</code>、<code>scrollTop</code>、<code>scrollLeft</code></li><li><code>scrollIntoView()</code>、<code>scrollIntoViewIfNeeded()</code></li><li><code>getComputedStyle()</code></li><li><code>getBoundingClientRect()</code></li><li><code>scrollTo()</code></li></ul><p><strong>03/ 什么是重绘:</strong></p><p>当页面中元素样式的改变并不影响它在文档流中的位置时（例如：<code>color</code>、<code>background-color</code>、<code>visibility</code>等），浏览器会将新样式赋予给元素并重新绘制它，这个过程称为重绘。</p><ul><li><strong>回流比重绘的代价要更高。</strong></li><li>有时即使仅仅回流一个单一的元素，它的父元素以及任何跟随它的元素也会产生回流。</li></ul><p><strong>03.1/ 现代浏览器会对频繁的回流或重绘操作进行优化：</strong></p><ul><li><p>浏览器会维护一个队列，把所有引起回流和重绘的操作放入队列中，如果队列中的任务数量或者时间间隔达到一个阈值的，浏览器就会将队列清空，进行一次批处理，这样可以把多次回流和重绘变成一次。</p></li><li><p>当你访问以下属性或方法时，浏览器会立刻清空队列：</p><pre><code>- clientWidth、clientHeight、clientTop、clientLeft</code></pre></li></ul><ul><li>offsetWidth、offsetHeight、offsetTop、offsetLeft</li></ul><ul><li>scrollWidth、scrollHeight、scrollTop、scrollLeft</li></ul><ul><li>width、height</li></ul><ul><li>getComputedStyle()</li></ul><ul><li>getBoundingClientRect()<pre><code></code></pre></li></ul><p><strong>04/ 如何避免回流重绘?</strong></p><ul><li><p>CSS</p><ul><li>避免使用<code>table</code>布局。</li><li>尽可能在<code>DOM</code>树的最末端改变<code>class</code>。</li><li>避免设置多层内联样式。</li><li>将动画效果应用到<code>position</code>属性为<code>absolute</code>或<code>fixed</code>的元素上。</li><li>避免使用<code>CSS</code>表达式（例如：<code>calc()</code>）。</li></ul></li><li><p>JavaScript</p><ul><li>避免频繁操作样式，最好一次性重写<code>style</code>属性，或者将样式列表定义为<code>class</code>并一次性更改<code>class</code>属性。</li><li>避免频繁操作<code>DOM</code>，创建一个<code>documentFragment</code>，在它上面应用所有<code>DOM操作</code>，最后再把它添加到文档中。</li><li>也可以先为元素设置<code>display: none</code>，操作结束后再把它显示出来。因为在<code>display</code>属性为<code>none</code>的元素上进行的<code>DOM</code>操作不会引发回流和重绘。</li><li>避免频繁读取会引发回流/重绘的属性，如果确实需要多次使用，就用一个变量缓存起来。</li><li>对具有复杂动画的元素使用绝对定位，使它脱离文档流，否则会引起父元素及后续元素频繁回流。</li></ul></li></ul><p><strong>05 /总结:</strong></p><p> <strong>回流必将引起重绘，重绘不一定会引起回流。</strong></p><p>参考:<a href="https://juejin.im/post/6844903569087266823">&lt;&lt;浏览器的回流与重绘 (Reflow &amp; Repaint)&gt;&gt;</a></p><h4 id="16-http缓存"><a href="#16-http缓存" class="headerlink" title="16 / http缓存"></a>16 / http缓存</h4><p>http缓存按我自己的理解:</p><blockquote><p>我更愿意叫做浏览器缓存,缓存主要发生在浏览器端,而http起到的作用是告诉浏览器是否使用缓存资源,是否进行缓存…</p></blockquote><p>01/ 为什么要缓存呢?</p><blockquote><p>用于性能提升,减少延迟,提高网页加载速度;同时,由于缓存文件可以重复利用,还可以减少带宽,降低网络负荷</p></blockquote><p>02/ 浏览器怎么才能缓存?</p><blockquote><p>http缓存机制主要在http响应头中设定，响应头中相关字段为Expires、Cache-Control、Last-Modified、Etag。<br>可以控制浏览器是否使用缓存、缓存多久</p></blockquote><p>03/ 那么如何知晓浏览器是读取了缓存还是直接请求服务器？如下图网站来做个示例：</p><p><img src="https://s3.ax1x.com/2020/11/12/BzalAP.png"></p><p>第一次打开该网站后，如果再次刷新页面。会发现浏览器加载的众多资源中，有一部分size有具体数值，然而还有一部分请求，比如图片、css和js等文件并没有显示文件大小，而是显示了 from dis cache 或者 from memory cache 字样。这就说明了，该资源直接从本地硬盘或者浏览器内存读取，而并没有请求服务器。</p><p>04/ 浏览器缓存方式?<br>浏览器缓存分为两种:</p><ul><li>强制缓存</li><li>协商缓存</li></ul><p>05/ 浏览器缓存机制</p><blockquote><p>1\ 浏览器加载资源的时候,先根据资源的http header判断他是否命中强缓存,</p><pre><code>-    如果命中,浏览器就先从自己的缓存(先从内存中找,找不到再去磁盘中找)中读取资源,不会发送请求到服务器</code></pre><p>2\ 没有命中的时候,浏览器会发送一个请求给服务器,通过服务器端的另外的一些http header来验证这个资源是否命中协商缓存</p><ul><li>如果命中协商缓存,服务器会将这个请求返回,但是不会返回这个请求的数据,而是告诉客户端可以直接从缓存中加载资源,然后浏览器重新去缓存中读取数据</li></ul><p>3\强缓存和协商缓存相同点:</p><ul><li>命中都是从浏览器缓存中加载资源</li></ul><p>4\不同点</p><ul><li>强缓存不发请求到服务器</li><li>协商缓存会发请求给服务器</li></ul><p>05\协商缓存也没有命中的时候,浏览器直接去服务器获取数据</p></blockquote><p>06/ 判断缓存机制</p><p><img src="https://s3.ax1x.com/2020/11/12/BzB1bj.png"></p><p>参考:</p><ul><li><a href="https://juejin.im/post/6844903672556552205#heading-2">&lt;&lt;前端优化：浏览器缓存技术介绍&gt;&gt;</a></li><li><a href="https://juejin.im/post/6844903838768431118#heading-0">&lt;&lt;http面试必会的：强制缓存和协商缓存&gt;&gt;</a></li></ul><h4 id="17-SSR-BSR区别"><a href="#17-SSR-BSR区别" class="headerlink" title="17 / SSR/BSR区别"></a>17 / SSR/BSR区别</h4><ul><li><p>SSR:服务端渲染</p><p>对营销推广的要求比较高的产品,比如官网等</p><pre><code>- M+V发生在服务端,服务器压力较大- 页面访问和显示速度更快(DOM比较少)- 有利于SEO搜索引擎优化- 前后端不分离,后端开发压力大- 功能不能过于复杂,多用于功能交互都比较简单的产品</code></pre></li><li><p>BSR:客户端渲染</p><p>对营销推广要求没有那么搞的产品,例如后台管理系统</p><pre><code>- M+v过程发生在浏览器,浏览器压力较大- 页面访问和加载速度没有服务端渲染快- 不利于SEO优化- 前后端分离,便于代码调试和维护- 可以做更加复杂的产品</code></pre></li></ul><h4 id="18-SEO优化"><a href="#18-SEO优化" class="headerlink" title="18 / SEO优化"></a>18 / SEO优化</h4><p>………………</p><h4 id="19-MVC"><a href="#19-MVC" class="headerlink" title="19 / MVC"></a>19 / MVC</h4><p>MVC模式的意思是，软件可以分成三个部分。即Model模型、View视图、Controller控件器。</p><blockquote><ul><li><p>View：视图，为用户提供使用界面，与用户直接进行交互。</p></li><li><p>Model：模型，承载数据，并对用户提交请求进行计算的模块。其分为两类，一类称为数据承载Bean，一类称为业务处理Bean。所谓数据承载Bean是指实体类，专门承载业务数据的，如Student、User等。而业务处理Bean则是指Service或Dao对象，专门用于处理用户提交请求的。</p></li><li><p>Controller：控制器，用于将用户请求转发给相应的Model进行处理，并处理Model的计算结果向用户提供相应响应。</p></li></ul></blockquote><p>MVC架构程序的工作流程是这样的：</p><p><img src="https://s3.ax1x.com/2020/11/16/DAKqrd.png"></p><blockquote><p>（1）用户通过View页面向服务端提出请求，可以是表单请求、超链接请求、AJAX请求等。</p><p>（2）服务端Controller控制器接收到请求后对请求进行解析，找到相应 的Model对用户请求进行处理。</p><p>（3）Model处理后，将处理结果再交给Controller。</p><p>（4）Controller在接到处理结果后，根据处理结果找到要作为向客户端发回的响应View页面。页面经渲染（数据填充）后，再发送给客户端。</p></blockquote><p>实际项目往往采用更灵活的方式</p><p><img src="https://s3.ax1x.com/2020/11/16/DAMGIx.png"></p><blockquote><p>\1. 用户可以向 View 发送指令（DOM 事件），再由 View 直接要求 Model 改变状态。</p><p>\2. 用户也可以直接向 Controller 发送指令（改变 URL 触发 hashChange 事件），再由 Controller 发送给 View。</p><p>\3. Controller 非常薄，只起到路由的作用，而 View 非常厚，业务逻辑都部署在 View。所以，Backbone 索性取消了 Controller，只保留一个 Router（路由器） 。</p></blockquote><p>参考: </p><p><a href="https://juejin.im/post/6844903479568252935">&lt;&lt;MVC 与三层架构&gt;&gt;</a></p><p><a href="https://www.ruanyifeng.com/blog/2015/02/mvcmvp_mvvm.html">&lt;&lt;MVC，MVP 和 MVVM 的图示&gt;&gt;</a></p><h4 id="20-MVVM"><a href="#20-MVVM" class="headerlink" title="20 / MVVM"></a>20 / MVVM</h4><p><img src="https://s3.ax1x.com/2020/11/16/DAYfZF.png"></p><pre><code>1. 各部分之间的通信，都是双向的。2. View 与 Model 不发生联系，都通过 ViewModule 传递。3. View 非常薄，不部署任何业务逻辑，称为&quot;被动视图&quot;（Passive View），即没有任何主动性，而 ViewModule非常厚，所有逻辑都部署在那里。4. 它采用双向绑定（data-binding）：View的变动，自动反映在 ViewModel，反之亦然</code></pre><h4 id="21-SPA单页应用-amp-多页应用"><a href="#21-SPA单页应用-amp-多页应用" class="headerlink" title="21/ SPA单页应用 &amp; 多页应用"></a>21/ SPA单页应用 &amp; 多页应用</h4><p><a href="https://www.jianshu.com/p/a02eb15d2d70">&lt;&lt;&gt;&gt;</a></p>]]></content>
     
@@ -417,69 +498,6 @@
     
     
     <category term="JavaScript" scheme="https://juntengma.github.io/tags/JavaScript/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Https及其加密原理</title>
-    <link href="https://juntengma.github.io/2020/10/30/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/Https/"/>
-    <id>https://juntengma.github.io/2020/10/30/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/Https/</id>
-    <published>2020-10-30T08:59:24.175Z</published>
-    <updated>2020-11-10T04:06:07.552Z</updated>
-    
-    <content type="html"><![CDATA[<p>Https协议及其加密原理</p><a id="more"></a><h2 id="1-http-协议存在的一些问题"><a href="#1-http-协议存在的一些问题" class="headerlink" title="1/http 协议存在的一些问题"></a>1/http 协议存在的一些问题</h2><ul><li>http报文明文发送,可能会被第三方窃听</li><li>http报文可能会被第三方截取之后修改通信内容,接收方没有办法发现报文内容的修改</li><li>http还存在认证问题,第三方可以冒充他人参与通信</li></ul><h2 id="2-Https简介"><a href="#2-Https简介" class="headerlink" title="2/Https简介"></a>2/Https简介</h2><ul><li>HTTPS指的是超文本传输安全协议,HTTPS是基于HTTTP协议的,不过它会使用TLS/SSL来对数据进行加密,即Http+TLS/SSL</li><li>使用TLS和SSL协议,所有的信息都是加密的,第三方没有办法窃听,并且他提供了一种校验机制,信息一旦被篡改,通信双方立刻就会发现</li><li>它还配备了身份证书,防止身份被冒充的情况出现</li></ul><h2 id="3-SSL加密方式"><a href="#3-SSL加密方式" class="headerlink" title="3/SSL加密方式"></a>3/SSL加密方式</h2><ul><li><p>对称加密</p><p><img src="https://s1.ax1x.com/2020/11/10/Bqe2dS.png"></p><pre><code>对称加密即客户端和服务端同时约定同一种秘钥,客户端发送信息给服务端使用该秘钥加密,服务端收到信息后在用秘钥解密,整个流程类似下面这个例子:期末考试,小明找小红希望数学考试的时候小红可以帮他,两个人考试前约定了一把秘钥:小红把所有的答案都加上250;小红把答案通过秘钥加密: 15 + 250 = 265 --&gt; 偷偷的丢给小明小明通过秘钥解密: 265- 250 = 15 ---&gt; 小明得到正确答案</code></pre><ul><li>对称加密加密效率高速度快</li><li>但是该加密方式存在一些漏洞,假如别人获取到了加密方式,然后再用该方案来解密,那数据信息岂不是还是可以被截取修改,因此出现了非对称加密的方案</li></ul></li><li><p>非对称加密</p><p>非对称加密就是有两把密钥，公钥和私钥。私钥自己藏着，不告诉任何人；而公钥可以公开给别人。</p><p><img src="https://s1.ax1x.com/2020/11/10/Bqe7LV.png"></p><pre><code>非对称加密即通信双方各自有一个秘钥和公钥,公钥用来对信息进行加密,私钥用来对信息进行解密;通信的时候, 公钥是随着信息一起发送给对方的,即公钥是公开的, 但是私钥是不会公开的假如A发送信息给B:- A把自己发送的信息连同公钥(加密方式)一起发送给B,- B方收到信息和公钥的时候,把返回的信息通过A的公钥对信息进行加密- 返回信息给A的同时把自己的公钥和密文一起发送给A- A收到B的加密信息之后,再通过自己的私钥对信息进行解密,如果还需要和B进行通信,再用B的公钥加密即可</code></pre><ul><li>非对称加密相对于对称加密安全度是高了一点,但是如果拦截方把数据拦截下来,将自己的数据用拦截下来的公钥加密后返回给发送方,放松方并不能识别出来是不是目标通信对象发来的信息,因此还需要<strong>数字签名</strong>来作保障</li></ul></li></ul><h2 id="4-数字签名"><a href="#4-数字签名" class="headerlink" title="4/数字签名"></a>4/数字签名</h2><p>数字签名是附加在报文上面的特殊加密校验码.可以防止报文被篡改,如果恶意攻击在传输过程中篡改了报文,那么校验的时候就不再匹配,因此可以确认报文被篡改;</p><p><strong>数字签名加密过程:</strong></p><ul><li>发送端将报文通过算法（比如通过HASH函数）提取为定长的摘要；</li><li>发送端将摘要应用签名算法，以私有密钥作为参数生成一个签名；</li><li>计算得出签名后，将签名附加在报文末端发送给接收方；</li><li>接收端收到报文后，对签名进行检查。接收端通过公开密钥解码签名。然后比对报文生成的摘要是否与签名一致便可判断报文是否被篡改。</li></ul><p><strong>数字证书:</strong></p><p>数字证书是由权威机构给某网站颁发的一种认可凭证。它主要包含一些认证信息，比如：对象的名称（服务器、组织、个人等）、过期时间、证书颁发者、来自证书发布者的数字签名。</p><p><img src="https://s1.ax1x.com/2020/11/10/BqM3Bq.png"></p><p>上面的图片就是<a href="http://www.google.com的证书./">www.google.com的证书。</a></p><p>我们可以看到在上面讲到数字签名的时候，似乎就可以保证报文的安全了。为什么还需要数字证书呢？这个设想一下这个场景：比如某人A把发送到浏览器的公有密钥进行了替换，同时A在给浏览器发送报文时使用自己的私有密钥对报文进行数字签名，那么浏览器就不能确认报文是否来自于真实服务器。这个时候就可以使用数字证书进行验证，因为数字证书中保存了真实服务器的信息。</p><h2 id="5-HTTPS的工作流程"><a href="#5-HTTPS的工作流程" class="headerlink" title="5/HTTPS的工作流程"></a>5/HTTPS的工作流程</h2><p><strong>建立安全传输</strong><br>在TCP连接建立完成以后，在HTTPS协议中，客户端和服务端会初始化SSL层，也就是安全层。</p><p><strong>SSL握手</strong><br>在发送报文之前，客户端和服务端会进行一次SSL握手，在这个过程中主要完成以下工作：</p><ul><li><p>交换协议版本号；</p></li><li><p>选择一个两端都了解的密码；</p></li><li><p>对两端的身份进行认证；</p></li><li><p>生成临时会话密钥，以便加密信道（建立完安全通道后，传输报文时使用对称加密）；</p></li></ul><p>在SSL会进行很多工作，处理交换一些必要的信息之外，还会对身份进行认证。</p><p>这里的认证是通过数字证书进行的，在客户端获取证书后，会采用相应的算法对服务端的身份信息进行验证：</p><ul><li><p>日期检测：客户端会检查证书的有效期是否合法；</p></li><li><p>签名颁布者可信度检测：浏览器会附带一个签名颁发机构的授信列表，如果浏览器收到了位置的颁发机构签发的证书，那么它会显示一条警告信息；</p></li><li><p>签名检测：客户端对签名使用签名颁发机构的公开密钥，然后将其与校验码比较，以便验证证书是否合法；</p></li><li><p>站点身份检测：客户端验证数字证书中的域名是否与服务端的域名匹配；</p></li></ul><p>身份认证完成后，客户端与服务端进行密码协商，确定本次连接采用哪种加密算法进行通信。</p><p><strong>开始通信</strong><br>SSL握手完成后，就完成建立了HTTPS通道，客户端与服务端就会根据协商的加密算法进行通信。</p><p>整个HTTPS的工作流程可以总结如下：</p><p><img src="https://s1.ax1x.com/2020/11/10/BqM7Uf.png"></p><h2 id="6-总结"><a href="#6-总结" class="headerlink" title="6/总结"></a>6/总结</h2><p>相较于HTTP协议，HTTPS确保了报文的机密性以及完整性。HTTPS确保这些的依赖就是SSL/TSL协议，SSL/TSL安全协议搭配数字证书保证了报文在传输过程中的绝对安全。</p>]]></content>
-    
-    
-    <summary type="html">&lt;p&gt;Https协议及其加密原理&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="Http&amp;Https" scheme="https://juntengma.github.io/categories/Http-Https/"/>
-    
-    
-    <category term="Https" scheme="https://juntengma.github.io/tags/Https/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Http</title>
-    <link href="https://juntengma.github.io/2020/10/30/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/Http%E5%8D%8F%E8%AE%AE%E6%9C%BA%E5%99%A8%E5%B8%B8%E8%A7%81%E7%8A%B6%E6%80%81%E7%A0%81/"/>
-    <id>https://juntengma.github.io/2020/10/30/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/Http%E5%8D%8F%E8%AE%AE%E6%9C%BA%E5%99%A8%E5%B8%B8%E8%A7%81%E7%8A%B6%E6%80%81%E7%A0%81/</id>
-    <published>2020-10-30T08:49:32.136Z</published>
-    <updated>2020-11-10T04:06:05.285Z</updated>
-    
-    <content type="html"><![CDATA[<p>HTTPS的一些知识</p><a id="more"></a><h3 id="1-什么是HTTP协议"><a href="#1-什么是HTTP协议" class="headerlink" title="1/什么是HTTP协议"></a>1/什么是HTTP协议</h3><ul><li>HTTP协议是超文本传输协议的简称,规定了服务端和客户端(前后端)通信方式以及占用的接口</li><li>HTTP协议是一个局域TCP/IP通信协议来传输数据的</li></ul><h3 id="2-HTTP协议的特性"><a href="#2-HTTP协议的特性" class="headerlink" title="2/HTTP协议的特性"></a>2/HTTP协议的特性</h3><ul><li>HTTP协议支持客户端/服务端模式,也是一种请求/响应模式的协议</li><li>简单快速,客户端向服务器请求服务时,只需要提供请求方法和URL.常用的有 GET,PSOT,DELETE,HEAD等</li><li>无连接:HTTP协议规定浏览器和服务端只能保持短暂的链接,浏览器的每次请求都需要与服务器建立一个TCP链接,服务器处理完成后立即断开TCP链接</li><li>无状态:无状态是指服务器不跟踪也不记录请求过的状态,后续如果需要前面的信息,必须重传.</li><li>但是可以借助cookie和session记住来做身份认证和状态记录</li></ul><h3 id="3-HTTP报文组成"><a href="#3-HTTP报文组成" class="headerlink" title="3/HTTP报文组成"></a>3/HTTP报文组成</h3><h4 id="请求报问"><a href="#请求报问" class="headerlink" title="请求报问"></a>请求报问</h4><ul><li>请求行</li><li>请求头(Request Header)</li><li>请求正文</li></ul><h4 id="响应报文"><a href="#响应报文" class="headerlink" title="响应报文"></a>响应报文</h4><ul><li>状态行</li><li>响应头(Response Header)</li><li>响应正文</li></ul><h3 id="4-常见请求方法"><a href="#4-常见请求方法" class="headerlink" title="4/常见请求方法"></a>4/常见请求方法</h3><ul><li>GET</li><li>HEAD:类似GET请求,但是返回的响应中没有具体内容,用于获取报头</li><li>POST</li><li>PUT:从客户端向服务器传送的数据取代指定的文档的内容</li><li>DELETE:请求服务器删除指定页面</li></ul><h3 id="5-响应状态码"><a href="#5-响应状态码" class="headerlink" title="5/响应状态码"></a>5/响应状态码</h3><p>状态码分类：</p><ul><li>1XX- 信息型，服务器收到请求，需要请求者继续操作。</li><li>2XX- 成功型，请求成功收到，理解并处理。</li><li>3XX - 重定向，需要进一步的操作以完成请求。</li><li>4XX - 客户端错误，请求包含语法错误或无法完成请求。</li><li>5XX - 服务器错误，服务器在处理请求的过程中发生了错误。</li></ul><h3 id="6-常见状态码"><a href="#6-常见状态码" class="headerlink" title="6/常见状态码"></a>6/常见状态码</h3><ul><li>200:请求成功</li><li>204:无内容。服务器成功处理，但未返回内容。在未更新网页的情况下，可确保浏览器继续显示当前文档</li><li>301:永久重定向，返回信息会包括新的URI，浏览器会自动定向到新URI。今后任何新的请求都应使用新的URI代替</li><li>302:临时移动。与301类似。但资源只是临时被移动。客户端应继续使用原有URI</li><li>304:未修改。所请求的资源未修改，服务器不会返回任何资源。客户端通常会缓存访问过的资源，通过提供一个头信息指出客户端希望只返回在指定日期之后修改的资源</li><li>400:客户端请求的语法错误，服务器无法理解</li><li>401:请求要求用户的身份认证</li><li>403:服务器理解请求客户端的请求，但是拒绝执行此请求</li><li>404:服务器无法根据客户端的请求找到资源（网页）。通过此代码，网站设计人员可设置”您所请求的资源无法找到”的个性页面</li><li>422:请求格式正确，但是由于含有语义错误，无法响应。</li><li>500:服务器内部错误，无法完成请求</li></ul>]]></content>
-    
-    
-    <summary type="html">&lt;p&gt;HTTPS的一些知识&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="Http&amp;Https" scheme="https://juntengma.github.io/categories/Http-Https/"/>
-    
-    
-    <category term="Http" scheme="https://juntengma.github.io/tags/Http/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>算法</title>
-    <link href="https://juntengma.github.io/2020/10/30/%E7%AE%97%E6%B3%95%E9%A2%98/%E7%AE%97%E6%B3%95/"/>
-    <id>https://juntengma.github.io/2020/10/30/%E7%AE%97%E6%B3%95%E9%A2%98/%E7%AE%97%E6%B3%95/</id>
-    <published>2020-10-30T03:39:39.217Z</published>
-    <updated>2020-11-12T12:34:09.334Z</updated>
-    
-    <content type="html"><![CDATA[<p>复习做的几个算法练习题/…</p><a id="more"></a><p>一、不借助临时变量，进行两个整数的交换</p><pre><code>let a = 1, b = 2;[a, b] = [b, a]console.log(a, b);</code></pre><p>二、字符串查找：请使用最基本的遍历来实现判断字符串 a 是否被包含在字符串 b 中，并返回第一次出现的位置（找不到返回 -1）。<br>🌰:</p><pre><code>a=&#39;34&#39;;b=&#39;1234567&#39;; // 返回 2a=&#39;35&#39;;b=&#39;1234567&#39;; // 返回 -1a=&#39;355&#39;;b=&#39;12354355&#39;; // 返回 5isContain(a,b);</code></pre><p>三、统计一个字符串出现最多的字母：给出一段英文连续的英文字符窜，找出重复出现次数最多的字母。<br>🌰:</p><pre><code>输入 ： afjghdfraaaasdenas输出 ： a</code></pre><pre><code>function hasMost(str) &#123;  let counts = &#123;&#125;  for (let item of str) &#123;    counts[`$&#123;item&#125;`] = 0    for (let j of str) &#123;      if (j === item) &#123;        counts[`$&#123;item&#125;`] = counts[`$&#123;item&#125;`] + 1;      &#125;    &#125;  &#125;  getMax(counts)&#125;function getMax(counts) &#123;  let maxValue = 0  let maxItem = &#39;&#39;  for (let item in counts) &#123;    if (counts[item] &gt; maxValue) &#123;      maxValue = counts[item]      maxItem = item    &#125;  &#125;  console.log(maxItem, maxValue)&#125;</code></pre><p>四、找出下列正数组的最大差值<br>🌰:</p><pre><code>输入 [10,5,11,7,8,9]输出 6</code></pre><pre><code>function getDifferenceValue(arr) &#123;  let maxNum = null, minNum = null  arr.forEach(item =&gt; &#123;    !maxNum ? maxNum = item : !minNum ? minNum = item : null    item &gt; maxNum      ? maxNum = item      : item &lt; minNum        ? minNum = item        : minNum  &#125;)  console.log(maxNum, minNum)  console.log(maxNum - minNum)&#125;</code></pre><p>五、斐波那契数列：1、1、2、3、5、8、13、21。输入n，输出数列中第n位数的值。<br>🌰:</p><pre><code>function getValue(num) &#123;  if (num &lt; 2) &#123;    return 1  &#125; else &#123;    return (getValue(num - 1) + getValue(num - 2))  &#125;&#125;</code></pre><p>六、用js实现二分查找：二分查找的前提是有序数组</p><pre><code>🌰:将要查找的值每次与中间值比较，大于中间值，则在右边进行相同的查找，小于中间值则在左边进行比较查找，找到返回索引值，没找到返回-1。</code></pre><p>var missingNumber = function (nums) {<br>  let left = 0, right = nums.length - 1;<br>  while (left &lt;= right) {<br>    let mid = Math.floor((left + right) / 2);<br>    if (mid === nums[mid]) {<br>      left = mid + 1;<br>    } else if (mid &lt; nums[mid]) {<br>      right = mid - 1;<br>    }<br>  }<br>  return left;<br>};</p><p>```<br>七、数组去重</p>]]></content>
-    
-    
-    <summary type="html">&lt;p&gt;复习做的几个算法练习题/…&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="算法" scheme="https://juntengma.github.io/categories/%E7%AE%97%E6%B3%95/"/>
-    
-    
-    <category term="算法" scheme="https://juntengma.github.io/tags/%E7%AE%97%E6%B3%95/"/>
     
   </entry>
   
