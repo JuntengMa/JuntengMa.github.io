@@ -565,7 +565,6 @@ git rm xxx 除某文件</code></pre>
   &#125;,</code></pre>
 <h4 id="3、在项目根目录新建config-overrides-js"><a href="#3、在项目根目录新建config-overrides-js" class="headerlink" title="3、在项目根目录新建config-overrides.js"></a>3、在项目根目录新建config-overrides.js</h4><pre><code>const &#123; override &#125; = require(&#39;customize-cra&#39;);
 module.exports = &#123;&#125;;</code></pre>
-<h4 id="4、一些plugins"><a href="#4、一些plugins" class="headerlink" title="4、一些plugins"></a>4、一些plugins</h4><pre><code></code></pre>
 ]]></content>
   </entry>
   <entry>

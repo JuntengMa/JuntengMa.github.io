@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://juntengma.github.io/2020/11/23/React/%E8%87%AA%E5%AE%9A%E4%B9%89webpack%E9%85%8D%E7%BD%AE/</loc>
+    
+    <lastmod>2020-11-26</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://juntengma.github.io/2020/11/26/JavaScript/JavaScript-a%E6%A0%87%E7%AD%BE%E4%B9%B1%E7%A0%81%E9%97%AE%E9%A2%98/</loc>
     
     <lastmod>2020-11-26</lastmod>
@@ -117,13 +124,6 @@
     <loc>https://juntengma.github.io/2020/09/22/React/React-%E6%96%87%E6%9C%AC%E5%A4%8D%E5%88%B6/</loc>
     
     <lastmod>2020-11-25</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://juntengma.github.io/2020/11/23/React/%E8%87%AA%E5%AE%9A%E4%B9%89webpack%E9%85%8D%E7%BD%AE/</loc>
-    
-    <lastmod>2020-11-23</lastmod>
     
   </url>
   
