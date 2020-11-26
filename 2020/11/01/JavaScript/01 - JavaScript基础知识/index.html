@@ -95,7 +95,7 @@
     href="https://cdn.jsdelivr.net/combine/npm/highlight.js@9.15.8/styles/atom-one-dark.css,gh/nexmoe/nexmoe.github.io@latest/lib/mdui_043tiny/css/mdui.css,gh/nexmoe/nexmoe.github.io@latest/lib/iconfont/iconfont.css,gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css?v=233"
     crossorigin>
   
-  <link rel="stylesheet" href="../../../../../css/style.css?v=1606381233108">
+  <link rel="stylesheet" href="../../../../../css/style.css?v=1606381647635">
 <meta name="generator" content="Hexo 5.2.0"><link rel="alternate" href="atom.xml" title="June's Blog" type="application/atom+xml">
 </head>
 
@@ -730,7 +730,7 @@ g.prop = null</code></pre>
 <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"></script>
 <script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
 
- <script src="../../../../../js/app.js?v=1606381233109"></script>
+ <script src="../../../../../js/app.js?v=1606381647636"></script>
 
   
 
@@ -754,9 +754,9 @@ g.prop = null</code></pre>
 <script>
   !IsPC() && $('.nexmoe-toc').addClass('nexmoe-toc-phone')
 
-  let pathname = window.location.href
+  let pathname = window.location.pathname
 
-  if (pathname.match(/html|io|categories|tags/g)) {
+  if (pathname.match(/html$|io[\/?]$|\/|categories|tags/g)) {
     $('.nexmoe-toc').css({
       'display': 'none'
     })
