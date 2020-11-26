@@ -556,7 +556,9 @@ git rm xxx 除某文件</code></pre>
   <entry>
     <title>自定义webpack配置</title>
     <url>/2020/11/23/React/%E8%87%AA%E5%AE%9A%E4%B9%89webpack%E9%85%8D%E7%BD%AE/</url>
-    <content><![CDATA[<h1 id="create-react-app-自定义配置webpack"><a href="#create-react-app-自定义配置webpack" class="headerlink" title="create-react-app 自定义配置webpack"></a>create-react-app 自定义配置webpack</h1><h4 id="1、修改webpack配置文件，需要安装-react-app-rewired-customize-cra"><a href="#1、修改webpack配置文件，需要安装-react-app-rewired-customize-cra" class="headerlink" title="1、修改webpack配置文件，需要安装 react-app-rewired customize-cra"></a>1、修改webpack配置文件，需要安装 react-app-rewired customize-cra</h4><pre><code>yarn add react-app-rewired customize-cra -D</code></pre>
+    <content><![CDATA[<h1 id="create-react-app-自定义配置webpack"><a href="#create-react-app-自定义配置webpack" class="headerlink" title="create-react-app 自定义配置webpack"></a>create-react-app 自定义配置webpack</h1><a id="more"></a>
+
+<h4 id="1、修改webpack配置文件，需要安装-react-app-rewired-customize-cra"><a href="#1、修改webpack配置文件，需要安装-react-app-rewired-customize-cra" class="headerlink" title="1、修改webpack配置文件，需要安装 react-app-rewired customize-cra"></a>1、修改webpack配置文件，需要安装 react-app-rewired customize-cra</h4><pre><code>yarn add react-app-rewired customize-cra -D</code></pre>
 <h4 id="2、修改package-json文件"><a href="#2、修改package-json文件" class="headerlink" title="2、修改package.json文件"></a>2、修改package.json文件</h4><pre><code>&quot;scripts&quot;: &#123;
     &quot;start&quot;: &quot;react-app-rewired start&quot;,
     &quot;build&quot;: &quot;react-app-rewired build&quot;,
