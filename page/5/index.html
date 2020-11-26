@@ -84,7 +84,7 @@
     href="https://cdn.jsdelivr.net/combine/npm/highlight.js@9.15.8/styles/atom-one-dark.css,gh/nexmoe/nexmoe.github.io@latest/lib/mdui_043tiny/css/mdui.css,gh/nexmoe/nexmoe.github.io@latest/lib/iconfont/iconfont.css,gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css?v=233"
     crossorigin>
   
-  <link rel="stylesheet" href="../../css/style.css?v=1606384031989">
+  <link rel="stylesheet" href="../../css/style.css?v=1606384273221">
 <meta name="generator" content="Hexo 5.2.0"><link rel="alternate" href="atom.xml" title="June's Blog" type="application/atom+xml">
 </head>
 
@@ -111,7 +111,7 @@
         </a>
     </div>
     <div class="nexmoe-count">
-        <div><span>文章</span>49</div>
+        <div><span>文章</span>48</div>
         <div><span>标签</span>30</div>
         <div><span>分类</span>10</div>
     </div>
@@ -237,117 +237,6 @@
   <div id="nexmoe-content">
     <div class="nexmoe-primary">
       <section class="nexmoe-posts">
-    
-    <div class="nexmoe-post">
-        <a href="../../2020/09/22/React/React-Redux/">
-            
-                <div class="nexmoe-post-cover mdui-ripple" style="padding-bottom: 62.5%;"> 
-                    <img data-src="https://images.unsplash.com/photo-1605020419798-46652aa15452?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2100&q=80" data-sizes="auto" alt="在react传值问题--context传值" class="lazyload">
-                    <h1>在react传值问题--context传值</h1>
-                </div>
-            
-        </a>
-
-        <div class="nexmoe-post-meta nexmoe-rainbow">
-            <a><i class="nexmoefont icon-calendar-fill"></i>2020年09月22日</a>
-            <a><i class="nexmoefont icon-areachart"></i>786 字</a>
-            <a><i class="nexmoefont icon-time-circle-fill"></i>大概 3 分钟</a>
-        </div>
-
-        <article>
-            
-                <h1 id="Redux-的基础概念"><a href="#Redux-的基础概念" class="headerlink" title="Redux 的基础概念"></a>Redux 的基础概念</h1><p>什么是Redux?</p>
-<p>Redux 是 JavaScript 状态容器，提供可预测化的状态管理。</p>
-<h2 id="三个基本原则"><a href="#三个基本原则" class="headerlink" title="三个基本原则"></a>三个基本原则</h2><ul>
-<li>整个应用只有一个可信数据源 —  store</li>
-<li>State只能通过Action更改</li>
-<li>State的更改只能写成一个纯函数,也就是每次更改必须返回一个新的State——Reducer</li>
-</ul>
-<h2 id="Action"><a href="#Action" class="headerlink" title="Action"></a>Action</h2><p>Action 就是一个单纯的包含 { type , pyload }的对象, </p>
-<ul>
-<li><p>type 用来标识动作类型</p>
-</li>
-<li><p>pyload用来携带数据</p>
-</li>
-<li><p>Action需要通过store.dispatch()方法来发送</p>
-</li>
-</ul>
-<p>比如一个最简单的 action：</p>
-<pre><code>&#123;
-  type: &#39;ADD_TODO&#39;,
-  text: &#39;Build my first Redux app&#39;
-&#125;</code></pre>
-<h2 id="Reducers"><a href="#Reducers" class="headerlink" title="Reducers"></a>Reducers</h2><p>Reducers用来处理Action触发的对状态的更改</p>
-<p>Reducer接受<code>oldState</code>和<code>action</code>两个参数,并返回一个新的state</p>
-<p>一个Reducer_demo:</p>
-<pre><code>const initialState = &#123;
-  a: &#39;a&#39;,
-  b: &#39;b&#39;
-&#125;;
-
-function someApp(state = initialState, action) &#123;
-  switch (action.type) &#123;
-    case &#39;CHANGE_A&#39;:
-      return &#123; ...state, a: &#39;Modified a&#39; &#125;;
-    case &#39;CHANGE_B&#39;:
-      return &#123; ...state, b: action.payload &#125;;
-    default:
-      return state
-  &#125;
-&#125;</code></pre>
-<p>Reducer 也是 <strong>pure function</strong>，这点非常重要，所以绝对不要在 reducer 里面做一些引入 side-effects 的事情，比如：</p>
-<ul>
-<li>直接修改 state 参数对象</li>
-<li>请求 API</li>
-<li>调用不纯的函数，比如 <code>Data.now()</code> <code>Math.random()</code></li>
-</ul>
-<p>因为 Redux 里面只有一个 Store，对应一个 State 状态，所以整个 State 对象就是由一个 reducer 函数管理，但是如果所有的状态更改逻辑都放在这一个 reducer 里面，显然会变得越来越巨大，越来越难以维护。得益于纯函数的实现，我们只需要稍微变通一下，让状态树上的每个字段都有一个 reducer 函数来管理就可以拆分成很小的 reducer 了：</p>
-<pre><code class="javascript">function someApp(state = &#123;&#125;, action) &#123;
-  return &#123;
-    a: reducerA(state.a, action),
-    b: reducerB(state.b, action)
-  &#125;;
-&#125;</code></pre>
-<p>Redux 提供了一个工具函数 <code>combineReducers</code> 来简化这种 reducer 合并：</p>
-<pre><code class="javascript">import &#123; combineReducers &#125; from &#39;redux&#39;;
-
-const someApp = combineReducers(&#123;
-  a: reducerA,
-  b: reducerB
-&#125;);</code></pre>
-<h2 id="Store"><a href="#Store" class="headerlink" title="Store"></a>Store</h2><p>现在有了 Action 和 Reducer，Store 的作用就是连接这两者，Store 的作用有这么几个：</p>
-<ul>
-<li>Hold 住整个应用的 State 状态树</li>
-<li>提供一个 <code>getState()</code> 方法获取 State</li>
-<li>提供一个 <code>dispatch()</code> 方法发送 action 更改 State</li>
-<li>提供一个 <code>subscribe()</code> 方法注册回调函数监听 State 的更改</li>
-</ul>
-<p>创建一个 Store 很容易，将 <strong>root reducer</strong> 函数传递给 <code>createStore</code> 方法即可：</p>
-<pre><code>import &#123; createStore &#125; from &#39;redux&#39;;
-import someApp from &#39;./reducers&#39;;
-let store = createStore(someApp);
-
-// 你也可以额外指定一个初始 State（initialState），这对于服务端渲染很有用
-// let store = createStore(someApp, window.STATE_FROM_SERVER);
-
-let unsubscribe = store.subscribe(() =&gt; console.log(store.getState()));
-
-// Dispatch
-store.dispatch(&#123; type: &#39;CHANGE_A&#39; &#125;);
-store.dispatch(&#123; type: &#39;CHANGE_B&#39;, payload: &#39;Modified b&#39; &#125;);
-
-// Stop listening to state updates
-unsubscribe();</code></pre>
-<h1 id="Redux-和-React-Redux-区别"><a href="#Redux-和-React-Redux-区别" class="headerlink" title="Redux 和 React-Redux 区别"></a>Redux 和 React-Redux 区别</h1><h3 id="1-Redux"><a href="#1-Redux" class="headerlink" title="1.Redux"></a>1.Redux</h3><p>用户视图层的操作执行了dispatch,</p>
-<p>dispatch又调用了Reducers函数,</p>
-<p>Reducers获取当前状态state进行业务处理,形成一个newState保存到Store仓库中,</p>
-<p>Store所有依赖的视图层发生同步更新<img data-fancybox="gallery" data-sizes="auto" data-src="https://s3.ax1x.com/2020/11/17/DVtjnP.png" alt="redux数据流" class="lazyload"></p>
-<p>限制:只能在当前这一层进行传递,如果项目关系比较复杂,层次比较深 , 只能用props进行逐层传递——&gt;<strong>redux不能进行跨层级获取数据</strong>—-&gt;React-Redux解决</p>
-<h3 id="2-React-Redux"><a href="#2-React-Redux" class="headerlink" title="2.React-Redux"></a>2.React-Redux</h3><p><img data-fancybox="gallery" data-sizes="auto" data-src="https://s3.ax1x.com/2020/11/17/DVNPpj.png" alt="react-redux工作流程2" class="lazyload"></p>
-
-            
-        </article>
-    </div>
     
     <div class="nexmoe-post">
         <a href="../../2020/09/22/React/React-context/">
@@ -566,7 +455,7 @@ overflow: hidden;/*这个参数根据需要来决定要不要*/</code></pre>
 <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"></script>
 <script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
 
- <script src="../../js/app.js?v=1606384031990"></script>
+ <script src="../../js/app.js?v=1606384273221"></script>
 
   
 
