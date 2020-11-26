@@ -1395,16 +1395,25 @@ function f1() &#123;
   <entry>
     <title>a标签的url怎么会乱码嘞？？？？</title>
     <url>/2020/11/26/JavaScript/JavaScript-a%E6%A0%87%E7%AD%BE%E4%B9%B1%E7%A0%81%E9%97%AE%E9%A2%98/</url>
-    <content><![CDATA[<p>最近写博客发现自己博客链接居然是一堆乱码 ，这哪是我忍受的了的， 没注意还好， 注意到了怎么看怎么碍眼 ，<br> 类似下面这样👿👿👿👿👿：<br><img src="https://s3.ax1x.com/2020/11/26/D0M9N8.png"></p>
+    <content><![CDATA[<p>最近写博客发现自己博客链接居然是一堆乱码 ，没发现还好 ，发现了就觉得怎么这么碍眼呢???!!!</p>
+<a id="more"></a>
+
+<p> 类似下面这样👿👿👿👿👿：<br><img src="https://s3.ax1x.com/2020/11/26/D0M9N8.png"></p>
 <p>具体百度过程😁和调试过程🙄（调试个棒槌）就不细说了 ， 这里是我得到的解决方案 ：<br>通过<code>decodeURI()</code>对链接进行解码 ， 我是这么写的</p>
 <pre><code class="ejs"> &lt;a href=&quot;&lt;%= decodeURI(page.permalink) %&gt;&quot; target=&quot;_blank&quot;&gt;
     &lt;%= decodeURI(page.permalink) %&gt;
   &lt;/a&gt;</code></pre>
 <p>所以最后我的链接就可以变回我需要的样子：<br><img src="https://s3.ax1x.com/2020/11/26/D0QdZq.png"></p>
-<p>说到这里就有人问我了：马老师 ， 你这个 <code>decodeURI</code> 是干肾么用的呀？</p>
-<p>我就啪的一下，很快啊~ ，给你甩出一个别人写的博客 <a href="https://segmentfault.com/a/1190000013236956">JS对url进行编码和解码（三种方式）</a> , 并告诉你这个知识点我也是刚学从他这边学的</p>
-<a id="more"></a>
-
+<p>诶 ，说到这里就有人问我了：马老湿 ， 你这个 <code>decodeURI</code> 是干肾么用的呀？</p>
+<p>我就啪的一下，很快啊~ ，给你甩出一个闪电五连鞭：</p>
+<ul>
+<li><a href="https://segmentfault.com/a/1190000013236956">《JS对url进行编码和解码（三种方式）》</a> </li>
+<li><a href="https://segmentfault.com/a/1190000013236956">《JS对url进行编码和解码（三种方式）》</a> </li>
+<li><a href="https://segmentfault.com/a/1190000013236956">《JS对url进行编码和解码（三种方式）》</a> </li>
+<li><a href="https://segmentfault.com/a/1190000013236956">《JS对url进行编码和解码（三种方式）》</a> </li>
+<li><a href="https://segmentfault.com/a/1190000013236956">《JS对url进行编码和解码（三种方式）》</a> </li>
+</ul>
+<p>并告诉你这个知识点我也是刚学从他这边学的 ， 而且年轻人一定要讲武德 <del>~</del> 🤠👹🧐👻😼😽🙀😿😾🐱‍👤🐱‍🏍🐱‍💻🐱‍🐉🐱‍👓🐱‍🚀🙈🙉🙊🐵🐶🐺🐱🦁🦁🦒🦊</p>
 ]]></content>
       <categories>
         <category>JavaScript</category>
