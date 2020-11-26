@@ -89,7 +89,7 @@
     href="https://cdn.jsdelivr.net/combine/npm/highlight.js@9.15.8/styles/atom-one-dark.css,gh/nexmoe/nexmoe.github.io@latest/lib/mdui_043tiny/css/mdui.css,gh/nexmoe/nexmoe.github.io@latest/lib/iconfont/iconfont.css,gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css?v=233"
     crossorigin>
   
-  <link rel="stylesheet" href="../../../../../css/style.css?v=1606381647669">
+  <link rel="stylesheet" href="../../../../../css/style.css?v=1606382411646">
 <meta name="generator" content="Hexo 5.2.0"><link rel="alternate" href="atom.xml" title="June's Blog" type="application/atom+xml">
 </head>
 
@@ -460,7 +460,7 @@ let url = &quot;https://imgcache.qq.com/wss/security//ssl/build/ssl-444feca18a78
 <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"></script>
 <script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
 
- <script src="../../../../../js/app.js?v=1606381647671"></script>
+ <script src="../../../../../js/app.js?v=1606382411647"></script>
 
   
 
@@ -486,15 +486,14 @@ let url = &quot;https://imgcache.qq.com/wss/security//ssl/build/ssl-444feca18a78
 
   let pathname = window.location.pathname
 
-  if (pathname.match(/html$|io[\/?]$|\/|categories|tags/g)) {
+ !pathname.match(/\d{4}\/\d{2}\/\d{2}/g)?
     $('.nexmoe-toc').css({
       'display': 'none'
     })
-  } else {
+    :
     $('.nexmoe-toc').css({
       'display': 'block'
     })
-  }
 
   function scrollToTop() {
     var c = document.documentElement.scrollTop || document.body.scrollTop;
