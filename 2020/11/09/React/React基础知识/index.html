@@ -1,0 +1,754 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN" >
+
+<head>
+  <script src="https://cdn.bootcdn.net/ajax/libs/jquery/1.10.0/jquery.js"></script>
+
+  <style>
+    .nexmoe-toc {
+      position: fixed;
+      top: 10%;
+      right: 0;
+      width: 60px;
+      box-shadow: 0 0 1rem rgba(161, 177, 204, .4);
+      background-color: #fff;
+      border-top-left-radius: 15px;
+      border-bottom-left-radius: 15px;
+      white-space: normal;
+      padding: 15px;
+      overflow: hidden;
+    }
+
+    .toc {
+      max-height: 500px;
+      overflow-y: auto;
+      overflow-x: hidden;
+    }
+
+    .toc a,
+    .toc-link {
+      color: rgba(0, 0, 0, .6);
+      height: 30px;
+      display: inline-block;
+    }
+
+    .nexmoe-toc-phone {
+      position: fixed;
+      top: 27%;
+      padding: 15px;
+      right: 0;
+      margin-right: 0;
+      color: #ffff;
+      background-color: #282c34;
+    }
+
+    .up {
+      cursor: pointer;
+      position: fixed;
+      right: 2%;
+      top: 90%;
+      height: 40px;
+      width: 40px;
+      line-height: 40px;
+      border-radius: 4px;
+      background-color: #ff4e6a;
+      color: #fff;
+      text-align: center;
+      font-size: 14px;
+      display: none;
+    }
+  </style>
+
+  
+  <title>React学习 - June&#39;s Blog</title>
+  <meta charset="utf-8">
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+  
+  
+    <meta name="google-site-verification" content="dpEwU-QD2ECVmxi_KbUlXQTuk_PnZk4xXxRobXuB5JI" />
+
+
+  <link rel="shortcut icon" href="/favicon.ico" type="image/png" />
+  <meta name="description" content="“基于 XLSX 封装的  Excel 并解析为 JSON格式数据的组件”">
+<meta property="og:type" content="article">
+<meta property="og:title" content="React学习">
+<meta property="og:url" content="https://juntengma.github.io/2020/11/09/React/React%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/index.html">
+<meta property="og:site_name" content="June&#39;s Blog">
+<meta property="og:description" content="“基于 XLSX 封装的  Excel 并解析为 JSON格式数据的组件”">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://s1.ax1x.com/2020/11/10/BLFB1P.png">
+<meta property="og:image" content="https://s1.ax1x.com/2020/11/10/BLkabF.png">
+<meta property="og:image" content="https://s1.ax1x.com/2020/11/10/BLu3c9.png">
+<meta property="og:image" content="https://s1.ax1x.com/2020/11/10/BLMPMj.png">
+<meta property="og:image" content="https://s3.ax1x.com/2020/11/17/DVYzW9.png">
+<meta property="og:image" content="https://s3.ax1x.com/2020/11/17/DVYozn.png">
+<meta property="og:image" content="https://s1.ax1x.com/2020/11/10/BL0HNF.png">
+<meta property="article:published_time" content="2020-11-09T08:58:59.845Z">
+<meta property="article:modified_time" content="2020-11-20T08:28:28.997Z">
+<meta property="article:author" content="June">
+<meta property="article:tag" content="React">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://s1.ax1x.com/2020/11/10/BLFB1P.png">
+  <link rel="stylesheet"
+    href="https://cdn.jsdelivr.net/combine/npm/highlight.js@9.15.8/styles/atom-one-dark.css,gh/nexmoe/nexmoe.github.io@latest/lib/mdui_043tiny/css/mdui.css,gh/nexmoe/nexmoe.github.io@latest/lib/iconfont/iconfont.css,gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css?v=233"
+    crossorigin>
+  
+  <link rel="stylesheet" href="../../../../../css/style.css?v=1615372893658">
+<meta name="generator" content="Hexo 5.2.0"><link rel="alternate" href="atom.xml" title="June's Blog" type="application/atom+xml">
+</head>
+
+<body class="mdui-drawer-body-left">
+  
+  <div id="nexmoe-background">
+    <div class="nexmoe-bg" style="background-image: url(https://source.unsplash.com/random?count=1/1600x900)"></div>
+    <div class="mdui-appbar mdui-shadow-0">
+      <div class="mdui-toolbar">
+        <a mdui-drawer="{target: '#drawer', swipe: true}" title="menu" class="mdui-btn mdui-btn-icon mdui-ripple"><i
+            class="mdui-icon nexmoefont icon-menu"></i></a>
+        <div class="mdui-toolbar-spacer"></div>
+        <!--<a href="javascript:;" class="mdui-btn mdui-btn-icon"><i class="mdui-icon material-icons">search</i></a>-->
+        <a href="../../../../../index.html" title="June" class="mdui-btn mdui-btn-icon"><img
+            src="https://cdn.jsdelivr.net/gh/JuntengMa/Images@1.0/blog/avatar.jpg" alt="June"></a>
+      </div>
+    </div>
+  </div>
+  <div id="nexmoe-header">
+    <div class="nexmoe-drawer mdui-drawer" id="drawer">
+    <div class="nexmoe-avatar mdui-ripple">
+        <a href="../../../../../index.html" title="June">
+            <img src="https://cdn.jsdelivr.net/gh/JuntengMa/Images@1.0/blog/avatar.jpg" alt="June" alt="June">
+        </a>
+    </div>
+    <div class="nexmoe-count">
+        <div><span>文章</span>49</div>
+        <div><span>标签</span>31</div>
+        <div><span>分类</span>11</div>
+    </div>
+    <div class="nexmoe-list mdui-list" mdui-collapse="{accordion: true}">
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple" href="../../../../../index.html" title="回到首页">
+            <i class="mdui-list-item-icon nexmoefont icon-home"></i>
+            <div class="mdui-list-item-content">
+                回到首页
+            </div>
+        </a>
+        
+    </div>
+    <aside id="nexmoe-sidebar">
+  
+  <div class="nexmoe-widget-wrap">
+    <div class="nexmoe-widget nexmoe-social">
+        <a class="mdui-ripple" href="../../../../../https:/guestljz.gitee.io/" target="_blank" mdui-tooltip="{content: 'superGuest'}" style="color: rgb(231, 106, 141);background-color: rgba(231, 106, 141, .15);">
+            <i class="nexmoefont icon-github"></i>
+        </a><a class="mdui-ripple" href="../../../../../https:/www.github.com" target="_blank" mdui-tooltip="{content: 'GitHub'}" style="color: rgb(25, 23, 23);background-color: rgba(25, 23, 23, .15);">
+            <i class="nexmoefont icon-github"></i>
+        </a>
+    </div>
+</div>
+  
+  
+  <div class="nexmoe-widget-wrap">
+    <div id="randomtagcloud" class="nexmoe-widget tagcloud nexmoe-rainbow">
+      <a href="../../../../../tags/Ajax/" style="font-size: 12.5px;">Ajax</a> <a href="../../../../../tags/Axios/" style="font-size: 12.5px;">Axios</a> <a href="../../../../../tags/BFC/" style="font-size: 10px;">BFC</a> <a href="../../../../../tags/Css/" style="font-size: 12.5px;">Css</a> <a href="../../../../../tags/DOM%E4%BA%8B%E4%BB%B6%E4%BA%8B%E4%BB%B6%E6%B5%81/" style="font-size: 10px;">DOM事件事件流</a> <a href="../../../../../tags/ES6/" style="font-size: 10px;">ES6</a> <a href="../../../../../tags/Git/" style="font-size: 10px;">Git</a> <a href="../../../../../tags/Gulp/" style="font-size: 10px;">Gulp</a> <a href="../../../../../tags/Hook/" style="font-size: 10px;">Hook</a> <a href="../../../../../tags/Http/" style="font-size: 12.5px;">Http</a> <a href="../../../../../tags/Https/" style="font-size: 10px;">Https</a> <a href="../../../../../tags/JSONP/" style="font-size: 10px;">JSONP</a> <a href="../../../../../tags/JavaScript/" style="font-size: 17.5px;">JavaScript</a> <a href="../../../../../tags/JsonServer/" style="font-size: 10px;">JsonServer</a> <a href="../../../../../tags/Npm/" style="font-size: 10px;">Npm</a> <a href="../../../../../tags/Promise/" style="font-size: 10px;">Promise</a> <a href="../../../../../tags/React/" style="font-size: 20px;">React</a> <a href="../../../../../tags/TypeScript/" style="font-size: 10px;">TypeScript</a> <a href="../../../../../tags/Webpack/" style="font-size: 10px;">Webpack</a> <a href="../../../../../tags/%E4%BB%8E%E8%BE%93%E5%85%A5URL%E5%88%B0%E9%A1%B5%E9%9D%A2%E5%8A%A0%E8%BD%BD%E5%8F%91%E7%94%9F%E4%BA%86%E4%BB%80%E4%B9%88/" style="font-size: 10px;">从输入URL到页面加载发生了什么</a> <a href="../../../../../tags/%E4%BD%9C%E7%94%A8%E5%9F%9F-%E5%8F%AF%E6%89%A7%E8%A1%8C%E4%B8%8A%E4%B8%8B%E6%96%87/" style="font-size: 10px;">作用域&可执行上下文</a> <a href="../../../../../tags/%E5%89%8D%E7%AB%AF%E5%AE%89%E5%85%A8/" style="font-size: 15px;">前端安全</a> <a href="../../../../../tags/%E5%8E%9F%E5%9E%8B%E5%8E%9F%E5%9E%8B%E9%93%BE/" style="font-size: 10px;">原型原型链</a> <a href="../../../../../tags/%E5%90%8C%E6%BA%90%E7%AD%96%E7%95%A5/" style="font-size: 10px;">同源策略</a> <a href="../../../../../tags/%E6%B5%8F%E8%A7%88%E5%99%A8/" style="font-size: 10px;">浏览器</a> <a href="../../../../../tags/%E6%B5%8F%E8%A7%88%E5%99%A8%E8%A7%A3%E6%9E%90js%E6%B5%81%E7%A8%8B/" style="font-size: 10px;">浏览器解析js流程</a> <a href="../../../../../tags/%E6%B7%B1%E6%8B%B7%E8%B4%9D%E6%B5%85%E6%8B%B7%E8%B4%9D/" style="font-size: 10px;">深拷贝浅拷贝</a> <a href="../../../../../tags/%E7%9B%92%E6%A8%A1%E5%9E%8B/" style="font-size: 10px;">盒模型</a> <a href="../../../../../tags/%E7%AE%97%E6%B3%95/" style="font-size: 12.5px;">算法</a> <a href="../../../../../tags/%E9%97%AD%E5%8C%85/" style="font-size: 10px;">闭包</a> <a href="../../../../../tags/%E9%98%B2%E6%8A%96%E8%8A%82%E6%B5%81/" style="font-size: 10px;">防抖节流</a>
+    </div>
+    
+  </div>
+
+  
+  
+  <div class="nexmoe-widget-wrap">
+    <h3 class="nexmoe-widget-title">文章分类</h3>
+    <div class="nexmoe-widget">
+
+      <ul class="category-list">
+
+        
+
+
+        
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/Ajax/">Ajax</a>
+          <span class="category-list-count">3</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/Css/">Css</a>
+          <span class="category-list-count">2</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/Gulp/">Gulp</a>
+          <span class="category-list-count">1</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/Http-Https/">Http&amp;Https</a>
+          <span class="category-list-count">3</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/JavaScript/">JavaScript</a>
+          <span class="category-list-count">16</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/React/">React</a>
+          <span class="category-list-count">12</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/TypeScript/">TypeScript</a>
+          <span class="category-list-count">1</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/tools/">tools</a>
+          <span class="category-list-count">4</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/前端安全/">前端安全</a>
+          <span class="category-list-count">3</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/浏览器/">浏览器</a>
+          <span class="category-list-count">1</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/算法/">算法</a>
+          <span class="category-list-count">2</span>
+        </li>
+
+        
+      </ul>
+
+    </div>
+  </div>
+
+
+  
+</aside>
+    <div class="nexmoe-copyright">
+        &copy; 2021 June
+        Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+        & <a href="https://github.com/theme-nexmoe/hexo-theme-nexmoe" target="_blank">Nexmoe</a>
+    </div>
+</div><!-- .nexmoe-drawer -->
+  </div>
+  <div id="nexmoe-content">
+    <div class="nexmoe-primary">
+      <div class="nexmoe-post">
+  
+      <div class="nexmoe-post-cover" style="padding-bottom: 62.5%;"> 
+          <img data-src="https://source.unsplash.com/random?count=10/1600x900" data-sizes="auto" alt="React学习" class="lazyload">
+          <h1>React学习</h1>
+      </div>
+  
+  
+  <div class="nexmoe-post-meta nexmoe-rainbow" style="margin:10px 0!important;">
+    <a><i class="nexmoefont icon-calendar-fill"></i>2020年11月09日</a>
+    <a><i class="nexmoefont icon-areachart"></i>3.1k 字</a>
+    <a><i class="nexmoefont icon-time-circle-fill"></i>大概 13 分钟</a>
+</div>
+
+  <article>
+    <h4 id="React基础知识汇总"><a href="#React基础知识汇总" class="headerlink" title="React基础知识汇总"></a>React基础知识汇总</h4><p>[TOC]</p>
+<a id="more"></a>
+
+<h4 id="01-生命周期"><a href="#01-生命周期" class="headerlink" title="01 / 生命周期"></a>01 / 生命周期</h4><p><strong>react15生命周期</strong><img src="https://s1.ax1x.com/2020/11/10/BLFB1P.png"></p>
+<p>React的生命周期就是组件从初始化到卸载到全过程，可以分为以下几个阶段</p>
+<ul>
+<li>初始化阶段(<ul>
+<li><strong>constructor()</strong>, </li>
+<li><strong>componentWillMount</strong>(),</li>
+<li><strong>render</strong>(), </li>
+<li><strong>componentDidMount</strong>()</li>
+</ul>
+</li>
+<li>更新阶段<ul>
+<li><strong>componentWillReceiveProps</strong>(),</li>
+<li><strong>shouldComponentUpdate</strong>(), </li>
+<li><strong>componentWillUpdate</strong>(), </li>
+<li><strong>render</strong>(), </li>
+<li><strong>componentDidUpdate</strong>()</li>
+</ul>
+</li>
+<li>卸载阶段<ul>
+<li><strong>componentWillUnmont</strong>()</li>
+</ul>
+</li>
+</ul>
+<p>这里需要注意的是更新阶段，componentWillReceiveProps是由父组件触发的更新，只要父组件更新，子组件的该生命周期就会被执行，跟props无关。同是，shouldComponentUpdate可以用来做性能优化</p>
+<p><strong>react16生命周期</strong></p>
+<p><img src="https://s1.ax1x.com/2020/11/10/BLkabF.png"></p>
+<p>在React16的生命周期中，去掉了曾经的<strong>componentWillMount</strong>和<strong>componentWillUpdate</strong>，使用<strong>getDerivedStateFromProps</strong>代替这两个方法。同时在更新阶段的render方法和componentDidUpdate之间，新增了一个<strong>getSnapshotBeforeUpdate</strong>方法。接下来就来详细了解一下React这么做的原理以及这些新增生命周期的具体使用</p>
+<p><strong>react15和react16的区别</strong></p>
+<ul>
+<li><h6 id="初始化阶段"><a href="#初始化阶段" class="headerlink" title="初始化阶段"></a>初始化阶段</h6><p><img src="https://s1.ax1x.com/2020/11/10/BLu3c9.png"></p>
+<ul>
+<li><p><code>-</code>    componentWillMount()</p>
+</li>
+<li><p><code>+</code>    getDerivedStateFromProps()</p>
+<ol>
+<li><p>getDerivedStateFromProps() 主要用于替换 componentWillReceiveProps() 的</p>
+</li>
+<li><p>getDerivedStateFromProps是一个静态方法 , 需要使用static声明</p>
+</li>
+<li><p>getDerivedStateFromProps 接收两个参数, 父组件传递过来的props和自身state</p>
+</li>
+<li><p>必须返回一个对象格式的返回值，否则控制台会被警告</p>
+</li>
+<li><p>该返回值会被用来更新现有state(并不会覆盖原有State，只做定向更新，如果原来State中没有该属性，则新增)，如果没有需要更新的时候，请记得返回一个null</p>
+<pre><code>static getDerivedStateFromProps(props,state)&#123;
+  return newState
+&#125;</code></pre>
+</li>
+</ol>
+</li>
+</ul>
+</li>
+<li><h6 id="更新阶段"><a href="#更新阶段" class="headerlink" title="更新阶段"></a>更新阶段</h6><p><img src="https://s1.ax1x.com/2020/11/10/BLMPMj.png"></p>
+<ul>
+<li><code>-</code>componentWillReceiveProps()</li>
+<li><code>+</code>getDerivedStateFormProps()</li>
+<li><code>-</code>componentWillupdate()</li>
+<li><code>+</code>getSnapshotBetforeupdate()</li>
+</ul>
+</li>
+</ul>
+<p>React16中也去掉了componentWillUpdate方法，新增了getSnapshotBeforeUpdate方法，这个方法在render方法之后，componentDidUpdate之前被执行，即真实DOM更新之前（获取更新前的真实DOM和更新前后的State&amp;props信息）。该方法需要一个返回值，作为componentDidUpdate的第三个参数。</p>
+<ul>
+<li><h6 id="componentWillReceiveProps-和getDerivedStateFormProps-区别"><a href="#componentWillReceiveProps-和getDerivedStateFormProps-区别" class="headerlink" title="componentWillReceiveProps()和getDerivedStateFormProps()区别"></a>componentWillReceiveProps()和getDerivedStateFormProps()区别</h6></li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>getDerivedStateFormProps( props , state )</th>
+<th>componentWillReceiveProps( nextPorps )</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>使用static 声明: <code>static getDerivedStateFormProps( props , state )&#123;&#125;</code></td>
+<td>直接声明: <code>componentWillReceiveProps( nextPorps )&#123;&#125;</code></td>
+</tr>
+<tr>
+<td><strong>在组件挂载阶段即可执行,父组件更新执行</strong></td>
+<td><strong>只在父组件更新的时候执行</strong></td>
+</tr>
+<tr>
+<td>接收两个参数:  props  ,  state</td>
+<td>接收一个参数( nextPorps )</td>
+</tr>
+<tr>
+<td><strong>必须返回一个对象格式的返回值 或 null</strong></td>
+<td><strong>可以直接更新state状态</strong></td>
+</tr>
+</tbody></table>
+<p><strong>demo:</strong></p>
+<pre><code>  static getDerivedStateFromProps(props, state) &#123;
+    if (props.age !== state.age) &#123;
+      return &#123; age: props.age &#125;
+      // 类似setStae
+      // this.setState(&#123;
+      //   age: props.age
+      // &#125;);
+    &#125;
+    return null
+  &#125;</code></pre>
+<pre><code>  componentWillReceiveProps(nextporps) &#123;
+    if (nextporps.age !== this.state.age) &#123;
+      this.setState(&#123;
+        age: nextporps.age 
+      &#125;);
+    &#125;
+  &#125;</code></pre>
+<h4 id="02-Virtual-Dom"><a href="#02-Virtual-Dom" class="headerlink" title="02 / Virtual Dom"></a>02 / Virtual Dom</h4><ul>
+<li><p>什么是Virtual Dom?</p>
+<ul>
+<li>在原生的<code>JavaScript</code>程序中，我们直接对<code>DOM</code>进行创建和更改，而<code>DOM</code>元素通过我们监听的事件和我们的应用程序进行通讯。</li>
+<li><code>React</code>会先将你的代码转换成一个<code>JavaScript</code>对象，然后这个<code>JavaScript</code>对象再转换成真实<code>DOM</code>。这个<code>JavaScript</code>对象就是所谓的虚拟<code>DOM</code>。</li>
+<li>当我们需要创建或更新元素时，<code>React</code>首先会让这个<code>VitrualDom</code>对象进行创建和更改，然后再将<code>VitrualDom</code>对象渲染成真实<code>DOM</code>；</li>
+<li>当我们需要对<code>DOM</code>进行事件监听时，首先对<code>VitrualDom</code>进行事件监听，<code>VitrualDom</code>会代理原生的<code>DOM</code>事件从而做出响应。</li>
+</ul>
+</li>
+<li><p>为什么使用虚拟dom?</p>
+<ul>
+<li><p>可以提高开发效率</p>
+<pre><code>使用JavaScript，我们在编写应用程序时的关注点在于如何更新DOM。
+
+使用React，你只需要告诉React你想让视图处于什么状态，React则通过VitrualDom确保DOM与该状态相匹配。你不必自己去完成属性操作、事件处理、DOM更新，React会替你完成这一切。
+
+这让我们更关注我们的业务逻辑而非DOM操作，这一点即可大大提升我们的开发效率。</code></pre>
+</li>
+<li><p>性能提升?(有一些矛盾)</p>
+<pre><code>- 直接说虚拟DOM可以提升性能这种说法是很片面的,直接操作dom非常耗费性能这一点毋庸置疑,但是react同样也无法避免操作dom
+-    如果是首次渲染,virtualDom不具有任何优势,甚至要进行更多的计算和耗费更多的内存
+- virtualDOm优势在于diff算法和批量处理策略,在react页面更新之前,已经提前计算好了如何更新和渲染dom,减少重绘回流,因此可以理解为提升了性能</code></pre>
+</li>
+<li><p>跨浏览器兼容</p>
+<pre><code>virtualDom自己实现了一套事件机制,模拟了事件捕获和冒泡的过程,采用了事件代理和批量更新的方法,可以抹平各浏览器事件处理不兼容的问题</code></pre>
+</li>
+</ul>
+</li>
+<li><p>React组件的渲染流程</p>
+<ul>
+<li><p>使用<code>React.createElement</code>或<code>JSX</code>编写<code>React</code>组件，<code>Babel</code>帮助我们把所有的<code>JSX </code>代码最后都会转换成<code>React.createElement(...) </code>格式</p>
+<ul>
+<li><p>JSX编写</p>
+<pre><code>class Hello extends Component &#123;
+  render() &#123;
+    return &lt;div&gt;Hello ConardLi&lt;/div&gt;;
+  &#125;
+&#125;</code></pre>
+</li>
+<li><p><code>React.createElement</code>编写</p>
+<pre><code>class Hello extends Component &#123;
+  render() &#123;
+    return React.createElement(&#39;div&#39;, null, `Hello ConardLi`);
+  &#125;
+&#125;</code></pre>
+</li>
+<li><p><code>Babel</code>转化demo</p>
+<pre><code>&lt;div&gt;
+  &lt;img src=&quot;avatar.png&quot; className=&quot;profile&quot; /&gt;
+  &lt;Hello /&gt;
+&lt;/div&gt;;</code></pre>
+<pre><code>React.createElement(&quot;div&quot;, null, 
+    React.createElement(&quot;img&quot;, &#123;
+      src: &quot;avatar.png&quot;,
+      className: &quot;profile&quot;
+    &#125;), 
+    React.createElement(Hello, null)
+);</code></pre>
+</li>
+</ul>
+</li>
+<li><p><code>createElement</code>函数对<code>key</code>和<code>ref</code>等特殊的<code>props</code>进行处理，并获取<code>defaultProps</code>对默认<code>props</code>进行赋值，并且对传入的孩子节点进行处理，最终构造成一个<code>ReactElement</code>对象（所谓的虚拟<code>DOM</code>）。</p>
+</li>
+<li><p><code>ReactDOM.render</code>将生成好的虚拟<code>DOM</code>渲染到指定容器上，其中采用了批处理、事务等机制并且对特定浏览器进行了性能优化，最终转换为真实<code>DOM</code>。</p>
+</li>
+</ul>
+</li>
+</ul>
+<p>​    </p>
+<ul>
+<li><p>virtualDom的组成</p>
+<p>即<code>ReactElement</code>element对象，我们的组件最终会被渲染成下面的结构</p>
+<ul>
+<li><code>type</code>：元素的类型，可以是原生html类型（字符串），或者自定义组件（函数或<code>class</code>）</li>
+<li><code>key</code>：组件的唯一标识，用于<code>Diff</code>算法</li>
+<li><code>ref</code>：用于访问原生<code>dom</code>节点</li>
+<li><code>props</code>：传入组件的<code>props</code>，<code>chidren</code>是<code>props</code>中的一个属性，它存储了当前组件的孩子节点，可以是数组（多个孩子节点）或对象（只有一个孩子节点）</li>
+<li><code>owner</code>：当前正在构建的<code>Component</code>所属的<code>Component</code></li>
+<li><code>self</code>：（非生产环境）指定当前位于哪个组件实例</li>
+<li><code>_source</code>：（非生产环境）指定调试代码来自的文件(<code>fileName</code>)和代码行数(<code>lineNumber</code>)</li>
+</ul>
+<p>例如;</p>
+<pre><code>&lt;div class=&quot;title&quot;&gt;
+      &lt;span&gt;Hello ConardLi&lt;/span&gt;
+      &lt;ul&gt;
+        &lt;li&gt;苹果&lt;/li&gt;
+        &lt;li&gt;橘子&lt;/li&gt;
+      &lt;/ul&gt;
+&lt;/div&gt;</code></pre>
+<pre><code>
+const VitrualDom = &#123;
+  type: &#39;div&#39;,
+  props: &#123; class: &#39;title&#39; &#125;,
+  children: [
+    &#123;
+      type: &#39;span&#39;,
+      children: &#39;Hello ConardLi&#39;
+    &#125;,
+    &#123;
+      type: &#39;ul&#39;,
+      children: [
+        &#123; type: &#39;li&#39;, children: &#39;苹果&#39; &#125;,
+        &#123; type: &#39;li&#39;, children: &#39;橘子&#39; &#125;
+      ]
+    &#125;
+  ]
+&#125;</code></pre>
+</li>
+</ul>
+<h4 id="03-diff算法"><a href="#03-diff算法" class="headerlink" title="03 / diff算法"></a>03 / diff算法</h4><ul>
+<li>DIFF算法是DOM更新的一种算法,指页面被更新时,程序用哪种策略更新DOM</li>
+<li>作用是用来计算出 <strong>Virtual DOM</strong> 中被改变的部分，然后针对该部分进行原生DOM操作，而不用重新渲染整个页面。</li>
+</ul>
+<p>DIFF算法策略:</p>
+<ul>
+<li><p>Tree Diff    对树每一层进行遍历，找出不同</p>
+<p><img src="https://s3.ax1x.com/2020/11/17/DVYzW9.png"></p>
+</li>
+<li><p>Component Diff  是数据层面的差异比较</p>
+</li>
+<li><p>Element Diff  真实DOM渲染，结构差异的比较</p>
+<ul>
+<li>Diff提供三种DOM操作：<strong>删除</strong>、<strong>移动</strong>、<strong>插入</strong>。</li>
+</ul>
+</li>
+</ul>
+<p><img src="https://s3.ax1x.com/2020/11/17/DVYozn.png"></p>
+<h4 id="04-fiber架构"><a href="#04-fiber架构" class="headerlink" title="04 / fiber架构"></a>04 / fiber架构</h4><blockquote>
+<p>fiber架构是React16对核心算法的一次重构</p>
+<p>Fiber使原本同步渲染变为异步</p>
+</blockquote>
+<p><strong>4.1 React历史算法的风险</strong></p>
+<blockquote>
+<p>React16之前,组件每次更新都会触发React去构建一棵新的虚拟DOM树,通过与上一次虚拟DOM的diff对比,实现DOM的定更新</p>
+<p>该过程是是一个递归的过程,调用栈非常深,只有最低层的返回了,才能逐层返回.</p>
+<p>这个过程漫长且不可打断,同步一旦开始,就会牢牢抓住线程,直到递归完成,这个过程浏览器除了渲染不会再做其他事情,无法处理用户</p>
+<p>交互状态,页面可能会卡死</p>
+</blockquote>
+<p><strong>4.2 Fiber是怎样处理渲染的？</strong></p>
+<blockquote>
+<p>Fiber 会将一个大的更新任务拆解为许多个小任务。</p>
+<p>每当执行完一个小任务时，渲染线程都会把主线程交回去，看看有没有优先级更高的工作要处理，确保不会出现其他任务被“饿死”的情况，进而避免同步渲染带来的卡顿。</p>
+<p>在这个过程中，渲染线程不再“一去不回头”，而是可以被打断的，这就是所谓的“异步渲染”</p>
+</blockquote>
+<p><strong>4.3 说回生命周期</strong></p>
+<p>在最开始给出生命周期图的时候，细心的同学会发现，在下面这张图的左边，React又将生命周期划分了如下三个阶段</p>
+<p><img src="https://s1.ax1x.com/2020/11/10/BL0HNF.png"></p>
+<ul>
+<li>render：纯净且没有副作用，可能会被暂停或者终止，重新启动</li>
+<li>Pre-commit阶段：可以读取DOM</li>
+<li>commit阶段：可以使用DOM，运行副作用，安排更新</li>
+</ul>
+<p><strong>4.4为什么会这样分呢？</strong></p>
+<blockquote>
+<p>总的来说，render 阶段在执行过程中允许被打断，而 commit 阶段则总是同步执行的。</p>
+<p>为什么这样设计呢？简单来说，由于 render 阶段的操作对用户来说其实是“不可见”的，所以就算打断再重启，对用户来说也是零感知。而 commit 阶段的操作则涉及真实 DOM 的渲染，再狂的框架也不敢在用户眼皮子底下胡乱更改视图，所以这个过程必须用同步渲染来求稳。</p>
+</blockquote>
+<p><strong>4.5废除的生命周期跟Fiber之间的联系</strong></p>
+<pre><code>在 Fiber 机制下，render 阶段是允许暂停、终止和重启的。当一个任务执行到一半被打断后，下一次渲染线程抢回主动权时，这个任务被重启的形式是“重复执行一遍整个任务”而非“接着上次执行到的那行代码往下走”。这就导致 render 阶段的生命周期都是有可能被重复执行的。
+
+带着这个结论，我们再来看看 React 16 打算废弃的是哪些生命周期：
+
+componentWillMount；
+
+componentWillUpdate；
+
+componentWillReceiveProps。
+
+这些生命周期的共性，就是它们都处于 render 阶段，都可能重复被执行，而且由于这些 API 常年被滥用，它们在重复执行的过程中都存在着不可小觑的风险。</code></pre>
+<h4 id="05-React数据传递方案"><a href="#05-React数据传递方案" class="headerlink" title="05 / React数据传递方案"></a>05 / React数据传递方案</h4><ul>
+<li>组件传值</li>
+<li>context</li>
+<li>redux</li>
+</ul>
+<h4 id="06-setState之后发生什么"><a href="#06-setState之后发生什么" class="headerlink" title="06 / setState之后发生什么?"></a>06 / setState之后发生什么?</h4><p>一、React中setState后发生了什么</p>
+<blockquote>
+<p>在代码中调用setState函数之后，React 会将传入的参数对象与组件当前的状态合并，然后触发所谓的调和过程(Reconciliation)。</p>
+<p>经过调和过程，React 会以相对高效的方式根据新的状态构建React元素树并且着手重新渲染整个Ul界面。</p>
+<p>在React得到元素树之后，React 会自动计算出新的树与老树的节点差异，然后根据差异对界面进行最小化重渲染。 在差异计算算法中，React 能够相对精确地知道哪些位置发生了改变以及应该如何改变,这就保证了按需更新，而不是全部重新渲染。</p>
+</blockquote>
+<p>二、setState 为什么默认是异步</p>
+<blockquote>
+<p>假如所有setState是同步的，意味着每执行一次setState时 (有可能一个同步代码中， 多次setState) 都重新vnode diff + dom修改，这对性能来说是极为不好的。如果是异 步，则可以把一一个同步代码中的多个setState合并成- -次组件更新。</p>
+</blockquote>
+<p>三、setState什么时候是同步</p>
+<blockquote>
+<p>在setTimeout或者原生事件中，setState是同步的。</p>
+</blockquote>
+<h4 id="7-componentWillUpdate可以直接修改state的值吗？"><a href="#7-componentWillUpdate可以直接修改state的值吗？" class="headerlink" title="7 / componentWillUpdate可以直接修改state的值吗？"></a>7 / componentWillUpdate可以直接修改state的值吗？</h4><blockquote>
+<p>react组件在每次需要重新渲染时候都会调用<code>componentWillUpdate()</code>,</p>
+<p>例如，我们调用 <code>this.setState()</code>时候</p>
+<p>在这个函数中我们之所以不调用<code>this.setState()</code>是因为该方法会触发另一个<code>componentWillUpdate()</code>,如果我们<code>componentWillUpdate()</code>中触发状态更改,我们将以无限循环结束.</p>
+</blockquote>
+<h4 id="8-使用Hooks要遵守哪些原则？"><a href="#8-使用Hooks要遵守哪些原则？" class="headerlink" title="8 / 使用Hooks要遵守哪些原则？"></a>8 / 使用Hooks要遵守哪些原则？</h4><blockquote>
+<ol>
+<li>只在最顶层使用 Hook, 不要在循环，条件或嵌套函数中调用 Hook， 确保总是在你的 React 函数的最顶层调用他们。</li>
+<li>只在 React 函数中调用 Hook, 不要在普通的 JavaScript 函数中调用 Hook。</li>
+<li>可以：<br>✅ 在 React 的函数组件中调用 Hook<br>✅ 在自定义 Hook 中调用其他 Hook</li>
+</ol>
+</blockquote>
+
+  </article>
+
+  
+    
+<div class="nexmoe-post-copyright">
+  <strong>
+    本文作者：
+  </strong>
+  June
+  <br>
+
+  <strong>
+    本文链接：
+  </strong>
+  <a href="https://juntengma.github.io/2020/11/09/React/React基础知识/" target="_blank">
+    https://juntengma.github.io/2020/11/09/React/React基础知识/
+  </a>
+  <br>
+
+  
+  <strong>版权声明：</strong>本文采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/cn/deed.zh" target="_blank">CC BY-NC-SA 3.0 CN</a> 协议进行许可
+  
+</div>
+
+  
+  
+  <div class="nexmoe-post-meta nexmoe-rainbow">
+    
+        <a class="nexmoefont icon-appstore-fill -link" href="../../../../../categories/React/">React</a>
+    
+    
+        <a class="nexmoefont icon-tag-fill -none-link" href="../../../../../tags/React/" rel="tag">React</a>
+    
+</div>
+
+  <div class="nexmoe-post-footer">
+    <section class="nexmoe-comment">
+    <div class="valine"></div>
+<script src='//unpkg.com/valine'></script>
+<script>
+    const avatars = ['mp','monsterid','wavatar','robohash','retro']
+    // 使用方法 https://valine.js.org/quickstart.html
+    new Valine({
+        el: '.valine',
+        appId: 'EXfaHINEjW6dequ2YJDLCbkq-gzGzoHsz',
+        appKey: 'YL1UAIQ0es4sjgwjuzc7Sana',
+        highlight: true,
+        enableQQ: true,
+        pageSize: 10,
+        avatar: avatars[Math.floor(Math.random()*avatars.length)],
+        placeholder: "大家有问题可以在这边给我留言哈，看到看会及时回复~~",
+        emojiCDN: 'https://img.t.sinajs.cn/t4/appstyle/expression/ext/normal/',
+    })
+</script>
+</section>
+  </div>
+</div>
+      
+      <div class="nexmoe-toc">Toc</div>
+      
+      <div class="up" onclick="scrollToTop()">UP</div>
+    </div>
+  </div>
+  <script src="https://cdn.jsdelivr.net/combine/npm/lazysizes@5.1.0/lazysizes.min.js,gh/highlightjs/cdn-release@9.15.8/build/highlight.min.js,npm/mdui@0.4.3/dist/js/mdui.min.js?v=1"></script>
+<script>
+	hljs.initHighlightingOnLoad();
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+
+ <script src="../../../../../js/app.js?v=1615372893658"></script>
+
+  
+
+
+
+
+
+    <script>
+    var _hmt = _hmt || [];
+    (function () {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?c60071cb5352259680fd76b38305f88c";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+
+
+</body>
+
+<script>
+  !IsPC() && $('.nexmoe-toc').addClass('nexmoe-toc-phone')
+
+  let pathname = window.location.pathname
+
+ !pathname.match(/\d{4}\/\d{2}\/\d{2}/g)?
+    $('.nexmoe-toc').css({
+      'display': 'none'
+    })
+    :
+    $('.nexmoe-toc').css({
+      'display': 'block'
+    })
+
+  function scrollToTop() {
+    var c = document.documentElement.scrollTop || document.body.scrollTop;
+    if (c > 0) {
+      window.requestAnimationFrame(scrollToTop);
+      window.scrollTo(0, c - c / 8);
+    }
+  }
+
+  function IsPC() {
+    var userAgentInfo = navigator.userAgent;
+    var Agents = new Array("Android", "iPhone", "SymbianOS", "Windows Phone", "iPad", "iPod");
+    var flag = true;
+    for (var v = 0; v < Agents.length; v++) {
+      if (userAgentInfo.indexOf(Agents[v]) > 0) {
+        flag = false;
+        break;
+      }
+    }
+    return flag;
+  }
+
+  window.addEventListener('scroll', () => {
+    let scrollTop = document.documentElement.scrollTop || window.pageYOffset || document.body.scrollTop;
+    if (scrollTop > 1000) {
+      $('.up').css({
+        display: 'block'
+      })
+    } else {
+      $('.up').css({
+        display: 'none'
+      })
+    }
+  }, false);
+
+  $(document).ready(function () {
+    $(".nexmoe-toc").hover(function () {
+      $('.nexmoe-toc').html(`<ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#React%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E6%B1%87%E6%80%BB"><span class="toc-text">React基础知识汇总</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#01-%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F"><span class="toc-text">01 &#x2F; 生命周期</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#%E5%88%9D%E5%A7%8B%E5%8C%96%E9%98%B6%E6%AE%B5"><span class="toc-text">初始化阶段</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#%E6%9B%B4%E6%96%B0%E9%98%B6%E6%AE%B5"><span class="toc-text">更新阶段</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#componentWillReceiveProps-%E5%92%8CgetDerivedStateFormProps-%E5%8C%BA%E5%88%AB"><span class="toc-text">componentWillReceiveProps()和getDerivedStateFormProps()区别</span></a></li></ol></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#02-Virtual-Dom"><span class="toc-text">02 &#x2F; Virtual Dom</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#03-diff%E7%AE%97%E6%B3%95"><span class="toc-text">03 &#x2F; diff算法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#04-fiber%E6%9E%B6%E6%9E%84"><span class="toc-text">04 &#x2F; fiber架构</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#05-React%E6%95%B0%E6%8D%AE%E4%BC%A0%E9%80%92%E6%96%B9%E6%A1%88"><span class="toc-text">05 &#x2F; React数据传递方案</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#06-setState%E4%B9%8B%E5%90%8E%E5%8F%91%E7%94%9F%E4%BB%80%E4%B9%88"><span class="toc-text">06 &#x2F; setState之后发生什么?</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#7-componentWillUpdate%E5%8F%AF%E4%BB%A5%E7%9B%B4%E6%8E%A5%E4%BF%AE%E6%94%B9state%E7%9A%84%E5%80%BC%E5%90%97%EF%BC%9F"><span class="toc-text">7 &#x2F; componentWillUpdate可以直接修改state的值吗？</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#8-%E4%BD%BF%E7%94%A8Hooks%E8%A6%81%E9%81%B5%E5%AE%88%E5%93%AA%E4%BA%9B%E5%8E%9F%E5%88%99%EF%BC%9F"><span class="toc-text">8 &#x2F; 使用Hooks要遵守哪些原则？</span></a></li></ol>`),
+        $('.nexmoe-toc').css({
+          'width': '300px'
+        }),
+        !IsPC() && $('.toc-link').css({
+          'color': '#fff'
+        })
+    }, function () {
+      $('.nexmoe-toc').html(`Toc`)
+      $('.nexmoe-toc').css({
+        'width': '60px'
+      })
+    });
+  })
+</script>
+
+
+</html>
