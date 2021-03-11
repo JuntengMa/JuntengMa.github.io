@@ -63,12 +63,12 @@
     <link href="https://juntengma.github.io/2020/11/26/JavaScript/JavaScript-a%E6%A0%87%E7%AD%BE%E4%B9%B1%E7%A0%81%E9%97%AE%E9%A2%98/"/>
     <id>https://juntengma.github.io/2020/11/26/JavaScript/JavaScript-a%E6%A0%87%E7%AD%BE%E4%B9%B1%E7%A0%81%E9%97%AE%E9%A2%98/</id>
     <published>2020-11-25T16:00:00.000Z</published>
-    <updated>2020-11-26T09:47:02.447Z</updated>
+    <updated>2021-03-11T12:57:36.660Z</updated>
     
-    <content type="html"><![CDATA[<p>最近写博客发现自己博客链接居然是一堆乱码 ，没发现还好 ，发现了就觉得怎么这么碍眼呢???!!!</p><a id="more"></a><p> 类似下面这样👿👿👿👿👿：<br><img src="https://s3.ax1x.com/2020/11/26/D0M9N8.png"></p><p>具体百度过程😁和调试过程🙄（调试个棒槌）就不细说了 ， 这里是我得到的解决方案 ：<br>通过<code>decodeURI()</code>对链接进行解码 ， 我是这么写的</p><pre><code class="ejs"> &lt;a href=&quot;&lt;%= decodeURI(page.permalink) %&gt;&quot; target=&quot;_blank&quot;&gt;    &lt;%= decodeURI(page.permalink) %&gt;  &lt;/a&gt;</code></pre><p>所以最后我的链接就可以变回我需要的样子：<br><img src="https://s3.ax1x.com/2020/11/26/D0QdZq.png"></p><p>诶 ，说到这里就有人问我了：马老湿 ， 你这个 <code>decodeURI</code> 是干肾么用的呀？</p><p>我就啪的一下，很快啊~ ，给你甩出一个闪电五连鞭：</p><ul><li><a href="https://segmentfault.com/a/1190000013236956">《JS对url进行编码和解码（三种方式）》</a> </li><li><a href="https://segmentfault.com/a/1190000013236956">《JS对url进行编码和解码（三种方式）》</a> </li><li><a href="https://segmentfault.com/a/1190000013236956">《JS对url进行编码和解码（三种方式）》</a> </li><li><a href="https://segmentfault.com/a/1190000013236956">《JS对url进行编码和解码（三种方式）》</a> </li><li><a href="https://segmentfault.com/a/1190000013236956">《JS对url进行编码和解码（三种方式）》</a> </li></ul><p>并告诉你这个知识点我也是刚学从他这边学的 ， 而且年轻人一定要讲武德 <del>~</del> 🤠👹🧐👻😼😽🙀😿😾🐱‍👤🐱‍🏍🐱‍💻🐱‍🐉🐱‍👓🐱‍🚀🙈🙉🙊🐵🐶🐺🐱🦁🦁🦒🦊</p>]]></content>
+    <content type="html"><![CDATA[<p>最近写博客发现自己博客链接经常是一堆乱码 ，查了下资料发现是浏览器会将特殊字符转义，想要变回我们需要的样子需要对这个字符串解码~</p><a id="more"></a><p>类似下面这样 👿👿👿👿👿：<br><img src="https://s3.ax1x.com/2020/11/26/D0M9N8.png"></p><p>具体百度过程 😁 和调试过程 🙄（调试个棒槌）就不细说了 ， 这里是我得到的解决方案 ：<br>通过<code>decodeURI()</code>对链接进行解码 ， 我是这么写的</p><pre><code class="ejs"> &lt;a href=&quot;&lt;%= decodeURI(page.permalink) %&gt;&quot; target=&quot;_blank&quot;&gt;    &lt;%= decodeURI(page.permalink) %&gt;  &lt;/a&gt;</code></pre><p>所以最后我的链接就可以变回我需要的样子：<br><img src="https://s3.ax1x.com/2020/11/26/D0QdZq.png"></p><p>诶 ，说到这里就有人问我了：马老湿 ， 你这个 <code>decodeURI</code> 是干肾么用的呀？</p><p>我就啪的一下，很快啊~ ，给你甩出一个闪电五连鞭：</p><ul><li><a href="https://segmentfault.com/a/1190000013236956">《JS 对 url 进行编码和解码（三种方式）》</a></li><li><a href="https://segmentfault.com/a/1190000013236956">《JS 对 url 进行编码和解码（三种方式）》</a></li><li><a href="https://segmentfault.com/a/1190000013236956">《JS 对 url 进行编码和解码（三种方式）》</a></li><li><a href="https://segmentfault.com/a/1190000013236956">《JS 对 url 进行编码和解码（三种方式）》</a></li><li><a href="https://segmentfault.com/a/1190000013236956">《JS 对 url 进行编码和解码（三种方式）》</a></li></ul><p>并告诉你这个知识点我也是刚学从他这边学的 ， 而且年轻人一定要讲武德 <del>~</del></p><p>🤠👹🧐👻😼😽🙀😿😾🐱‍👤🐱‍🏍🐱‍💻🐱‍🐉🐱‍👓🐱‍🚀🙈🙉🙊🐵🐶🐺🐱🦁🦁🦒🦊</p>]]></content>
     
     
-    <summary type="html">&lt;p&gt;最近写博客发现自己博客链接居然是一堆乱码 ，没发现还好 ，发现了就觉得怎么这么碍眼呢???!!!&lt;/p&gt;</summary>
+    <summary type="html">&lt;p&gt;最近写博客发现自己博客链接经常是一堆乱码 ，查了下资料发现是浏览器会将特殊字符转义，想要变回我们需要的样子需要对这个字符串解码~&lt;/p&gt;</summary>
     
     
     
@@ -84,12 +84,12 @@
     <link href="https://juntengma.github.io/2020/11/23/React/%E8%87%AA%E5%AE%9A%E4%B9%89webpack%E9%85%8D%E7%BD%AE/"/>
     <id>https://juntengma.github.io/2020/11/23/React/%E8%87%AA%E5%AE%9A%E4%B9%89webpack%E9%85%8D%E7%BD%AE/</id>
     <published>2020-11-23T07:29:16.000Z</published>
-    <updated>2020-11-26T09:53:08.397Z</updated>
+    <updated>2021-03-11T12:59:19.753Z</updated>
     
-    <content type="html"><![CDATA[<h1 id="create-react-app-自定义配置webpack"><a href="#create-react-app-自定义配置webpack" class="headerlink" title="create-react-app 自定义配置webpack"></a>create-react-app 自定义配置webpack</h1><a id="more"></a><h4 id="1、修改webpack配置文件，需要安装-react-app-rewired-customize-cra"><a href="#1、修改webpack配置文件，需要安装-react-app-rewired-customize-cra" class="headerlink" title="1、修改webpack配置文件，需要安装 react-app-rewired customize-cra"></a>1、修改webpack配置文件，需要安装 react-app-rewired customize-cra</h4><pre><code>yarn add react-app-rewired customize-cra -D</code></pre><h4 id="2、修改package-json文件"><a href="#2、修改package-json文件" class="headerlink" title="2、修改package.json文件"></a>2、修改package.json文件</h4><pre><code>&quot;scripts&quot;: &#123;    &quot;start&quot;: &quot;react-app-rewired start&quot;,    &quot;build&quot;: &quot;react-app-rewired build&quot;,    &quot;test&quot;: &quot;react-app-rewired test --env=jsdom&quot;,    &quot;eject&quot;: &quot;react-scripts eject&quot;  &#125;,</code></pre><h4 id="3、在项目根目录新建config-overrides-js"><a href="#3、在项目根目录新建config-overrides-js" class="headerlink" title="3、在项目根目录新建config-overrides.js"></a>3、在项目根目录新建config-overrides.js</h4><pre><code>const &#123; override &#125; = require(&#39;customize-cra&#39;);module.exports = &#123;&#125;;</code></pre>]]></content>
+    <content type="html"><![CDATA[<p>还没完全搞明白，后续再补上来吧~</p><a id="more"></a>]]></content>
     
     
-    <summary type="html">&lt;h1 id=&quot;create-react-app-自定义配置webpack&quot;&gt;&lt;a href=&quot;#create-react-app-自定义配置webpack&quot; class=&quot;headerlink&quot; title=&quot;create-react-app 自定义配置webpack&quot;&gt;&lt;/a&gt;create-react-app 自定义配置webpack&lt;/h1&gt;</summary>
+    <summary type="html">&lt;p&gt;还没完全搞明白，后续再补上来吧~&lt;/p&gt;</summary>
     
     
     

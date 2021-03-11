@@ -381,37 +381,59 @@ g.prop = null</code></pre>
     <url>/2020/09/22/%E5%B7%A5%E5%85%B7/Git%E5%91%BD%E4%BB%A4/</url>
     <content><![CDATA[<h1 id="GIT-常用命令"><a href="#GIT-常用命令" class="headerlink" title="GIT 常用命令"></a>GIT 常用命令</h1><a id="more"></a>
 
-<h2 id="01-初始配置-amp-基本命令"><a href="#01-初始配置-amp-基本命令" class="headerlink" title="01 - 初始配置 &amp; 基本命令"></a>01 - 初始配置 &amp; 基本命令</h2><pre><code>- git config --global user.name &quot;xxx&quot; 配置用户名
+<h2 id="01-Git-全局设置"><a href="#01-Git-全局设置" class="headerlink" title="01 - Git 全局设置"></a>01 - Git 全局设置</h2><pre><code>- git config --global user.name &quot;xxx&quot; 配置用户名
 
 - git config --global user.email &quot;xxx@xxx.com&quot; 配置用户邮箱
-
-- git clone &quot;git链接&quot; 克隆git仓库到本地
-
-- git status 查看当前在哪个分支
-
-- git branch -v 查看本地分支及最新log
 </code></pre>
-<h2 id="02-链接远程仓库"><a href="#02-链接远程仓库" class="headerlink" title="02 - 链接远程仓库"></a>02 - 链接远程仓库</h2><pre><code>- git init 初始化本地git仓库（）
+<h2 id="02-创建新版本库"><a href="#02-创建新版本库" class="headerlink" title="02 - 创建新版本库"></a>02 - 创建新版本库</h2><pre><code>git clone git@github.com:userName/repositoriesName.git
 
-- git remote add origin git链接
+cd test
 
-- git push -u origin master
+touch README.md
+
+git add README.md
+
+git commit -m &quot;add README&quot;
+
+git push -u origin master</code></pre>
+<h2 id="02-链接远程仓库-已存在的文件夹"><a href="#02-链接远程仓库-已存在的文件夹" class="headerlink" title="02 - 链接远程仓库(已存在的文件夹)"></a>02 - 链接远程仓库(已存在的文件夹)</h2><pre><code>cd existing_folder
+
+git init
+
+git remote add origin git@github.com:userName/repositoriesName.git
+
+git add .
+
+git commit -m &quot;Initial commit&quot;
+
+git push -u origin master
 </code></pre>
-<h2 id="03-开发完毕将要上传代码仓库操作"><a href="#03-开发完毕将要上传代码仓库操作" class="headerlink" title="03 - 开发完毕将要上传代码仓库操作"></a>03 - 开发完毕将要上传代码仓库操作</h2><pre><code>git add .  增加当前子目录下所有更改过的文件至index
+<h2 id="03-已存在的-Git-版本库"><a href="#03-已存在的-Git-版本库" class="headerlink" title="03 - 已存在的 Git 版本库"></a>03 - 已存在的 Git 版本库</h2><pre><code>cd existing_repo
+
+git remote rename origin old-origin
+
+git remote add origin git@github.com:userName/repositoriesName.gi
+
+git push -u origin --all
+
+git push -u origin --tags
+</code></pre>
+<h2 id="04-开发完毕将要上传代码仓库"><a href="#04-开发完毕将要上传代码仓库" class="headerlink" title="04 - 开发完毕将要上传代码仓库"></a>04 - 开发完毕将要上传代码仓库</h2><pre><code>git add .  增加当前子目录下所有更改过的文件至index
 
 git commit -m &quot;xxx&quot; 提交
 
 git push 推送改动到远端</code></pre>
-<h2 id="04-新建分支操作"><a href="#04-新建分支操作" class="headerlink" title="04 - 新建分支操作"></a>04 - 新建分支操作</h2><pre><code>git branch &lt;分支名&gt; 创建新分支
+<h2 id="05-新建分支"><a href="#05-新建分支" class="headerlink" title="05 - 新建分支"></a>05 - 新建分支</h2><pre><code>git branch &lt;分支名&gt; 创建新分支
 
 git checkout &lt;分支名&gt; 切换到该分支
 
 git push 如果是新建分支，push的时候需要跟远端仓库关联，一般会提示 git push --set-upstream 你的分支名 ， 复制提示信息并执行</code></pre>
-<h2 id="05-合并分支操作"><a href="#05-合并分支操作" class="headerlink" title="05 - 合并分支操作"></a>05 - 合并分支操作</h2><pre><code>git pull origin master 多人协作，以防master已更新，本地代码版本没有更新，先同步一下master代码，以防产生合并冲突
+<h2 id="05-合并分支"><a href="#05-合并分支" class="headerlink" title="05 - 合并分支"></a>05 - 合并分支</h2><pre><code>git pull origin master 多人协作，以防master已更新，本地代码版本没有更新，先同步一下master代码，以防产生合并冲突
 
 git checkout master 先切换到主分支再合并
 
-git merge &lt;需要合并到master上的分支名&gt; 合并某一个分支到该分支</code></pre>
+git merge &lt;需要合并到master上的分支名&gt; 合并某一个分支到该分支
+</code></pre>
 <h2 id="06-删除本地，远程分支"><a href="#06-删除本地，远程分支" class="headerlink" title="06 - 删除本地，远程分支"></a>06 - 删除本地，远程分支</h2><pre><code>- git branch -d &lt;分支名&gt; 删除本地某一分支
 
 - git push origin --delete &lt;分支名&gt; 删除远端分支</code></pre>
@@ -427,13 +449,21 @@ git merge &lt;需要合并到master上的分支名&gt; 合并某一个分支到�
  git show &lt;commit日志&gt;</code></pre>
 <h2 id="11-生成-ssh-key"><a href="#11-生成-ssh-key" class="headerlink" title="11 - 生成 ssh key"></a>11 - 生成 ssh key</h2><pre><code>ssh-keygen -t rsa -C &#39;yourEmail@xxx.com&#39;
 </code></pre>
-<h2 id="12-其他命令"><a href="#12-其他命令" class="headerlink" title="12 - 其他命令"></a>12 - 其他命令</h2><pre><code>git pull 从当前分支远端拉取代码
+<h2 id="12-其他命令"><a href="#12-其他命令" class="headerlink" title="12 - 其他命令"></a>12 - 其他命令</h2><pre><code>git tag  查看tag
+
+git tag -v 0.0.1 -m &quot;测试tag&quot;
+
+git push --tag  (git push 不会将tag推送到远程，需要用到该命令)
+
+git pull 从当前分支远端拉取代码
 
 git pull origin &lt;分支名&gt; 拉取某一分支的代码并合并到当前分支
 
 git branch 显示远程仓库分支
 
 git branch -a 显示所有分支
+
+git branch -v 查看分支及其最新一次提交记录
 
 git branch --merged 显示所有已合并到当前分支的分支
 
@@ -710,11 +740,11 @@ print(token)
   <entry>
     <title>a标签的url怎么会乱码嘞？？？？</title>
     <url>/2020/11/26/JavaScript/JavaScript-a%E6%A0%87%E7%AD%BE%E4%B9%B1%E7%A0%81%E9%97%AE%E9%A2%98/</url>
-    <content><![CDATA[<p>最近写博客发现自己博客链接居然是一堆乱码 ，没发现还好 ，发现了就觉得怎么这么碍眼呢???!!!</p>
+    <content><![CDATA[<p>最近写博客发现自己博客链接经常是一堆乱码 ，查了下资料发现是浏览器会将特殊字符转义，想要变回我们需要的样子需要对这个字符串解码~</p>
 <a id="more"></a>
 
-<p> 类似下面这样👿👿👿👿👿：<br><img src="https://s3.ax1x.com/2020/11/26/D0M9N8.png"></p>
-<p>具体百度过程😁和调试过程🙄（调试个棒槌）就不细说了 ， 这里是我得到的解决方案 ：<br>通过<code>decodeURI()</code>对链接进行解码 ， 我是这么写的</p>
+<p>类似下面这样 👿👿👿👿👿：<br><img src="https://s3.ax1x.com/2020/11/26/D0M9N8.png"></p>
+<p>具体百度过程 😁 和调试过程 🙄（调试个棒槌）就不细说了 ， 这里是我得到的解决方案 ：<br>通过<code>decodeURI()</code>对链接进行解码 ， 我是这么写的</p>
 <pre><code class="ejs"> &lt;a href=&quot;&lt;%= decodeURI(page.permalink) %&gt;&quot; target=&quot;_blank&quot;&gt;
     &lt;%= decodeURI(page.permalink) %&gt;
   &lt;/a&gt;</code></pre>
@@ -722,13 +752,14 @@ print(token)
 <p>诶 ，说到这里就有人问我了：马老湿 ， 你这个 <code>decodeURI</code> 是干肾么用的呀？</p>
 <p>我就啪的一下，很快啊~ ，给你甩出一个闪电五连鞭：</p>
 <ul>
-<li><a href="https://segmentfault.com/a/1190000013236956">《JS对url进行编码和解码（三种方式）》</a> </li>
-<li><a href="https://segmentfault.com/a/1190000013236956">《JS对url进行编码和解码（三种方式）》</a> </li>
-<li><a href="https://segmentfault.com/a/1190000013236956">《JS对url进行编码和解码（三种方式）》</a> </li>
-<li><a href="https://segmentfault.com/a/1190000013236956">《JS对url进行编码和解码（三种方式）》</a> </li>
-<li><a href="https://segmentfault.com/a/1190000013236956">《JS对url进行编码和解码（三种方式）》</a> </li>
+<li><a href="https://segmentfault.com/a/1190000013236956">《JS 对 url 进行编码和解码（三种方式）》</a></li>
+<li><a href="https://segmentfault.com/a/1190000013236956">《JS 对 url 进行编码和解码（三种方式）》</a></li>
+<li><a href="https://segmentfault.com/a/1190000013236956">《JS 对 url 进行编码和解码（三种方式）》</a></li>
+<li><a href="https://segmentfault.com/a/1190000013236956">《JS 对 url 进行编码和解码（三种方式）》</a></li>
+<li><a href="https://segmentfault.com/a/1190000013236956">《JS 对 url 进行编码和解码（三种方式）》</a></li>
 </ul>
-<p>并告诉你这个知识点我也是刚学从他这边学的 ， 而且年轻人一定要讲武德 <del>~</del> 🤠👹🧐👻😼😽🙀😿😾🐱‍👤🐱‍🏍🐱‍💻🐱‍🐉🐱‍👓🐱‍🚀🙈🙉🙊🐵🐶🐺🐱🦁🦁🦒🦊</p>
+<p>并告诉你这个知识点我也是刚学从他这边学的 ， 而且年轻人一定要讲武德 <del>~</del></p>
+<p>🤠👹🧐👻😼😽🙀😿😾🐱‍👤🐱‍🏍🐱‍💻🐱‍🐉🐱‍👓🐱‍🚀🙈🙉🙊🐵🐶🐺🐱🦁🦁🦒🦊</p>
 ]]></content>
       <categories>
         <category>JavaScript</category>
@@ -740,17 +771,8 @@ print(token)
   <entry>
     <title>自定义webpack配置</title>
     <url>/2020/11/23/React/%E8%87%AA%E5%AE%9A%E4%B9%89webpack%E9%85%8D%E7%BD%AE/</url>
-    <content><![CDATA[<h1 id="create-react-app-自定义配置webpack"><a href="#create-react-app-自定义配置webpack" class="headerlink" title="create-react-app 自定义配置webpack"></a>create-react-app 自定义配置webpack</h1><a id="more"></a>
-
-<h4 id="1、修改webpack配置文件，需要安装-react-app-rewired-customize-cra"><a href="#1、修改webpack配置文件，需要安装-react-app-rewired-customize-cra" class="headerlink" title="1、修改webpack配置文件，需要安装 react-app-rewired customize-cra"></a>1、修改webpack配置文件，需要安装 react-app-rewired customize-cra</h4><pre><code>yarn add react-app-rewired customize-cra -D</code></pre>
-<h4 id="2、修改package-json文件"><a href="#2、修改package-json文件" class="headerlink" title="2、修改package.json文件"></a>2、修改package.json文件</h4><pre><code>&quot;scripts&quot;: &#123;
-    &quot;start&quot;: &quot;react-app-rewired start&quot;,
-    &quot;build&quot;: &quot;react-app-rewired build&quot;,
-    &quot;test&quot;: &quot;react-app-rewired test --env=jsdom&quot;,
-    &quot;eject&quot;: &quot;react-scripts eject&quot;
-  &#125;,</code></pre>
-<h4 id="3、在项目根目录新建config-overrides-js"><a href="#3、在项目根目录新建config-overrides-js" class="headerlink" title="3、在项目根目录新建config-overrides.js"></a>3、在项目根目录新建config-overrides.js</h4><pre><code>const &#123; override &#125; = require(&#39;customize-cra&#39;);
-module.exports = &#123;&#125;;</code></pre>
+    <content><![CDATA[<p>还没完全搞明白，后续再补上来吧~</p>
+<a id="more"></a>
 ]]></content>
   </entry>
   <entry>
