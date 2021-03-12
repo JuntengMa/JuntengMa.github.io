@@ -6,7 +6,7 @@
   <link href="https://juntengma.github.io/atom.xml" rel="self"/>
   
   <link href="https://juntengma.github.io/"/>
-  <updated>2021-03-05T01:36:25.161Z</updated>
+  <updated>2021-03-12T02:01:01.938Z</updated>
   <id>https://juntengma.github.io/</id>
   
   <author>
@@ -15,6 +15,27 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>ssh配置</title>
+    <link href="https://juntengma.github.io/2021/03/12/%E5%B7%A5%E5%85%B7/ssh%E9%85%8D%E7%BD%AE/"/>
+    <id>https://juntengma.github.io/2021/03/12/%E5%B7%A5%E5%85%B7/ssh%E9%85%8D%E7%BD%AE/</id>
+    <published>2021-03-12T01:51:54.000Z</published>
+    <updated>2021-03-12T02:01:01.938Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="Git-配置多个-SSH-Key-方法"><a href="#Git-配置多个-SSH-Key-方法" class="headerlink" title="Git 配置多个 SSH-Key 方法"></a>Git 配置多个 SSH-Key 方法</h3><a id="more"></a><p>一般情况下，当有多个 git 账号，如果没有咧，都去尝试一下，例如：</p><ul><li>gitee 账号，国产 github，码云值得拥有</li><li>github 账号，全球最大同性交友网站</li><li>gitlab 账号，公司内部的工作开发，至少我所在开发组使用的这个</li></ul><p><strong>解决方案</strong></p><p>解决办法很简单，新建一个 config 文件就可以了。</p><h4 id="1、本地生成-SSH-Key"><a href="#1、本地生成-SSH-Key" class="headerlink" title="1、本地生成 SSH-Key"></a>1、本地生成 SSH-Key</h4><p>生成一个 gitee 用的 SSH-Key</p><pre><code>$ ssh-keygen -t rsa -C &#39;xxxxx@163.com&#39; -f ~/.ssh/gitee_id_rsa</code></pre><p>生成一个 github 用的 SSH-Key</p><pre><code>$ ssh-keygen -t rsa -C &#39;xxxxx@163.com&#39; -f ~/.ssh/github_id_rsa</code></pre><p>生成一个公司用 gitlab 的 SSH-Key</p><pre><code>$ ssh-keygen -t rsa -C &#39;xxxxx@company.com&#39; -f ~/.ssh/gitlab_id_rsa</code></pre><p>在默认文档中就会生成如下这些文件：</p><h4 id="2、git-平台设置中"><a href="#2、git-平台设置中" class="headerlink" title="2、git 平台设置中"></a>2、git 平台设置中</h4><p>将 .pub 文件中内容复制到相应的平台 SSH 设置中，例如：</p><p>gitee_id_rsa.pub 中的文件内容复制到码云的 SSH 公钥中。</p><h4 id="3、新建-config-文件"><a href="#3、新建-config-文件" class="headerlink" title="3、新建 config 文件"></a>3、新建 config 文件</h4><p>在 ~/.ssh 目录下新建一个 config 文件，添加如下内容：</p><pre><code># giteeHost gitee.comHostName gitee.comPreferredAuthentications publickeyIdentityFile ~/.ssh/gitee_id_rsa# githubHost github.comHostName github.comPreferredAuthentications publickeyIdentityFile ~/.ssh/github_id_rsa# gitlabHost xxxx.comHostName xxxx.comPreferredAuthentications publickeyIdentityFile ~/.ssh/gitlab_id_rsa</code></pre><p>其中 Host 和 HostName 填写 git 服务器的域名，IdentityFile 指定私钥的路径。<br>实在不晓得 Host 和 HostName 怎么填的呢，譬如不知道公司内部的服务器域名，可以在 known_hosts 文件中查看。</p><h4 id="4、测试是否联通"><a href="#4、测试是否联通" class="headerlink" title="4、测试是否联通"></a>4、测试是否联通</h4><p>用 ssh 命令分别测试，@后面跟着的是域名</p><pre><code>$ ssh -T git@gitee.com$ ssh -T git@github.com$ ssh -T git@xxxx.com</code></pre><p>You’ve successfully authenticated, but GitHub does not provide shell access.</p><p>当出现这句话的时候说明你已经配置完成啦</p>]]></content>
+    
+    
+    <summary type="html">&lt;h3 id=&quot;Git-配置多个-SSH-Key-方法&quot;&gt;&lt;a href=&quot;#Git-配置多个-SSH-Key-方法&quot; class=&quot;headerlink&quot; title=&quot;Git 配置多个 SSH-Key 方法&quot;&gt;&lt;/a&gt;Git 配置多个 SSH-Key 方法&lt;/h3&gt;</summary>
+    
+    
+    
+    <category term="Git" scheme="https://juntengma.github.io/categories/Git/"/>
+    
+    
+    <category term="Git" scheme="https://juntengma.github.io/tags/Git/"/>
+    
+  </entry>
   
   <entry>
     <title>玩转Gulp~~~</title>
@@ -80,19 +101,23 @@
   </entry>
   
   <entry>
-    <title>自定义webpack配置</title>
+    <title>博客内容重新整理中~~~</title>
     <link href="https://juntengma.github.io/2020/11/23/React/%E8%87%AA%E5%AE%9A%E4%B9%89webpack%E9%85%8D%E7%BD%AE/"/>
     <id>https://juntengma.github.io/2020/11/23/React/%E8%87%AA%E5%AE%9A%E4%B9%89webpack%E9%85%8D%E7%BD%AE/</id>
-    <published>2020-11-23T07:29:16.000Z</published>
-    <updated>2021-03-11T12:59:19.753Z</updated>
+    <published>2020-11-23T07:29:16.622Z</published>
+    <updated>2021-03-11T13:03:50.026Z</updated>
     
-    <content type="html"><![CDATA[<p>还没完全搞明白，后续再补上来吧~</p><a id="more"></a>]]></content>
-    
-    
-    <summary type="html">&lt;p&gt;还没完全搞明白，后续再补上来吧~&lt;/p&gt;</summary>
+    <content type="html"><![CDATA[<p>好久没有写博客了，现在回头来看发现写的很烂，最近这段时间开始重新整理一下~</p><a id="more"></a>]]></content>
     
     
+    <summary type="html">&lt;p&gt;好久没有写博客了，现在回头来看发现写的很烂，最近这段时间开始重新整理一下~&lt;/p&gt;</summary>
     
+    
+    
+    <category term="tools" scheme="https://juntengma.github.io/categories/tools/"/>
+    
+    
+    <category term="Git" scheme="https://juntengma.github.io/tags/Git/"/>
     
   </entry>
   
@@ -463,31 +488,6 @@ DOM事件, 事件流
     
     
     <category term="JavaScript" scheme="https://juntengma.github.io/tags/JavaScript/"/>
-    
-  </entry>
-  
-  <entry>
-    <title></title>
-    <link href="https://juntengma.github.io/2020/11/01/JavaScript/08%20-%20JavaScript-%E9%97%AD%E5%8C%85/"/>
-    <id>https://juntengma.github.io/2020/11/01/JavaScript/08%20-%20JavaScript-%E9%97%AD%E5%8C%85/</id>
-    <published>2020-10-31T16:00:00.000Z</published>
-    <updated>2020-11-26T07:47:48.118Z</updated>
-    
-    <content type="html"><![CDATA[<blockquote><h4>  闭包</h4></blockquote><a id="more"></a><h4 id="0-前置知识"><a href="#0-前置知识" class="headerlink" title="0/前置知识:"></a>0/前置知识:</h4><p><a href="https://juntengma.github.io/2020/11/03/JavaScript/JavaScript%E4%BD%9C%E7%94%A8%E5%9F%9F/">&lt;&lt;JavaScript作用域&amp;可执行上下文&gt;&gt;</a></p><h4 id="1-什么是闭包"><a href="#1-什么是闭包" class="headerlink" title="1/什么是闭包?"></a>1/什么是闭包?</h4><pre><code>- 内部函数可以访问其所在的外部函数中声明的参数和变量- 闭包找到的是同一地址中,父级函数中对应变量最终的值</code></pre><h4 id="2-闭包的特点"><a href="#2-闭包的特点" class="headerlink" title="2/闭包的特点"></a>2/闭包的特点</h4><pre><code>- 让外部访问函数内部变量成为可能；-    局部变量会常驻在内存中；- 可以避免使用全局变量，防止全局变量污染；- 可能会造成内存泄露</code></pre><h4 id="3-实际使用案例"><a href="#3-实际使用案例" class="headerlink" title="3/实际使用案例"></a>3/实际使用案例</h4><ul><li><p>函数防抖节流</p><pre><code>function debounce(fun, delay) &#123;  let timer  return function (args) &#123;    let _this = this    let _args = args      clearTimeout(timer)    timer = setTimeout(() =&gt; &#123;        fun.call(_this, _args)    &#125;, delay);  &#125;&#125;</code></pre></li><li><p>使用闭包设计单例模式</p><pre><code>class CreateUser &#123;    constructor(name) &#123;        this.name = name;        this.getName();    &#125;    getName() &#123;         return this.name;    &#125;&#125;// 代理实现单例模式var ProxyMode = (function() &#123;    var instance = null;    return function(name) &#123;        if(!instance) &#123;            instance = new CreateUser(name);        &#125;        return instance;    &#125;&#125;)();// 测试单体模式的实例var a = ProxyMode(&quot;aaa&quot;);var b = ProxyMode(&quot;bbb&quot;);// 因为单体模式是只实例化一次，所以下面的实例是相等的console.log(a === b);    //true</code></pre></li><li><p>为多个组件独立属性</p><p>假如我现在要在页面中使用echarts画6个线状图，需要6个容器 </p><p>需要为每个容器元素声明一个独立id,不然会混乱</p><pre><code> constructor()&#123; this.state = &#123;id: &quot;EchartsLine&quot;+Util.clourse()&#125;; &#125;  componentDidMount() &#123;      this.myEChart =echarts.init(document.getElementById(this.state.id));//不同id  &#125;</code></pre><pre><code>&lt;div id=&#123;this.state.id&#125; className=&#39;echarts-line&#39;&gt;&lt;/div&gt;</code></pre><pre><code>clourse()&#123;    let clourse = (function()&#123;        var a = 1;        return function()&#123;            return a++;        &#125;    &#125;)(this);    this.clourse = clourse;&#125;//使用数字命名 不用害怕被篡改</code></pre></li><li><p>设置私有变量</p><pre><code>let _width = Symbol();    class Private &#123;        constructor(s) &#123;            this[_width] = s        &#125;        foo() &#123;            console.log(this[_width])        &#125;    var p = new Private(&quot;50&quot;);    p.foo();    console.log(p[_width]);//可以拿到</code></pre><pre><code> //赋值到闭包里    let sque = (function () &#123;        let _width = Symbol();        class Squery &#123;            constructor(s) &#123;                this[_width] = s            &#125;            foo() &#123;                console.log(this[_width])            &#125;        &#125;        return Squery    &#125;)();    let ss = new sque(20);    ss.foo();    console.log(ss[_width])</code></pre></li><li><p>拿到正确的值（老掉牙的问题了😝）</p><pre><code>for(var i=0;i&lt;10;i++)&#123;    setTimeout(function()&#123;        console.log(i)//10个10    &#125;,1000)&#125;</code></pre><pre><code>for(var i=0;i&lt;10;i++)&#123;((j)=&gt;&#123;  setTimeout(function()&#123;        console.log(j)//1-10    &#125;,1000)&#125;)(i)&#125;</code></pre><p>原理是 声明了10个自执行函数，保存当时的值到内部</p></li></ul>]]></content>
-    
-    
-    <summary type="html">&lt;blockquote&gt;
-&lt;h4&gt; 
- 闭包
-&lt;/h4&gt;
-&lt;/blockquote&gt;</summary>
-    
-    
-    
-    <category term="JavaScript" scheme="https://juntengma.github.io/categories/JavaScript/"/>
-    
-    
-    <category term="闭包" scheme="https://juntengma.github.io/tags/%E9%97%AD%E5%8C%85/"/>
     
   </entry>
   
